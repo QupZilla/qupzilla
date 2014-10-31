@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "adblockmanager.h"
 #include "adblockdialog.h"
+#include "adblockmatcher.h"
 #include "adblocksubscription.h"
 #include "adblockblockednetworkreply.h"
 #include "datapaths.h"
@@ -45,6 +46,7 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_loaded(false)
     , m_enabled(true)
     , m_useLimitedEasyList(true)
+    , m_matcher(new AdBlockMatcher(this))
 {
     load();
 }
@@ -92,33 +94,30 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     const QString urlDomain = request.url().host().toLower();
     const QString urlScheme = request.url().scheme().toLower();
 
-    if (!isEnabled() || !canRunOnScheme(urlScheme)) {
+    if (!isEnabled() || !canRunOnScheme(urlScheme))
         return 0;
-    }
 
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        const AdBlockRule* blockedRule = subscription->match(request, urlDomain, urlString);
+    const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
 
-        if (blockedRule) {
-            QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-            WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-            if (WebPage::isPointerSafeToUse(webPage)) {
-                if (!canBeBlocked(webPage->url())) {
-                    return 0;
-                }
-
-                webPage->addAdBlockRule(blockedRule, request.url());
+    if (blockedRule) {
+        QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
+        WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
+        if (WebPage::isPointerSafeToUse(webPage)) {
+            if (!canBeBlocked(webPage->url())) {
+                return 0;
             }
 
-            AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(subscription, blockedRule, this);
-            reply->setRequest(request);
+            webPage->addAdBlockRule(blockedRule, request.url());
+        }
+
+        AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(blockedRule, this);
+        reply->setRequest(request);
 
 #ifdef ADBLOCK_DEBUG
-            qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
+        qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
 #endif
 
-            return reply;
-        }
+        return reply;
     }
 
 #ifdef ADBLOCK_DEBUG
@@ -252,7 +251,6 @@ void AdBlockManager::load()
         AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
         subscription->setUrl(url);
         subscription->setFilePath(absolutePath);
-        connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
 
         m_subscriptions.append(subscription);
     }
@@ -262,7 +260,6 @@ void AdBlockManager::load()
         AdBlockSubscription* easyList = new AdBlockSubscription(tr("EasyList"), this);
         easyList->setUrl(QUrl(ADBLOCK_EASYLIST_URL));
         easyList->setFilePath(DataPaths::currentProfilePath() + QLatin1String("/adblock/easylist.txt"));
-        connect(easyList, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
 
         m_subscriptions.prepend(easyList);
     }
@@ -270,11 +267,13 @@ void AdBlockManager::load()
     // Append CustomList
     AdBlockCustomList* customList = new AdBlockCustomList(this);
     m_subscriptions.append(customList);
-    connect(customList, SIGNAL(subscriptionEdited()), mApp, SLOT(reloadUserStyleSheet()));
 
     // Load all subscriptions
     foreach (AdBlockSubscription* subscription, m_subscriptions) {
         subscription->loadSubscription(m_disabledRules);
+
+        connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
+        connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
     }
 
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
@@ -285,6 +284,7 @@ void AdBlockManager::load()
     qDebug() << "AdBlock loaded in" << timer.elapsed();
 #endif
 
+    m_matcher->update();
     m_loaded = true;
 }
 
@@ -348,57 +348,24 @@ void AdBlockManager::setUseLimitedEasyList(bool useLimited)
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const
 {
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        if (subscription->adBlockDisabledForUrl(url)) {
-            return false;
-        }
-    }
-
-    return true;
+    return !m_matcher->adBlockDisabledForUrl(url);
 }
 
 QString AdBlockManager::elementHidingRules() const
 {
-    if (!m_enabled) {
-        return QString();
-    }
-
-    QString rules;
-
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        rules.append(subscription->elementHidingRules());
-    }
-
-    return rules;
+    return m_matcher->elementHidingRules();
 }
 
 QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
-    if (!isEnabled() || !canRunOnScheme(url.scheme()) || !canBeBlocked(url)) {
+    if (!isEnabled() || !canRunOnScheme(url.scheme()) || !canBeBlocked(url))
         return QString();
-    }
 
     // Acid3 doesn't like the way element hiding rules are embedded into page
-    if (url.host() == QLatin1String("acid3.acidtests.org")) {
+    if (url.host() == QLatin1String("acid3.acidtests.org"))
         return QString();
-    }
 
-    QString rules;
-
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        if (subscription->elemHideDisabledForUrl(url)) {
-            return QString();
-        }
-
-        rules.append(subscription->elementHidingRulesForDomain(url.host()));
-    }
-
-    // Remove last ","
-    if (!rules.isEmpty()) {
-        rules = rules.left(rules.size() - 1);
-    }
-
-    return rules;
+    return m_matcher->elementHidingRulesForDomain(url.host());
 }
 
 AdBlockSubscription* AdBlockManager::subscriptionByName(const QString &name) const

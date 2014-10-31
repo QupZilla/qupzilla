@@ -50,11 +50,11 @@
 #include <QNetworkRequest>
 #include <QTimer>
 
-AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const AdBlockSubscription* subscription, const AdBlockRule* rule, QObject* parent)
+AdBlockBlockedNetworkReply::AdBlockBlockedNetworkReply(const AdBlockRule* rule, QObject* parent)
     : QNetworkReply(parent)
 {
     setOperation(QNetworkAccessManager::GetOperation);
-    setError(QNetworkReply::ContentAccessDenied, QString("AdBlock: %1 (%2)").arg(subscription->title(), rule->filter()));
+    setError(QNetworkReply::ContentAccessDenied, QString("AdBlock: %1 (%2)").arg(rule->subscription()->title(), rule->filter()));
 
     open(QIODevice::ReadOnly);
 

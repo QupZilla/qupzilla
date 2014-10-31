@@ -128,8 +128,6 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
         m_rules.append(rule);
     }
 
-    populateCache();
-
     // Initial update
     if (m_rules.isEmpty() && !m_updated) {
         QTimer::singleShot(0, this, SLOT(updateSubscription()));
@@ -176,7 +174,9 @@ void AdBlockSubscription::subscriptionDownloaded()
     }
 
     loadSubscription(AdBlockManager::instance()->disabledRules());
+
     emit subscriptionUpdated();
+    emit subscriptionChanged();
 }
 
 bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
@@ -210,103 +210,6 @@ bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
     return true;
 }
 
-const AdBlockRule* AdBlockSubscription::match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const
-{
-    // Exception rules
-    if (m_networkExceptionTree.find(request, urlDomain, urlString)) {
-        return 0;
-    }
-
-    int count = m_networkExceptionRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_networkExceptionRules.at(i);
-        if (rule->networkMatch(request, urlDomain, urlString)) {
-            return 0;
-        }
-    }
-
-    // Block rules
-    if (const AdBlockRule* rule = m_networkBlockTree.find(request, urlDomain, urlString)) {
-        return rule;
-    }
-
-    count = m_networkBlockRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_networkBlockRules.at(i);
-        if (rule->networkMatch(request, urlDomain, urlString)) {
-            return rule;
-        }
-    }
-
-    return 0;
-}
-
-bool AdBlockSubscription::adBlockDisabledForUrl(const QUrl &url) const
-{
-    int count = m_documentRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_documentRules.at(i);
-        if (rule->urlMatch(url)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-bool AdBlockSubscription::elemHideDisabledForUrl(const QUrl &url) const
-{
-    if (adBlockDisabledForUrl(url)) {
-        return true;
-    }
-
-    int count = m_elemhideRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_elemhideRules.at(i);
-        if (rule->urlMatch(url)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-QString AdBlockSubscription::elementHidingRules() const
-{
-    return m_elementHidingRules;
-}
-
-QString AdBlockSubscription::elementHidingRulesForDomain(const QString &domain) const
-{
-    QString rules;
-
-    int addedRulesCount = 0;
-    int count = m_domainRestrictedCssRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_domainRestrictedCssRules.at(i);
-        if (!rule->matchDomain(domain)) {
-            continue;
-        }
-
-        if (Q_UNLIKELY(addedRulesCount == 1000)) {
-            rules.append(rule->cssSelector());
-            rules.append("{display:none !important;}\n");
-            addedRulesCount = 0;
-        }
-        else {
-            rules.append(rule->cssSelector() + QLatin1Char(','));
-            addedRulesCount++;
-        }
-    }
-
-    if (addedRulesCount != 0) {
-        rules = rules.left(rules.size() - 1);
-        rules.append("{display:none !important;}\n");
-    }
-
-    return rules;
-}
-
 const AdBlockRule* AdBlockSubscription::rule(int offset) const
 {
     if (!QzTools::containsIndex(m_rules, offset)) {
@@ -331,10 +234,10 @@ const AdBlockRule* AdBlockSubscription::enableRule(int offset)
     rule->setEnabled(true);
     AdBlockManager::instance()->removeDisabledRule(rule->filter());
 
-    if (rule->isCssRule()) {
-        populateCache();
+    emit subscriptionChanged();
+
+    if (rule->isCssRule())
         mApp->reloadUserStyleSheet();
-    }
 
     return rule;
 }
@@ -349,10 +252,10 @@ const AdBlockRule* AdBlockSubscription::disableRule(int offset)
     rule->setEnabled(false);
     AdBlockManager::instance()->addDisabledRule(rule->filter());
 
-    if (rule->isCssRule()) {
-        populateCache();
+    emit subscriptionChanged();
+
+    if (rule->isCssRule())
         mApp->reloadUserStyleSheet();
-    }
 
     return rule;
 }
@@ -386,112 +289,6 @@ const AdBlockRule* AdBlockSubscription::replaceRule(AdBlockRule* rule, int offse
     return 0;
 }
 
-void AdBlockSubscription::populateCache()
-{
-    m_networkExceptionTree.clear();
-    m_networkExceptionRules.clear();
-    m_networkBlockTree.clear();
-    m_networkBlockRules.clear();
-    m_domainRestrictedCssRules.clear();
-    m_elementHidingRules.clear();
-    m_documentRules.clear();
-    m_elemhideRules.clear();
-
-    qDeleteAll(m_createdRules);
-    m_createdRules.clear();
-
-    QHash<QString, const AdBlockRule*> cssRulesHash;
-    QVector<const AdBlockRule*> exceptionCssRules;
-
-    int count = m_rules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = m_rules.at(i);
-
-        // Don't add internally disabled rules to cache
-        if (rule->isInternalDisabled()) {
-            continue;
-        }
-
-        if (rule->isCssRule()) {
-            // We will add only enabled css rules to cache, because there is no enabled/disabled
-            // check on match. They are directly embedded to pages.
-            if (!rule->isEnabled()) {
-                continue;
-            }
-
-            if (rule->isException()) {
-                exceptionCssRules.append(rule);
-            }
-            else {
-                cssRulesHash.insert(rule->cssSelector(), rule);
-            }
-        }
-        else if (rule->isDocument()) {
-            m_documentRules.append(rule);
-        }
-        else if (rule->isElemhide()) {
-            m_elemhideRules.append(rule);
-        }
-        else if (rule->isException()) {
-            if (!m_networkExceptionTree.add(rule)) {
-                m_networkExceptionRules.append(rule);
-            }
-        }
-        else {
-            if (!m_networkBlockTree.add(rule)) {
-                m_networkBlockRules.append(rule);
-            }
-        }
-    }
-
-    count = exceptionCssRules.count();
-    for (int i = 0; i < count; ++i) {
-        const AdBlockRule* rule = exceptionCssRules.at(i);
-        const AdBlockRule* originalRule = cssRulesHash.value(rule->cssSelector());
-
-        // If we don't have this selector, the exception does nothing
-        if (!originalRule) {
-            continue;
-        }
-
-        AdBlockRule* copiedRule = originalRule->copy();
-        copiedRule->m_options |= AdBlockRule::DomainRestrictedOption;
-        copiedRule->m_blockedDomains.append(rule->m_allowedDomains);
-
-        cssRulesHash[rule->cssSelector()] = copiedRule;
-        m_createdRules.append(copiedRule);
-    }
-
-    // Apparently, excessive amount of selectors for one CSS rule is not what WebKit likes.
-    // (In my testings, 4931 is the number that makes it crash)
-    // So let's split it by 1000 selectors...
-    int hidingRulesCount = 0;
-
-    QHashIterator<QString, const AdBlockRule*> it(cssRulesHash);
-    while (it.hasNext()) {
-        it.next();
-        const AdBlockRule* rule = it.value();
-
-        if (rule->isDomainRestricted()) {
-            m_domainRestrictedCssRules.append(rule);
-        }
-        else if (Q_UNLIKELY(hidingRulesCount == 1000)) {
-            m_elementHidingRules.append(rule->cssSelector());
-            m_elementHidingRules.append(QL1S("{display:none !important;} "));
-            hidingRulesCount = 0;
-        }
-        else {
-            m_elementHidingRules.append(rule->cssSelector() + QLatin1Char(','));
-            hidingRulesCount++;
-        }
-    }
-
-    if (hidingRulesCount != 0) {
-        m_elementHidingRules = m_elementHidingRules.left(m_elementHidingRules.size() - 1);
-        m_elementHidingRules.append(QL1S("{display:none !important;} "));
-    }
-}
-
 AdBlockSubscription::~AdBlockSubscription()
 {
     qDeleteAll(m_rules);
@@ -519,12 +316,13 @@ void AdBlockCustomList::loadSubscription(const QStringList &disabledRules)
     QFile file(filePath());
     if (file.open(QFile::WriteOnly | QFile::Append)) {
         QTextStream stream(&file);
+        stream.setCodec("UTF-8");
 
-        if (!rules.contains(ddg1))
-            stream << ddg1;
+        if (!rules.contains(ddg1 + QL1S("\n")))
+            stream << ddg1 << endl;
 
-        if (!rules.contains(ddg2))
-            stream << ddg2;
+        if (!rules.contains(QL1S("\n") + ddg2))
+            stream << ddg2 << endl;
     }
     file.close();
 
@@ -590,9 +388,11 @@ bool AdBlockCustomList::removeFilter(const QString &filter)
 int AdBlockCustomList::addRule(AdBlockRule* rule)
 {
     m_rules.append(rule);
-    populateCache();
 
-    emit subscriptionEdited();
+    emit subscriptionChanged();
+
+    if (rule->isCssRule())
+        mApp->reloadUserStyleSheet();
 
     return m_rules.count() - 1;
 }
@@ -607,9 +407,11 @@ bool AdBlockCustomList::removeRule(int offset)
     const QString filter = rule->filter();
 
     m_rules.remove(offset);
-    populateCache();
 
-    emit subscriptionEdited();
+    emit subscriptionChanged();
+
+    if (rule->isCssRule())
+        mApp->reloadUserStyleSheet();
 
     AdBlockManager::instance()->removeDisabledRule(filter);
 
@@ -623,12 +425,14 @@ const AdBlockRule* AdBlockCustomList::replaceRule(AdBlockRule* rule, int offset)
         return 0;
     }
 
-    delete m_rules.at(offset);
-
+    AdBlockRule* oldRule = m_rules.at(offset);
     m_rules[offset] = rule;
-    populateCache();
 
-    emit subscriptionEdited();
+    emit subscriptionChanged();
 
+    if (rule->isCssRule() || oldRule->isCssRule())
+        mApp->reloadUserStyleSheet();
+
+    delete oldRule;
     return m_rules[offset];
 }

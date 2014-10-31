@@ -28,7 +28,9 @@ class QUrl;
 class QNetworkReply;
 class QNetworkRequest;
 
+class AdBlockRule;
 class AdBlockDialog;
+class AdBlockMatcher;
 class AdBlockCustomList;
 class AdBlockSubscription;
 
@@ -87,6 +89,7 @@ private:
     bool m_useLimitedEasyList;
 
     QList<AdBlockSubscription*> m_subscriptions;
+    AdBlockMatcher* m_matcher;
     QStringList m_disabledRules;
 
     QPointer<AdBlockDialog> m_adBlockDialog;

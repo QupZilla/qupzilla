@@ -242,6 +242,7 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
+    adblock/adblockmatcher.cpp
 
 HEADERS  += \
     3rdparty/ecwin7.h \
@@ -445,6 +446,7 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
+    adblock/adblockmatcher.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
