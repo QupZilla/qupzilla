@@ -77,14 +77,6 @@ public:
     virtual void loadSubscription(const QStringList &disabledRules);
     virtual void saveSubscription();
 
-    const AdBlockRule* match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const;
-
-    bool adBlockDisabledForUrl(const QUrl &url) const;
-    bool elemHideDisabledForUrl(const QUrl &url) const;
-
-    QString elementHidingRules() const;
-    QString elementHidingRulesForDomain(const QString &domain) const;
-
     const AdBlockRule* rule(int offset) const;
     QVector<AdBlockRule*> allRules() const;
 
@@ -102,6 +94,7 @@ public slots:
     void updateSubscription();
 
 signals:
+    void subscriptionChanged();
     void subscriptionUpdated();
     void subscriptionError(const QString &message);
 
@@ -111,23 +104,8 @@ protected slots:
 protected:
     virtual bool saveDownloadedData(const QByteArray &data);
 
-    void populateCache();
-
     FollowRedirectReply* m_reply;
-
     QVector<AdBlockRule*> m_rules;
-    QVector<AdBlockRule*> m_createdRules;
-    QString m_elementHidingRules;
-
-    QVector<const AdBlockRule*> m_networkExceptionRules;
-    QVector<const AdBlockRule*> m_networkBlockRules;
-    QVector<const AdBlockRule*> m_domainRestrictedCssRules;
-
-    QVector<const AdBlockRule*> m_documentRules;
-    QVector<const AdBlockRule*> m_elemhideRules;
-
-    AdBlockSearchTree m_networkBlockTree;
-    AdBlockSearchTree m_networkExceptionTree;
 
 private:
     QString m_title;
@@ -155,9 +133,6 @@ public:
     int addRule(AdBlockRule* rule);
     bool removeRule(int offset);
     const AdBlockRule* replaceRule(AdBlockRule* rule, int offset);
-
-signals:
-    void subscriptionEdited();
 };
 
 #endif // ADBLOCKSUBSCRIPTION_H

@@ -169,6 +169,7 @@ private:
     // Use dynamic allocation to save memory
     RegExp* m_regExp;
 
+    friend class AdBlockMatcher;
     friend class AdBlockSearchTree;
     friend class AdBlockSubscription;
 };
