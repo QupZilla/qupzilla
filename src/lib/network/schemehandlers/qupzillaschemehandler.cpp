@@ -417,31 +417,21 @@ QString QupZillaSchemeReply::configPage()
         QString debugBuild = tr("Disabled");
 #endif
 
-#if defined (USE_WEBGL) || (QTWEBKIT_FROM_2_3 && defined(Q_OS_UNIX))
-        QString webGLEnabled = tr("<b>Enabled</b>");
-#else
-        QString webGLEnabled = tr("Disabled");
-#endif
-
+#ifdef Q_OS_WIN
 #if defined(Q_OS_WIN) && defined(W7API)
         QString w7APIEnabled = tr("<b>Enabled</b>");
 #else
         QString w7APIEnabled = tr("Disabled");
 #endif
-
-#if defined(Q_OS_UNIX) && defined(KDE_INTEGRATION)
-        QString KDEIntegration = tr("<b>Enabled</b>");
-#else
-        QString KDEIntegration = tr("Disabled");
 #endif
 
         QString portableBuild = mApp->isPortable() ? tr("<b>Enabled</b>") : tr("Disabled");
 
         cPage.replace(QLatin1String("%BUILD-CONFIG-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Debug build"), debugBuild) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebGL support"), webGLEnabled) +
+#ifdef Q_OS_WIN
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Windows 7 API"), w7APIEnabled) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("KDE integration"), KDEIntegration) +
+#endif
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Portable build"), portableBuild));
 
         cPage = QzTools::applyDirectionToPage(cPage);
