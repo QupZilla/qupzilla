@@ -629,11 +629,14 @@ void MainMenu::init()
     m_actions[QSL("Other/RestoreClosedTab")] = action;
 
 #ifdef Q_OS_MAC
-    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence(QSL("F11")));
+    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence::FullScreen);
 
     // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
     m_menuFile->addAction(m_actions[QSL("Standard/About")]);
     m_menuFile->addAction(m_actions[QSL("Standard/Preferences")]);
+
+    // Prevent ConfigInfo action to be detected as "Preferences..." action in Mac menubar
+    m_actions[QSL("Help/ConfigInfo")]->setMenuRole(QAction::NoRole);
 
     // Create Dock menu
     QMenu* dockMenu = new QMenu(0);
