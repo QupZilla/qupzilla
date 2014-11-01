@@ -25,8 +25,9 @@ QzSettings* Settings::s_qzSettings = 0;
 
 Settings::Settings()
 {
+    // Save currently opened group
     if (!s_settings->group().isEmpty()) {
-        qDebug("Settings: Creating object with opened group!");
+        m_openedGroup = s_settings->group();
         s_settings->endGroup();
     }
 }
@@ -78,7 +79,11 @@ QzSettings* Settings::staticSettings()
 Settings::~Settings()
 {
     if (!s_settings->group().isEmpty()) {
-        qDebug("Settings: Deleting object with opened group!");
+        qDebug() << "Settings: Deleting object with opened group!";
         s_settings->endGroup();
     }
+
+    // Restore opened group
+    if (!m_openedGroup.isEmpty())
+        s_settings->beginGroup(m_openedGroup);
 }
