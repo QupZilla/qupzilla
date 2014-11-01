@@ -18,7 +18,6 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include <qglobal.h>
 #include <QVariant>
 
 #include "qzcommon.h"
@@ -45,13 +44,11 @@ public:
     void beginGroup(const QString &prefix);
     void endGroup();
 
-signals:
-
-public slots:
-
 private:
     static QSettings* s_settings;
     static QzSettings* s_qzSettings;
+
+    QString m_openedGroup;
 
 };
 
