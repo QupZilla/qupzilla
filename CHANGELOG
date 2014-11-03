@@ -1,3 +1,11 @@
+Version 1.8.4
+    * released 3 November 2014
+    * added possibility to build against system QtFtp module
+    * CSS exceptions in AdBlock now works for rules from different subscrictions
+    * fixed: correctly saving some settings in preferences
+    * fixed: preference action on Mac
+    * fixed: loading plugins on Windows
+
 Version 1.8.3
     * released 19 October 2014
     * fixed: crash when passing messages to running instance
