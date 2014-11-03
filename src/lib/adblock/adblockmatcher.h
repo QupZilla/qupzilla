@@ -18,6 +18,7 @@
 #ifndef ADBLOCKMATCHER_H
 #define ADBLOCKMATCHER_H
 
+#include <QUrl>
 #include <QObject>
 
 #include "qzcommon.h"
