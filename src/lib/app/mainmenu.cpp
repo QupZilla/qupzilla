@@ -629,7 +629,7 @@ void MainMenu::init()
     m_actions[QSL("Other/RestoreClosedTab")] = action;
 
 #ifdef Q_OS_MAC
-    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence::FullScreen);
+    m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence(QSL("Ctrl+Meta+F")));
 
     // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
     m_menuFile->addAction(m_actions[QSL("Standard/About")]);
