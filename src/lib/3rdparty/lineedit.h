@@ -124,6 +124,7 @@ protected:
 
 private slots:
     void updateActions();
+    void updatePasteActions();
     void slotDelete();
 
 private:

@@ -154,9 +154,10 @@ void LineEdit::init()
     // Connections to update edit actions
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(updateActions()));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(updateActions()));
-    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(updateActions()));
+    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(updatePasteActions()));
 
     updateActions();
+    updatePasteActions();
 }
 
 bool LineEdit::event(QEvent* event)
@@ -236,9 +237,17 @@ void LineEdit::updateActions()
     m_editActions[Redo]->setEnabled(!isReadOnly() && isRedoAvailable());
     m_editActions[Cut]->setEnabled(!isReadOnly() && hasSelectedText() && echoMode() == QLineEdit::Normal);
     m_editActions[Copy]->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
-    m_editActions[Paste]->setEnabled(!isReadOnly() && !QApplication::clipboard()->text().isEmpty());
     m_editActions[Delete]->setEnabled(!isReadOnly() && hasSelectedText());
     m_editActions[SelectAll]->setEnabled(!text().isEmpty() && selectedText() != text());
+}
+
+void LineEdit::updatePasteActions()
+{
+    // Paste actions are updated in separate slot because accessing clipboard is expensive
+    bool pasteEnabled = !isReadOnly() && !QApplication::clipboard()->text().isEmpty();
+
+    m_editActions[Paste]->setEnabled(pasteEnabled);
+    m_editActions[PasteAndGo]->setEnabled(pasteEnabled);
 }
 
 void LineEdit::slotDelete()
