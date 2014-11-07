@@ -27,6 +27,7 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     , m_manager(mApp->searchEnginesManager())
 {
     setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addEngine()));

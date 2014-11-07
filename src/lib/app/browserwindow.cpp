@@ -1180,6 +1180,7 @@ bool BrowserWindow::event(QEvent* event)
 void BrowserWindow::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->resize(800, 750);
     dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
 
@@ -1194,15 +1195,13 @@ void BrowserWindow::printPage(QWebFrame* frame)
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
     }
 
-    dialog->exec();
-
-    dialog->deleteLater();
+    dialog->open();
 }
 
 void BrowserWindow::savePageScreen()
 {
-    PageScreen* p = new PageScreen(weView(), this);
-    p->show();
+    PageScreen* dialog = new PageScreen(weView(), this);
+    dialog->show();
 }
 
 void BrowserWindow::resizeEvent(QResizeEvent* event)

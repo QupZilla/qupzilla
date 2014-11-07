@@ -30,6 +30,7 @@ SSLManager::SSLManager(QWidget* parent)
     , ui(new Ui::SSLManager)
 {
     setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
     ui->caList->setLayoutDirection(Qt::LeftToRight);
     ui->localList->setLayoutDirection(Qt::LeftToRight);

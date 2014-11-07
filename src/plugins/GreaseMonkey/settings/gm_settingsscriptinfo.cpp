@@ -26,6 +26,8 @@ GM_SettingsScriptInfo::GM_SettingsScriptInfo(GM_Script* script, QWidget* parent)
     , ui(new Ui::GM_SettingsScriptInfo)
     , m_script(script)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
     loadScript();
 

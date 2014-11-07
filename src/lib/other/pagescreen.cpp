@@ -46,6 +46,7 @@ PageScreen::PageScreen(WebView* view, QWidget* parent)
     , m_imageScaling(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     m_formats.append(QSL("PNG"));

@@ -33,6 +33,8 @@ AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),
       ui(new Ui::AboutDialog)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {

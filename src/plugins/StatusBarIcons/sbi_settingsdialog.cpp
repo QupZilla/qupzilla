@@ -24,6 +24,8 @@ SBI_SettingsDialog::SBI_SettingsDialog(SBI_IconsManager* manager, QWidget* paren
     , ui(new Ui::SBI_SettingsDialog)
     , m_manager(manager)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     ui->showImagesIcon->setChecked(m_manager->showImagesIcon());

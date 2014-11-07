@@ -53,8 +53,8 @@ void SBI_NetworkIcon::onlineStateChanged(bool online)
 
 void SBI_NetworkIcon::showDialog()
 {
-    SBI_NetworkIconDialog dialog(m_window);
-    dialog.exec();
+    SBI_NetworkIconDialog* dialog = new SBI_NetworkIconDialog(m_window);
+    dialog->open();
 }
 
 void SBI_NetworkIcon::showMenu(const QPoint &pos)

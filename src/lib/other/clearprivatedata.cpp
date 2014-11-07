@@ -45,6 +45,8 @@ ClearPrivateData::ClearPrivateData(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::ClearPrivateData)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
     ui->buttonBox->setFocus();
     connect(ui->history, SIGNAL(clicked(bool)), this, SLOT(historyClicked(bool)));
@@ -194,21 +196,21 @@ void ClearPrivateData::optimizeDb()
 
 void ClearPrivateData::showCookieManager()
 {
-    CookieManager m(this);
-    m.exec();
+    CookieManager* dialog = new CookieManager(this);
+    dialog->open();
 }
 
 void ClearPrivateData::showNotifsPerms()
 {
-    HTML5PermissionsDialog dialog(this);
-    dialog.exec();
+    HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
+    dialog->open();
 }
 
 void ClearPrivateData::showGeolocPerms()
 {
-    HTML5PermissionsDialog dialog(this);
-    dialog.setCurrentTab(1);
-    dialog.exec();
+    HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
+    dialog->setCurrentTab(1);
+    dialog->open();
 }
 
 static const int stateDataVersion = 0x0001;

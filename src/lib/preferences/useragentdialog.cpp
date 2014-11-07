@@ -31,6 +31,8 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
     , ui(new Ui::UserAgentDialog)
     , m_manager(mApp->userAgentManager())
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
     ui->globalComboBox->setLayoutDirection(Qt::LeftToRight);
     ui->table->setLayoutDirection(Qt::LeftToRight);

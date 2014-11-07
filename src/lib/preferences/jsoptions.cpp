@@ -28,6 +28,8 @@ JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::JsOptions)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     Settings settings;

@@ -25,6 +25,8 @@ HTML5PermissionsDialog::HTML5PermissionsDialog(QWidget* parent) :
     QDialog(parent),
     ui(new Ui::HTML5PermissionsDialog)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     loadSettings();

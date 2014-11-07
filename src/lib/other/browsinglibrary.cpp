@@ -103,13 +103,13 @@ void BrowsingLibrary::search()
 void BrowsingLibrary::importBookmarks()
 {
     BookmarksImportDialog* d = new BookmarksImportDialog(this);
-    d->show();
+    d->open();
 }
 
 void BrowsingLibrary::exportBookmarks()
 {
     BookmarksExportDialog* d = new BookmarksExportDialog(this);
-    d->show();
+    d->open();
 }
 
 void BrowsingLibrary::showHistory(BrowserWindow* window)
