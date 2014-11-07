@@ -118,8 +118,12 @@ void MainMenu::showAboutDialog()
 
 void MainMenu::showPreferences()
 {
-    Preferences* prefs = new Preferences(m_window, this);
-    prefs->show();
+    if (!m_preferences)
+        m_preferences = new Preferences(m_window, this);
+
+    m_preferences->show();
+    m_preferences->raise();
+    m_preferences->activateWindow();
 }
 
 void MainMenu::quitApplication()
