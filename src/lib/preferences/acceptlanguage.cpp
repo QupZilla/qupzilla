@@ -79,6 +79,8 @@ AcceptLanguage::AcceptLanguage(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AcceptLanguage)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
     ui->listWidget->setLayoutDirection(Qt::LeftToRight);
 

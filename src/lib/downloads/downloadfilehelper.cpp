@@ -247,7 +247,7 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
 #endif
                 dialog->setSidebarUrls(urls);
 
-                dialog->show();
+                dialog->open();
                 connect(dialog, SIGNAL(fileSelected(QString)), this, SLOT(fileNameChoosed(QString)));
             }
         }

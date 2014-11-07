@@ -61,8 +61,8 @@ void GM_Settings::showItemInfo(QListWidgetItem* item)
         return;
     }
 
-    GM_SettingsScriptInfo info(script, this);
-    info.exec();
+    GM_SettingsScriptInfo* dialog = new GM_SettingsScriptInfo(script, this);
+    dialog->open();
 }
 
 void GM_Settings::removeItem(QListWidgetItem* item)

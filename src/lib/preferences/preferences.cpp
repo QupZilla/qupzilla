@@ -649,8 +649,8 @@ void Preferences::chooseExternalDownloadManager()
 
 void Preferences::openUserAgentManager()
 {
-    UserAgentDialog dialog(this);
-    dialog.exec();
+    UserAgentDialog* dialog = new UserAgentDialog(this);
+    dialog->open();
 }
 
 void Preferences::downLocChanged(bool state)
@@ -690,38 +690,38 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager m(this);
-    m.exec();
+    CookieManager* dialog = new CookieManager(this);
+    dialog->open();
 }
 
 void Preferences::showHtml5Permissions()
 {
-    HTML5PermissionsDialog dialog(this);
-    dialog.exec();
+    HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
+    dialog->open();
 }
 
 void Preferences::openSslManager()
 {
     SSLManager* m = new SSLManager(this);
-    m->show();
+    m->open();
 }
 
 void Preferences::openJsOptions()
 {
-    JsOptions options(this);
-    options.exec();
+    JsOptions* dialog = new JsOptions(this);
+    dialog->open();
 }
 
 void Preferences::openSearchEnginesManager()
 {
     SearchEnginesDialog* dialog = new SearchEnginesDialog(this);
-    dialog->exec();
+    dialog->open();
 }
 
 void Preferences::showAcceptLanguage()
 {
-    AcceptLanguage a(this);
-    a.exec();
+    AcceptLanguage* dialog = new AcceptLanguage(this);
+    dialog->open();
 }
 
 void Preferences::newTabChanged(int value)

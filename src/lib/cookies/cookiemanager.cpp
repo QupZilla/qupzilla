@@ -37,8 +37,12 @@ CookieManager::CookieManager(QWidget* parent)
     , ui(new Ui::CookieManager)
     , m_refreshCookieJar(true)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
-    QzTools::centerWidgetOnScreen(this);
+
+    if (!parent)
+        QzTools::centerWidgetOnScreen(this);
 
     if (isRightToLeft()) {
         ui->cookieTree->headerItem()->setTextAlignment(0, Qt::AlignRight | Qt::AlignVCenter);

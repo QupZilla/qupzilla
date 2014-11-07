@@ -806,6 +806,7 @@ void WebView::showClickedFrameSource()
 void WebView::printPage(QWebFrame* frame)
 {
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->resize(800, 750);
 
     if (!frame) {
@@ -815,8 +816,7 @@ void WebView::printPage(QWebFrame* frame)
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
     }
 
-    dialog->exec();
-    dialog->deleteLater();
+    dialog->open();
 }
 
 QUrl WebView::lastUrl()

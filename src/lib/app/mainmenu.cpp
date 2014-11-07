@@ -112,8 +112,8 @@ QAction* MainMenu::action(const QString &name) const
 
 void MainMenu::showAboutDialog()
 {
-    AboutDialog about(m_window);
-    about.exec();
+    AboutDialog* dialog = new AboutDialog(m_window);
+    dialog->open();
 }
 
 void MainMenu::showPreferences()
@@ -320,7 +320,6 @@ void MainMenu::showDownloadManager()
 void MainMenu::showCookieManager()
 {
     CookieManager* m = new CookieManager(0);
-    m->setAttribute(Qt::WA_DeleteOnClose);
     m->show();
     m->raise();
 }
@@ -344,8 +343,8 @@ void MainMenu::showWebInspector()
 
 void MainMenu::showClearRecentHistoryDialog()
 {
-    ClearPrivateData clear(m_window);
-    clear.exec();
+    ClearPrivateData* dialog = new ClearPrivateData(m_window);
+    dialog->open();
 }
 
 void MainMenu::aboutQt()

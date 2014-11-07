@@ -27,6 +27,8 @@ SBI_NetworkIconDialog::SBI_NetworkIconDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::SBI_NetworkIconDialog)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
+
     ui->setupUi(this);
 
     ui->addButton->setIcon(QIcon::fromTheme("document-new", QIcon(":sbi/data/add.png")));

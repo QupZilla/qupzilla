@@ -121,14 +121,12 @@ void WebSearchBar::addSuggestions(const QStringList &list)
 
 void WebSearchBar::openSearchEnginesDialog()
 {
-    if (m_searchDialog) {
-        m_searchDialog.data()->raise();
-        m_searchDialog.data()->activateWindow();
-        return;
-    }
+    if (!m_searchDialog)
+        m_searchDialog = new SearchEnginesDialog(this);
 
-    m_searchDialog = new SearchEnginesDialog(this);
-    m_searchDialog.data()->show();
+    m_searchDialog->open();
+    m_searchDialog->raise();
+    m_searchDialog->activateWindow();
 }
 
 void WebSearchBar::enableSearchSuggestions(bool enable)

@@ -96,6 +96,6 @@ void SBI_JavaScriptIcon::toggleJavaScript()
 
 void SBI_JavaScriptIcon::openJavaScriptSettings()
 {
-    JsOptions dialog(m_window);
-    dialog.exec();
+    JsOptions* dialog = new JsOptions(m_window);
+    dialog->open();
 }
