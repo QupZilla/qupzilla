@@ -37,6 +37,7 @@
 #include "opensearchengine.h"
 #include "qzregexp.h"
 #include "opensearchenginedelegate.h"
+#include "json.h"
 
 #include <qbuffer.h>
 #include <qcoreapplication.h>
@@ -44,8 +45,6 @@
 #include <qnetworkrequest.h>
 #include <qnetworkreply.h>
 #include <qregexp.h>
-#include <qscriptengine.h>
-#include <qscriptvalue.h>
 #include <qstringlist.h>
 
 #if QT_VERSION >= 0x050000
@@ -109,7 +108,6 @@ OpenSearchEngine::OpenSearchEngine(QObject* parent)
     , m_suggestionsMethod(QLatin1String("get"))
     , m_networkAccessManager(0)
     , m_suggestionsReply(0)
-    , m_scriptEngine(0)
     , m_delegate(0)
 {
     m_requestMethods.insert(QLatin1String("get"), QNetworkAccessManager::GetOperation);
@@ -121,9 +119,6 @@ OpenSearchEngine::OpenSearchEngine(QObject* parent)
 */
 OpenSearchEngine::~OpenSearchEngine()
 {
-    if (m_scriptEngine) {
-        m_scriptEngine->deleteLater();
-    }
 }
 
 QString OpenSearchEngine::parseTemplate(const QString &searchTerm, const QString &searchTemplate)
@@ -655,33 +650,23 @@ void OpenSearchEngine::suggestionsObtained()
     m_suggestionsReply->deleteLater();
     m_suggestionsReply = 0;
 
-    if (response.isEmpty()) {
+    Json json;
+    const QVariant res = json.parse(response);
+
+    if (!json.ok() || res.type() != QVariant::Map)
         return;
-    }
 
-    if (!response.startsWith(QLatin1Char('[')) || !response.endsWith(QLatin1Char(']'))) {
+    const QVariantList list = res.toMap().value(QSL("1")).toList();
+
+    if (list.isEmpty())
         return;
-    }
 
-    if (!m_scriptEngine) {
-        m_scriptEngine = new QScriptEngine();
-    }
+    QStringList out;
 
-    // Evaluate the JSON response using QtScript.
-    if (!m_scriptEngine->canEvaluate(response)) {
-        return;
-    }
+    foreach (const QVariant &v, list)
+        out.append(v.toString());
 
-    QScriptValue responseParts = m_scriptEngine->evaluate(response);
-
-    if (!responseParts.property(1).isArray()) {
-        return;
-    }
-
-    QStringList suggestionsList;
-    qScriptValueToSequence(responseParts.property(1), suggestionsList);
-
-    emit suggestions(suggestionsList);
+    emit suggestions(out);
 }
 
 /*!
