@@ -1117,12 +1117,14 @@ RegisterQAppAssociation* MainApplication::associationManager()
 bool MainApplication::event(QEvent* e)
 {
     switch (e->type()) {
-    case QEvent::FileOpen: {
-        QString fileName = static_cast<QFileOpenEvent*>(e)->file();
-        addNewTab(QUrl::fromLocalFile(fileName));
+    case QEvent::FileOpen:
+        addNewTab(QUrl::fromLocalFile(static_cast<QFileOpenEvent*>(e)->file()));
         return true;
-    }
-    break;
+
+    case QEvent::ApplicationActivate:
+        if (m_windows.isEmpty())
+            createWindow(Qz::BW_NewWindow);
+        break;
 
     default:
         break;
