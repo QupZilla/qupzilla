@@ -140,10 +140,10 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     Settings settings;
     //GENERAL URLs
     settings.beginGroup("Web-URL-Settings");
-    m_homepage = settings.value("homepage", "qupzilla:start").toString();
-    m_newTabUrl = settings.value("newTabUrl", "qupzilla:speeddial").toString();
-    ui->homepage->setText(m_homepage);
-    ui->newTabUrl->setText(m_newTabUrl);
+    m_homepage = settings.value("homepage", QUrl(QSL("qupzilla:start"))).toUrl();
+    m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("qupzilla:speeddial"))).toUrl();
+    ui->homepage->setText(m_homepage.toEncoded());
+    ui->newTabUrl->setText(m_newTabUrl.toEncoded());
     int afterLaunch = settings.value("afterLaunch", 3).toInt();
     settings.endGroup();
     ui->afterLaunch->setCurrentIndex(afterLaunch);
@@ -170,13 +170,13 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
 #endif
 
     ui->newTabFrame->setVisible(false);
-    if (m_newTabUrl.isEmpty()) {
+    if (m_newTabUrl.isEmpty() || m_newTabUrl.toString() == QL1S("about:blank")) {
         ui->newTab->setCurrentIndex(0);
     }
     else if (m_newTabUrl == m_homepage) {
         ui->newTab->setCurrentIndex(1);
     }
-    else if (m_newTabUrl == QLatin1String("qupzilla:speeddial")) {
+    else if (m_newTabUrl.toString() == QL1S("qupzilla:speeddial")) {
         ui->newTab->setCurrentIndex(2);
     }
     else {
@@ -879,15 +879,15 @@ void Preferences::saveSettings()
 {
     Settings settings;
     //GENERAL URLs
-    settings.beginGroup("Web-URL-Settings");
-    settings.setValue("homepage", ui->homepage->text());
+    QUrl homepage = QUrl::fromEncoded(ui->homepage->text().toUtf8());
 
-    QString homepage = ui->homepage->text();
+    settings.beginGroup("Web-URL-Settings");
+    settings.setValue("homepage", homepage);
     settings.setValue("afterLaunch", ui->afterLaunch->currentIndex());
 
     switch (ui->newTab->currentIndex()) {
     case 0:
-        settings.setValue("newTabUrl", QString());
+        settings.setValue("newTabUrl", QUrl(QSL("about:blank")));
         break;
 
     case 1:
@@ -895,11 +895,11 @@ void Preferences::saveSettings()
         break;
 
     case 2:
-        settings.setValue("newTabUrl", "qupzilla:speeddial");
+        settings.setValue("newTabUrl", QUrl(QSL("qupzilla:speeddial")));
         break;
 
     case 3:
-        settings.setValue("newTabUrl", ui->newTabUrl->text());
+        settings.setValue("newTabUrl", QUrl::fromEncoded(ui->newTabUrl->text().toUtf8()));
         break;
 
     default:
