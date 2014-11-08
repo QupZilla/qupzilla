@@ -47,7 +47,6 @@
 #include <qurl.h>
 
 class QNetworkReply;
-class QScriptEngine;
 
 class OpenSearchEngineDelegate;
 class QUPZILLA_EXPORT OpenSearchEngine : public QObject
@@ -163,8 +162,6 @@ private:
 
     QNetworkAccessManager* m_networkAccessManager;
     QNetworkReply* m_suggestionsReply;
-
-    QScriptEngine* m_scriptEngine;
 
     OpenSearchEngineDelegate* m_delegate;
 };
