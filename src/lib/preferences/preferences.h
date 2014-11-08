@@ -18,6 +18,7 @@
 #ifndef PREFERENCES_H
 #define PREFERENCES_H
 
+#include <QUrl>
 #include <QDialog>
 #include <QPointer>
 
@@ -104,8 +105,8 @@ private:
     ThemeManager* m_themesManager;
     QPointer<DesktopNotification> m_notification;
 
-    QString m_homepage;
-    QString m_newTabUrl;
+    QUrl m_homepage;
+    QUrl m_newTabUrl;
     QString m_actProfileName;
     int m_afterLaunch;
     int m_onNewTab;
