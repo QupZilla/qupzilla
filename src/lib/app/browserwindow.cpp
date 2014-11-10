@@ -262,10 +262,14 @@ void BrowserWindow::setupUi()
     int locationBarWidth;
     int websearchBarWidth;
 
+    QDesktopWidget* desktop = mApp->desktop();
+    int windowWidth = desktop->width() / 1.3;
+    int windowHeight = desktop->height() / 1.3;
+
     Settings settings;
     settings.beginGroup("Browser-View-Settings");
     if (settings.value("WindowMaximised", false).toBool()) {
-        resize(800, 550);
+        resize(windowWidth, windowHeight);
         setWindowState(Qt::WindowMaximized);
     }
     else {
@@ -277,10 +281,11 @@ void BrowserWindow::setupUi()
             p.setX(p.x() + 30);
             p.setY(p.y() + 30);
 
-            if (!mApp->desktop()->availableGeometry(mApp->getWindow()).contains(p)) {
-                p.setX(mApp->desktop()->availableGeometry(mApp->getWindow()).x() + 30);
-                p.setY(mApp->desktop()->availableGeometry(mApp->getWindow()).y() + 30);
+            if (!desktop->availableGeometry(mApp->getWindow()).contains(p)) {
+                p.setX(desktop->availableGeometry(mApp->getWindow()).x() + 30);
+                p.setY(desktop->availableGeometry(mApp->getWindow()).y() + 30);
             }
+
             setGeometry(QRect(p, mApp->getWindow()->size()));
 #else
             resize(mApp->getWindow()->size());
@@ -288,10 +293,10 @@ void BrowserWindow::setupUi()
         }
         else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
 #ifdef Q_WS_WIN
-            setGeometry(QRect(mApp->desktop()->availableGeometry(mApp->getWindow()).x() + 30,
-                              mApp->desktop()->availableGeometry(mApp->getWindow()).y() + 30, 800, 550));
+            setGeometry(QRect(desktop->availableGeometry(mApp->getWindow()).x() + 30,
+                              desktop->availableGeometry(mApp->getWindow()).y() + 30, windowWidth, windowHeight));
 #else
-            resize(800, 550);
+            resize(windowWidth, windowHeight);
 #endif
         }
     }
