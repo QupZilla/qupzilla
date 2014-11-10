@@ -263,8 +263,8 @@ void BrowserWindow::setupUi()
     int websearchBarWidth;
 
     QDesktopWidget* desktop = mApp->desktop();
-    int windowWidth = desktop->width() / 1.3;
-    int windowHeight = desktop->height() / 1.3;
+    int windowWidth = desktop->availableGeometry().width() / 1.3;
+    int windowHeight = desktop->availableGeometry().height() / 1.3;
 
     Settings settings;
     settings.beginGroup("Browser-View-Settings");
