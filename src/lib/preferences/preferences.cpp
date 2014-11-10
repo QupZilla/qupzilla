@@ -517,6 +517,10 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->html5permissions->setDisabled(true);
 #endif
 
+    settings.beginGroup(QSL("Preferences"));
+    restoreGeometry(settings.value(QSL("Geometry")).toByteArray());
+    settings.endGroup();
+
     QzTools::setWmClass("Preferences", this);
 }
 
@@ -1113,6 +1117,8 @@ void Preferences::saveSettings()
 
 Preferences::~Preferences()
 {
+    Settings().setValue(QSL("Preferences/Geometry"), saveGeometry());
+
     delete ui;
     delete m_autoFillManager;
     delete m_pluginsList;
