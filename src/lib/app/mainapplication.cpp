@@ -100,6 +100,10 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 {
+#if QT_VERSION >= 0x050000
+    setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#endif
+
     setApplicationName(QLatin1String("QupZilla"));
     setApplicationVersion(Qz::VERSION);
     setOrganizationDomain(QLatin1String("qupzilla"));
