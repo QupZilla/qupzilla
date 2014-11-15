@@ -81,7 +81,7 @@ void Speller::initialize()
         return;
     }
 
-    QString dictionary = m_dictionaryPath + m_language.code;
+    QString dictionary = m_dictionaryPath + QLatin1Char('/') + m_language.code;
 
     if (!dictionaryExists(dictionary)) {
         qWarning() << "SpellCheck: Dictionaries for" << dictionary << "doesn't exists!";
@@ -392,16 +392,12 @@ bool Speller::dictionaryExists(const QString &path) const
 QString Speller::getDictionaryPath() const
 {
 #ifdef Q_OS_UNIX
-    const QString defaultDicPath = "/usr/share/hunspell/";
+    const QString defaultDicPath = "/usr/share/hunspell";
 #else
-    const QString defaultDicPath = DataPaths::path(DataPaths::AppData) + "/hunspell/";
+    const QString defaultDicPath = DataPaths::path(DataPaths::AppData) + "/hunspell";
 #endif
 
-    QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH")).trimmed();
-    if (!dicPath.isEmpty() && !dicPath.endsWith(QLatin1Char('/'))) {
-        dicPath.append(QLatin1Char('/'));
-    }
-
+    const QString dicPath = QString::fromLocal8Bit(qgetenv("DICPATH")).trimmed();
     return dicPath.isEmpty() ? defaultDicPath : dicPath;
 }
 
