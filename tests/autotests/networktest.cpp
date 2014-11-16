@@ -26,38 +26,9 @@
 void NetworkTest::initTestCase()
 {
     m_manager = new QNetworkAccessManager;
-
-    QSslConfiguration conf = QSslConfiguration::defaultConfiguration();
-    conf.setProtocol(QSsl::SslV3);
-    QSslConfiguration::setDefaultConfiguration(conf);
 }
 
 void NetworkTest::cleanupTestCase()
 {
     delete m_manager;
-}
-
-void NetworkTest::sslv3test_data()
-{
-    QTest::addColumn<QUrl>("url");
-
-    // Sites that loads only with SslV3 forced and have it forced in NetworkManager
-    QTest::newRow("centrum.sk") << QUrl("https://user.centrum.sk/");
-    QTest::newRow("centrum.cz") << QUrl("https://user.centrum.cz/");
-    QTest::newRow("oneaccount.com") << QUrl("https://service.oneaccount.com/onlineV2/OSV2?event=login&pt=3");
-    QTest::newRow("i0.cz") << QUrl("https://i0.cz/6/ju/css/login/centrum.sk.css");
-}
-
-void NetworkTest::sslv3test()
-{
-    QFETCH(QUrl, url);
-
-    QNetworkReply *reply = m_manager->get(QNetworkRequest(url));
-
-    QEventLoop loop;
-    connect(m_manager, SIGNAL(finished(QNetworkReply*)), &loop, SLOT(quit()));
-    loop.exec();
-
-    QCOMPARE(QNetworkReply::NoError, reply->error());
-    QCOMPARE(false, reply->readAll().isEmpty());
 }

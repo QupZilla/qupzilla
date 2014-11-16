@@ -100,15 +100,9 @@ void NetworkManager::loadSettings()
         setCache(cache);
     }
 
-    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
-    QStringList sslv3Sites;
-    sslv3Sites << QLatin1String("centrum.sk") << QLatin1String("centrum.cz") << QLatin1String("oneaccount.com")
-               << QLatin1String("i0.cz") << QLatin1String("sermepa.es");
-
     settings.beginGroup("Web-Browser-Settings");
     m_doNotTrack = settings.value("DoNotTrack", false).toBool();
     m_sendReferer = settings.value("SendReferer", true).toBool();
-    m_sslv3Sites = settings.value("SSLv3Sites", sslv3Sites).toStringList();
     settings.endGroup();
 
     m_acceptLanguage = AcceptLanguage::generateHeader(settings.value("Language/acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList());
@@ -598,18 +592,6 @@ QNetworkReply* NetworkManager::createRequest(QNetworkAccessManager::Operation op
         }
     }
 
-    // Force SSLv3 for servers that doesn't understand TLSv1 handshake
-    if (req.url().scheme() == QLatin1String("https")) {
-        foreach (const QString &host, m_sslv3Sites) {
-            if (QzTools::matchDomain(host, req.url().host())) {
-                QSslConfiguration conf = req.sslConfiguration();
-                conf.setProtocol(QSsl::SslV3);
-                req.setSslConfiguration(conf);
-                break;
-            }
-        }
-    }
-
     return QNetworkAccessManager::createRequest(op, req, outgoingData);
 }
 
@@ -732,7 +714,6 @@ void NetworkManager::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("SSLv3Sites", m_sslv3Sites);
     settings.endGroup();
 }
 

@@ -30,9 +30,6 @@ private slots:
     void initTestCase();
     void cleanupTestCase();
 
-    void sslv3test_data();
-    void sslv3test();
-
 private:
     QNetworkAccessManager *m_manager;
 };
