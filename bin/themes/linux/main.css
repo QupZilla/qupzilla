@@ -137,8 +137,7 @@ IconProvider
 
 #locationbar-goicon
 {
-    qproperty-fixedsize: 16px 16px;
-    qproperty-themeIcon: "go-jump-locationbar";
+    qproperty-pixmap: url(images/goto.png);
 }
 
 #locationbar-down-icon
