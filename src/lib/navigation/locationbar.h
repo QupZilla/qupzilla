@@ -49,7 +49,7 @@ public slots:
     void showUrl(const QUrl &url);
 
 private slots:
-    void textEditted();
+    void textEdited(const QString &text);
     void requestLoadUrl();
     void pasteAndGo();
 
@@ -105,7 +105,8 @@ private:
 
     bool m_rssIconVisible;
     bool m_holdingAlt;
-    bool m_backspacePressed;
+    int m_oldTextLength;
+    int m_currentTextLength;
 
     int m_loadProgress;
     bool m_progressVisible;

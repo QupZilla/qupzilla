@@ -48,7 +48,8 @@ LocationBar::LocationBar(BrowserWindow* window)
     , m_window(window)
     , m_webView(0)
     , m_holdingAlt(false)
-    , m_backspacePressed(false)
+    , m_oldTextLength(0)
+    , m_currentTextLength(0)
     , m_loadProgress(0)
     , m_progressVisible(false)
 {
@@ -90,7 +91,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     editAction(PasteAndGo)->setIcon(QIcon::fromTheme(QSL("edit-paste")));
     connect(editAction(PasteAndGo), SIGNAL(triggered()), this, SLOT(pasteAndGo()));
 
-    connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEditted()));
+    connect(this, SIGNAL(textEdited(QString)), this, SLOT(textEdited(QString)));
     connect(m_goIcon, SIGNAL(clicked(QPoint)), this, SLOT(requestLoadUrl()));
     connect(down, SIGNAL(clicked(QPoint)), m_completer, SLOT(showMostVisited()));
     connect(mApp->searchEnginesManager(), SIGNAL(activeEngineChanged()), this, SLOT(updatePlaceHolderText()));
@@ -134,6 +135,9 @@ void LocationBar::setWebView(TabbedWebView* view)
 
 void LocationBar::setText(const QString &text)
 {
+    m_oldTextLength = text.length();
+    m_currentTextLength = m_oldTextLength;
+
     LineEdit::setText(text);
 
     refreshTextFormat();
@@ -166,8 +170,8 @@ void LocationBar::showDomainCompletion(const QString &completion)
     m_domainCompleterModel->setStringList(QStringList() << completion);
 
     // We need to manually force the completion because model is updated asynchronously
-    // But don't force the completion when backspace was pressed!
-    if (!m_backspacePressed)
+    // But only force completion when the user actually added new text
+    if (m_oldTextLength < m_currentTextLength)
         completer()->complete();
 }
 
@@ -276,10 +280,13 @@ void LocationBar::requestLoadUrl()
     m_webView->userLoadAction(req);
 }
 
-void LocationBar::textEditted()
+void LocationBar::textEdited(const QString &text)
 {
-    if (!text().isEmpty()) {
-        m_completer->complete(text());
+    m_oldTextLength = m_currentTextLength;
+    m_currentTextLength = text.length();
+
+    if (!text.isEmpty()) {
+        m_completer->complete(text);
     }
     else {
         m_completer->closePopup();
@@ -475,10 +482,6 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
         m_holdingAlt = true;
         break;
 
-    case Qt::Key_Backspace:
-        m_backspacePressed = true;
-        break;
-
     case Qt::Key_Return:
     case Qt::Key_Enter:
         switch (event->modifiers()) {
@@ -520,7 +523,6 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
     default:
         m_holdingAlt = false;
-        m_backspacePressed = false;
     }
 
     LineEdit::keyPressEvent(event);
