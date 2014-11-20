@@ -245,8 +245,9 @@ void MouseGestures::downUpGestured()
     BrowserWindow* window = view->browserWindow();
     if (!window)
         return;
-
-    window->tabWidget()->duplicateTab();
+    
+    TabWidget* tabWidget = window->tabWidget();
+    tabWidget->duplicateTab(tabWidget->currentIndex());
 }
 
 void MouseGestures::upDownGestured()
