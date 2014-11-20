@@ -60,6 +60,7 @@ private slots:
 
     void downRightGestured();
     void downLeftGestured();
+    void downUpGestured();
 
     void upDownGestured();
     void upLeftGestured();
