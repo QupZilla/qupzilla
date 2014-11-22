@@ -5997,7 +5997,6 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message numerus="yes">
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tab(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -6018,6 +6017,14 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="305"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
+        <source>Currently you have %n opened tabs</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="819"/>
