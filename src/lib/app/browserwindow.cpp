@@ -98,6 +98,13 @@
 #include <X11/Xatom.h>
 #endif
 
+#ifdef Q_OS_WIN
+#include <windows.h>
+#ifndef WM_DWMCOMPOSITIONCHANGED
+#define WM_DWMCOMPOSITIONCHANGED 0x031E
+#endif
+#endif /* Q_OS_WIN */
+
 const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
 
 static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
