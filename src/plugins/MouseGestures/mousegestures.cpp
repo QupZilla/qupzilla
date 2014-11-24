@@ -70,6 +70,9 @@ void MouseGestures::initFilter()
     QjtMouseGesture* downLeftGesture = new QjtMouseGesture(DirectionList() << Down << Left, m_filter);
     connect(downLeftGesture, SIGNAL(gestured()), this, SLOT(downLeftGestured()));
 
+    QjtMouseGesture* downUpGesture = new QjtMouseGesture(DirectionList() << Down << Up, m_filter);
+    connect(downUpGesture, SIGNAL(gestured()), this, SLOT(downUpGestured()));
+
     QjtMouseGesture* upDownGesture = new QjtMouseGesture(DirectionList() << Up << Down, m_filter);
     connect(upDownGesture, SIGNAL(gestured()), this, SLOT(upDownGestured()));
 
@@ -86,6 +89,7 @@ void MouseGestures::initFilter()
 
     m_filter->addGesture(downRightGesture);
     m_filter->addGesture(downLeftGesture);
+    m_filter->addGesture(downUpGesture);
     m_filter->addGesture(upDownGesture);
     m_filter->addGesture(upLeftGesture);
     m_filter->addGesture(upRightGesture);
@@ -230,6 +234,20 @@ void MouseGestures::downLeftGestured()
     }
 
     m_view.data()->load(mApp->getWindow()->homepageUrl());
+}
+
+void MouseGestures::downUpGestured()
+{
+    TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
+    if (!view)
+        return;
+
+    BrowserWindow* window = view->browserWindow();
+    if (!window)
+        return;
+    
+    TabWidget* tabWidget = window->tabWidget();
+    tabWidget->duplicateTab(tabWidget->currentIndex());
 }
 
 void MouseGestures::upDownGestured()
