@@ -38,7 +38,7 @@ int ExternalJsObject::IsSearchProviderInstalled(const QString &engineURL)
     return 0;
 }
 
-QObject* ExternalJsObject::speedDial()
+QObject* ExternalJsObject::speedDial() const
 {
     return m_onSpeedDial ? mApp->plugins()->speedDial() : 0;
 }
