@@ -254,11 +254,19 @@ void CookieManager::slotRefreshFilters()
 void CookieManager::addWhitelist()
 {
     const QString server = QInputDialog::getText(this, tr("Add to whitelist"), tr("Server:"));
+
     if (server.isEmpty()) {
         return;
     }
 
-    ui->whiteList->addItem(server);
+    if (!ui->blackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already blacklisted!"), tr("The server \"%1\" is already in blacklist, please remove it first.").arg(server));
+        return;
+    }
+
+    if (ui->whiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        ui->whiteList->addItem(server);
+    }
 }
 
 void CookieManager::removeWhitelist()
@@ -269,11 +277,19 @@ void CookieManager::removeWhitelist()
 void CookieManager::addBlacklist()
 {
     const QString server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
+
     if (server.isEmpty()) {
         return;
     }
 
-    ui->blackList->addItem(server);
+    if (!ui->whiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already whitelisted!"), tr("The server \"%1\" is already in whitelist, please remove it first.").arg(server));
+        return;
+    }
+
+    if (ui->blackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        ui->blackList->addItem(server);
+    }
 }
 
 void CookieManager::removeBlacklist()
