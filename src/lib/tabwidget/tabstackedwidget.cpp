@@ -235,11 +235,12 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
     int newIndex = -1;
     QWidget* widget = m_stack->widget(index);
     QWidget* currentWidget = m_stack->currentWidget();
+    bool makePinned = false;
 
     m_tabBar->m_blockCurrentChangedSignal = true;
 
     if (widget) {
-        bool makePinned = index >= m_tabBar->pinnedTabsCount();
+        makePinned = index >= m_tabBar->pinnedTabsCount();
         QWidget* button = m_tabBar->tabButton(index, m_tabBar->iconButtonPosition());
 
         m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), 0);
@@ -254,6 +255,10 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
 
     // Restore current index
     setCurrentWidget(currentWidget);
+
+    if (widget) {
+        emit pinStateChanged(newIndex, makePinned);
+    }
 
     return newIndex;
 }
