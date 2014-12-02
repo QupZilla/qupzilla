@@ -123,6 +123,7 @@ private slots:
 
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
+    void onFocusChanged();
 
 private:
     enum PostLaunchAction {
@@ -168,6 +169,8 @@ private:
     ProxyStyle* m_proxyStyle;
 
     QList<BrowserWindow*> m_windows;
+    BrowserWindow* m_lastActiveWidow;
+
     QList<PostLaunchAction> m_postLaunchActions;
 
     QString m_languageFile;

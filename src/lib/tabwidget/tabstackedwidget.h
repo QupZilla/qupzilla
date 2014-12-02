@@ -63,6 +63,7 @@ public:
 signals:
     void currentChanged(int index);
     void tabCloseRequested(int index);
+    void pinStateChanged(int index, bool pinned);
 
 public slots:
     void setCurrentIndex(int index);
