@@ -1,3 +1,15 @@
+Version 1.8.5
+    * released 12 December 2014
+    * save geometry of Preferences window
+    * enable HighDPI pixmaps with Qt 5
+    * add option to completely disable SSLv3
+    * fix url for China AdBlock list
+    * fix issue with opening modal dialogs being hidden by active window
+    * fix loading dictionaries in spellcheck
+    * fix behavior of delete key in locationbar
+    * MouseGestures: add new gesture for duplication of current tab
+    * Linux: fix go-icon not available in themes other than oxygen
+
 Version 1.8.4
     * released 3 November 2014
     * added possibility to build against system QtFtp module
