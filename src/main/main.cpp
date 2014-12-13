@@ -127,6 +127,9 @@ void msgHandler(QtMsgType type, const char* msg)
 #else
 void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
+    if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSLv2_")))
+        return;
+
     QByteArray localMsg = msg.toLocal8Bit();
     switch (type) {
     case QtDebugMsg:
