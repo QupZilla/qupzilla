@@ -336,7 +336,7 @@ void LocationBar::showUrl(const QUrl &url)
     }
 
     // Set converted url as text
-    setText(convertUrlToText(url));
+    setText(stringUrl);
 
     // Move cursor to the start
     home(false);
