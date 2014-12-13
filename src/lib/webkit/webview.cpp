@@ -1414,6 +1414,45 @@ void WebView::keyPressEvent(QKeyEvent* event)
         }
     }
 
+    switch (eventKey) {
+    case Qt::Key_ZoomIn:
+        zoomIn();
+        event->accept();
+        return;
+
+    case Qt::Key_ZoomOut:
+        zoomOut();
+        event->accept();
+        return;
+
+    case Qt::Key_Plus:
+        if (event->modifiers() & Qt::ControlModifier) {
+            zoomIn();
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_Minus:
+        if (event->modifiers() & Qt::ControlModifier) {
+            zoomOut();
+            event->accept();
+            return;
+        }
+        break;
+
+    case Qt::Key_0:
+        if (event->modifiers() & Qt::ControlModifier) {
+            zoomReset();
+            event->accept();
+            return;
+        }
+        break;
+
+    default:
+        break;
+    }
+
     // Text navigation is handled automatically in editable elements
     const QString js = QSL("document.activeElement.contentEditable==='true'||typeof document.activeElement.value != 'undefined'");
     QWebFrame* frame = page()->currentFrame();
