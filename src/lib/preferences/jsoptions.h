@@ -36,10 +36,20 @@ public:
     explicit JsOptions(QWidget* parent = 0);
     ~JsOptions();
 
-public slots:
-    void accept();
+private slots:
+    void slotRefreshFilters();
+
+    void jsAddWhitelist();
+    void jsRemoveWhitelist();
+    void jsAddBlacklist();
+    void jsRemoveBlacklist();
+
+    void deletePressed();
 
 private:
+    void closeEvent(QCloseEvent* e);
+    void keyPressEvent(QKeyEvent* e);
+
     Ui::JsOptions* ui;
 };
 

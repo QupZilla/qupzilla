@@ -19,10 +19,16 @@
 #include "jsoptions.h"
 #include "ui_jsoptions.h"
 #include "mainapplication.h"
+#include "qztools.h"
 #include "settings.h"
 
 #include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
 #include <QFileDialog>
+#include <QMessageBox>
+#include <QShortcut>
+#include <QTimer>
+#include <QInputDialog>
+#include <QCloseEvent>
 
 JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)
@@ -32,8 +38,23 @@ JsOptions::JsOptions(QWidget* parent)
 
     ui->setupUi(this);
 
+    if (!parent)
+        QzTools::centerWidgetOnScreen(this);
+
+    if (isRightToLeft()) {
+        ui->jswhiteList->setLayoutDirection(Qt::LeftToRight);
+        ui->jsblackList->setLayoutDirection(Qt::LeftToRight);
+    }
+    // Site Filtering
+    connect(ui->jsWhiteAdd, SIGNAL(clicked()), this, SLOT(jsAddWhitelist()));
+    connect(ui->jsWhiteRemove, SIGNAL(clicked()), this, SLOT(jsRemoveWhitelist()));
+    connect(ui->jsBlackAdd, SIGNAL(clicked()), this, SLOT(jsAddBlacklist()));
+    connect(ui->jsBlackRemove, SIGNAL(clicked()), this, SLOT(jsRemoveBlacklist()));
+    connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
+    connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
+
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("JavaScript-Settings");
     ui->jscanCloseWindow->setChecked(settings.value("allowJavaScriptCloseWindow", false).toBool());
     ui->jscanOpenWindow->setChecked(settings.value("allowJavaScriptOpenWindow", false).toBool());
     ui->jscanChangeSize->setChecked(settings.value("allowJavaScriptGeometryChange", true).toBool());
@@ -48,12 +69,101 @@ JsOptions::JsOptions(QWidget* parent)
 #endif
 //     Disable for now, as it does not do anything (yet)
     ui->jscanHideTool->setHidden(true);
+
+    QShortcut* removeShortcut = new QShortcut(QKeySequence("Del"), this);
+    connect(removeShortcut, SIGNAL(activated()), this, SLOT(deletePressed()));
+
+    QzTools::setWmClass("JavaScript", this);
+
+    QTimer::singleShot(0, this, SLOT(slotRefreshFilters()));
 }
 
-void JsOptions::accept()
+void JsOptions::slotRefreshFilters()
 {
+    ui->jswhiteList->clear();
+    ui->jsblackList->clear();
+
     Settings settings;
-    settings.beginGroup("Web-Browser-Settings");
+    settings.beginGroup("JavaScript-Settings");
+    QStringList jswhiteList = settings.value("jswhitelist", QStringList()).toStringList();
+    QStringList jsblackList = settings.value("jsblacklist", QStringList()).toStringList();
+    settings.endGroup();
+
+    ui->jswhiteList->addItems(jswhiteList);
+    ui->jsblackList->addItems(jsblackList);
+}
+
+void JsOptions::jsAddWhitelist()
+{
+    const QString server = QInputDialog::getText(this, tr("Add to whitelist"), tr("Server:"));
+
+    if (server.isEmpty()) {
+        return;
+    }
+
+    if (!ui->jsblackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already blacklisted!"), tr("The server \"%1\" is already in blacklist, please remove it first.").arg(server));
+        return;
+    }
+
+    if (ui->jswhiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        ui->jswhiteList->addItem(server);
+    }
+}
+
+void JsOptions::jsRemoveWhitelist()
+{
+    delete ui->jswhiteList->currentItem();
+}
+
+void JsOptions::jsAddBlacklist()
+{
+    const QString server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
+
+    if (server.isEmpty()) {
+        return;
+    }
+
+    if (!ui->jswhiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already whitelisted!"), tr("The server \"%1\" is already in whitelist, please remove it first.").arg(server));
+        return;
+    }
+
+    if (ui->jsblackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        ui->jsblackList->addItem(server);
+    }
+}
+
+void JsOptions::jsRemoveBlacklist()
+{
+    delete ui->jsblackList->currentItem();
+}
+
+void JsOptions::deletePressed()
+{
+    if (ui->jswhiteList->hasFocus()) {
+        jsRemoveWhitelist();
+    }
+    else if (ui->jsblackList->hasFocus()) {
+        jsRemoveBlacklist();
+    }
+}
+
+void JsOptions::closeEvent(QCloseEvent* e)
+{
+    QStringList jswhitelist;
+    QStringList jsblacklist;
+
+    for (int i = 0; i < ui->jswhiteList->count(); ++i) {
+        jswhitelist.append(ui->jswhiteList->item(i)->text());
+    }
+
+    for (int i = 0; i < ui->jsblackList->count(); ++i) {
+        jsblacklist.append(ui->jsblackList->item(i)->text());
+    }
+
+    Settings settings;
+    settings.beginGroup("JavaScript-Settings");
     settings.setValue("allowJavaScriptCloseWindow", ui->jscanCloseWindow->isChecked());
     settings.setValue("allowJavaScriptOpenWindow", ui->jscanOpenWindow->isChecked());
     settings.setValue("allowJavaScriptGeometryChange", ui->jscanChangeSize->isChecked());
@@ -61,9 +171,20 @@ void JsOptions::accept()
     settings.setValue("allowJavaScriptHideStatusBar", ui->jscanHideStatus->isChecked());
     settings.setValue("allowJavaScriptHideToolBar", ui->jscanHideTool->isChecked());
     settings.setValue("allowJavaScriptAccessClipboard", ui->jscanAccessClipboard->isChecked());
+    settings.setValue("jswhitelist", jswhitelist);
+    settings.setValue("jsblacklist", jsblacklist);
     settings.endGroup();
 
-    QDialog::close();
+    e->accept();
+}
+
+void JsOptions::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape) {
+        close();
+    }
+
+    QWidget::keyPressEvent(e);
 }
 
 JsOptions::~JsOptions()

@@ -78,6 +78,12 @@ WebPage::WebPage(QObject* parent)
 {
     m_javaScriptEnabled = QWebSettings::globalSettings()->testAttribute(QWebSettings::JavascriptEnabled);
 
+    Settings settings;
+    settings.beginGroup("JavaScript-Settings");
+    m_whitelist = settings.value("jswhitelist", QStringList()).toStringList();
+    m_blacklist = settings.value("jsblacklist", QStringList()).toStringList();
+    settings.endGroup();
+
     m_networkProxy = new NetworkManagerProxy(this);
     m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
     m_networkProxy->setPage(this);
@@ -222,10 +228,37 @@ bool WebPage::isLoading() const
     return m_loadProgress < 100;
 }
 
+bool WebPage::matchDomain(QString pageDomain, QString siteDomain) const
+{
+    // According to RFC 6265
+
+    // Remove leading dot
+    if (pageDomain.startsWith(QLatin1Char('.'))) {
+        pageDomain = pageDomain.mid(1);
+    }
+
+    if (siteDomain.startsWith(QLatin1Char('.'))) {
+        siteDomain = siteDomain.mid(1);
+    }
+
+    return QzTools::matchDomain(pageDomain, siteDomain);
+}
+
+bool WebPage::listMatchesDomain(const QStringList &list, const QString &pageDomain) const
+{
+    foreach (const QString &d, list) {
+        if (matchDomain(d, pageDomain)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 void WebPage::urlChanged(const QUrl &url)
 {
     // Make sure JavaScript is enabled for qupzilla pages regardless of user settings
-    if (url.scheme() == QLatin1String("qupzilla")) {
+    if (url.scheme() == QLatin1String("qupzilla") || listMatchesDomain(m_whitelist, url.host())) {
         settings()->setAttribute(QWebSettings::JavascriptEnabled, true);
     }
 
@@ -302,7 +335,7 @@ void WebPage::addJavaScriptObject()
 {
     // Make sure all other sites have JavaScript set by user preferences
     // (JavaScript is enabled in WebPage::urlChanged)
-    if (url().scheme() != QLatin1String("qupzilla")) {
+    if (url().scheme() != QLatin1String("qupzilla") && !listMatchesDomain(m_whitelist, url().host())) {
         settings()->setAttribute(QWebSettings::JavascriptEnabled, m_javaScriptEnabled);
     }
 

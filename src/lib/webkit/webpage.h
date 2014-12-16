@@ -119,6 +119,8 @@ protected:
     bool event(QEvent* event);
     QWebPage* createWindow(QWebPage::WebWindowType type);
     QObject* createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues);
+    bool matchDomain(QString pageDomain, QString siteDomain) const;
+    bool listMatchesDomain(const QStringList &list, const QString &pageDomain) const;
 
 private:
     bool supportsExtension(Extension extension) const;
@@ -152,6 +154,9 @@ private:
     bool m_secureStatus;
     bool m_javaScriptEnabled;
     bool m_adjustingScheduled;
+
+    QStringList m_whitelist;
+    QStringList m_blacklist;
 };
 
 #endif // WEBPAGE_H
