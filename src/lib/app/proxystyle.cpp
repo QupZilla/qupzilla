@@ -32,6 +32,9 @@ int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWid
     case QStyle::SH_ScrollBar_ContextMenu:
         return int(false);
 
+    case QStyle::SH_TabBar_Alignment:
+        return Qt::AlignLeft;
+
     default:
         return QProxyStyle::styleHint(hint, option, widget, returnData);
     }
