@@ -259,8 +259,8 @@ void CookieManager::addWhitelist()
         return;
     }
 
-    if (!ui->blackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
-        QMessageBox::information(this, tr("Already blacklisted!"), tr("The server \"%1\" is already in blacklist, please remove it first.").arg(server));
+    if (!ui->whiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already whitelisted!"), tr("The server \"%1\" is already in whitelist, please remove it first.").arg(server));
         return;
     }
 
@@ -282,8 +282,8 @@ void CookieManager::addBlacklist()
         return;
     }
 
-    if (!ui->whiteList->findItems(server, Qt::MatchFixedString).isEmpty()) {
-        QMessageBox::information(this, tr("Already whitelisted!"), tr("The server \"%1\" is already in whitelist, please remove it first.").arg(server));
+    if (!ui->blackList->findItems(server, Qt::MatchFixedString).isEmpty()) {
+        QMessageBox::information(this, tr("Already blacklisted!"), tr("The server \"%1\" is already in blacklist, please remove it first.").arg(server));
         return;
     }
 
