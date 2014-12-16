@@ -129,16 +129,28 @@ bool WebView::isTitleEmpty() const
     return QWebView::title().isEmpty();
 }
 
+static QString convertUrlToText(const QUrl &url)
+{
+    // It was most probably entered by user, so don't urlencode it
+    if (url.scheme().isEmpty()) {
+        return url.toString();
+    }
+
+    QString stringUrl = QzTools::urlEncodeQueryString(url);
+
+    if (stringUrl == QLatin1String("about:blank")) {
+        stringUrl.clear();
+    }
+
+    return stringUrl;
+}
+
 QUrl WebView::url() const
 {
     QUrl returnUrl = page()->url();
 
-    if (returnUrl.isEmpty()) {
+    if (convertUrlToText(returnUrl).isEmpty()) {
         returnUrl = m_aboutToLoadUrl;
-    }
-
-    if (returnUrl.toString() == QLatin1String("about:blank")) {
-        returnUrl = QUrl();
     }
 
     return returnUrl;
@@ -404,7 +416,8 @@ void WebView::editDelete()
 void WebView::reload()
 {
     m_isReloading = true;
-    if (QWebView::url().isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
+
+    if (convertUrlToText(QWebView::url()).isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         load(m_aboutToLoadUrl);
         return;
     }
