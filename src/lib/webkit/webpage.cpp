@@ -261,6 +261,9 @@ void WebPage::urlChanged(const QUrl &url)
     if (url.scheme() == QLatin1String("qupzilla") || listMatchesDomain(m_whitelist, url.host())) {
         settings()->setAttribute(QWebSettings::JavascriptEnabled, true);
     }
+    else if (listMatchesDomain(m_blacklist, url.host())) {
+        settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+    }
 
     if (isLoading()) {
         m_adBlockedEntries.clear();
@@ -335,7 +338,7 @@ void WebPage::addJavaScriptObject()
 {
     // Make sure all other sites have JavaScript set by user preferences
     // (JavaScript is enabled in WebPage::urlChanged)
-    if (url().scheme() != QLatin1String("qupzilla") && !listMatchesDomain(m_whitelist, url().host())) {
+    if (url().scheme() != QLatin1String("qupzilla") && !listMatchesDomain(m_whitelist, url().host()) && !listMatchesDomain(m_blacklist, url().host())) {
         settings()->setAttribute(QWebSettings::JavascriptEnabled, m_javaScriptEnabled);
     }
 
