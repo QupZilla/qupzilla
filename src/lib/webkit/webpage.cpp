@@ -823,22 +823,24 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
         }
         case QNetworkReply::ContentAccessDenied:
             if (exOption->errorString.startsWith(QLatin1String("AdBlock"))) {
-                if (exOption->frame != erPage->mainFrame()) { //Content in <iframe>
+                if (exOption->frame != erPage->mainFrame()) {
+                    // Content in <iframe>
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
                     QWebElementCollection elements;
                     elements.append(docElement.findAll("iframe"));
 
                     foreach (QWebElement element, elements) {
-                        QString src = element.attribute("src");
-                        if (exOption->url.toString().contains(src)) {
+                        const QString src = element.attribute("src");
+                        if (!src.isEmpty() && exOption->url.toString().contains(src)) {
                             element.setStyleProperty("visibility", "hidden");
                         }
                     }
 
                     return false;
                 }
-                else {   //The whole page is blocked
+                else {
+                    // The whole page is blocked
                     QString rule = exOption->errorString;
                     rule.remove(QLatin1String("AdBlock: "));
 
