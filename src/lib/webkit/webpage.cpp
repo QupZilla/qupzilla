@@ -828,12 +828,12 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
                     QWebElement docElement = erPage->mainFrame()->documentElement();
 
                     QWebElementCollection elements;
-                    elements.append(docElement.findAll("iframe"));
+                    elements.append(docElement.findAll(QSL("iframe")));
 
                     foreach (QWebElement element, elements) {
-                        const QString src = element.attribute("src");
+                        const QString src = element.attribute(QSL("src"));
                         if (!src.isEmpty() && exOption->url.toString().contains(src)) {
-                            element.setStyleProperty("visibility", "hidden");
+                            element.setStyleProperty(QSL("display"), QSL("none"));
                         }
                     }
 
