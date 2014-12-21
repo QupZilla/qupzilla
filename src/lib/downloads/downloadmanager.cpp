@@ -33,6 +33,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QDir>
+#include <QShortcut>
 
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
@@ -53,6 +54,9 @@ DownloadManager::DownloadManager(QWidget* parent)
     m_networkManager = mApp->networkManager();
 
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearList()));
+
+    QShortcut* clearShortcut = new QShortcut(QKeySequence("CTRL+L"), this);
+    connect(clearShortcut, SIGNAL(activated()), this, SLOT(clearList()));
 
     loadSettings();
 
