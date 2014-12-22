@@ -163,7 +163,8 @@ void BrowsingLibrary::closeEvent(QCloseEvent* e)
 
 void BrowsingLibrary::keyPressEvent(QKeyEvent* e)
 {
-    if (e->key() == Qt::Key_Escape) {
+    if (e->key() == Qt::Key_Escape
+        || (e->key() == Qt::Key_W && e->modifiers() == Qt::ControlModifier)) {
         close();
     }
 
