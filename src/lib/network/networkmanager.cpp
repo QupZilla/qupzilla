@@ -189,7 +189,7 @@ void NetworkManager::disableSSLv3(bool disable)
     tlsProtocol = QSsl::TlsV1;
     defaultProtocol = QSsl::TlsV1SslV3;
 #else
-    tlsProtocol = QSsl::TlsV1_0;
+    tlsProtocol = QSsl::TlsV1_2;
     defaultProtocol = QSsl::TlsV1SslV3;
 #endif
 
