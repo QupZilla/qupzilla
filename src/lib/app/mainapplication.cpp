@@ -118,8 +118,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     // QSQLITE database plugin is required
     if (!QSqlDatabase::isDriverAvailable(QSL("QSQLITE"))) {
-        QMessageBox::critical(0, QSL("Error"), QSL("Qt SQLite database plugin is not available. "
-                                                   "Please install it and restart the application."));
+        QMessageBox::critical(0, QSL("Error"), QSL("Qt SQLite database plugin is not available. Please install it and restart the application."));
         m_isClosing = true;
         return;
     }
