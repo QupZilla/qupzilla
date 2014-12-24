@@ -226,8 +226,8 @@ void GM_Manager::frameLoadStart()
                 frame->evaluateJavaScript(m_bootstrap + script->script());
             }
             else {
-                const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\","
-                                                "function(e) { \n%1\n }, true);")).arg(m_bootstrap + script->script());
+                const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\",function(e) { \n%1\n }, true);"))
+                        .arg(m_bootstrap + script->script());
                 frame->evaluateJavaScript(jscript);
             }
         }
