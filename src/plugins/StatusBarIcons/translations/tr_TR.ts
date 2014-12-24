@@ -70,7 +70,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Vekil Sunucu Ayarları</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="68"/>
@@ -288,7 +288,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="118"/>
         <source>Zoom widget</source>
-        <translation type="unfinished"/>
+        <translation>Yakınlaştırma aracı</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../sbi_zoomwidget.cpp" line="47"/>
         <source>Zoom: %1%</source>
-        <translation type="unfinished"/>
+        <translation>Yakınlaştırma: %1%</translation>
     </message>
 </context>
 </TS>

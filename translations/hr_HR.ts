@@ -1065,83 +1065,83 @@ Instalirajte najnoviju inačicu QupZille.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="125"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="132"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="340"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="347"/>
         <source>IP Address of current page</source>
         <translation>IP adresa trenutne stranice</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="654"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="661"/>
         <source> (Private Browsing)</source>
         <translation>(Privatno pregledavanje)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="906"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="913"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="967"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="974"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Traka izbornika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="972"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="979"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>&amp;Navigacijska traka</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="976"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="983"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Traka zabilješki</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="982"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="989"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Kartice na vrhu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1031"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Other</source>
         <translation>Ostalo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1078"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
         <source>HTML files</source>
         <translation>HTML datoteke</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1078"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
         <source>Image files</source>
         <translation>Datoteke slika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1078"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
         <source>Text files</source>
         <translation>Tekstovne datoteke</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1078"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
         <source>All files</source>
         <translation>Sve datoteke</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1080"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1087"/>
         <source>Open file...</source>
         <translation>Otvori datoteku...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1190"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1197"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="170"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1444"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1451"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
         <translation><numerusform>Još uvijek je otvorena %n kartica stoga vaša sesija neće biti spremljena. 
@@ -1150,12 +1150,12 @@ Sigurno želite zatvoriti prozor?</numerusform><numerusform>Još uvijek je otvor
 Sigurno želite zatvoriti prozor?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1445"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1452"/>
         <source>Don&apos;t ask again</source>
         <translation>Ne pitaj ponovno</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1446"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1453"/>
         <source>There are still open tabs</source>
         <translation>Još uvijek ima otvorenih kartica</translation>
     </message>
@@ -1466,7 +1466,7 @@ Sigurno želite zatvoriti prozor?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="256"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="271"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
         <source>Server:</source>
         <translation>Poslužitelj:</translation>
     </message>
@@ -1649,9 +1649,29 @@ Sigurno želite zatvoriti prozor?</numerusform></translation>
         <translation>Dodaj na dopušteni popis</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="271"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <source>Already blacklisted!</source>
+        <translation>Već je na zabranjenom popisu!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
+        <translation>Poslužitelj &quot;%1&quot; je već na zabranjenom popisu, prvo ga morate ukloniti.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
         <source>Add to blacklist</source>
         <translation>Dodaj na zabranjeni popis</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <source>Already whitelisted!</source>
+        <translation>Već je na dopuštenom popisu!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
+        <translation>Poslužitelj &quot;%1&quot; je već na dopuštenom popisu, prvo ga morate ukloniti.</translation>
     </message>
 </context>
 <context>
@@ -2528,17 +2548,17 @@ nije pronađena!</translation>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="145"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="149"/>
         <source>Enter URL address or search on %1</source>
         <translation>Upiši URL adresu ili pretragu na %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="365"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="372"/>
         <source>Paste And &amp;Go</source>
         <translation>Zalijepi i &amp;idi</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="535"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="537"/>
         <source>.co.uk</source>
         <comment>Append domain name on ALT + Enter = Should be different for every country</comment>
         <translation>.co.uk</translation>
@@ -2560,22 +2580,22 @@ nije pronađena!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1055"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1065"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla trenutno nije vaš zadani preglednik. Želite li ga postaviti za vaš zadani pregledink?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Uvijek pokreni ovu provjeru kad se QupZilla pokrene.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1058"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
         <source>Default Browser</source>
         <translation>Zadani preglednik</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1104"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla je nov, brz i siguran internetski preglednik otvorenog kôda. QupZilla je licencirana pod GPL inačice 3 ili (po vašem mišljenju) svake kasnije inačice. Temeljena je na WebKit jezgri i Qt Frameworku.</translation>
     </message>
@@ -2966,96 +2986,96 @@ nije pronađena!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="226"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
         <source>SSL Certificate Error!</source>
         <translation>Greška SSL certifikata!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="227"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Stranica kojoj pokušavate pristupiti ima sljedeće greške u SSL certifikatu:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="258"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizacija: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="244"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Naziv domene: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="262"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Datum isteka: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="252"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Greška: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Želite li učiniti iznimku za ovaj certifikat?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="300"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
         <source>Authorisation required</source>
         <translation>Potrebna autorizacija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="486"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="323"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="430"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="502"/>
         <source>Username: </source>
         <translation>Korisničko ime:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="308"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="415"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="487"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="324"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="503"/>
         <source>Password: </source>
         <translation>Lozinka:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="313"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="329"/>
         <source>Save username and password on this site</source>
         <translation>Spremi korisničko ime i lozinku za ovu stranicu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="322"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="338"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Korisničko ime i lozinku zahtijeva %1. Ova stranica navodi: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="407"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="423"/>
         <source>FTP authorisation required</source>
         <translation>Potrebna autorizacija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="420"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="436"/>
         <source>Login anonymously</source>
         <translation>Anonimna prijava</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="437"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="453"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Korisničko ime i lozinku zahtijeva %1:%2.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="479"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
         <source>Proxy authorisation required</source>
         <translation>Potrebna proxy autorizacija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="499"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="515"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Zapamti korisničko ime i lozinku za ovaj proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="501"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="517"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Korisničko ime i lozinku zahtijeva proxy %1. </translation>
     </message>
@@ -4044,7 +4064,7 @@ nije pronađena!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation>Ako je odznačeno, spriječava slučajan izlaz iz aplikacije ako je Ctrl-W prečac upotrijebljen.</translation>
+        <translation>Ako je odznačeno, sprječava slučajan izlaz iz aplikacije ako je Ctrl-W prečac upotrijebljen.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2006"/>
@@ -5194,38 +5214,43 @@ Probajte ju pokreniti s administratorskim ovlastima! ;)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
-        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
-        <translation>&lt;b&gt;NAPOMENA:&lt;/b&gt; postavljanje ove mogućnosti je visokosigurnosni rizik!</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
         <source>Ignore all SSL Warnings</source>
         <translation>Zanemari sva SSL upozorenja</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="185"/>
         <source>Disable weak ciphers</source>
         <translation>Onemogući slabe šifre</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="192"/>
+        <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
+        <translation>&lt;b&gt;NAPOMENA:&lt;/b&gt; postavljanje ove mogućnosti je visokosigurnosni rizik!</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="231"/>
+        <source>Disable SSLv3</source>
+        <translation>Onemogući SSLv3</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="253"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Svi certifikati moraju imati .crt sufiks.
 Nakon dodavanja ili uklanjanja putanja certifikata, potrebno je ponovno pokretanje QupZille za primjenu novih promjena.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="65"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="67"/>
         <source>Choose path...</source>
         <translation>Odaberi putanju...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="136"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="138"/>
         <source>Import certificate...</source>
         <translation>Uvezi certifikate...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="167"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="169"/>
         <source>Certificate Informations</source>
         <translation>Informacije certifikata</translation>
     </message>
@@ -5990,7 +6015,6 @@ Nakon dodavanja ili uklanjanja putanja certifikata, potrebno je ponovno pokretan
     </message>
     <message numerus="yes">
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tab(s)</source>
         <translation><numerusform>Trenutno imate %n otvorenu karticu</numerusform><numerusform>Trenutno imate %n otvorene kartice</numerusform><numerusform>Trenutno imate %n otvorenih kartica</numerusform></translation>
     </message>
@@ -6008,6 +6032,11 @@ Nakon dodavanja ili uklanjanja putanja certifikata, potrebno je ponovno pokretan
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="305"/>
         <source>Clear list</source>
         <translation>Obriši popis</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
+        <source>Currently you have %n opened tabs</source>
+        <translation><numerusform>Trenutno imate %n otvorenu karticu</numerusform><numerusform>Trenutno imate %n otvorene kartice</numerusform><numerusform>Trenutno imate %n otvorenih kartica</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="819"/>

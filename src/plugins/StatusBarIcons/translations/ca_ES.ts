@@ -4,12 +4,12 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation>Modificar ajustaments de càrrega d&apos;imatges de forma global i per lloc</translation>
+        <translation>Modifica els ajustaments de càrrega d&apos;imatges globalment i per lloc</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
-        <translation>Configura la pàgina actual</translation>
+        <source>Current Page Settings</source>
+        <translation>Ajustaments actuals de la pàgina</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -23,8 +23,8 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
-        <translation>Preferències globals</translation>
+        <source>Global Settings</source>
+        <translation>Ajustaments globals</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="68"/>
@@ -37,30 +37,30 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation>Modificar els ajustaments de JavaScript de forma global i per lloc</translation>
+        <translation>Modifica els ajustaments de JavaScript globalment i per lloc</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
-        <translation>Configura la pàgina actual</translation>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
+        <translation>Ajustaments actuals de la pàgina</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Deshabilita JavaScript (temporalment)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Habilita JavaScript (temporalment)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
-        <translation>Preferències globals</translation>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
+        <translation>Ajustaments globals</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Configura JavaScript</translation>
     </message>
@@ -69,7 +69,7 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
+        <source>Proxy Configuration</source>
         <translation>Configuració del servidor intermediari</translation>
     </message>
     <message>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="99"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>Mostra l&apos;estat de la xarxa i gestiona el servidor intermediari&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Xarxa:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
+        <translation>Mostra l&apos;estat de la xarxa i gestiona el servidor intermediari&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Xarxa:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Servidor intermediari:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="102"/>
@@ -149,17 +149,17 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>Sense servidors intermediaris. Pot afegir-ne clicant al botó d&apos;&lt;b&gt;Afegeix&lt;/b&gt;.</translation>
+        <translation>No hi ha servidors intermediaris. Podeu afegir-ne clicant al botó d&apos;&lt;b&gt;Afegeix&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
         <source>All changes must be saved with &lt;b&gt;Save&lt;/b&gt; button.</source>
-        <translation>Tots els canvis s&apos;han de guardar amb el botó  &lt;b&gt;Desa&lt;/b&gt;</translation>
+        <translation>Tots els canvis s&apos;han de guardar amb el botó  &lt;b&gt;Desa&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="55"/>
         <source>Name of proxy:</source>
-        <translation>Nom del servidor intermediari</translation>
+        <translation>Nom del servidor intermediari:</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="68"/>
@@ -230,7 +230,7 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="146"/>
         <source>Use script for automatic configuration:</source>
-        <translation>Utilitza un script per la configuració automàtica</translation>
+        <translation>Utilitza un script per la configuració automàtica:</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="153"/>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>Aquestes icones es mostraran a la barra d&apos;estat</translation>
+        <translation>Aquestes icones es mostraran a la barra d&apos;estat:</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
@@ -288,7 +288,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="118"/>
         <source>Zoom widget</source>
-        <translation>Ampliar widget</translation>
+        <translation>Giny de zoom</translation>
     </message>
 </context>
 <context>

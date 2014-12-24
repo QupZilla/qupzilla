@@ -59,17 +59,17 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="116"/>
         <source>Rocker Navigation:</source>
-        <translation type="unfinished"/>
+        <translation>Rocker Navigation:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="123"/>
         <source>Enable Rocker Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Rocker Navigation&apos;ı Aktif Et</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>
         <source>Press and hold the mouse button and move your mouse in the indicated directions.</source>
-        <translation type="unfinished"/>
+        <translation>Farenin tuşuna basılı tutun ve fareyi belirttiğiniz yöne taşıyın.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="250"/>

@@ -8,7 +8,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation>Impostazioni pagina attuale</translation>
     </message>
     <message>
@@ -23,7 +23,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation>Impostazioni globali</translation>
     </message>
     <message>
@@ -40,27 +40,27 @@
         <translation>Modifica le impostazioni JavaScript per siti specifici e globalmente</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
-        <translation>Impostazioni per la pagina attuale</translation>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
+        <translation>Impostazioni pagina attuale</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Disattiva JavaScript (temporaneamente)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Attiva JavaScript (temporaneamente)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
         <translation>Impostazioni globali</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Gestisci le impostazioni di JavaScript</translation>
     </message>
@@ -69,7 +69,7 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
+        <source>Proxy Configuration</source>
         <translation>Configurazione proxy</translation>
     </message>
     <message>

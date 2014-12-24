@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="155"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&quot;%1&quot; já está instalado</translation>
     </message>

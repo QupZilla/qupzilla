@@ -14,22 +14,22 @@
     <message>
         <location filename="../akn_settings.ui" line="33"/>
         <source>Ctrl</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="38"/>
         <source>Alt</source>
-        <translation type="unfinished"/>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="43"/>
         <source>Shift</source>
-        <translation type="unfinished"/>
+        <translation>Skift</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="51"/>
         <source>Double press</source>
-        <translation type="unfinished"/>
+        <translation>Dobbeltklik</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="58"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../akn_settings.ui" line="103"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>License</translation>
     </message>
 </context>
 </TS>

@@ -9,12 +9,12 @@
     <message>
         <location filename="../testplugin.cpp" line="132"/>
         <source>Example Plugin Settings</source>
-        <translation>Primjer postavki priključka</translation>
+        <translation>Postavke probnog priključka</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="160"/>
         <source>My first plugin action</source>
-        <translation>Moja prva radnja priključkom</translation>
+        <translation> Radnja mojeg prvog priključka</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="175"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../testplugin.cpp" line="175"/>
         <source>First plugin action works :-)</source>
-        <translation>Prva radnja priključkom radi :-)</translation>
+        <translation>Radnja prvog priključka radi :-)</translation>
     </message>
 </context>
 <context>
@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation>Testiranje bočne trake</translation>
+        <translation>Probna bočna traka</translation>
     </message>
 </context>
 </TS>

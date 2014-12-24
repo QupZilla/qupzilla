@@ -74,7 +74,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="115"/>
         <source>Insert Personal Information</source>
-        <translation>Inseriu la vostra informació personal</translation>
+        <translation>Introduïu la vostra informació personal</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="136"/>

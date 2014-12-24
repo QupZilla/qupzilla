@@ -14,12 +14,12 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="73"/>
         <source>You are about to install this userscript into GreaseMonkey:</source>
-        <translation>Está prestes a instalar este &quot;script&quot; no GreaseMonkey:</translation>
+        <translation>Está prestes a instalar este script no GreaseMonkey:</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Só deve instalar &quot;scripts&quot; de fontes em que confia!&lt;b/&gt;</translation>
+        <translation>&lt;b&gt;Só deve instalar scripts de fontes em que confia!&lt;b/&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="114"/>
         <source>Show source code of script</source>
-        <translation>Mostrar código fonte do &quot;script&quot;</translation>
+        <translation>Mostrar código fonte do script</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="49"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
-        <translation>Não foi possível instalar o &quot;script&quot;</translation>
+        <translation>Não foi possível instalar o script</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="86"/>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="155"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&quot;%1&quot; já está instalado</translation>
     </message>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation>Este &quot;script&quot; não pode ser instalado pelo GreaseMonkey.</translation>
+        <translation>Este script não pode ser instalado pelo GreaseMonkey.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../gm_notification.cpp" line="50"/>
         <source>Cannot install script</source>
-        <translation>Não foi possível instalar o &quot;script&quot;</translation>
+        <translation>Não foi possível instalar o script</translation>
     </message>
     <message>
         <location filename="../gm_notification.cpp" line="58"/>
@@ -104,32 +104,32 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="14"/>
         <source>GreaseMonkey Scripts</source>
-        <translation>&quot;Scripts&quot; GreaseMonkey</translation>
+        <translation>Scripts GreaseMonkey</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Scripts&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;&quot;Scripts&quot; GreaseMonkey&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Scripts GreaseMonkey&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Clique duas vezes no &quot;script&quot; para ver os seus detalhes</translation>
+        <translation>Clique duas vezes no script para ver os seus detalhes</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
         <source>More scripts can be downloaded from</source>
-        <translation>Pode transferir mais &quot;scripts&quot; em</translation>
+        <translation>Pode transferir mais scripts em</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="196"/>
         <source>Open scripts directory</source>
-        <translation>Abrir diretório de &quot;scripts&quot;</translation>
+        <translation>Abrir diretório de scripts</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="75"/>
         <source>Remove script</source>
-        <translation>Remover &quot;script&quot;</translation>
+        <translation>Remover script</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="76"/>

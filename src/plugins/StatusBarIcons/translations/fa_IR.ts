@@ -8,8 +8,8 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
-        <translation>تنظیمات صفحه جاری</translation>
+        <source>Current Page Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -23,8 +23,8 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
-        <translation>تنظیمات سراسری</translation>
+        <source>Global Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="68"/>
@@ -40,27 +40,27 @@
         <translation>ویرایش تنظیمات جاوا-اسکریپت بر-تارنما و سراسری</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
-        <translation>تنظیمات صفحه جاری</translation>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>غیرفعال کردن جاوا-اسکریپت (موقتی)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>فعال کردن جاوا-اسکریپت (موقتی)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
-        <translation>تنظیمات سراسری</translation>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>مدیریت تنظیمات جاوا اسکریپت</translation>
     </message>
@@ -69,8 +69,8 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
-        <translation>پیکربندی پروکسی</translation>
+        <source>Proxy Configuration</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="68"/>

@@ -4,17 +4,17 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="14"/>
         <source>GreaseMonkey Installation</source>
-        <translation>Instal·lació de GreaseMonkey</translation>
+        <translation>Instal·lació del GreaseMonkey</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Installation&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Instal·lació de GreaseMonkey&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Instal·lació del GreaseMonkey&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="73"/>
         <source>You are about to install this userscript into GreaseMonkey:</source>
-        <translation>Esteu a punt d&apos;instal·lar aquest script d&apos;usuari a GreaseMonkey:</translation>
+        <translation>Esteu a punt d&apos;instal·lar aquest script d&apos;usuari al GreaseMonkey:</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="155"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; ja està instal·lat</translation>
     </message>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation>Preferències de GreaseMonkey</translation>
+        <translation>Preferències del GreaseMonkey</translation>
     </message>
 </context>
 <context>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="14"/>
         <source>GreaseMonkey Scripts</source>
-        <translation>Scripts de GreaseMonkey</translation>
+        <translation>Scripts del GreaseMonkey</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Scripts&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Scripts de GreaseMonkey&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Scripts del GreaseMonkey&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>

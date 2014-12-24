@@ -8,8 +8,8 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
-        <translation>Поточні налаштування сторінок</translation>
+        <source>Current Page Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -23,8 +23,8 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
-        <translation>Загальні налаштування</translation>
+        <source>Global Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="68"/>
@@ -40,27 +40,27 @@
         <translation>Змініть налаштування JavaScript посайтово і загалом</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
-        <translation>Поточні налаштування сторінок</translation>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Заборонити JavaScript (тимчасово)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Дозволити JavaScript (тимчасово)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
-        <translation>Загальні налаштування</translation>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Керувати нааштуваннями JavaScript</translation>
     </message>
@@ -69,8 +69,8 @@
     <name>SBI_NetworkIcon</name>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
-        <translation>Конфігурація proxy</translation>
+        <source>Proxy Configuration</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="68"/>
