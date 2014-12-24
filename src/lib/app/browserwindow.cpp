@@ -1093,6 +1093,10 @@ void BrowserWindow::openFile()
 
 void BrowserWindow::openLocation()
 {
+    if (isFullScreen()) {
+        showNavigationWithFullScreen();
+    }
+
     locationBar()->setFocus();
     locationBar()->selectAll();
 }
