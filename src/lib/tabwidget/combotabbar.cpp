@@ -930,6 +930,7 @@ TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     , m_isPinnedTabBar(isPinnedTabBar)
     , m_useFastTabSizeHint(false)
 {
+    connect(this, SIGNAL(tabMoved(int,int)), this, SLOT(tabWasMoved(int,int)));
 }
 
 void TabBarHelper::setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget)
@@ -1181,9 +1182,13 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
 void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 {
     event->ignore();
+    if (event->button() != Qt::LeftButton) {
+        return;
+    }
+
     QTabBar::mouseReleaseEvent(event);
 
-    if (m_pressedIndex >= 0) {
+    if (m_pressedIndex >= 0 && m_pressedIndex < count()) {
         const int length = qAbs(m_pressedGlobalX - event->globalX());
         const int duration = qMin((length * ANIMATION_DURATION) / tabRect(m_pressedIndex).width(), ANIMATION_DURATION);
         QTimer::singleShot(duration, this, SLOT(resetDragState()));
@@ -1228,6 +1233,43 @@ void TabBarHelper::resetDragState()
         update();
     }
 }
+
+void TabBarHelper::tabWasMoved(int from, int to)
+{
+    if (m_pressedIndex != -1) {
+        if (m_pressedIndex == from) {
+            m_pressedIndex = to;
+        }
+        else {
+            const int start = qMin(from, to);
+            const int end = qMax(from, to);
+
+            if (m_pressedIndex >= start && m_pressedIndex <= end) {
+                m_pressedIndex += (from < to) ? -1 : 1;
+            }
+        }
+    }
+}
+
+void TabBarHelper::tabInserted(int index)
+{
+    if (m_pressedIndex != -1 && index <= m_pressedIndex) {
+        ++m_pressedIndex;
+    }
+}
+
+void TabBarHelper::tabRemoved(int index)
+{
+    if (m_pressedIndex != -1) {
+        if (index < m_pressedIndex) {
+            --m_pressedIndex;
+        }
+        else if (index == m_pressedIndex) {
+            m_pressedIndex = -1;
+        }
+    }
+}
+
 
 TabScrollBar::TabScrollBar(QWidget* parent)
     : QScrollBar(Qt::Horizontal, parent)

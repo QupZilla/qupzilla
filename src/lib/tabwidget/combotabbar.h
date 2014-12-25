@@ -237,6 +237,7 @@ public slots:
 
 private slots:
     void resetDragState();
+    void tabWasMoved(int from, int to);
 
 private:
     bool event(QEvent* ev);
@@ -245,6 +246,9 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 
     void initStyleOption(QStyleOptionTab* option, int tabIndex) const;
+
+    void tabInserted(int index);
+    void tabRemoved(int index);
 
     ComboTabBar* m_comboTabBar;
     QScrollArea* m_scrollArea;
