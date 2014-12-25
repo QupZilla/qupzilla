@@ -24,7 +24,6 @@
 
 #include <QWebSecurityOrigin>
 #include <QFileIconProvider>
-#include <QTextStream>
 #include <QDateTime>
 #include <QDir>
 
@@ -43,7 +42,7 @@ QNetworkReply* FtpSchemeHandler::createRequest(QNetworkAccessManager::Operation 
         return 0;
     }
 
-    QNetworkReply* reply = new FtpSchemeReply(request);
+    QNetworkReply* reply = new FtpSchemeReply(request.url());
     return reply;
 }
 
@@ -63,14 +62,14 @@ QAuthenticator* FtpSchemeHandler::ftpAuthenticator(const QUrl &url)
     return m_ftpAuthenticatorsCache.value(key);
 }
 
-FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
+FtpSchemeReply::FtpSchemeReply(const QUrl &url, QObject* parent)
     : QNetworkReply(parent)
     , m_ftpLoginId(-1)
     , m_ftpCdId(-1)
     , m_port(21)
     , m_anonymousLoginChecked(false)
-    , m_request(request)
     , m_isGoingToDownload(false)
+    , m_isContentTypeDetected(false)
 {
     m_ftp = new QFtp(this);
     connect(m_ftp, SIGNAL(listInfo(QUrlInfo)), this, SLOT(processListInfo(QUrlInfo)));
@@ -78,14 +77,15 @@ FtpSchemeReply::FtpSchemeReply(const QNetworkRequest &request, QObject* parent)
     connect(m_ftp, SIGNAL(commandFinished(int,bool)), this, SLOT(processCommand(int,bool)));
     connect(m_ftp, SIGNAL(dataTransferProgress(qint64,qint64)), this, SIGNAL(downloadProgress(qint64,qint64)));
 
-    m_buffer.open(QIODevice::ReadWrite);
-
-    if (request.url().port() != -1) {
-        m_port = request.url().port();
+    if (url.port() != -1) {
+        m_port = url.port();
     }
 
-    setUrl(request.url());
-    m_ftp->connectToHost(request.url().host(), m_port);
+    m_offset = 0;
+    setUrl(url);
+    m_ftp->connectToHost(url.host(), m_port);
+
+    open(ReadOnly);
 }
 
 void FtpSchemeReply::processCommand(int id, bool err)
@@ -126,19 +126,19 @@ void FtpSchemeReply::processCommand(int id, bool err)
                 if (item.name() == m_probablyFileForDownload) {
                     QByteArray decodedUrl = QByteArray::fromPercentEncoding(url().toString().toUtf8());
                     if (QzTools::isUtf8(decodedUrl.constData())) {
-                        m_request.setUrl(QUrl(QString::fromUtf8(decodedUrl)));
+                        setUrl(QUrl(QString::fromUtf8(decodedUrl)));
                     }
                     else {
-                        m_request.setUrl(QUrl(QString::fromLatin1(decodedUrl)));
+                        setUrl(QUrl(QString::fromLatin1(decodedUrl)));
                     }
-                    emit downloadRequest(m_request);
-                    abort();
+
+                    m_offset = 0;
+                    m_ftp->get(url().path());
                     break;
                 }
             }
             m_probablyFileForDownload.clear();
             m_isGoingToDownload = false;
-            abort();
         }
         else {
             loadPage();
@@ -166,22 +166,47 @@ void FtpSchemeReply::processListInfo(QUrlInfo urlInfo)
 
 void FtpSchemeReply::processData()
 {
-    open(ReadOnly | Unbuffered);
-    QTextStream stream(&m_buffer);
-    stream.setCodec("UTF-8");
+    QByteArray data = m_ftp->readAll();
 
-    stream << m_ftp->readAll();
+    m_buffer += data;
 
-    stream.flush();
-    m_buffer.reset();
+    if (!m_isContentTypeDetected && !data.isEmpty()) {
+        data = m_buffer.size() < 1000 ? m_buffer : data;
+        data.truncate(1000);
+        data = data.simplified();
+        m_contentSampleData += QString::fromUtf8(data).simplified();
 
-    setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
+        if (m_contentSampleData.size() > 500) {
+            bool isContentText = true;
+
+            for (int i = 0; i < m_contentSampleData.size(); ++i) {
+                if (!m_contentSampleData.at(i).isPrint()) {
+                    isContentText = false;
+                    break;
+                }
+            }
+
+            //TODO: also request download for large text file
+
+            m_contentSampleData.clear();
+            m_isContentTypeDetected = true;
+
+            if (!isContentText) {
+                // request has unsupported content
+                m_buffer.clear();
+                emit downloadRequest(QNetworkRequest(url()));
+                abort();
+                return;
+            }
+        }
+    }
+
+    setHeader(QNetworkRequest::ContentLengthHeader, QVariant(m_buffer.size()));
     emit metaDataChanged();
 }
 
 void FtpSchemeReply::setContent()
 {
-    open(ReadOnly | Unbuffered);
     setHeader(QNetworkRequest::ContentLengthHeader, QVariant(m_buffer.size()));
     emit readyRead();
     emit finished();
@@ -198,7 +223,7 @@ void FtpSchemeReply::abort()
 
 qint64 FtpSchemeReply::bytesAvailable() const
 {
-    return m_buffer.bytesAvailable() + QNetworkReply::bytesAvailable();
+    return m_buffer.size() - m_offset + QNetworkReply::bytesAvailable();
 }
 
 bool FtpSchemeReply::isSequential() const
@@ -208,23 +233,28 @@ bool FtpSchemeReply::isSequential() const
 
 qint64 FtpSchemeReply::readData(char* data, qint64 maxSize)
 {
-    return m_buffer.read(data, maxSize);
+    if (m_offset < m_buffer.size()) {
+        qint64 size = qMin(maxSize, m_buffer.size() - m_offset);
+        memcpy(data, m_buffer.constData() + m_offset, size);
+        m_offset += size;
+
+        return size;
+    }
+    else {
+        return -1;
+    }
 }
 
 void FtpSchemeReply::loadPage()
 {
     QWebSecurityOrigin::addLocalScheme("ftp");
     open(ReadOnly | Unbuffered);
-    QTextStream stream(&m_buffer);
-    stream.setCodec("UTF-8");
 
-    stream << loadDirectory();
-
-    stream.flush();
-    m_buffer.reset();
+    m_offset = 0;
+    m_buffer = loadDirectory().toUtf8();
 
     setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("text/html"));
-    setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
+    setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.size());
     setAttribute(QNetworkRequest::HttpStatusCodeAttribute, 200);
     setAttribute(QNetworkRequest::HttpReasonPhraseAttribute, QByteArray("Ok"));
     emit metaDataChanged();

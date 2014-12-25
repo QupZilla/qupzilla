@@ -55,7 +55,7 @@ class QUPZILLA_EXPORT FtpSchemeReply : public QNetworkReply
     Q_OBJECT
 
 public:
-    FtpSchemeReply(const QNetworkRequest &request, QObject* parent = 0);
+    FtpSchemeReply(const QUrl &url, QObject* parent = 0);
     void abort();
     qint64 bytesAvailable() const;
     bool isSequential() const;
@@ -80,11 +80,14 @@ private:
     int m_ftpLoginId;
     int m_ftpCdId;
     int m_port;
-    QBuffer m_buffer;
     bool m_anonymousLoginChecked;
-    QNetworkRequest m_request;
     QString m_probablyFileForDownload;
     bool m_isGoingToDownload;
+
+    QByteArray m_buffer;
+    qint64 m_offset;
+    bool m_isContentTypeDetected;
+    QString m_contentSampleData;
 
 signals:
     void ftpAuthenticationRequierd(const QUrl &, QAuthenticator*);
