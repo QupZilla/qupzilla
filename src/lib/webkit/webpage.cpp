@@ -350,6 +350,12 @@ void WebPage::handleUnsupportedContent(QNetworkReply* reply)
             return;
         }
 
+        if (url.scheme() == QLatin1String("ftp")) {
+            DownloadManager* dManager = mApp->downloadManager();
+            dManager->handleUnsupportedContent(reply, this);
+            return;
+        }
+
         qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
         desktopServicesOpen(url);
 
