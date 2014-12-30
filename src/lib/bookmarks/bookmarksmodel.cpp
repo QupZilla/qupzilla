@@ -192,6 +192,12 @@ QStringList BookmarksModel::mimeTypes() const
     return types;
 }
 
+#if QT_VERSION < 0x050000
+#define QMODELINDEX_INTERNALID_TYPE quint32
+#else
+#define QMODELINDEX_INTERNALID_TYPE quintptr
+#endif
+
 QMimeData* BookmarksModel::mimeData(const QModelIndexList &indexes) const
 {
     QMimeData* mimeData = new QMimeData();
@@ -202,7 +208,7 @@ QMimeData* BookmarksModel::mimeData(const QModelIndexList &indexes) const
     foreach (const QModelIndex &index, indexes) {
         // If item's parent (=folder) is also selected, we will just move the whole folder
         if (index.isValid() && index.column() == 0 && !indexes.contains(index.parent())) {
-            stream << index.row() << index.internalId();
+            stream << index.row() << (QMODELINDEX_INTERNALID_TYPE) index.internalId();
         }
     }
 
@@ -231,14 +237,10 @@ bool BookmarksModel::dropMimeData(const QMimeData* data, Qt::DropAction action, 
 
     while (!stream.atEnd()) {
         int row;
-
-#if QT_VERSION < 0x050000
-        qint64 id;
-#else
-        quintptr id;
-#endif
+        QMODELINDEX_INTERNALID_TYPE id;
 
         stream >> row >> id;
+
         QModelIndex index = createIndex(row, 0, id);
         BookmarkItem* itm = item(index);
 
