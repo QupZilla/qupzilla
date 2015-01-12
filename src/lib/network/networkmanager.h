@@ -55,9 +55,6 @@ public:
     bool isDisablingWeakCiphers() const;
     void setDisableWeakCiphers(bool state);
 
-    bool isDisablingSSLv3() const;
-    void setDisableSSLv3(bool state);
-
     NetworkProxyFactory* proxyFactory() const;
 
     bool registerSchemeHandler(const QString &scheme, SchemeHandler* handler);
@@ -75,7 +72,6 @@ private slots:
 
 private:
     void disableWeakCiphers(bool disable);
-    void disableSSLv3(bool disable);
 
     AdBlockManager* m_adblockManager;
     NetworkProxyFactory* m_proxyFactory;
@@ -90,7 +86,6 @@ private:
 
     bool m_ignoreAllWarnings;
     bool m_disableWeakCiphers;
-    bool m_disableSSLv3;
     bool m_doNotTrack;
     bool m_sendReferer;
 };

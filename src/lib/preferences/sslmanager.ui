@@ -172,21 +172,7 @@
        </item>
        <item row="7" column="0" colspan="2">
         <layout class="QGridLayout" name="gridLayout_4">
-         <item row="2" column="0" colspan="3">
-          <widget class="QCheckBox" name="ignoreAll">
-           <property name="text">
-            <string>Ignore all SSL Warnings</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" colspan="3">
-          <widget class="QCheckBox" name="disableWeakCiphers">
-           <property name="text">
-            <string>Disable weak ciphers</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
+         <item row="2" column="1">
           <widget class="QLabel" name="label_4">
            <property name="text">
             <string>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</string>
@@ -196,7 +182,7 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="2" column="0">
           <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -212,7 +198,7 @@
            </property>
           </spacer>
          </item>
-         <item row="4" column="2">
+         <item row="2" column="2">
           <spacer name="horizontalSpacer_2">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -225,10 +211,17 @@
            </property>
           </spacer>
          </item>
-         <item row="0" column="0" colspan="3">
-          <widget class="QCheckBox" name="disableSSLv3">
+         <item row="1" column="0" colspan="3">
+          <widget class="QCheckBox" name="ignoreAll">
            <property name="text">
-            <string>Disable SSLv3</string>
+            <string>Ignore all SSL Warnings</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="3">
+          <widget class="QCheckBox" name="disableWeakCiphers">
+           <property name="text">
+            <string>Disable weak ciphers</string>
            </property>
           </widget>
          </item>

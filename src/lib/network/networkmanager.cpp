@@ -73,7 +73,6 @@ NetworkManager::NetworkManager(QObject* parent)
     , m_adblockManager(0)
     , m_ignoreAllWarnings(false)
     , m_disableWeakCiphers(true)
-    , m_disableSSLv3(true)
 {
     connect(this, SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)), this, SLOT(authentication(QNetworkReply*,QAuthenticator*)));
     connect(this, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)), this, SLOT(proxyAuthentication(QNetworkProxy,QAuthenticator*)));
@@ -175,27 +174,6 @@ void NetworkManager::disableWeakCiphers(bool disable)
     else {
         QSslSocket::setDefaultCiphers(QSslSocket::supportedCiphers());
     }
-}
-
-void NetworkManager::disableSSLv3(bool disable)
-{
-    QSsl::SslProtocol tlsProtocol;
-    QSsl::SslProtocol defaultProtocol;
-
-#if QT_VERSION < QT_VERSION_CHECK(4,8,0)
-    tlsProtocol = QSsl::TlsV1;
-    defaultProtocol = QSsl::SslV3;
-#elif QT_VERSION < QT_VERSION_CHECK(5,0,0)
-    tlsProtocol = QSsl::TlsV1;
-    defaultProtocol = QSsl::TlsV1SslV3;
-#else
-    tlsProtocol = QSsl::TlsV1_0;
-    defaultProtocol = QSsl::TlsV1SslV3;
-#endif
-
-    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    config.setProtocol(disable ? tlsProtocol : defaultProtocol);
-    QSslConfiguration::setDefaultConfiguration(config);
 }
 
 static inline uint qHash(const QSslCertificate &cert)
@@ -702,18 +680,6 @@ void NetworkManager::setDisableWeakCiphers(bool state)
     Settings().setValue("SSL-Configuration/DisableWeakCiphers", m_disableWeakCiphers);
 }
 
-bool NetworkManager::isDisablingSSLv3() const
-{
-    return m_disableSSLv3;
-}
-
-void NetworkManager::setDisableSSLv3(bool state)
-{
-    m_disableSSLv3 = state;
-    disableSSLv3(m_disableSSLv3);
-    Settings().setValue("SSL-Configuration/DisableSSLv3", m_disableSSLv3);
-}
-
 NetworkProxyFactory* NetworkManager::proxyFactory() const
 {
     return m_proxyFactory;
@@ -745,7 +711,9 @@ void NetworkManager::saveSettings()
     settings.setValue("CACertPaths", m_certPaths);
     settings.setValue("IgnoreAllSSLWarnings", m_ignoreAllWarnings);
     settings.setValue("DisableWeakCiphers", m_disableWeakCiphers);
-    settings.setValue("DisableSSLv3", m_disableSSLv3);
+    settings.endGroup();
+
+    settings.beginGroup("Web-Browser-Settings");
     settings.endGroup();
 }
 
@@ -756,11 +724,9 @@ void NetworkManager::loadCertificates()
     m_certPaths = settings.value("CACertPaths", QStringList()).toStringList();
     m_ignoreAllWarnings = settings.value("IgnoreAllSSLWarnings", false).toBool();
     m_disableWeakCiphers = settings.value("DisableWeakCiphers", true).toBool();
-    m_disableSSLv3 = settings.value("DisableSSLv3", true).toBool();
     settings.endGroup();
 
     disableWeakCiphers(m_disableWeakCiphers);
-    disableSSLv3(m_disableSSLv3);
 
     // CA Certificates
     m_caCerts = QSslSocket::defaultCaCertificates();
