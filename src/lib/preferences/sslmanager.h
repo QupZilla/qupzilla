@@ -44,7 +44,6 @@ private slots:
     void deleteCertificate();
     void ignoreAll(bool state);
     void disableWeakCiphers(bool state);
-    void disableSSLv3(bool state);
 
     void addPath();
     void deletePath();

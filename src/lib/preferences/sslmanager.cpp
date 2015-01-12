@@ -52,13 +52,11 @@ SSLManager::SSLManager(QWidget* parent)
     connect(ui->deletePath, SIGNAL(clicked()), this, SLOT(deletePath()));
     connect(ui->ignoreAll, SIGNAL(clicked(bool)), this, SLOT(ignoreAll(bool)));
     connect(ui->disableWeakCiphers, SIGNAL(clicked(bool)), this, SLOT(disableWeakCiphers(bool)));
-    connect(ui->disableSSLv3, SIGNAL(clicked(bool)), this, SLOT(disableSSLv3(bool)));
 
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
 
     // Settings
     ui->disableWeakCiphers->setChecked(mApp->networkManager()->isDisablingWeakCiphers());
-    ui->disableSSLv3->setChecked(mApp->networkManager()->isDisablingSSLv3());
     ui->ignoreAll->setChecked(mApp->networkManager()->isIgnoringAllWarnings());
 }
 
@@ -200,11 +198,6 @@ void SSLManager::ignoreAll(bool state)
 void SSLManager::disableWeakCiphers(bool state)
 {
     mApp->networkManager()->setDisableWeakCiphers(state);
-}
-
-void SSLManager::disableSSLv3(bool state)
-{
-    mApp->networkManager()->setDisableSSLv3(state);
 }
 
 void SSLManager::closeEvent(QCloseEvent* e)
