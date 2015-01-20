@@ -114,7 +114,7 @@ int ProfileManager::createProfile(const QString &profileName)
 
 bool ProfileManager::removeProfile(const QString &profileName)
 {
-    QDir dir(DataPaths::path(DataPaths::Profiles) + profileName);
+    QDir dir(DataPaths::path(DataPaths::Profiles) + QLatin1Char('/') + profileName);
 
     if (!dir.exists()) {
         return false;
