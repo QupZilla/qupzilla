@@ -45,6 +45,7 @@ private slots:
     void currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent);
     void removeCookie();
     void removeAll();
+    void blockCurrentHostAndRemoveCookie();
 
     void slotRefreshTable();
     void slotRefreshFilters();
@@ -62,6 +63,7 @@ private slots:
 private:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);
+    void addBlacklist(const QString &server);
 
     Ui::CookieManager* ui;
 
