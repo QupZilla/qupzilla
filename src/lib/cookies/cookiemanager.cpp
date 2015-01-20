@@ -56,6 +56,7 @@ CookieManager::CookieManager(QWidget* parent)
     connect(ui->cookieTree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
     connect(ui->removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
     connect(ui->removeOne, SIGNAL(clicked()), this, SLOT(removeCookie()));
+    connect(ui->blockDomain, SIGNAL(clicked()), this, SLOT(blockCurrentHostAndRemoveCookie()));
     connect(ui->close, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close2, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->close3, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
@@ -140,6 +141,19 @@ void CookieManager::removeCookie()
     }
 
     mApp->cookieJar()->setAllCookies(allCookies);
+}
+
+void CookieManager::blockCurrentHostAndRemoveCookie()
+{
+    QTreeWidgetItem* current = ui->cookieTree->currentItem();
+    if (!current) {
+        return;
+    }
+    const QString domain = (current->text(1).isEmpty()) ? current->data(0, Qt::UserRole + 10).toString() :
+        qvariant_cast<QNetworkCookie>(current->data(0, Qt::UserRole + 10)).domain();
+
+    removeCookie();
+    addBlacklist(domain);
 }
 
 void CookieManager::currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent)
@@ -277,7 +291,11 @@ void CookieManager::removeWhitelist()
 void CookieManager::addBlacklist()
 {
     const QString server = QInputDialog::getText(this, tr("Add to blacklist"), tr("Server:"));
+    addBlacklist(server);
+}
 
+void CookieManager::addBlacklist(const QString &server)
+{
     if (server.isEmpty()) {
         return;
     }
