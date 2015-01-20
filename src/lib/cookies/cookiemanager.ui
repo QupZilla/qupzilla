@@ -226,6 +226,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="blockDomain">
+            <property name="text">
+             <string>Remove and block domain</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QDialogButtonBox" name="close">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
