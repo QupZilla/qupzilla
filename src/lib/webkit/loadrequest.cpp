@@ -26,17 +26,15 @@ LoadRequest::LoadRequest()
 
 LoadRequest::LoadRequest(const LoadRequest &other)
     : m_request(other.m_request)
-    , m_urlString(other.m_urlString)
     , m_operation(other.m_operation)
     , m_data(other.m_data)
 {
 }
 
-LoadRequest::LoadRequest(const QUrl &url, const QString &urlString)
+LoadRequest::LoadRequest(const QUrl &url)
     : m_operation(GetOperation)
 {
     setUrl(url);
-    setUrlString(urlString);
 }
 
 LoadRequest::LoadRequest(const QNetworkRequest &req, LoadRequest::Operation op, const QByteArray &data)
@@ -49,7 +47,6 @@ LoadRequest::LoadRequest(const QNetworkRequest &req, LoadRequest::Operation op, 
 LoadRequest &LoadRequest::operator=(const LoadRequest &other)
 {
     m_request = other.m_request;
-    m_urlString = other.m_urlString;
     m_operation = other.m_operation;
     m_data = other.m_data;
     return *this;
@@ -72,15 +69,7 @@ void LoadRequest::setUrl(const QUrl &url)
 
 QString LoadRequest::urlString() const
 {
-    if (m_urlString.isEmpty())
-        return m_request.url().toString();
-
-    return m_urlString;
-}
-
-void LoadRequest::setUrlString(const QString &urlString)
-{
-    m_urlString = urlString;
+    return QUrl::fromPercentEncoding(m_request.url().toEncoded());
 }
 
 QNetworkRequest LoadRequest::networkRequest() const
