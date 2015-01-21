@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/flashcookiemanager">
+        <file>data/flash-cookie-manager.png</file>
+        <file>locale/fa_IR.qm</file>
+    </qresource>
+</RCC>
