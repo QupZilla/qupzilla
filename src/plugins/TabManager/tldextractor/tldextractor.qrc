@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/tldextractor">
+        <file>data/effective_tld_names.dat</file>
+        <file>data/test_psl.txt</file>
+    </qresource>
+</RCC>

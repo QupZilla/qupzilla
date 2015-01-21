@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/tabmanager">
+        <file>data/tabmanager.png</file>
+        <file>data/tab-close.png</file>
+        <file>data/tab-bookmark.png</file>
+        <file>data/tab-detach.png</file>
+        <file>data/tab-loading.png</file>
+        <file>data/tab-pinned.png</file>
+        <file>data/side-by-side.png</file>
+        <file>locale/fa_IR.qm</file>
+    </qresource>
+</RCC>
