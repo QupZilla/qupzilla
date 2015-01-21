@@ -220,7 +220,7 @@ void WebView::load(const LoadRequest &request)
         return;
     }
 
-    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(reqUrl.toString());
+    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
     loadRequest(searchRequest);
 }
 

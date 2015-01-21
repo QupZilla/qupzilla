@@ -205,6 +205,8 @@ LoadRequest LocationBar::createLoadRequest() const
             req.setUrl(guessedUrl);
         else
             req.setUrl(QUrl::fromEncoded(text().toUtf8()));
+
+        req.setUrlString(text());
     }
 
     return req;

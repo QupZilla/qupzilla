@@ -34,7 +34,7 @@ public:
 
     LoadRequest();
     LoadRequest(const LoadRequest &other);
-    LoadRequest(const QUrl &url);
+    LoadRequest(const QUrl &url, const QString &urlString = QString());
     LoadRequest(const QNetworkRequest &req, Operation op = GetOperation, const QByteArray &data = QByteArray());
 
     LoadRequest &operator=(const LoadRequest &other);
@@ -43,6 +43,9 @@ public:
 
     QUrl url() const;
     void setUrl(const QUrl &url);
+
+    QString urlString() const;
+    void setUrlString(const QString &urlString);
 
     QNetworkRequest networkRequest() const;
     void setNetworkRequest(const QNetworkRequest &req);
@@ -55,6 +58,7 @@ public:
 
 private:
     QNetworkRequest m_request;
+    QString m_urlString;
     Operation m_operation;
     QByteArray m_data;
 };
