@@ -44,6 +44,8 @@ public:
     TabbedWebView* webView() const;
     void setWebView(TabbedWebView* view);
 
+    static QString convertUrlToText(const QUrl &url);
+
 public slots:
     void setText(const QString &text);
     void showUrl(const QUrl &url);
@@ -88,7 +90,6 @@ private:
     void paintEvent(QPaintEvent* event);
 
     LoadRequest createLoadRequest() const;
-    QString convertUrlToText(const QUrl &url) const;
     void refreshTextFormat();
 
     LocationCompleter* m_completer;

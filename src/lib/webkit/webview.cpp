@@ -31,6 +31,7 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "enhancedmenu.h"
+#include "locationbar.h"
 
 #ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
@@ -129,27 +130,11 @@ bool WebView::isTitleEmpty() const
     return QWebView::title().isEmpty();
 }
 
-static QString convertUrlToText(const QUrl &url)
-{
-    // It was most probably entered by user, so don't urlencode it
-    if (url.scheme().isEmpty()) {
-        return url.toString();
-    }
-
-    QString stringUrl = QzTools::urlEncodeQueryString(url);
-
-    if (stringUrl == QLatin1String("about:blank")) {
-        stringUrl.clear();
-    }
-
-    return stringUrl;
-}
-
 QUrl WebView::url() const
 {
     QUrl returnUrl = page()->url();
 
-    if (convertUrlToText(returnUrl).isEmpty()) {
+    if (LocationBar::convertUrlToText(returnUrl).isEmpty()) {
         returnUrl = m_aboutToLoadUrl;
     }
 
@@ -417,7 +402,7 @@ void WebView::reload()
 {
     m_isReloading = true;
 
-    if (convertUrlToText(QWebView::url()).isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
+    if (LocationBar::convertUrlToText(QWebView::url()).isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
         load(m_aboutToLoadUrl);
         return;
     }
