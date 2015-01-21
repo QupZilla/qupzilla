@@ -1,3 +1,17 @@
+Version 1.8.6
+    * not released yet
+    * added TabManager and FlashCookieManager plugins
+    * added CTRL+L shortcut to clear download list in download manager
+    * allow closing Download Manager and Browsing Library with Ctrl+W
+    * revert option to disable SSLv3, it is now correctly handled by Qt
+    * fix issue with tabs with empty url were removed from session
+    * fix zoom shortcuts with +/-/0 on numeric block
+    * fix hiding iframes that have completely blocked contents in AdBlock
+    * fix showing navigation bar when typing into locationbar in fullscreen
+    * fix visual issues with FTP listing with RTL layouts
+    * fix removing profiles from preferences
+    * fix crash when moving bookmarks on FreeBSD
+
 Version 1.8.5
     * released 12 December 2014
     * save geometry of Preferences window
