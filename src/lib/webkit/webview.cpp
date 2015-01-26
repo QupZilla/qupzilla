@@ -1035,18 +1035,31 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     menu->addAction(IconProvider::privateBrowsingIcon(), tr("Open link in &private window"), mApp, SLOT(startPrivateBrowsing()))->setData(hitTest.linkUrl());
     menu->addSeparator();
 
-    QVariantList bData;
-    bData << hitTest.linkUrl() << hitTest.linkTitle();
-    menu->addAction(QIcon::fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
+    if (url() != QUrl("qupzilla:speeddial")) {
+        QVariantList bData;
+        bData << hitTest.linkUrl() << hitTest.linkTitle();
+        menu->addAction(QIcon::fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
 
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
-    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
-    menu->addSeparator();
+        menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadUrlToDisk()))->setData(hitTest.linkUrl());
+        menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
+        menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
+        menu->addSeparator();
 
-    if (!selectedText().isEmpty()) {
-        pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
-        menu->addAction(pageAction(QWebPage::Copy));
+        if (!selectedText().isEmpty()) {
+            pageAction(QWebPage::Copy)->setIcon(QIcon::fromTheme("edit-copy"));
+            menu->addAction(pageAction(QWebPage::Copy));
+        }
+    } else {
+        m_clickedElement = hitTest.element();
+
+        if (m_clickedElement.isNull()) {
+            return;
+        }
+
+        menu->addAction(QIcon::fromTheme("document-edit"), tr("&Edit"), this, SLOT(editSpeedDial()));
+        menu->addAction(QIcon::fromTheme("view-refresh"), tr("&Reload"), this, SLOT(reloadSpeedDial()));
+        menu->addSeparator();
+        menu->addAction(QIcon::fromTheme("edit-delete"), tr("Remove"), this, SLOT(deleteSpeedDial()));
     }
 }
 
@@ -1200,6 +1213,21 @@ void WebView::configureSpeedDial()
 void WebView::reloadAllSpeedDials()
 {
     page()->mainFrame()->evaluateJavaScript("reloadAll()");
+}
+
+void WebView::editSpeedDial()
+{
+    m_clickedElement.evaluateJavaScript("onEditClick(this.parentNode)");
+}
+
+void WebView::reloadSpeedDial()
+{
+    m_clickedElement.evaluateJavaScript("onReloadClick(this.parentNode)");
+}
+
+void WebView::deleteSpeedDial()
+{
+    m_clickedElement.evaluateJavaScript("onRemoveClick(this.parentNode)");
 }
 
 void WebView::initializeActions()

@@ -181,6 +181,9 @@ private slots:
     void addSpeedDial();
     void configureSpeedDial();
     void reloadAllSpeedDials();
+    void editSpeedDial();
+    void reloadSpeedDial();
+    void deleteSpeedDial();
 
 private:
     void initializeActions();
