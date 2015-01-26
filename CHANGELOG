@@ -1,5 +1,5 @@
 Version 1.8.6
-    * not released yet
+    * released 26 January 2015
     * added TabManager and FlashCookieManager plugins
     * added CTRL+L shortcut to clear download list in download manager
     * allow closing Download Manager and Browsing Library with Ctrl+W
