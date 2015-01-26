@@ -49,12 +49,15 @@ void QzSettings::loadSettings()
     loadTabsOnActivation = settings.value("LoadTabsOnActivation", true).toBool();
     autoOpenProtocols = settings.value("AutomaticallyOpenProtocols", QStringList()).toStringList();
     blockedProtocols = settings.value("BlockOpeningProtocols", QStringList()).toStringList();
+    enableFormsUndoRedo = settings.value("enableFormsUndoRedo", true).toBool();
+    workOffline = settings.value("WorkOffline", false).toBool();
+    settings.endGroup();
+
+    settings.beginGroup("JavaScript-Settings");
     allowJsGeometryChange = settings.value("allowJavaScriptGeometryChange", true).toBool();
     allowJsHideMenuBar = settings.value("allowJavaScriptHideMenuBar", true).toBool();
     allowJsHideStatusBar = settings.value("allowJavaScriptHideStatusBar", true).toBool();
     allowJsHideToolBar = settings.value("allowJavaScriptHideToolBar", true).toBool();
-    enableFormsUndoRedo = settings.value("enableFormsUndoRedo", true).toBool();
-    workOffline = settings.value("WorkOffline", false).toBool();
     settings.endGroup();
 
     settings.beginGroup("Browser-Tabs-Settings");
