@@ -8,7 +8,7 @@ UI_DIR = $$PWD/../build
 # workaround for #849: see https://bugreports.qt-project.org/browse/QTBUG-23196
 mocinclude.CONFIG *= fix_target
 
-QZ_VERSION = 1.8.5
+QZ_VERSION = 1.8.6
 unix: VERSION = $$QZ_VERSION
 DEFINES *= QUPZILLA_VERSION=\\\"""$$QZ_VERSION"\\\""
 

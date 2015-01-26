@@ -4,8 +4,8 @@ IDI_ICON1 ICON DISCARDABLE "..\lib\data\icons\exeicons\qupzilla.ico"
 IDI_ICON2 ICON DISCARDABLE "..\lib\data\icons\exeicons\page.ico"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,8,5,0
- PRODUCTVERSION 1,8,5,0
+ FILEVERSION 1,8,6,0
+ PRODUCTVERSION 1,8,6,0
  FILEFLAGS 0x0L
  FILEFLAGSMASK 0x3fL
  FILEOS 0x00040004L
@@ -18,12 +18,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "QupZilla Team"
             VALUE "FileDescription", "QupZilla Web Browser"
-            VALUE "FileVersion", "1.8.5"
+            VALUE "FileVersion", "1.8.6"
             VALUE "LegalCopyright", "Copyright (C) 2010-2014 David Rosca"
             VALUE "InternalName", "qupzilla"
             VALUE "OriginalFilename", "qupzilla.exe"
             VALUE "ProductName", "QupZilla"
-            VALUE "ProductVersion", "1.8.5"
+            VALUE "ProductVersion", "1.8.6"
         END
     END
     BLOCK "VarFileInfo"
