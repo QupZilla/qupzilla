@@ -1135,13 +1135,13 @@ Please install latest version of QupZilla.</source>
         <translation>Отвори фајл...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1197"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1201"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="170"/>
         <source>QupZilla %1 (%2)</source>
         <translation>Капзила %1 (%2)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1451"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1455"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
         <translation><numerusform>И даље имате %n отворен језичак а ваша сесија неће бити сачувана.
@@ -1150,12 +1150,12 @@ Are you sure to close this window?</source>
 Желите ли заиста да затворите овај прозор?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1452"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1456"/>
         <source>Don&apos;t ask again</source>
         <translation>Не питај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1453"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1457"/>
         <source>There are still open tabs</source>
         <translation>И даље имате отворених језичака</translation>
     </message>
@@ -1465,8 +1465,8 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="256"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="270"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="293"/>
         <source>Server:</source>
         <translation>Сервер:</translation>
     </message>
@@ -1492,12 +1492,12 @@ Are you sure to close this window?</source>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="172"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="182"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="192"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="155"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="158"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="168"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="169"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;колачић није изабран&gt;</translation>
     </message>
@@ -1508,84 +1508,89 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="160"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Remove cookies</source>
         <translation>Уклони колачиће</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="231"/>
+        <source>Remove and block domain</source>
+        <translation>Уклони и блокирај домен</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="255"/>
         <source>Cookie Filtering</source>
         <translation>Филтрирање колачића</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Бијела листа колачића&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="268"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
         <translation>Колачићи са ових сервера ће УВИЈЕК бити прихватани (чак и ако искључите успремање колачића)</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="300"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="354"/>
         <source>Remove</source>
         <translation>Уклони</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Црна листа колачића&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="319"/>
         <source>Cookies from these servers will NEVER be accepted</source>
         <translation>Колачићи са ових сервера НИКАД неће бити прихватани</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="371"/>
         <source>Settings</source>
         <translation>Подешавање</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
         <translation>&lt;b&gt;Поставке колачића&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="384"/>
         <source>Allow storing of cookies</source>
         <translation>Дозволи успремање колачића</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="423"/>
         <source>Delete cookies on close</source>
         <translation>Обриши колачиће по затварању</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Allow 3rd party cookies:</source>
         <translation>Дозволи колачиће треће стране:</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="450"/>
         <source>Filter tracking cookies</source>
         <translation>Пречишћај колачиће пратиоце</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="470"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Allow 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
         <translation>&lt;b&gt;Упозорење:&lt;/b&gt; Допуштање колачића који нису са изворног сервера (колачића треће стране) и пречишћање колачића пратиоца може довести до одбијања неких колачића са сајтова. Ако имате проблема са колачићима, искључите ове опције!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="480"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="487"/>
         <source>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Keep existing:&lt;/b&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;</source>
@@ -1594,82 +1599,82 @@ Are you sure to close this window?</source>
 &lt;p&gt;&lt;b&gt;Задржи постојеће:&lt;/b&gt; Ако спремиште колачића већ садржи колачиће који нису са изворног сервера, дозволи том серверу да поставља и преузима нове и постојеће колачиће.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="486"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="493"/>
         <source>Always</source>
         <translation>увијек</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="491"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="498"/>
         <source>Never</source>
         <translation>никад</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="496"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="503"/>
         <source>Keep existing</source>
         <translation>задржи постојеће</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="84"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="85"/>
         <source>Search</source>
         <translation>Тражи</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
         <source>Confirmation</source>
         <translation>Потврда</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="102"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Желите ли заиста да обришете све колачиће са вашег рачунара?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="184"/>
         <source>Secure only</source>
         <translation>Само безбједне везе</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="184"/>
         <source>All connections</source>
         <translation>Све везе</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="185"/>
         <source>Session cookie</source>
         <translation>Колачић сесије</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="173"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="187"/>
         <source>Remove cookie</source>
         <translation>Уклони колачић</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="256"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="270"/>
         <source>Add to whitelist</source>
         <translation>Додавање на бијелу листу</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>Already blacklisted!</source>
         <translation>Већ је на црној листи!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
         <translation>Сервер „%1“ је већ на црној листи, најприје га уклоните.</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="293"/>
         <source>Add to blacklist</source>
         <translation>Додавање на црну листу</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>Already whitelisted!</source>
         <translation>Већ је на бијелој листи!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
         <translation>Сервер „%1“ је већ на бијелој листи, најприје га уклоните.</translation>
     </message>
@@ -1842,8 +1847,8 @@ Are you sure to close this window?</source>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="143"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="280"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="148"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="285"/>
         <source>Download Manager</source>
         <translation>Менаџер преузимања</translation>
     </message>
@@ -1853,32 +1858,32 @@ Are you sure to close this window?</source>
         <translation>Очисти</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="182"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% од %2 фајлова (%3) %4 до завршетка</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="180"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="185"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - менаџер преузимања</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="278"/>
         <source>Download Finished</source>
         <translation>Преузимање је завршено</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="278"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Сви фајлови су успјешно преузети.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="330"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="335"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="331"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="336"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Желите ли заиста да напустите? Сва незавршена преузимања ће бити отказана!</translation>
     </message>
@@ -2026,7 +2031,7 @@ Are you sure to close this window?</source>
 <context>
     <name>FtpDownloader</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="468"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="498"/>
         <source>Cancelled!</source>
         <translation>Отказано!</translation>
     </message>
@@ -2034,43 +2039,43 @@ Are you sure to close this window?</source>
 <context>
     <name>FtpSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="256"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="286"/>
         <source>Up to higher level directory</source>
         <translation>У родитељску фасциклу</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="257"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="287"/>
         <source>Show hidden files</source>
         <translation>Прикажи скривене фајлове</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="258"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="288"/>
         <source>Name</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="259"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="289"/>
         <source>Size</source>
         <translation>Величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="260"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="290"/>
         <source>Last modified</source>
         <translation>Измјена</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="274"/>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="275"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="305"/>
         <source>Index for %1</source>
         <translation>Индекс од %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="338"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="368"/>
         <source>Folder is empty.</source>
         <translation>Фасцикла је празна.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="440"/>
         <source>Unknown command</source>
         <translation>Непозната наредба</translation>
     </message>
@@ -2580,22 +2585,22 @@ Are you sure to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1065"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1067"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>Капзила тренутно није ваш подразумијевани прегледач веба. Да ли желите да поставите за подразумијеваног прегледача?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Увијек изврши ову провјеру по покретању Капзиле.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1070"/>
         <source>Default Browser</source>
         <translation>Подразумијевани прегледач</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1116"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>Капзила је нов, брз и сигуран веб прегледач отвореног кода. Лиценциран под издањем 3 ГПЛ лиценце или (по вашем нахођењу) било којим каснијим издањем лиценце. Базиран на ВебКит језгру и Кут радном окружењу.</translation>
     </message>
@@ -2986,96 +2991,96 @@ Are you sure to close this window?</source>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
         <source>SSL Certificate Error!</source>
         <translation>Грешка ССЛ сертификата!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Страница којој покушавате да приступите има сљедеће грешке у ССЛ сертификату:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="258"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Организација: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Име домена: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="262"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="240"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Датум истека: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Грешка: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="254"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Желите ли да направите изузетак за овај сертификат?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="294"/>
         <source>Authorisation required</source>
         <translation>Потребно овлашћење</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="323"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="430"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="502"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="301"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="408"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="480"/>
         <source>Username: </source>
         <translation>Корисничко име: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="324"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="503"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="302"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="409"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
         <source>Password: </source>
         <translation>Лозинка: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="329"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
         <source>Save username and password on this site</source>
         <translation>Сачувај корисничко име и лозинку на овом сајту</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="338"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>%1 захтијева корисничко име и лозинку. Сајт каже: „%2“</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="423"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="401"/>
         <source>FTP authorisation required</source>
         <translation>Потребно је овлашћење за ФТП</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="436"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
         <source>Login anonymously</source>
         <translation>Анонимна пријава</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="453"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>%1:%2 захтијева корисничко име и шифру.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="473"/>
         <source>Proxy authorisation required</source>
         <translation>Потребно је овлашћење за прокси</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="515"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="493"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Запамти корисничко име и лозинку за овај прокси.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="517"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Прокси %1 захтијева корисничко име и шифру. </translation>
     </message>
@@ -5214,43 +5219,38 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
-        <source>Ignore all SSL Warnings</source>
-        <translation>Занемари сва ССЛ упозорења</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="185"/>
-        <source>Disable weak ciphers</source>
-        <translation>Онемогући слабе шифраре</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="192"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
         <translation>&lt;b&gt;НАПОМЕНА:&lt;/b&gt; Постављање ове опције је велики безбједносни ризик!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="231"/>
-        <source>Disable SSLv3</source>
-        <translation>Онемогући ССлв3</translation>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
+        <source>Ignore all SSL Warnings</source>
+        <translation>Занемари сва ССЛ упозорења</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="253"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Онемогући слабе шифраре</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Сви сертификати морају имати .crt наставак.
 Након додавања или уклањања путања сертификата потребно је да поново покренете Капзилу како би измјене имале ефекта.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="67"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="65"/>
         <source>Choose path...</source>
         <translation>Изабери путању...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="138"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="136"/>
         <source>Import certificate...</source>
         <translation>Увоз сертификата...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="169"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="167"/>
         <source>Certificate Informations</source>
         <translation>Подаци о сертификату</translation>
     </message>
@@ -6160,174 +6160,174 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="389"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="395"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>Капзила не може да рукује &lt;b&gt;%1:&lt;/b&gt; везама. Захтијевана веза је &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Желите ли да Капзила покуша да отвори ову везу помоћу системског програма?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="394"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="400"/>
         <source>Remember my choice for this protocol</source>
         <translation>Запамти мој избор за за овај протокол</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="395"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="401"/>
         <source>External Protocol Request</source>
         <translation>Захтјев за спољашњи протокол</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="576"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="582"/>
         <source>To display this page, QupZilla must resend the request 
 (such as a search or order confirmation) that was performed earlier.</source>
         <translation>Да би приказала ову страницу Капзила мора поново да пошаље захтјев 
 (као што је претрага или потврда о наруџби) који је претходно извршен.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="584"/>
         <source>Confirm form resubmission</source>
         <translation>Потврда поновног слања</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="755"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="761"/>
         <source>Select files to upload...</source>
         <translation>Изабери фајлове за слање...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="776"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="782"/>
         <source>Server refused the connection</source>
         <translation>Сервер је одбио везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="779"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="785"/>
         <source>Server closed the connection</source>
         <translation>Сервер је затворио везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Server not found</source>
         <translation>Сервер није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
         <source>Connection timed out</source>
         <translation>Истекло вријеме повезивања</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
         <source>Untrusted connection</source>
         <translation>Неповјерљива веза</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
         <source>Temporary network failure</source>
         <translation>Привремени неуспјех мреже</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
         <source>Proxy connection refused</source>
         <translation>Веза са проксијем одбијена</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
         <source>Proxy server not found</source>
         <translation>Сервер проксија није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
         <source>Proxy connection timed out</source>
         <translation>Истекло вријеме повезивања са проксијем</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
         <source>Proxy authentication required</source>
         <translation>Прокси захтијева аутентификацију</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="819"/>
         <source>Content not found</source>
         <translation>Садржај није нађен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="822"/>
         <source>Unknown network error</source>
         <translation>Непозната грешка мреже</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="846"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="854"/>
         <source>AdBlocked Content</source>
         <translation>Блокиран садржај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="858"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Блокирано филтером &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="875"/>
         <source>Content Access Denied</source>
         <translation>Приступ садржају одбијен</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="882"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="890"/>
         <source>Error code %1</source>
         <translation>Кôд грешке %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="894"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="902"/>
         <source>Failed loading page</source>
         <translation>Неуспјех учитавања странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="908"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>Капзила не може да учита страницу.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="908"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>Капзила не може да учита страницу са %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="904"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="912"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Провјерите да ли сте погрешно укуцали адресу, на примјер &lt;b&gt;ww.&lt;/b&gt;example.com умјесто &lt;b&gt;www.&lt;/b&gt;example.com</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="905"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="913"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Ако не можете да учитате ниједну страницу, провјерите везу вашег рачунара са интернетом.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="906"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="914"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Ако су ваш рачунар или мрежа заштићени заштитним зидом или проксијем, провјерите да ли је Капзили дозвољен приступ интернету.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="907"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="915"/>
         <source>Try Again</source>
         <translation>Покушај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1007"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
         <source>JavaScript alert</source>
         <translation>Јаваскрипт упозорење</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1023"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Не дозволи овој страници да прави још дијалога</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1068"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
         <source>Choose file...</source>
         <translation>Изабери фајл...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1084"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>Не могу да очитам податке са &lt;b&gt;%1&lt;/b&gt;. Слање је отказано!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1077"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1085"/>
         <source>Cannot read file!</source>
         <translation>Не могу да очитам фајл!</translation>
     </message>
@@ -6376,328 +6376,328 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="121"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="122"/>
         <source>Empty Page</source>
         <translation>Празна страница</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="853"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="851"/>
         <source>Create Search Engine</source>
         <translation>Направи мотор претраге</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="919"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="917"/>
         <source>Delete</source>
         <translation>Обриши</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="960"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="958"/>
         <source>&amp;Back</source>
         <translation>На&amp;зад</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="964"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="962"/>
         <source>&amp;Forward</source>
         <translation>На&amp;пријед</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="971"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="969"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Додај нову страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="972"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="970"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Подеси брзо бирање</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="974"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="972"/>
         <source>Reload All Dials</source>
         <translation>Поново учитај сва брза бирања</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="984"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="982"/>
         <source>This frame</source>
         <translation>Оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="986"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="984"/>
         <source>Show &amp;only this frame</source>
         <translation>П&amp;рикажи само овај оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="987"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="985"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Прикажи овај оквир у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="992"/>
-        <location filename="../src/lib/webkit/webview.cpp" line="1246"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="990"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1244"/>
         <source>&amp;Reload</source>
         <translation>&amp;Учитај поново</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="993"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="991"/>
         <source>Print frame</source>
         <translation>Штампај оквир</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="995"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="993"/>
         <source>Zoom &amp;in</source>
         <translation>У&amp;вличај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="996"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="994"/>
         <source>&amp;Zoom out</source>
         <translation>У&amp;мањи</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="995"/>
         <source>Reset</source>
         <translation>Стварна величина</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="999"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Прикажи извор о&amp;квира</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1003"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Обиљежи страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1006"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1004"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Сачувај страницу као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Копирај везу странице</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1006"/>
         <source>Send page link...</source>
         <translation>Пошаљи везу странице...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1009"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1007"/>
         <source>&amp;Print page</source>
         <translation>&amp;Штампај страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1011"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1009"/>
         <source>Select &amp;all</source>
         <translation>Из&amp;абери све</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1016"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1014"/>
         <source>Validate page</source>
         <translation>Провјера кôда</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1020"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1018"/>
         <source>Translate page</source>
         <translation>Преведи страницу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1024"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1022"/>
         <source>Show so&amp;urce code</source>
         <translation>Прикажи &amp;изворни кôд</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1023"/>
         <source>Show info ab&amp;out site</source>
         <translation>По&amp;даци о сајту</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1031"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1029"/>
         <source>Open link in new &amp;tab</source>
         <translation>Отвори везу у новом &amp;језичку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1036"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1034"/>
         <source>Open link in new &amp;window</source>
         <translation>Отвори везу у &amp;новом прозору</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1037"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1035"/>
         <source>Open link in &amp;private window</source>
         <translation>Отвори везу у &amp;приватном прозору</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1042"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1040"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Обиљежи везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1044"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1042"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Сачувај везу као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1045"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1043"/>
         <source>Send link...</source>
         <translation>Пошаљи везу...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1046"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1044"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Копирај везу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1058"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1056"/>
         <source>Show i&amp;mage</source>
         <translation>П&amp;рикажи слику</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1063"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1061"/>
         <source>Copy im&amp;age</source>
         <translation>К&amp;опирај слику</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1064"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1062"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Копирај &amp;адресу слике</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1066"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1064"/>
         <source>&amp;Save image as...</source>
         <translation>Сачувај с&amp;лику као...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1067"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1065"/>
         <source>Send image...</source>
         <translation>Пошаљи слику...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1084"/>
         <source>Send text...</source>
         <translation>Пошаљи текст...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1091"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1089"/>
         <source>Google Translate</source>
         <translation>Гуглов преводилац</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1097"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1095"/>
         <source>Dictionary</source>
         <translation>Рјечник</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1112"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1110"/>
         <source>Go to &amp;web address</source>
         <translation>Иди на &amp;веб адресу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1126"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1124"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Тражи „%1“ на %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1132"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1130"/>
         <source>Search with...</source>
         <translation>Тражи на...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1160"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1158"/>
         <source>&amp;Play</source>
         <translation>&amp;Пусти</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1160"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1158"/>
         <source>&amp;Pause</source>
         <translation>&amp;Паузирај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1159"/>
         <source>Un&amp;mute</source>
         <translation>Вра&amp;ти звук</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1159"/>
         <source>&amp;Mute</source>
         <translation>У&amp;тишај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1163"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Копирај адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1164"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1162"/>
         <source>&amp;Send Media Address</source>
         <translation>П&amp;ошаљи адресу медија</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1165"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1163"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Сачувај медиј на диск</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1210"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1208"/>
         <source>&amp;Undo</source>
         <translation>&amp;Опозови</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1216"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1214"/>
         <source>&amp;Redo</source>
         <translation>&amp;Понови</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1222"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1220"/>
         <source>&amp;Cut</source>
         <translation>&amp;Исијеци</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1228"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1226"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копирај</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1234"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1232"/>
         <source>&amp;Paste</source>
         <translation>&amp;Налијепи</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1240"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1238"/>
         <source>Select All</source>
         <translation>Изабери све</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1250"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1248"/>
         <source>S&amp;top</source>
         <translation>Заус&amp;тави</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1253"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1251"/>
         <source>Default</source>
         <translation>Подразумијеван</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1254"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1252"/>
         <source>Left to Right</source>
         <translation>С лијева на десно</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1255"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1253"/>
         <source>Right to Left</source>
         <translation>С десна на лијево</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1256"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1254"/>
         <source>Bold</source>
         <translation>Подебљан</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1257"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1255"/>
         <source>Italic</source>
         <translation>Курзиван</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1258"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1256"/>
         <source>Underline</source>
         <translation>Подвучен</translation>
     </message>

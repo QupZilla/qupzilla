@@ -9,7 +9,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current Page Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pengaturan Saat Ini</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pengaturan Global</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="68"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="50"/>
         <source>Current Page Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pengaturan Saat Ini</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="53"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="65"/>
         <source>Global Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pengaturan Global</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="66"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Proxy Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurasi Proxy</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="68"/>
@@ -288,7 +288,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="118"/>
         <source>Zoom widget</source>
-        <translation type="unfinished"/>
+        <translation>Zoom widget</translation>
     </message>
 </context>
 <context>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../sbi_zoomwidget.cpp" line="47"/>
         <source>Zoom: %1%</source>
-        <translation type="unfinished"/>
+        <translation>Zoom: %1%</translation>
     </message>
 </context>
 </TS>

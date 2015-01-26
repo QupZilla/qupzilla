@@ -1135,13 +1135,13 @@ Nainstalujte si prosím nejnovější verzi QupZilly.</translation>
         <translation>Otevřít soubor...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1197"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1201"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="170"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1451"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1455"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure to close this window?</source>
         <translation><numerusform>Ještě je otevřen %1 panel a Vaše relace nebude uložena. 
@@ -1150,12 +1150,12 @@ Opravdu chcete zavřít toto okno?</numerusform><numerusform>Ještě je otevřen
 Opravdu chcete zavřít toto okno?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1452"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1456"/>
         <source>Don&apos;t ask again</source>
         <translation>Příště se již nedotazovat</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1453"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1457"/>
         <source>There are still open tabs</source>
         <translation>Stále jsou otevřeny panely</translation>
     </message>
@@ -1465,8 +1465,8 @@ Opravdu chcete zavřít toto okno?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="114"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="256"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="270"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="293"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
@@ -1492,12 +1492,12 @@ Opravdu chcete zavřít toto okno?</numerusform></translation>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="172"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="182"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="192"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="155"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="158"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="168"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="169"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;nebylo zvoleno cookie&gt;</translation>
     </message>
@@ -1508,166 +1508,171 @@ Opravdu chcete zavřít toto okno?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="224"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="160"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Remove cookies</source>
         <translation>Odebrat cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="248"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="231"/>
+        <source>Remove and block domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="255"/>
         <source>Cookie Filtering</source>
         <translation>Filtrování cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="254"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bílá listina&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="261"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="268"/>
         <source>Cookies from these servers will ALWAYS be accepted (even if you have disabled saving cookies)</source>
         <translation>Cookies z těchto serverů budou VŽDY uložené (i když máte zakázáno ukládání cookies)</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="286"/>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="340"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="293"/>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="347"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="300"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="354"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="305"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
         <translation>&lt;b&gt;Černá listina&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="312"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="319"/>
         <source>Cookies from these servers will NEVER be accepted</source>
         <translation>Cookies z těchto serverů budou vždy odmítnuté</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="364"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="371"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="370"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nastavení cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="377"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="384"/>
         <source>Allow storing of cookies</source>
         <translation>Povolit přijímání cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="416"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="423"/>
         <source>Delete cookies on close</source>
         <translation>Vymazat cookies při zavření prohlížeče</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="436"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
         <source>Allow 3rd party cookies:</source>
         <translation>Povolit cookies třetích stran:</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="443"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="450"/>
         <source>Filter tracking cookies</source>
         <translation>Filtrovat sledovací cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="463"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="470"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Allow 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="480"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="487"/>
         <source>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Keep existing:&lt;/b&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="486"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="493"/>
         <source>Always</source>
         <translation>Vždy</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="491"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="498"/>
         <source>Never</source>
         <translation>Nikdy</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="496"/>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="503"/>
         <source>Keep existing</source>
         <translation>Ponechat stávající</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="84"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="85"/>
         <source>Search</source>
         <translation>Vyhledávání</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
         <source>Confirmation</source>
         <translation>Potvrzení</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="102"/>
         <source>Are you sure to delete all cookies on your computer?</source>
         <translation>Opravdu chcete vymazat všechny cookies z počítače?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="184"/>
         <source>Secure only</source>
         <translation>Zabezpečené připojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="170"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="184"/>
         <source>All connections</source>
         <translation>Libovolný typ připojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="185"/>
         <source>Session cookie</source>
         <translation>konce relace</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="173"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="187"/>
         <source>Remove cookie</source>
         <translation>Odebrat cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="256"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="270"/>
         <source>Add to whitelist</source>
         <translation>Přidat do bílé listiny</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>Already blacklisted!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="263"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="279"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="293"/>
         <source>Add to blacklist</source>
         <translation>Přidat do černé listiny</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>Already whitelisted!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="286"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
         <translation type="unfinished"/>
     </message>
@@ -1840,8 +1845,8 @@ nebyl nalezen!</translation>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="143"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="280"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="148"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="285"/>
         <source>Download Manager</source>
         <translation>Správce stahování</translation>
     </message>
@@ -1851,32 +1856,32 @@ nebyl nalezen!</translation>
         <translation>Vyčistit</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="182"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% z %2 souborů (%3) %4 zbyvá</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="180"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="185"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - Správce stahování</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="278"/>
         <source>Download Finished</source>
         <translation>Stahování dokončeno</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="273"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="278"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Všechna stahování byla úspěšně dokončena.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="330"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="335"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="331"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="336"/>
         <source>Are you sure to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Jste si jistý že chcete skončit? Všechna nedokončená stahování budou zrušena!</translation>
     </message>
@@ -2024,7 +2029,7 @@ nebyl nalezen!</translation>
 <context>
     <name>FtpDownloader</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="468"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="498"/>
         <source>Cancelled!</source>
         <translation>Zrušeno!</translation>
     </message>
@@ -2032,43 +2037,43 @@ nebyl nalezen!</translation>
 <context>
     <name>FtpSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="256"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="286"/>
         <source>Up to higher level directory</source>
         <translation>O adresář výše</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="257"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="287"/>
         <source>Show hidden files</source>
         <translation>Zobrazit skryté soubory</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="258"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="288"/>
         <source>Name</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="259"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="289"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="260"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="290"/>
         <source>Last modified</source>
         <translation>Změněno</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="274"/>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="275"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="305"/>
         <source>Index for %1</source>
         <translation>Index pro %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="338"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="368"/>
         <source>Folder is empty.</source>
         <translation>Složka je prázdná.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/ftpschemehandler.cpp" line="440"/>
         <source>Unknown command</source>
         <translation>Neznámý příkaz</translation>
     </message>
@@ -2578,22 +2583,22 @@ nebyl nalezen!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1065"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1067"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla není výchozím prohlížečem. Chcete nastavit QupZillu jak výchozí prohlížeč?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Kontrolovat při každém startu aplikace.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1070"/>
         <source>Default Browser</source>
         <translation>Výchozí prohlížeč</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1116"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla je nový, rychlý a bezpečný open-source WWW prohlížeč. QupZilla je licencována pod GPL verze 3 nebo (podle vaší volby) jakékoliv vyšší verze. Prohlížeč je založen na jádru WebKit a Qt Frameworku.</translation>
     </message>
@@ -2984,96 +2989,96 @@ nebyl nalezen!</translation>
 <context>
     <name>NetworkManager</name>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="242"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="220"/>
         <source>SSL Certificate Error!</source>
         <translation>Chyba zabezpečení!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="243"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
         <translation>Stránka kterou se snažíte navštívit zaslala SSL Certifikát s těmito chybami:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="258"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
         <source>&lt;b&gt;Organization: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Organizace: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="260"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="238"/>
         <source>&lt;b&gt;Domain Name: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Doména: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="262"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="240"/>
         <source>&lt;b&gt;Expiration Date: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Vyprší: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="268"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="246"/>
         <source>&lt;b&gt;Error: &lt;/b&gt;</source>
         <translation>&lt;b&gt;Chyba: &lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="276"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="254"/>
         <source>Would you like to make an exception for this certificate?</source>
         <translation>Chcete udělit výjimku tomuto certifikátu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="294"/>
         <source>Authorisation required</source>
         <translation>Vyžadována autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="323"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="430"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="502"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="301"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="408"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="480"/>
         <source>Username: </source>
         <translation>Uživatelské jméno: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="324"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
-        <location filename="../src/lib/network/networkmanager.cpp" line="503"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="302"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="409"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
         <source>Password: </source>
         <translation>Heslo: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="329"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
         <source>Save username and password on this site</source>
         <translation>Uložit jméno a heslo pro tuto stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="338"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
         <translation>Server %1 požaduje vaše uživatelské jméno a heslo s komentářem: &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="423"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="401"/>
         <source>FTP authorisation required</source>
         <translation>Vyžadována FTP autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="436"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="414"/>
         <source>Login anonymously</source>
         <translation>Připojit se anonymně</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="453"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
         <source>A username and password are being requested by %1:%2.</source>
         <translation>Server %1:%2 požaduje uživatelské jméno a heslo.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="473"/>
         <source>Proxy authorisation required</source>
         <translation>Vyžadována proxy autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="515"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="493"/>
         <source>Remember username and password for this proxy.</source>
         <translation>Zapamatovat si uživatelské jméno a heslo pro tuto proxy.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/networkmanager.cpp" line="517"/>
+        <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
         <source>A username and password are being requested by proxy %1. </source>
         <translation>Proxy %1 požaduje uživatelské jméno a heslo.</translation>
     </message>
@@ -5212,43 +5217,38 @@ Je také možné že spuštění QupZilly s právy administrátora tento problé
     </message>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="178"/>
-        <source>Ignore all SSL Warnings</source>
-        <translation>Ignorovat všechna SSL varování</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="185"/>
-        <source>Disable weak ciphers</source>
-        <translation>Zakázat slabé šifry</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="192"/>
         <source>&lt;b&gt;NOTE:&lt;/b&gt; Setting this option is a high security risk!</source>
         <translation>&lt;b&gt;Poznámka:&lt;/b&gt; Zaškrtnutím této možnosti se vystavujete velikému bezpečnostnímu riziku!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="231"/>
-        <source>Disable SSLv3</source>
-        <translation type="unfinished"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="217"/>
+        <source>Ignore all SSL Warnings</source>
+        <translation>Ignorovat všechna SSL varování</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.ui" line="253"/>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="224"/>
+        <source>Disable weak ciphers</source>
+        <translation>Zakázat slabé šifry</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
 After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
         <translation>Všechny certifikáty musí mít .crt příponu.
 Po přidání či odstranění cest k certifikátům je nutné k projevení změn restart prohlížeče.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="67"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="65"/>
         <source>Choose path...</source>
         <translation>Vyberte cestu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="138"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="136"/>
         <source>Import certificate...</source>
         <translation>Importovat certifikát...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/sslmanager.cpp" line="169"/>
+        <location filename="../src/lib/preferences/sslmanager.cpp" line="167"/>
         <source>Certificate Informations</source>
         <translation>Informace o certifikátě</translation>
     </message>
@@ -6158,173 +6158,173 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="389"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="395"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla nemůže otevřít &lt;b&gt;%1:&lt;/b&gt; odkazy. Vyžádaný odkaz je &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Chcete aby QupZilla otevřela tento odkaz v systémové aplikaci?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="394"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="400"/>
         <source>Remember my choice for this protocol</source>
         <translation>Zapamatovat mou volbu pro tento protokol</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="395"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="401"/>
         <source>External Protocol Request</source>
         <translation>Externí protokol</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="576"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="582"/>
         <source>To display this page, QupZilla must resend the request 
 (such as a search or order confirmation) that was performed earlier.</source>
         <translation>Pro zobrazení této stránky musí QupZilla znovu odeslat požadavek na server (např. hledaní nebo potvrzení objednávky) který již byl proveden.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="584"/>
         <source>Confirm form resubmission</source>
         <translation>Potvrzení opětovného zaslání formuláře</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="755"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="761"/>
         <source>Select files to upload...</source>
         <translation>Zvolte soubory k nahrání...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="776"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="782"/>
         <source>Server refused the connection</source>
         <translation>Server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="779"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="785"/>
         <source>Server closed the connection</source>
         <translation>Server ukončil spojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="789"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
         <source>Server not found</source>
         <translation>Server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="792"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
         <source>Connection timed out</source>
         <translation>Spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="795"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
         <source>Untrusted connection</source>
         <translation>Nedůvěryhodné spojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="798"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
         <source>Temporary network failure</source>
         <translation>Dočasná chyba sítě</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="801"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
         <source>Proxy connection refused</source>
         <translation>Proxy server odmítl spojení</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="804"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
         <source>Proxy server not found</source>
         <translation>Proxy server nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="807"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
         <source>Proxy connection timed out</source>
         <translation>Proxy spojení vypršelo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="810"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
         <source>Proxy authentication required</source>
         <translation>Vyžadována proxy autorizace</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="813"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="819"/>
         <source>Content not found</source>
         <translation>Obsah nenalezen</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="816"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="822"/>
         <source>Unknown network error</source>
         <translation>Neznámá síťová chyba</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="846"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="854"/>
         <source>AdBlocked Content</source>
         <translation>AdBlock obsah</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="850"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="858"/>
         <source>Blocked by &lt;i&gt;%1&lt;/i&gt;</source>
         <translation>Blokováno s &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="867"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="875"/>
         <source>Content Access Denied</source>
         <translation>Odmítnut přístup k obsahu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="882"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="890"/>
         <source>Error code %1</source>
         <translation>Chybový kód %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="894"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="902"/>
         <source>Failed loading page</source>
         <translation>Chyba při načítání stránky</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="908"/>
         <source>QupZilla can&apos;t load page.</source>
         <translation>QupZilla nemůže načíst stránku.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="900"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="908"/>
         <source>QupZilla can&apos;t load page from %1.</source>
         <translation>QupZilla nemůže načíst stránku ze serveru %1.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="904"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="912"/>
         <source>Check the address for typing errors such as &lt;b&gt;ww.&lt;/b&gt;example.com instead of &lt;b&gt;www.&lt;/b&gt;example.com</source>
         <translation>Zkontrolujte, zda je adresa napsána správně a neobsahuje chyby jako &lt;b&gt;ww.&lt;/b&gt;server.cz místo &lt;b&gt;www&lt;/b&gt;.server.cz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="905"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="913"/>
         <source>If you are unable to load any pages, check your computer&apos;s network connection.</source>
         <translation>Pokud se vám nezobrazují ani ostatní stránky, zkontrolujte síťové připojení svého počítače.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="906"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="914"/>
         <source>If your computer or network is protected by a firewall or proxy, make sure that QupZilla is permitted to access the Web.</source>
         <translation>Pokud je váš počítač chráněn firewallem a nebo proxy serverem, zkontrolujte, zda má QupZilla přístup na Internet.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="907"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="915"/>
         <source>Try Again</source>
         <translation>Zkusit znovu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1007"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
         <source>JavaScript alert</source>
         <translation>Výstraha JavaScriptu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1023"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Zabránit stránce ve vytváření dalších dialogů</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1068"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
         <source>Choose file...</source>
         <translation>Vyberte soubor...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1076"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1084"/>
         <source>Cannot read data from &lt;b&gt;%1&lt;/b&gt;. Upload was cancelled!</source>
         <translation>Nelze číst data z &lt;b&gt;%1&lt;/b&gt;. Nahrávání bylo zrušeno!</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webpage.cpp" line="1077"/>
+        <location filename="../src/lib/webkit/webpage.cpp" line="1085"/>
         <source>Cannot read file!</source>
         <translation>Nelze číst soubor!</translation>
     </message>
@@ -6373,328 +6373,328 @@ Po přidání či odstranění cest k certifikátům je nutné k projevení změ
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="121"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="122"/>
         <source>Empty Page</source>
         <translation>Prázdná stránka</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="853"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="851"/>
         <source>Create Search Engine</source>
         <translation>Vytvořit vyhledávač</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="919"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="917"/>
         <source>Delete</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="960"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="958"/>
         <source>&amp;Back</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="964"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="962"/>
         <source>&amp;Forward</source>
         <translation>&amp;Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="971"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="969"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Přidat novou stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="972"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="970"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Nastavení rychlé volby</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="974"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="972"/>
         <source>Reload All Dials</source>
         <translation>Obnovit všechny rychlé volby</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="984"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="982"/>
         <source>This frame</source>
         <translation>Tento rám</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="986"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="984"/>
         <source>Show &amp;only this frame</source>
         <translation>Zobrazit &amp;pouze tento rám</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="987"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="985"/>
         <source>Show this frame in new &amp;tab</source>
         <translation>Zobrazit tento rám v &amp;novém panelu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="992"/>
-        <location filename="../src/lib/webkit/webview.cpp" line="1246"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="990"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1244"/>
         <source>&amp;Reload</source>
         <translation>&amp;Obnovit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="993"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="991"/>
         <source>Print frame</source>
         <translation>Tisknout rám</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="995"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="993"/>
         <source>Zoom &amp;in</source>
         <translation>Zoo&amp;m +</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="996"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="994"/>
         <source>&amp;Zoom out</source>
         <translation>Z&amp;oom -</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="995"/>
         <source>Reset</source>
         <translation>Původní</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="999"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="997"/>
         <source>Show so&amp;urce of frame</source>
         <translation>Zobrazit &amp;zdrojový kód rámu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1003"/>
         <source>Book&amp;mark page</source>
         <translation>Přidat stránku do zá&amp;ložek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1006"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1004"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Uložit stránku jako...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
         <source>&amp;Copy page link</source>
         <translation>Kopírovat &amp;adresu stránky</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1006"/>
         <source>Send page link...</source>
         <translation>Odeslat adresu stránky...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1009"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1007"/>
         <source>&amp;Print page</source>
         <translation>Ti&amp;sknout stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1011"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1009"/>
         <source>Select &amp;all</source>
         <translation>Vyb&amp;rat vše</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1016"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1014"/>
         <source>Validate page</source>
         <translation>Zkontrolovat stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1020"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1018"/>
         <source>Translate page</source>
         <translation>Přeložit stránku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1024"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1022"/>
         <source>Show so&amp;urce code</source>
         <translation>Zobrazit zdrojový kó&amp;d</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1025"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1023"/>
         <source>Show info ab&amp;out site</source>
         <translation>Zobrazit &amp;informace o stránce</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1031"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1029"/>
         <source>Open link in new &amp;tab</source>
         <translation>Otevřít odkaz v novém &amp;panelu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1036"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1034"/>
         <source>Open link in new &amp;window</source>
         <translation>Otevřít odkaz v novém &amp;okně</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1037"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1035"/>
         <source>Open link in &amp;private window</source>
         <translation>Otevřít odkaz v &amp;soukromém okně</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1042"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1040"/>
         <source>B&amp;ookmark link</source>
         <translation>Přidat odkaz do zá&amp;ložek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1044"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1042"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Uložit odkaz jako...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1045"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1043"/>
         <source>Send link...</source>
         <translation>Odeslat odkaz...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1046"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1044"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopírovat adresu odkazu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1058"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1056"/>
         <source>Show i&amp;mage</source>
         <translation>Zobrazit &amp;obrázek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1063"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1061"/>
         <source>Copy im&amp;age</source>
         <translation>&amp;Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1064"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1062"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopírovat adr&amp;esu obrázku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1066"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1064"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Uložit obrázek jako...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1067"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1065"/>
         <source>Send image...</source>
         <translation>Odeslat obrázek...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1086"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1084"/>
         <source>Send text...</source>
         <translation>Odeslat text...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1091"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1089"/>
         <source>Google Translate</source>
         <translation>Google Translate</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1097"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1095"/>
         <source>Dictionary</source>
         <translation>Slovník</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1112"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1110"/>
         <source>Go to &amp;web address</source>
         <translation>Přejít na web&amp;ovou adresu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1126"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1124"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Hledat &quot;%1 ..&quot; s %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1132"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1130"/>
         <source>Search with...</source>
         <translation>Hledat pomocí...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1160"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1158"/>
         <source>&amp;Play</source>
         <translation>&amp;Přehrát</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1160"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1158"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pozastavit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1159"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Zrušit ztlumení</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1159"/>
         <source>&amp;Mute</source>
         <translation>&amp;Ztlumit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1163"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1161"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopírovat adresu média</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1164"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1162"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Odeslat adresu média</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1165"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1163"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Uložit médium na disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1210"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1208"/>
         <source>&amp;Undo</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1216"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1214"/>
         <source>&amp;Redo</source>
         <translation>&amp;Vpřed</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1222"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1220"/>
         <source>&amp;Cut</source>
         <translation>V&amp;yjmout</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1228"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1226"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1234"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1232"/>
         <source>&amp;Paste</source>
         <translation>V&amp;ložit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1240"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1238"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1250"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1248"/>
         <source>S&amp;top</source>
         <translation>&amp;Zastavit</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1253"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1251"/>
         <source>Default</source>
         <translation>Výchozí</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1254"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1252"/>
         <source>Left to Right</source>
         <translation>Zleva doprava</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1255"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1253"/>
         <source>Right to Left</source>
         <translation>Zprava doleva</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1256"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1254"/>
         <source>Bold</source>
         <translation>Tučné</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1257"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1255"/>
         <source>Italic</source>
         <translation>Kurzíva</translation>
     </message>
     <message>
-        <location filename="../src/lib/webkit/webview.cpp" line="1258"/>
+        <location filename="../src/lib/webkit/webview.cpp" line="1256"/>
         <source>Underline</source>
         <translation>Podtržené</translation>
     </message>
