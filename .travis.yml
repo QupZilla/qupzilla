@@ -20,6 +20,7 @@ install:
 script:
   - QMAKE="qmake"
   - if [[ "$QT" == "qt54" ]]; then QMAKE="/opt/qt54/bin/qmake"; fi
+  - $QMAKE
 #  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
   - make || exit 1
 #  - cd scripts && ./run_tests.sh $QMAKE
