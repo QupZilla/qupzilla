@@ -49,6 +49,7 @@
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
 
+#include <QWebEngineSettings>
 #include <QNetworkDiskCache>
 #include <QDesktopServices>
 #include <QFontDatabase>
@@ -866,71 +867,47 @@ void MainApplication::loadSettings()
 
     loadTheme(activeTheme);
 
-#if QTWEBENGINE_DISABLED
-    QWebSettings* webSettings = QWebSettings::globalSettings();
+    QWebEngineSettings* webSettings = QWebEngineSettings::globalSettings();
 
     // Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
 
-    if (!m_isPrivate) {
-        webSettings->enablePersistentStorage(DataPaths::currentProfilePath());
-        webSettings->setAttribute(QWebSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
-    }
+    webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
+    webSettings->setAttribute(QWebEngineSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
+    webSettings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, settings.value("allowJavaScriptOpenWindow", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());
+    webSettings->setAttribute(QWebEngineSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::SpatialNavigationEnabled, settings.value("SpatialNavigation", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
+    webSettings->setAttribute(QWebEngineSettings::HyperlinkAuditingEnabled, false);
 
-    webSettings->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-    webSettings->setAttribute(QWebSettings::PluginsEnabled, settings.value("allowFlash", true).toBool());
-    webSettings->setAttribute(QWebSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
-    webSettings->setAttribute(QWebSettings::JavascriptCanOpenWindows, settings.value("allowJavaScriptOpenWindow", false).toBool());
-    webSettings->setAttribute(QWebSettings::JavaEnabled, settings.value("allowJava", true).toBool());
-    webSettings->setAttribute(QWebSettings::DnsPrefetchEnabled, settings.value("DNS-Prefetch", false).toBool());
-    webSettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());
-    webSettings->setAttribute(QWebSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
-    webSettings->setAttribute(QWebSettings::ZoomTextOnly, settings.value("zoomTextOnly", false).toBool());
-    webSettings->setAttribute(QWebSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
-    webSettings->setAttribute(QWebSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
-    webSettings->setMaximumPagesInCache(settings.value("maximumCachedPages", 3).toInt());
     webSettings->setDefaultTextEncoding(settings.value("DefaultEncoding", webSettings->defaultTextEncoding()).toString());
-    webSettings->setAttribute(QWebSettings::SpatialNavigationEnabled, settings.value("SpatialNavigation", false).toBool());
-
-#if QTWEBKIT_FROM_2_3
-    webSettings->setAttribute(QWebSettings::CaretBrowsingEnabled, settings.value("CaretBrowsing", false).toBool());
-    webSettings->setAttribute(QWebSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
-#endif
-
-#ifdef USE_WEBGL
-    webSettings->setAttribute(QWebSettings::WebGLEnabled, true);
-    webSettings->setAttribute(QWebSettings::AcceleratedCompositingEnabled, true);
-#endif
-
-#if QTWEBKIT_FROM_2_2
-    webSettings->setAttribute(QWebSettings::HyperlinkAuditingEnabled, true);
-    webSettings->setAttribute(QWebSettings::JavascriptCanCloseWindows, settings.value("allowJavaScriptCloseWindow", false).toBool());
-#endif
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
+
+#if QTWEBENGINE_DISABLED
     const QString userCss = settings.value("userStyleSheet", QString()).toString();
     settings.endGroup();
 
     webSettings->setUserStyleSheetUrl(userStyleSheet(userCss));
-
-    settings.beginGroup("Browser-Fonts");
-    webSettings->setFontFamily(QWebSettings::StandardFont, settings.value("StandardFont", webSettings->fontFamily(QWebSettings::StandardFont)).toString());
-    webSettings->setFontFamily(QWebSettings::CursiveFont, settings.value("CursiveFont", webSettings->fontFamily(QWebSettings::CursiveFont)).toString());
-    webSettings->setFontFamily(QWebSettings::FantasyFont, settings.value("FantasyFont", webSettings->fontFamily(QWebSettings::FantasyFont)).toString());
-    webSettings->setFontFamily(QWebSettings::FixedFont, settings.value("FixedFont", webSettings->fontFamily(QWebSettings::FixedFont)).toString());
-    webSettings->setFontFamily(QWebSettings::SansSerifFont, settings.value("SansSerifFont", webSettings->fontFamily(QWebSettings::SansSerifFont)).toString());
-    webSettings->setFontFamily(QWebSettings::SerifFont, settings.value("SerifFont", webSettings->fontFamily(QWebSettings::SerifFont)).toString());
-    webSettings->setFontSize(QWebSettings::DefaultFontSize, settings.value("DefaultFontSize", 15).toInt());
-    webSettings->setFontSize(QWebSettings::DefaultFixedFontSize, settings.value("FixedFontSize", 14).toInt());
-    webSettings->setFontSize(QWebSettings::MinimumFontSize, settings.value("MinimumFontSize", 3).toInt());
-    webSettings->setFontSize(QWebSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", 5).toInt());
-    settings.endGroup();
-
-    webSettings->setWebGraphic(QWebSettings::DefaultFrameIconGraphic, IconProvider::emptyWebIcon().pixmap(16, 16));
-    webSettings->setWebGraphic(QWebSettings::MissingImageGraphic, QPixmap());
 #endif
 
+    settings.beginGroup("Browser-Fonts");
+    webSettings->setFontFamily(QWebEngineSettings::StandardFont, settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString());
+    webSettings->setFontFamily(QWebEngineSettings::CursiveFont, settings.value("CursiveFont", webSettings->fontFamily(QWebEngineSettings::CursiveFont)).toString());
+    webSettings->setFontFamily(QWebEngineSettings::FantasyFont, settings.value("FantasyFont", webSettings->fontFamily(QWebEngineSettings::FantasyFont)).toString());
+    webSettings->setFontFamily(QWebEngineSettings::FixedFont, settings.value("FixedFont", webSettings->fontFamily(QWebEngineSettings::FixedFont)).toString());
+    webSettings->setFontFamily(QWebEngineSettings::SansSerifFont, settings.value("SansSerifFont", webSettings->fontFamily(QWebEngineSettings::SansSerifFont)).toString());
+    webSettings->setFontFamily(QWebEngineSettings::SerifFont, settings.value("SerifFont", webSettings->fontFamily(QWebEngineSettings::SerifFont)).toString());
+    webSettings->setFontSize(QWebEngineSettings::DefaultFontSize, settings.value("DefaultFontSize", 15).toInt());
+    webSettings->setFontSize(QWebEngineSettings::DefaultFixedFontSize, settings.value("FixedFontSize", 14).toInt());
+    webSettings->setFontSize(QWebEngineSettings::MinimumFontSize, settings.value("MinimumFontSize", 3).toInt());
+    webSettings->setFontSize(QWebEngineSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", 5).toInt());
+    settings.endGroup();
+
     if (isPrivate()) {
+        webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
 #if QTWEBENGINE_DISABLED
         webSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
 #endif
