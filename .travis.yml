@@ -1,28 +1,28 @@
-language: cpp
-cache: apt
-
-env:
-  - QT=qt4
-  - QT=qt5
-
-branches:
-  only:
-    - 'master'
-    - 'v1.8'
-
-before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
-install:
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
-  - if [[ "$QT" == "qt4" ]]; then sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite; fi
-  - if [[ "$QT" == "qt5" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt511; sudo apt-get update -qq; sudo apt-get install -qq qt51base qt51webkit qt51tools qt51script libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev; fi
-
-script:
-  - QMAKE="qmake"
-  - if [[ "$QT" == "qt5" ]]; then QMAKE="/opt/qt51/bin/qmake"; fi
-  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
-  - make || exit 1
-  - cd scripts && ./run_tests.sh $QMAKE
+#language: cpp
+#cache: apt
+#
+#env:
+#  - QT=qt4
+#  - QT=qt5
+#
+#branches:
+#  only:
+#    - 'master'
+#    - 'v1.8'
+#
+#before_install:
+#  - export DISPLAY=:99.0
+#  - sh -e /etc/init.d/xvfb start
+#
+#install:
+#  - sudo apt-get -qq update
+#  - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
+#  - if [[ "$QT" == "qt4" ]]; then sudo apt-get -qq install libqt4-dev libqt4-webkit libqt4-sql-sqlite; fi
+#  - if [[ "$QT" == "qt5" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt511; sudo apt-get update -qq; sudo apt-get install -qq qt51base qt51webkit qt51tools qt51script libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev; fi
+#
+#script:
+#  - QMAKE="qmake"
+#  - if [[ "$QT" == "qt5" ]]; then QMAKE="/opt/qt51/bin/qmake"; fi
+#  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
+#  - make || exit 1
+#  - cd scripts && ./run_tests.sh $QMAKE
