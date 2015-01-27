@@ -25,7 +25,7 @@
 #include "qzcommon.h"
 
 class QVBoxLayout;
-class QWebHistory;
+class QWebEngineHistory;
 class QSplitter;
 
 class BrowserWindow;
@@ -64,7 +64,7 @@ public:
     QUrl url() const;
     QString title() const;
     QIcon icon() const;
-    QWebHistory* history() const;
+    QWebEngineHistory* history() const;
 
     void detach();
     void attach(BrowserWindow* window);

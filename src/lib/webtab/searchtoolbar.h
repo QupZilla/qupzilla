@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 #ifndef SEARCHTOOLBAR_H
 #define SEARCHTOOLBAR_H
 
-#include <QWebPage>
+#include <QWebEnginePage>
 
 #include "qzcommon.h"
 #include "animatedwidget.h"
@@ -51,7 +51,6 @@ signals:
 public slots:
     void searchText(const QString &text);
     void updateFindFlags();
-    void highlightChanged();
     void caseSensitivityChanged();
 
     void findNext();
@@ -60,10 +59,11 @@ public slots:
     void hide();
 
 private:
+    void handleSearchResult(bool found);
     Ui::SearchToolbar* ui;
     WebView* m_view;
 
-    QWebPage::FindFlags m_findFlags;
+    QWebEnginePage::FindFlags m_findFlags;
 };
 
 #endif // SEARCHTOOLBAR_H

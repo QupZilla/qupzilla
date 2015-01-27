@@ -30,7 +30,6 @@
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QWebFrame>
 #include <QNetworkRequest>
 
 #if QT_VERSION >= 0x050000
@@ -170,7 +169,7 @@ void AutoFill::removeAllEntries()
 }
 
 // If password was filled in the page, returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completeFrame(QWebFrame* frame)
+QVector<PasswordEntry> AutoFill::completeFrame(QWebEngineFrame* frame)
 {
     bool completed = false;
     QVector<PasswordEntry> list;
@@ -202,12 +201,13 @@ QVector<PasswordEntry> AutoFill::completeFrame(QWebFrame* frame)
 
 void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
+#if QTWEBENGINE_DISABLED
     // Don't save in private browsing
     if (mApp->isPrivate()) {
         return;
     }
 
-    QWebFrame* frame = qobject_cast<QWebFrame*>(request.originatingObject());
+    QWebEngineFrame* frame = qobject_cast<QWebEngineFrame*>(request.originatingObject());
     if (!frame) {
         return;
     }
@@ -259,6 +259,7 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
 
     AutoFillNotification* aWidget = new AutoFillNotification(frameUrl, formData, updateData);
     webView->addNotification(aWidget);
+#endif
 }
 
 QByteArray AutoFill::exportPasswords()

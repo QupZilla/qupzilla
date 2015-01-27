@@ -33,8 +33,10 @@
 
 #include <QNetworkCookie>
 #include <QMessageBox>
+#if QTWEBENGINE_DISABLED
 #include <QWebDatabase>
-#include <QWebSettings>
+#endif
+#include <QWebEngineSettings>
 #include <QNetworkDiskCache>
 #include <QDateTime>
 #include <QSqlQuery>
@@ -78,21 +80,27 @@ void ClearPrivateData::clearWebDatabases()
 {
     const QString profile = DataPaths::currentProfilePath();
 
+#if QTWEBENGINE_DISABLED
     QWebDatabase::removeAllDatabases();
+#endif
     QzTools::removeDir(profile + "/Databases");
 }
 
 void ClearPrivateData::clearCache()
 {
     mApp->networkCache()->clear();
-    QWebSettings::globalSettings()->clearMemoryCaches();
+#if QTWEBENGINE_DISABLED
+    QWebEngineSettings::globalSettings()->clearMemoryCaches();
+#endif
 
     QFile::remove(DataPaths::currentProfilePath() + "/ApplicationCache.db");
 }
 
 void ClearPrivateData::clearIcons()
 {
-    QWebSettings::globalSettings()->clearIconDatabase();
+#if QTWEBENGINE_DISABLED
+    QWebEngineSettings::globalSettings()->clearIconDatabase();
+#endif
     IconProvider::instance()->clearIconsDatabase();
 }
 

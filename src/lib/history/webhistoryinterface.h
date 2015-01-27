@@ -18,12 +18,13 @@
 #ifndef WEBHISTORYINTERFACE_H
 #define WEBHISTORYINTERFACE_H
 
-#include <QWebHistoryInterface>
 #include <set>
 
 #include "qzcommon.h"
 
-class QUPZILLA_EXPORT WebHistoryInterface : public QWebHistoryInterface
+#if QTWEBENGINE_DISABLED
+
+class QUPZILLA_EXPORT WebHistoryInterface : public QWebEngineHistoryInterface
 {
 public:
     explicit WebHistoryInterface(QObject* parent = 0);
@@ -35,5 +36,7 @@ private:
     std::set<QString> m_clickedLinks;
 
 };
+
+#endif
 
 #endif // WEBHISTORYINTERFACE_H

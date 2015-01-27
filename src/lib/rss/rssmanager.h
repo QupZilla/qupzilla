@@ -30,6 +30,8 @@
 #include <QToolButton>
 #include <QInputDialog>
 
+#if QTWEBENGINE_DISABLED
+
 namespace Ui
 {
 class RSSManager;
@@ -76,5 +78,7 @@ private:
     QToolButton* m_reloadButton;
     QPointer<BrowserWindow> m_window;
 };
+
+#endif
 
 #endif // RSSMANAGER_H

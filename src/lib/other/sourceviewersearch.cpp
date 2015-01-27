@@ -24,6 +24,8 @@
 #include <QShortcut>
 #include <QKeyEvent>
 
+#if QTWEBENGINE_DISABLED
+
 SourceViewerSearch::SourceViewerSearch(SourceViewer* parent)
     : AnimatedWidget(AnimatedWidget::Up)
     , m_sourceViewer(parent)
@@ -132,3 +134,5 @@ bool SourceViewerSearch::eventFilter(QObject* obj, QEvent* event)
 
     return AnimatedWidget::eventFilter(obj, event);
 }
+
+#endif

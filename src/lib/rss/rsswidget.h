@@ -18,6 +18,8 @@
 #ifndef RSSWIDGET_H
 #define RSSWIDGET_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QMenu>
 
 #include "qzcommon.h"
@@ -46,5 +48,7 @@ private:
     Ui::RSSWidget* ui;
     WebView* m_view;
 };
+
+#endif
 
 #endif // RSSWIDGET_H

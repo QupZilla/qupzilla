@@ -61,7 +61,6 @@ LocationBar::LocationBar(BrowserWindow* window)
 
     m_bookmarkIcon = new BookmarksIcon(this);
     m_goIcon = new GoIcon(this);
-    m_rssIcon = new RssIcon(this);
     m_siteIcon = new SiteIcon(m_window, this);
     m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
@@ -69,7 +68,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     addWidget(m_siteIcon, LineEdit::LeftSide);
     addWidget(m_autofillIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
-    addWidget(m_rssIcon, LineEdit::RightSide);
     addWidget(m_goIcon, LineEdit::RightSide);
     addWidget(down, LineEdit::RightSide);
 
@@ -104,7 +102,6 @@ LocationBar::LocationBar(BrowserWindow* window)
 
     // Hide icons by default
     m_goIcon->setVisible(qzSettings->alwaysShowGoIcon);
-    m_rssIcon->hide();
     m_autofillIcon->hide();
 
     QTimer::singleShot(0, this, SLOT(updatePlaceHolderText()));
@@ -120,17 +117,18 @@ void LocationBar::setWebView(TabbedWebView* view)
     m_webView = view;
 
     m_bookmarkIcon->setWebView(m_webView);
-    m_rssIcon->setWebView(m_webView);
     m_siteIcon->setWebView(m_webView);
     m_autofillIcon->setWebView(m_webView);
 
     connect(m_webView, SIGNAL(loadStarted()), SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadProgress(int)), SLOT(loadProgress(int)));
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
-    connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(rssChanged(bool)), this, SLOT(setRssIconVisible(bool)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
+#if QTWEBENGINE_DISABLED
+    connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
+#endif
 }
 
 void LocationBar::setText(const QString &text)
@@ -299,11 +297,9 @@ void LocationBar::setGoIconVisible(bool state)
 {
     if (state) {
         m_bookmarkIcon->hide();
-        m_rssIcon->hide();
         m_goIcon->show();
     }
     else {
-        m_rssIcon->setVisible(m_webView && m_webView->hasRss());
         m_bookmarkIcon->show();
 
         if (!qzSettings->alwaysShowGoIcon) {
@@ -316,8 +312,6 @@ void LocationBar::setGoIconVisible(bool state)
 
 void LocationBar::setRssIconVisible(bool state)
 {
-    m_rssIcon->setVisible(state);
-
     updateTextMargins();
 }
 

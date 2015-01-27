@@ -132,14 +132,20 @@ QString ProfileManager::currentProfile() const
 
 QString ProfileManager::startingProfile() const
 {
+#if QTWEBENGINE_DISABLED
     QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     return settings.value(QLatin1String("Profiles/startProfile"), QLatin1String("default")).toString();
+#else
+    return QString("qtwebengine");
+#endif
 }
 
 void ProfileManager::setStartingProfile(const QString &profileName)
 {
+#if QTWEBENGINE_DISABLED
     QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     settings.setValue(QLatin1String("Profiles/startProfile"), profileName);
+#endif
 }
 
 QStringList ProfileManager::availableProfiles() const

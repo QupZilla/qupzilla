@@ -56,8 +56,10 @@ SSLManager::SSLManager(QWidget* parent)
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
 
     // Settings
+#if QTWEBENGINE_DISABLED
     ui->disableWeakCiphers->setChecked(mApp->networkManager()->isDisablingWeakCiphers());
     ui->ignoreAll->setChecked(mApp->networkManager()->isIgnoringAllWarnings());
+#endif
 }
 
 void SSLManager::addPath()
@@ -98,6 +100,7 @@ void SSLManager::refreshCAList()
 
 void SSLManager::refreshLocalList()
 {
+#if QTWEBENGINE_DISABLED
     ui->localList->setUpdatesEnabled(false);
     ui->localList->clear();
     m_localCerts = mApp->networkManager()->getLocalCertificates();
@@ -111,13 +114,16 @@ void SSLManager::refreshLocalList()
 
     ui->localList->setCurrentRow(0);
     ui->localList->setUpdatesEnabled(true);
+#endif
 }
 
 void SSLManager::refreshPaths()
 {
+#if QTWEBENGINE_DISABLED
     foreach (const QString &path, mApp->networkManager()->certificatePaths()) {
         ui->pathList->addItem(path);
     }
+#endif
 }
 
 void SSLManager::showCaCertInfo()
@@ -133,6 +139,7 @@ void SSLManager::showCaCertInfo()
 
 void SSLManager::addLocalCertificate()
 {
+#if QTWEBENGINE_DISABLED
     const QString path = QzTools::getOpenFileName("SSLManager-AddLocalCert", this, tr("Import certificate..."), QDir::homePath(), "*.crt");
 
     if (path.isEmpty()) {
@@ -147,6 +154,7 @@ void SSLManager::addLocalCertificate()
     mApp->networkManager()->addLocalCertificate(list.at(0));
 
     refreshLocalList();
+#endif
 }
 
 void SSLManager::showLocalCertInfo()
@@ -179,6 +187,7 @@ void SSLManager::showCertificateInfo(const QSslCertificate &cert)
 
 void SSLManager::deleteCertificate()
 {
+#if QTWEBENGINE_DISABLED
     QListWidgetItem* item = ui->localList->currentItem();
     if (!item) {
         return;
@@ -188,20 +197,26 @@ void SSLManager::deleteCertificate()
     m_localCerts.removeOne(cert);
     mApp->networkManager()->removeLocalCertificate(cert);
     refreshLocalList();
+#endif
 }
 
 void SSLManager::ignoreAll(bool state)
 {
+#if QTWEBENGINE_DISABLED
     mApp->networkManager()->setIgnoreAllWarnings(state);
+#endif
 }
 
 void SSLManager::disableWeakCiphers(bool state)
 {
+#if QTWEBENGINE_DISABLED
     mApp->networkManager()->setDisableWeakCiphers(state);
+#endif
 }
 
 void SSLManager::closeEvent(QCloseEvent* e)
 {
+#if QTWEBENGINE_DISABLED
     QStringList paths;
     for (int i = 0; i < ui->pathList->count(); i++) {
         QListWidgetItem* item = ui->pathList->item(i);
@@ -214,6 +229,7 @@ void SSLManager::closeEvent(QCloseEvent* e)
 
     mApp->networkManager()->setCertificatePaths(paths);
     mApp->networkManager()->saveSettings();
+#endif
 
     QWidget::closeEvent(e);
 }

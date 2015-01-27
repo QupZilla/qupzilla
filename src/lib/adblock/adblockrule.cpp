@@ -53,8 +53,7 @@
 #include <QString>
 #include <QStringList>
 #include <QNetworkRequest>
-#include <QWebFrame>
-#include <QWebPage>
+#include <QWebEnginePage>
 
 // Version for Qt < 4.8 has one issue, it will wrongly
 // count .co.uk (and others) as second-level domain
@@ -352,12 +351,13 @@ bool AdBlockRule::matchObject(const QNetworkRequest &request) const
 
 bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
 {
-    QWebFrame* originatingFrame = static_cast<QWebFrame*>(request.originatingObject());
+#if QTWEBENGINE_DISABLED
+    QWebEngineFrame* originatingFrame = static_cast<QWebEngineFrame*>(request.originatingObject());
     if (!originatingFrame) {
         return false;
     }
 
-    QWebPage* page = originatingFrame->page();
+    QWebEnginePage* page = originatingFrame->page();
     if (!page) {
         return false;
     }
@@ -365,6 +365,9 @@ bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
     bool match = !(originatingFrame == page->mainFrame());
 
     return hasException(SubdocumentOption) ? !match : match;
+#else
+    return false;
+#endif
 }
 
 bool AdBlockRule::matchXmlHttpRequest(const QNetworkRequest &request) const

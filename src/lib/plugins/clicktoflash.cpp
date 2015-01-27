@@ -51,8 +51,10 @@
 #include <QFormLayout>
 #include <QMenu>
 #include <QTimer>
-#include <QWebView>
+#include <QWebEngineView>
 #include <QNetworkRequest>
+
+#if QTWEBENGINE_DISABLED
 #include <QWebHitTestResult>
 
 QUrl ClickToFlash::acceptedUrl;
@@ -152,9 +154,9 @@ void ClickToFlash::findElement()
     }
 
     QWidget* parent = parentWidget();
-    QWebView* view = 0;
+    QWebEngineView* view = 0;
     while (parent) {
-        if (QWebView* aView = qobject_cast<QWebView*>(parent)) {
+        if (QWebEngineView* aView = qobject_cast<QWebEngineView*>(parent)) {
             view = aView;
             break;
         }
@@ -165,7 +167,7 @@ void ClickToFlash::findElement()
     }
 
     QPoint objectPos = view->mapFromGlobal(m_toolButton->mapToGlobal(m_toolButton->pos()));
-    QWebFrame* objectFrame = view->page()->frameAt(objectPos);
+    QWebEngineFrame* objectFrame = view->page()->frameAt(objectPos);
     QWebHitTestResult hitResult;
     QWebElement hitElement;
 
@@ -183,12 +185,12 @@ void ClickToFlash::findElement()
     // HitTestResult failed, trying to find element by src
     // attribute in elements at all frames on page (less accurate)
 
-    QList<QWebFrame*> frames;
+    QList<QWebEngineFrame*> frames;
     frames.append(objectFrame);
     frames.append(view->page()->mainFrame());
 
     while (!frames.isEmpty()) {
-        QWebFrame* frame = frames.takeFirst();
+        QWebEngineFrame* frame = frames.takeFirst();
         if (!frame) {
             continue;
         }
@@ -320,3 +322,5 @@ void ClickToFlash::showInfo()
     QzTools::centerWidgetToParent(widg, m_page->view());
     widg->show();
 }
+
+#endif

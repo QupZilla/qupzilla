@@ -24,6 +24,8 @@
 #include <QNetworkReply>
 #include <QBuffer>
 
+#if QTWEBENGINE_DISABLED
+
 #if QT_VERSION >= 0x050000
 #include "qftp.h"
 #include "qurlinfo.h"
@@ -128,4 +130,6 @@ signals:
     void finished();
     void errorOccured(QFtp::Error);
 };
+#endif
+
 #endif // FTPSCHEMEHANDLER_H

@@ -27,7 +27,7 @@
 #include "qzsettings.h"
 
 #include <QApplication>
-#include <QWebHistory>
+#include <QWebEngineHistory>
 #include <QSqlQuery>
 
 static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallback, QKeySequence shortcutRTL, QKeySequence fallbackRTL)

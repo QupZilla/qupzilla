@@ -18,9 +18,7 @@
 #include "pageformcompleter.h"
 #include "qzregexp.h"
 
-#include <QWebPage>
-#include <QWebFrame>
-#include <QWebElement>
+#include <QWebEnginePage>
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
 #endif
@@ -31,25 +29,25 @@ PageFormCompleter::PageFormCompleter()
 {
 }
 
-PageFormData PageFormCompleter::extractFormData(QWebPage* page, const QByteArray &postData)
+PageFormData PageFormCompleter::extractFormData(QWebEnginePage* page, const QByteArray &postData)
 {
     m_page = page;
     return extractFormData(postData);
 }
 
-PageFormData PageFormCompleter::extractFormData(QWebFrame* frame, const QByteArray &postData)
+PageFormData PageFormCompleter::extractFormData(QWebEngineFrame* frame, const QByteArray &postData)
 {
     m_frame = frame;
     return extractFormData(postData);
 }
 
-bool PageFormCompleter::completeFormData(QWebPage* page, const QByteArray &data)
+bool PageFormCompleter::completeFormData(QWebEnginePage* page, const QByteArray &data)
 {
     m_page = page;
     return completeFormData(data);
 }
 
-bool PageFormCompleter::completeFormData(QWebFrame* frame, const QByteArray &data)
+bool PageFormCompleter::completeFormData(QWebEngineFrame* frame, const QByteArray &data)
 {
     m_frame = frame;
     return completeFormData(data);
@@ -73,6 +71,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
         return formData;
     }
 
+#if QTWEBENGINE_DISABLED
     const QWebElementCollection allForms = getAllElementsFromPage("form");
 
     // Find form that contains password value sent in data
@@ -109,6 +108,7 @@ PageFormData PageFormCompleter::extractFormData(const QByteArray &postData) cons
 
     formData.username = usernameValue;
     formData.password = passwordValue;
+#endif
 
     return formData;
 }
@@ -123,6 +123,7 @@ bool PageFormCompleter::completeFormData(const QByteArray &data) const
     QStringList inputTypes;
     inputTypes << "text" << "password" << "email";
 
+#if QTWEBENGINE_DISABLED
     // Find all input elements in the page
     const QWebElementCollection inputs = getAllElementsFromPage("input");
 
@@ -144,6 +145,7 @@ bool PageFormCompleter::completeFormData(const QByteArray &data) const
             }
         }
     }
+#endif
 
     return completed;
 }
@@ -212,6 +214,7 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
 
 PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &form) const
 {
+#if QTWEBENGINE_DISABLED
     // Try to find username (or email) field in the form.
     QStringList selectors;
     selectors << "input[type=\"text\"][name*=\"user\"]"
@@ -234,6 +237,7 @@ PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &
             }
         }
     }
+#endif
 
     return QueryItem();
 }
@@ -254,6 +258,7 @@ PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(QByteArray dat
     return arguments;
 }
 
+#if QTWEBENGINE_DISABLED
 QWebElementCollection PageFormCompleter::getAllElementsFromPage(const QString &selector) const
 {
     QWebElementCollection list;
@@ -280,3 +285,5 @@ QWebElementCollection PageFormCompleter::getAllElementsFromPage(const QString &s
 
     return list;
 }
+
+#endif

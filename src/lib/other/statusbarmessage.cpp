@@ -29,7 +29,6 @@
 #include <QStatusBar>
 #include <QToolTip>
 #include <QStylePainter>
-#include <QWebFrame>
 #include <QTimer>
 
 TipLabel::TipLabel(QWidget* parent)
@@ -125,18 +124,22 @@ void StatusBarMessage::showMessage(const QString &message)
     else {
 #endif
         WebView* view = m_window->weView();
-        QWebFrame* mainFrame = view->page()->mainFrame();
+#if QTWEBENGINE_DISABLED
+        QWebEngineFrame* mainFrame = view->page()->mainFrame();
+#endif
 
         int horizontalScrollSize = 0;
         int verticalScrollSize = 0;
         const int scrollbarSize = m_window->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
+#if QTWEBENGINE_DISABLED
         if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
             horizontalScrollSize = scrollbarSize;
         }
         if (mainFrame->scrollBarMaximum(Qt::Vertical)) {
             verticalScrollSize = scrollbarSize;
         }
+#endif
 
         m_statusBarText->setText(message);
         m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);

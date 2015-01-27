@@ -18,7 +18,7 @@
 #ifndef WEBPAGE_H
 #define WEBPAGE_H
 
-#include <QWebPage>
+#include <QWebEnginePage>
 #include <QSslCertificate>
 #include <QVector>
 
@@ -35,7 +35,7 @@ class SpeedDial;
 class NetworkManagerProxy;
 class DelayedFileWatcher;
 
-class QUPZILLA_EXPORT WebPage : public QWebPage
+class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
@@ -51,17 +51,15 @@ public:
     WebPage(QObject* parent = 0);
     ~WebPage();
 
-    QUrl url() const;
-
     void setWebView(TabbedWebView* view);
     void populateNetworkRequest(QNetworkRequest &request);
 
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 
-    bool javaScriptPrompt(QWebFrame* originatingFrame, const QString &msg, const QString &defaultValue, QString* result);
-    bool javaScriptConfirm(QWebFrame* originatingFrame, const QString &msg);
-    void javaScriptAlert(QWebFrame* originatingFrame, const QString &msg);
+    bool javaScriptPrompt(QUrl securityOrigin, const QString &msg, const QString &defaultValue, QString* result);
+    bool javaScriptConfirm(QUrl securityOrigin, const QString &msg);
+    void javaScriptAlert(QUrl securityOrigin, const QString &msg);
 
     void setJavaScriptEnabled(bool enabled);
 
@@ -80,7 +78,9 @@ public:
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
+#if QTWEBENGINE_DISABLED
     QWebElement activeElement() const;
+#endif
     QString userAgentForUrl(const QUrl &url) const;
 
     static bool isPointerSafeToUse(WebPage* page);
@@ -100,14 +100,18 @@ private slots:
     void addJavaScriptObject();
 
     void watchedFileChanged(const QString &file);
-    void printFrame(QWebFrame* frame);
     void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
+    void authentication(const QUrl &requestUrl, QAuthenticator* auth);
+    void proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, const QString &proxyHost);
 
+#if QTWEBENGINE_DISABLED
     void frameCreated(QWebFrame* frame);
     void frameInitialLayoutCompleted();
+    void dbQuotaExceeded(QWebEngineFrame* frame);
+    void printFrame(QWebEngineFrame* frame);
+#endif
 
-    void dbQuotaExceeded(QWebFrame* frame);
     void doWebSearch(const QString &text);
 
 #ifdef USE_QTWEBKIT_2_2
@@ -117,14 +121,16 @@ private slots:
 
 protected:
     bool event(QEvent* event);
-    QWebPage* createWindow(QWebPage::WebWindowType type);
+    QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type);
     QObject* createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues);
 
 private:
+#if QTWEBENGINE_DISABLED
     bool supportsExtension(Extension extension) const;
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
     bool acceptNavigationRequest(QWebFrame* frame, const QNetworkRequest &request, NavigationType type);
     QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
+#endif
 
     void handleUnknownProtocol(const QUrl &url);
     void desktopServicesOpen(const QUrl &url);
@@ -144,7 +150,6 @@ private:
     QVector<AdBlockedEntry> m_adBlockedEntries;
     QVector<PasswordEntry> m_passwordEntries;
 
-    QWebPage::NavigationType m_lastRequestType;
     QUrl m_lastRequestUrl;
 
     int m_loadProgress;

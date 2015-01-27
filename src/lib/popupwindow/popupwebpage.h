@@ -45,7 +45,7 @@ private slots:
 
 private:
     BrowserWindow* m_window;
-    QWebPage::WebWindowType m_type;
+    QWebEnginePage::WebWindowType m_type;
     bool m_createNewWindow;
 
     bool m_menuBarVisible;

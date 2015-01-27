@@ -23,6 +23,8 @@
 #include <QDialog>
 #include <QUrl>
 
+#if QTWEBENGINE_DISABLED
+
 namespace Ui
 {
 class SiteInfo;
@@ -61,5 +63,7 @@ private:
     QPixmap m_activePixmap;
     QUrl m_baseUrl;
 };
+
+#endif
 
 #endif // SITEINFO_H

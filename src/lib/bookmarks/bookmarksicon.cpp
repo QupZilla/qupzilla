@@ -40,7 +40,9 @@ BookmarksIcon::BookmarksIcon(QWidget* parent)
     connect(mApp->bookmarks(), SIGNAL(bookmarkAdded(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkRemoved(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
+#if QTWEBENGINE_DISABLED
     connect(mApp->plugins()->speedDial(), SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
+#endif
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
 }
@@ -59,7 +61,9 @@ void BookmarksIcon::checkBookmark(const QUrl &url, bool forceCheck)
     QList<BookmarkItem*> items = mApp->bookmarks()->searchBookmarks(url);
     m_bookmark = items.isEmpty() ? 0 : items.first();
 
-    if (m_bookmark || !mApp->plugins()->speedDial()->pageForUrl(url).url.isEmpty()) {
+#if QTWEBENGINE_DISABLED
+#endif
+    if (m_bookmark /*|| !mApp->plugins()->speedDial()->pageForUrl(url).url.isEmpty()*/) {
         setBookmarkSaved();
     }
     else {

@@ -28,6 +28,8 @@
 #include "datapaths.h"
 #include "iconprovider.h"
 
+#if QTWEBENGINE_DISABLED
+
 #include <QTextStream>
 #include <QTimer>
 #include <QSettings>
@@ -36,7 +38,7 @@
 #if QT_VERSION < 0x050000
 #include "qwebkitversion.h"
 #else
-#include <QWebPage>
+#include <QWebEnginePage>
 #endif
 
 static QString authorString(const char* name, const QString &mail)
@@ -499,3 +501,5 @@ QString QupZillaSchemeReply::configPage()
 
     return page;
 }
+
+#endif

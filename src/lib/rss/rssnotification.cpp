@@ -30,6 +30,8 @@
 #include <QClipboard>
 #include <QFile>
 
+#if QTWEBENGINE_DISABLED
+
 RSSNotification::RSSNotification(const QString &title, const QUrl &url, WebView* parent)
     : AnimatedWidget(AnimatedWidget::Down, 300, parent)
     , ui(new Ui::RSSNotification)
@@ -185,3 +187,5 @@ RSSNotification::~RSSNotification()
 {
     delete ui;
 }
+
+#endif

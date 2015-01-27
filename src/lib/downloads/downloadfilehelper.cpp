@@ -31,7 +31,7 @@
 #include <QFileIconProvider>
 #include <QListWidgetItem>
 #include <QTemporaryFile>
-#include <QWebHistory>
+#include <QWebEngineHistory>
 #include <QFileDialog>
 
 #if QT_VERSION >= 0x050000

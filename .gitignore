@@ -5,7 +5,6 @@ DEBIAN
 *.autosave
 *~
 *.a
-*.orig
 *.qm
 *.o
 !qt_*.qm

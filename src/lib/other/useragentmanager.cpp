@@ -20,7 +20,7 @@
 #include "qztools.h"
 #include "settings.h"
 
-#include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
+#include <QWebEnginePage> // QTWEBKIT_VERSION_CHECK macro
 
 UserAgentManager::UserAgentManager(QObject* parent)
     : QObject(parent)

@@ -20,8 +20,8 @@
 #include "qztools.h"
 #include "mainapplication.h"
 
-#include <QWebHistory>
-#include <QWebSettings>
+#include <QWebEngineHistory>
+#include <QWebEngineSettings>
 
 ClosedTabsManager::ClosedTabsManager()
 {

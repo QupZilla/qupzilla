@@ -32,11 +32,13 @@
 #include <QLabel>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include <QWebSettings>
+#include <QWebEngineSettings>
 #include <QMessageBox>
 #include <QNetworkReply>
 #include <QBuffer>
 #include <QSqlQuery>
+
+#if QTWEBENGINE_DISABLED
 
 RSSManager::RSSManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
@@ -423,3 +425,5 @@ RSSManager::~RSSManager()
 {
     delete ui;
 }
+
+#endif

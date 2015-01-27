@@ -221,9 +221,12 @@ void DownloadManager::download(const QNetworkRequest &request, const DownloadInf
     QNetworkRequest req = request;
     req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
 
+#if QTWEBENGINE_DISABLED
     handleUnsupportedContent(m_networkManager->get(req), info);
+#endif
 }
 
+#if QTWEBENGINE_DISABLED
 void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info)
 {
     if (!info.page || reply->url().scheme() == QLatin1String("qupzilla")) {
@@ -247,6 +250,7 @@ void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const Downl
     h->setListWidget(ui->list);
     h->handleUnsupportedContent(reply, info);
 }
+#endif
 
 void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)
 {
@@ -349,3 +353,4 @@ DownloadManager::~DownloadManager()
 {
     delete ui;
 }
+

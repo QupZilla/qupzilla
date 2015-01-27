@@ -42,6 +42,8 @@
 #ifndef CLICKTOFLASH_H
 #define CLICKTOFLASH_H
 
+#if QTWEBENGINE_DISABLED
+
 #include "qzcommon.h"
 
 // Qt Includes
@@ -97,6 +99,8 @@ private:
 
     WebPage* m_page;
 };
+
+#endif
 
 #endif // CLICKTOFLASH_H
 

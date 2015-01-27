@@ -138,6 +138,7 @@ void DownloadItem::startDownloadingFromFtp(const QUrl &url)
         return;
     }
 
+#if QTWEBENGINE_DISABLED
     m_ftpDownloader = new FtpDownloader(this);
     connect(m_ftpDownloader, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
@@ -153,6 +154,7 @@ void DownloadItem::startDownloadingFromFtp(const QUrl &url)
     if (m_ftpDownloader->error() != QFtp::NoError) {
         error();
     }
+#endif
 }
 
 void DownloadItem::parentResized(const QSize &size)
@@ -182,7 +184,7 @@ void DownloadItem::finished()
 #endif
     m_timer.stop();
 
-    QString host = m_reply ? m_reply->url().host() : m_ftpDownloader->url().host();
+    QString host = m_reply->url().host();
     ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::currentDateTime().toString(Qt::DefaultLocaleShortDate)));
     ui->progressBar->hide();
     ui->button->hide();
@@ -193,7 +195,9 @@ void DownloadItem::finished()
         m_reply->deleteLater();
     }
     else {
+#if QTWEBENGINE_DISABLED
         m_ftpDownloader->deleteLater();
+#endif
     }
 
     m_item->setSizeHint(sizeHint());
@@ -327,7 +331,9 @@ void DownloadItem::stop(bool askForDeleteFile)
         host = m_reply->url().host();
     }
     else if (m_ftpDownloader) {
+#if QTWEBENGINE_DISABLED
         host = m_ftpDownloader->url().host();
+#endif
     }
     m_openAfterFinish = false;
     m_timer.stop();
@@ -335,8 +341,10 @@ void DownloadItem::stop(bool askForDeleteFile)
         m_reply->abort();
     }
     else if (m_ftpDownloader) {
+#if QTWEBENGINE_DISABLED
         m_ftpDownloader->abort();
         m_ftpDownloader->close();
+#endif
     }
     QString outputfile = QFileInfo(m_outputFile).absoluteFilePath();
     m_outputFile.close();
@@ -455,10 +463,12 @@ void DownloadItem::error()
     if (m_reply && m_reply->error() != QNetworkReply::NoError) {
         ui->downloadInfo->setText(tr("Error: ") + m_reply->errorString());
     }
+#if QTWEBENGINE_DISABLED
     else if (m_ftpDownloader && m_ftpDownloader->error() != QFtp::NoError) {
         stop(false);
         ui->downloadInfo->setText(tr("Error: ") + m_ftpDownloader->errorString());
     }
+#endif
 }
 
 void DownloadItem::updateDownload()
@@ -468,6 +478,7 @@ void DownloadItem::updateDownload()
 #endif
     // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
     // thus it should be checked after m_outputFile.isOpen()
+#if QTWEBENGINE_DISABLED
     if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
         ((m_reply && m_reply->isFinished()) ||
          (m_ftpDownloader && m_ftpDownloader->isFinished())
@@ -476,6 +487,13 @@ void DownloadItem::updateDownload()
         downloadProgress(0, 0);
         finished();
     }
+#else
+    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
+        ((m_reply && m_reply->isFinished()))) {
+        downloadProgress(0, 0);
+        finished();
+    }
+#endif
 }
 
 DownloadItem::~DownloadItem()

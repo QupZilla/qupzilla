@@ -23,9 +23,11 @@
 #include "rssmanager.h"
 #include "rssnotification.h"
 
+#if QTWEBENGINE_DISABLED
+
 #include <QToolTip>
 #include <QPushButton>
-#include <QWebFrame>
+#include <QWebEngineFrame>
 #include <QSqlQuery>
 
 RSSWidget::RSSWidget(WebView* view, QWidget* parent)
@@ -35,7 +37,7 @@ RSSWidget::RSSWidget(WebView* view, QWidget* parent)
 {
     ui->setupUi(this);
 
-    QWebFrame* frame = m_view->page()->mainFrame();
+    QWebEngineFrame* frame = m_view->page()->mainFrame();
     QWebElementCollection links = frame->findAllElements("link[type=\"application/rss+xml\"]");
 
     // Make sure RSS feeds fit into a window, in case there is a lot of feeds from one page
@@ -133,3 +135,5 @@ RSSWidget::~RSSWidget()
 {
     delete ui;
 }
+
+#endif

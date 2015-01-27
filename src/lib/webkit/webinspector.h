@@ -18,6 +18,7 @@
 #ifndef WEBINSPECTORDOCKWIDGET_H
 #define WEBINSPECTORDOCKWIDGET_H
 
+#if QTWEBENGINE_DISABLED
 #include <QWebInspector>
 
 #include "qzcommon.h"
@@ -42,5 +43,6 @@ private:
     ToolButton* m_closeButton;
     bool m_blockHideEvent;
 };
+#endif
 
 #endif // WEBINSPECTORDOCKWIDGET_H

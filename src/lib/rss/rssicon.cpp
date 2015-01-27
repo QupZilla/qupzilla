@@ -20,6 +20,8 @@
 
 #include <QMouseEvent>
 
+#if QTWEBENGINE_DISABLED
+
 RssIcon::RssIcon(QWidget* parent)
     : ClickableLabel(parent)
     , m_view(0)
@@ -60,3 +62,5 @@ void RssIcon::mousePressEvent(QMouseEvent* ev)
     // Prevent propagating to LocationBar
     ev->accept();
 }
+
+#endif

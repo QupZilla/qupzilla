@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,22 @@
 #include <QKeyEvent>
 #include <QShortcut>
 
+template<typename Arg, typename R, typename C>
+struct InvokeWrapper {
+    R* receiver;
+    void (C::*memberFun)(Arg);
+    void operator()(Arg result) {
+        (receiver->*memberFun)(result);
+    }
+};
+
+template<typename Arg, typename R, typename C>
+InvokeWrapper<Arg, R, C> invoke(R* receiver, void (C::*memberFun)(Arg))
+{
+    InvokeWrapper<Arg, R, C> wrapper = {receiver, memberFun};
+    return wrapper;
+}
+
 SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     : AnimatedWidget(AnimatedWidget::Up, 300, parent)
     , ui(new Ui::SearchToolbar)
@@ -33,16 +49,15 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(widget());
 
-    ui->closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
-    ui->next->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowDown));
-    ui->previous->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowUp));
+    ui->closeButton->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_DialogCloseButton));
+    ui->next->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_ArrowDown));
+    ui->previous->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_ArrowUp));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
     connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(findNext()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(findNext()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
-    connect(ui->highligh, SIGNAL(clicked()), this, SLOT(highlightChanged()));
     connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(caseSensitivityChanged()));
     startAnimation();
 
@@ -63,7 +78,6 @@ void SearchToolBar::setWebView(WebView* view)
 void SearchToolBar::showMinimalInPopupWindow()
 {
     // Show only essentials widget + set minimum width
-    ui->highligh->hide();
     ui->caseSensitive->hide();
     ui->results->hide();
     ui->horizontalLayout->setSpacing(2);
@@ -86,7 +100,7 @@ void SearchToolBar::hide()
 
 void SearchToolBar::findNext()
 {
-    m_findFlags = QWebPage::FindWrapsAroundDocument;
+    m_findFlags = 0;
     updateFindFlags();
 
     searchText(ui->lineEdit->text());
@@ -94,7 +108,7 @@ void SearchToolBar::findNext()
 
 void SearchToolBar::findPrevious()
 {
-    m_findFlags = QWebPage::FindBackward | QWebPage::FindWrapsAroundDocument;
+    m_findFlags = QWebEnginePage::FindBackward;
     updateFindFlags();
 
     searchText(ui->lineEdit->text());
@@ -103,20 +117,10 @@ void SearchToolBar::findPrevious()
 void SearchToolBar::updateFindFlags()
 {
     if (ui->caseSensitive->isChecked()) {
-        m_findFlags = m_findFlags | QWebPage::FindCaseSensitively;
+        m_findFlags = m_findFlags | QWebEnginePage::FindCaseSensitively;
     }
     else {
-        m_findFlags = m_findFlags & ~QWebPage::FindCaseSensitively;
-    }
-}
-
-void SearchToolBar::highlightChanged()
-{
-    if (ui->highligh->isChecked()) {
-        m_view->findText(ui->lineEdit->text(), m_findFlags | QWebPage::HighlightAllOccurrences);
-    }
-    else {
-        m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
+        m_findFlags = m_findFlags & ~QWebEnginePage::FindCaseSensitively;
     }
 }
 
@@ -129,22 +133,13 @@ void SearchToolBar::caseSensitivityChanged()
 
 void SearchToolBar::searchText(const QString &text)
 {
-    // Clear highlighting on page
-    m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
+    m_view->findText(text, m_findFlags, invoke(this, &SearchToolBar::handleSearchResult));
+}
 
-    bool found = m_view->findText(text, m_findFlags);
-
-    if (text.isEmpty()) {
+void SearchToolBar::handleSearchResult(bool found)
+{
+    if (ui->lineEdit->text().isEmpty()) {
         found = true;
-    }
-
-    if (ui->highligh->isChecked()) {
-        m_findFlags = QWebPage::HighlightAllOccurrences;
-        updateFindFlags();
-        m_view->findText(text, m_findFlags);
-    }
-    else {
-        m_view->findText(QString(), QWebPage::HighlightAllOccurrences);
     }
 
     if (!found) {

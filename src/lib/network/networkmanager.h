@@ -18,6 +18,8 @@
 #ifndef NETWORKMANAGER_H
 #define NETWORKMANAGER_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QSslError>
 #include <QStringList>
 
@@ -64,9 +66,7 @@ signals:
     void sslDialogClosed();
 
 private slots:
-    void authentication(QNetworkReply* reply, QAuthenticator* auth);
     void ftpAuthentication(const QUrl &url, QAuthenticator* auth);
-    void proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth);
     void sslError(QNetworkReply* reply, QList<QSslError> errors);
     void setSSLConfiguration(QNetworkReply* reply);
 
@@ -89,5 +89,7 @@ private:
     bool m_doNotTrack;
     bool m_sendReferer;
 };
+
+#endif
 
 #endif // NETWORKMANAGER_H

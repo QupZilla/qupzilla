@@ -19,8 +19,10 @@
 #include "mainapplication.h"
 #include "history.h"
 
+#if QTWEBENGINE_DISABLED
+
 WebHistoryInterface::WebHistoryInterface(QObject* parent)
-    : QWebHistoryInterface(parent)
+    : QWebEngineHistoryInterface(parent)
 {
 }
 
@@ -33,3 +35,5 @@ bool WebHistoryInterface::historyContains(const QString &url) const
 {
     return m_clickedLinks.find(url) != m_clickedLinks.end();
 }
+
+#endif

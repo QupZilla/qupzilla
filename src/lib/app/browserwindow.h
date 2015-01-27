@@ -28,7 +28,7 @@
 class QLabel;
 class QVBoxLayout;
 class QSplitter;
-class QWebFrame;
+class QWebEngineFrame;
 class QTimer;
 
 class Menu;
@@ -142,8 +142,8 @@ public slots:
     void bookmarkPage();
     void bookmarkAllTabs();
     void loadAddress(const QUrl &url);
-    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
-    void printPage(QWebFrame* frame = 0);
+    void showSource(QWebEngineFrame* frame = 0, const QString &selectedHtml = QString());
+    void printPage(QWebEngineFrame* frame = 0);
 
 private slots:
     void addTab();

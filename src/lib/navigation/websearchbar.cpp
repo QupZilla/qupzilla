@@ -36,7 +36,9 @@
 #include <QStringListModel>
 #include <QMenu>
 #include <QTimer>
-#include <QWebFrame>
+#if QTWEBENGINE_DISABLED
+#include <QWebEngineFrame>
+#endif
 #include <QClipboard>
 #include <QContextMenuEvent>
 
@@ -217,8 +219,10 @@ void WebSearchBar::searchInNewTab()
 
 void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 {
+    Q_UNUSED(menu)
+#if QTWEBENGINE_DISABLED
     WebView* view = m_window->weView();
-    QWebFrame* frame = view->page()->mainFrame();
+    QWebEngineFrame* frame = view->page()->mainFrame();
 
     QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
     foreach (const QWebElement &element, elements) {
@@ -237,6 +241,7 @@ void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
 
         menu->addAction(view->icon(), tr("Add %1 ...").arg(title), this, SLOT(addEngineFromAction()))->setData(url);
     }
+#endif
 }
 
 void WebSearchBar::addEngineFromAction()

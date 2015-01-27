@@ -18,6 +18,8 @@
 #ifndef PAGETHUMBNAILER_H
 #define PAGETHUMBNAILER_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QObject>
 #include <QSize>
 #include <QUrl>
@@ -25,7 +27,7 @@
 
 #include "qzcommon.h"
 
-class QWebPage;
+class QWebEnginePage;
 class QPixmap;
 
 class QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
@@ -67,12 +69,14 @@ private slots:
     void createThumbnail(bool status);
 
 private:
-    QWebPage* m_page;
+    QWebEnginePage* m_page;
 
     QSize m_size;
     QUrl m_url;
     QString m_title;
     bool m_loadTitle;
 };
+
+#endif
 
 #endif // PAGETHUMBNAILER_H

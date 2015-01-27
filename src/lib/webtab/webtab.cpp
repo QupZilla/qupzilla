@@ -29,8 +29,7 @@
 #include "mainapplication.h"
 
 #include <QVBoxLayout>
-#include <QWebHistory>
-#include <QWebFrame>
+#include <QWebEngineHistory>
 #include <QLabel>
 #include <QTimer>
 #include <QSplitter>
@@ -131,6 +130,7 @@ TabbedWebView* WebTab::webView() const
 
 void WebTab::showWebInspector()
 {
+#if QTWEBENGINE_DISABLED
     if (!m_inspector) {
         m_inspector = new WebInspector(this);
         m_inspector->setPage(m_webView->page());
@@ -138,6 +138,7 @@ void WebTab::showWebInspector()
     }
 
     m_inspector->show();
+#endif
 }
 
 QUrl WebTab::url() const
@@ -170,7 +171,7 @@ QIcon WebTab::icon() const
     }
 }
 
-QWebHistory* WebTab::history() const
+QWebEngineHistory* WebTab::history() const
 {
     return m_webView->history();
 }
@@ -306,6 +307,7 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
+#if QTWEBENGINE_DISABLED
     WebPage* page = m_webView->page();
     const QSize oldSize = page->viewportSize();
     const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
@@ -341,6 +343,13 @@ QPixmap WebTab::renderTabPreview()
     page->mainFrame()->setScrollBarValue(Qt::Horizontal, originalScrollPosition.x());
 
     return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+#else
+    const int previewWidth = 230;
+    const int previewHeight = 150;
+
+    QPixmap p = m_webView->grab();
+    return p.scaled(previewWidth, previewHeight, Qt::KeepAspectRatioByExpanding);
+#endif
 }
 
 void WebTab::showNotification(QWidget* notif)

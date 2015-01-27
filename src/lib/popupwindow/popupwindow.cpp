@@ -28,7 +28,6 @@
 
 #include <QVBoxLayout>
 #include <QStatusBar>
-#include <QWebFrame>
 #include <QCloseEvent>
 #include <QMenuBar>
 
@@ -67,14 +66,14 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuBar->addMenu(menuFile);
 
     m_menuEdit = new QMenu(tr("Edit"));
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::Undo));
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::Redo));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::Undo));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::Redo));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::Cut));
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::Copy));
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::Paste));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::Cut));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::Copy));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::Paste));
     m_menuEdit->addSeparator();
-    m_menuEdit->addAction(m_view->pageAction(QWebPage::SelectAll));
+    m_menuEdit->addAction(m_view->pageAction(QWebEnginePage::SelectAll));
     m_menuEdit->addAction(QIcon::fromTheme("edit-find"), tr("Find"), this, SLOT(searchOnPage()))->setShortcut(QKeySequence("Ctrl+F"));
     m_menuBar->addMenu(m_menuEdit);
 
@@ -125,9 +124,11 @@ PopupWindow::PopupWindow(PopupWebView* view)
     titleChanged();
 
     QUrl urlToShow = m_view->url();
+#if QTWEBENGINE_DISABLED
     if (urlToShow.isEmpty()) {
         urlToShow = m_view->page()->mainFrame()->requestedUrl();
     }
+#endif
 
     m_locationBar->showUrl(urlToShow);
 
@@ -212,8 +213,10 @@ void PopupWindow::closeEvent(QCloseEvent* event)
 
 void PopupWindow::savePageScreen()
 {
+#if QTWEBENGINE_DISABLED
     PageScreen* pageScreen = new PageScreen(m_view, this);
     pageScreen->show();
+#endif
 }
 
 void PopupWindow::searchOnPage()

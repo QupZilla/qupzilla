@@ -29,10 +29,11 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QInputDialog>
-#include <QWebFrame>
 #include <QTimer>
 
-SourceViewer::SourceViewer(QWebFrame* frame, const QString &selectedHtml)
+#if QTWEBENGINE_DISABLED
+
+SourceViewer::SourceViewer(QWebEngineFrame* frame, const QString &selectedHtml)
     : QWidget(0)
     , m_frame(frame)
     , m_selectedHtml(selectedHtml)
@@ -231,3 +232,5 @@ void SourceViewer::goToLine()
 
     m_sourceEdit->goToLine(line);
 }
+
+#endif

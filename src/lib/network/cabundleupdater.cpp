@@ -27,6 +27,8 @@
 #include <QNetworkReply>
 #include <QFile>
 
+#if QTWEBENGINE_DISABLED
+
 CaBundleUpdater::CaBundleUpdater(NetworkManager* manager, QObject* parent)
     : QObject(parent)
     , m_manager(manager)
@@ -146,3 +148,5 @@ void CaBundleUpdater::replyFinished()
         mApp->networkManager()->loadSettings();
     }
 }
+
+#endif

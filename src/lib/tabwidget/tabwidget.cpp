@@ -37,8 +37,7 @@
 #include <QMimeData>
 #include <QStackedWidget>
 #include <QMouseEvent>
-#include <QWebHistory>
-#include <QWebFrame>
+#include <QWebEngineHistory>
 #include <QClipboard>
 
 AddTabButton::AddTabButton(TabWidget* tabWidget, TabBar* tabBar)
@@ -388,9 +387,10 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
         m_window->locationBar()->setFocus();
     }
 
+#if QTWEBENGINE_DISABLED
     if (openFlags & Qz::NT_NotSelectedTab) {
         WebTab* currentWebTab = weTab();
-        // Workarounding invalid QWebPage::viewportSize() until QWebView is shown
+        // Workarounding invalid QWebEnginePage::viewportSize() until QWebEngineView is shown
         // Fixes invalid scrolling to anchor(#) links
         if (currentWebTab && currentWebTab->webView()) {
             TabbedWebView* currentView = currentWebTab->webView();
@@ -398,6 +398,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
             webTab->webView()->page()->setViewportSize(currentView->page()->viewportSize());
         }
     }
+#endif
 
     // Make sure user notice opening new background tabs
     if (!(openFlags & Qz::NT_SelectedTab)) {

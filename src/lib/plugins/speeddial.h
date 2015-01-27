@@ -18,13 +18,15 @@
 #ifndef SPEEDDIAL_H
 #define SPEEDDIAL_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QObject>
 #include <QPointer>
 
 #include "qzcommon.h"
 
 class QUrl;
-class QWebFrame;
+class QWebEngineFrame;
 class QPixmap;
 
 class AutoSaver;
@@ -52,7 +54,7 @@ public:
     Page pageForUrl(const QUrl &url);
     QUrl urlForShortcut(int key);
 
-    void addWebFrame(QWebFrame* frame);
+    void addWebFrame(QWebEngineFrame* frame);
     void addPage(const QUrl &url, const QString &title);
     void removePage(const Page &page);
 
@@ -88,7 +90,7 @@ private:
     QString escapeTitle(QString string) const;
     QString escapeUrl(QString url) const;
 
-    QList<QWebFrame*> cleanFrames();
+    QList<QWebEngineFrame*> cleanFrames();
     QString generateAllPages();
 
     QString m_initialScript;
@@ -106,5 +108,7 @@ private:
     bool m_loaded;
     bool m_regenerateScript;
 };
+
+#endif
 
 #endif // SPEEDDIAL_H

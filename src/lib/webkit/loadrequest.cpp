@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "loadrequest.h"
 
-#include <QWebView>
+#include <QWebEngineView>
 
 LoadRequest::LoadRequest()
     : m_operation(GetOperation)

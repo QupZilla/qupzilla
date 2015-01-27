@@ -23,6 +23,8 @@
 #include "qzcommon.h"
 #include "animatedwidget.h"
 
+#if QTWEBENGINE_DISABLED
+
 namespace Ui
 {
 class SourceViewerSearch;
@@ -58,5 +60,7 @@ private:
     QString m_lastSearchedString;
     QTextDocument::FindFlags m_findFlags;
 };
+
+#endif
 
 #endif // SOURCEVIEWERSEARCH_H

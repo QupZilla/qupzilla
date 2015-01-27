@@ -23,7 +23,7 @@
 
 #include "qzcommon.h"
 
-class QWebFrame;
+class QWebEngineFrame;
 class Menu;
 class QMenu;
 class QAction;
@@ -127,9 +127,9 @@ private slots:
     void closeWindow();
     void quitApp();
 
-    void printPage(QWebFrame* frame = 0);
+    void printPage(QWebEngineFrame* frame = 0);
     void showBookmarksToolbar();
-    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
+    void showSource(QWebEngineFrame* frame = 0, const QString &selectedHtml = QString());
     void bookmarkPage();
     void showPageInfo();
     void showWebInspector(bool toggle = true);

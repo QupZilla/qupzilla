@@ -19,6 +19,8 @@
 #include "toolbutton.h"
 #include "iconprovider.h"
 
+#if QTWEBENGINE_DISABLED
+
 #include <QTimer>
 
 WebInspector::WebInspector(QWidget* parent)
@@ -68,3 +70,5 @@ void WebInspector::resizeEvent(QResizeEvent* event)
 
     QTimer::singleShot(0, this, SLOT(updateCloseButton()));
 }
+
+#endif

@@ -19,8 +19,10 @@
 #include "mainapplication.h"
 #include "networkmanagerproxy.h"
 
-#include <QWebPage>
-#include <QWebFrame>
+#if QTWEBENGINE_DISABLED
+
+#include <QWebEnginePage>
+#include <QWebEngineFrame>
 #include <QPainter>
 
 CleanPluginFactory::CleanPluginFactory(QObject* parent)
@@ -45,7 +47,7 @@ QObject* CleanPluginFactory::create(const QString &mimeType, const QUrl &url, co
 
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
-    , m_page(new QWebPage(this))
+    , m_page(new QWebEnginePage(this))
     , m_size(QSize(450, 253))
     , m_loadTitle(false)
 {
@@ -129,7 +131,7 @@ void PageThumbnailer::createThumbnail(bool status)
 
     QPainter painter(&pixmap);
     painter.scale(scalingFactor, scalingFactor);
-    m_page->mainFrame()->render(&painter, QWebFrame::ContentsLayer);
+    m_page->mainFrame()->render(&painter, QWebEngineFrame::ContentsLayer);
     painter.end();
 
     emit thumbnailCreated(pixmap.scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
@@ -139,3 +141,5 @@ PageThumbnailer::~PageThumbnailer()
 {
     m_page->deleteLater();
 }
+
+#endif

@@ -23,7 +23,7 @@
 #include "qzcommon.h"
 
 class QUrl;
-class QWebFrame;
+class QWebEngineFrame;
 class QWebElement;
 class QNetworkRequest;
 
@@ -61,7 +61,7 @@ public:
     void removeAllEntries();
 
     void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-    QVector<PasswordEntry> completeFrame(QWebFrame* frame);
+    QVector<PasswordEntry> completeFrame(QWebEngineFrame *frame);
 
     QByteArray exportPasswords();
     bool importPasswords(const QByteArray &data);

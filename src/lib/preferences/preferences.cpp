@@ -364,18 +364,19 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
 
     //FONTS
     settings.beginGroup("Browser-Fonts");
-    QWebSettings* webSettings = QWebSettings::globalSettings();
-    ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", webSettings->fontFamily(QWebSettings::StandardFont)).toString()));
-    ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", webSettings->fontFamily(QWebSettings::CursiveFont)).toString()));
-    ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", webSettings->fontFamily(QWebSettings::FantasyFont)).toString()));
-    ui->fontFixed->setCurrentFont(QFont(settings.value("FixedFont", webSettings->fontFamily(QWebSettings::FixedFont)).toString()));
-    ui->fontSansSerif->setCurrentFont(QFont(settings.value("SansSerifFont", webSettings->fontFamily(QWebSettings::SansSerifFont)).toString()));
-    ui->fontSerif->setCurrentFont(QFont(settings.value("SerifFont", webSettings->fontFamily(QWebSettings::SerifFont)).toString()));
-
-    ui->sizeDefault->setValue(settings.value("DefaultFontSize", webSettings->fontSize(QWebSettings::DefaultFontSize)).toInt());
-    ui->sizeFixed->setValue(settings.value("FixedFontSize", webSettings->fontSize(QWebSettings::DefaultFixedFontSize)).toInt());
-    ui->sizeMinimum->setValue(settings.value("MinimumFontSize", webSettings->fontSize(QWebSettings::MinimumFontSize)).toInt());
-    ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", webSettings->fontSize(QWebSettings::MinimumLogicalFontSize)).toInt());
+#if QTWEBENGINE_DISABLED
+    QWebEngineSettings* webSettings = QWebEngineSettings::globalSettings();
+    ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString()));
+    ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", webSettings->fontFamily(QWebEngineSettings::CursiveFont)).toString()));
+    ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", webSettings->fontFamily(QWebEngineSettings::FantasyFont)).toString()));
+    ui->fontFixed->setCurrentFont(QFont(settings.value("FixedFont", webSettings->fontFamily(QWebEngineSettings::FixedFont)).toString()));
+    ui->fontSansSerif->setCurrentFont(QFont(settings.value("SansSerifFont", webSettings->fontFamily(QWebEngineSettings::SansSerifFont)).toString()));
+    ui->fontSerif->setCurrentFont(QFont(settings.value("SerifFont", webSettings->fontFamily(QWebEngineSettings::SerifFont)).toString()));
+    ui->sizeDefault->setValue(settings.value("DefaultFontSize", webSettings->fontSize(QWebEngineSettings::DefaultFontSize)).toInt());
+    ui->sizeFixed->setValue(settings.value("FixedFontSize", webSettings->fontSize(QWebEngineSettings::DefaultFixedFontSize)).toInt());
+    ui->sizeMinimum->setValue(settings.value("MinimumFontSize", webSettings->fontSize(QWebEngineSettings::MinimumFontSize)).toInt());
+    ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", webSettings->fontSize(QWebEngineSettings::MinimumLogicalFontSize)).toInt());
+#endif
     settings.endGroup();
 
     //KEYBOARD SHORTCUTS
@@ -780,7 +781,9 @@ void Preferences::changeCachePathClicked()
 
 void Preferences::reloadPacFileClicked()
 {
+#if QTWEBENGINE_DISABLED
     mApp->networkManager()->proxyFactory()->pacManager()->downloadPacFile();
+#endif
 }
 
 void Preferences::showPassManager(bool state)
@@ -1110,7 +1113,9 @@ void Preferences::saveSettings()
     mApp->history()->loadSettings();
     mApp->reloadSettings();
     mApp->plugins()->c2f_saveSettings();
+#if QTWEBENGINE_DISABLED
     mApp->networkManager()->loadSettings();
+#endif
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
 }

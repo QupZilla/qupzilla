@@ -50,7 +50,9 @@ void TabIcon::setWebTab(WebTab* tab)
 
     connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
+#if QTWEBENGINE_DISABLED
     connect(m_tab->webView(), SIGNAL(iconChanged()), this, SLOT(showIcon()));
+#endif
 
     showIcon();
 }

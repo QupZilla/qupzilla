@@ -24,8 +24,8 @@
 
 #include "qzcommon.h"
 
-class QWebPage;
-class QWebFrame;
+class QWebEnginePage;
+class QWebEngineFrame;
 class QWebElement;
 class QWebElementCollection;
 
@@ -44,11 +44,11 @@ class QUPZILLA_EXPORT PageFormCompleter
 public:
     explicit PageFormCompleter();
 
-    PageFormData extractFormData(QWebPage* page, const QByteArray &postData);
-    PageFormData extractFormData(QWebFrame* frame, const QByteArray &postData);
+    PageFormData extractFormData(QWebEnginePage* page, const QByteArray &postData);
+    PageFormData extractFormData(QWebEngineFrame* frame, const QByteArray &postData);
 
-    bool completeFormData(QWebPage* page, const QByteArray &data);
-    bool completeFormData(QWebFrame* frame, const QByteArray &data);
+    bool completeFormData(QWebEnginePage* page, const QByteArray &data);
+    bool completeFormData(QWebEngineFrame* frame, const QByteArray &data);
 
 private:
     typedef QPair<QString, QString> QueryItem;
@@ -62,10 +62,12 @@ private:
     QByteArray convertWebKitFormBoundaryIfNecessary(const QByteArray &data) const;
     QueryItem findUsername(const QWebElement &form) const;
     QueryItems createQueryItems(QByteArray data) const;
+#if QTWEBENGINE_DISABLED
     QWebElementCollection getAllElementsFromPage(const QString &selector) const;
+#endif
 
-    QWebPage* m_page;
-    QWebFrame* m_frame;
+    QWebEnginePage* m_page;
+    QWebEngineFrame* m_frame;
 };
 
 #endif // PAGEFORMCOMPLETER_H

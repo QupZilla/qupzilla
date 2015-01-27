@@ -21,7 +21,7 @@
 #include "mainapplication.h"
 #include "settings.h"
 
-#include <QWebPage> // QTWEBKIT_VERSION_CHECK macro
+#include <QWebEnginePage> // QTWEBKIT_VERSION_CHECK macro
 #include <QFileDialog>
 
 JsOptions::JsOptions(QWidget* parent)

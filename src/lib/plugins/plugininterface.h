@@ -21,7 +21,11 @@
 #include <QPixmap>
 #include <QtPlugin>
 #include <QNetworkRequest>
+#if QTWEBENGINE_DISABLED
 #include <QWebHitTestResult>
+#endif
+
+#include <QNetworkAccessManager>
 
 #include "qzcommon.h"
 

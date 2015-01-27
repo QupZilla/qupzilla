@@ -23,7 +23,7 @@
 #include "qztools.h"
 
 #include <QNetworkCookie>
-#include <QWebSettings>
+#include <QWebEngineSettings>
 #include <QDateTime>
 
 //#define COOKIE_DEBUG
@@ -56,6 +56,7 @@ void CookieJar::loadSettings()
     m_blacklist = settings.value("blacklist", QStringList()).toStringList();
     settings.endGroup();
 
+#if QTWEBENGINE_DISABLED
 #if QTWEBKIT_FROM_2_3
     switch (m_allowThirdParty) {
     case 0:
@@ -70,6 +71,7 @@ void CookieJar::loadSettings()
         QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
         break;
     }
+#endif
 #endif
 }
 

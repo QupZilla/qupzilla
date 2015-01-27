@@ -34,7 +34,7 @@ class HTML5PermissionsNotification : public AnimatedWidget
 
 #ifdef USE_QTWEBKIT_2_2
 public:
-    explicit HTML5PermissionsNotification(const QString &host, QWebFrame* frame, const QWebPage::Feature &feature);
+    explicit HTML5PermissionsNotification(const QString &host, QWebEngineFrame* frame, const QWebEnginePage::Feature &feature);
     ~HTML5PermissionsNotification();
 
 private slots:
@@ -45,8 +45,8 @@ private:
     Ui::HTML5PermissionsNotification* ui;
 
     QString m_host;
-    QWebFrame* m_frame;
-    QWebPage::Feature m_feature;
+    QWebEngineFrame* m_frame;
+    QWebEnginePage::Feature m_feature;
 #endif
 };
 

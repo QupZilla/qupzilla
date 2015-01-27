@@ -24,7 +24,7 @@
 
 class QHBoxLayout;
 class QSplitter;
-class QWebHistoryItem;
+class QWebEngineHistoryItem;
 
 class ToolButton;
 class WebSearchBar;
@@ -90,8 +90,8 @@ private:
     QString titleForUrl(QString title, const QUrl &url);
     QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
 
-    void loadHistoryItem(const QWebHistoryItem &item);
-    void loadHistoryItemInNewTab(const QWebHistoryItem &item);
+    void loadHistoryItem(const QWebEngineHistoryItem &item);
+    void loadHistoryItemInNewTab(const QWebEngineHistoryItem &item);
 
     BrowserWindow* m_window;
 

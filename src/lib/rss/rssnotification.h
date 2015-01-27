@@ -25,6 +25,8 @@
 #include "qzcommon.h"
 #include "animatedwidget.h"
 
+#if QTWEBENGINE_DISABLED
+
 class WebView;
 
 namespace Ui
@@ -64,5 +66,7 @@ private:
 
     QVector<RssApp> m_rssApps;
 };
+
+#endif
 
 #endif // RSSNOTIFICATION_H

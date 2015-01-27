@@ -18,6 +18,8 @@
 #ifndef NETWORKMANAGERPROXY_H
 #define NETWORKMANAGERPROXY_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QNetworkAccessManager>
 
 #include "qzcommon.h"
@@ -39,5 +41,7 @@ private:
     WebPage* m_page;
     NetworkManager* m_manager;
 };
+
+#endif
 
 #endif // NETWORKMANAGERPROXY_H

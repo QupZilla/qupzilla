@@ -22,11 +22,13 @@
 #include "qztools.h"
 #include "autosaver.h"
 
+#if QTWEBENGINE_DISABLED
+
 #include <QDir>
 #include <QCryptographicHash>
 #include <QFileDialog>
-#include <QWebFrame>
-#include <QWebPage>
+#include <QWebEngineFrame>
+#include <QWebEnginePage>
 #include <QImage>
 
 #define ENSURE_LOADED if (!m_loaded) loadSettings();
@@ -124,7 +126,7 @@ QUrl SpeedDial::urlForShortcut(int key)
     return QUrl::fromEncoded(m_webPages.at(key).url.toUtf8());
 }
 
-void SpeedDial::addWebFrame(QWebFrame* frame)
+void SpeedDial::addWebFrame(QWebEngineFrame* frame)
 {
     if (!m_webFrames.contains(frame)) {
         m_webFrames.append(frame);
@@ -146,8 +148,8 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
     m_webPages.append(page);
     m_regenerateScript = true;
 
-    foreach (QWebFrame* frame, cleanFrames()) {
-        frame->page()->triggerAction(QWebPage::Reload);
+    foreach (QWebEngineFrame* frame, cleanFrames()) {
+        frame->page()->triggerAction(QWebEnginePage::Reload);
     }
 
     emit pagesChanged();
@@ -165,8 +167,8 @@ void SpeedDial::removePage(const Page &page)
     m_webPages.removeAll(page);
     m_regenerateScript = true;
 
-    foreach (QWebFrame* frame, cleanFrames()) {
-        frame->page()->triggerAction(QWebPage::Reload);
+    foreach (QWebEngineFrame* frame, cleanFrames()) {
+        frame->page()->triggerAction(QWebEnginePage::Reload);
     }
 
     emit pagesChanged();
@@ -361,7 +363,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     m_regenerateScript = true;
 
     cleanFrames();
-    foreach (QWebFrame* frame, cleanFrames()) {
+    foreach (QWebEngineFrame* frame, cleanFrames()) {
         frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(fileName)));
         if (loadTitle) {
             frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(title)));
@@ -413,3 +415,5 @@ QString SpeedDial::generateAllPages()
 
     return allPages;
 }
+
+#endif

@@ -23,6 +23,8 @@
 
 #include <QNetworkRequest>
 
+#if QTWEBENGINE_DISABLED
+
 NetworkManagerProxy::NetworkManagerProxy(QObject* parent)
     : QNetworkAccessManager(parent)
     , m_page(0)
@@ -57,3 +59,5 @@ QNetworkReply* NetworkManagerProxy::createRequest(QNetworkAccessManager::Operati
 
     return QNetworkAccessManager::createRequest(op, request, outgoingData);
 }
+
+#endif

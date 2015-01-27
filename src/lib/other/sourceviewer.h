@@ -18,6 +18,8 @@
 #ifndef SOURCEVIEWER_H
 #define SOURCEVIEWER_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QWidget>
 #include <QPointer>
 
@@ -27,13 +29,13 @@ class PlainEditWithLines;
 
 class QBoxLayout;
 class QStatusBar;
-class QWebFrame;
+class QWebEngineFrame;
 
 class QUPZILLA_EXPORT SourceViewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SourceViewer(QWebFrame* frame, const QString &selectedHtml);
+    explicit SourceViewer(QWebEngineFrame* frame, const QString &selectedHtml);
     PlainEditWithLines* sourceEdit() { return m_sourceEdit; }
 
 private slots:
@@ -54,7 +56,7 @@ private slots:
 private:
     QBoxLayout* m_layout;
     PlainEditWithLines* m_sourceEdit;
-    QPointer<QWebFrame> m_frame;
+    QPointer<QWebEngineFrame> m_frame;
     QStatusBar* m_statusBar;
 
     QString m_selectedHtml;
@@ -65,5 +67,7 @@ private:
     QAction* m_actionCopy;
     QAction* m_actionPaste;
 };
+
+#endif
 
 #endif // SOURCEVIEWER_H

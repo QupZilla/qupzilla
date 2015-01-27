@@ -18,6 +18,7 @@
 #ifndef WEB_PLUGIN_FACTORY_H
 #define WEB_PLUGIN_FACTORY_H
 
+#if QTWEBENGINE_DISABLED
 #include <QWebPluginFactory>
 
 #include "qzcommon.h"
@@ -35,4 +36,5 @@ public:
 private:
     WebPage* m_page;
 };
+#endif
 #endif // WEB_PLUGIN_FACTORY_H

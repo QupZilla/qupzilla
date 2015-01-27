@@ -22,6 +22,7 @@
 #include "adblockmanager.h"
 #include "webpage.h"
 
+#if QTWEBENGINE_DISABLED
 #include <QNetworkRequest>
 
 WebPluginFactory::WebPluginFactory(WebPage* page)
@@ -97,3 +98,5 @@ QList<QWebPluginFactory::Plugin> WebPluginFactory::plugins() const
 //    plugins.append(plugin);
 //    return plugins;
 }
+
+#endif

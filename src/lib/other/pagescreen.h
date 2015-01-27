@@ -23,6 +23,8 @@
 
 #include "qzcommon.h"
 
+#if QTWEBENGINE_DISABLED
+
 namespace Ui
 {
 class PageScreen;
@@ -62,5 +64,7 @@ private:
     QVector<QImage> m_pageImages;
     QStringList m_formats;
 };
+
+#endif
 
 #endif // PAGESCREEN_H

@@ -50,6 +50,7 @@ BookmarksWidget::~BookmarksWidget()
 
 void BookmarksWidget::toggleSpeedDial()
 {
+#if QTWEBENGINE_DISABLED
     const SpeedDial::Page page = m_speedDial->pageForUrl(m_view->url());
 
     if (page.url.isEmpty()) {
@@ -61,6 +62,7 @@ void BookmarksWidget::toggleSpeedDial()
     }
 
     closePopup();
+#endif
 }
 
 void BookmarksWidget::toggleBookmark()
@@ -104,6 +106,7 @@ void BookmarksWidget::init()
     // it dynamically changes and so, it's not good choice for this widget.
     setLayoutDirection(QApplication::layoutDirection());
 
+#if QTWEBENGINE_DISABLED
     // Init SpeedDial button
     const SpeedDial::Page page = m_speedDial->pageForUrl(m_view->url());
     if (page.url.isEmpty()) {
@@ -114,6 +117,7 @@ void BookmarksWidget::init()
         ui->speeddialButton->setFlat(false);
         ui->speeddialButton->setText(tr("Remove from Speed Dial"));
     }
+#endif
 
     // Init Bookmarks button
     if (m_bookmark) {

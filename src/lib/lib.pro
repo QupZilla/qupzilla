@@ -1,5 +1,5 @@
 isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webkitwidgets network widgets printsupport sql script gui-private
+    QT += webenginewidgets network widgets printsupport sql script gui-private
 } else {
     QT += core gui webkit sql network script concurrent
 }
@@ -12,7 +12,9 @@ DEFINES *= QUPZILLA_SHAREDLIBRARY
 include(../defines.pri)
 include(../../translations/translations.pri)
 include(3rdparty/qtsingleapplication/qtsingleapplication.pri)
-include(plugins/qtwebkit/qtwebkit-plugins.pri)
+
+# QTWEBENGINE DISABLED
+#include(plugins/qtwebkit/qtwebkit-plugins.pri)
 
 CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 

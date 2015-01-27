@@ -29,7 +29,7 @@
 Plugins::Plugins(QObject* parent)
     : QObject(parent)
     , m_pluginsLoaded(false)
-    , m_speedDial(new SpeedDial(this))
+    //, m_speedDial(new SpeedDial(this))
 {
     loadSettings();
 }

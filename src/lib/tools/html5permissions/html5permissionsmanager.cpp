@@ -20,7 +20,6 @@
 #include "settings.h"
 #include "webview.h"
 
-#include <QWebFrame>
 
 HTML5PermissionsManager::HTML5PermissionsManager(QObject* parent)
     : QObject(parent)
@@ -28,8 +27,8 @@ HTML5PermissionsManager::HTML5PermissionsManager(QObject* parent)
     loadSettings();
 }
 
-#if QTWEBKIT_FROM_2_2
-void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame, const QWebPage::Feature &feature)
+#if QTWEBENGINE_DISABLED
+void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebEngineFrame* frame, const QWebEnginePage::Feature &feature)
 {
     if (!frame || !page) {
         return;
@@ -39,14 +38,14 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame
     WebView* view = qobject_cast<WebView*>(page->view());
 
     switch (feature) {
-    case QWebPage::Notifications:
+    case QWebEnginePage::Notifications:
         if (m_notificationsGranted.contains(host)) {
-            page->setFeaturePermission(frame, feature, QWebPage::PermissionGrantedByUser);
+            page->setFeaturePermission(frame, feature, QWebEnginePage::PermissionGrantedByUser);
             return;
         }
 
         if (m_notificationsDenied.contains(host)) {
-            page->setFeaturePermission(frame, feature, QWebPage::PermissionDeniedByUser);
+            page->setFeaturePermission(frame, feature, QWebEnginePage::PermissionDeniedByUser);
             return;
         }
 
@@ -57,14 +56,14 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame
 
         break;
 
-    case QWebPage::Geolocation:
+    case QWebEnginePage::Geolocation:
         if (m_geolocationGranted.contains(host)) {
-            page->setFeaturePermission(frame, feature, QWebPage::PermissionGrantedByUser);
+            page->setFeaturePermission(frame, feature, QWebEnginePage::PermissionGrantedByUser);
             return;
         }
 
         if (m_geolocationDenied.contains(host)) {
-            page->setFeaturePermission(frame, feature, QWebPage::PermissionDeniedByUser);
+            page->setFeaturePermission(frame, feature, QWebEnginePage::PermissionDeniedByUser);
             return;
         }
 
@@ -81,16 +80,16 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, QWebFrame* frame
     }
 }
 
-void HTML5PermissionsManager::rememberPermissions(const QString &host, const QWebPage::Feature &feature,
-        const QWebPage::PermissionPolicy &policy)
+void HTML5PermissionsManager::rememberPermissions(const QString &host, const QWebEnginePage::Feature &feature,
+        const QWebEnginePage::PermissionPolicy &policy)
 {
     if (host.isEmpty()) {
         return;
     }
 
     switch (feature) {
-    case QWebPage::Notifications:
-        if (policy == QWebPage::PermissionGrantedByUser) {
+    case QWebEnginePage::Notifications:
+        if (policy == QWebEnginePage::PermissionGrantedByUser) {
             m_notificationsGranted.append(host);
         }
         else {
@@ -98,8 +97,8 @@ void HTML5PermissionsManager::rememberPermissions(const QString &host, const QWe
         }
         break;
 
-    case QWebPage::Geolocation:
-        if (policy == QWebPage::PermissionGrantedByUser) {
+    case QWebEnginePage::Geolocation:
+        if (policy == QWebEnginePage::PermissionGrantedByUser) {
             m_geolocationGranted.append(host);
         }
         else {
@@ -141,3 +140,4 @@ void HTML5PermissionsManager::saveSettings()
 void HTML5PermissionsManager::showSettingsDialog()
 {
 }
+

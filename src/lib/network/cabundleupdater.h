@@ -18,6 +18,8 @@
 #ifndef CABUNDLEUPDATER_H
 #define CABUNDLEUPDATER_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QObject>
 
 #include "qzcommon.h"
@@ -53,5 +55,7 @@ private:
 
     int m_latestBundleVersion;
 };
+
+#endif
 
 #endif // CABUNDLEUPDATER_H

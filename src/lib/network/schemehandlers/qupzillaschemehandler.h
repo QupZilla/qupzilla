@@ -21,6 +21,8 @@
 #include <QNetworkReply>
 #include <QBuffer>
 
+#if QTWEBENGINE_DISABLED
+
 #include "schemehandler.h"
 #include "qzcommon.h"
 
@@ -59,5 +61,7 @@ private:
     QBuffer m_buffer;
     QString m_pageName;
 };
+
+#endif
 
 #endif // QUPZILLASCHEMEHANDLER_H

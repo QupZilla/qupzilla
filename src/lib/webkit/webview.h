@@ -18,8 +18,11 @@
 #ifndef WEBVIEW_H
 #define WEBVIEW_H
 
-#include <QWebView>
+#include <QIcon>
+#include <QWebEngineView>
+#if QTWEBENGINE_DISABLED
 #include <QWebElement>
+#endif
 
 #include "qzcommon.h"
 #include "loadrequest.h"
@@ -27,7 +30,7 @@
 class WebPage;
 class LoadRequest;
 
-class QUPZILLA_EXPORT WebView : public QWebView
+class QUPZILLA_EXPORT WebView : public QWebEngineView
 {
     Q_OBJECT
 public:
@@ -41,7 +44,7 @@ public:
     bool isTitleEmpty() const;
 
     WebPage* page() const;
-    void setPage(QWebPage* page);
+    void setPage(QWebEnginePage* page);
 
     void load(const LoadRequest &request);
     bool loadingError() const;
@@ -51,7 +54,9 @@ public:
     void fakeLoadingProgress(int progress);
 
     bool hasRss() const;
+#if QTWEBENGINE_DISABLED
     QWebElement activeElement() const;
+#endif
 
     // Set zoom level (0 - 17)
     int zoomLevel() const;
@@ -100,7 +105,9 @@ public slots:
     void back();
     void forward();
 
-    void printPage(QWebFrame* frame = 0);
+#if QTWEBENGINE_DISABLED
+    void printPage(QWebEngineFrame* frame = 0);
+#endif
     void sendPageByMail();
     void savePageAs();
 
@@ -124,7 +131,9 @@ protected slots:
     void downloadUrlToDisk();
     void copyImageToClipboard();
     void openActionUrl();
-    void showSource(QWebFrame* frame = 0, const QString &selectedHtml = QString());
+#if QTWEBENGINE_DISABLED
+    void showSource(QWebEngineFrame* frame = 0, const QString &selectedHtml = QString());
+#endif
     void showSiteInfo();
     void searchSelectedText();
     void searchSelectedTextInBackgroundTab();
@@ -136,7 +145,9 @@ protected slots:
     void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl(), bool invert = false);
     void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
+#if QTWEBENGINE_DISABLED
     void createSearchEngine();
+#endif
 
     // Clicked frame actions
     void loadClickedFrame();
@@ -162,6 +173,7 @@ protected:
     void applyZoom();
     QUrl lastUrl();
 
+#if QTWEBENGINE_DISABLED
     bool isMediaElement(const QWebElement &element);
     void checkForForm(QMenu* menu, const QWebElement &element);
 
@@ -171,10 +183,13 @@ protected:
     void createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
     void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+#endif
 
 private slots:
+#if QTWEBENGINE_DISABLED
     void pauseMedia();
     void muteMedia();
+#endif
     void frameStateChanged();
     void emitChangedUrl();
     void checkRss();
@@ -196,8 +211,10 @@ private:
     QUrl m_aboutToLoadUrl;
     QUrl m_lastUrl;
 
+#if QTWEBENGINE_DISABLED
     QWebElement m_clickedElement;
-    QWebFrame* m_clickedFrame;
+    QWebEngineFrame* m_clickedFrame;
+#endif
     QUrl m_clickedUrl;
 
     WebPage* m_page;

@@ -21,6 +21,8 @@
 #include "qzcommon.h"
 #include "clickablelabel.h"
 
+#if QTWEBENGINE_DISABLED
+
 class WebView;
 
 class QUPZILLA_EXPORT RssIcon : public ClickableLabel
@@ -40,5 +42,7 @@ private:
 
     WebView* m_view;
 };
+
+#endif
 
 #endif // RSSICON_H

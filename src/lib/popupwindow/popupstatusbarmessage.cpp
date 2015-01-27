@@ -24,7 +24,6 @@
 
 #include <QStatusBar>
 #include <QStyle>
-#include <QWebFrame>
 
 PopupStatusBarMessage::PopupStatusBarMessage(PopupWindow* window)
     : m_popupWindow(window)
@@ -43,18 +42,22 @@ void PopupStatusBarMessage::showMessage(const QString &message)
     else {
 #endif
         PopupWebView* view = m_popupWindow->webView();
-        QWebFrame* mainFrame = view->page()->mainFrame();
+#if QTWEBENGINE_DISABLED
+        QWebEngineFrame* mainFrame = view->page()->mainFrame();
+#endif
 
         int horizontalScrollSize = 0;
         int verticalScrollSize = 0;
         const int scrollbarSize = m_popupWindow->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
 
+#if QTWEBENGINE_DISABLED
         if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
             horizontalScrollSize = scrollbarSize;
         }
         if (mainFrame->scrollBarMaximum(Qt::Vertical)) {
             verticalScrollSize = scrollbarSize;
         }
+#endif
 
         m_statusBarText->setText(message);
         m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
