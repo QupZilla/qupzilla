@@ -59,6 +59,7 @@
 #include <QColorDialog>
 #include <QDesktopWidget>
 #include <QNetworkDiskCache>
+#include <QWebEngineSettings>
 
 static QString createLanguageItem(const QString &lang)
 {
@@ -364,7 +365,6 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
 
     //FONTS
     settings.beginGroup("Browser-Fonts");
-#if QTWEBENGINE_DISABLED
     QWebEngineSettings* webSettings = QWebEngineSettings::globalSettings();
     ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString()));
     ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", webSettings->fontFamily(QWebEngineSettings::CursiveFont)).toString()));
@@ -376,7 +376,6 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->sizeFixed->setValue(settings.value("FixedFontSize", webSettings->fontSize(QWebEngineSettings::DefaultFixedFontSize)).toInt());
     ui->sizeMinimum->setValue(settings.value("MinimumFontSize", webSettings->fontSize(QWebEngineSettings::MinimumFontSize)).toInt());
     ui->sizeMinimumLogical->setValue(settings.value("MinimumLogicalFontSize", webSettings->fontSize(QWebEngineSettings::MinimumLogicalFontSize)).toInt());
-#endif
     settings.endGroup();
 
     //KEYBOARD SHORTCUTS
