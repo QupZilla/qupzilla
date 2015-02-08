@@ -9,6 +9,8 @@ TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
+CONFIG += c++11
+
 include(../defines.pri)
 include(../../translations/translations.pri)
 include(3rdparty/qtsingleapplication/qtsingleapplication.pri)
