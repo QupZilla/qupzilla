@@ -83,6 +83,7 @@
 #include <QPrintPreviewDialog>
 #include <QPrinter>
 #include <QWebEngineHistory>
+#include <QWebEngineSettings>
 #include <QMessageBox>
 #include <QDesktopWidget>
 #include <QToolTip>
@@ -436,11 +437,7 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
     std::sort(codecNames.begin(), codecNames.end());
 
     QMenu* subMenu = new QMenu(name, menu);
-#if QTWEBENGINE_DISABLED
-    const QString activeCodecName = QWebSettings::globalSettings()->defaultTextEncoding();
-#else
-    const QString activeCodecName = QL1S("UTF-8");
-#endif
+    const QString activeCodecName = QWebEngineSettings::globalSettings()->defaultTextEncoding();
 
     foreach (const QString &codecName, codecNames) {
         subMenu->addAction(createEncodingAction(codecName, activeCodecName, subMenu));
@@ -681,9 +678,7 @@ void BrowserWindow::changeEncoding()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         const QString encoding = action->data().toString();
-#if QTWEBENGINE_DISABLED
         QWebEngineSettings::globalSettings()->setDefaultTextEncoding(encoding);
-#endif
 
         Settings settings;
         settings.setValue("Web-Browser-Settings/DefaultEncoding", encoding);
@@ -1019,11 +1014,7 @@ void BrowserWindow::createSidebarsMenu(QMenu* menu)
 
 void BrowserWindow::createEncodingMenu(QMenu* menu)
 {
-#if QTWEBENGINE_DISABLED
-    const QString activeCodecName = QWebSettings::globalSettings()->defaultTextEncoding();
-#else
-    const QString activeCodecName = QL1S("UTF-8");
-#endif
+    const QString activeCodecName = QWebEngineSettings::globalSettings()->defaultTextEncoding();
 
     QStringList isoCodecs, utfCodecs, windowsCodecs, isciiCodecs, otherCodecs;
 
