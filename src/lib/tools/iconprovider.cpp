@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "iconprovider.h"
 #include "mainapplication.h"
+#include "followredirectreply.h"
 #include "sqldatabase.h"
 #include "autosaver.h"
 #include "webview.h"
@@ -254,4 +255,31 @@ void IconProvider::clearIconsDatabase()
 QIcon IconProvider::iconFromImage(const QImage &image)
 {
     return QIcon(QPixmap::fromImage(image));
+}
+
+// IconLoader
+IconLoader::IconLoader(const QUrl &url, QObject* parent)
+    : QObject(parent)
+{
+    m_reply = new FollowRedirectReply(url, mApp->networkManager());
+    connect(m_reply, &FollowRedirectReply::finished, this, &IconLoader::finished);
+}
+
+IconLoader::~IconLoader()
+{
+    delete m_reply;
+}
+
+void IconLoader::finished()
+{
+    if (m_reply->error() != QNetworkReply::NoError) {
+        emit error();
+    }
+    else {
+        const QByteArray data = m_reply->readAll();
+        emit iconLoaded(QIcon(QPixmap::fromImage(QImage::fromData(data))));
+    }
+
+    delete m_reply;
+    m_reply = 0;
 }

@@ -30,6 +30,7 @@ class QIcon;
 
 class WebView;
 class AutoSaver;
+class FollowRedirectReply;
 
 // Needs to be QWidget subclass, otherwise qproperty- setting won't work
 class QUPZILLA_EXPORT IconProvider : public QWidget
@@ -81,6 +82,25 @@ private:
     QVector<BufferedIcon> m_iconBuffer;
 
     AutoSaver* m_autoSaver;
+};
+
+class QUPZILLA_EXPORT IconLoader : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit IconLoader(const QUrl &url, QObject* parent = 0);
+    ~IconLoader();
+
+signals:
+    void iconLoaded(const QIcon &icon);
+    void error();
+
+private slots:
+    void finished();
+
+private:
+    FollowRedirectReply* m_reply;
 };
 
 #endif // ICONPROVIDER_H

@@ -126,9 +126,7 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(rssChanged(bool)), this, SLOT(setRssIconVisible(bool)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
-#if QTWEBENGINE_DISABLED
     connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
-#endif
 }
 
 void LocationBar::setText(const QString &text)

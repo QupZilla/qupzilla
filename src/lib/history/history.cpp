@@ -53,7 +53,7 @@ void History::loadSettings()
 // AddHistoryEntry
 void History::addHistoryEntry(WebView* view)
 {
-    if (!m_isSaving || view->loadingError()) {
+    if (!m_isSaving) {
         return;
     }
 

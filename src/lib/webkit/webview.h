@@ -20,15 +20,13 @@
 
 #include <QIcon>
 #include <QWebEngineView>
-#if QTWEBENGINE_DISABLED
-#include <QWebElement>
-#endif
 
 #include "qzcommon.h"
 #include "loadrequest.h"
 
 class WebPage;
 class LoadRequest;
+class IconLoader;
 
 class QUPZILLA_EXPORT WebView : public QWebEngineView
 {
@@ -47,16 +45,12 @@ public:
     void setPage(QWebEnginePage* page);
 
     void load(const LoadRequest &request);
-    bool loadingError() const;
     bool isLoading() const;
 
     int loadingProgress() const;
     void fakeLoadingProgress(int progress);
 
     bool hasRss() const;
-#if QTWEBENGINE_DISABLED
-    QWebElement activeElement() const;
-#endif
 
     // Set zoom level (0 - 17)
     int zoomLevel() const;
@@ -80,6 +74,7 @@ public:
     static void setForceContextMenuOnMouseRelease(bool force);
 
 signals:
+    void iconChanged();
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
@@ -121,7 +116,7 @@ protected slots:
     void slotLoadStarted();
     void slotLoadProgress(int progress);
     void slotLoadFinished();
-    void slotIconChanged();
+    void slotIconUrlChanged(const QUrl &url);
     void slotUrlChanged(const QUrl &url);
 
     // Context menu slots
@@ -205,6 +200,7 @@ private:
 
     QIcon m_siteIcon;
     QUrl m_siteIconUrl;
+    IconLoader* m_siteIconLoader;
 
     bool m_isLoading;
     int m_progress;

@@ -54,6 +54,7 @@ bool WebView::s_forceContextMenuOnMouseRelease = false;
 
 WebView::WebView(QWidget* parent)
     : QWebEngineView(parent)
+    , m_siteIconLoader(0)
     , m_isLoading(false)
     , m_progress(0)
 #if QTWEBENGINE_DISABLED
@@ -69,9 +70,7 @@ WebView::WebView(QWidget* parent)
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
-#if QTWEBENGINE_DISABLED
-    connect(this, SIGNAL(iconChanged()), this, SLOT(slotIconChanged()));
-#endif
+    connect(this, SIGNAL(iconUrlChanged(QUrl)), this, SLOT(slotIconUrlChanged(QUrl)));
 
     m_zoomLevels = zoomLevels();
     m_currentZoomLevel = m_zoomLevels.indexOf(100);
@@ -218,11 +217,6 @@ void WebView::load(const LoadRequest &request)
     loadRequest(searchRequest);
 }
 
-bool WebView::loadingError() const
-{
-    return page()->loadingError();
-}
-
 bool WebView::isLoading() const
 {
     return m_isLoading;
@@ -243,14 +237,6 @@ bool WebView::hasRss() const
 {
     return m_hasRss;
 }
-
-#if QTWEBENGINE_DISABLED
-QWebElement WebView::activeElement() const
-{
-    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
-    return page()->mainFrame()->hitTestContent(activeRect.center()).element();
-}
-#endif
 
 int WebView::zoomLevel() const
 {
@@ -436,9 +422,6 @@ void WebView::back()
         history->back();
 
         emit urlChanged(url());
-#if QTWEBENGINE_DISABLED
-        emit iconChanged();
-#endif
     }
 }
 
@@ -450,9 +433,6 @@ void WebView::forward()
         history->forward();
 
         emit urlChanged(url());
-#if QTWEBENGINE_DISABLED
-        emit iconChanged();
-#endif
     }
 }
 
@@ -514,14 +494,26 @@ void WebView::checkRss()
 #endif
 }
 
-void WebView::slotIconChanged()
+void WebView::slotIconUrlChanged(const QUrl &url)
 {
-    if (!loadingError()) {
-        m_siteIcon = icon();
-        m_siteIconUrl = url();
+    if (m_siteIconUrl == url) {
+        emit iconChanged();
+        return;
+    }
+
+    delete m_siteIconLoader;
+    m_siteIconLoader = new IconLoader(url, this);
+
+    connect(m_siteIconLoader, &IconLoader::iconLoaded, [this, url](const QIcon &icon) {
+        if (icon.isNull())
+            return;
+
+        m_siteIcon = icon;
+        m_siteIconUrl = url;
+        emit iconChanged();
 
         IconProvider::instance()->saveIcon(this);
-    }
+    });
 }
 
 void WebView::slotUrlChanged(const QUrl &url)
