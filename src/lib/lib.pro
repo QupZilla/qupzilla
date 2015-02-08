@@ -120,7 +120,6 @@ SOURCES += \
     history/historymenu.cpp \
     history/historymodel.cpp \
     history/historytreeview.cpp \
-    history/webhistoryinterface.cpp \
     navigation/completer/locationcompleter.cpp \
     navigation/completer/locationcompleterdelegate.cpp \
     navigation/completer/locationcompletermodel.cpp \
@@ -320,7 +319,6 @@ HEADERS  += \
     history/historymenu.h \
     history/historymodel.h \
     history/historytreeview.h \
-    history/webhistoryinterface.h \
     navigation/completer/locationcompleterdelegate.h \
     navigation/completer/locationcompleter.h \
     navigation/completer/locationcompletermodel.h \

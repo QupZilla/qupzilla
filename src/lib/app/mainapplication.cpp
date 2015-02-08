@@ -44,7 +44,6 @@
 #include "clearprivatedata.h"
 #include "useragentmanager.h"
 #include "commandlineoptions.h"
-#include "webhistoryinterface.h"
 #include "searchenginesmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
