@@ -892,6 +892,7 @@ void MainApplication::loadSettings()
 
     webSettings->setUserStyleSheetUrl(userStyleSheet(userCss));
 #endif
+    settings.endGroup();
 
     settings.beginGroup("Browser-Fonts");
     webSettings->setFontFamily(QWebEngineSettings::StandardFont, settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString());
