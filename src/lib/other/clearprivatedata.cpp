@@ -33,9 +33,6 @@
 
 #include <QNetworkCookie>
 #include <QMessageBox>
-#if QTWEBENGINE_DISABLED
-#include <QWebDatabase>
-#endif
 #include <QWebEngineSettings>
 #include <QNetworkDiskCache>
 #include <QDateTime>
@@ -80,9 +77,6 @@ void ClearPrivateData::clearWebDatabases()
 {
     const QString profile = DataPaths::currentProfilePath();
 
-#if QTWEBENGINE_DISABLED
-    QWebDatabase::removeAllDatabases();
-#endif
     QzTools::removeDir(profile + "/Databases");
 }
 

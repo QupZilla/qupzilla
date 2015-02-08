@@ -520,11 +520,7 @@ QNetworkDiskCache* MainApplication::networkCache()
         Settings settings;
         const QString defaultBasePath = QString("%1/networkcache/").arg(DataPaths::currentProfilePath());
         const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
-#if QTWEBENGINE_DISABLED
-        const QString cachePath = QString("%1/%2-Qt%3/").arg(basePath, qWebKitVersion(), qVersion());
-#else
         const QString cachePath = QString("%1/QtWebEngine/").arg(basePath);
-#endif
 
         m_networkCache = new QNetworkDiskCache(this);
         m_networkCache->setCacheDirectory(cachePath);
@@ -702,9 +698,6 @@ void MainApplication::postLaunch()
     }
 
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, DataPaths::currentProfilePath());
-#if QTWEBENGINE_DISABLED
-    QWebEngineHistoryInterface::setDefaultInterface(new WebHistoryInterface(this));
-#endif
 
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(messageReceived(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));

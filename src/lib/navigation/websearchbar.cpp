@@ -36,9 +36,6 @@
 #include <QStringListModel>
 #include <QMenu>
 #include <QTimer>
-#if QTWEBENGINE_DISABLED
-#include <QWebEngineFrame>
-#endif
 #include <QClipboard>
 #include <QContextMenuEvent>
 
