@@ -26,7 +26,7 @@ UserAgentManager::UserAgentManager(QObject* parent)
     : QObject(parent)
     , m_usePerDomainUserAgent(false)
 {
-    m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/10.0 Safari/%2").arg(QzTools::operatingSystem(), BrowserWindow::WEBKITVERSION);
+    m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/37.0 Safari/537.36").arg(QzTools::operatingSystem());
 }
 
 void UserAgentManager::loadSettings()

@@ -105,12 +105,6 @@
 #endif
 #endif /* Q_OS_WIN */
 
-#if QTWEBENGINE_DISABLED
-const QString BrowserWindow::WEBKITVERSION = qWebKitVersion();
-#else
-const QString BrowserWindow::WEBKITVERSION = QSL("QtWebEngine");
-#endif
-
 static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
 {
     if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {

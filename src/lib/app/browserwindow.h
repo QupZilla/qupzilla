@@ -58,8 +58,6 @@ class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    static const QString WEBKITVERSION;
-
     explicit BrowserWindow(Qz::BrowserWindowType type, const QUrl &url = QUrl());
     ~BrowserWindow();
 
