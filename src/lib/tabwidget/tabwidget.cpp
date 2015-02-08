@@ -379,7 +379,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
         r.setUrl(url);
         webTab->webView()->load(r);
     }
-    else {
+    else if (req.url().isValid()) {
         webTab->webView()->load(req);
     }
 
