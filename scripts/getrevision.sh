@@ -3,7 +3,7 @@
 REV=""
 
 if [ -e "/usr/bin/git" ] && ([ -e ".git" ] || [ -e "../.git" ]); then
-    REV=`git show-ref refs/heads/master | cut -d " " -f 1`
+    REV=`git show-ref refs/heads/v1.8 | cut -d " " -f 1`
 elif [ -e "git_revision" ]; then
     REV=`cat git_revision`
 fi
