@@ -15,7 +15,7 @@ before_install:
 install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
-  - if [[ "$QT" == "qt54" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt54; sudo apt-get update -qq; sudo apt-get install -qq qt54tools qt54script qt54webengine qt54webchannel; fi
+  - if [[ "$QT" == "qt54" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt541; sudo apt-get update -qq; sudo apt-get install -qq qt54tools qt54script qt54webengine qt54webchannel; fi
 
 script:
   - QMAKE="qmake"
