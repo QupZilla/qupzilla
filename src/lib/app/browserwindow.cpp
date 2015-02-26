@@ -89,10 +89,6 @@
 #include <QToolTip>
 #include <QScrollArea>
 
-#if QT_VERSION < 0x050000
-#include "qwebkitversion.h"
-#endif
-
 #ifdef QZ_WS_X11
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -1671,15 +1667,10 @@ void BrowserWindow::applyBlurToMainWindow(bool force)
     QtWin::extendFrameIntoClientArea(this, leftMargin, topMargin, rightMargin, bottomMargin);
 }
 
-#if (QT_VERSION < 0x050000)
-bool BrowserWindow::winEvent(MSG* message, long* result)
-{
-#else
 bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, long* result)
 {
     Q_UNUSED(eventType)
     MSG* message = static_cast<MSG*>(_message);
-#endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
@@ -1716,11 +1707,7 @@ bool BrowserWindow::nativeEvent(const QByteArray &eventType, void* _message, lon
             m_useTransparentBackground = false;
         }
     }
-#if (QT_VERSION < 0x050000)
-    return QMainWindow::winEvent(message, result);
-#else
     return QMainWindow::nativeEvent(eventType, _message, result);
-#endif
 }
 
 void BrowserWindow::paintEvent(QPaintEvent* event)

@@ -19,9 +19,7 @@
 #include "qzregexp.h"
 
 #include <QWebEnginePage>
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 PageFormCompleter::PageFormCompleter()
     : m_page(0)
@@ -247,13 +245,9 @@ PageFormCompleter::QueryItems PageFormCompleter::createQueryItems(QByteArray dat
     // QUrlQuery/QUrl never encodes/decodes + and spaces
     data.replace('+', ' ');
 
-#if QT_VERSION >= 0x050000
     QUrlQuery query;
     query.setQuery(data);
     QueryItems arguments = query.queryItems(QUrl::FullyDecoded);
-#else
-    QueryItems arguments = QUrl::fromEncoded("http://foo.com/?" + data).queryItems();
-#endif
 
     return arguments;
 }

@@ -32,9 +32,7 @@
 #include <QSqlQuery>
 #include <QBuffer>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 #define ENSURE_LOADED if (!m_settingsLoaded) loadSettings();
 
@@ -290,7 +288,6 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         parameterUrl = QUrl("http://foo.bar");
     }
 
-#if QT_VERSION >= 0x050000
     QUrlQuery query(parameterUrl);
     query.addQueryItem(element.attribute("name"), "%s");
 
@@ -304,28 +301,6 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     }
 
     parameterUrl.setQuery(query);
-#else
-    QList<QPair<QByteArray, QByteArray> > queryItems;
-
-    QPair<QByteArray, QByteArray> item;
-    item.first = element.attribute("name").toUtf8();
-    item.second = "%s";
-    queryItems.append(item);
-
-    QWebElementCollection allInputs = formElement.findAll("input");
-    foreach (QWebElement e, allInputs) {
-        if (element == e || !e.hasAttribute("name")) {
-            continue;
-        }
-
-        QPair<QByteArray, QByteArray> item;
-        item.first = QUrl::toPercentEncoding(e.attribute("name").toUtf8());
-        item.second = QUrl::toPercentEncoding(e.evaluateJavaScript("this.value").toByteArray());
-
-        queryItems.append(item);
-    }
-    parameterUrl.setEncodedQueryItems(parameterUrl.encodedQueryItems() + queryItems);
-#endif
 
     if (!isPost) {
         actionUrl = parameterUrl;

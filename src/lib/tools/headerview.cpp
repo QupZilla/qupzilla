@@ -26,11 +26,7 @@ HeaderView::HeaderView(QAbstractItemView* parent)
     , m_menu(0)
     , m_resizeOnShow(false)
 {
-#if QT_VERSION >= 0x050000
     setSectionsMovable(true);
-#else
-    setMovable(true);
-#endif
     setStretchLastSection(true);
     setDefaultAlignment(Qt::AlignLeft);
     setMinimumSectionSize(60);

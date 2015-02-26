@@ -29,14 +29,7 @@
 #include <QDir>
 #include <QDateTime>
 #include <QTextStream>
-
-#if QT_VERSION >= 0x050000
 #include <QWebEnginePage>
-#else
-#include "qwebkitversion.h"
-#endif
-
-#include <qtwebengineglobal.h>
 
 void qupzilla_signal_handler(int s)
 {
@@ -107,30 +100,6 @@ void qupzilla_signal_handler(int s)
 #endif // defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__)
 
 #ifndef Q_OS_WIN
-#if (QT_VERSION < 0x050000)
-void msgHandler(QtMsgType type, const char* msg)
-{
-    // Skip this debug message as it may occur in a large amount over time
-    if (strcmp("QFont::setPixelSize: Pixel size <= 0 (0)", msg) == 0) {
-        return;
-    }
-
-    switch (type) {
-    case QtDebugMsg:
-    case QtWarningMsg:
-    case QtCriticalMsg:
-        std::cerr << msg << std::endl;
-        break;
-
-    case QtFatalMsg:
-        std::cerr << "Fatal: " << msg << std::endl;
-        abort();
-
-    default:
-        break;
-    }
-}
-#else
 void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSLv2_")))
@@ -153,23 +122,13 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
     }
 }
 #endif
-#endif
 
 int main(int argc, char* argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
 
 #ifndef Q_OS_WIN
-#if (QT_VERSION < 0x050000)
-    qInstallMsgHandler(&msgHandler);
-#else
     qInstallMessageHandler(&msgHandler);
-#endif
-#endif
-
-#if defined(QZ_WS_X11) && QT_VERSION < 0x050000
-    // Better overall performance on X11
-    QApplication::setGraphicsSystem(QSL("raster"));
 #endif
 
 #if defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__)

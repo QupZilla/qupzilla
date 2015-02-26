@@ -1,11 +1,6 @@
 include($$PWD/../../src/defines.pri)
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webkitwidgets network widgets printsupport sql script gui-private testlib
-} else {
-    QT += core gui webkit sql network script
-    CONFIG += qtestlib
-}
+QT += webenginewidgets network widgets printsupport sql script gui-private testlib
 
 TARGET = autotests
 

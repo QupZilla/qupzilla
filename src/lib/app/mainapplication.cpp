@@ -62,11 +62,7 @@
 #include <QTimer>
 #include <QDir>
 
-#if QT_VERSION < 0x050000
-#include "qwebkitversion.h"
-#else
 #include <QStandardPaths>
-#endif
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 #include "registerqappassociation.h"
@@ -101,9 +97,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 {
-#if QT_VERSION >= 0x050000
     setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
 
     setApplicationName(QLatin1String("QupZilla"));
     setApplicationVersion(Qz::VERSION);

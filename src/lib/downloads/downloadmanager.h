@@ -83,11 +83,7 @@ public slots:
 
 #ifdef W7TASKBAR
 protected:
-#if (QT_VERSION < 0x050000)
-    virtual bool winEvent(MSG* message, long* result);
-#else
     virtual bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-#endif
 #endif
 
 private slots:

@@ -22,9 +22,7 @@
 #include <QNetworkRequest>
 #include <QMessageBox>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 AdBlockSchemeHandler::AdBlockSchemeHandler()
     : SchemeHandler()
@@ -40,12 +38,7 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
     }
 
     const QUrl url = request.url();
-    const QList<QPair<QString, QString> > queryItems =
-#if QT_VERSION >= 0x050000
-        QUrlQuery(url).queryItems();
-#else
-        url.queryItems();
-#endif
+    const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();
 
     QString subscriptionTitle;
     QString subscriptionUrl;

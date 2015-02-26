@@ -6,8 +6,8 @@
 #
 #-------------------------------------------------
 
-lessThan(QT_VERSION, 4.7) {
-    error("QupZilla requires at least Qt 4.7!")
+lessThan(QT_VERSION, 5.4) {
+    error("QupZilla requires at least Qt 5.4!")
 }
 
 # Create plugins directory first on Mac / Linux

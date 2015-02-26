@@ -27,10 +27,6 @@
 #include <QStyleOption>
 #include <QApplication>
 
-#if QT_VERSION < 0x050000
-#include <QInputContext>
-#endif
-
 SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
@@ -207,16 +203,6 @@ QMenu* LineEdit::createContextMenu()
 
     popup->addSeparator();
     popup->addAction(m_editActions[SelectAll]);
-
-#if !defined(QT_NO_IM) && QT_VERSION < 0x050000
-    QInputContext* qic = inputContext();
-    if (qic) {
-        QList<QAction*> imActions = qic->actions();
-        for (int i = 0; i < imActions.size(); ++i) {
-            popup->addAction(imActions.at(i));
-        }
-    }
-#endif
 
     // Hack to get QUnicodeControlCharacterMenu
     QMenu* tmp = createStandardContextMenu();

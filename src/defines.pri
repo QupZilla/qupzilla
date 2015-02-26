@@ -60,48 +60,6 @@ haiku-* {
     DEFINES *= NO_X11
 }
 
-# Check for pkg-config availability
-!mac:unix:system(pkg-config --version > /dev/null) {
-    isEqual(QT_MAJOR_VERSION, 5) {
-        MODNAME = Qt5WebKitWidgets
-    }
-    else {
-        MODNAME = QtWebKit
-    }
-
-    QTWEBKIT_VERSION = $$system(PKG_CONFIG_PATH="$$[QT_INSTALL_LIBS]/pkgconfig" pkg-config --modversion $$MODNAME)
-    QTWEBKIT_VERSION_MAJOR = $$section(QTWEBKIT_VERSION, ".", 0, 0)
-    QTWEBKIT_VERSION_MINOR = $$section(QTWEBKIT_VERSION, ".", 1, 1)
-
-    isEqual(QT_MAJOR_VERSION, 5) {
-        greaterThan(QTWEBKIT_VERSION_MAJOR, 4) {
-            # There is one Qt5WebKitWidgets version now, which has same features as QtWebKit 2.3
-            DEFINES *= USE_QTWEBKIT_2_2 USE_QTWEBKIT_2_3
-        }
-    }
-    else { # Qt 4
-        equals(QTWEBKIT_VERSION_MAJOR, 4):greaterThan(QTWEBKIT_VERSION_MINOR, 8) {
-            # 4.9.x = QtWebKit 2.2
-            DEFINES *= USE_QTWEBKIT_2_2
-        }
-
-        equals(QTWEBKIT_VERSION_MAJOR, 4):greaterThan(QTWEBKIT_VERSION_MINOR, 9) {
-            # 4.10.x = QtWebKit 2.3
-            DEFINES *= USE_QTWEBKIT_2_3
-        }
-    }
-}
-else {
-    isEqual(QT_VERSION, 4.8.0)|greaterThan(QT_VERSION, 4.8.0) {
-        DEFINES *= USE_QTWEBKIT_2_2
-    }
-
-    isEqual(QT_MAJOR_VERSION, 5) {
-        DEFINES *= USE_QTWEBKIT_2_2 USE_QTWEBKIT_2_3
-    }
-}
-
-
 !mac:unix {
     binary_folder = /usr/bin
     library_folder = /usr/lib
@@ -140,8 +98,7 @@ isEmpty(QMAKE_LRELEASE) {
 
     # Try to use lrelease from PATH
     unix:!exists($$QMAKE_LRELEASE) {
-        isEqual(QT_MAJOR_VERSION, 4): QMAKE_LRELEASE = lrelease-qt4
-        else: QMAKE_LRELEASE = lrelease
+        QMAKE_LRELEASE = lrelease
     }
 }
 

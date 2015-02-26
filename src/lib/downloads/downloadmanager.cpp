@@ -123,15 +123,10 @@ void DownloadManager::startExternalManager(const QUrl &url)
 }
 
 #ifdef W7TASKBAR
-#if (QT_VERSION < 0x050000)
-bool DownloadManager::winEvent(MSG* message, long* result)
-{
-#else
 bool DownloadManager::nativeEvent(const QByteArray &eventType, void* _message, long* result)
 {
     Q_UNUSED(eventType)
     MSG* message = static_cast<MSG*>(_message);
-#endif
     return win7.winEvent(message, result);
 }
 #endif

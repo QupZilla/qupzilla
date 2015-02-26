@@ -47,9 +47,7 @@
 #include <qregexp.h>
 #include <qstringlist.h>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 
 /*!
@@ -226,22 +224,14 @@ QUrl OpenSearchEngine::searchUrl(const QString &searchTerm) const
 
     QUrl retVal = QUrl::fromEncoded(parseTemplate(searchTerm, m_searchUrlTemplate).toUtf8());
 
-#if QT_VERSION >= 0x050000
     QUrlQuery query(retVal);
-#endif
     if (m_searchMethod != QLatin1String("post")) {
         Parameters::const_iterator end = m_searchParameters.constEnd();
         Parameters::const_iterator i = m_searchParameters.constBegin();
         for (; i != end; ++i) {
-#if QT_VERSION >= 0x050000
             query.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#else
-            retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#endif
         }
-#if QT_VERSION >= 0x050000
         retVal.setQuery(query);
-#endif
     }
 
     return retVal;
@@ -255,21 +245,13 @@ QByteArray OpenSearchEngine::getPostData(const QString &searchTerm) const
 
     QUrl retVal = QUrl("http://foo.bar");
 
-#if QT_VERSION >= 0x050000
     QUrlQuery query(retVal);
-#endif
     Parameters::const_iterator end = m_searchParameters.constEnd();
     Parameters::const_iterator i = m_searchParameters.constBegin();
     for (; i != end; ++i) {
-#if QT_VERSION >= 0x050000
         query.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#else
-        retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#endif
     }
-#if QT_VERSION >= 0x050000
     retVal.setQuery(query);
-#endif
 
     QByteArray data = retVal.toEncoded(QUrl::RemoveScheme);
     return data.contains('?') ? data.mid(data.lastIndexOf('?') + 1) : QByteArray();
@@ -324,22 +306,14 @@ QUrl OpenSearchEngine::suggestionsUrl(const QString &searchTerm) const
 
     QUrl retVal = QUrl::fromEncoded(parseTemplate(searchTerm, m_suggestionsUrlTemplate).toUtf8());
 
-#if QT_VERSION >= 0x050000
     QUrlQuery query(retVal);
-#endif
     if (m_suggestionsMethod != QLatin1String("post")) {
         Parameters::const_iterator end = m_suggestionsParameters.constEnd();
         Parameters::const_iterator i = m_suggestionsParameters.constBegin();
         for (; i != end; ++i) {
-#if QT_VERSION >= 0x050000
             query.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#else
-            retVal.addQueryItem(i->first, parseTemplate(searchTerm, i->second));
-#endif
         }
-#if QT_VERSION >= 0x050000
         retVal.setQuery(query);
-#endif
     }
 
     return retVal;

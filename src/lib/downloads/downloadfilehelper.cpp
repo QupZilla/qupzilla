@@ -34,11 +34,7 @@
 #include <QWebEngineHistory>
 #include <QFileDialog>
 
-#if QT_VERSION >= 0x050000
 #include <QStandardPaths>
-#else
-#include <QDesktopServices>
-#endif
 
 DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog)
     : QObject()
@@ -229,22 +225,12 @@ void DownloadFileHelper::optionsDialogAccepted(int finish)
                 dialog->selectFile(m_h_fileName);
 
                 QList<QUrl> urls;
-                urls <<
-#if QT_VERSION >= 0x050000
-                     QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
+                urls << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
                      << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DesktopLocation))
                      << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation))
                      << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation))
                      << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MusicLocation))
                      << QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation));
-#else
-                     QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation))
-                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation))
-                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation))
-                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::PicturesLocation))
-                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::MusicLocation))
-                     << QUrl::fromLocalFile(QDesktopServices::storageLocation(QDesktopServices::MoviesLocation));
-#endif
                 dialog->setSidebarUrls(urls);
 
                 dialog->open();

@@ -231,11 +231,7 @@ private slots:
     void applyBlurToMainWindow(bool force = false);
 
 private:
-#if (QT_VERSION < 0x050000)
-    bool winEvent(MSG* message, long* result);
-#else
     bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-#endif
 
     void paintEvent(QPaintEvent* event);
     bool eventFilter(QObject* object, QEvent* event);

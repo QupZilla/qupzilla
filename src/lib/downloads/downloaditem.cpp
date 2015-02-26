@@ -201,10 +201,6 @@ void DownloadItem::finished()
     }
 
     m_item->setSizeHint(sizeHint());
-#if QT_VERSION == 0x040700 // Workaround
-    ui->button->show();
-    ui->button->hide();
-#endif
     m_downloading = false;
 
     if (m_openAfterFinish) {
@@ -353,10 +349,6 @@ void DownloadItem::stop(bool askForDeleteFile)
     ui->button->hide();
     m_item->setSizeHint(sizeHint());
 
-#if QT_VERSION == 0x040700 // Workaround
-    ui->button->show();
-    ui->button->hide();
-#endif
     m_downloading = false;
 
     emit downloadFinished(false);

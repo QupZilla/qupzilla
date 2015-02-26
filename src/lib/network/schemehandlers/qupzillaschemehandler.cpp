@@ -35,11 +35,7 @@
 #include <QSettings>
 #include <QWebSecurityOrigin>
 
-#if QT_VERSION < 0x050000
-#include "qwebkitversion.h"
-#else
 #include <QWebEnginePage>
-#endif
 
 static QString authorString(const char* name, const QString &mail)
 {

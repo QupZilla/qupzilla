@@ -1,8 +1,4 @@
-isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webenginewidgets network widgets printsupport sql script gui-private
-} else {
-    QT += core gui webkit sql network script concurrent
-}
+QT += webenginewidgets network widgets printsupport sql script gui-private
 
 TARGET = QupZilla
 TEMPLATE = lib
@@ -231,6 +227,7 @@ SOURCES += \
     tools/pagethumbnailer.cpp \
     tools/plaineditwithlines.cpp \
     tools/progressbar.cpp \
+    tools/qzregexp.cpp \
     tools/qztools.cpp \
     tools/sqldatabase.cpp \
     tools/toolbutton.cpp \
@@ -434,6 +431,7 @@ HEADERS  += \
     tools/pagethumbnailer.h \
     tools/plaineditwithlines.h \
     tools/progressbar.h \
+    tools/qzregexp.h \
     tools/qztools.h \
     tools/sqldatabase.h \
     tools/toolbutton.h \
@@ -509,14 +507,10 @@ RESOURCES += \
     data/icons.qrc \
     data/oxygen-fallback.qrc
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    qtHaveModule(ftp) {
-        QT *= ftp
-    } else {
-        include(3rdparty/qftp/qftp.pri)
-    }
-
-    SOURCES += tools/qzregexp.cpp
+qtHaveModule(ftp) {
+    QT *= ftp
+} else {
+    include(3rdparty/qftp/qftp.pri)
 }
 
 !mac:unix {

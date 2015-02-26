@@ -1,10 +1,6 @@
 include(../defines.pri)
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webengine webenginewidgets network widgets printsupport sql script
-} else {
-    QT += core gui webkit sql network script
-}
+QT += webengine webenginewidgets network widgets printsupport sql script
 
 TARGET = qupzilla
 mac: TARGET = QupZilla

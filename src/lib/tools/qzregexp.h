@@ -18,13 +18,6 @@
 #ifndef QZREGEXP_H
 #define QZREGEXP_H
 
-#include <QObject> // Needed for QT_VERSION
-
-#if (QT_VERSION < 0x050000)
-// Qt 4 - use QRegExp directly
-#include <QRegExp>
-#define QzRegExp QRegExp
-#else // Qt 5
 #include <QRegularExpression>
 #include <QStringList>
 
@@ -47,6 +40,5 @@ private:
     int m_matchedLength;
 
 };
-#endif // Qt 5
 
 #endif // QZREGEXP_H

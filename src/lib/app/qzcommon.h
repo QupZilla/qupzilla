@@ -37,11 +37,7 @@
 #endif
 
 #ifndef QSL
-#if QT_VERSION >= 0x050000
 #define QSL(x) QStringLiteral(x)
-#else
-#define QSL(x) QLatin1String(x)
-#endif
 #endif
 
 #ifndef QL1S

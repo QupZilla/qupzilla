@@ -32,9 +32,7 @@
 #include <QXmlStreamReader>
 #include <QNetworkRequest>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 AutoFill::AutoFill(QObject* parent)
     : QObject(parent)

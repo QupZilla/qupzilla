@@ -59,7 +59,6 @@
 // count .co.uk (and others) as second-level domain
 static QString toSecondLevelDomain(const QUrl &url)
 {
-#if QT_VERSION >= 0x040800
     const QString topLevelDomain = url.topLevelDomain();
     const QString urlHost = url.host();
 
@@ -78,19 +77,6 @@ static QString toSecondLevelDomain(const QUrl &url)
     }
 
     return domain + topLevelDomain;
-#else
-    QString domain = url.host();
-
-    if (domain.count(QL1C('.')) == 0) {
-        return QString();
-    }
-
-    while (domain.count(QL1C('.')) != 1) {
-        domain = domain.mid(domain.indexOf(QL1C('.')) + 1);
-    }
-
-    return domain;
-#endif
 }
 
 AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscription)

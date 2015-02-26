@@ -21,11 +21,7 @@
 #include <QApplication>
 #include <QDir>
 
-#if QT_VERSION < 0x050000
-#include <QDesktopServices>
-#else
 #include <QStandardPaths>
-#endif
 
 Q_GLOBAL_STATIC(DataPaths, qz_data_paths)
 
@@ -104,11 +100,7 @@ void DataPaths::init()
     // Config
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
     // Use %LOCALAPPDATA%/qupzilla as Config path on Windows
-#if QT_VERSION < 0x050000
-    QString dataLocation = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
-#else
     QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-#endif
     // Backwards compatibility
     if (dataLocation.isEmpty()) {
         dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla");

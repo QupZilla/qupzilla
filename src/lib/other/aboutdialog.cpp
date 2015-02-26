@@ -23,11 +23,7 @@
 #include "webpage.h"
 #include "qtwin.h"
 
-#if QT_VERSION < 0x050000
-#include "qwebkitversion.h"
-#else
 #include <QWebEnginePage>
-#endif
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),

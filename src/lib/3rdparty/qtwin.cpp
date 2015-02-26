@@ -84,11 +84,7 @@ public:
     void removeWidget(QWidget* widget) {
         widgets.removeAll(widget);
     }
-#if (QT_VERSION < 0x050000)
-    bool winEvent(MSG* message, long* result);
-#else
     bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-#endif
 
 private:
     QWidgetList widgets;
@@ -272,15 +268,10 @@ WindowNotifier* QtWin::windowNotifier()
 
 
 /* Notify all enabled windows that the DWM state changed */
-#if (QT_VERSION < 0x050000)
-bool WindowNotifier::winEvent(MSG* message, long* result)
-{
-#else
 bool WindowNotifier::nativeEvent(const QByteArray &eventType, void* _message, long* result)
 {
     Q_UNUSED(eventType)
     MSG* message = static_cast<MSG*>(_message);
-#endif
     if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
         bool compositionEnabled = QtWin::isCompositionEnabled();
         foreach (QWidget* widget, widgets) {
@@ -296,11 +287,7 @@ bool WindowNotifier::nativeEvent(const QByteArray &eventType, void* _message, lo
             }
         }
     }
-#if (QT_VERSION < 0x050000)
-    return QWidget::winEvent(message, result);
-#else
     return QWidget::nativeEvent(eventType, _message, result);
-#endif
 }
 
 #ifdef W7API
