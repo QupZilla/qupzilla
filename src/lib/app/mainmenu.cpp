@@ -38,6 +38,7 @@
 #include <QStatusBar>
 #include <QWebPage>
 #include <QMenuBar>
+#include <QDesktopServices>
 
 #ifdef Q_OS_MAC
 extern void qt_mac_set_dock_menu(QMenu* menu);
@@ -175,9 +176,8 @@ void MainMenu::savePageScreen()
 
 void MainMenu::sendLink()
 {
-    if (m_window) {
-        m_window->weView()->savePageAs();
-    }
+    const QUrl mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(m_window->weView()->url().toEncoded()) + "&subject=" + QUrl::toPercentEncoding(m_window->weView()->title()));
+    QDesktopServices::openUrl(mailUrl);
 }
 
 void MainMenu::printPage()
