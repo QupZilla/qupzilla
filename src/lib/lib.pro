@@ -525,6 +525,8 @@ isEqual(QT_MAJOR_VERSION, 5) {
     !contains(DEFINES, NO_X11):LIBS += -lX11
     LIBS += -lcrypto
 
+    SOURCES -= network/cabundleupdater.cpp
+    HEADERS -= network/cabundleupdater.h
     RESOURCES -= data/certs.qrc
 }
 
