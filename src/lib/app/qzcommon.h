@@ -69,6 +69,7 @@ QUPZILLA_EXPORT extern const char* AUTHOR;
 QUPZILLA_EXPORT extern const char* COPYRIGHT;
 QUPZILLA_EXPORT extern const char* WWWADDRESS;
 QUPZILLA_EXPORT extern const char* WIKIADDRESS;
+QUPZILLA_EXPORT extern const char* RAWVCS;
 
 enum BrowserWindowType {
     BW_FirstAppWindow,

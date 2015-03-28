@@ -74,7 +74,7 @@ void CaBundleUpdater::start()
     if (updateNow) {
         m_progress = CheckLastUpdate;
 
-        QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + QL1S("/certs/bundle_version")).toUtf8());
+        QUrl url = QUrl::fromEncoded(QString(Qz::RAWVCS + QL1S("/src/lib/data/data/bundle_version")).toUtf8());
         m_reply = m_manager->get(QNetworkRequest(url));
         connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
     }
@@ -111,7 +111,7 @@ void CaBundleUpdater::replyFinished()
         if (m_latestBundleVersion > currentBundleVersion) {
             m_progress = LoadBundle;
 
-            QUrl url = QUrl::fromEncoded(QString(Qz::WWWADDRESS + QL1S("/certs/ca-bundle.crt")).toUtf8());
+            QUrl url = QUrl::fromEncoded(QString(Qz::RAWVCS + QL1S("/src/lib/data/data/ca-bundle.crt")).toUtf8());
             m_reply = m_manager->get(QNetworkRequest(url));
             connect(m_reply, SIGNAL(finished()), this, SLOT(replyFinished()));
         }
