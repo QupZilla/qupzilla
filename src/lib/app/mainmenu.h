@@ -111,6 +111,8 @@ private slots:
     void aboutToHideEditMenu();
     void aboutToShowToolsMenu();
     void aboutToHideToolsMenu();
+    void aboutToShowSuperMenu();
+    void aboutToHideSuperMenu();
 
     void aboutToShowToolbarsMenu();
     void aboutToShowSidebarsMenu();
