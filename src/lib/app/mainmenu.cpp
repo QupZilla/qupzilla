@@ -102,6 +102,9 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/WorkOffline")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Standard/Quit")]);
+
+    connect(superMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSuperMenu()));
+    connect(superMenu, SIGNAL(aboutToHide()), this, SLOT(aboutToHideSuperMenu()));
 }
 
 QAction* MainMenu::action(const QString &name) const
@@ -449,6 +452,24 @@ void MainMenu::aboutToShowToolsMenu()
 void MainMenu::aboutToHideToolsMenu()
 {
     m_actions[QSL("Tools/SiteInfo")]->setEnabled(false);
+}
+
+void MainMenu::aboutToShowSuperMenu()
+{
+    if (!m_window) {
+        return;
+    }
+
+    WebView* view = m_window->weView();
+
+    m_actions[QSL("Edit/Find")]->setEnabled(true);
+    m_actions[QSL("Edit/SelectAll")]->setEnabled(view->pageAction(QWebEnginePage::SelectAll)->isEnabled());
+}
+
+void MainMenu::aboutToHideSuperMenu()
+{
+    m_actions[QSL("Edit/Find")]->setEnabled(true);
+    m_actions[QSL("Edit/SelectAll")]->setEnabled(false);
 }
 
 void MainMenu::aboutToShowToolbarsMenu()
