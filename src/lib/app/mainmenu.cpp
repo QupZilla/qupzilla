@@ -463,7 +463,7 @@ void MainMenu::aboutToShowSuperMenu()
     WebView* view = m_window->weView();
 
     m_actions[QSL("Edit/Find")]->setEnabled(true);
-    m_actions[QSL("Edit/SelectAll")]->setEnabled(view->pageAction(QWebEnginePage::SelectAll)->isEnabled());
+    m_actions[QSL("Edit/SelectAll")]->setEnabled(view->pageAction(QWebPage::SelectAll)->isEnabled());
 }
 
 void MainMenu::aboutToHideSuperMenu()
