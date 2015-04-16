@@ -173,7 +173,7 @@ void WebView::load(const LoadRequest &request)
     // Make sure to correctly load hosts like localhost (eg. without the dot)
     if (!reqUrl.isEmpty() &&
         reqUrl.scheme().isEmpty() &&
-        !reqUrl.path().contains(QL1C(' ')) &&
+        !QzTools::containsSpace(reqUrl.path()) && // See #1622
         !reqUrl.path().contains(QL1C('.'))
        ) {
         QUrl u(QSL("http://") + reqUrl.path());
