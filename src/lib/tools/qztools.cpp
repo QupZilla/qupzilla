@@ -566,6 +566,15 @@ bool QzTools::isUtf8(const char* string)
     return true;
 }
 
+bool QzTools::containsSpace(const QString &str)
+{
+    Q_FOREACH (const QChar &c, str) {
+        if (c.isSpace())
+            return true;
+    }
+    return false;
+}
+
 QString QzTools::getExistingDirectory(const QString &name, QWidget* parent, const QString &caption, const QString &dir, QFileDialog::Options options)
 {
     Settings settings;
