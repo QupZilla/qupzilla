@@ -304,7 +304,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     QLineEdit* user = new QLineEdit(dialog);
     QLineEdit* pass = new QLineEdit(dialog);
     QCheckBox* save = new QCheckBox(dialog);
-    save->setText(tr("Save username and password on this site"));
+    save->setText(tr("Save username and password for this site"));
     pass->setEchoMode(QLineEdit::Password);
 
     QDialogButtonBox* box = new QDialogButtonBox(dialog);
