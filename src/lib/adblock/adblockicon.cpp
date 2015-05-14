@@ -202,11 +202,11 @@ void AdBlockIcon::animateIcon()
         return;
     }
 
-    if (pixmap()->isNull()) {
+    if (!(m_timerTicks%2)) {
         setPixmap(QPixmap(":icons/other/adblock.png"));
     }
     else {
-        setPixmap(QPixmap());
+        setPixmap(QPixmap(":icons/other/adblock-space.png"));
     }
 }
 
