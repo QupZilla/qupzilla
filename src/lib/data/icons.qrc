@@ -63,5 +63,6 @@
         <file>icons/other/empty-page.png</file>
         <file>icons/menu/privatebrowsing.png</file>
         <file>icons/menu/settings.png</file>
+        <file>icons/other/adblock-space.png</file>
     </qresource>
 </RCC>
