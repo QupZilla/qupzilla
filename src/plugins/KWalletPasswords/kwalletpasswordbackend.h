@@ -19,7 +19,12 @@
 #define KWALLETPASSWORDBACKEND_H
 
 #include <QVector>
+
+#if QT_VERSION >= 0x050000
+#include <KF5/KWallet/KWallet>
+#else
 #include <KDE/KWallet/Wallet>
+#endif
 
 #include "passwordbackends/passwordbackend.h"
 #include "passwordmanager.h"
