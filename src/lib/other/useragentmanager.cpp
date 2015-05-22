@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,13 +20,12 @@
 #include "qztools.h"
 #include "settings.h"
 
-#include <QWebEnginePage> // QTWEBKIT_VERSION_CHECK macro
+#include <QWebEngineProfile>
 
 UserAgentManager::UserAgentManager(QObject* parent)
     : QObject(parent)
     , m_usePerDomainUserAgent(false)
 {
-    m_fakeUserAgent = QString("Mozilla/5.0 (%1) AppleWebKit/%2 (KHTML, like Gecko) Chrome/37.0 Safari/537.36").arg(QzTools::operatingSystem());
 }
 
 void UserAgentManager::loadSettings()
@@ -49,6 +48,13 @@ void UserAgentManager::loadSettings()
             m_userAgentsList[domainList.at(i)] = userAgentsList.at(i);
         }
     }
+
+    QString userAgent = m_globalUserAgent;
+    if (userAgent.isEmpty()) {
+        userAgent = QWebEngineProfile::defaultProfile()->httpUserAgent();
+        userAgent.replace(QSL("QtWebEngine/%1").arg(qVersion()), QSL("QupZilla/%1").arg(Qz::VERSION));
+    }
+    QWebEngineProfile::defaultProfile()->setHttpUserAgent(userAgent);
 }
 
 QString UserAgentManager::userAgentForUrl(const QUrl &url) const
@@ -64,19 +70,6 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
             }
         }
     }
-
-#if QTWEBKIT_TO_2_3
-    if (host.contains(QLatin1String("google"))) {
-        return m_fakeUserAgent;
-    }
-#endif
-
-#ifdef Q_OS_WIN
-    // Facebook chat is not working with default user-agent
-    if (host.endsWith(QLatin1String("facebook.com"))) {
-        return "Mozilla/5.0 (Windows XP) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.77 Safari/535.7";
-    }
-#endif
 
     return m_globalUserAgent;
 }
