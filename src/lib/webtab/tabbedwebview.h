@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ private slots:
     void slotLoadFinished();
     void slotLoadProgress(int prog);
     void urlChanged(const QUrl &url);
-    void linkHovered(const QString &link, const QString &title, const QString &content);
+    void linkHovered(const QString &link);
     void setIp(const QHostInfo &info);
 
     void inspectElement();

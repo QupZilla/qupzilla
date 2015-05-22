@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -57,9 +57,7 @@ void TabbedWebView::setWebPage(WebPage* page)
     page->setParent(this);
     setPage(page);
 
-#if QTWEBENGINE_DISABLED
-    connect(page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(linkHovered(QString,QString,QString)));
-#endif
+    connect(page, &WebPage::linkHovered, this, &TabbedWebView::linkHovered);
 }
 
 BrowserWindow* TabbedWebView::browserWindow() const
@@ -160,20 +158,13 @@ void TabbedWebView::setIp(const QHostInfo &info)
     }
 }
 
-void TabbedWebView::linkHovered(const QString &link, const QString &title, const QString &content)
+void TabbedWebView::linkHovered(const QString &link)
 {
-    Q_UNUSED(title)
-    Q_UNUSED(content)
-
     if (m_webTab->isCurrentTab() && m_window) {
         if (link.isEmpty()) {
             m_window->statusBarMessage()->clearMessage();
         }
         else {
-            // QUrl::fromEncoded(link.toUtf8());
-            // Don't decode link from percent encoding (to show all utf8 chars), as it doesn't
-            // works correctly in all cases
-            // See #1095
             m_window->statusBarMessage()->showMessage(link);
         }
     }
