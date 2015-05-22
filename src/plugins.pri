@@ -33,11 +33,7 @@ TEMPLATE = lib
 CONFIG += plugin
 DESTDIR = $$QZ_DESTDIR/plugins/
 
-isEqual(QT_MAJOR_VERSION, 5) {
-    QT *= webkitwidgets network
-} else {
-    QT *= webkit network
-}
+QT *= webenginewidgets network
 
 OBJECTS_DIR = build
 MOC_DIR = build

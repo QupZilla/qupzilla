@@ -25,7 +25,6 @@
 #include <QDebug>
 #include <QLabel>
 #include <QMessageBox>
-#include <QWebElement>
 #include <QVBoxLayout>
 #include <QPointer>
 

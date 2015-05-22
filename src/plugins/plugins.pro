@@ -26,8 +26,8 @@ defineTest(disablePlugin) {
 
 addSubdir($$PWD)
 
-outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
-!equals(outOfDirPlugins, ""): addSubdir($$(QUPZILLA_PLUGINS_SRCDIR))
+#outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
+#!equals(outOfDirPlugins, ""): addSubdir($$(QUPZILLA_PLUGINS_SRCDIR))
 
 # TestPlugin only in debug build
 !CONFIG(debug, debug|release): disablePlugin(TestPlugin)
@@ -39,3 +39,16 @@ isEqual(QT_MAJOR_VERSION, 5): !qtHaveModule(KWallet): disablePlugin(KWalletPassw
 # GnomeKeyringPasswords only with GNOME_INTEGRATION and gnome-keyring pkg-config
 !contains(DEFINES, GNOME_INTEGRATION): disablePlugin(GnomeKeyringPasswords)
 !system(pkg-config --exists gnome-keyring-1): disablePlugin(GnomeKeyringPasswords)
+
+# QtWebEngine disable
+disablePlugin(AccessKeysNavigation)
+disablePlugin(AutoScroll)
+disablePlugin(CopyTitle)
+disablePlugin(GreaseMonkey)
+disablePlugin(MailHandle)
+disablePlugin(MouseGestures)
+disablePlugin(PIM)
+disablePlugin(StatusBarIcons)
+disablePlugin(TabManager)
+disablePlugin(TestPlugin)
+disablePlugin(Videoner)

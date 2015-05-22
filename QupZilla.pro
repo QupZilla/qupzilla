@@ -24,4 +24,4 @@ src_main.depends = sub-src-lib
 src_plugins.subdir = src/plugins
 src_plugins.depends = sub-src-lib
 
-SUBDIRS += src_lib src_main
+SUBDIRS += src_lib src_main src_plugins
