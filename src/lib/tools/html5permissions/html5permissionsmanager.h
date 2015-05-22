@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,23 +32,17 @@ class QUPZILLA_EXPORT HTML5PermissionsManager : public QObject
 public:
     explicit HTML5PermissionsManager(QObject* parent);
 
-#if QTWEBENGINE_DISABLED
-    void requestPermissions(WebPage* page, QWebEngineFrame* frame, const QWebEnginePage::Feature &feature);
-    void rememberPermissions(const QString &host, const QWebEnginePage::Feature &feature,
+    void requestPermissions(WebPage* page, const QUrl &origin, const QWebEnginePage::Feature &feature);
+    void rememberPermissions(const QUrl &origin, const QWebEnginePage::Feature &feature,
                              const QWebEnginePage::PermissionPolicy &policy);
-#endif
 
     void loadSettings();
-    void showSettingsDialog();
 
 private:
     void saveSettings();
 
-    QStringList m_notificationsGranted;
-    QStringList m_notificationsDenied;
-
-    QStringList m_geolocationGranted;
-    QStringList m_geolocationDenied;
+    QHash<QWebEnginePage::Feature, QStringList> m_granted;
+    QHash<QWebEnginePage::Feature, QStringList> m_denied;
 };
 
 #endif // HTML5PERMISSIONSMANAGER_H

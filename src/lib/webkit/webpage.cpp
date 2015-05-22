@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -79,6 +79,8 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
+    connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
+
 #if QTWEBENGINE_DISABLED
     m_javaScriptEnabled = QWebEngineSettings::globalSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
 
@@ -651,6 +653,11 @@ void WebPage::doWebSearch(const QString &text)
     }
 }
 
+void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
+{
+    mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
+}
+
 #ifdef USE_QTWEBKIT_2_2
 void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
 {
@@ -659,11 +666,6 @@ void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 original
     }
 
     origin->setApplicationCacheQuota(originalQuota * 2);
-}
-
-void WebPage::featurePermissionRequested(QWebEngineFrame* frame, const QWebEnginePage::Feature &feature)
-{
-    mApp->html5PermissionsManager()->requestPermissions(this, frame, feature);
 }
 #endif // USE_QTWEBKIT_2_2
 

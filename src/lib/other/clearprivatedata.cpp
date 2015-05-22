@@ -204,13 +204,14 @@ void ClearPrivateData::showCookieManager()
 void ClearPrivateData::showNotifsPerms()
 {
     HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
+    dialog->showFeaturePermissions(QWebEnginePage::Notifications);
     dialog->open();
 }
 
 void ClearPrivateData::showGeolocPerms()
 {
     HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
-    dialog->setCurrentTab(1);
+    dialog->showFeaturePermissions(QWebEnginePage::Geolocation);
     dialog->open();
 }
 

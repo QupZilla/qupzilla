@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,15 +21,13 @@
 #include "mainapplication.h"
 #include "iconprovider.h"
 
-#if QTWEBENGINE_DISABLED
-#include <QWebEngineFrame>
+#include <QWebEnginePage>
 
-#ifdef USE_QTWEBKIT_2_2
-HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, QWebEngineFrame* frame, const QWebEnginePage::Feature &feature)
+HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, QWebEnginePage* page, const QWebEnginePage::Feature &feature)
     : AnimatedWidget(AnimatedWidget::Down, 300, 0)
     , ui(new Ui::HTML5PermissionsNotification)
-    , m_host(host)
-    , m_frame(frame)
+    , m_origin(origin)
+    , m_page(page)
     , m_feature(feature)
 {
     setAutoFillBackground(true);
@@ -37,19 +35,43 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, 
 
     ui->close->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
 
-    QString message;
-    QString site = m_host.isEmpty() ? tr("this site") : QString("<b>%1</b>").arg(m_host);
+    const QString site = m_origin.host().isEmpty() ? tr("this site") : QString("<b>%1</b>").arg(m_origin.host());
 
-    if (feature == QWebEnginePage::Notifications) {
+    switch (feature) {
+    case QWebEnginePage::Notifications:
         ui->iconLabel->setPixmap(QPixmap(":icons/other/notification.png"));
-        message = tr("Allow %1 to show desktop notifications?").arg(site);
-    }
-    else if (feature == QWebEnginePage::Geolocation) {
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/geolocation.png"));
-        message = tr("Allow %1 to locate your position?").arg(site);
-    }
+        ui->textLabel->setText(tr("Allow %1 to show desktop notifications?").arg(site));
+        break;
 
-    ui->textLabel->setText(message);
+    case QWebEnginePage::Geolocation:
+        ui->iconLabel->setPixmap(QPixmap(":icons/other/geolocation.png"));
+        ui->textLabel->setText(tr("Allow %1 to locate your position?").arg(site));
+        break;
+
+    case QWebEnginePage::MediaAudioCapture:
+        ui->iconLabel->setPixmap(QPixmap(":icons/other/audiocapture.png"));
+        ui->textLabel->setText(tr("Allow %1 to use your microphone?").arg(site));
+        break;
+
+    case QWebEnginePage::MediaVideoCapture:
+        ui->iconLabel->setPixmap(QPixmap(":icons/other/webcam.png"));
+        ui->textLabel->setText(tr("Allow %1 to use your web camera?").arg(site));
+        break;
+
+    case QWebEnginePage::MediaAudioVideoCapture:
+        ui->iconLabel->setPixmap(QPixmap(":icons/other/microphone-webcam.png"));
+        ui->textLabel->setText(tr("Allow %1 to use your microphone and web camera?").arg(site));
+        break;
+
+    case QWebEnginePage::MouseLock:
+        ui->iconLabel->setPixmap(QPixmap(":icons/other/mouselock.png"));
+        ui->textLabel->setText(tr("Allow %1 to hide your pointer?").arg(site));
+        break;
+
+    default:
+        qWarning() << "Unknown feature" << feature;
+        break;
+    }
 
     connect(ui->allow, SIGNAL(clicked()), this, SLOT(grantPermissions()));
     connect(ui->deny, SIGNAL(clicked()), this, SLOT(denyPermissions()));
@@ -60,15 +82,14 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QString &host, 
 
 void HTML5PermissionsNotification::grantPermissions()
 {
-    if (!m_frame || !m_frame->page()) {
+    if (!m_page) {
         return;
     }
 
-    QWebEnginePage* page = m_frame->page();
-    page->setFeaturePermission(m_frame, m_feature, QWebEnginePage::PermissionGrantedByUser);
+    m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
 
     if (ui->remember->isChecked()) {
-        mApp->html5PermissionsManager()->rememberPermissions(m_host, m_feature, QWebEnginePage::PermissionGrantedByUser);
+        mApp->html5PermissionsManager()->rememberPermissions(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
     }
 
     hide();
@@ -76,15 +97,14 @@ void HTML5PermissionsNotification::grantPermissions()
 
 void HTML5PermissionsNotification::denyPermissions()
 {
-    if (!m_frame || !m_frame->page()) {
+    if (!m_page) {
         return;
     }
 
-    QWebEnginePage* page = m_frame->page();
-    page->setFeaturePermission(m_frame, m_feature, QWebEnginePage::PermissionDeniedByUser);
+    m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionDeniedByUser);
 
     if (ui->remember->isChecked()) {
-        mApp->html5PermissionsManager()->rememberPermissions(m_host, m_feature, QWebEnginePage::PermissionDeniedByUser);
+        mApp->html5PermissionsManager()->rememberPermissions(m_origin, m_feature, QWebEnginePage::PermissionDeniedByUser);
     }
 
     hide();
@@ -94,6 +114,3 @@ HTML5PermissionsNotification::~HTML5PermissionsNotification()
 {
     delete ui;
 }
-#endif // USE_QTWEBKIT_2_2
-
-#endif

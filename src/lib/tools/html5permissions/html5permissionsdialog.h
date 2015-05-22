@@ -20,6 +20,7 @@
 
 #include <QDialog>
 #include <QStringList>
+#include <QWebEnginePage>
 
 namespace Ui
 {
@@ -33,11 +34,12 @@ class HTML5PermissionsDialog : public QDialog
 public:
     explicit HTML5PermissionsDialog(QWidget* parent = 0);
     ~HTML5PermissionsDialog();
-    void setCurrentTab(int index);
+
+    void showFeaturePermissions(QWebEnginePage::Feature feature);
 
 private slots:
-    void removeNotifEntry();
-    void removeGeoEntry();
+    void removeEntry();
+    void featureIndexChanged();
 
     void saveSettings();
 
@@ -45,14 +47,12 @@ private:
     enum Role { Allow, Deny };
 
     void loadSettings();
+    QWebEnginePage::Feature currentFeature() const;
 
     Ui::HTML5PermissionsDialog* ui;
 
-    QStringList m_notificationsGranted;
-    QStringList m_notificationsDenied;
-
-    QStringList m_geolocationGranted;
-    QStringList m_geolocationDenied;
+    QHash<QWebEnginePage::Feature, QStringList> m_granted;
+    QHash<QWebEnginePage::Feature, QStringList> m_denied;
 };
 
 #endif // HTML5PERMISSIONSDIALOG_H

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,9 +32,8 @@ class HTML5PermissionsNotification : public AnimatedWidget
 {
     Q_OBJECT
 
-#ifdef USE_QTWEBKIT_2_2
 public:
-    explicit HTML5PermissionsNotification(const QString &host, QWebEngineFrame* frame, const QWebEnginePage::Feature &feature);
+    explicit HTML5PermissionsNotification(const QUrl &origin, QWebEnginePage* page, const QWebEnginePage::Feature &feature);
     ~HTML5PermissionsNotification();
 
 private slots:
@@ -44,10 +43,9 @@ private slots:
 private:
     Ui::HTML5PermissionsNotification* ui;
 
-    QString m_host;
-    QWebEngineFrame* m_frame;
+    QUrl m_origin;
+    QWebEnginePage* m_page;
     QWebEnginePage::Feature m_feature;
-#endif
 };
 
 #endif // HTML5PERMISSIONSNOTIFICATION_H
