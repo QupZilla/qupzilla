@@ -23,7 +23,7 @@
 #include "jsoptions.h"
 
 #include <QGraphicsColorizeEffect>
-#include <QWebSettings>
+#include <QWebEngineSettings>
 #include <QMenu>
 
 SBI_JavaScriptIcon::SBI_JavaScriptIcon(BrowserWindow* window)
@@ -49,7 +49,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
     QMenu menu;
     menu.addAction(m_icon, tr("Current Page Settings"))->setFont(boldFont);
 
-    if (testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled)) {
+    if (testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled)) {
         menu.addAction(tr("Disable JavaScript (temporarily)"), this, SLOT(toggleJavaScript()));
     }
     else {
@@ -69,7 +69,7 @@ void SBI_JavaScriptIcon::showMenu(const QPoint &point)
 
 void SBI_JavaScriptIcon::updateIcon()
 {
-    if (testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled)) {
+    if (testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled)) {
         setGraphicsEffect(0);
     }
     else {
@@ -86,7 +86,7 @@ void SBI_JavaScriptIcon::toggleJavaScript()
 
     }
 
-    bool current = testCurrentPageWebAttribute(QWebSettings::JavascriptEnabled);
+    bool current = testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled);
     currentPage()->setJavaScriptEnabled(!current);
 
     m_window->weView()->reload();

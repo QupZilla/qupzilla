@@ -129,7 +129,9 @@ void SBI_NetworkManager::applyCurrentProxy()
     settings.endGroup();
     settings.sync();
 
+#if QTWEBENGINE_DISABLED
     mApp->networkManager()->proxyFactory()->loadSettings();
+#endif
 }
 
 void SBI_NetworkManager::deleteProxies()

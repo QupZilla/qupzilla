@@ -27,19 +27,19 @@ SBI_Icon::SBI_Icon(BrowserWindow* window, const QString &settingsPath)
 {
 }
 
-bool SBI_Icon::testCurrentPageWebAttribute(QWebSettings::WebAttribute attr) const
+bool SBI_Icon::testCurrentPageWebAttribute(QWebEngineSettings::WebAttribute attr) const
 {
     return currentPageSettings() && currentPageSettings()->testAttribute(attr);
 }
 
-void SBI_Icon::setCurrentPageWebAttribute(QWebSettings::WebAttribute attr, bool value)
+void SBI_Icon::setCurrentPageWebAttribute(QWebEngineSettings::WebAttribute attr, bool value)
 {
     if (currentPageSettings()) {
         currentPageSettings()->setAttribute(attr, value);
     }
 }
 
-QWebSettings* SBI_Icon::currentPageSettings() const
+QWebEngineSettings* SBI_Icon::currentPageSettings() const
 {
     if (!m_window->weView()) {
         return 0;

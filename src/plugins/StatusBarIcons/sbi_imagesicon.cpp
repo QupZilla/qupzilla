@@ -39,7 +39,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPat
     m_loadingImages = settings.value("LoadImages", true).toBool();
     settings.endGroup();
 
-    QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
+    QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
 
     updateIcon();
 
@@ -55,7 +55,7 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
     QMenu menu;
     menu.addAction(m_icon, tr("Current Page Settings"))->setFont(boldFont);
 
-    if (testCurrentPageWebAttribute(QWebSettings::AutoLoadImages)) {
+    if (testCurrentPageWebAttribute(QWebEngineSettings::AutoLoadImages)) {
         menu.addAction(tr("Disable loading images (temporarily)"), this, SLOT(toggleLoadingImages()));
     }
     else {
@@ -75,8 +75,8 @@ void SBI_ImagesIcon::showMenu(const QPoint &point)
 
 void SBI_ImagesIcon::toggleLoadingImages()
 {
-    bool current = testCurrentPageWebAttribute(QWebSettings::AutoLoadImages);
-    setCurrentPageWebAttribute(QWebSettings::AutoLoadImages, !current);
+    bool current = testCurrentPageWebAttribute(QWebEngineSettings::AutoLoadImages);
+    setCurrentPageWebAttribute(QWebEngineSettings::AutoLoadImages, !current);
 
     // We should reload page on disabling images
     if (current) {
@@ -96,7 +96,7 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // Switch it in websettings
     m_loadingImages = enable;
-    QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, m_loadingImages);
+    QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
     updateIcon();
 
     // We should reload page on disabling images
@@ -107,7 +107,7 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
 void SBI_ImagesIcon::updateIcon()
 {
-    if (testCurrentPageWebAttribute(QWebSettings::AutoLoadImages)) {
+    if (testCurrentPageWebAttribute(QWebEngineSettings::AutoLoadImages)) {
         setGraphicsEffect(0);
     }
     else {

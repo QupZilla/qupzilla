@@ -18,7 +18,7 @@
 #ifndef SBI_ICON_H
 #define SBI_ICON_H
 
-#include <QWebSettings>
+#include <QWebEngineSettings>
 
 #include "clickablelabel.h"
 
@@ -33,10 +33,10 @@ public:
     explicit SBI_Icon(BrowserWindow* window, const QString &settingsPath = QString());
 
 protected:
-    bool testCurrentPageWebAttribute(QWebSettings::WebAttribute attr) const;
-    void setCurrentPageWebAttribute(QWebSettings::WebAttribute attr, bool value);
+    bool testCurrentPageWebAttribute(QWebEngineSettings::WebAttribute attr) const;
+    void setCurrentPageWebAttribute(QWebEngineSettings::WebAttribute attr, bool value);
 
-    QWebSettings* currentPageSettings() const;
+    QWebEngineSettings* currentPageSettings() const;
     WebPage* currentPage() const;
 
     BrowserWindow* m_window;

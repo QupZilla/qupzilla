@@ -105,6 +105,7 @@ void SBI_NetworkIcon::updateToolTip()
         tooltip = tooltip.arg(tr("Offline"));
     }
 
+#if QTWEBENGINE_DISABLED
     switch (mApp->networkManager()->proxyFactory()->proxyPreference()) {
     case NetworkProxyFactory::SystemProxy:
         tooltip = tooltip.arg(tr("System proxy"));
@@ -126,6 +127,7 @@ void SBI_NetworkIcon::updateToolTip()
         qWarning() << "Unknown NetworkProxyFactory::ProxyPreference!";
         break;
     }
+#endif
 
     if (SBINetManager->currentProxy()) {
         tooltip.append(QString(" (%1)").arg(SBINetManager->currentProxyName()));
