@@ -55,12 +55,12 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
 
     case QWebEnginePage::MediaVideoCapture:
         ui->iconLabel->setPixmap(QPixmap(":icons/other/webcam.png"));
-        ui->textLabel->setText(tr("Allow %1 to use your web camera?").arg(site));
+        ui->textLabel->setText(tr("Allow %1 to use your camera?").arg(site));
         break;
 
     case QWebEnginePage::MediaAudioVideoCapture:
         ui->iconLabel->setPixmap(QPixmap(":icons/other/microphone-webcam.png"));
-        ui->textLabel->setText(tr("Allow %1 to use your microphone and web camera?").arg(site));
+        ui->textLabel->setText(tr("Allow %1 to use your microphone and camera?").arg(site));
         break;
 
     case QWebEnginePage::MouseLock:

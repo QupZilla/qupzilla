@@ -99,12 +99,12 @@
        </item>
        <item>
         <property name="text">
-         <string>Web Camera</string>
+         <string>Camera</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Microphone and Web Camera</string>
+         <string>Microphone and Camera</string>
         </property>
        </item>
        <item>
