@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,8 +28,8 @@ class QStatusBar;
 class QMenuBar;
 class QMenu;
 
+class WebPage;
 class PopupWebView;
-class PopupWebPage;
 class PopupStatusBarMessage;
 class PopupLocationBar;
 class ProgressBar;
@@ -66,7 +66,6 @@ private:
     void closeEvent(QCloseEvent* event);
 
     PopupWebView* m_view;
-    PopupWebPage* m_page;
     PopupLocationBar* m_locationBar;
     PopupStatusBarMessage* m_statusBarMessage;
     ProgressBar* m_progressBar;

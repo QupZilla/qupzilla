@@ -27,8 +27,8 @@
 #include "qztools.h"
 #include "speeddial.h"
 #include "autofill.h"
-#include "popupwebpage.h"
 #include "popupwebview.h"
+#include "popupwindow.h"
 #include "networkmanagerproxy.h"
 #include "adblockicon.h"
 #include "adblockmanager.h"
@@ -41,6 +41,7 @@
 #include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
 #include "javascript/externaljsobject.h"
+#include "tabwidget.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -728,31 +729,6 @@ QSslCertificate WebPage::sslCertificate()
     return QSslCertificate();
 }
 
-#if QTWEBENGINE_DISABLED
-bool WebPage::acceptNavigationRequest(QWebEngineFrame* frame, const QNetworkRequest &request, NavigationType type)
-{
-    m_lastRequestType = type;
-    m_lastRequestUrl = request.url();
-
-    if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
-        // Don't show this dialog if app is still starting
-        if (!view() || !view()->isVisible()) {
-            return false;
-        }
-        QString message = tr("To display this page, QupZilla must resend the request \n"
-                             "(such as a search or order confirmation) that was performed earlier.");
-        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
-        if (!result) {
-            return false;
-        }
-    }
-
-    bool accept = QWebEnginePage::acceptNavigationRequest(frame, request, type);
-    return accept;
-}
-#endif
-
 void WebPage::populateNetworkRequest(QNetworkRequest &request)
 {
     WebPage* pagePointer = this;
@@ -772,15 +748,27 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
 
 QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
 {
-    if (m_view) {
-        return new PopupWebPage(type, m_view->browserWindow());
+    switch (type) {
+    case QWebEnginePage::WebBrowserWindow: // TODO
+    case QWebEnginePage::WebBrowserTab: {
+        int index = m_view->browserWindow()->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
+        TabbedWebView* view = m_view->browserWindow()->weView(index);
+        view->setPage(new WebPage);
+        return view->page();
     }
 
-    if (PopupWebPage* popupPage = qobject_cast<PopupWebPage*>(this)) {
-        return new PopupWebPage(type, popupPage->mainWindow());
+    case QWebEnginePage::WebDialog: {
+        PopupWebView* view = new PopupWebView;
+        view->setPage(new WebPage);
+        PopupWindow* popup = new PopupWindow(view);
+        popup->show();
+        m_view->browserWindow()->addDeleteOnCloseWidget(popup);
+        return view->page();
     }
 
-    return 0;
+    default:
+        return 0;
+    }
 }
 
 QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
@@ -798,6 +786,30 @@ QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
     }
 
     return 0;
+}
+
+bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
+{
+    m_lastRequestUrl = url;
+
+#if QTWEBENGINE_DISABLED
+    if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
+        // Don't show this dialog if app is still starting
+        if (!view() || !view()->isVisible()) {
+            return false;
+        }
+        QString message = tr("To display this page, QupZilla must resend the request \n"
+                             "(such as a search or order confirmation) that was performed earlier.");
+        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
+                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
+        if (!result) {
+            return false;
+        }
+    }
+#endif
+
+    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+
 }
 
 void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "popupwindow.h"
 #include "popupwebview.h"
-#include "popupwebpage.h"
+#include "webpage.h"
 #include "popupstatusbarmessage.h"
 #include "progressbar.h"
 #include "pagescreen.h"
@@ -34,7 +34,6 @@
 PopupWindow::PopupWindow(PopupWebView* view)
     : QWidget()
     , m_view(view)
-    , m_page(qobject_cast<PopupWebPage*>(view->page()))
     , m_search(0)
 {
     m_layout = new QVBoxLayout(this);
@@ -60,7 +59,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), m_view, SLOT(savePageAs()))->setShortcut(QKeySequence("Ctrl+S"));
     menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
     menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), m_view, SLOT(sendPageByMail()));
-    menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
+    //menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
     menuFile->addSeparator();
     menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+W"));
     m_menuBar->addMenu(menuFile);
@@ -87,7 +86,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuView->addAction(QIcon::fromTheme("zoom-out"), tr("Zoom &Out"), m_view, SLOT(zoomOut()))->setShortcut(QKeySequence("Ctrl+-"));
     m_menuView->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), m_view, SLOT(zoomReset()))->setShortcut(QKeySequence("Ctrl+0"));
     m_menuView->addSeparator();
-    m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), m_view, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
+    //m_menuView->addAction(QIcon::fromTheme("text-html"), tr("&Page Source"), m_view, SLOT(showSource()))->setShortcut(QKeySequence("Ctrl+U"));
     m_menuBar->addMenu(m_menuView);
 
     // Make shortcuts available even with hidden menubar
@@ -109,16 +108,18 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
     connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
-    connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
+    //connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
 
-    connect(m_page, SIGNAL(linkHovered(QString,QString,QString)), this, SLOT(showStatusBarMessage(QString)));
-    connect(m_page, SIGNAL(geometryChangeRequested(QRect)), this, SLOT(setWindowGeometry(QRect)));
-    connect(m_page, SIGNAL(statusBarVisibilityChangeRequested(bool)), this, SLOT(setStatusBarVisibility(bool)));
-    connect(m_page, SIGNAL(menuBarVisibilityChangeRequested(bool)), this, SLOT(setMenuBarVisibility(bool)));
-    connect(m_page, SIGNAL(toolBarVisibilityChangeRequested(bool)), this, SLOT(setToolBarVisibility(bool)));
+    connect(m_view->page(), &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
+    connect(m_view->page(), &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
+#if QTWEBENGINE_DISABLED
+    connect(m_view->page(), &WebPage::statusBarVisibilityChangeRequested, this, &PopupWindow::setStatusBarVisibility);
+    connect(m_view->page(), &WebPage::menuBarVisibilityChangeRequested, this, &PopupWindow::setMenuBarVisibility);
+    connect(m_view->page(), &WebPage::toolBarVisibilityChangeRequested, this, &PopupWindow::setToolBarVisibility);
+#endif
 
     m_view->setFocus();
     titleChanged();
@@ -201,7 +202,7 @@ void PopupWindow::loadFinished()
 
 void PopupWindow::closeEvent(QCloseEvent* event)
 {
-    if (m_page->isRunningLoop()) {
+    if (m_view->page()->isRunningLoop()) {
         event->ignore();
         return;
     }

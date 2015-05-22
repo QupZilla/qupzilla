@@ -170,7 +170,6 @@ SOURCES += \
     plugins/speeddial.cpp \
     popupwindow/popuplocationbar.cpp \
     popupwindow/popupstatusbarmessage.cpp \
-    popupwindow/popupwebpage.cpp \
     popupwindow/popupwebview.cpp \
     popupwindow/popupwindow.cpp \
     preferences/acceptlanguage.cpp \
@@ -373,7 +372,6 @@ HEADERS  += \
     plugins/speeddial.h \
     popupwindow/popuplocationbar.h \
     popupwindow/popupstatusbarmessage.h \
-    popupwindow/popupwebpage.h \
     popupwindow/popupwebview.h \
     popupwindow/popupwindow.h \
     preferences/acceptlanguage.h \

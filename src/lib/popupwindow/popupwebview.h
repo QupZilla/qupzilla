@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,6 @@
 #include "qzcommon.h"
 #include "webview.h"
 
-class PopupWebPage;
 class LoadRequest;
 class Menu;
 
@@ -30,9 +29,6 @@ class QUPZILLA_EXPORT PopupWebView : public WebView
     Q_OBJECT
 public:
     explicit PopupWebView(QWidget* parent = 0);
-
-    void setWebPage(PopupWebPage* page);
-    PopupWebPage* webPage();
 
     QWidget* overlayWidget();
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
@@ -47,7 +43,6 @@ public slots:
 private:
     void contextMenuEvent(QContextMenuEvent* event);
 
-    PopupWebPage* m_page;
     Menu* m_menu;
 };
 

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "popupwebview.h"
-#include "popupwebpage.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
@@ -29,31 +28,9 @@
 
 PopupWebView::PopupWebView(QWidget* parent)
     : WebView(parent)
-    , m_page(0)
     , m_menu(new Menu(this))
 {
     m_menu->setCloseOnMiddleClick(true);
-}
-
-void PopupWebView::setWebPage(PopupWebPage* page)
-{
-    if (m_page == page) {
-        return;
-    }
-
-    if (m_page) {
-        delete m_page;
-        m_page = 0;
-    }
-
-    m_page = page;
-    m_page->setParent(this);
-    setPage(m_page);
-}
-
-PopupWebPage* PopupWebView::webPage()
-{
-    return m_page;
 }
 
 QWidget* PopupWebView::overlayWidget()
