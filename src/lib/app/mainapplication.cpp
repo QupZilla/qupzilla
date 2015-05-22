@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,6 @@
 #include "html5permissions/html5permissionsmanager.h"
 
 #include <QWebEngineSettings>
-#include <QNetworkDiskCache>
 #include <QDesktopServices>
 #include <QFontDatabase>
 #include <QSqlDatabase>
@@ -61,7 +60,7 @@
 #include <QProcess>
 #include <QTimer>
 #include <QDir>
-
+#include <QWebEngineProfile>
 #include <QStandardPaths>
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
@@ -80,7 +79,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_autoFill(0)
     , m_cookieJar(0)
     , m_plugins(0)
-    , m_networkCache(0)
     , m_browsingLibrary(0)
     , m_rssManager(0)
     , m_networkManager(0)
@@ -507,21 +505,6 @@ PluginProxy* MainApplication::plugins()
     return m_plugins;
 }
 
-QNetworkDiskCache* MainApplication::networkCache()
-{
-    if (!m_networkCache) {
-        Settings settings;
-        const QString defaultBasePath = QString("%1/networkcache/").arg(DataPaths::currentProfilePath());
-        const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
-        const QString cachePath = QString("%1/QtWebEngine/").arg(basePath);
-
-        m_networkCache = new QNetworkDiskCache(this);
-        m_networkCache->setCacheDirectory(cachePath);
-    }
-
-    return m_networkCache;
-}
-
 BrowsingLibrary* MainApplication::browsingLibrary()
 {
     if (!m_browsingLibrary) {
@@ -893,11 +876,23 @@ void MainApplication::loadSettings()
     webSettings->setFontSize(QWebEngineSettings::MinimumLogicalFontSize, settings.value("MinimumLogicalFontSize", 5).toInt());
     settings.endGroup();
 
+    QWebEngineProfile* profile = QWebEngineProfile::defaultProfile();
+    profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
+    profile->setPersistentStoragePath(DataPaths::currentProfilePath());
+
+    const QString defaultBasePath = QSL("%1/networkcache/").arg(DataPaths::currentProfilePath());
+    const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
+    const QString cachePath = QString("%1/QtWebEngine/").arg(basePath);
+    profile->setCachePath(cachePath);
+
     if (isPrivate()) {
         webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
 #if QTWEBENGINE_DISABLED
         webSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
 #endif
+        profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
+        profile->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
         history()->setSaving(false);
     }
 

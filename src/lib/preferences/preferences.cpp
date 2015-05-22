@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -58,7 +58,7 @@
 #include <QCloseEvent>
 #include <QColorDialog>
 #include <QDesktopWidget>
-#include <QNetworkDiskCache>
+#include <QWebEngineProfile>
 #include <QWebEngineSettings>
 
 static QString createLanguageItem(const QString &lang)
@@ -306,7 +306,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
-    ui->cachePath->setText(settings.value("CachePath", mApp->networkCache()->cacheDirectory()).toString());
+    ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
     connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));

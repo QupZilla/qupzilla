@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,6 @@
 #include "qzcommon.h"
 
 class QMenu;
-class QNetworkDiskCache;
 class QNetworkAccessManager;
 
 class History;
@@ -88,7 +87,6 @@ public:
     AutoFill* autoFill();
     CookieJar* cookieJar();
     PluginProxy* plugins();
-    QNetworkDiskCache* networkCache();
     BrowsingLibrary* browsingLibrary();
 
     RSSManager* rssManager();
@@ -153,7 +151,6 @@ private:
     AutoFill* m_autoFill;
     CookieJar* m_cookieJar;
     PluginProxy* m_plugins;
-    QNetworkDiskCache* m_networkCache;
     BrowsingLibrary* m_browsingLibrary;
 
     RSSManager* m_rssManager;
