@@ -584,7 +584,7 @@ BrowserWindow* TabManagerWidget::getQupZilla()
     }
 }
 
-void TabManagerWidget::makeWebViewConnections(QWebView* view)
+void TabManagerWidget::makeWebViewConnections(WebView* view)
 {
     if (view) {
         connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(delayedRefreshTree()));
