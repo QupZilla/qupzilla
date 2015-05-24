@@ -51,7 +51,9 @@ public:
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
 
+#if 0
     void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
+#endif
 
     bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
 

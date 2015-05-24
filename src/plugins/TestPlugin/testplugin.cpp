@@ -25,7 +25,6 @@
 
 #include <QTranslator>
 #include <QPushButton>
-#include <QWebHitTestResult>
 #include <QMenu>
 
 TestPlugin::TestPlugin()
@@ -140,6 +139,7 @@ void TestPlugin::showSettings(QWidget* parent)
     m_settings.data()->raise();
 }
 
+#if QTWEBENGINE_DISABLED
 void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
 {
     // Called from WebView when creating context menu
@@ -161,6 +161,7 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
 
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
 }
+#endif
 
 bool TestPlugin::mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
 {
