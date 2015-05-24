@@ -25,7 +25,6 @@
 #include "networkmanager.h"
 #include "qztools.h"
 #include "datapaths.h"
-#include "schemehandlers/ftpschemehandler.h"
 
 #include <QMenu>
 #include <QClipboard>
@@ -49,7 +48,6 @@ DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downlo
     , ui(new Ui::DownloadItem)
     , m_item(item)
     , m_download(downloadItem)
-    , m_ftpDownloader(0)
     , m_path(path)
     , m_fileName(fileName)
     , m_downUrl(downloadItem->url())
@@ -86,32 +84,6 @@ void DownloadItem::startDownloading()
     m_downloading = true;
     m_downTimer.start();
     updateDownloadInfo(0, m_download->receivedBytes(), m_download->totalBytes());
-}
-
-void DownloadItem::startDownloadingFromFtp(const QUrl &url)
-{
-#if QTWEBENGINE_DISABLED
-    if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
-        stop(false);
-        ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
-        return;
-    }
-
-    m_ftpDownloader = new FtpDownloader(this);
-    connect(m_ftpDownloader, SIGNAL(finished()), this, SLOT(finished()));
-    connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
-    connect(m_ftpDownloader, SIGNAL(errorOccured(QFtp::Error)), this, SLOT(error()));
-    connect(m_ftpDownloader, SIGNAL(ftpAuthenticationRequierd(QUrl,QAuthenticator*)), mApp->networkManager(), SLOT(ftpAuthentication(QUrl,QAuthenticator*)));
-
-    m_ftpDownloader->download(url, &m_outputFile);
-    m_downloading = true;
-
-    QTimer::singleShot(200, this, SLOT(updateDownload()));
-
-    if (m_ftpDownloader->error() != QFtp::NoError) {
-        error();
-    }
-#endif
 }
 
 void DownloadItem::updateIcon()
@@ -172,10 +144,6 @@ void DownloadItem::finished()
     ui->progressBar->hide();
     ui->button->hide();
     ui->frame->hide();
-
-#if QTWEBENGINE_DISABLED
-        m_ftpDownloader->deleteLater();
-#endif
 
     m_item->setSizeHint(sizeHint());
     m_downloading = false;
@@ -289,11 +257,6 @@ void DownloadItem::stop()
         return;
     }
     m_downloadStopped = true;
-#if QTWEBENGINE_DISABLED
-    host = m_ftpDownloader->url().host();
-    m_ftpDownloader->abort();
-    m_ftpDownloader->close();
-#endif
     ui->progressBar->hide();
     ui->button->hide();
     m_item->setSizeHint(sizeHint());

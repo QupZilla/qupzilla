@@ -36,7 +36,6 @@ class QListWidgetItem;
 class QWebEngineDownloadItem;
 
 class DownloadManager;
-class FtpDownloader;
 
 class QUPZILLA_EXPORT DownloadItem : public QWidget
 {
@@ -73,7 +72,6 @@ private slots:
 
 private:
     void startDownloading();
-    void startDownloadingFromFtp(const QUrl &url);
 
     void updateIcon();
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
@@ -83,7 +81,6 @@ private:
 
     QListWidgetItem* m_item;
     QWebEngineDownloadItem* m_download;
-    FtpDownloader* m_ftpDownloader;
     QString m_path;
     QString m_fileName;
     QTime m_downTimer;
