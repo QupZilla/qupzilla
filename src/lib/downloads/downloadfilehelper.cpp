@@ -36,6 +36,8 @@
 
 #include <QStandardPaths>
 
+#if QTWEBENGINE_DISABLED
+
 DownloadFileHelper::DownloadFileHelper(const QString &lastDownloadPath, const QString &downloadPath, bool useNativeDialog)
     : QObject()
     , m_lastDownloadOption(DownloadManager::SaveFile)
@@ -324,3 +326,5 @@ DownloadFileHelper::~DownloadFileHelper()
 {
     delete m_iconProvider;
 }
+
+#endif

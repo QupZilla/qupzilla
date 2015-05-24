@@ -24,6 +24,7 @@
 #include "downloadmanager.h"
 #include "networkmanager.h"
 #include "qztools.h"
+#include "datapaths.h"
 #include "schemehandlers/ftpschemehandler.h"
 
 #include <QMenu>
@@ -33,7 +34,9 @@
 #include <QTimer>
 #include <QFileInfo>
 #include <QMessageBox>
+#include <QFileIconProvider>
 #include <QDesktopServices>
+#include <QWebEngineDownloadItem>
 
 #ifdef Q_OS_WIN
 #include "Shlwapi.h"
@@ -41,32 +44,24 @@
 
 //#define DOWNMANAGER_DEBUG
 
-DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager)
+DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, DownloadManager* manager)
     : QWidget()
     , ui(new Ui::DownloadItem)
     , m_item(item)
-    , m_reply(reply)
+    , m_download(downloadItem)
     , m_ftpDownloader(0)
     , m_path(path)
     , m_fileName(fileName)
-    , m_downTimer(timer)
-    , m_downUrl(reply->url())
-    , m_downloadPage(downloadPage)
+    , m_downUrl(downloadItem->url())
+    , m_validIcon(false)
     , m_downloading(false)
-    , m_openAfterFinish(openAfterFinishedDownload)
     , m_downloadStopped(false)
-    , m_received(0)
-    , m_total(0)
+    , m_received(downloadItem->receivedBytes())
+    , m_total(downloadItem->totalBytes())
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << item << reply << path << fileName;
 #endif
-    QString fullPath = path + fileName;
-    if (QFile::exists(fullPath)) {
-        QFile::remove(fullPath);
-    }
-
-    m_outputFile.setFileName(fullPath);
 
     ui->setupUi(this);
     setMaximumWidth(525);
@@ -74,7 +69,6 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     ui->button->setPixmap(QIcon::fromTheme(QSL("process-stop")).pixmap(20, 20));
     ui->fileName->setText(m_fileName);
     ui->downloadInfo->setText(tr("Remaining time unavailable"));
-    ui->fileIcon->setPixmap(fileIcon);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
@@ -84,61 +78,25 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     startDownloading();
 }
 
-void DownloadItem::setTotalSize(qint64 total)
-{
-    if (total > 0) {
-        m_total = total;
-    }
-}
-
 void DownloadItem::startDownloading()
 {
-    QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
-
-    bool hasFtpUrlInHeader = locationHeader.isValid() && (locationHeader.scheme() == "ftp");
-    if (m_reply->url().scheme() == "ftp" || hasFtpUrlInHeader) {
-        QUrl url = hasFtpUrlInHeader ? locationHeader : m_reply->url();
-        m_reply->abort();
-        m_reply->deleteLater();
-        m_reply = 0;
-
-        startDownloadingFromFtp(url);
-        return;
-    }
-    else if (locationHeader.isValid()) {
-        m_reply->abort();
-        m_reply->deleteLater();
-
-        m_reply = mApp->networkManager()->get(QNetworkRequest(locationHeader));
-    }
-
-    m_reply->setParent(this);
-    connect(m_reply, SIGNAL(finished()), this, SLOT(finished()));
-    connect(m_reply, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(m_reply, SIGNAL(downloadProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error()));
-    connect(m_reply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
+    connect(m_download, &QWebEngineDownloadItem::finished, this, &DownloadItem::finished);
+    connect(m_download, &QWebEngineDownloadItem::downloadProgress, this, &DownloadItem::downloadProgress);
 
     m_downloading = true;
-    m_timer.start(1000, this);
-    readyRead();
-    QTimer::singleShot(200, this, SLOT(updateDownload()));
-
-    if (m_reply->error() != QNetworkReply::NoError) {
-        stop(false);
-        error();
-    }
+    m_downTimer.start();
+    updateDownloadInfo(0, m_download->receivedBytes(), m_download->totalBytes());
 }
 
 void DownloadItem::startDownloadingFromFtp(const QUrl &url)
 {
+#if QTWEBENGINE_DISABLED
     if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
         stop(false);
         ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
         return;
     }
 
-#if QTWEBENGINE_DISABLED
     m_ftpDownloader = new FtpDownloader(this);
     connect(m_ftpDownloader, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_ftpDownloader, SIGNAL(dataTransferProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
@@ -147,7 +105,6 @@ void DownloadItem::startDownloadingFromFtp(const QUrl &url)
 
     m_ftpDownloader->download(url, &m_outputFile);
     m_downloading = true;
-    m_timer.start(1000, this);
 
     QTimer::singleShot(200, this, SLOT(updateDownload()));
 
@@ -155,6 +112,28 @@ void DownloadItem::startDownloadingFromFtp(const QUrl &url)
         error();
     }
 #endif
+}
+
+void DownloadItem::updateIcon()
+{
+    if (m_validIcon)
+        return;
+
+    // Copy the downloaded file to temp dir and get its icon
+    QString tempFile = DataPaths::path(DataPaths::Temp) + QL1S("/download_") + m_fileName;
+    QFile::copy(m_download->path() + QL1S(".download"), tempFile);
+    QFileIconProvider iconProvider;
+    QFileInfo info(tempFile);
+    QIcon fileIcon = iconProvider.icon(info);
+    QFile::remove(tempFile);
+
+    if (!fileIcon.isNull()) {
+        ui->fileIcon->setPixmap(fileIcon.pixmap(30));
+        m_validIcon = true;
+    }
+    else {
+        ui->fileIcon->setPixmap(style()->standardIcon(QStyle::SP_FileIcon).pixmap(30));
+    }
 }
 
 void DownloadItem::parentResized(const QSize &size)
@@ -165,47 +144,41 @@ void DownloadItem::parentResized(const QSize &size)
     setMaximumWidth(size.width());
 }
 
-void DownloadItem::metaDataChanged()
-{
-    QUrl locationHeader = m_reply->header(QNetworkRequest::LocationHeader).toUrl();
-    if (locationHeader.isValid()) {
-        m_reply->close();
-        m_reply->deleteLater();
-
-        m_reply = mApp->networkManager()->get(QNetworkRequest(locationHeader));
-        startDownloading();
-    }
-}
-
 void DownloadItem::finished()
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__ << m_reply;
 #endif
-    m_timer.stop();
 
-    QString host = m_reply->url().host();
-    ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::currentDateTime().toString(Qt::DefaultLocaleShortDate)));
+    QString host = m_download->url().host();
+
+    switch (m_download->state()) {
+    case QWebEngineDownloadItem::DownloadCompleted:
+        ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::currentDateTime().toString(Qt::DefaultLocaleShortDate)));
+        break;
+
+    case QWebEngineDownloadItem::DownloadInterrupted:
+        ui->downloadInfo->setText(tr("Error - %1").arg(host));
+        break;
+
+    case QWebEngineDownloadItem::DownloadCancelled:
+        ui->downloadInfo->setText(tr("Cancelled - %1").arg(host));
+        break;
+
+    default:
+        break;
+    }
+
     ui->progressBar->hide();
     ui->button->hide();
     ui->frame->hide();
-    m_outputFile.close();
 
-    if (m_reply) {
-        m_reply->deleteLater();
-    }
-    else {
 #if QTWEBENGINE_DISABLED
         m_ftpDownloader->deleteLater();
 #endif
-    }
 
     m_item->setSizeHint(sizeHint());
     m_downloading = false;
-
-    if (m_openAfterFinish) {
-        openFile();
-    }
 
     emit downloadFinished(true);
 }
@@ -223,19 +196,11 @@ void DownloadItem::downloadProgress(qint64 received, qint64 total)
     }
     ui->progressBar->setValue(currentValue);
     ui->progressBar->setMaximum(totalValue);
-    m_currSpeed = received * 1000.0 / m_downTimer->elapsed();
+    m_currSpeed = received * 1000.0 / m_downTimer.elapsed();
     m_received = received;
     m_total = total;
-}
 
-void DownloadItem::timerEvent(QTimerEvent* event)
-{
-    if (event->timerId() == m_timer.timerId()) {
-        updateDownloadInfo(m_currSpeed, m_received, m_total);
-    }
-    else {
-        QWidget::timerEvent(event);
-    }
+    updateDownloadInfo(m_currSpeed, m_received, m_total);
 }
 
 int DownloadItem::progress()
@@ -311,9 +276,11 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     else {
         ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
     }
+
+    updateIcon();
 }
 
-void DownloadItem::stop(bool askForDeleteFile)
+void DownloadItem::stop()
 {
 #ifdef DOWNMANAGER_DEBUG
     qDebug() << __FUNCTION__;
@@ -322,43 +289,19 @@ void DownloadItem::stop(bool askForDeleteFile)
         return;
     }
     m_downloadStopped = true;
-    QString host;
-    if (m_reply) {
-        host = m_reply->url().host();
-    }
-    else if (m_ftpDownloader) {
 #if QTWEBENGINE_DISABLED
-        host = m_ftpDownloader->url().host();
+    host = m_ftpDownloader->url().host();
+    m_ftpDownloader->abort();
+    m_ftpDownloader->close();
 #endif
-    }
-    m_openAfterFinish = false;
-    m_timer.stop();
-    if (m_reply) {
-        m_reply->abort();
-    }
-    else if (m_ftpDownloader) {
-#if QTWEBENGINE_DISABLED
-        m_ftpDownloader->abort();
-        m_ftpDownloader->close();
-#endif
-    }
-    QString outputfile = QFileInfo(m_outputFile).absoluteFilePath();
-    m_outputFile.close();
-    ui->downloadInfo->setText(tr("Cancelled - %1").arg(host));
     ui->progressBar->hide();
     ui->button->hide();
     m_item->setSizeHint(sizeHint());
-
+    ui->downloadInfo->setText(tr("Cancelled - %1").arg(m_download->url().host()));
+    m_download->cancel();
     m_downloading = false;
 
     emit downloadFinished(false);
-
-    if (askForDeleteFile) {
-        QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete dowloaded file?"), QMessageBox::Yes | QMessageBox::No);
-        if (button == QMessageBox::Yes) {
-            QFile::remove(outputfile);
-        }
-    }
 }
 
 void DownloadItem::mouseDoubleClickEvent(QMouseEvent* e)
@@ -374,7 +317,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
 
     menu.addAction(tr("Open Folder"), this, SLOT(openFolder()));
     menu.addSeparator();
-    menu.addAction(tr("Go to Download Page"), this, SLOT(goToDownloadPage()))->setEnabled(!m_downloadPage.isEmpty());
+    //menu.addAction(tr("Go to Download Page"), this, SLOT(goToDownloadPage()))->setEnabled(!m_downloadPage.isEmpty());
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Download Link"), this, SLOT(copyDownloadLink()));
     menu.addSeparator();
     menu.addAction(QIcon::fromTheme("process-stop"), tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
@@ -388,6 +331,7 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
 
 void DownloadItem::goToDownloadPage()
 {
+#if QTWEBENGINE_DISABLED
     BrowserWindow* qz = mApp->getWindow();
 
     if (qz) {
@@ -396,6 +340,7 @@ void DownloadItem::goToDownloadPage()
     else {
         mApp->createWindow(Qz::BW_NewWindow, m_downloadPage);
     }
+#endif
 }
 
 void DownloadItem::copyDownloadLink()
@@ -413,7 +358,7 @@ void DownloadItem::openFile()
     if (m_downloading) {
         return;
     }
-    QFileInfo info(m_path + m_fileName);
+    QFileInfo info(m_path, m_fileName);
     if (info.exists()) {
         QDesktopServices::openUrl(QUrl::fromLocalFile(info.absoluteFilePath()));
     }
@@ -425,7 +370,7 @@ void DownloadItem::openFile()
 void DownloadItem::openFolder()
 {
 #ifdef Q_OS_WIN
-    QString winFileName = m_path + m_fileName;
+    QString winFileName = QSL("%1/%2").arg(m_path, m_fileName);
     winFileName.replace(QLatin1Char('/'), "\\");
     QString shExArg = "/e,/select,\"" + winFileName + "\"";
     ShellExecute(NULL, NULL, TEXT("explorer.exe"), shExArg.toStdWString().c_str(), NULL, SW_SHOW);
@@ -434,63 +379,8 @@ void DownloadItem::openFolder()
 #endif
 }
 
-void DownloadItem::readyRead()
-{
-#ifdef DOWNMANAGER_DEBUG
-    qDebug() << __FUNCTION__ ;
-#endif
-    if (!m_outputFile.isOpen() && !m_outputFile.open(QIODevice::WriteOnly)) {
-        stop(false);
-        ui->downloadInfo->setText(tr("Error: Cannot write to file!"));
-        return;
-    }
-    m_outputFile.write(m_reply->readAll());
-}
-
-void DownloadItem::error()
-{
-#ifdef DOWNMANAGER_DEBUG
-    qDebug() << __FUNCTION__ << (m_reply ? m_reply->error() : m_ftpDownloader->error());
-#endif
-    if (m_reply && m_reply->error() != QNetworkReply::NoError) {
-        ui->downloadInfo->setText(tr("Error: ") + m_reply->errorString());
-    }
-#if QTWEBENGINE_DISABLED
-    else if (m_ftpDownloader && m_ftpDownloader->error() != QFtp::NoError) {
-        stop(false);
-        ui->downloadInfo->setText(tr("Error: ") + m_ftpDownloader->errorString());
-    }
-#endif
-}
-
-void DownloadItem::updateDownload()
-{
-#ifdef DOWNMANAGER_DEBUG
-    qDebug() << __FUNCTION__ ;
-#endif
-    // after caling stop() (from readyRead()) m_reply will be a dangling pointer,
-    // thus it should be checked after m_outputFile.isOpen()
-#if QTWEBENGINE_DISABLED
-    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
-        ((m_reply && m_reply->isFinished()) ||
-         (m_ftpDownloader && m_ftpDownloader->isFinished())
-        )
-       ) {
-        downloadProgress(0, 0);
-        finished();
-    }
-#else
-    if (ui->progressBar->maximum() == 0 && m_outputFile.isOpen() &&
-        ((m_reply && m_reply->isFinished()))) {
-        downloadProgress(0, 0);
-        finished();
-    }
-#endif
-}
-
 DownloadItem::~DownloadItem()
 {
     delete ui;
     delete m_item;
-    delete m_downTimer;
 }

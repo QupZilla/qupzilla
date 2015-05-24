@@ -28,11 +28,12 @@ namespace Ui
 class DownloadManager;
 }
 
+class QUrl;
 class QNetworkReply;
 class QNetworkRequest;
 class QNetworkAccessManager;
 class QListWidgetItem;
-class QUrl;
+class QWebEngineDownloadItem;
 
 class DownloadItem;
 class EcWin7;
@@ -64,11 +65,7 @@ public:
 
     void loadSettings();
 
-    void download(const QNetworkRequest &request, const DownloadInfo &info);
-
-#if QTWEBENGINE_DISABLED
-    void handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info);
-#endif
+    void download(QWebEngineDownloadItem *downloadItem);
 
     bool canClose();
 
@@ -89,8 +86,6 @@ protected:
 private slots:
     void clearList();
     void deleteItem(DownloadItem* item);
-
-    void itemCreated(QListWidgetItem* item, DownloadItem* downItem);
     void downloadFinished(bool success);
 
 signals:

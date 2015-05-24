@@ -27,6 +27,7 @@
 #include "desktopnotificationsfactory.h"
 #include "qztools.h"
 #include "webpage.h"
+#include "webview.h"
 #include "downloadfilehelper.h"
 #include "settings.h"
 
@@ -34,6 +35,9 @@
 #include <QCloseEvent>
 #include <QDir>
 #include <QShortcut>
+#include <QStandardPaths>
+#include <QWebEngineHistory>
+#include <QWebEngineDownloadItem>
 
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
@@ -85,6 +89,10 @@ void DownloadManager::loadSettings()
 
     if (!m_externalArguments.contains(QLatin1String("%d"))) {
         m_externalArguments.append(QLatin1String(" %d"));
+    }
+
+    if (m_downloadPath.isEmpty()) {
+        m_downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
     }
 }
 
@@ -206,54 +214,41 @@ void DownloadManager::clearList()
     qDeleteAll(items);
 }
 
-void DownloadManager::download(const QNetworkRequest &request, const DownloadInfo &info)
+void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 {
-    if (!info.page) {
+    if (m_useExternalManager) {
+        startExternalManager(downloadItem->url());
+        downloadItem->cancel();
         return;
     }
 
-    // Clearing web page info from request
-    QNetworkRequest req = request;
-    req.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), 0);
-
 #if QTWEBENGINE_DISABLED
-    handleUnsupportedContent(m_networkManager->get(req), info);
-#endif
-}
-
-#if QTWEBENGINE_DISABLED
-void DownloadManager::handleUnsupportedContent(QNetworkReply* reply, const DownloadInfo &info)
-{
-    if (!info.page || reply->url().scheme() == QLatin1String("qupzilla")) {
-        return;
+    // Get download page
+    QUrl downloadPage;
+    WebView* view = qobject_cast<WebView*>(info.page->view());
+    if (!info.page->url().isEmpty()) {
+        downloadPage = info.page->url();
     }
-
-//    if (fromPageDownload && m_useExternalManager) {
-//        startExternalManager(reply->url());
-//        reply->abort();
-//        reply->deleteLater();
-//        return;
-//    }
-
-    reply->setProperty("downReply", QVariant(true));
-
-    DownloadFileHelper* h = new DownloadFileHelper(m_lastDownloadPath, m_downloadPath, m_useNativeDialog);
-    connect(h, SIGNAL(itemCreated(QListWidgetItem*,DownloadItem*)), this, SLOT(itemCreated(QListWidgetItem*,DownloadItem*)));
-
-    h->setLastDownloadOption(m_lastDownloadOption);
-    h->setDownloadManager(this);
-    h->setListWidget(ui->list);
-    h->handleUnsupportedContent(reply, info);
-}
+    else if (info.page->history()->canGoBack()) {
+        downloadPage = info.page->history()->backItem().url();
+    }
+    // Close empty tab
+    else if (view && info.page->history()->count() == 0) {
+        view->closeView();
+    }
 #endif
 
-void DownloadManager::itemCreated(QListWidgetItem* item, DownloadItem* downItem)
-{
-    connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
-    connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
+    QString fileName = QFileInfo(downloadItem->path()).fileName();
 
-    ui->list->setItemWidget(item, downItem);
-    item->setSizeHint(downItem->sizeHint());
+    // Set download path and accept
+    downloadItem->setPath(QzTools::ensureUniqueFilename(QSL("%1/%2").arg(m_downloadPath, fileName)));
+    downloadItem->accept();
+
+    // Create download item
+    QListWidgetItem* listItem = new QListWidgetItem(ui->list);
+    DownloadItem* downItem = new DownloadItem(listItem, downloadItem, m_downloadPath, fileName, this);
+    ui->list->setItemWidget(listItem, downItem);
+    listItem->setSizeHint(downItem->sizeHint());
     downItem->show();
 
     show();

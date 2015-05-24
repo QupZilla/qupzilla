@@ -18,6 +18,8 @@
 #ifndef DOWNLOADFILEHELPER_H
 #define DOWNLOADFILEHELPER_H
 
+#if QTWEBENGINE_DISABLED
+
 #include <QObject>
 #include <QPixmap>
 #include <QUrl>
@@ -77,5 +79,7 @@ private:
     QFileIconProvider* m_iconProvider;
     DownloadManager* m_manager;
 };
+
+#endif
 
 #endif // DOWNLOADFILEHELPER_H

@@ -29,6 +29,7 @@
 class QMenu;
 class QWebEngineProfile;
 class QNetworkAccessManager;
+class QWebEngineDownloadItem;
 
 class History;
 class AutoFill;
@@ -98,7 +99,7 @@ public:
     SearchEnginesManager* searchEnginesManager();
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
-    QWebEngineProfile* webProfile();
+    QWebEngineProfile* webProfile() const;
 
     static MainApplication* instance();
 
@@ -124,6 +125,8 @@ private slots:
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
     void onFocusChanged();
+
+    void downloadRequested(QWebEngineDownloadItem *download);
 
 private:
     enum PostLaunchAction {

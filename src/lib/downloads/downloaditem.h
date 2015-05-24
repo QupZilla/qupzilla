@@ -33,6 +33,7 @@ class DownloadItem;
 }
 
 class QListWidgetItem;
+class QWebEngineDownloadItem;
 
 class DownloadManager;
 class FtpDownloader;
@@ -42,15 +43,13 @@ class QUPZILLA_EXPORT DownloadItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QString &path, const QString &fileName, const QPixmap &fileIcon, QTime* timer, bool openAfterFinishedDownload, const QUrl &downloadPage, DownloadManager* manager);
+    explicit DownloadItem(QListWidgetItem* item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, DownloadManager* manager);
     bool isDownloading() { return m_downloading; }
     bool isCancelled();
     QTime remainingTime() { return m_remTime; }
     double currentSpeed() { return m_currSpeed; }
     int progress();
     ~DownloadItem();
-
-    void setTotalSize(qint64 total);
 
     static QString remaingTimeToString(QTime time);
     static QString currentSpeedToString(double speed);
@@ -62,14 +61,10 @@ signals:
 private slots:
     void parentResized(const QSize &size);
     void finished();
-    void metaDataChanged();
     void downloadProgress(qint64 received, qint64 total);
-    void stop(bool askForDeleteFile = true);
+    void stop();
     void openFile();
     void openFolder();
-    void readyRead();
-    void error();
-    void updateDownload();
     void customContextMenuRequested(const QPoint &pos);
     void clear();
 
@@ -80,25 +75,24 @@ private:
     void startDownloading();
     void startDownloadingFromFtp(const QUrl &url);
 
-    void timerEvent(QTimerEvent* event);
+    void updateIcon();
     void updateDownloadInfo(double currSpeed, qint64 received, qint64 total);
     void mouseDoubleClickEvent(QMouseEvent* e);
+
     Ui::DownloadItem* ui;
 
     QListWidgetItem* m_item;
-    QNetworkReply* m_reply;
+    QWebEngineDownloadItem* m_download;
     FtpDownloader* m_ftpDownloader;
     QString m_path;
     QString m_fileName;
-    QTime* m_downTimer;
+    QTime m_downTimer;
     QTime m_remTime;
     QBasicTimer m_timer;
-    QFile m_outputFile;
     QUrl m_downUrl;
-    QUrl m_downloadPage;
+    bool m_validIcon;
 
     bool m_downloading;
-    bool m_openAfterFinish;
     bool m_downloadStopped;
     double m_currSpeed;
     qint64 m_received;

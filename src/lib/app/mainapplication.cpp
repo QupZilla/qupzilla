@@ -62,6 +62,7 @@
 #include <QDir>
 #include <QWebEngineProfile>
 #include <QStandardPaths>
+#include <QWebEngineDownloadItem>
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 #include "registerqappassociation.h"
@@ -236,6 +237,9 @@ MainApplication::MainApplication(int &argc, char** argv)
 #else
     setQuitOnLastWindowClosed(true);
 #endif
+
+    m_webProfile = isPrivate() ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
+    connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
     QDesktopServices::setUrlHandler("http", this, "addNewTab");
@@ -577,11 +581,8 @@ DesktopNotificationsFactory* MainApplication::desktopNotifications()
     return m_desktopNotifications;
 }
 
-QWebEngineProfile *MainApplication::webProfile()
+QWebEngineProfile *MainApplication::webProfile() const
 {
-    if (!m_webProfile) {
-        m_webProfile = m_isPrivate ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
-    }
     return m_webProfile;
 }
 
@@ -834,6 +835,11 @@ void MainApplication::onFocusChanged()
     if (activeBrowserWindow) {
         m_lastActiveWindow = activeBrowserWindow;
     }
+}
+
+void MainApplication::downloadRequested(QWebEngineDownloadItem *download)
+{
+    downloadManager()->download(download);
 }
 
 void MainApplication::loadSettings()

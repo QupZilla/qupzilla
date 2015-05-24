@@ -25,8 +25,8 @@
 #include "qzcommon.h"
 #include "passwordmanager.h"
 
-class QWebSecurityOrigin;
 class QEventLoop;
+class QWebEngineDownloadItem;
 
 class BrowserWindow;
 class AdBlockRule;
@@ -100,7 +100,6 @@ private slots:
     void addJavaScriptObject();
 
     void watchedFileChanged(const QString &file);
-    void downloadRequested(const QNetworkRequest &request);
     void windowCloseRequested();
     void authentication(const QUrl &requestUrl, QAuthenticator* auth);
     void proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, const QString &proxyHost);

@@ -564,6 +564,7 @@ void WebView::copyLinkToClipboard()
 
 void WebView::savePageAs()
 {
+#if QTWEBENGINE_DISABLED
     if (url().isEmpty() || url().toString() == QLatin1String("about:blank")) {
         return;
     }
@@ -582,6 +583,7 @@ void WebView::savePageAs()
 
     DownloadManager* dManager = mApp->downloadManager();
     dManager->download(request, info);
+#endif
 }
 
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
@@ -594,6 +596,7 @@ void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 
 void WebView::downloadUrlToDisk()
 {
+#if QTWEBENGINE_DISABLED
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         QNetworkRequest request(action->data().toUrl());
 
@@ -606,6 +609,7 @@ void WebView::downloadUrlToDisk()
         DownloadManager* dManager = mApp->downloadManager();
         dManager->download(request, info);
     }
+#endif
 }
 
 void WebView::copyImageToClipboard()

@@ -99,7 +99,6 @@ WebPage::WebPage(QObject* parent)
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
     connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
-    connect(this, SIGNAL(downloadRequested(QNetworkRequest)), this, SLOT(downloadRequested(QNetworkRequest)));
 
     frameCreated(mainFrame());
     connect(this, SIGNAL(frameCreated(QWebFrame*)), this, SLOT(frameCreated(QWebFrame*)));
@@ -461,12 +460,6 @@ void WebPage::desktopServicesOpen(const QUrl &url)
         qWarning() << "WebPage::desktopServicesOpen Url" << url << "has already been opened!\n"
                    "Ignoring it to prevent infinite loop!";
     }
-}
-
-void WebPage::downloadRequested(const QNetworkRequest &request)
-{
-    DownloadManager* dManager = mApp->downloadManager();
-    dManager->download(request, this);
 }
 
 void WebPage::windowCloseRequested()
