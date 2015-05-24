@@ -40,7 +40,7 @@ public:
     explicit GM_Manager(const QString &sPath, QObject* parent = 0);
 
     void showSettings(QWidget* parent);
-    void downloadScript(const QNetworkRequest &request);
+    void downloadScript(const QUrl &url);
 
     QString settinsPath() const;
     QString scriptsDirectory() const;
@@ -68,9 +68,6 @@ public slots:
     void mainWindowCreated(BrowserWindow* window);
     void mainWindowDeleted(BrowserWindow* window);
 
-    void frameLoadStart();
-    void frameCreated(QWebFrame* frame);
-
 private slots:
     void load();
 
@@ -81,8 +78,7 @@ private:
 
     QStringList m_disabledScripts;
     GM_JSObject* m_jsObject;
-    QList<GM_Script*> m_endScripts;
-    QList<GM_Script*> m_startScripts;
+    QList<GM_Script*> m_scripts;
 
     QHash<BrowserWindow*, GM_Icon*> m_windows;
 };

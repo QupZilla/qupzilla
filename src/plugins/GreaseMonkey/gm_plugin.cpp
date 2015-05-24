@@ -53,21 +53,13 @@ void GM_Plugin::init(InitState state, const QString &settingsPath)
 {
     m_manager = new GM_Manager(settingsPath, this);
 
-    connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), this, SLOT(webPageCreated(WebPage*)));
     connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), m_manager, SLOT(mainWindowCreated(BrowserWindow*)));
     connect(mApp->plugins(), SIGNAL(mainWindowDeleted(BrowserWindow*)), m_manager, SLOT(mainWindowDeleted(BrowserWindow*)));
 
     // Make sure userscripts works also with already created WebPages
     if (state == LateInitState) {
-        foreach (BrowserWindow* window, mApp->windows()) {
+        for (BrowserWindow *window : mApp->windows()) {
             m_manager->mainWindowCreated(window);
-
-            for (int i = 0; i < window->tabWidget()->count(); ++i) {
-                WebTab* tab = qobject_cast<WebTab*>(window->tabWidget()->widget(i));
-                if (tab) {
-                    webPageCreated(tab->webView()->page());
-                }
-            }
         }
     }
 }
@@ -96,26 +88,18 @@ void GM_Plugin::showSettings(QWidget* parent)
     m_manager->showSettings(parent);
 }
 
-QNetworkReply* GM_Plugin::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+bool GM_Plugin::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
-    Q_UNUSED(outgoingData)
+    Q_UNUSED(page)
+    Q_UNUSED(type)
+    Q_UNUSED(isMainFrame)
 
-    if (op == QNetworkAccessManager::GetOperation && request.rawHeader("X-QupZilla-UserLoadAction") == QByteArray("1")) {
-        const QString urlString = request.url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
-
-        if (urlString.endsWith(QLatin1String(".user.js"))) {
-            m_manager->downloadScript(request);
-            return new EmptyNetworkReply;
-        }
+    if (url.toString().endsWith(QL1S(".user.js"))) {
+        m_manager->downloadScript(url);
+        return false;
     }
 
-    return 0;
-}
-
-void GM_Plugin::webPageCreated(WebPage* page)
-{
-    m_manager->frameCreated(page->mainFrame());
-    connect(page, SIGNAL(frameCreated(QWebFrame*)), m_manager, SLOT(frameCreated(QWebFrame*)));
+    return true;
 }
 
 #if QT_VERSION < 0x050000

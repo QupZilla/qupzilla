@@ -21,8 +21,10 @@
 #include "plugins.h"
 #include "qzcommon.h"
 
-class BrowserWindow;
+#include <QWebEnginePage>
+
 class WebPage;
+class BrowserWindow;
 
 class QUPZILLA_EXPORT PluginProxy : public Plugins
 {

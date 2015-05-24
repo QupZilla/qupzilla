@@ -33,7 +33,7 @@ class GM_AddScriptDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit GM_AddScriptDialog(GM_Manager* manager, GM_Script* script, QWidget* parent);
+    explicit GM_AddScriptDialog(GM_Manager *manager, GM_Script *script, QWidget *parent = Q_NULLPTR);
     ~GM_AddScriptDialog();
 
 private slots:

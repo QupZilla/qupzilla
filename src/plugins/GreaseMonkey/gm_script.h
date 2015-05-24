@@ -23,6 +23,7 @@
 #include <QObject>
 #include <QVector>
 #include <QUrl>
+#include <QWebEngineScript>
 
 class QWebFrame;
 
@@ -49,6 +50,7 @@ public:
 
     QUrl downloadUrl() const;
     StartAt startAt() const;
+    bool noFrames() const;
 
     bool isEnabled() const;
     void setEnabled(bool enable);
@@ -57,7 +59,10 @@ public:
     QStringList exclude() const;
 
     QString script() const;
+    QString metaData() const;
     QString fileName() const;
+
+    QWebEngineScript webScript() const;
 
     bool match(const QString &urlString);
 
@@ -83,11 +88,15 @@ private:
 
     QUrl m_downloadUrl;
     StartAt m_startAt;
+    bool m_noframes;
 
     QString m_script;
+    QString m_metadata;
     QString m_fileName;
     bool m_enabled;
     bool m_valid;
+
+    QWebEngineScript m_webScript;
 };
 
 #endif // GM_SCRIPT_H

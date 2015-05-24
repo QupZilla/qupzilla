@@ -32,7 +32,7 @@ class GM_Downloader : public QObject
 {
     Q_OBJECT
 public:
-    explicit GM_Downloader(const QNetworkRequest &request, GM_Manager* manager);
+    explicit GM_Downloader(const QUrl &url, GM_Manager* manager);
 
 private slots:
     void scriptDownloaded();
@@ -43,7 +43,6 @@ private:
 
     GM_Manager* m_manager;
     FollowRedirectReply* m_reply;
-    QWidget* m_widget;
 
     QString m_fileName;
     QList<QUrl> m_requireUrls;

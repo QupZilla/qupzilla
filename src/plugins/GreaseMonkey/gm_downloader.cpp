@@ -30,20 +30,12 @@
 #include <QSettings>
 #include "qzregexp.h"
 
-GM_Downloader::GM_Downloader(const QNetworkRequest &request, GM_Manager* manager)
+GM_Downloader::GM_Downloader(const QUrl &url, GM_Manager* manager)
     : QObject()
     , m_manager(manager)
-    , m_widget(0)
 {
-    m_reply = new FollowRedirectReply(request.url(), mApp->networkManager());
+    m_reply = new FollowRedirectReply(url, mApp->networkManager());
     connect(m_reply, SIGNAL(finished()), this, SLOT(scriptDownloaded()));
-
-    QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-    WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-
-    if (WebPage::isPointerSafeToUse(webPage)) {
-        m_widget = webPage->view();
-    }
 }
 
 void GM_Downloader::scriptDownloaded()
@@ -148,7 +140,7 @@ void GM_Downloader::downloadRequires()
 
         if (script->isValid()) {
             if (!m_manager->containsScript(script->fullName())) {
-                GM_AddScriptDialog dialog(m_manager, script, m_widget);
+                GM_AddScriptDialog dialog(m_manager, script);
                 deleteScript = dialog.exec() != QDialog::Accepted;
             }
             else {

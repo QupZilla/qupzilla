@@ -23,7 +23,6 @@
 
 #include <QFile>
 #include <QStringList>
-#include <QWebFrame>
 #include <QCryptographicHash>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
@@ -32,6 +31,7 @@ GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     , m_fileWatcher(new DelayedFileWatcher(this))
     , m_namespace("GreaseMonkeyNS")
     , m_startAt(DocumentEnd)
+    , m_noframes(false)
     , m_fileName(filePath)
     , m_enabled(true)
     , m_valid(false)
@@ -81,6 +81,11 @@ GM_Script::StartAt GM_Script::startAt() const
     return m_startAt;
 }
 
+bool GM_Script::noFrames() const
+{
+    return m_noframes;
+}
+
 bool GM_Script::isEnabled() const
 {
     return m_valid && m_enabled;
@@ -118,9 +123,19 @@ QString GM_Script::script() const
     return m_script;
 }
 
+QString GM_Script::metaData() const
+{
+    return m_metadata;
+}
+
 QString GM_Script::fileName() const
 {
     return m_fileName;
+}
+
+QWebEngineScript GM_Script::webScript() const
+{
+    return m_webScript;
 }
 
 bool GM_Script::match(const QString &urlString)
@@ -258,8 +273,14 @@ void GM_Script::parseScript()
     }
 
     int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
-    QString script = fileData.mid(index).trimmed();
+    m_metadata = fileData.mid(0, index);
 
+    QString script = fileData.mid(index).trimmed();
+    m_valid = !script.isEmpty();
+
+    m_script = QSL("(function(){%1\n%2\n})();").arg(m_manager->requireScripts(requireList), script);
+
+#if QTWEBENGINE_DISABLED
     QString jscript("(function(){"
                     "function GM_getValue(name,val){return GM_getValueImpl('%1',name,val);}"
                     "function GM_setValue(name,val){return GM_setValueImpl('%1',name,val);}"
@@ -267,10 +288,12 @@ void GM_Script::parseScript()
                     "function GM_listValues(){return GM_listValuesImpl('%1');}"
                     "\n%2\n})();");
     QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
+#endif
 
-    script.prepend(m_manager->requireScripts(requireList));
-    script = jscript.arg(nspace, script);
-
-    m_script = script;
-    m_valid = !script.isEmpty();
+    // Create QWebEngineScript
+    m_webScript.setName(fullName());
+    m_webScript.setInjectionPoint(startAt() == DocumentStart ? QWebEngineScript::DocumentCreation : QWebEngineScript::DocumentReady);
+    m_webScript.setWorldId(QWebEngineScript::MainWorld);
+    m_webScript.setRunsOnSubFrames(!m_noframes);
+    m_webScript.setSourceCode(QSL("%1\n%2").arg(m_metadata, m_script));
 }

@@ -43,10 +43,7 @@ public:
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
 
-    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
-
-private slots:
-    void webPageCreated(WebPage* page);
+    bool acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame);
 
 private:
     GM_Manager* m_manager;

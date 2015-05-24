@@ -30,9 +30,10 @@
 
 #include <QTimer>
 #include <QDir>
-#include <QWebFrame>
 #include <QSettings>
 #include <QStatusBar>
+#include <QWebEngineProfile>
+#include <QWebEngineScriptCollection>
 
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
@@ -52,9 +53,9 @@ void GM_Manager::showSettings(QWidget* parent)
     m_settings.data()->raise();
 }
 
-void GM_Manager::downloadScript(const QNetworkRequest &request)
+void GM_Manager::downloadScript(const QUrl &url)
 {
-    new GM_Downloader(request, this);
+    new GM_Downloader(url, this);
 }
 
 QString GM_Manager::settinsPath() const
@@ -109,41 +110,34 @@ void GM_Manager::unloadPlugin()
 
 QList<GM_Script*> GM_Manager::allScripts() const
 {
-    QList<GM_Script*> list;
-    list.append(m_startScripts);
-    list.append(m_endScripts);
-
-    return list;
+    return m_scripts;
 }
 
 bool GM_Manager::containsScript(const QString &fullName) const
 {
-    foreach (GM_Script* script, m_startScripts) {
-        if (fullName == script->fullName()) {
-            return true;
-        }
-    }
-
-    foreach (GM_Script* script, m_endScripts) {
+    foreach (GM_Script* script, m_scripts) {
         if (fullName == script->fullName()) {
             return true;
         }
     }
 
     return false;
-
 }
 
 void GM_Manager::enableScript(GM_Script* script)
 {
     script->setEnabled(true);
     m_disabledScripts.removeOne(script->fullName());
+
+    mApp->webProfile()->scripts().insert(script->webScript());
 }
 
 void GM_Manager::disableScript(GM_Script* script)
 {
     script->setEnabled(false);
     m_disabledScripts.append(script->fullName());
+
+    mApp->webProfile()->scripts().remove(script->webScript());
 }
 
 bool GM_Manager::addScript(GM_Script* script)
@@ -152,12 +146,8 @@ bool GM_Manager::addScript(GM_Script* script)
         return false;
     }
 
-    if (script->startAt() == GM_Script::DocumentStart) {
-        m_startScripts.append(script);
-    }
-    else {
-        m_endScripts.append(script);
-    }
+    m_scripts.append(script);
+    mApp->webProfile()->scripts().insert(script->webScript());
 
     emit scriptsChanged();
     return true;
@@ -169,12 +159,8 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
         return false;
     }
 
-    if (script->startAt() == GM_Script::DocumentStart) {
-        m_startScripts.removeOne(script);
-    }
-    else {
-        m_endScripts.removeOne(script);
-    }
+    m_scripts.removeOne(script);
+    mApp->webProfile()->scripts().insert(script->webScript());
 
     m_disabledScripts.removeOne(script->fullName());
 
@@ -192,51 +178,6 @@ void GM_Manager::showNotification(const QString &message, const QString &title)
     QPixmap icon(":gm/data/icon.png");
 
     mApp->desktopNotifications()->showNotification(icon, title.isEmpty() ? tr("GreaseMonkey") : title, message);
-}
-
-void GM_Manager::frameLoadStart()
-{
-    QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
-    if (!frame) {
-        return;
-    }
-
-    const QUrl url = QzTools::frameUrl(frame);
-    const QString urlScheme = url.scheme();
-    const QString urlString = url.toEncoded();
-
-    if (!canRunOnScheme(urlScheme)) {
-        return;
-    }
-
-    const QString readyState = frame->evaluateJavaScript(QSL("document.readyState")).toString();
-
-    frame->addToJavaScriptWindowObject(QSL("_qz_greasemonkey"), m_jsObject);
-
-    foreach (GM_Script* script, m_startScripts) {
-        if (script->match(urlString)) {
-            frame->evaluateJavaScript(m_bootstrap + script->script());
-        }
-    }
-
-    foreach (GM_Script* script, m_endScripts) {
-        if (script->match(urlString)) {
-            // If DOMContentLoaded already fired
-            if (readyState == QL1S("complete")) {
-                frame->evaluateJavaScript(m_bootstrap + script->script());
-            }
-            else {
-                const QString jscript = QString(QSL("window.addEventListener(\"DOMContentLoaded\",function(e) { \n%1\n }, true);"))
-                        .arg(m_bootstrap + script->script());
-                frame->evaluateJavaScript(jscript);
-            }
-        }
-    }
-}
-
-void GM_Manager::frameCreated(QWebFrame *frame)
-{
-    connect(frame, SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(frameLoadStart()));
 }
 
 void GM_Manager::load()
@@ -263,15 +204,13 @@ void GM_Manager::load()
             continue;
         }
 
+        m_scripts.append(script);
+
         if (m_disabledScripts.contains(script->fullName())) {
             script->setEnabled(false);
         }
-
-        if (script->startAt() == GM_Script::DocumentStart) {
-            m_startScripts.append(script);
-        }
         else {
-            m_endScripts.append(script);
+            mApp->webProfile()->scripts().insert(script->webScript());
         }
     }
 

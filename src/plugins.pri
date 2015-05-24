@@ -35,6 +35,8 @@ DESTDIR = $$QZ_DESTDIR/plugins/
 
 QT *= webenginewidgets network
 
+CONFIG += c++11
+
 OBJECTS_DIR = build
 MOC_DIR = build
 RCC_DIR = build
