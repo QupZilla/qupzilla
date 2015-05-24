@@ -191,16 +191,17 @@ bool PluginProxy::processKeyRelease(const Qz::ObjectName &type, QObject* obj, QK
     return accepted;
 }
 
-QNetworkReply* PluginProxy::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+bool PluginProxy::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
+    bool accepted = true;
+
     foreach (PluginInterface* iPlugin, m_loadedPlugins) {
-        QNetworkReply* reply = iPlugin->createRequest(op, request, outgoingData);
-        if (reply) {
-            return reply;
+        if (!iPlugin->acceptNavigationRequest(page, url, type, isMainFrame)) {
+            accepted = false;
         }
     }
 
-    return 0;
+    return accepted;
 }
 
 void PluginProxy::emitWebPageCreated(WebPage* page)

@@ -785,6 +785,11 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
 {
     m_lastRequestUrl = url;
 
+    if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
+        return false;
+
+    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+
 #if QTWEBENGINE_DISABLED
     if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
         // Don't show this dialog if app is still starting
@@ -800,9 +805,6 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
         }
     }
 #endif
-
-    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
-
 }
 
 void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)

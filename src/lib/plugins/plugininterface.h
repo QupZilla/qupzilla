@@ -20,12 +20,7 @@
 
 #include <QPixmap>
 #include <QtPlugin>
-#include <QNetworkRequest>
-#if QTWEBENGINE_DISABLED
-#include <QWebHitTestResult>
-#endif
-
-#include <QNetworkAccessManager>
+#include <QWebEnginePage>
 
 #include "qzcommon.h"
 
@@ -59,6 +54,7 @@ class QKeyEvent;
 class QWheelEvent;
 
 class WebView;
+class WebPage;
 
 class PluginInterface
 {
@@ -86,9 +82,9 @@ public:
     virtual bool keyPress(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
     virtual bool keyRelease(const Qz::ObjectName &type, QObject* obj, QKeyEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
 
-    virtual QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData) { Q_UNUSED(op) Q_UNUSED(request) Q_UNUSED(outgoingData) return 0; }
+    virtual bool acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) { Q_UNUSED(page); Q_UNUSED(url); Q_UNUSED(type); Q_UNUSED(isMainFrame); return true; }
 };
 
-Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/1.2")
+Q_DECLARE_INTERFACE(PluginInterface, "QupZilla.Browser.PluginInterface/2.0")
 
 #endif // PLUGININTERFACE_H
