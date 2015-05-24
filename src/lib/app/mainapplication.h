@@ -27,6 +27,7 @@
 #include "qzcommon.h"
 
 class QMenu;
+class QWebEngineProfile;
 class QNetworkAccessManager;
 
 class History;
@@ -97,6 +98,7 @@ public:
     SearchEnginesManager* searchEnginesManager();
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
+    QWebEngineProfile* webProfile();
 
     static MainApplication* instance();
 
@@ -161,6 +163,7 @@ private:
     SearchEnginesManager* m_searchEnginesManager;
     HTML5PermissionsManager* m_html5PermissionsManager;
     DesktopNotificationsFactory* m_desktopNotifications;
+    QWebEngineProfile* m_webProfile;
 
     AutoSaver* m_autoSaver;
     ProxyStyle* m_proxyStyle;

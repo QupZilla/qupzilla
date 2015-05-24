@@ -88,6 +88,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_searchEnginesManager(0)
     , m_html5PermissionsManager(0)
     , m_desktopNotifications(0)
+    , m_webProfile(0)
     , m_autoSaver(0)
     , m_proxyStyle(0)
     , m_lastActiveWindow(0)
@@ -576,6 +577,14 @@ DesktopNotificationsFactory* MainApplication::desktopNotifications()
     return m_desktopNotifications;
 }
 
+QWebEngineProfile *MainApplication::webProfile()
+{
+    if (!m_webProfile) {
+        m_webProfile = m_isPrivate ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
+    }
+    return m_webProfile;
+}
+
 // static
 MainApplication* MainApplication::instance()
 {
@@ -891,8 +900,6 @@ void MainApplication::loadSettings()
 #if QTWEBENGINE_DISABLED
         webSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
 #endif
-        profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
-        profile->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
         history()->setSaving(false);
     }
 

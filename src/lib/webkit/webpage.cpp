@@ -71,7 +71,7 @@ QTime WebPage::s_lastUnsupportedUrlTime;
 QList<WebPage*> WebPage::s_livingPages;
 
 WebPage::WebPage(QObject* parent)
-    : QWebEnginePage(parent)
+    : QWebEnginePage(mApp->webProfile(), parent)
     , m_view(0)
     , m_fileWatcher(0)
     , m_runningLoop(0)
