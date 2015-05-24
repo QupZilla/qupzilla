@@ -742,17 +742,11 @@ void BrowserWindow::showHistoryManager()
     mApp->browsingLibrary()->showHistory(this);
 }
 
-void BrowserWindow::showSource(QWebEngineFrame* frame, const QString &selectedHtml)
+void BrowserWindow::showSource(WebView *view)
 {
-#if QTWEBENGINE_DISABLED
-    if (!frame) {
-        frame = weView()->page()->mainFrame();
-    }
-
-    SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    QzTools::centerWidgetToParent(source, this);
-    source->show();
-#endif
+    if (!view)
+        view = weView();
+    view->showSource();
 }
 
 SideBar* BrowserWindow::addSideBar()

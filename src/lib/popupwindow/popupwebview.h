@@ -30,9 +30,9 @@ class QUPZILLA_EXPORT PopupWebView : public WebView
 public:
     explicit PopupWebView(QWidget* parent = 0);
 
-    QWidget* overlayWidget();
-    void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
-    void openNewTab(Qz::NewTabPositionFlags position);
+    QWidget* overlayWidget() Q_DECL_OVERRIDE;
+    void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
+    void openNewTab(Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
 
 signals:
 

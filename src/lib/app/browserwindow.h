@@ -43,6 +43,7 @@ class BookmarksToolbar;
 class AutoFill;
 class MainApplication;
 class WebTab;
+class WebView;
 class AdBlockIcon;
 class SideBar;
 class SideBarManager;
@@ -140,7 +141,7 @@ public slots:
     void bookmarkPage();
     void bookmarkAllTabs();
     void loadAddress(const QUrl &url);
-    void showSource(QWebEngineFrame* frame = 0, const QString &selectedHtml = QString());
+    void showSource(WebView *view = Q_NULLPTR);
     void printPage(QWebEngineFrame* frame = 0);
 
 private slots:

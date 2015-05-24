@@ -47,7 +47,10 @@ public:
     QString getIp() const;
     int tabIndex() const;
 
-    QWidget* overlayWidget();
+    QWidget* overlayWidget() Q_DECL_OVERRIDE;
+    void closeView() Q_DECL_OVERRIDE;
+    void openNewTab(Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
+    void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
 
 signals:
     void wantsCloseTab(int);
@@ -57,10 +60,6 @@ signals:
 public slots:
     void setAsCurrentTab();
     void userLoadAction(const LoadRequest &req);
-
-    void closeView();
-    void openNewTab(Qz::NewTabPositionFlags position);
-    void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position);
 
 private slots:
     void slotLoadStarted();

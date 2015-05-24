@@ -41,6 +41,8 @@
 #include "macwebviewscroller.h"
 #endif
 
+#include <iostream>
+
 #include <QDir>
 #include <QTimer>
 #include <QDesktopServices>
@@ -626,18 +628,21 @@ void WebView::openActionUrl()
     }
 }
 
-#if QTWEBENGINE_DISABLED
-void WebView::showSource(QWebEngineFrame* frame, const QString &selectedHtml)
+void WebView::showSource()
 {
-    if (!frame) {
-        frame = page()->mainFrame();
+    // view-source: doesn't work on itself and custom schemes
+    if (url().scheme() == QL1S("view-source") || url().scheme() == QL1S("qupzilla")) {
+        page()->toHtml([](const QString &html) {
+            std::cout << html.toLocal8Bit().constData() << std::endl;
+        });
+        return;
     }
 
-    SourceViewer* source = new SourceViewer(frame, selectedHtml);
-    QzTools::centerWidgetToParent(source, this);
-    source->show();
+    QUrl u;
+    u.setScheme(QSL("view-source"));
+    u.setPath(url().toString());
+    openUrlInNewTab(u, Qz::NT_SelectedTab);
 }
-#endif
 
 void WebView::showSiteInfo()
 {
