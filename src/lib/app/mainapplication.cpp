@@ -47,6 +47,7 @@
 #include "searchenginesmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
+#include "network/schemehandlers/qupzillaschemehandler.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -259,9 +260,11 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     m_plugins = new PluginProxy;
 
-    if (!noAddons) {
+    if (!noAddons)
         m_plugins->loadPlugins();
-    }
+
+    // Create scheme handlers
+    new QupZillaSchemeHandler(this);
 
     BrowserWindow* window = createWindow(Qz::BW_FirstAppWindow, startUrl);
     connect(window, SIGNAL(startingCompleted()), this, SLOT(restoreOverrideCursor()));

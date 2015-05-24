@@ -35,7 +35,6 @@
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
 #include "schemehandlers/adblockschemehandler.h"
-#include "schemehandlers/qupzillaschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
 #include "schemehandlers/ftpschemehandler.h"
 

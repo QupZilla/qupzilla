@@ -28,63 +28,49 @@
 #include "datapaths.h"
 #include "iconprovider.h"
 
-#if QTWEBENGINE_DISABLED
-
-#include <QTextStream>
 #include <QTimer>
 #include <QSettings>
-#include <QWebSecurityOrigin>
-
-#include <QWebEnginePage>
+#include <QtWebEngineWidgets/private/qwebengineurlrequestjob_p.h>
 
 static QString authorString(const char* name, const QString &mail)
 {
-    return QString("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(QString::fromUtf8(name), mail);
+    return QSL("%1 &lt;<a href=\"mailto:%2\">%2</a>&gt;").arg(QString::fromUtf8(name), mail);
 }
 
-QupZillaSchemeHandler::QupZillaSchemeHandler()
+QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
+    : QWebEngineUrlSchemeHandler(QByteArrayLiteral("qupzilla"), mApp->webProfile(), parent)
 {
 }
 
-QNetworkReply* QupZillaSchemeHandler::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
-    Q_UNUSED(outgoingData)
-
-    if (op != QNetworkAccessManager::GetOperation) {
-        return 0;
-    }
-
-    QupZillaSchemeReply* reply = new QupZillaSchemeReply(request);
-    return reply;
+    job->setReply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
 }
 
-QupZillaSchemeReply::QupZillaSchemeReply(const QNetworkRequest &req, QObject* parent)
-    : QNetworkReply(parent)
+QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)
+    : QIODevice(parent)
+    , m_loaded(false)
+    , m_job(job)
 {
-    setOperation(QNetworkAccessManager::GetOperation);
-    setRequest(req);
-    setUrl(req.url());
-    m_pageName = req.url().path();
+    m_pageName = m_job->requestUrl().path();
 
     QStringList knownPages;
     knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
 
     if (knownPages.contains(m_pageName)) {
-        m_buffer.open(QIODevice::ReadWrite);
-        setError(QNetworkReply::NoError, tr("No Error"));
-
-        QTimer::singleShot(0, this, SLOT(loadPage()));
         open(QIODevice::ReadOnly);
+        m_buffer.open(QIODevice::ReadWrite);
     }
     else {
-        setError(QNetworkReply::HostNotFoundError, tr("Not Found"));
-        QTimer::singleShot(0, this, SLOT(delayedFinish()));
+        //m_job->setError(QWebEngineUrlRequestJob::UrlNotFound);
     }
 }
 
 void QupZillaSchemeReply::loadPage()
 {
-    QWebSecurityOrigin::addLocalScheme("qupzilla");
+    if (m_loaded)
+        return;
+
     QTextStream stream(&m_buffer);
     stream.setCodec("UTF-8");
 
@@ -109,33 +95,26 @@ void QupZillaSchemeReply::loadPage()
 
     stream.flush();
     m_buffer.reset();
-
-    setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("text/html"));
-    setHeader(QNetworkRequest::ContentLengthHeader, m_buffer.bytesAvailable());
-    setAttribute(QNetworkRequest::HttpStatusCodeAttribute, 200);
-    setAttribute(QNetworkRequest::HttpReasonPhraseAttribute, QByteArray("Ok"));
-    emit metaDataChanged();
-    emit downloadProgress(m_buffer.size(), m_buffer.size());
-
-    emit readyRead();
-    emit finished();
-    QWebSecurityOrigin::removeLocalScheme("qupzilla");
-}
-
-void QupZillaSchemeReply::delayedFinish()
-{
-    emit error(QNetworkReply::HostNotFoundError);
-    emit finished();
+    m_loaded = true;
 }
 
 qint64 QupZillaSchemeReply::bytesAvailable() const
 {
-    return m_buffer.bytesAvailable() + QNetworkReply::bytesAvailable();
+    return m_buffer.bytesAvailable();
 }
 
-qint64 QupZillaSchemeReply::readData(char* data, qint64 maxSize)
+qint64 QupZillaSchemeReply::readData(char *data, qint64 maxSize)
 {
+    loadPage();
     return m_buffer.read(data, maxSize);
+}
+
+qint64 QupZillaSchemeReply::writeData(const char *data, qint64 len)
+{
+    Q_UNUSED(data);
+    Q_UNUSED(len);
+
+    return 0;
 }
 
 QString QupZillaSchemeReply::reportbugPage()
@@ -171,7 +150,7 @@ QString QupZillaSchemeReply::reportbugPage()
 #endif
                  );
     bPage.replace(QLatin1String("%INFO_QT%"), QString("%1 (built with %2)").arg(qVersion(), QT_VERSION_STR));
-    bPage.replace(QLatin1String("%INFO_WEBKIT%"), qWebKitVersion()),
+    bPage.replace(QLatin1String("%INFO_WEBKIT%"), QSL("QtWebEngine")),
                   bPage = QzTools::applyDirectionToPage(bPage);
 
     return bPage;
@@ -225,7 +204,7 @@ QString QupZillaSchemeReply::aboutPage()
                               Qz::VERSION
 #endif
                                                           ) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), qWebKitVersion()));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QSL("QtWebEngine")));
         aPage.replace(QLatin1String("%MAIN-DEVELOPER%"), tr("Main developer"));
         aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(Qz::AUTHOR, "nowrep@gmail.com"));
         aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
@@ -329,6 +308,7 @@ QString QupZillaSchemeReply::speeddialPage()
     }
 
     QString page = dPage;
+#if QTWEBENGINE_DISABLED
     SpeedDial* dial = mApp->plugins()->speedDial();
 
     page.replace(QLatin1String("%INITIAL-SCRIPT%"), dial->initialScript());
@@ -337,6 +317,7 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
     page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));
     page.replace(QLatin1String("%SD-CNTR%"), QString::number(dial->sdCntr()));
+#endif
 
     return page;
 }
@@ -396,7 +377,7 @@ QString QupZillaSchemeReply::configPage()
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), qWebKitVersion()) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QSL("QtWebEngine")) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), Qz::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystem()));
 
@@ -497,5 +478,3 @@ QString QupZillaSchemeReply::configPage()
 
     return page;
 }
-
-#endif

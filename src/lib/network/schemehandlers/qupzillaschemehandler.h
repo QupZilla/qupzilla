@@ -18,36 +18,32 @@
 #ifndef QUPZILLASCHEMEHANDLER_H
 #define QUPZILLASCHEMEHANDLER_H
 
-#include <QNetworkReply>
+#include <QtWebEngineWidgets/private/qwebengineurlschemehandler_p.h>
 #include <QBuffer>
+#include <QIODevice>
 
-#if QTWEBENGINE_DISABLED
-
-#include "schemehandler.h"
 #include "qzcommon.h"
 
-class QUPZILLA_EXPORT QupZillaSchemeHandler : public SchemeHandler
+class QUPZILLA_EXPORT QupZillaSchemeHandler : public QWebEngineUrlSchemeHandler
 {
 public:
-    explicit QupZillaSchemeHandler();
+    explicit QupZillaSchemeHandler(QObject *parent = Q_NULLPTR);
 
-    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
+    void requestStarted(QWebEngineUrlRequestJob *job) Q_DECL_OVERRIDE;
 };
 
-class QUPZILLA_EXPORT QupZillaSchemeReply : public QNetworkReply
+class QUPZILLA_EXPORT QupZillaSchemeReply : public QIODevice
 {
     Q_OBJECT
+
 public:
-    explicit QupZillaSchemeReply(const QNetworkRequest &req, QObject* parent = 0);
+    explicit QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent = Q_NULLPTR);
 
-    qint64 bytesAvailable() const;
-
-protected:
-    qint64 readData(char* data, qint64 maxSize);
-    void abort() { }
+    qint64 bytesAvailable() const Q_DECL_OVERRIDE;
+    qint64 readData(char *data, qint64 maxSize) Q_DECL_OVERRIDE;
+    qint64 writeData(const char *data, qint64 len) Q_DECL_OVERRIDE;
 
 private slots:
-    void delayedFinish();
     void loadPage();
 
 private:
@@ -58,10 +54,10 @@ private:
     QString restorePage();
     QString configPage();
 
+    bool m_loaded;
     QBuffer m_buffer;
     QString m_pageName;
+    QWebEngineUrlRequestJob *m_job;
 };
-
-#endif
 
 #endif // QUPZILLASCHEMEHANDLER_H
