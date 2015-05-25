@@ -29,7 +29,6 @@ class QNetworkRequest;
 
 class BrowserWindow;
 class GM_Script;
-class GM_JSObject;
 class GM_Settings;
 class GM_Icon;
 
@@ -77,7 +76,7 @@ private:
     QPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;
-    GM_JSObject* m_jsObject;
+    //GM_JSObject* m_jsObject;
     QList<GM_Script*> m_scripts;
 
     QHash<BrowserWindow*, GM_Icon*> m_windows;

@@ -18,7 +18,6 @@
 #include "gm_manager.h"
 #include "gm_script.h"
 #include "gm_downloader.h"
-#include "gm_jsobject.h"
 #include "gm_icon.h"
 #include "settings/gm_settings.h"
 
@@ -38,7 +37,7 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
-    , m_jsObject(new GM_JSObject(this))
+    //, m_jsObject(new GM_JSObject(this))
 {
     QTimer::singleShot(0, this, SLOT(load()));
 }
@@ -215,7 +214,7 @@ void GM_Manager::load()
     }
 
     m_bootstrap = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
-    m_jsObject->setSettingsFile(m_settingsPath + QL1S("/extensions.ini"));
+    //m_jsObject->setSettingsFile(m_settingsPath + QL1S("/extensions.ini"));
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)
