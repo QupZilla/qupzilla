@@ -89,6 +89,16 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
     return script;
 }
 
+QString GM_Manager::bootstrapScript() const
+{
+    return m_bootstrapScript;
+}
+
+QString GM_Manager::valuesScript() const
+{
+    return m_valuesScript;
+}
+
 void GM_Manager::unloadPlugin()
 {
     // Save settings
@@ -190,6 +200,9 @@ void GM_Manager::load()
         gmDir.mkdir("requires");
     }
 
+    m_bootstrapScript = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
+    m_valuesScript = QzTools::readAllFileContents(":gm/data/values.min.js");
+
     QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
     settings.beginGroup("GreaseMonkey");
     m_disabledScripts = settings.value("disabledScripts", QStringList()).toStringList();
@@ -213,7 +226,6 @@ void GM_Manager::load()
         }
     }
 
-    m_bootstrap = QzTools::readAllFileContents(":gm/data/bootstrap.min.js");
     //m_jsObject->setSettingsFile(m_settingsPath + QL1S("/extensions.ini"));
 }
 

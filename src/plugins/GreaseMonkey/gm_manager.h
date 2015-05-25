@@ -44,6 +44,8 @@ public:
     QString settinsPath() const;
     QString scriptsDirectory() const;
     QString requireScripts(const QStringList &urlList) const;
+    QString bootstrapScript() const;
+    QString valuesScript() const;
 
     void unloadPlugin();
 
@@ -72,7 +74,8 @@ private slots:
 
 private:
     QString m_settingsPath;
-    QString m_bootstrap;
+    QString m_bootstrapScript;
+    QString m_valuesScript;
     QPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;

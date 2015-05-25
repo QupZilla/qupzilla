@@ -187,6 +187,9 @@ void GM_Script::parseScript()
     m_exclude.clear();
     m_downloadUrl.clear();
     m_startAt = DocumentEnd;
+    m_noframes = false;
+    m_script.clear();
+    m_metadata.clear();
     m_enabled = true;
     m_valid = false;
 
@@ -275,10 +278,8 @@ void GM_Script::parseScript()
     int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
     m_metadata = fileData.mid(0, index);
 
-    QString script = fileData.mid(index).trimmed();
+    const QString script = fileData.mid(index).trimmed();
     m_valid = !script.isEmpty();
-
-    m_script = QSL("(function(){%1\n%2\n})();").arg(m_manager->requireScripts(requireList), script);
 
 #if QTWEBENGINE_DISABLED
     QString jscript("(function(){"
@@ -287,13 +288,16 @@ void GM_Script::parseScript()
                     "function GM_deleteValue(name){return GM_deleteValueImpl('%1',name);}"
                     "function GM_listValues(){return GM_listValuesImpl('%1');}"
                     "\n%2\n})();");
-    QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
 #endif
+    const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
+    const QString gmValues = m_manager->valuesScript().arg(nspace);
+
+    m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(requireList), script);
 
     // Create QWebEngineScript
     m_webScript.setName(fullName());
     m_webScript.setInjectionPoint(startAt() == DocumentStart ? QWebEngineScript::DocumentCreation : QWebEngineScript::DocumentReady);
     m_webScript.setWorldId(QWebEngineScript::MainWorld);
     m_webScript.setRunsOnSubFrames(!m_noframes);
-    m_webScript.setSourceCode(QSL("%1\n%2").arg(m_metadata, m_script));
+    m_webScript.setSourceCode(QSL("%1\n%2\n%3").arg(m_metadata, m_manager->bootstrapScript(), m_script));
 }
