@@ -1,6 +1,6 @@
 include($$PWD/../../src/defines.pri)
 
-QT += webenginewidgets network widgets printsupport sql script gui-private testlib
+QT += webenginewidgets network widgets printsupport sql script testlib
 
 TARGET = autotests
 
