@@ -281,14 +281,6 @@ void GM_Script::parseScript()
     const QString script = fileData.mid(index).trimmed();
     m_valid = !script.isEmpty();
 
-#if QTWEBENGINE_DISABLED
-    QString jscript("(function(){"
-                    "function GM_getValue(name,val){return GM_getValueImpl('%1',name,val);}"
-                    "function GM_setValue(name,val){return GM_setValueImpl('%1',name,val);}"
-                    "function GM_deleteValue(name){return GM_deleteValueImpl('%1',name);}"
-                    "function GM_listValues(){return GM_listValuesImpl('%1');}"
-                    "\n%2\n})();");
-#endif
     const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
     const QString gmValues = m_manager->valuesScript().arg(nspace);
 
