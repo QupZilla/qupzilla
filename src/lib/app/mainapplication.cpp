@@ -48,6 +48,7 @@
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "network/schemehandlers/qupzillaschemehandler.h"
+#include "scripts.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -1090,11 +1091,6 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     userCss += AdBlockManager::instance()->elementHidingRules().replace(QL1S("\""), QL1S("\\\""));
     userCss += QzTools::readAllFileContents(filePath).remove(QLatin1Char('\n'));
 
-    QString source("(function(){var css = document.createElement(\"style\");"
-                   "css.setAttribute(\"type\", \"text/css\");"
-                   "css.appendChild(document.createTextNode(\"%1\"));"
-                   "document.getElementsByTagName(\"head\")[0].appendChild(css);})()");
-
     const QString name = QStringLiteral("_qupzilla_userstylesheet");
 
     QWebEngineScript oldScript = m_webProfile->scripts().findScript(name);
@@ -1107,7 +1103,7 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
     script.setWorldId(QWebEngineScript::ApplicationWorld);
     script.setRunsOnSubFrames(true);
-    script.setSourceCode(source.arg(userCss));
+    script.setSourceCode(Scripts::setCss(userCss));
     m_webProfile->scripts().insert(script);
 }
 

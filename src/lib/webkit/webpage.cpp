@@ -42,6 +42,7 @@
 #include "schemehandlers/fileschemehandler.h"
 #include "javascript/externaljsobject.h"
 #include "tabwidget.h"
+#include "scripts.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -80,6 +81,8 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
+    connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
+    connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
 
@@ -96,8 +99,6 @@ WebPage::WebPage(QObject* parent)
     history()->setMaximumItemCount(20);
 
     connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), this, SLOT(handleUnsupportedContent(QNetworkReply*)));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(progress(int)));
-    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(finished()));
     connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
 
     frameCreated(mainFrame());
@@ -107,11 +108,6 @@ WebPage::WebPage(QObject* parent)
             this, SLOT(dbQuotaExceeded(QWebFrame*)));
 
     connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
-
-#if QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(featurePermissionRequested(QWebFrame*,QWebPage::Feature)),
-            this, SLOT(featurePermissionRequested(QWebFrame*,QWebPage::Feature)));
-#endif
 
 #if QTWEBKIT_FROM_2_3
     connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64,quint64)),
@@ -136,12 +132,6 @@ WebPage::~WebPage()
     }
 
     s_livingPages.removeOne(this);
-
-#if QTWEBENGINE_DISABLED
-    // Page's network manager will be deleted and then set to null
-    // Fixes issue with network manager being used after deleted in destructor
-    setNetworkAccessManager(0);
-#endif
 }
 
 void WebPage::setWebView(TabbedWebView* view)
@@ -835,12 +825,12 @@ QVector<PasswordEntry> WebPage::autoFillData() const
 
 void WebPage::cleanBlockedObjects()
 {
-#if QTWEBENGINE_DISABLED
     AdBlockManager* manager = AdBlockManager::instance();
     if (!manager->isEnabled()) {
         return;
     }
 
+#if QTWEBENGINE_DISABLED
     const QWebElement docElement = mainFrame()->documentElement();
 
     foreach (const AdBlockedEntry &entry, m_adBlockedEntries) {
@@ -872,24 +862,15 @@ void WebPage::cleanBlockedObjects()
             }
         }
     }
+#endif
 
     // Apply domain-specific element hiding rules
-    QString elementHiding = manager->elementHidingRulesForDomain(url());
+    const QString elementHiding = manager->elementHidingRulesForDomain(url());
     if (elementHiding.isEmpty()) {
         return;
     }
 
-    elementHiding.append(QLatin1String("\n</style>"));
-
-    QWebElement bodyElement = docElement.findFirst("body");
-    bodyElement.appendInside("<style type=\"text/css\">\n/* AdBlock for QupZilla */\n" + elementHiding);
-
-    // When hiding some elements, scroll position of page will change
-    // If user loaded anchor link in background tab (and didn't show it yet), fix the scroll position
-    if (view() && !view()->isVisible() && !url().fragment().isEmpty()) {
-        mainFrame()->scrollToAnchor(url().fragment());
-    }
-#endif
+    runJavaScript(Scripts::setCss(elementHiding));
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url) const
