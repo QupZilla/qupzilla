@@ -71,6 +71,7 @@ public slots:
 
 private slots:
     void load();
+    void scriptChanged();
 
 private:
     QString m_settingsPath;

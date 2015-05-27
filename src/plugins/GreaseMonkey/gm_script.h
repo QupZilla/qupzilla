@@ -23,9 +23,8 @@
 #include <QObject>
 #include <QVector>
 #include <QUrl>
-#include <QWebEngineScript>
 
-class QWebFrame;
+class QWebEngineScript;
 
 class GM_Manager;
 class GM_UrlMatcher;
@@ -95,8 +94,6 @@ private:
     QString m_fileName;
     bool m_enabled;
     bool m_valid;
-
-    QWebEngineScript m_webScript;
 };
 
 #endif // GM_SCRIPT_H

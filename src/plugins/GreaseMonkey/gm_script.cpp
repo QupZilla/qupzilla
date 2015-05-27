@@ -23,6 +23,7 @@
 
 #include <QFile>
 #include <QStringList>
+#include <QWebEngineScript>
 #include <QCryptographicHash>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
@@ -135,7 +136,13 @@ QString GM_Script::fileName() const
 
 QWebEngineScript GM_Script::webScript() const
 {
-    return m_webScript;
+    QWebEngineScript script;
+    script.setName(fullName());
+    script.setInjectionPoint(startAt() == DocumentStart ? QWebEngineScript::DocumentCreation : QWebEngineScript::DocumentReady);
+    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setRunsOnSubFrames(!m_noframes);
+    script.setSourceCode(QSL("%1\n%2\n%3").arg(m_metadata, m_manager->bootstrapScript(), m_script));
+    return script;
 }
 
 bool GM_Script::match(const QString &urlString)
@@ -285,11 +292,4 @@ void GM_Script::parseScript()
     const QString gmValues = m_manager->valuesScript().arg(nspace);
 
     m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(requireList), script);
-
-    // Create QWebEngineScript
-    m_webScript.setName(fullName());
-    m_webScript.setInjectionPoint(startAt() == DocumentStart ? QWebEngineScript::DocumentCreation : QWebEngineScript::DocumentReady);
-    m_webScript.setWorldId(QWebEngineScript::MainWorld);
-    m_webScript.setRunsOnSubFrames(!m_noframes);
-    m_webScript.setSourceCode(QSL("%1\n%2\n%3").arg(m_metadata, m_manager->bootstrapScript(), m_script));
 }
