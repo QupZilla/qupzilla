@@ -142,7 +142,7 @@ private:
     void backupSavedSessions();
     void checkDefaultWebBrowser();
 
-    QUrl userStyleSheet(const QString &filePath) const;
+    void setUserStyleSheet(const QString &filePath);
 
     bool m_isPrivate;
     bool m_isPortable;

@@ -61,9 +61,10 @@
 #include <QProcess>
 #include <QTimer>
 #include <QDir>
-#include <QWebEngineProfile>
 #include <QStandardPaths>
+#include <QWebEngineProfile>
 #include <QWebEngineDownloadItem>
+#include <QWebEngineScriptCollection>
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 #include "registerqappassociation.h"
@@ -631,10 +632,8 @@ void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
 
 void MainApplication::reloadUserStyleSheet()
 {
-#if QTWEBENGINE_DISABLED
-    const QUrl userCss = userStyleSheet(Settings().value("Web-Browser-Settings/userStyleSheet", QString()).toString());
-    QWebEngineSettings::globalSettings()->setUserStyleSheetUrl(userCss);
-#endif
+    const QString userCssFile = Settings().value("Web-Browser-Settings/userStyleSheet", QString()).toString();
+    setUserStyleSheet(userCssFile);
 }
 
 void MainApplication::restoreOverrideCursor()
@@ -873,13 +872,10 @@ void MainApplication::loadSettings()
 
     setWheelScrollLines(settings.value("wheelScrollLines", wheelScrollLines()).toInt());
 
-#if QTWEBENGINE_DISABLED
     const QString userCss = settings.value("userStyleSheet", QString()).toString();
     settings.endGroup();
 
-    webSettings->setUserStyleSheetUrl(userStyleSheet(userCss));
-#endif
-    settings.endGroup();
+    setUserStyleSheet(userCss);
 
     settings.beginGroup("Browser-Fonts");
     webSettings->setFontFamily(QWebEngineSettings::StandardFont, settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString());
@@ -1072,7 +1068,7 @@ void MainApplication::checkDefaultWebBrowser()
 #endif
 }
 
-QUrl MainApplication::userStyleSheet(const QString &filePath) const
+void MainApplication::setUserStyleSheet(const QString &filePath)
 {
     QString userCss;
 
@@ -1091,13 +1087,28 @@ QUrl MainApplication::userStyleSheet(const QString &filePath) const
     userCss += QString("::selection {background: %1; color: %2;} ").arg(highlightColor, highlightedTextColor);
 #endif
 
-    userCss += AdBlockManager::instance()->elementHidingRules();
+    userCss += AdBlockManager::instance()->elementHidingRules().replace(QL1S("\""), QL1S("\\\""));
     userCss += QzTools::readAllFileContents(filePath).remove(QLatin1Char('\n'));
 
-    const QString encodedStyle = userCss.toLatin1().toBase64();
-    const QString dataString = QString("data:text/css;charset=utf-8;base64,%1").arg(encodedStyle);
+    QString source("(function(){var css = document.createElement(\"style\");"
+                   "css.setAttribute(\"type\", \"text/css\");"
+                   "css.appendChild(document.createTextNode(\"%1\"));"
+                   "document.getElementsByTagName(\"head\")[0].appendChild(css);})()");
 
-    return QUrl(dataString);
+    const QString name = QStringLiteral("_qupzilla_userstylesheet");
+
+    QWebEngineScript oldScript = m_webProfile->scripts().findScript(name);
+    if (!oldScript.isNull()) {
+        m_webProfile->scripts().remove(oldScript);
+    }
+
+    QWebEngineScript script;
+    script.setName(name);
+    script.setInjectionPoint(QWebEngineScript::DocumentReady);
+    script.setWorldId(QWebEngineScript::ApplicationWorld);
+    script.setRunsOnSubFrames(true);
+    script.setSourceCode(source.arg(userCss));
+    m_webProfile->scripts().insert(script);
 }
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
