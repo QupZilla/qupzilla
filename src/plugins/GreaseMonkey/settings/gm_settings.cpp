@@ -116,7 +116,7 @@ void GM_Settings::newScript()
                                 "// @namespace   qupzilla.com \n"
                                 "// @description Script description \n"
                                 "// @include     * \n"
-                                "// @version     1 \n"
+                                "// @version     1.0.0 \n"
                                 "// ==/UserScript==\n\n");
 
     const QString fileName = QSL("%1/%2.user.js").arg(m_manager->scriptsDirectory(), QzTools::filterCharsFromFilename(name));
@@ -129,7 +129,8 @@ void GM_Settings::newScript()
     GM_Script *gmScript = new GM_Script(m_manager, file.fileName());
     m_manager->addScript(gmScript);
 
-    QDesktopServices::openUrl(QUrl::fromLocalFile(file.fileName()));
+    GM_SettingsScriptInfo* dialog = new GM_SettingsScriptInfo(gmScript, this);
+    dialog->open();
 }
 
 void GM_Settings::loadScripts()
