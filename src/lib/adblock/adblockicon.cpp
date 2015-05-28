@@ -39,6 +39,7 @@ AdBlockIcon::AdBlockIcon(BrowserWindow* window, QWidget* parent)
 {
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("AdBlock lets you block unwanted content on web pages"));
+    setMinimumSize(16, 16);
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
     connect(AdBlockManager::instance(), SIGNAL(enabledChanged(bool)), this, SLOT(setEnabled(bool)));
