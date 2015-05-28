@@ -117,9 +117,7 @@ void GM_Settings::newScript()
                                 "// @description Script description \n"
                                 "// @include     * \n"
                                 "// @version     1 \n"
-                                "// ==/UserScript==\n"
-                                "\n"
-                                "// Your script implementation\n");
+                                "// ==/UserScript==\n\n");
 
     const QString fileName = QSL("%1/%2.user.js").arg(m_manager->scriptsDirectory(), QzTools::filterCharsFromFilename(name));
 

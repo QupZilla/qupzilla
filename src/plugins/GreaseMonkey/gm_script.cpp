@@ -185,14 +185,8 @@ void GM_Script::watchedFileChanged(const QString &file)
 
 void GM_Script::parseScript()
 {
-    QFile file(m_fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
-        return;
-    }
-
     m_name.clear();
-    m_namespace = "GreaseMonkeyNS";
+    m_namespace = QSL("GreaseMonkeyNS");
     m_description.clear();
     m_version.clear();
     m_include.clear();
@@ -206,13 +200,19 @@ void GM_Script::parseScript()
     m_enabled = true;
     m_valid = false;
 
+    QFile file(m_fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
+        return;
+    }
+
     if (!m_fileWatcher->files().contains(m_fileName)) {
         m_fileWatcher->addPath(m_fileName);
     }
 
     QString fileData = QString::fromUtf8(file.readAll());
 
-    QzRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
+    QzRegExp rx(QSL("// ==UserScript==(.*)// ==/UserScript=="));
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 
@@ -291,10 +291,10 @@ void GM_Script::parseScript()
     m_metadata = fileData.mid(0, index);
 
     const QString script = fileData.mid(index).trimmed();
-    m_valid = !script.isEmpty();
 
     const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
     const QString gmValues = m_manager->valuesScript().arg(nspace);
 
     m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(requireList), script);
+    m_valid = true;
 }
