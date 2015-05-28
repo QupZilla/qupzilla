@@ -46,6 +46,8 @@ AdBlockIcon::AdBlockIcon(BrowserWindow* window, QWidget* parent)
 
 AdBlockIcon::~AdBlockIcon()
 {
+    for (int i = 0; i < m_blockedPopups.count(); ++i)
+        delete m_blockedPopups.at(i).first;
 }
 
 void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
@@ -59,10 +61,8 @@ void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
         return;
     }
 
-    AdBlockRule rule(filter, subscription);
-
-    QPair<AdBlockRule, QUrl> pair;
-    pair.first = rule;
+    QPair<AdBlockRule*, QUrl> pair;
+    pair.first = new AdBlockRule(filter, subscription);
     pair.second = url;
     m_blockedPopups.append(pair);
 
@@ -138,13 +138,13 @@ void AdBlockIcon::createMenu(QMenu* menu)
     if (!m_blockedPopups.isEmpty()) {
         menu->addAction(tr("Blocked Popup Windows"))->setEnabled(false);
         for (int i = 0; i < m_blockedPopups.count(); i++) {
-            const QPair<AdBlockRule, QUrl> &pair = m_blockedPopups.at(i);
+            const QPair<AdBlockRule*, QUrl> &pair = m_blockedPopups.at(i);
 
             QString address = pair.second.toString().right(55);
-            QString actionText = tr("%1 with (%2)").arg(address, pair.first.filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
+            QString actionText = tr("%1 with (%2)").arg(address, pair.first->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
 
             QAction* action = menu->addAction(actionText, manager, SLOT(showRule()));
-            action->setData(QVariant::fromValue((void*)&pair.first));
+            action->setData(QVariant::fromValue((void*)pair.first));
         }
     }
 

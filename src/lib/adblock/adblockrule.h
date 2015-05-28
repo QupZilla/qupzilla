@@ -60,6 +60,8 @@ class AdBlockSubscription;
 
 class QUPZILLA_EXPORT AdBlockRule
 {
+    Q_DISABLE_COPY(AdBlockRule)
+
 public:
     AdBlockRule(const QString &filter = QString(), AdBlockSubscription* subscription = 0);
     ~AdBlockRule();
