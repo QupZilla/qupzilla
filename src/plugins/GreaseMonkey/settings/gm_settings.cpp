@@ -119,7 +119,7 @@ void GM_Settings::newScript()
                                 "// @version     1.0.0 \n"
                                 "// ==/UserScript==\n\n");
 
-    const QString fileName = QSL("%1/%2.user.js").arg(m_manager->scriptsDirectory(), QzTools::filterCharsFromFilename(name));
+    const QString fileName = QString(QSL("%1/%2.user.js")).arg(m_manager->scriptsDirectory(), QzTools::filterCharsFromFilename(name));
 
     QFile file(QzTools::ensureUniqueFilename(fileName));
     file.open(QFile::WriteOnly);
