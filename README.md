@@ -1,11 +1,11 @@
 QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
-[![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=v1.8)](https://travis-ci.org/QupZilla/qupzilla)
-Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)
-Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)
-IRC: `#qupzilla` at `irc.freenode.net`
-Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
+[![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=v1.8)](https://travis-ci.org/QupZilla/qupzilla)  
+Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)  
+Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
+IRC: `#qupzilla` at `irc.freenode.net`  
+Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)  
 
 About QupZilla
 ----------------------------------------------------------------------------------------
