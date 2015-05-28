@@ -76,6 +76,11 @@ QUrl GM_Script::downloadUrl() const
     return m_downloadUrl;
 }
 
+QUrl GM_Script::updateUrl() const
+{
+    return m_updateUrl;
+}
+
 GM_Script::StartAt GM_Script::startAt() const
 {
     return m_startAt;
@@ -171,6 +176,7 @@ void GM_Script::parseScript()
     m_include.clear();
     m_exclude.clear();
     m_downloadUrl.clear();
+    m_updateUrl.clear();
     m_startAt = DocumentEnd;
     m_enabled = true;
     m_valid = false;
@@ -207,10 +213,6 @@ void GM_Script::parseScript()
 
         const QString key = line.left(index).trimmed();
         const QString value = line.mid(index + 1).trimmed();
-
-        // Ignored values:
-        //  @resource
-        //  @unwrap
 
         if (key.isEmpty() || value.isEmpty()) {
             continue;
@@ -250,6 +252,9 @@ void GM_Script::parseScript()
         }
         else if (key == QLatin1String("@downloadURL") && m_downloadUrl.isEmpty()) {
             m_downloadUrl = QUrl(value);
+        }
+        else if (key == QLatin1String("@updateURL") && m_updateUrl.isEmpty()) {
+            m_updateUrl = QUrl(value);
         }
     }
 
