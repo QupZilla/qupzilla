@@ -163,14 +163,8 @@ void GM_Script::watchedFileChanged(const QString &file)
 
 void GM_Script::parseScript()
 {
-    QFile file(m_fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
-        return;
-    }
-
     m_name.clear();
-    m_namespace = "GreaseMonkeyNS";
+    m_namespace = QSL("GreaseMonkeyNS");
     m_description.clear();
     m_version.clear();
     m_include.clear();
@@ -181,13 +175,19 @@ void GM_Script::parseScript()
     m_enabled = true;
     m_valid = false;
 
+    QFile file(m_fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for reading" << m_fileName;
+        return;
+    }
+
     if (!m_fileWatcher->files().contains(m_fileName)) {
         m_fileWatcher->addPath(m_fileName);
     }
 
     QString fileData = QString::fromUtf8(file.readAll());
 
-    QzRegExp rx("// ==UserScript==(.*)// ==/UserScript==");
+    QzRegExp rx(QSL("// ==UserScript==(.*)// ==/UserScript=="));
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 
@@ -277,5 +277,5 @@ void GM_Script::parseScript()
     script = jscript.arg(nspace, script);
 
     m_script = script;
-    m_valid = !script.isEmpty();
+    m_valid = true;
 }
