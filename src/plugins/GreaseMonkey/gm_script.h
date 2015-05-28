@@ -48,6 +48,8 @@ public:
     QString version() const;
 
     QUrl downloadUrl() const;
+    QUrl updateUrl() const;
+
     StartAt startAt() const;
     bool noFrames() const;
 
@@ -86,6 +88,7 @@ private:
     QVector<GM_UrlMatcher> m_exclude;
 
     QUrl m_downloadUrl;
+    QUrl m_updateUrl;
     StartAt m_startAt;
     bool m_noframes;
 
