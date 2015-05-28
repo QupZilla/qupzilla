@@ -60,7 +60,7 @@ GM_UrlMatcher::GM_UrlMatcher(const QString &pattern)
     : m_pattern(pattern)
     , m_useRegExp(false)
 {
-    parsePattern(m_pattern);
+    //parsePattern(m_pattern);
 }
 
 QString GM_UrlMatcher::pattern() const
@@ -90,7 +90,6 @@ void GM_UrlMatcher::parsePattern(QString pattern)
     }
 
     if (pattern.contains(QLatin1String(".tld"))) {
-
         pattern.replace(QzRegExp("(\\W)"), QLatin1String("\\\\1"))
         .replace(QzRegExp("\\*+"), QLatin1String("*"))
         .replace(QzRegExp("^\\\\\\|"), QLatin1String("^"))
