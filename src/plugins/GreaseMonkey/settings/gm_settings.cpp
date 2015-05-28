@@ -20,11 +20,13 @@
 #include "gm_settingsscriptinfo.h"
 #include "../gm_manager.h"
 #include "../gm_script.h"
+#include "qztools.h"
 
 #include "mainapplication.h"
 
 #include <QDesktopServices>
 #include <QMessageBox>
+#include <QInputDialog>
 
 GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
     : QDialog(parent)
@@ -40,6 +42,8 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
             this, SLOT(removeItem(QListWidgetItem*)));
     connect(ui->openDirectory, SIGNAL(clicked()),
             this, SLOT(openScriptsDirectory()));
+    connect(ui->newScript, SIGNAL(clicked()),
+            this, SLOT(newScript()));
     connect(ui->link, SIGNAL(clicked(QPoint)),
             this, SLOT(openUserJs()));
     connect(manager, SIGNAL(scriptsChanged()),
@@ -99,6 +103,35 @@ void GM_Settings::itemChanged(QListWidgetItem* item)
 void GM_Settings::openScriptsDirectory()
 {
     QDesktopServices::openUrl(QUrl::fromLocalFile(m_manager->scriptsDirectory()));
+}
+
+void GM_Settings::newScript()
+{
+    const QString name = QInputDialog::getText(this, tr("Add script"), tr("Choose name for script:"));
+    if (name.isEmpty())
+        return;
+
+    const QString script = QL1S("// ==UserScript== \n"
+                                "// @name        %1 \n"
+                                "// @namespace   qupzilla.com \n"
+                                "// @description Script description \n"
+                                "// @include     * \n"
+                                "// @version     1 \n"
+                                "// ==/UserScript==\n"
+                                "\n"
+                                "// Your script implementation\n");
+
+    const QString fileName = QSL("%1/%2.user.js").arg(m_manager->scriptsDirectory(), QzTools::filterCharsFromFilename(name));
+
+    QFile file(QzTools::ensureUniqueFilename(fileName));
+    file.open(QFile::WriteOnly);
+    file.write(script.arg(name).toUtf8());
+    file.close();
+
+    GM_Script *gmScript = new GM_Script(m_manager, file.fileName());
+    m_manager->addScript(gmScript);
+
+    QDesktopServices::openUrl(QUrl::fromLocalFile(file.fileName()));
 }
 
 void GM_Settings::loadScripts()

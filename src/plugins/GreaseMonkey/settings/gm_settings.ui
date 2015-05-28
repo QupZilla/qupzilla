@@ -198,6 +198,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="newScript">
+       <property name="text">
+        <string>New user script</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
