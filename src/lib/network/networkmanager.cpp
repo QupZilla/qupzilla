@@ -33,7 +33,6 @@
 #include "settings.h"
 #include "datapaths.h"
 #include "passwordmanager.h"
-#include "sslerrordialog.h"
 #include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/fileschemehandler.h"
 #include "schemehandlers/ftpschemehandler.h"

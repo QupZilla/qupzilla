@@ -122,6 +122,8 @@ protected:
     bool event(QEvent* event);
 
 private:
+    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;
+    bool certificateError(const QWebEngineCertificateError &certificateError) Q_DECL_OVERRIDE;
     QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;
     QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type) Q_DECL_OVERRIDE;
 
@@ -130,8 +132,6 @@ private:
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
 #endif
 
-    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;
-
     void handleUnknownProtocol(const QUrl &url);
     void desktopServicesOpen(const QUrl &url);
 
@@ -139,6 +139,7 @@ private:
     static QUrl s_lastUnsupportedUrl;
     static QTime s_lastUnsupportedUrlTime;
     static QList<WebPage*> s_livingPages;
+    static QStringList s_ignoredSslErrors;
 
     NetworkManagerProxy* m_networkProxy;
     TabbedWebView* m_view;

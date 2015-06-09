@@ -43,6 +43,7 @@
 #include "javascript/externaljsobject.h"
 #include "tabwidget.h"
 #include "scripts.h"
+#include "sslerrordialog.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -70,6 +71,7 @@ QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
 QList<WebPage*> WebPage::s_livingPages;
+QStringList WebPage::s_ignoredSslErrors;
 
 WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
@@ -697,6 +699,63 @@ bool WebPage::event(QEvent* event)
     return QWebEnginePage::event(event);
 }
 
+bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
+{
+    m_lastRequestUrl = url;
+
+    if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
+        return false;
+
+    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+
+#if QTWEBENGINE_DISABLED
+    if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
+        // Don't show this dialog if app is still starting
+        if (!view() || !view()->isVisible()) {
+            return false;
+        }
+        QString message = tr("To display this page, QupZilla must resend the request \n"
+                             "(such as a search or order confirmation) that was performed earlier.");
+        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
+                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
+        if (!result) {
+            return false;
+        }
+    }
+#endif
+}
+
+bool WebPage::certificateError(const QWebEngineCertificateError &certificateError)
+{
+    if (s_ignoredSslErrors.contains(certificateError.url().host()))
+        return true;
+
+    QString title = tr("SSL Certificate Error!");
+    QString text1 = tr("The page you are trying to access has the following errors in the SSL certificate:");
+    QString text2 = tr("Would you like to make an exception for this certificate?");
+
+    QString message = QSL("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>").arg(title, text1, certificateError.errorDescription(), text2);
+
+    SslErrorDialog dialog(view());
+    dialog.setText(message);
+    dialog.exec();
+
+    switch (dialog.result()) {
+    case SslErrorDialog::Yes:
+        // TODO: Permanent exceptions
+        s_ignoredSslErrors.append(certificateError.url().host());
+        return true;
+
+    case SslErrorDialog::OnlyForThisSession:
+        s_ignoredSslErrors.append(certificateError.url().host());
+        return true;
+
+    case SslErrorDialog::No:
+    default:
+        return false;
+    }
+}
+
 QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes)
 {
     Q_UNUSED(acceptedMimeTypes);
@@ -753,32 +812,6 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
         request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
         if (m_lastRequestType == NavigationTypeLinkClicked) {
             request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-        }
-    }
-#endif
-}
-
-bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
-{
-    m_lastRequestUrl = url;
-
-    if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
-        return false;
-
-    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
-
-#if QTWEBENGINE_DISABLED
-    if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
-        // Don't show this dialog if app is still starting
-        if (!view() || !view()->isVisible()) {
-            return false;
-        }
-        QString message = tr("To display this page, QupZilla must resend the request \n"
-                             "(such as a search or order confirmation) that was performed earlier.");
-        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
-        if (!result) {
-            return false;
         }
     }
 #endif
