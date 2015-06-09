@@ -120,14 +120,14 @@ private slots:
 
 protected:
     bool event(QEvent* event);
-    QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type);
-    QObject* createPlugin(const QString &classid, const QUrl &url, const QStringList &paramNames, const QStringList &paramValues);
 
 private:
+    QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;
+    QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type) Q_DECL_OVERRIDE;
+
 #if QTWEBENGINE_DISABLED
     bool supportsExtension(Extension extension) const;
     bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
-    QString chooseFile(QWebFrame* originatingFrame, const QString &oldFile);
 #endif
 
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;

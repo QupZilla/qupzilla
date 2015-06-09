@@ -697,6 +697,35 @@ bool WebPage::event(QEvent* event)
     return QWebEnginePage::event(event);
 }
 
+QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes)
+{
+    Q_UNUSED(acceptedMimeTypes);
+
+    QStringList files;
+    QString suggestedFileName = s_lastUploadLocation;
+    if (!oldFiles.isEmpty())
+        suggestedFileName = oldFiles.first();
+
+    switch (mode) {
+    case FileSelectOpen:
+        files = QStringList(QzTools::getOpenFileName("WebPage-ChooseFile", view(), tr("Choose file..."), suggestedFileName));
+        break;
+
+    case FileSelectOpenMultiple:
+        files = QzTools::getOpenFileNames("WebPage-ChooseFile", view(), tr("Choose files..."), suggestedFileName);
+        break;
+
+    default:
+        files = QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
+        break;
+    }
+
+    if (!files.isEmpty())
+        s_lastUploadLocation = files.first();
+
+    return files;
+}
+
 void WebPage::setSSLCertificate(const QSslCertificate &cert)
 {
     //    if (cert != m_SslCert)
@@ -727,48 +756,6 @@ void WebPage::populateNetworkRequest(QNetworkRequest &request)
         }
     }
 #endif
-}
-
-QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
-{
-    switch (type) {
-    case QWebEnginePage::WebBrowserWindow: // TODO
-    case QWebEnginePage::WebBrowserTab: {
-        int index = m_view->browserWindow()->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
-        TabbedWebView* view = m_view->browserWindow()->weView(index);
-        view->setPage(new WebPage);
-        return view->page();
-    }
-
-    case QWebEnginePage::WebDialog: {
-        PopupWebView* view = new PopupWebView;
-        view->setPage(new WebPage);
-        PopupWindow* popup = new PopupWindow(view);
-        popup->show();
-        m_view->browserWindow()->addDeleteOnCloseWidget(popup);
-        return view->page();
-    }
-
-    default:
-        return 0;
-    }
-}
-
-QObject* WebPage::createPlugin(const QString &classid, const QUrl &url,
-                               const QStringList &paramNames, const QStringList &paramValues)
-{
-    Q_UNUSED(url)
-    Q_UNUSED(paramNames)
-    Q_UNUSED(paramValues)
-
-    if (classid == QLatin1String("RecoveryWidget") && mApp->restoreManager() && m_view) {
-        return new RecoveryWidget(m_view, m_view->browserWindow());
-    }
-    else {
-        load(QUrl("qupzilla:start"));
-    }
-
-    return 0;
 }
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
@@ -1221,35 +1208,30 @@ void WebPage::setJavaScriptEnabled(bool enabled)
 #endif
 }
 
-#if QTWEBENGINE_DISABLED
-QString WebPage::chooseFile(QWebEngineFrame* originatingFrame, const QString &oldFile)
+QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
 {
-    QString suggFileName;
-
-    if (oldFile.isEmpty()) {
-        suggFileName = s_lastUploadLocation;
-    }
-    else {
-        suggFileName = oldFile;
-    }
-
-    const QString fileName = QzTools::getOpenFileName("WebPage-ChooseFile", view(), tr("Choose file..."), suggFileName);
-
-    if (!fileName.isEmpty()) {
-        s_lastUploadLocation = fileName;
-
-        // Check if we can read from file
-        QFile file(fileName);
-        if (!file.open(QFile::ReadOnly)) {
-            const QString msg = tr("Cannot read data from <b>%1</b>. Upload was cancelled!").arg(fileName);
-            QMessageBox::critical(view(), tr("Cannot read file!"), msg);
-            return QString();
-        }
+    switch (type) {
+    case QWebEnginePage::WebBrowserWindow: // TODO
+    case QWebEnginePage::WebBrowserTab: {
+        int index = m_view->browserWindow()->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
+        TabbedWebView* view = m_view->browserWindow()->weView(index);
+        view->setPage(new WebPage);
+        return view->page();
     }
 
-    return fileName;
+    case QWebEnginePage::WebDialog: {
+        PopupWebView* view = new PopupWebView;
+        view->setPage(new WebPage);
+        PopupWindow* popup = new PopupWindow(view);
+        popup->show();
+        m_view->browserWindow()->addDeleteOnCloseWidget(popup);
+        return view->page();
+    }
+
+    default:
+        return 0;
+    }
 }
-#endif
 
 bool WebPage::isPointerSafeToUse(WebPage* page)
 {
