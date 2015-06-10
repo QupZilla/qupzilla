@@ -24,22 +24,6 @@
 #include <QKeyEvent>
 #include <QShortcut>
 
-template<typename Arg, typename R, typename C>
-struct InvokeWrapper {
-    R* receiver;
-    void (C::*memberFun)(Arg);
-    void operator()(Arg result) {
-        (receiver->*memberFun)(result);
-    }
-};
-
-template<typename Arg, typename R, typename C>
-InvokeWrapper<Arg, R, C> invoke(R* receiver, void (C::*memberFun)(Arg))
-{
-    InvokeWrapper<Arg, R, C> wrapper = {receiver, memberFun};
-    return wrapper;
-}
-
 SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     : AnimatedWidget(AnimatedWidget::Up, 300, parent)
     , ui(new Ui::SearchToolbar)
@@ -133,7 +117,9 @@ void SearchToolBar::caseSensitivityChanged()
 
 void SearchToolBar::searchText(const QString &text)
 {
-    m_view->findText(text, m_findFlags, invoke(this, &SearchToolBar::handleSearchResult));
+    m_view->findText(text, m_findFlags, [this](bool found) {
+        handleSearchResult(found);
+    });
 }
 
 void SearchToolBar::handleSearchResult(bool found)
@@ -148,7 +134,6 @@ void SearchToolBar::handleSearchResult(bool found)
     else {
         ui->results->clear();
     }
-
 
     ui->lineEdit->setProperty("notfound", QVariant(!found));
 

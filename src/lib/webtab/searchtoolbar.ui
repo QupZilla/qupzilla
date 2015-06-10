@@ -83,16 +83,6 @@
     </widget>
    </item>
    <item>
-    <widget class="MacToolButton" name="highligh">
-     <property name="text">
-      <string>Highlight</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="MacToolButton" name="caseSensitive">
      <property name="text">
       <string>Case sensitive</string>
