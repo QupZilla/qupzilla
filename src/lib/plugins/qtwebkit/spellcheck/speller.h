@@ -40,7 +40,7 @@ public:
         QString code;
         QString name;
 
-        bool operator==(const Language &other) {
+        bool operator==(const Language &other) const {
             return this->name == other.name &&
                    this->name.left(2) == other.name.left(2);
             // Compare only first two chars of name.

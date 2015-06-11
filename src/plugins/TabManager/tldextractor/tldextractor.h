@@ -21,6 +21,7 @@
 #define TLDExtractor_Version "1.0"
 
 #include <QHash>
+#include <QObject>
 #include <QStringList>
 
 class TLDExtractor : public QObject

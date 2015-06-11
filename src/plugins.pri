@@ -27,8 +27,6 @@ INCLUDEPATH += $$PWD/lib/3rdparty \
 DEPENDPATH += $$INCLUDEPATH \
               $$PWD/lib/data \
 
-include(lib/3rdparty/qtsingleapplication/qtsingleapplication.pri)
-
 TEMPLATE = lib
 CONFIG += plugin
 DESTDIR = $$QZ_DESTDIR/plugins/

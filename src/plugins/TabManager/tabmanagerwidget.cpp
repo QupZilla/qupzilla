@@ -34,6 +34,7 @@
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QStackedWidget>
+#include <QWebView>
 #include <QDialog>
 #include <QTimer>
 #include <QLabel>
