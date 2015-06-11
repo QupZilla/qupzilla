@@ -83,11 +83,6 @@ bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const
     QList<QNetworkCookie> newList;
 
     foreach (QNetworkCookie cookie, cookieList) {
-        // If cookie domain is empty, set it to url.host()
-        if (cookie.domain().isEmpty()) {
-            cookie.setDomain(url.host());
-        }
-
         if (!rejectCookie(url.host(), cookie)) {
             newList.append(cookie);
         }
@@ -194,9 +189,7 @@ void CookieJar::saveCookies()
 
 bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie) const
 {
-    Q_UNUSED(domain)
-
-    const QString cookieDomain = cookie.domain();
+    const QString cookieDomain = cookie.domain().isEmpty() ? domain : cookie.domain();
 
     if (!m_allowCookies) {
         bool result = listMatchesDomain(m_whitelist, cookieDomain);
