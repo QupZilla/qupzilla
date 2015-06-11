@@ -454,7 +454,7 @@ void MainApplication::setProxyStyle(ProxyStyle* style)
 
 QString MainApplication::styleName() const
 {
-    return m_proxyStyle ? m_proxyStyle->baseStyle()->objectName() : QString();
+    return m_proxyStyle ? m_proxyStyle->baseStyle()->objectName() : style()->objectName();
 }
 
 QString MainApplication::currentLanguageFile() const
