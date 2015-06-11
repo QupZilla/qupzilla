@@ -25,7 +25,6 @@
 #include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
-#include "proxystyle.h"
 #include "iconprovider.h"
 
 #include <QMenu>
@@ -150,11 +149,9 @@ void TabBar::closeAllButCurrent()
 
 QSize TabBar::tabSizeHint(int index, bool fast) const
 {
-    if (!isVisible() || !mApp->proxyStyle()) {
+    if (!isVisible()) {
         // Don't calculate it when tabbar is not visible
         // It produces invalid size anyway
-        //
-        // We also need ProxyStyle to be set before calculating minimum sizes for tabs
         return QSize(-1, -1);
     }
 
@@ -266,13 +263,12 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
 int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 {
-    if (!mApp->proxyStyle() || !isVisible()) {
+    if (!isVisible())
         return -1;
-    }
 
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
-        return 16 + mApp->proxyStyle()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+        return 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
 
     case ComboTabBar::ActiveTabMinimumWidth:
     case ComboTabBar::NormalTabMinimumWidth:
