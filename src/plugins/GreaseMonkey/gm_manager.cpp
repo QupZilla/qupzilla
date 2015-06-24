@@ -138,8 +138,8 @@ void GM_Manager::enableScript(GM_Script* script)
     script->setEnabled(true);
     m_disabledScripts.removeOne(script->fullName());
 
-    QWebEngineScriptCollection &collection = mApp->webProfile()->scripts();
-    collection.insert(script->webScript());
+    QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
+    collection->insert(script->webScript());
 }
 
 void GM_Manager::disableScript(GM_Script* script)
@@ -147,8 +147,8 @@ void GM_Manager::disableScript(GM_Script* script)
     script->setEnabled(false);
     m_disabledScripts.append(script->fullName());
 
-    QWebEngineScriptCollection &collection = mApp->webProfile()->scripts();
-    collection.remove(collection.findScript(script->fullName()));
+    QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
+    collection->remove(collection->findScript(script->fullName()));
 }
 
 bool GM_Manager::addScript(GM_Script* script)
@@ -160,8 +160,8 @@ bool GM_Manager::addScript(GM_Script* script)
     m_scripts.append(script);
     connect(script, &GM_Script::scriptChanged, this, &GM_Manager::scriptChanged);
 
-    QWebEngineScriptCollection &collection = mApp->webProfile()->scripts();
-    collection.insert(script->webScript());
+    QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
+    collection->insert(script->webScript());
 
     emit scriptsChanged();
     return true;
@@ -175,8 +175,8 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
 
     m_scripts.removeOne(script);
 
-    QWebEngineScriptCollection &collection = mApp->webProfile()->scripts();
-    collection.remove(collection.findScript(script->fullName()));
+    QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
+    collection->remove(collection->findScript(script->fullName()));
 
     m_disabledScripts.removeOne(script->fullName());
 
@@ -229,7 +229,7 @@ void GM_Manager::load()
             script->setEnabled(false);
         }
         else {
-            mApp->webProfile()->scripts().insert(script->webScript());
+            mApp->webProfile()->scripts()->insert(script->webScript());
         }
     }
 
@@ -242,9 +242,9 @@ void GM_Manager::scriptChanged()
     if (!script)
         return;
 
-    QWebEngineScriptCollection &collection = mApp->webProfile()->scripts();
-    collection.remove(collection.findScript(script->fullName()));
-    collection.insert(script->webScript());
+    QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
+    collection->remove(collection->findScript(script->fullName()));
+    collection->insert(script->webScript());
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

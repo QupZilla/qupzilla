@@ -1093,9 +1093,9 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
 
     const QString name = QStringLiteral("_qupzilla_userstylesheet");
 
-    QWebEngineScript oldScript = m_webProfile->scripts().findScript(name);
+    QWebEngineScript oldScript = m_webProfile->scripts()->findScript(name);
     if (!oldScript.isNull()) {
-        m_webProfile->scripts().remove(oldScript);
+        m_webProfile->scripts()->remove(oldScript);
     }
 
     QWebEngineScript script;
@@ -1104,7 +1104,7 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     script.setWorldId(QWebEngineScript::ApplicationWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setCss(userCss));
-    m_webProfile->scripts().insert(script);
+    m_webProfile->scripts()->insert(script);
 }
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
