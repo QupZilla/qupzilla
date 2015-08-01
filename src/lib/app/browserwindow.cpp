@@ -94,6 +94,7 @@
 #endif
 
 #ifdef QZ_WS_X11
+#include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #endif
@@ -520,15 +521,17 @@ void BrowserWindow::loadSettings()
 
     // Transparency on X11 (no blur like on Windows)
 #ifdef QZ_WS_X11
-    setAttribute(Qt::WA_TranslucentBackground);
-    setAttribute(Qt::WA_NoSystemBackground, false);
-    QPalette pal = palette();
-    QColor bg = pal.window().color();
-    bg.setAlpha(180);
-    pal.setColor(QPalette::Window, bg);
-    setPalette(pal);
-    ensurePolished(); // workaround Oxygen filling the background
-    setAttribute(Qt::WA_StyledBackground, false);
+    if (QzTools::isPlatformX11()) {
+        setAttribute(Qt::WA_TranslucentBackground);
+        setAttribute(Qt::WA_NoSystemBackground, false);
+        QPalette pal = palette();
+        QColor bg = pal.window().color();
+        bg.setAlpha(180);
+        pal.setColor(QPalette::Window, bg);
+        setPalette(pal);
+        ensurePolished(); // workaround Oxygen filling the background
+        setAttribute(Qt::WA_StyledBackground, false);
+    }
 #endif
 
 #ifdef Q_OS_WIN
@@ -1543,13 +1546,17 @@ void BrowserWindow::closeTab()
 QByteArray BrowserWindow::saveState(int version) const
 {
 #ifdef QZ_WS_X11
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
+    if (QzTools::isPlatformX11()) {
+        QByteArray data;
+        QDataStream stream(&data, QIODevice::WriteOnly);
 
-    stream << QMainWindow::saveState(version);
-    stream << getCurrentVirtualDesktop();
+        stream << QMainWindow::saveState(version);
+        stream << getCurrentVirtualDesktop();
 
-    return data;
+        return data;
+    }
+    else
+        return QMainWindow::saveState(version);
 #else
     return QMainWindow::saveState(version);
 #endif
@@ -1558,16 +1565,21 @@ QByteArray BrowserWindow::saveState(int version) const
 bool BrowserWindow::restoreState(const QByteArray &state, int version)
 {
 #ifdef QZ_WS_X11
-    QByteArray windowState;
-    int desktopId = -1;
+    if (QzTools::isPlatformX11()) {
+        QByteArray windowState;
+        int desktopId = -1;
 
-    QDataStream stream(state);
-    stream >> windowState;
-    stream >> desktopId;
+        QDataStream stream(state);
+        stream >> windowState;
+        stream >> desktopId;
 
-    moveToVirtualDesktop(desktopId);
+        moveToVirtualDesktop(desktopId);
 
-    return QMainWindow::restoreState(windowState, version);
+        return QMainWindow::restoreState(windowState, version);
+    }
+    else
+        return QMainWindow::restoreState(state, version);
+
 #else
     return QMainWindow::restoreState(state, version);
 #endif
@@ -1576,7 +1588,10 @@ bool BrowserWindow::restoreState(const QByteArray &state, int version)
 #ifdef QZ_WS_X11
 int BrowserWindow::getCurrentVirtualDesktop() const
 {
-    Display* display = static_cast<Display*>(QzTools::X11Display(this));
+    if (!QzTools::isPlatformX11())
+        return 0;
+
+    Display* display = QX11Info::display();
     Atom actual_type;
     int actual_format;
     unsigned long nitems;
@@ -1604,12 +1619,15 @@ int BrowserWindow::getCurrentVirtualDesktop() const
 
 void BrowserWindow::moveToVirtualDesktop(int desktopId)
 {
+    if (!QzTools::isPlatformX11())
+        return;
+
     // Don't move when window is already visible or it is first app window
     if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow) {
         return;
     }
 
-    Display* display = static_cast<Display*>(QzTools::X11Display(this));
+    Display* display = QX11Info::display();
 
     Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
     if (net_wm_desktop == None) {

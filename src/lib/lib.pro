@@ -1,5 +1,5 @@
 isEqual(QT_MAJOR_VERSION, 5) {
-    QT += webkitwidgets network widgets printsupport sql script gui-private
+    QT += webkitwidgets network widgets printsupport sql script
 } else {
     QT += core gui webkit sql network script concurrent
 }

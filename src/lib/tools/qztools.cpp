@@ -43,11 +43,9 @@
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#include <qpa/qplatformnativeinterface.h>
-#else
-#include <QX11Info>
 #endif
 #ifdef QZ_WS_X11
+#include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #endif
@@ -830,30 +828,28 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-void* QzTools::X11Display(const QWidget* widget)
+bool QzTools::isPlatformX11()
 {
-    Q_UNUSED(widget)
-
-#ifdef QZ_WS_X11
-#if QT_VERSION >= 0x050000
-    return qApp->platformNativeInterface()->nativeResourceForWindow("display", widget->windowHandle());
+#if QZ_WS_X11 && QT_VERSION >= 0x050200
+    return QX11Info::isPlatformX11();
+#elif QZ_WS_X11
+    return true;
 #else
-    return QX11Info::display();
+    return false;
 #endif
-#endif
-
-    return 0;
 }
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
 #ifdef QZ_WS_X11
-    QByteArray nameData = name.toUtf8();
+    if (isPlatformX11()) {
+        QByteArray nameData = name.toUtf8();
 
-    XClassHint classHint;
-    classHint.res_name = const_cast<char*>(nameData.constData());
-    classHint.res_class = const_cast<char*>("QupZilla");
-    XSetClassHint((Display*)X11Display(widget), widget->winId(), &classHint);
+        XClassHint classHint;
+        classHint.res_name = const_cast<char*>(nameData.constData());
+        classHint.res_class = const_cast<char*>("QupZilla");
+        XSetClassHint(QX11Info::display(), widget->winId(), &classHint);
+    }
 #else
     Q_UNUSED(name)
     Q_UNUSED(widget)
