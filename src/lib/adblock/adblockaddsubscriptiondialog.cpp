@@ -45,7 +45,6 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
                          << Subscription("Easylist China (Chinese)", "https://easylist-downloads.adblockplus.org/easylistchina.txt")
                          << Subscription("Anti-Adblock Killer", "https://raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt")
                          << Subscription("Malware Domain List", "http://www.malwaredomainlist.com/hostslist/hosts.txt")
-                         << Subscription("Malware domains", "mirror1.malwaredomains.com/files/justdomains")
                          << Subscription(tr("Other..."), QString());
 
     foreach (const Subscription &subscription, m_knownSubscriptions) {
