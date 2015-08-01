@@ -522,7 +522,11 @@ isEqual(QT_MAJOR_VERSION, 5) {
 
     INSTALLS += target
 
-    !contains(DEFINES, NO_X11):LIBS += -lX11
+    !contains(DEFINES, NO_X11) {
+        LIBS += -lX11
+        QT *= x11extras
+    }
+
     LIBS += -lcrypto
 
     RESOURCES -= data/certs.qrc
