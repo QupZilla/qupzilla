@@ -193,7 +193,7 @@ Available Defines
                           (default prefix is "/usr/")
 
                           example:
-                          $ export QUPZILLA_PREFIX="/usr"
+                          $ export QUPZILLA_PREFIX="/usr/local"
 
      DISABLE_DBUS         Build without QtDBus module. Native desktop notifications
                           will be disabled.
