@@ -50,22 +50,22 @@ void ProfileManager::initConfigDir() const
     dir.cd(QLatin1String("profiles"));
 
     // $Config/profiles
-    QFile(dir.filePath(QLatin1String("profiles/profiles.ini"))).remove();
-    QFile(QLatin1String(":data/profiles.ini")).copy(dir.filePath(QLatin1String("profiles/profiles.ini")));
-    QFile(dir.filePath(QLatin1String("profiles/profiles.ini"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(dir.filePath(QLatin1String("profiles.ini"))).remove();
+    QFile(QLatin1String(":data/profiles.ini")).copy(dir.filePath(QLatin1String("profiles.ini")));
+    QFile(dir.filePath(QLatin1String("profiles.ini"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
 
     dir.mkdir(QLatin1String("default"));
     dir.cd(QLatin1String("default"));
 
     // $Config/profiles/default
-    QFile(dir.filePath(QLatin1String("profiles/default/browsedata.db"))).remove();
-    QFile(QLatin1String(":data/browsedata.db")).copy(dir.filePath(QLatin1String("profiles/default/browsedata.db")));
-    QFile(dir.filePath(QLatin1String("profiles/default/browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(dir.filePath(QLatin1String("browsedata.db"))).remove();
+    QFile(QLatin1String(":data/browsedata.db")).copy(dir.filePath(QLatin1String("browsedata.db")));
+    QFile(dir.filePath(QLatin1String("browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    QFile(QLatin1String(":data/bookmarks.json")).copy(dir.filePath(QLatin1String("profiles/default/bookmarks.json")));
-    QFile(dir.filePath(QLatin1String("profiles/default/bookmarks.json"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(QLatin1String(":data/bookmarks.json")).copy(dir.filePath(QLatin1String("bookmarks.json")));
+    QFile(dir.filePath(QLatin1String("bookmarks.json"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    QFile versionFile(dir.filePath(QLatin1String("profiles/default/version")));
+    QFile versionFile(dir.filePath(QLatin1String("version")));
     versionFile.open(QFile::WriteOnly);
     versionFile.write(Qz::VERSION);
     versionFile.close();
@@ -101,10 +101,10 @@ int ProfileManager::createProfile(const QString &profileName)
 
     dir.mkdir(profileName);
     dir.cd(profileName);
-    QFile(QLatin1String(":data/browsedata.db")).copy(dir.filePath(QLatin1String("/browsedata.db")));
-    QFile(dir.filePath(QLatin1String("/browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
+    QFile(QLatin1String(":data/browsedata.db")).copy(dir.filePath(QLatin1String("browsedata.db")));
+    QFile(dir.filePath(QLatin1String("browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    QFile versionFile(dir.filePath(QLatin1String("/version")));
+    QFile versionFile(dir.filePath(QLatin1String("version")));
     versionFile.open(QFile::WriteOnly);
     versionFile.write(Qz::VERSION);
     versionFile.close();
