@@ -130,16 +130,23 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
     if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSLv2_")))
         return;
 
-    QByteArray localMsg = msg.toLocal8Bit();
+    const QByteArray localMsg = msg.toLocal8Bit();
+
     switch (type) {
     case QtDebugMsg:
     case QtWarningMsg:
     case QtCriticalMsg:
-        std::cerr << localMsg.constData() << " (" <<  context.file << ":" << context.line << ", " << context.function << ")" << std::endl;
+        std::cerr << localMsg.constData();
+        if (context.file && context.line && context.function)
+            std::cerr << " (" <<  context.file << ":" << context.line << ", " << context.function << ")";
+        std::cerr << std::endl;
         break;
 
     case QtFatalMsg:
-        std::cerr << "Fatal: " << localMsg.constData() << " (" << context.file << ":" << context.line << ", " << context.function << ")" << std::endl;
+        std::cerr << "Fatal: " << localMsg.constData() << std::endl;
+        if (context.file && context.line && context.function)
+            std::cerr << " (" <<  context.file << ":" << context.line << ", " << context.function << ")";
+        std::cerr << std::endl;
         abort();
 
     default:
