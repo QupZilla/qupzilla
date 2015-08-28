@@ -52,7 +52,6 @@ public:
     Page pageForUrl(const QUrl &url);
     QUrl urlForShortcut(int key);
 
-    void addWebPage(QWebEnginePage *page);
     void addPage(const QUrl &url, const QString &title);
     void removePage(const Page &page);
 
@@ -88,7 +87,6 @@ private:
     QString escapeTitle(QString string) const;
     QString escapeUrl(QString url) const;
 
-    QList<QWebEnginePage*> pages();
     QString generateAllPages();
 
     QString m_initialScript;
@@ -99,8 +97,7 @@ private:
     int m_sizeOfSpeedDials;
     int m_sdcentered;
 
-    QList<QPointer<QWebEnginePage> > m_pages;
-    QList<Page> m_webPages;
+    QList<Page> m_pages;
     AutoSaver* m_autoSaver;
 
     bool m_loaded;

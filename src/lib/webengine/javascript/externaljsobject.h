@@ -23,7 +23,7 @@
 class ExternalJsObject : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* speedDial READ speedDial)
+    Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
 
 public:
     explicit ExternalJsObject(QObject* parent = 0);
@@ -32,13 +32,8 @@ public slots:
     void AddSearchProvider(const QString &engineUrl);
     int IsSearchProviderInstalled(const QString &engineURL);
 
-    QObject* speedDial() const;
-
-public:
-    void setOnSpeedDial(bool on);
-
 private:
-    bool m_onSpeedDial;
+    QObject* speedDial() const;
 
 };
 

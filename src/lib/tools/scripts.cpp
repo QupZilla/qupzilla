@@ -17,6 +17,7 @@
 * ============================================================ */
 
 #include "scripts.h"
+#include "qztools.h"
 
 QString Scripts::setCss(const QString &css)
 {
@@ -31,4 +32,18 @@ QString Scripts::setCss(const QString &css)
     style.replace(QL1S("'"), QL1S("\\'"));
     style.replace(QL1S("\n"), QL1S("\\n"));
     return source.arg(style);
+}
+
+QString Scripts::setupWebChannel()
+{
+    QString source =  QL1S("(function() {"
+                           "%1"
+                           "var channel = new QWebChannel(qt.webChannelTransport, function(channel) {"
+                           "window.external = channel.objects.qz_object;"
+                           "var event = new Event('qz_external_created');"
+                           "document.dispatchEvent(event);"
+                           "});"
+                           "})()");
+
+    return source.arg(QzTools::readAllFileContents(QSL(":/html/qwebchannel.js")));
 }

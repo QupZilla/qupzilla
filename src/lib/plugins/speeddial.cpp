@@ -82,7 +82,7 @@ void SpeedDial::saveSettings()
 {
     ENSURE_LOADED;
 
-    if (m_webPages.isEmpty()) {
+    if (m_pages.isEmpty()) {
         return;
     }
 
@@ -103,7 +103,7 @@ SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 
     const QString urlString = url.toString();
 
-    foreach (const Page &page, m_webPages) {
+    foreach (const Page &page, m_pages) {
         if (page.url == urlString) {
             return page;
         }
@@ -116,18 +116,11 @@ QUrl SpeedDial::urlForShortcut(int key)
 {
     ENSURE_LOADED;
 
-    if (key < 0 || m_webPages.count() <= key) {
+    if (key < 0 || m_pages.count() <= key) {
         return QUrl();
     }
 
-    return QUrl::fromEncoded(m_webPages.at(key).url.toUtf8());
-}
-
-void SpeedDial::addWebPage(QWebEnginePage *page)
-{
-    if (!m_pages.contains(page)) {
-        m_pages.append(page);
-    }
+    return QUrl::fromEncoded(m_pages.at(key).url.toUtf8());
 }
 
 void SpeedDial::addPage(const QUrl &url, const QString &title)
@@ -142,12 +135,8 @@ void SpeedDial::addPage(const QUrl &url, const QString &title)
     page.title = escapeTitle(title);
     page.url = escapeUrl(url.toString());
 
-    m_webPages.append(page);
+    m_pages.append(page);
     m_regenerateScript = true;
-
-    foreach (QWebEnginePage *page, pages()) {
-        page->triggerAction(QWebEnginePage::Reload);
-    }
 
     emit pagesChanged();
 }
@@ -161,12 +150,8 @@ void SpeedDial::removePage(const Page &page)
     }
 
     removeImageForUrl(page.url);
-    m_webPages.removeAll(page);
+    m_pages.removeAll(page);
     m_regenerateScript = true;
-
-    foreach (QWebEnginePage *page, pages()) {
-        page->triggerAction(QWebEnginePage::Reload);
-    }
 
     emit pagesChanged();
 }
@@ -217,11 +202,12 @@ QString SpeedDial::initialScript()
     m_regenerateScript = false;
     m_initialScript.clear();
 
-    foreach (const Page &page, m_webPages) {
+    foreach (const Page &page, m_pages) {
         QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(page.url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
-            imgSource = "qrc:html/loading.gif";
+            //imgSource = "qrc:html/loading.gif";
+            imgSource = "qrc:html/broken-page.png";
 
             if (page.url.isEmpty()) {
                 imgSource.clear();
@@ -244,7 +230,7 @@ void SpeedDial::changed(const QString &allPages)
     }
 
     const QStringList entries = allPages.split(QLatin1String("\";"), QString::SkipEmptyParts);
-    m_webPages.clear();
+    m_pages.clear();
 
     foreach (const QString &entry, entries) {
         if (entry.isEmpty()) {
@@ -260,7 +246,7 @@ void SpeedDial::changed(const QString &allPages)
         page.url = tmp.at(0).mid(5);
         page.title = tmp.at(1).mid(7);
 
-        m_webPages.append(page);
+        m_pages.append(page);
     }
 
     m_regenerateScript = true;
@@ -388,28 +374,11 @@ QString SpeedDial::escapeUrl(QString url) const
     return url;
 }
 
-QList<QWebEnginePage*> SpeedDial::pages()
-{
-    QList<QWebEnginePage*> list;
-
-    for (int i = 0; i < m_pages.count(); i++) {
-        QWebEnginePage *page = m_pages.at(i).data();
-        if (!page || page->url().toString() != QLatin1String("qupzilla:speeddial")) {
-            m_pages.removeAt(i);
-            i--;
-            continue;
-        }
-        list.append(page);
-    }
-
-    return list;
-}
-
 QString SpeedDial::generateAllPages()
 {
     QString allPages;
 
-    foreach (const Page &page, m_webPages) {
+    foreach (const Page &page, m_pages) {
         const QString string = QString("url:\"%1\"|title:\"%2\";").arg(page.url, page.title);
         allPages.append(string);
     }

@@ -66,6 +66,9 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QCheckBox>
+#include <QWebChannel>
+
+#include <iostream>
 
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
@@ -87,38 +90,9 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
 
-#if QTWEBENGINE_DISABLED
-    m_javaScriptEnabled = QWebEngineSettings::globalSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
-
-    m_networkProxy = new NetworkManagerProxy(this);
-    m_networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_networkProxy->setPage(this);
-    setNetworkAccessManager(m_networkProxy);
-
-    setForwardUnsupportedContent(true);
-    setPluginFactory(new WebPluginFactory(this));
-    history()->setMaximumItemCount(20);
-
-    connect(this, SIGNAL(unsupportedContent(QNetworkReply*)), this, SLOT(handleUnsupportedContent(QNetworkReply*)));
-    connect(this, SIGNAL(printRequested(QWebFrame*)), this, SLOT(printFrame(QWebFrame*)));
-
-    frameCreated(mainFrame());
-    connect(this, SIGNAL(frameCreated(QWebFrame*)), this, SLOT(frameCreated(QWebFrame*)));
-
-    connect(this, SIGNAL(databaseQuotaExceeded(QWebFrame*,QString)),
-            this, SLOT(dbQuotaExceeded(QWebFrame*)));
-
-    connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(addJavaScriptObject()));
-
-#if QTWEBKIT_FROM_2_3
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64,quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
-#elif QTWEBKIT_FROM_2_2
-    connect(this, SIGNAL(applicationCacheQuotaExceeded(QWebSecurityOrigin*,quint64)),
-            this, SLOT(appCacheQuotaExceeded(QWebSecurityOrigin*,quint64)));
-#endif
-
-#endif
+    QWebChannel *channel = new QWebChannel(this);
+    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+    setWebChannel(channel);
 }
 
 WebPage::~WebPage()
@@ -1091,7 +1065,7 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 }
 #endif
 
-bool WebPage::javaScriptPrompt(QUrl securityOrigin, const QString &msg, const QString &defaultValue, QString* result)
+bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)
 {
 #ifndef NONBLOCK_JS_DIALOGS
     return QWebEnginePage::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
@@ -1135,7 +1109,7 @@ bool WebPage::javaScriptPrompt(QUrl securityOrigin, const QString &msg, const QS
 #endif
 }
 
-bool WebPage::javaScriptConfirm(QUrl securityOrigin, const QString &msg)
+bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
 {
 #ifndef NONBLOCK_JS_DIALOGS
     return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
@@ -1175,7 +1149,7 @@ bool WebPage::javaScriptConfirm(QUrl securityOrigin, const QString &msg)
 #endif
 }
 
-void WebPage::javaScriptAlert(QUrl securityOrigin, const QString &msg)
+void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 {
     Q_UNUSED(securityOrigin)
 
@@ -1226,6 +1200,28 @@ void WebPage::javaScriptAlert(QUrl securityOrigin, const QString &msg)
 
     webView->setFocus();
 #endif
+}
+
+void WebPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID)
+{
+    switch (level) {
+    case InfoMessageLevel:
+        std::cout << "I";
+        break;
+
+    case WarningMessageLevel:
+        std::cout << "W";
+        break;
+
+    case ErrorMessageLevel:
+        std::cout << "E";
+        break;
+
+    default:
+        break;
+    }
+
+    std::cout << " " << lineNumber << ": " << message.toStdString() << " (" << sourceID.toStdString() << ")" << std::endl;
 }
 
 void WebPage::setJavaScriptEnabled(bool enabled)

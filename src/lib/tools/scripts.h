@@ -27,6 +27,7 @@ class QUPZILLA_EXPORT Scripts
 {
 public:
     static QString setCss(const QString &css);
+    static QString setupWebChannel();
 };
 
 #endif // SCRIPTS_H

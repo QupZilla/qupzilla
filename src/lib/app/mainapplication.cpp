@@ -245,6 +245,15 @@ MainApplication::MainApplication(int &argc, char** argv)
     m_webProfile = isPrivate() ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
+    // Setup QWebChannel userscript
+    QWebEngineScript script;
+    script.setName(QSL("_qupzilla_webchannel"));
+    script.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setRunsOnSubFrames(true);
+    script.setSourceCode(Scripts::setupWebChannel());
+    m_webProfile->scripts()->insert(script);
+
     QSettings::setDefaultFormat(QSettings::IniFormat);
     QDesktopServices::setUrlHandler("http", this, "addNewTab");
     QDesktopServices::setUrlHandler("ftp", this, "addNewTab");

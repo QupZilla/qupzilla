@@ -158,27 +158,29 @@ function boxEdited() {
     if (editingId == -1)
         return;
 
-    var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
-    var a = box.getElementsByTagName('a')[0];
-    var originalUrl = a.getAttribute('href');
-    setBoxUrl(editingId, external.speedDial.urlFromUserInput($('#formUrl').attr("value")));
-    setBoxTitle(editingId, $('#formTitle').attr("value"));
-    var changedUrl = a.getAttribute('href');
-    var fetchTitleChecked = document.getElementById('fetchTitle').checked;
+    external.speedDial.urlFromUserInput($('#formUrl').attr("value"), function(newUrl) {
+        var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
+        var a = box.getElementsByTagName('a')[0];
+        var originalUrl = a.getAttribute('href');
+        setBoxUrl(editingId, newUrl);
+        setBoxTitle(editingId, $('#formTitle').attr("value"));
+        var changedUrl = a.getAttribute('href');
+        var fetchTitleChecked = document.getElementById('fetchTitle').checked;
 
-    if (fetchTitleChecked || (originalUrl != changedUrl && changedUrl !== '') ) {
-        var img = box.getElementsByTagName('img')[0];
-        img.setAttribute('src', LOADING_IMAGE);
+        if (fetchTitleChecked || (originalUrl != changedUrl && changedUrl !== '') ) {
+            var img = box.getElementsByTagName('img')[0];
+            img.setAttribute('src', LOADING_IMAGE);
 
-        $('#fadeOverlay').fadeOut("slow", function() {
-            $("#fadeOverlay").remove();
-            external.speedDial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
-            external.speedDial.removeImageForUrl(a.getAttribute('href'));
-        });
-    } else {
-        hideEditBox();
-    }
-    external.speedDial.changed(allPages());
+            $('#fadeOverlay').fadeOut("slow", function() {
+                $("#fadeOverlay").remove();
+                external.speedDial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
+                external.speedDial.removeImageForUrl(a.getAttribute('href'));
+            });
+        } else {
+            hideEditBox();
+        }
+        external.speedDial.changed(allPages());
+    });
 }
 
 function allPages() {
@@ -344,10 +346,11 @@ function alignPage() {
 }
 
 function bgImageSel() {
-    var img = external.speedDial.getOpenFileName();
-    if (img) {
-      document.getElementById('BgImgHold').value = img;
-    }
+    external.speedDial.getOpenFileName(function(img) {
+        if (img) {
+            document.getElementById('BgImgHold').value = img;
+        }
+    });
 }
 
 function saveSettings() {
@@ -423,22 +426,37 @@ $(document).ready(function () {
 <a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
-%INITIAL-SCRIPT%
 
-alignPage();
+function init()
+{
+    %INITIAL-SCRIPT%
+    external.speedDial.pagesChanged.connect(function() {
+        window.location.reload();
+    });
 
-$(window).resize(function() { alignPage(); });
-$("div").disableSelection();
-$("#quickdial").sortable({
-    revert: true,
-    cursor: 'move',
-    containment: 'document',
-    opacity: 0.8,
-    distance: 40,
-    update: function(event, ui) {
-        external.speedDial.changed(allPages());
-    }
-});
+    alignPage();
+
+    $(window).resize(function() { alignPage(); });
+    $("div").disableSelection();
+    $("#quickdial").sortable({
+        revert: true,
+        cursor: 'move',
+        containment: 'document',
+        opacity: 0.8,
+        distance: 40,
+        update: function(event, ui) {
+            external.speedDial.changed(allPages());
+        }
+    });
+}
+
+// Initialize
+if (window.external) {
+    init();
+} else {
+    document.addEventListener('qz_external_created', init);
+}
+
 </script>
 <div id="fadeOverlay2" class="overlay" style="display:none;">
   <div id="settingsBox">
