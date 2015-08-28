@@ -631,7 +631,7 @@ void WebView::openActionUrl()
 void WebView::showSource()
 {
     // view-source: doesn't work on itself and custom schemes
-    if (url().scheme() == QL1S("view-source") || url().scheme() == QL1S("qupzilla")) {
+    if (url().scheme() == QL1S("view-source") || url().scheme() == QL1S("qupzilla") || url().scheme() == QL1S("qrc")) {
         page()->toHtml([](const QString &html) {
             std::cout << html.toLocal8Bit().constData() << std::endl;
         });
