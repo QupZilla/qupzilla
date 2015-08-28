@@ -122,16 +122,7 @@ void SBI_NetworkManager::applyCurrentProxy()
         return;
     }
 
-    // Manually modify settings to apply proxy configuration
-    QSettings settings(DataPaths::currentProfilePath() + "/settings.ini", QSettings::IniFormat);
-    settings.beginGroup("Web-Proxy");
-    m_currentProxy->saveToSettings(settings);
-    settings.endGroup();
-    settings.sync();
-
-#if QTWEBENGINE_DISABLED
-    mApp->networkManager()->proxyFactory()->loadSettings();
-#endif
+    m_currentProxy->applyProxy();
 }
 
 void SBI_NetworkManager::deleteProxies()

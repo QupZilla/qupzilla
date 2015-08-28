@@ -20,8 +20,6 @@
 #include "sbi_networkproxy.h"
 #include "sbi_networkmanager.h"
 #include "mainapplication.h"
-#include "networkmanager.h"
-#include "networkproxyfactory.h"
 #include "browserwindow.h"
 
 #include <QMenu>
@@ -105,29 +103,19 @@ void SBI_NetworkIcon::updateToolTip()
         tooltip = tooltip.arg(tr("Offline"));
     }
 
-#if QTWEBENGINE_DISABLED
-    switch (mApp->networkManager()->proxyFactory()->proxyPreference()) {
-    case NetworkProxyFactory::SystemProxy:
+    switch (QNetworkProxy::applicationProxy().type()) {
+    case QNetworkProxy::DefaultProxy:
         tooltip = tooltip.arg(tr("System proxy"));
         break;
 
-    case NetworkProxyFactory::NoProxy:
+    case QNetworkProxy::NoProxy:
         tooltip = tooltip.arg(tr("No proxy"));
         break;
 
-    case NetworkProxyFactory::ProxyAutoConfig:
-        tooltip = tooltip.arg(tr("PAC (Proxy Auto-Config)"));
-        break;
-
-    case NetworkProxyFactory::DefinedProxy:
+    default:
         tooltip = tooltip.arg(tr("User defined"));
         break;
-
-    default:
-        qWarning() << "Unknown NetworkProxyFactory::ProxyPreference!";
-        break;
     }
-#endif
 
     if (SBINetManager->currentProxy()) {
         tooltip.append(QString(" (%1)").arg(SBINetManager->currentProxyName()));

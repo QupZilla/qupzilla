@@ -136,7 +136,6 @@ void SBI_IconsManager::mainWindowCreated(BrowserWindow* window)
         m_windows[window].append(w);
     }
 
-#if QTWEBENGINE_DISABLED
     if (m_showNetworkIcon) {
         if (!m_networkManager) {
             m_networkManager = new SBI_NetworkManager(m_settingsPath, this);
@@ -146,7 +145,6 @@ void SBI_IconsManager::mainWindowCreated(BrowserWindow* window)
         window->statusBar()->addPermanentWidget(w);
         m_windows[window].append(w);
     }
-#endif
 
     if (m_showZoomWidget) {
         SBI_ZoomWidget* w = new SBI_ZoomWidget(window);

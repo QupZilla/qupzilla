@@ -40,9 +40,6 @@ public:
 
     void clear();
 
-private slots:
-    void useHttpsProxyChanged(bool enable);
-
 private:
     Ui::SBI_ProxyWidget* ui;
 };

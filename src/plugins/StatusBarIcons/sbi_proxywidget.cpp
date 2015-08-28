@@ -24,10 +24,6 @@ SBI_ProxyWidget::SBI_ProxyWidget(QWidget* parent) :
     ui(new Ui::SBI_ProxyWidget)
 {
     ui->setupUi(this);
-
-    useHttpsProxyChanged(false);
-
-    connect(ui->useHttpsProxy, SIGNAL(toggled(bool)), this, SLOT(useHttpsProxyChanged(bool)));
 }
 
 void SBI_ProxyWidget::clear()
@@ -37,16 +33,7 @@ void SBI_ProxyWidget::clear()
     ui->proxyUsername->clear();
     ui->proxyPassword->clear();
 
-    ui->httpsProxyServer->clear();
-    ui->httpsProxyPort->clear();
-    ui->httpsProxyUsername->clear();
-    ui->httpsProxyPassword->clear();
-
-    ui->proxyExceptions->clear();
-    ui->pacUrl->clear();
-
     ui->proxyType->setCurrentIndex(0);
-    ui->useHttpsProxy->setChecked(false);
     ui->noProxy->setChecked(true);
 }
 
@@ -59,28 +46,12 @@ SBI_NetworkProxy* SBI_ProxyWidget::getProxy() const
     proxy->setUserName(ui->proxyUsername->text());
     proxy->setPassword(ui->proxyPassword->text());
 
-    proxy->setHttpsHostName(ui->httpsProxyServer->text());
-    proxy->setHttpsPort(ui->httpsProxyPort->text().toInt());
-    proxy->setHttpsUserName(ui->httpsProxyUsername->text());
-    proxy->setHttpsPassword(ui->httpsProxyPassword->text());
-
-    proxy->setExceptions(ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
-    proxy->setProxyAutoConfigUrl(QUrl(ui->pacUrl->text()));
-
-    proxy->setUseDifferentProxyForHttps(ui->useHttpsProxy->isChecked());
-    proxy->setType(ui->proxyType->currentIndex() == 0 ? QNetworkProxy::HttpProxy : QNetworkProxy::Socks5Proxy);
-
     if (ui->noProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::NoProxy);
-    }
-    else if (ui->systemProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::SystemProxy);
-    }
-    else if (ui->manualProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::DefinedProxy);
-    }
-    else if (ui->pacProxy->isChecked()) {
-        proxy->setPreference(NetworkProxyFactory::ProxyAutoConfig);
+        proxy->setType(QNetworkProxy::NoProxy);
+    } else if (ui->systemProxy->isChecked()) {
+        proxy->setType(QNetworkProxy::DefaultProxy);
+    } else {
+        proxy->setType(ui->proxyType->currentIndex() == 0 ? QNetworkProxy::HttpProxy : QNetworkProxy::Socks5Proxy);
     }
 
     return proxy;
@@ -92,42 +63,30 @@ void SBI_ProxyWidget::setProxy(const SBI_NetworkProxy &proxy)
     ui->proxyPort->setText(QString::number(proxy.port()));
     ui->proxyUsername->setText(proxy.userName());
     ui->proxyPassword->setText(proxy.password());
+    ui->proxyType->setCurrentIndex(0);
 
-    ui->httpsProxyServer->setText(proxy.httpsHostName());
-    ui->httpsProxyPort->setText(QString::number(proxy.httpsPort()));
-    ui->httpsProxyUsername->setText(proxy.httpsUserName());
-    ui->httpsProxyPassword->setText(proxy.httpsPassword());
-
-    ui->useHttpsProxy->setChecked(proxy.useDifferentProxyForHttps());
-    ui->proxyExceptions->setText(proxy.exceptions().join(QLatin1String(",")));
-    ui->proxyType->setCurrentIndex(proxy.type() == QNetworkProxy::HttpProxy ? 0 : 1);
-
-    switch (proxy.preference()) {
-    case NetworkProxyFactory::NoProxy:
+    switch (proxy.type()) {
+    case QNetworkProxy::NoProxy:
         ui->noProxy->setChecked(true);
         break;
 
-    case NetworkProxyFactory::SystemProxy:
+    case QNetworkProxy::DefaultProxy:
         ui->systemProxy->setChecked(true);
         break;
 
-    case NetworkProxyFactory::DefinedProxy:
+    case QNetworkProxy::HttpProxy:
         ui->manualProxy->setChecked(true);
+        ui->proxyType->setCurrentIndex(0);
         break;
 
-    case NetworkProxyFactory::ProxyAutoConfig:
-        ui->pacProxy->setChecked(true);
+    case QNetworkProxy::Socks5Proxy:
+        ui->manualProxy->setChecked(true);
+        ui->proxyType->setCurrentIndex(1);
         break;
 
     default:
         break;
     }
-}
-
-void SBI_ProxyWidget::useHttpsProxyChanged(bool enable)
-{
-    ui->httpsCredentialsLayout_2->setEnabled(enable);
-    ui->httpsServerLayout_2->setEnabled(enable);
 }
 
 SBI_ProxyWidget::~SBI_ProxyWidget()

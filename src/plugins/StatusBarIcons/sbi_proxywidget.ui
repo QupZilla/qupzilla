@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>558</width>
-    <height>342</height>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,37 +17,9 @@
    <item row="0" column="0" colspan="2">
     <widget class="QRadioButton" name="noProxy">
      <property name="text">
-      <string>Do not use proxy</string>
+      <string>Do &amp;not use proxy</string>
      </property>
     </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QCheckBox" name="useHttpsProxy">
-     <property name="text">
-      <string>Use different proxy for https connection</string>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="0" colspan="2">
-    <widget class="QLabel" name="label_54">
-     <property name="text">
-      <string>&lt;b&gt;Exceptions&lt;/b&gt;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="12" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout_27">
-     <item>
-      <widget class="QLabel" name="label_40">
-       <property name="text">
-        <string>Don't use on:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="proxyExceptions"/>
-     </item>
-    </layout>
    </item>
    <item row="3" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -140,55 +112,21 @@
      </item>
     </layout>
    </item>
-   <item row="9" column="0" colspan="2">
-    <widget class="QRadioButton" name="pacProxy">
-     <property name="text">
-      <string>Use script for automatic configuration:</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="2">
     <widget class="QRadioButton" name="systemProxy">
      <property name="text">
-      <string>System proxy configuration</string>
+      <string>S&amp;ystem proxy configuration</string>
      </property>
     </widget>
-   </item>
-   <item row="10" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout_22">
-     <item>
-      <widget class="QLineEdit" name="pacUrl">
-       <property name="placeholderText">
-        <string>Proxy Auto-Config (.pac) file</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_27">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>50</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
    </item>
    <item row="2" column="0" colspan="2">
     <widget class="QRadioButton" name="manualProxy">
      <property name="text">
-      <string>Manual configuration</string>
+      <string>&amp;Manual configuration</string>
      </property>
     </widget>
    </item>
-   <item row="13" column="1">
+   <item row="7" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -201,76 +139,9 @@
      </property>
     </spacer>
    </item>
-   <item row="7" column="1">
-    <widget class="QFrame" name="httpsServerLayout_2">
-     <layout class="QHBoxLayout" name="httpsServerLayout">
-      <item>
-       <widget class="QLabel" name="label_55">
-        <property name="text">
-         <string>Server:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="httpsProxyServer"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_58">
-        <property name="text">
-         <string>Port:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="httpsProxyPort">
-        <property name="maximumSize">
-         <size>
-          <width>50</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="8" column="1">
+   <item row="6" column="1">
     <widget class="QFrame" name="httpsCredentialsLayout_2">
-     <layout class="QHBoxLayout" name="httpsCredentialsLayout">
-      <item>
-       <widget class="QLabel" name="label_38">
-        <property name="text">
-         <string>Username:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="httpsProxyUsername"/>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_39">
-        <property name="text">
-         <string>Password:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="httpsProxyPassword"/>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
+     <layout class="QHBoxLayout" name="httpsCredentialsLayout"/>
     </widget>
    </item>
   </layout>

@@ -43,35 +43,13 @@ public:
     QString password() const;
     void setPassword(const QString &password);
 
-    quint16 httpsPort() const;
-    void setHttpsPort(quint16 port);
-
-    QString httpsHostName() const;
-    void setHttpsHostName(const QString &hostName);
-
-    QString httpsUserName() const;
-    void setHttpsUserName(const QString &userName);
-
-    QString httpsPassword() const;
-    void setHttpsPassword(const QString &password);
-
-    QUrl proxyAutoConfigUrl() const;
-    void setProxyAutoConfigUrl(const QUrl &url);
-
-    bool useDifferentProxyForHttps() const;
-    void setUseDifferentProxyForHttps(bool use);
-
-    NetworkProxyFactory::ProxyPreference preference() const;
-    void setPreference(NetworkProxyFactory::ProxyPreference preference);
-
     QNetworkProxy::ProxyType type() const;
     void setType(QNetworkProxy::ProxyType type);
 
-    QStringList exceptions() const;
-    void setExceptions(const QStringList &exceptions);
-
     void loadFromSettings(const QSettings &settings);
     void saveToSettings(QSettings &settings) const;
+
+    void applyProxy();
 
 private:
     quint16 m_port;
@@ -79,17 +57,7 @@ private:
     QString m_username;
     QString m_password;
 
-    quint16 m_httpsPort;
-    QString m_httpsHostname;
-    QString m_httpsUsername;
-    QString m_httpsPassword;
-
-    QUrl m_pacUrl;
-
-    bool m_useDifferentProxyForHttps;
-    NetworkProxyFactory::ProxyPreference m_preference;
     QNetworkProxy::ProxyType m_type;
-    QStringList m_exceptions;
 };
 
 #endif // SBI_NETWORKPROXY_H
