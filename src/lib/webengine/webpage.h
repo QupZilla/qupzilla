@@ -83,8 +83,6 @@ public:
 #endif
     QString userAgentForUrl(const QUrl &url) const;
 
-    static bool isPointerSafeToUse(WebPage* page);
-
 signals:
     void privacyChanged(bool status);
 
@@ -138,7 +136,6 @@ private:
     static QString s_lastUploadLocation;
     static QUrl s_lastUnsupportedUrl;
     static QTime s_lastUnsupportedUrlTime;
-    static QList<WebPage*> s_livingPages;
     static QStringList s_ignoredSslErrors;
 
     NetworkManagerProxy* m_networkProxy;

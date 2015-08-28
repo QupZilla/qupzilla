@@ -70,7 +70,6 @@
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
-QList<WebPage*> WebPage::s_livingPages;
 QStringList WebPage::s_ignoredSslErrors;
 
 WebPage::WebPage(QObject* parent)
@@ -120,8 +119,6 @@ WebPage::WebPage(QObject* parent)
 #endif
 
 #endif
-
-    s_livingPages.append(this);
 }
 
 WebPage::~WebPage()
@@ -132,8 +129,6 @@ WebPage::~WebPage()
         m_runningLoop->exit(1);
         m_runningLoop = 0;
     }
-
-    s_livingPages.removeOne(this);
 }
 
 void WebPage::setWebView(TabbedWebView* view)
@@ -1264,13 +1259,4 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     default:
         return 0;
     }
-}
-
-bool WebPage::isPointerSafeToUse(WebPage* page)
-{
-    // Pointer to WebPage is passed with every QNetworkRequest casted to void*
-    // So there is no way to test whether pointer is still valid or not, except
-    // this hack.
-
-    return page == 0 ? false : s_livingPages.contains(page);
 }
