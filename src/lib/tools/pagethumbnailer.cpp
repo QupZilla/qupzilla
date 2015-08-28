@@ -16,51 +16,27 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "pagethumbnailer.h"
-#include "mainapplication.h"
-#include "networkmanagerproxy.h"
 
-#if QTWEBENGINE_DISABLED
-
-#include <QWebEnginePage>
-#include <QWebEngineFrame>
 #include <QPainter>
-
-CleanPluginFactory::CleanPluginFactory(QObject* parent)
-    : QWebPluginFactory(parent)
-{
-}
-
-QList<QWebPluginFactory::Plugin> CleanPluginFactory::plugins() const
-{
-    return QList<QWebPluginFactory::Plugin>();
-}
-
-QObject* CleanPluginFactory::create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const
-{
-    Q_UNUSED(mimeType)
-    Q_UNUSED(url)
-    Q_UNUSED(argumentNames)
-    Q_UNUSED(argumentValues)
-
-    return new QObject;
-}
+#include <QApplication>
+#include <QWebEngineView>
 
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
-    , m_page(new QWebEnginePage(this))
+    , m_view(new QWebEngineView())
     , m_size(QSize(450, 253))
     , m_loadTitle(false)
 {
-    NetworkManagerProxy* networkProxy = new NetworkManagerProxy(this);
-    networkProxy->setPrimaryNetworkAccessManager(mApp->networkManager());
-    m_page->setNetworkAccessManager(networkProxy);
-
-    m_page->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
-    m_page->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
-
-    // HD Ready -,-
     // Every page should fit in this resolution
-    m_page->setViewportSize(QSize(1280, 720));
+    m_view->resize(QSize(1280, 720));
+
+    // Well ...
+    QWidget *w = QApplication::activeWindow();
+    m_view->show();
+    if (w) {
+        QApplication::setActiveWindow(w);
+        w->activateWindow();
+    }
 }
 
 void PageThumbnailer::setSize(const QSize &size)
@@ -98,22 +74,14 @@ QString PageThumbnailer::title()
     if (title.isEmpty()) {
         title = m_url.toString();
     }
-
     return title;
-}
-
-void PageThumbnailer::setEnableFlash(bool enable)
-{
-    if (!enable) {
-        m_page->setPluginFactory(new CleanPluginFactory);
-    }
 }
 
 void PageThumbnailer::start()
 {
-    m_page->mainFrame()->load(m_url);
+    m_view->load(m_url);
 
-    connect(m_page, SIGNAL(loadFinished(bool)), this, SLOT(createThumbnail(bool)));
+    connect(m_view, &QWebEngineView::loadFinished, this, &PageThumbnailer::createThumbnail);
 }
 
 void PageThumbnailer::createThumbnail(bool status)
@@ -123,23 +91,12 @@ void PageThumbnailer::createThumbnail(bool status)
         return;
     }
 
-    m_title = m_page->mainFrame()->title().trimmed();
+    m_title = m_view->title().trimmed();
 
-    QPixmap pixmap(2 * m_size);
-
-    qreal scalingFactor = 2 * static_cast<qreal>(m_size.width()) / 1280;
-
-    QPainter painter(&pixmap);
-    painter.scale(scalingFactor, scalingFactor);
-    m_page->mainFrame()->render(&painter, QWebEngineFrame::ContentsLayer);
-    painter.end();
-
-    emit thumbnailCreated(pixmap.scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    emit thumbnailCreated(m_view->grab().scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 }
 
 PageThumbnailer::~PageThumbnailer()
 {
-    m_page->deleteLater();
+    m_view->deleteLater();
 }
-
-#endif

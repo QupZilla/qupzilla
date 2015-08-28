@@ -206,15 +206,15 @@ QString SpeedDial::initialScript()
         QString imgSource = m_thumbnailsDir + QCryptographicHash::hash(page.url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
         if (!QFile(imgSource).exists()) {
-            //imgSource = "qrc:html/loading.gif";
-            imgSource = "qrc:html/broken-page.png";
+            imgSource = "qrc:html/loading.gif";
 
             if (page.url.isEmpty()) {
                 imgSource.clear();
             }
         }
         else {
-            imgSource = QUrl::fromLocalFile(imgSource).toString();
+            QByteArray data = QzTools::pixmapToByteArray(QPixmap(imgSource));
+            imgSource = QByteArrayLiteral("data:image/png;base64,") + data;
         }
 
         m_initialScript.append(QString("addBox('%1', '%2', '%3');\n").arg(page.url, page.title, imgSource));
@@ -259,14 +259,12 @@ void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
         return;
     }
 
-#if QTWEBENGINE_DISABLED
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
     connect(thumbnailer, SIGNAL(thumbnailCreated(QPixmap)), this, SLOT(thumbnailCreated(QPixmap)));
 
     thumbnailer->start();
-#endif
 }
 
 void SpeedDial::removeImageForUrl(const QString &url)
@@ -322,7 +320,6 @@ void SpeedDial::setSdCentered(int cntr)
 
 void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
 {
-#if QTWEBENGINE_DISABLED
     PageThumbnailer* thumbnailer = qobject_cast<PageThumbnailer*>(sender());
     if (!thumbnailer) {
         return;
@@ -342,22 +339,17 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
         if (!pixmap.save(fileName, "PNG")) {
             qWarning() << "SpeedDial::thumbnailCreated Cannot save thumbnail to " << fileName;
         }
-
-        fileName = QUrl::fromLocalFile(fileName).toString();
+        //fileName = QUrl::fromLocalFile(fileName).toString();
     }
 
     m_regenerateScript = true;
-
-    pages();
-    foreach (QWebEngineFrame* frame, pages()) {
-        frame->evaluateJavaScript(QString("setImageToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(fileName)));
-        if (loadTitle) {
-            frame->evaluateJavaScript(QString("setTitleToUrl('%1', '%2');").arg(escapeUrl(url), escapeTitle(title)));
-        }
-    }
-
     thumbnailer->deleteLater();
-#endif
+
+    if (loadTitle)
+        emit pageTitleLoaded(url, title);
+
+    QByteArray data = QzTools::pixmapToByteArray(QPixmap(fileName));
+    emit thumbnailLoaded(url, QString(QByteArrayLiteral("data:image/png;base64,") + data));
 }
 
 QString SpeedDial::escapeTitle(QString title) const

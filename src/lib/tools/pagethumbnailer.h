@@ -18,27 +18,14 @@
 #ifndef PAGETHUMBNAILER_H
 #define PAGETHUMBNAILER_H
 
-#if QTWEBENGINE_DISABLED
-
 #include <QObject>
 #include <QSize>
 #include <QUrl>
-#include <QWebPluginFactory>
 
 #include "qzcommon.h"
 
-class QWebEnginePage;
+class QWebEngineView;
 class QPixmap;
-
-class QUPZILLA_EXPORT CleanPluginFactory : public QWebPluginFactory
-{
-    Q_OBJECT
-public:
-    explicit CleanPluginFactory(QObject* parent = 0);
-
-    QList<QWebPluginFactory::Plugin> plugins() const;
-    QObject* create(const QString &mimeType, const QUrl &url, const QStringList &argumentNames, const QStringList &argumentValues) const;
-};
 
 class QUPZILLA_EXPORT PageThumbnailer : public QObject
 {
@@ -56,8 +43,6 @@ public:
     void setLoadTitle(bool load);
     QString title();
 
-    void setEnableFlash(bool enable);
-
     void start();
 
 signals:
@@ -69,14 +54,12 @@ private slots:
     void createThumbnail(bool status);
 
 private:
-    QWebEnginePage* m_page;
+    QWebEngineView* m_view;
 
     QSize m_size;
     QUrl m_url;
     QString m_title;
     bool m_loadTitle;
 };
-
-#endif
 
 #endif // PAGETHUMBNAILER_H

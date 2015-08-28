@@ -65,10 +65,12 @@ public:
 
 signals:
     void pagesChanged();
+    void thumbnailLoaded(const QString &url, const QString &src);
+    void pageTitleLoaded(const QString &url, const QString &title);
 
 public slots:
     void changed(const QString &allPages);
-    void loadThumbnail(const QString &url, bool loadTitle = false);
+    void loadThumbnail(const QString &url, bool loadTitle);
     void removeImageForUrl(const QString &url);
 
     QString getOpenFileName();

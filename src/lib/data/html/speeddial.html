@@ -151,7 +151,7 @@ function onReloadClick(box) {
         return;
 
     $(img).attr('src', LOADING_IMAGE);
-    external.speedDial.loadThumbnail(url);
+    external.speedDial.loadThumbnail(url, false);
 }
 
 function boxEdited() {
@@ -167,19 +167,20 @@ function boxEdited() {
         var changedUrl = a.getAttribute('href');
         var fetchTitleChecked = document.getElementById('fetchTitle').checked;
 
+        var pages = allPages();
+
         if (fetchTitleChecked || (originalUrl != changedUrl && changedUrl !== '') ) {
             var img = box.getElementsByTagName('img')[0];
             img.setAttribute('src', LOADING_IMAGE);
 
             $('#fadeOverlay').fadeOut("slow", function() {
                 $("#fadeOverlay").remove();
-                external.speedDial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
-                external.speedDial.removeImageForUrl(a.getAttribute('href'));
             });
+            external.speedDial.loadThumbnail(a.getAttribute('href'), fetchTitleChecked);
         } else {
             hideEditBox();
         }
-        external.speedDial.changed(allPages());
+        external.speedDial.changed(pages);
     });
 }
 
@@ -240,7 +241,7 @@ function addBox(url, title, img_source) {
     document.getElementById("quickdial").appendChild(div);
 
     if (img_source == LOADING_IMAGE) {
-        external.speedDial.loadThumbnail(url);
+        external.speedDial.loadThumbnail(url, false);
     }
 
     return div;
@@ -264,7 +265,6 @@ function setTitleToUrl(url, title) {
             continue;
 
                 var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
-                console.log(boxUrl + "  >  " + url);
                 if (url != boxUrl)
                     continue;
 
@@ -283,7 +283,7 @@ function setImageToUrl(url, img_source) {
         if ($(imgElement).size() == 0)
             return;
 
-        $(imgElement).attr('src', img_source + '?' + new Date());
+        $(imgElement).attr('src', img_source/* + '?' + new Date()*/);
     });
 }
 
@@ -320,7 +320,7 @@ function removeBox(id) {
 }
 
 function alignPage() {
-    $('head').append('<style>#quickdial img[src*=".png"]{height:auto;width:'+DIAL_WIDTH+'px}</style>');
+    $('head').append('<style>#quickdial img{height:auto;width:'+DIAL_WIDTH+'px}</style>');
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
                                    'height' : Math.round(DIAL_WIDTH / 1.54) + 'px'});
 
@@ -430,11 +430,13 @@ $(document).ready(function () {
 function init()
 {
     %INITIAL-SCRIPT%
+
     external.speedDial.pagesChanged.connect(function() {
         window.location.reload();
     });
 
-    alignPage();
+    external.speedDial.thumbnailLoaded.connect(setImageToUrl);
+    external.speedDial.pageTitleLoaded.connect(setTitleToUrl);
 
     $(window).resize(function() { alignPage(); });
     $("div").disableSelection();
@@ -448,6 +450,8 @@ function init()
             external.speedDial.changed(allPages());
         }
     });
+
+    alignPage();
 }
 
 // Initialize
