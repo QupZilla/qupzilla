@@ -1,4 +1,4 @@
-QT += webenginewidgets webenginewidgets-private network widgets printsupport sql script gui-private
+QT += webenginewidgets webenginewidgets-private webchannel network widgets printsupport sql script gui-private
 
 TARGET = QupZilla
 TEMPLATE = lib
@@ -39,7 +39,7 @@ INCLUDEPATH += 3rdparty \
                sidebar \
                tabwidget \
                tools \
-               webkit \
+               webengine \
                webtab \
 
 DEPENDPATH += $$INCLUDEPATH \
@@ -232,12 +232,12 @@ SOURCES += \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
-    webkit/javascript/externaljsobject.cpp \
-    webkit/loadrequest.cpp \
-    webkit/webinspector.cpp \
-    webkit/webpage.cpp \
-    webkit/webpluginfactory.cpp \
-    webkit/webview.cpp \
+    webengine/javascript/externaljsobject.cpp \
+    webengine/loadrequest.cpp \
+    webengine/webinspector.cpp \
+    webengine/webpage.cpp \
+    webengine/webpluginfactory.cpp \
+    webengine/webview.cpp \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
@@ -436,12 +436,12 @@ HEADERS  += \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
-    webkit/javascript/externaljsobject.h \
-    webkit/loadrequest.h \
-    webkit/webinspector.h \
-    webkit/webpage.h \
-    webkit/webpluginfactory.h \
-    webkit/webview.h \
+    webengine/javascript/externaljsobject.h \
+    webengine/loadrequest.h \
+    webengine/webinspector.h \
+    webengine/webpage.h \
+    webengine/webpluginfactory.h \
+    webengine/webview.h \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
@@ -495,9 +495,9 @@ FORMS    += \
     tools/docktitlebarwidget.ui \
     tools/html5permissions/html5permissionsdialog.ui \
     tools/html5permissions/html5permissionsnotification.ui \
-    webkit/jsalert.ui \
-    webkit/jsconfirm.ui \
-    webkit/jsprompt.ui \
+    webengine/jsalert.ui \
+    webengine/jsconfirm.ui \
+    webengine/jsprompt.ui \
     webtab/searchtoolbar.ui \
 
 RESOURCES += \

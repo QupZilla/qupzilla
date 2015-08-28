@@ -21,7 +21,7 @@ INCLUDEPATH += $$PWD/lib/3rdparty \
                $$PWD/lib/sidebar \
                $$PWD/lib/tabwidget \
                $$PWD/lib/tools \
-               $$PWD/lib/webkit \
+               $$PWD/lib/webengine \
                $$PWD/lib/webtab \
 
 DEPENDPATH += $$INCLUDEPATH \

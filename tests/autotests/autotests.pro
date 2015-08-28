@@ -50,7 +50,7 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty \
                $$PWD/../../src/lib/sidebar \
                $$PWD/../../src/lib/tabwidget \
                $$PWD/../../src/lib/tools \
-               $$PWD/../../src/lib/webkit \
+               $$PWD/../../src/lib/webengine \
                $$PWD/../../src/lib/webtab \
 
 HEADERS += \
