@@ -39,9 +39,11 @@ QString Scripts::setupWebChannel()
     QString source =  QL1S("(function() {"
                            "%1"
                            "var channel = new QWebChannel(qt.webChannelTransport, function(channel) {"
-                           "window.external = channel.objects.qz_object;"
-                           "var event = new Event('qz_external_created');"
-                           "document.dispatchEvent(event);"
+                           "    window.external = channel.objects.qz_object;"
+                           "    if (window.external) {"
+                           "        var event = new Event('qz_external_created');"
+                           "        document.dispatchEvent(event);"
+                           "    }"
                            "});"
                            "})()");
 

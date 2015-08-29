@@ -67,7 +67,6 @@
 #include <QWebEngineDownloadItem>
 #include <QWebEngineScriptCollection>
 
-
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 #include "registerqappassociation.h"
 #endif
