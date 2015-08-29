@@ -90,9 +90,7 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
 
-    QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
-    setWebChannel(channel);
+    setupWebChannel();
 }
 
 WebPage::~WebPage()
@@ -421,6 +419,13 @@ void WebPage::desktopServicesOpen(const QUrl &url)
         qWarning() << "WebPage::desktopServicesOpen Url" << url << "has already been opened!\n"
                    "Ignoring it to prevent infinite loop!";
     }
+}
+
+void WebPage::setupWebChannel()
+{
+    QWebChannel *channel = new QWebChannel(this);
+    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+    setWebChannel(channel);
 }
 
 void WebPage::windowCloseRequested()

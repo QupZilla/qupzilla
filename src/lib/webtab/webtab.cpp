@@ -295,9 +295,7 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 {
     m_webView->load(url);
-
-    QDataStream historyStream(history);
-    historyStream >> *m_webView->history();
+    m_webView->restoreHistory(history);
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)

@@ -250,6 +250,15 @@ void WebView::setZoomLevel(int level)
     applyZoom();
 }
 
+void WebView::restoreHistory(const QByteArray &data)
+{
+    QDataStream stream(data);
+    stream >> *history();
+
+    // Workaround clearing QWebChannel after restoring history
+    m_page->setupWebChannel();
+}
+
 bool WebView::onBeforeUnload()
 {
 #if QTWEBENGINE_DISABLED

@@ -79,6 +79,8 @@ public:
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
+    void setupWebChannel();
+
 #if QTWEBENGINE_DISABLED
     QWebElement activeElement() const;
 #endif

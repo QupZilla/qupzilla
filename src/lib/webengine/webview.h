@@ -56,6 +56,8 @@ public:
     int zoomLevel() const;
     void setZoomLevel(int level);
 
+    void restoreHistory(const QByteArray &data);
+
     // Executes window.onbeforeunload, returns true if view can be closed
     bool onBeforeUnload();
 
