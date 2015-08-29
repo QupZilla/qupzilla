@@ -50,7 +50,6 @@
 #include <QWebEngineHistory>
 #include <QClipboard>
 #include <QTouchEvent>
-#include <QPrintPreviewDialog>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 

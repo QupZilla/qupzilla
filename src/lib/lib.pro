@@ -1,4 +1,4 @@
-QT += webenginewidgets webenginewidgets-private webchannel network widgets printsupport sql script gui-private
+QT += webenginewidgets webenginewidgets-private webchannel network widgets sql script
 
 TARGET = QupZilla
 TEMPLATE = lib

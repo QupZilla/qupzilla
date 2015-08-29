@@ -80,8 +80,6 @@
 #include <QFileDialog>
 #include <QNetworkRequest>
 #include <QDesktopServices>
-#include <QPrintPreviewDialog>
-#include <QPrinter>
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
 #include <QMessageBox>
@@ -1193,6 +1191,7 @@ bool BrowserWindow::event(QEvent* event)
 
 void BrowserWindow::printPage(QWebEngineFrame* frame)
 {
+#if QTWEBENGINE_DISABLED
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->resize(800, 750);
@@ -1204,14 +1203,13 @@ void BrowserWindow::printPage(QWebEngineFrame* frame)
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
     }
     else {
-#if QTWEBENGINE_DISABLED
         dialog->printer()->setDocName(QzTools::getFileNameFromUrl(QzTools::frameUrl(frame)));
 
         connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
-#endif
     }
 
     dialog->open();
+#endif
 }
 
 void BrowserWindow::savePageScreen()

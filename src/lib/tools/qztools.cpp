@@ -42,11 +42,9 @@
 
 #if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#include <qpa/qplatformnativeinterface.h>
-#else
-#include <QX11Info>
 #endif
 #ifdef QZ_WS_X11
+#include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #endif
@@ -829,14 +827,10 @@ void* QzTools::X11Display(const QWidget* widget)
     Q_UNUSED(widget)
 
 #ifdef QZ_WS_X11
-#if QT_VERSION >= 0x050000
-    return qApp->platformNativeInterface()->nativeResourceForWindow("display", widget->windowHandle());
-#else
     return QX11Info::display();
-#endif
-#endif
-
+#else
     return 0;
+#endif
 }
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
