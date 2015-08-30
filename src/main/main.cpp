@@ -105,6 +105,8 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
 {
     if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSLv2_")))
         return;
+    if (msg.startsWith(QL1S("Remote debugging server started successfully.")))
+        return;
 
     const QByteArray localMsg = msg.toLocal8Bit();
 
