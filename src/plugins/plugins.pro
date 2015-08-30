@@ -42,7 +42,6 @@ isEqual(QT_MAJOR_VERSION, 5): !qtHaveModule(KWallet): disablePlugin(KWalletPassw
 
 # QtWebEngine disable
 disablePlugin(AccessKeysNavigation)
-disablePlugin(AutoScroll)
 disablePlugin(CopyTitle)
 disablePlugin(MailHandle)
 disablePlugin(MouseGestures)

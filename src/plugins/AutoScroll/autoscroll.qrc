@@ -31,5 +31,6 @@
         <file>locale/sr.qm</file>
         <file>locale/tr_TR.qm</file>
         <file>locale/zh_TW.qm</file>
+        <file>data/autoscroll.js</file>
     </qresource>
 </RCC>

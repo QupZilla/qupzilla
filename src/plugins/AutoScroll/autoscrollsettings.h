@@ -32,15 +32,18 @@ class AutoScrollSettings : public QDialog
     Q_OBJECT
 
 public:
-    explicit AutoScrollSettings(AutoScroller* scroller, QWidget* parent = 0);
+    explicit AutoScrollSettings(const QString &settingsPath, QWidget *parent = Q_NULLPTR);
     ~AutoScrollSettings();
+
+signals:
+    void settingsChanged();
 
 private slots:
     void accepted();
 
 private:
     Ui::AutoScrollSettings* ui;
-    AutoScroller* m_scroller;
+    QString m_settingsPath;
 };
 
 #endif // AUTOSCROLLSETTINGS_H

@@ -17,28 +17,28 @@
 * ============================================================ */
 #include "autoscrollplugin.h"
 #include "autoscrollsettings.h"
-#include "autoscroller.h"
-#include "browserwindow.h"
-#include "pluginproxy.h"
 #include "mainapplication.h"
+#include "qztools.h"
 
+#include <QSettings>
 #include <QTranslator>
+#include <QWebEngineProfile>
+#include <QWebEngineScriptCollection>
 
 AutoScrollPlugin::AutoScrollPlugin()
     : QObject()
-    , m_scroller(0)
 {
 }
 
 PluginSpec AutoScrollPlugin::pluginSpec()
 {
     PluginSpec spec;
-    spec.name = "AutoScroll";
-    spec.info = "AutoScroll plugin";
-    spec.description = "Provides support for autoscroll with middle mouse button";
-    spec.version = "0.1.5";
-    spec.author = "David Rosca <nowrep@gmail.com>";
-    spec.icon = QPixmap(":/autoscroll/data/scroll_all.png");
+    spec.name = QSL("AutoScroll");
+    spec.info = QSL("AutoScroll plugin");
+    spec.description = QSL("Provides support for autoscroll");
+    spec.version = QSL("0.2.0");
+    spec.author = QSL("David Rosca <nowrep@gmail.com>");
+    spec.icon = QPixmap(QSL(":/autoscroll/data/scroll_all.png"));
     spec.hasSettings = true;
 
     return spec;
@@ -48,16 +48,17 @@ void AutoScrollPlugin::init(InitState state, const QString &settingsPath)
 {
     Q_UNUSED(state)
 
-    m_scroller = new AutoScroller(settingsPath + QL1S("/extensions.ini"), this);
+    m_settingsPath = settingsPath;
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseReleaseHandler);
+    updateScript();
 }
 
 void AutoScrollPlugin::unload()
 {
-    m_scroller->deleteLater();
+    QWebEngineScript script = mApp->webProfile()->scripts()->findScript(QSL("_qupzilla_autoscroll"));
+    if (!script.isNull()) {
+        mApp->webProfile()->scripts()->remove(script);
+    }
 }
 
 bool AutoScrollPlugin::testPlugin()
@@ -66,48 +67,53 @@ bool AutoScrollPlugin::testPlugin()
     return (Qz::VERSION == QLatin1String(QUPZILLA_VERSION));
 }
 
-QTranslator* AutoScrollPlugin::getTranslator(const QString &locale)
+QTranslator *AutoScrollPlugin::getTranslator(const QString &locale)
 {
     QTranslator* translator = new QTranslator(this);
-    translator->load(locale, ":/autoscroll/locale/");
+    translator->load(locale, QSL(":/autoscroll/locale/"));
     return translator;
 }
 
-void AutoScrollPlugin::showSettings(QWidget* parent)
+void AutoScrollPlugin::showSettings(QWidget *parent)
 {
     if (!m_settings) {
-        m_settings = new AutoScrollSettings(m_scroller, parent);
+        m_settings = new AutoScrollSettings(m_settingsPath, parent);
+        connect(m_settings, &AutoScrollSettings::settingsChanged, this, &AutoScrollPlugin::updateScript);
     }
 
     m_settings.data()->show();
     m_settings.data()->raise();
 }
 
-bool AutoScrollPlugin::mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
+void AutoScrollPlugin::updateScript()
 {
-    if (type == Qz::ON_WebView) {
-        return m_scroller->mouseMove(obj, event);
+    const QString name = QSL("_qupzilla_autoscroll");
+
+    QWebEngineScript oldScript = mApp->webProfile()->scripts()->findScript(name);
+    if (!oldScript.isNull()) {
+        mApp->webProfile()->scripts()->remove(oldScript);
     }
 
-    return false;
-}
+    QWebEngineScript script;
+    script.setName(name);
+    script.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script.setWorldId(QWebEngineScript::ApplicationWorld);
+    script.setRunsOnSubFrames(false);
 
-bool AutoScrollPlugin::mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
-{
-    if (type == Qz::ON_WebView) {
-        return m_scroller->mousePress(obj, event);
-    }
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
+    settings.beginGroup(QSL("AutoScroll"));
 
-    return false;
-}
+    QString source = QzTools::readAllFileContents(QSL(":/autoscroll/data/autoscroll.js"));
+    source.replace(QSL("%MOVE_SPEED%"), settings.value(QSL("Speed"), 5).toString());
+    source.replace(QSL("%CTRL_CLICK%"), settings.value(QSL("CtrlClick"), true).toString());
+    source.replace(QSL("%MIDDLE_CLICK%"), settings.value(QSL("MiddleClick"), true).toString());
+    source.replace(QSL("%IMG_ALL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_all.png"))));
+    source.replace(QSL("%IMG_HORIZONTAL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_horizontal.png"))));
+    source.replace(QSL("%IMG_VERTICAL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_vertical.png"))));
 
-bool AutoScrollPlugin::mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
-{
-    if (type == Qz::ON_WebView) {
-        return m_scroller->mouseRelease(obj, event);
-    }
+    script.setSourceCode(source);
 
-    return false;
+    mApp->webProfile()->scripts()->insert(script);
 }
 
 #if QT_VERSION < 0x050000

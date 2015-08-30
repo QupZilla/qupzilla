@@ -17,16 +17,24 @@
 * ============================================================ */
 #include "autoscrollsettings.h"
 #include "ui_autoscrollsettings.h"
-#include "autoscroller.h"
+#include "qzcommon.h"
 
-AutoScrollSettings::AutoScrollSettings(AutoScroller* scroller, QWidget* parent)
+#include <QSettings>
+
+AutoScrollSettings::AutoScrollSettings(const QString &settingsPath, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::AutoScrollSettings)
-    , m_scroller(scroller)
+    , m_settingsPath(settingsPath)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
-    ui->divider->setValue(m_scroller->scrollDivider());
+
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
+    settings.beginGroup(QSL("AutoScroll"));
+
+    ui->speed->setValue(11 - settings.value(QSL("Speed"), 5).toInt());
+    ui->ctrlScroll->setChecked(settings.value(QSL("CtrlClick"), false).toBool());
+    ui->middleScroll->setChecked(settings.value(QSL("MiddleClick"), true).toBool());
 
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accepted()));
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
@@ -39,6 +47,14 @@ AutoScrollSettings::~AutoScrollSettings()
 
 void AutoScrollSettings::accepted()
 {
-    m_scroller->setScrollDivider(ui->divider->value());
+    QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
+    settings.beginGroup(QSL("AutoScroll"));
+
+    settings.setValue(QSL("Speed"), 11 - ui->speed->value());
+    settings.setValue(QSL("CtrlClick"), ui->ctrlScroll->isChecked());
+    settings.setValue(QSL("MiddleClick"), ui->middleScroll->isChecked());
+
     close();
+
+    emit settingsChanged();
 }

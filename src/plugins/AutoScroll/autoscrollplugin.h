@@ -20,7 +20,6 @@
 
 #include "plugininterface.h"
 
-class AutoScroller;
 class AutoScrollSettings;
 
 class AutoScrollPlugin : public QObject, public PluginInterface
@@ -29,7 +28,7 @@ class AutoScrollPlugin : public QObject, public PluginInterface
     Q_INTERFACES(PluginInterface)
 
 #if QT_VERSION >= 0x050000
-    Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.TestPlugin")
+    Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.AutoScroll")
 #endif
 
 public:
@@ -40,16 +39,14 @@ public:
     void unload();
     bool testPlugin();
 
-    QTranslator* getTranslator(const QString &locale);
-    void showSettings(QWidget* parent);
-
-    bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
-    bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+    QTranslator *getTranslator(const QString &locale);
+    void showSettings(QWidget *parent);
 
 private:
-    AutoScroller* m_scroller;
+    void updateScript();
+
+    QString m_settingsPath;
     QPointer<AutoScrollSettings> m_settings;
 };
 
-#endif // TESTPLUGIN_H
+#endif // AUTOSCROLLPLUGIN_H

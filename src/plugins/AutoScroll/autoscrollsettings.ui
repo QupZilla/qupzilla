@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>179</height>
+    <height>208</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,53 +89,50 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <spacer name="horizontalSpacer_5">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Scroll Divider:</string>
+        <string>Scroll speed:</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QDoubleSpinBox" name="divider">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Scroll with middle mouse</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Scroll with Ctrl + left mouse</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="middleScroll"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCheckBox" name="ctrlScroll"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="speed">
        <property name="minimum">
-        <double>1.000000000000000</double>
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>10</number>
        </property>
       </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_6">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="label_6">
      <property name="text">
-      <string>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</string>
+      <string>&lt;b&gt;Note:&lt;/b&gt; You must reload the page to apply the settings</string>
      </property>
     </widget>
    </item>
