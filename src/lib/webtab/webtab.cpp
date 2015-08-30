@@ -87,7 +87,6 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 WebTab::WebTab(BrowserWindow* window)
     : QWidget()
     , m_window(window)
-    , m_inspector(0)
     , m_tabBar(0)
     , m_isPinned(false)
 {
@@ -130,15 +129,12 @@ TabbedWebView* WebTab::webView() const
 
 void WebTab::showWebInspector()
 {
-#if QTWEBENGINE_DISABLED
-    if (!m_inspector) {
-        m_inspector = new WebInspector(this);
-        m_inspector->setPage(m_webView->page());
-        m_splitter->addWidget(m_inspector);
-    }
+    if (m_splitter->count() != 1)
+        return;
 
-    m_inspector->show();
-#endif
+    WebInspector *inspector = new WebInspector(this);
+    inspector->setView(m_webView);
+    m_splitter->addWidget(inspector);
 }
 
 QUrl WebTab::url() const

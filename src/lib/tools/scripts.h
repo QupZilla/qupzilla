@@ -23,6 +23,8 @@
 
 #include "qzcommon.h"
 
+class QWebEngineView;
+
 class QUPZILLA_EXPORT Scripts
 {
 public:

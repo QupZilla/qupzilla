@@ -16,59 +16,72 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "webinspector.h"
-#include "toolbutton.h"
-#include "iconprovider.h"
+#include "mainapplication.h"
 
-#if QTWEBENGINE_DISABLED
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QNetworkReply>
 
-#include <QTimer>
+QList<QWebEngineView*> WebInspector::s_views;
 
-WebInspector::WebInspector(QWidget* parent)
-    : QWebInspector(parent)
-    , m_closeButton(0)
-    , m_blockHideEvent(true)
+WebInspector::WebInspector(QWidget *parent)
+    : QWebEngineView(parent)
 {
     setObjectName(QSL("web-inspector"));
     setMinimumHeight(80);
+
+    registerView(this);
+
+    connect(page(), &QWebEnginePage::windowCloseRequested, this, &WebInspector::deleteLater);
+    connect(page(), &QWebEnginePage::loadFinished, this, &WebInspector::updateCloseButton);
+}
+
+WebInspector::~WebInspector()
+{
+    unregisterView(this);
+}
+
+void WebInspector::setView(QWebEngineView *view)
+{
+    QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(WEBINSPECTOR_PORT));
+    int index = s_views.indexOf(view);
+
+    QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(inspectorUrl.resolved(QUrl("json/list"))));
+    connect(reply, &QNetworkReply::finished, this, [=]() {
+        QJsonArray clients = QJsonDocument::fromJson(reply->readAll()).array();
+        QUrl pageUrl;
+        if (clients.size() > index) {
+            QJsonObject object = clients.at(index).toObject();
+            pageUrl = inspectorUrl.resolved(QUrl(object.value(QSL("devtoolsFrontendUrl")).toString()));
+        }
+        load(pageUrl);
+        pushView(this);
+        show();
+    });
+}
+
+void WebInspector::pushView(QWebEngineView *view)
+{
+    s_views.removeOne(view);
+    s_views.prepend(view);
+}
+
+void WebInspector::registerView(QWebEngineView *view)
+{
+    s_views.prepend(view);
+}
+
+void WebInspector::unregisterView(QWebEngineView *view)
+{
+    s_views.removeOne(view);
 }
 
 void WebInspector::updateCloseButton()
 {
-    if (!m_closeButton) {
-        m_closeButton = new ToolButton(this);
-        m_closeButton->setAutoRaise(true);
-        m_closeButton->setIcon(IconProvider::standardIcon(QStyle::SP_DialogCloseButton));
-        connect(m_closeButton, SIGNAL(clicked()), this, SLOT(hideInspector()));
-    }
-
-    m_closeButton->show();
-    m_closeButton->move(width() - m_closeButton->width(), 0);
+    page()->runJavaScript(QL1S("var button = document.getElementsByClassName('toolbar-close-button-item')[0];"
+                               "button.style.display = 'inline-block';"
+                               "button.addEventListener('click', function() {"
+                               "    window.close();"
+                               "})"));
 }
-
-void WebInspector::hideInspector()
-{
-    m_blockHideEvent = false;
-    hide();
-    m_blockHideEvent = true;
-
-    // This is needed to correctly show close button after QWebInspector re-initialization
-    m_closeButton->deleteLater();
-    m_closeButton = 0;
-}
-
-void WebInspector::hideEvent(QHideEvent* event)
-{
-    // Prevent re-initializing QWebInspector after changing tab
-    if (!m_blockHideEvent) {
-        QWebInspector::hideEvent(event);
-    }
-}
-
-void WebInspector::resizeEvent(QResizeEvent* event)
-{
-    QWebInspector::resizeEvent(event);
-
-    QTimer::singleShot(0, this, SLOT(updateCloseButton()));
-}
-
-#endif

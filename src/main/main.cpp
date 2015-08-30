@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "mainapplication.h"
+#include "webinspector.h"
 #include "proxystyle.h"
 #include "datapaths.h"
 
@@ -153,6 +154,8 @@ int main(int argc, char* argv[])
         args[argc++] = qstrdup(stylecmd.toUtf8().constData());
         argv = args;
     }
+
+    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", WEBINSPECTOR_PORT);
 
     MainApplication app(argc, argv);
 

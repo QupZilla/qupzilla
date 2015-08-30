@@ -32,6 +32,7 @@
 #include "qzsettings.h"
 #include "enhancedmenu.h"
 #include "locationbar.h"
+#include "webinspector.h"
 
 #ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
@@ -64,6 +65,7 @@ WebView::WebView(QWidget* parent)
     , m_page(0)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
+    , m_firstLoad(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -76,6 +78,8 @@ WebView::WebView(QWidget* parent)
 
     installEventFilter(this);
 
+    WebInspector::registerView(this);
+
 #ifdef Q_OS_MAC
     new MacWebViewScroller(this);
 #endif
@@ -83,7 +87,7 @@ WebView::WebView(QWidget* parent)
 
 WebView::~WebView()
 {
-    //delete m_page;
+    WebInspector::unregisterView(this);
 }
 
 QIcon WebView::icon() const
@@ -178,6 +182,16 @@ void WebView::setPage(QWebEnginePage* page)
     pal.setBrush(QPalette::Base, Qt::white);
     page->setPalette(pal);
 #endif
+}
+
+void WebView::load(const QUrl &url)
+{
+    QWebEngineView::load(url);
+
+    if (!m_firstLoad) {
+        m_firstLoad = true;
+        WebInspector::pushView(this);
+    }
 }
 
 void WebView::load(const LoadRequest &request)
@@ -1594,7 +1608,7 @@ void WebView::loadRequest(const LoadRequest &req)
     else
         QWebEngineView::load(req.networkRequest(), QNetworkAccessManager::PostOperation, req.data());
 #else
-    QWebEngineView::load(req.url());
+    load(req.url());
 #endif
 }
 

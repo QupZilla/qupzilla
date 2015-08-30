@@ -20,6 +20,7 @@ unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 INCLUDEPATH += ../lib/3rdparty \
                ../lib/app \
                ../lib/session \
+               ../lib/webengine \
                ../lib/webtab \
 
 DEPENDPATH += $$INCLUDEPATH

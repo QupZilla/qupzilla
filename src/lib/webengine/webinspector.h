@@ -18,31 +18,33 @@
 #ifndef WEBINSPECTORDOCKWIDGET_H
 #define WEBINSPECTORDOCKWIDGET_H
 
-#if QTWEBENGINE_DISABLED
-#include <QWebInspector>
+#define WEBINSPECTOR_PORT "33417"
+
+#include <QWebEngineView>
 
 #include "qzcommon.h"
 
 class ToolButton;
 
-class QUPZILLA_EXPORT WebInspector : public QWebInspector
+class QUPZILLA_EXPORT WebInspector : public QWebEngineView
 {
     Q_OBJECT
 
 public:
-    explicit WebInspector(QWidget* parent = 0);
+    explicit WebInspector(QWidget *parent = Q_NULLPTR);
+    ~WebInspector();
+
+    void setView(QWebEngineView *view);
+
+    static void pushView(QWebEngineView *view);
+    static void registerView(QWebEngineView *view);
+    static void unregisterView(QWebEngineView *view);
 
 private slots:
     void updateCloseButton();
-    void hideInspector();
 
 private:
-    void hideEvent(QHideEvent* event);
-    void resizeEvent(QResizeEvent* event);
-
-    ToolButton* m_closeButton;
-    bool m_blockHideEvent;
+    static QList<QWebEngineView*> s_views;
 };
-#endif
 
 #endif // WEBINSPECTORDOCKWIDGET_H

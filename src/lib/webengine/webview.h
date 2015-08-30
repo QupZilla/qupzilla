@@ -44,6 +44,7 @@ public:
     WebPage* page() const;
     void setPage(QWebEnginePage* page);
 
+    void load(const QUrl &url);
     void load(const LoadRequest &request);
     bool isLoading() const;
 
@@ -214,6 +215,7 @@ private:
 
     bool m_disableTouchMocking;
     bool m_isReloading;
+    bool m_firstLoad;
 
     static bool s_forceContextMenuOnMouseRelease;
 };
