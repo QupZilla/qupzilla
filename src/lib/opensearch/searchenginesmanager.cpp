@@ -256,6 +256,8 @@ void SearchEnginesManager::addEngine(const Engine &engine)
 
 void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView* view)
 {
+    Q_UNUSED(element)
+    Q_UNUSED(view)
 #if QTWEBENGINE_DISABLED
     QWebElement formElement = element.parent();
 

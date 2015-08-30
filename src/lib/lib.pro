@@ -105,7 +105,7 @@ SOURCES += \
     bookmarks/bookmarkswidget.cpp \
     cookies/cookiejar.cpp \
     cookies/cookiemanager.cpp \
-    downloads/downloadfilehelper.cpp \
+    #downloads/downloadfilehelper.cpp \
     downloads/downloaditem.cpp \
     downloads/downloadmanager.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -129,15 +129,15 @@ SOURCES += \
     navigation/reloadstopbutton.cpp \
     navigation/siteicon.cpp \
     navigation/websearchbar.cpp \
-    network/cabundleupdater.cpp \
-    network/networkmanager.cpp \
+    #network/cabundleupdater.cpp \
+    #network/networkmanager.cpp \
     network/networkmanagerproxy.cpp \
     network/networkproxyfactory.cpp \
     network/pac/pacmanager.cpp \
     network/pac/proxyautoconfig.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     network/schemehandlers/fileschemehandler.cpp \
-    network/schemehandlers/ftpschemehandler.cpp \
+    #network/schemehandlers/ftpschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
     notifications/desktopnotification.cpp \
@@ -154,16 +154,16 @@ SOURCES += \
     other/checkboxdialog.cpp \
     other/iconchooser.cpp \
     other/licenseviewer.cpp \
-    other/pagescreen.cpp \
+    #other/pagescreen.cpp \
     other/qzsettings.cpp \
-    other/siteinfo.cpp \
+    #other/siteinfo.cpp \
     other/siteinfowidget.cpp \
-    other/sourceviewer.cpp \
-    other/sourceviewersearch.cpp \
+    #other/sourceviewer.cpp \
+    #other/sourceviewersearch.cpp \
     other/statusbarmessage.cpp \
     other/updater.cpp \
     other/useragentmanager.cpp \
-    plugins/clicktoflash.cpp \
+    #plugins/clicktoflash.cpp \
     plugins/pluginproxy.cpp \
     plugins/plugins.cpp \
     plugins/speeddial.cpp \
@@ -301,7 +301,7 @@ HEADERS  += \
     bookmarks/bookmarkswidget.h \
     cookies/cookiejar.h \
     cookies/cookiemanager.h \
-    downloads/downloadfilehelper.h \
+    #downloads/downloadfilehelper.h \
     downloads/downloaditem.h \
     downloads/downloadmanager.h \
     downloads/downloadoptionsdialog.h \
@@ -325,7 +325,7 @@ HEADERS  += \
     navigation/reloadstopbutton.h \
     navigation/siteicon.h \
     navigation/websearchbar.h \
-    network/cabundleupdater.h \
+    #network/cabundleupdater.h \
     network/networkmanager.h \
     network/networkmanagerproxy.h \
     network/networkproxyfactory.h \
@@ -334,7 +334,7 @@ HEADERS  += \
     network/pac/proxyautoconfig.h \
     network/schemehandlers/adblockschemehandler.h \
     network/schemehandlers/fileschemehandler.h \
-    network/schemehandlers/ftpschemehandler.h \
+    #network/schemehandlers/ftpschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/schemehandler.h \
     network/sslerrordialog.h \
@@ -352,16 +352,16 @@ HEADERS  += \
     other/checkboxdialog.h \
     other/iconchooser.h \
     other/licenseviewer.h \
-    other/pagescreen.h \
+    #other/pagescreen.h \
     other/qzsettings.h \
-    other/siteinfo.h \
+    #other/siteinfo.h \
     other/siteinfowidget.h \
-    other/sourceviewer.h \
-    other/sourceviewersearch.h \
+    #other/sourceviewer.h \
+    #other/sourceviewersearch.h \
     other/statusbarmessage.h \
     other/updater.h \
     other/useragentmanager.h \
-    plugins/clicktoflash.h \
+    #plugins/clicktoflash.h \
     plugins/plugininterface.h \
     plugins/pluginproxy.h \
     plugins/plugins.h \

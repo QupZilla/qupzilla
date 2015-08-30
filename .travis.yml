@@ -21,6 +21,6 @@ script:
   - QMAKE="qmake"
   - if [[ "$QT" == "qt55" ]]; then QMAKE="/opt/qt55/bin/qmake"; fi
   - $QMAKE
-#  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
+  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
   - make || exit 1
 #  - cd scripts && ./run_tests.sh $QMAKE

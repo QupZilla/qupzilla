@@ -213,15 +213,6 @@ QString QzTools::escapeSqlString(QString urlString)
     return urlString;
 }
 
-QUrl QzTools::frameUrl(QWebEngineFrame* frame)
-{
-#if QTWEBENGINE_DISABLED
-    return frame->url().isEmpty() ? frame->baseUrl() : frame->url();
-#else
-    return QUrl();
-#endif
-}
-
 QString QzTools::ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
     if (!QFile::exists(name)) {

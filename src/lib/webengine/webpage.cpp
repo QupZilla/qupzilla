@@ -83,13 +83,13 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
+    setupWebChannel();
+
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
     connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
     connect(this, &QWebEnginePage::urlChanged, this, &WebPage::urlChanged);
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
-
-    setupWebChannel();
 }
 
 WebPage::~WebPage()
@@ -159,12 +159,7 @@ bool WebPage::isLoading() const
 
 void WebPage::urlChanged(const QUrl &url)
 {
-#if QTWEBENGINE_DISABLED
-    // Make sure JavaScript is enabled for qupzilla pages regardless of user settings
-    if (url.scheme() == QLatin1String("qupzilla")) {
-        settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
-    }
-#endif
+    Q_UNUSED(url)
 
     if (isLoading()) {
         m_adBlockedEntries.clear();
@@ -223,65 +218,6 @@ void WebPage::watchedFileChanged(const QString &file)
     if (url().toLocalFile() == file) {
         triggerAction(QWebEnginePage::Reload);
     }
-}
-
-void WebPage::handleUnsupportedContent(QNetworkReply* reply)
-{
-    if (!reply) {
-        return;
-    }
-
-    const QUrl url = reply->url();
-
-    switch (reply->error()) {
-    case QNetworkReply::NoError:
-        if (reply->header(QNetworkRequest::ContentTypeHeader).isValid()) {
-            QString requestUrl = reply->request().url().toString(QUrl::RemoveFragment | QUrl::RemoveQuery);
-#if QTWEBENGINE_DISABLED
-            if (requestUrl.endsWith(QLatin1String(".swf"))) {
-                const QWebElement docElement = mainFrame()->documentElement();
-                const QWebElement object = docElement.findFirst(QString("object[src=\"%1\"]").arg(requestUrl));
-                const QWebElement embed = docElement.findFirst(QString("embed[src=\"%1\"]").arg(requestUrl));
-
-                if (!object.isNull() || !embed.isNull()) {
-                    qDebug() << "WebPage::UnsupportedContent" << url << "Attempt to download flash object on site!";
-                    reply->deleteLater();
-                    return;
-                }
-            }
-            DownloadManager* dManager = mApp->downloadManager();
-            dManager->handleUnsupportedContent(reply, this);
-#endif
-            return;
-        }
-        // Falling unsupported content with invalid ContentTypeHeader to be handled as UnknownProtocol
-
-    case QNetworkReply::ProtocolUnknownError: {
-        if (url.scheme() == QLatin1String("file")) {
-            FileSchemeHandler::handleUrl(url);
-            return;
-        }
-
-        if (url.scheme() == QLatin1String("ftp")) {
-            DownloadManager* dManager = mApp->downloadManager();
-#if QTWEBENGINE_DISABLED
-            dManager->handleUnsupportedContent(reply, this);
-#endif
-            return;
-        }
-
-        qDebug() << "WebPage::UnsupportedContent" << url << "ProtocolUnknowError";
-        desktopServicesOpen(url);
-
-        reply->deleteLater();
-        return;
-    }
-    default:
-        break;
-    }
-
-    qDebug() << "WebPage::UnsupportedContent error" << url << reply->errorString();
-    reply->deleteLater();
 }
 
 void WebPage::handleUnknownProtocol(const QUrl &url)
@@ -1040,7 +976,6 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 void WebPage::setJavaScriptEnabled(bool enabled)
 {
     settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, enabled);
-    m_javaScriptEnabled = enabled;
 }
 
 QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)

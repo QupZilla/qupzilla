@@ -43,7 +43,7 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
 
     connect(this, SIGNAL(expanded(QModelIndex)), this, SLOT(indexExpanded(QModelIndex)));
     connect(this, SIGNAL(collapsed(QModelIndex)), this, SLOT(indexCollapsed(QModelIndex)));
-    connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)), this, SLOT(selectionChanged()));
+    connect(this, SIGNAL(slotSelectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotSelectionChanged()));
 }
 
 BookmarksTreeView::ViewType BookmarksTreeView::viewType() const
@@ -151,7 +151,7 @@ void BookmarksTreeView::indexCollapsed(const QModelIndex &parent)
     }
 }
 
-void BookmarksTreeView::selectionChanged()
+void BookmarksTreeView::slotSelectionChanged()
 {
     emit bookmarksSelected(selectedBookmarks());
 }

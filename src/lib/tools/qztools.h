@@ -24,7 +24,6 @@
 
 class QSslCertificate;
 class QFontMetrics;
-class QWebEngineFrame;
 class QPixmap;
 class QIcon;
 class QWidget;
@@ -49,7 +48,6 @@ public:
     static QString urlEncodeQueryString(const QUrl &url);
     static QString fromPunycode(const QString &str);
     static QString escapeSqlString(QString urlString);
-    static QUrl frameUrl(QWebEngineFrame *frame);
 
     static QString ensureUniqueFilename(const QString &name, const QString &appendFormat = QString("(%1)"));
     static QString getFileNameFromUrl(const QUrl &url);

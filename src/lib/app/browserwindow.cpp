@@ -1190,6 +1190,7 @@ bool BrowserWindow::event(QEvent* event)
 
 void BrowserWindow::printPage(QWebEngineFrame* frame)
 {
+    Q_UNUSED(frame)
 #if QTWEBENGINE_DISABLED
     QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
     dialog->setAttribute(Qt::WA_DeleteOnClose);

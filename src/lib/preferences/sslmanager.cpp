@@ -202,6 +202,7 @@ void SSLManager::deleteCertificate()
 
 void SSLManager::ignoreAll(bool state)
 {
+    Q_UNUSED(state)
 #if QTWEBENGINE_DISABLED
     mApp->networkManager()->setIgnoreAllWarnings(state);
 #endif
@@ -209,6 +210,7 @@ void SSLManager::ignoreAll(bool state)
 
 void SSLManager::disableWeakCiphers(bool state)
 {
+    Q_UNUSED(state)
 #if QTWEBENGINE_DISABLED
     mApp->networkManager()->setDisableWeakCiphers(state);
 #endif

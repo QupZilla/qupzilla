@@ -176,12 +176,14 @@ QVector<PasswordEntry> AutoFill::completeFrame(QWebEngineFrame* frame)
         return list;
     }
 
+#if QTWEBENGINE_DISABLED
     const QUrl frameUrl = QzTools::frameUrl(frame);
     if (!isStored(frameUrl)) {
         return list;
     }
 
     list = getFormData(frameUrl);
+#endif
 
     if (!list.isEmpty()) {
         const PasswordEntry entry = list.first();
@@ -199,6 +201,8 @@ QVector<PasswordEntry> AutoFill::completeFrame(QWebEngineFrame* frame)
 
 void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
 {
+    Q_UNUSED(request)
+    Q_UNUSED(outgoingData)
 #if QTWEBENGINE_DISABLED
     // Don't save in private browsing
     if (mApp->isPrivate()) {

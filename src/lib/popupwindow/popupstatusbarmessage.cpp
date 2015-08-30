@@ -46,25 +46,12 @@ void PopupStatusBarMessage::showMessage(const QString &message)
         QWebEngineFrame* mainFrame = view->page()->mainFrame();
 #endif
 
-        int horizontalScrollSize = 0;
-        int verticalScrollSize = 0;
-        const int scrollbarSize = m_popupWindow->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-
-#if QTWEBENGINE_DISABLED
-        if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
-            horizontalScrollSize = scrollbarSize;
-        }
-        if (mainFrame->scrollBarMaximum(Qt::Vertical)) {
-            verticalScrollSize = scrollbarSize;
-        }
-#endif
-
         m_statusBarText->setText(message);
-        m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
+        m_statusBarText->setMaximumWidth(view->width());
         m_statusBarText->resize(m_statusBarText->sizeHint());
 
         QPoint position;
-        position.setY(view->height() - horizontalScrollSize - m_statusBarText->height());
+        position.setY(view->height() - m_statusBarText->height());
 
         QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
 

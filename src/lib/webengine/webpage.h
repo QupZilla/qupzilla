@@ -81,8 +81,6 @@ signals:
     void privacyChanged(bool status);
 
 protected slots:
-    void handleUnsupportedContent(QNetworkReply* url);
-
     void progress(int prog);
     void finished();
 
@@ -131,7 +129,6 @@ private:
     int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;
-    bool m_javaScriptEnabled;
     bool m_adjustingScheduled;
 };
 

@@ -337,6 +337,7 @@ bool AdBlockRule::matchObject(const QNetworkRequest &request) const
 
 bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
 {
+    Q_UNUSED(request)
 #if QTWEBENGINE_DISABLED
     QWebEngineFrame* originatingFrame = static_cast<QWebEngineFrame*>(request.originatingObject());
     if (!originatingFrame) {

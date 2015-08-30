@@ -70,7 +70,7 @@ private slots:
     void indexExpanded(const QModelIndex &parent);
     void indexCollapsed(const QModelIndex &parent);
 
-    void selectionChanged();
+    void slotSelectionChanged();
 
 private:
     void restoreExpandedState(const QModelIndex &parent);

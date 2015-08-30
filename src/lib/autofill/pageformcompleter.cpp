@@ -212,6 +212,7 @@ QByteArray PageFormCompleter::convertWebKitFormBoundaryIfNecessary(const QByteAr
 
 PageFormCompleter::QueryItem PageFormCompleter::findUsername(const QWebElement &form) const
 {
+    Q_UNUSED(form)
 #if QTWEBENGINE_DISABLED
     // Try to find username (or email) field in the form.
     QStringList selectors;

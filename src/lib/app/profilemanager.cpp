@@ -142,10 +142,8 @@ QString ProfileManager::startingProfile() const
 
 void ProfileManager::setStartingProfile(const QString &profileName)
 {
-#if QTWEBENGINE_DISABLED
     QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     settings.setValue(QLatin1String("Profiles/startProfile"), profileName);
-#endif
 }
 
 QStringList ProfileManager::availableProfiles() const
