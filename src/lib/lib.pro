@@ -529,9 +529,7 @@ os2 {
 
 mac {
     HEADERS += other/macmenureceiver.h \
-               webtab/macwebviewscroller.h
     SOURCES += other/macmenureceiver.cpp \
-               webtab/macwebviewscroller.cpp
     RESOURCES -= data/certs.qrc
 
     LIBS += -lcrypto -framework CoreServices

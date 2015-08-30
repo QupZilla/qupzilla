@@ -60,6 +60,7 @@
 #include <QLineEdit>
 #include <QMouseEvent>
 #include <QWebEngineHistory>
+#include <QWebEngineSettings>
 #include <QTimer>
 #include <QNetworkReply>
 #include <QDesktopServices>
@@ -137,15 +138,6 @@ void WebPage::scheduleAdjustPage()
     }
 }
 
-bool WebPage::loadingError() const
-{
-#if QTWEBENGINE_DISABLED
-    return !mainFrame()->findFirstElement("span[id=\"qupzilla-error-page\"]").isNull();
-#else
-    return false;
-#endif
-}
-
 void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
 {
     foreach (const QSslCertificate &cert, certs) {
@@ -171,14 +163,6 @@ bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
 
     return matches == certs.count();
 }
-
-#if QTWEBENGINE_DISABLED
-QWebElement WebPage::activeElement() const
-{
-    QRect activeRect = inputMethodQuery(Qt::ImMicroFocus).toRect();
-    return mainFrame()->hitTestContent(activeRect.center()).element();
-}
-#endif
 
 bool WebPage::isRunningLoop()
 {
@@ -256,37 +240,6 @@ void WebPage::watchedFileChanged(const QString &file)
     if (url().toLocalFile() == file) {
         triggerAction(QWebEnginePage::Reload);
     }
-}
-
-#if QTWEBENGINE_DISABLED
-void WebPage::printFrame(QWebEngineFrame* frame)
-{
-    WebView* webView = qobject_cast<WebView*>(view());
-    if (!webView) {
-        return;
-    }
-
-    webView->printPage(frame);
-}
-#endif
-
-void WebPage::addJavaScriptObject()
-{
-#if QTWEBENGINE_DISABLED
-    // Make sure all other sites have JavaScript set by user preferences
-    // (JavaScript is enabled in WebPage::urlChanged)
-    if (url().scheme() != QLatin1String("qupzilla")) {
-        settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, m_javaScriptEnabled);
-    }
-
-    ExternalJsObject* jsObject = new ExternalJsObject(this);
-    addToJavaScriptWindowObject("external", jsObject);
-
-    if (url().toString() == QLatin1String("qupzilla:speeddial")) {
-        jsObject->setOnSpeedDial(true);
-        mApp->plugins()->speedDial()->addWebFrame(mainFrame());
-    }
-#endif
 }
 
 void WebPage::handleUnsupportedContent(QNetworkReply* reply)
@@ -436,23 +389,6 @@ void WebPage::windowCloseRequested()
     webView->closeView();
 }
 
-#if QTWEBENGINE_DISABLED
-void WebPage::frameCreated(QWebFrame* frame)
-{
-    connect(frame, SIGNAL(initialLayoutCompleted()), this, SLOT(frameInitialLayoutCompleted()));
-}
-
-void WebPage::frameInitialLayoutCompleted()
-{
-    QWebFrame* frame = qobject_cast<QWebFrame*>(sender());
-    if (!frame)
-        return;
-
-    // Autofill
-    m_passwordEntries = mApp->autoFill()->completeFrame(frame);
-}
-#endif
-
 void WebPage::authentication(const QUrl &requestUrl, QAuthenticator* auth)
 {
     QDialog* dialog = new QDialog();
@@ -587,20 +523,6 @@ void WebPage::proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, 
     auth->setPassword(pass->text());
 }
 
-#if QTWEBENGINE_DISABLED
-void WebPage::dbQuotaExceeded(QWebEngineFrame* frame)
-{
-    if (!frame) {
-        return;
-    }
-
-    const QWebSecurityOrigin origin = frame->securityOrigin();
-    const qint64 oldQuota = origin.databaseQuota();
-
-    frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
-}
-#endif
-
 void WebPage::doWebSearch(const QString &text)
 {
     WebView* webView = qobject_cast<WebView*>(view());
@@ -614,61 +536,6 @@ void WebPage::doWebSearch(const QString &text)
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
 {
     mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
-}
-
-#ifdef USE_QTWEBKIT_2_2
-void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
-{
-    if (!origin) {
-        return;
-    }
-
-    origin->setApplicationCacheQuota(originalQuota * 2);
-}
-#endif // USE_QTWEBKIT_2_2
-
-bool WebPage::event(QEvent* event)
-{
-    if (event->type() == QEvent::Leave) {
-        // QWebEnginePagePrivate::leaveEvent():
-        // Fake a mouse move event just outside of the widget, since all
-        // the interesting mouse-out behavior like invalidating scrollbars
-        // is handled by the WebKit event handler's mouseMoved function.
-
-        // However, its implementation fake mouse move event on QCursor::pos()
-        // position that is in global screen coordinates. So instead of
-        // really faking it, it just creates mouse move event somewhere in
-        // page. It can for example focus a link, and then link url gets
-        // stuck in status bar message.
-
-        // So we are faking mouse move event with proper coordinates for
-        // so called "just outside of the widget" position
-
-        const QPoint cursorPos = view()->mapFromGlobal(QCursor::pos());
-        QPoint mousePos;
-
-        if (cursorPos.y() < 0) {
-            // Left on top
-            mousePos = QPoint(cursorPos.x(), -1);
-        }
-        else if (cursorPos.x() < 0) {
-            // Left on left
-            mousePos = QPoint(-1, cursorPos.y());
-        }
-        else if (cursorPos.y() > view()->height()) {
-            // Left on bottom
-            mousePos = QPoint(cursorPos.x(), view()->height() + 1);
-        }
-        else {
-            // Left on right
-            mousePos = QPoint(view()->width() + 1, cursorPos.y());
-        }
-
-        QMouseEvent fakeEvent(QEvent::MouseMove, mousePos, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
-        return QWebEnginePage::event(&fakeEvent);
-    }
-
-    return QWebEnginePage::event(event);
 }
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
@@ -863,24 +730,6 @@ void WebPage::cleanBlockedObjects()
     }
 
     runJavaScript(Scripts::setCss(elementHiding));
-}
-
-QString WebPage::userAgentForUrl(const QUrl &url) const
-{
-    QString userAgent = mApp->userAgentManager()->userAgentForUrl(url);
-#if QTWEBENGINE_DISABLED
-
-    if (userAgent.isEmpty()) {
-        userAgent = QWebEnginePage::userAgentForUrl(url);
-#ifdef Q_OS_MAC
-#ifdef __i386__ || __x86_64__
-        userAgent.replace(QLatin1String("PPC Mac OS X"), QLatin1String("Intel Mac OS X"));
-#endif
-#endif
-    }
-
-#endif
-    return userAgent;
 }
 
 #if QTWEBENGINE_DISABLED
@@ -1207,10 +1056,8 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
 void WebPage::setJavaScriptEnabled(bool enabled)
 {
-#if QTWEBENGINE_DISABLED
     settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, enabled);
     m_javaScriptEnabled = enabled;
-#endif
 }
 
 QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)

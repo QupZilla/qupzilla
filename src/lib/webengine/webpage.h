@@ -73,17 +73,11 @@ public:
     bool isRunningLoop();
 
     bool isLoading() const;
-    bool loadingError() const;
 
     void addRejectedCerts(const QList<QSslCertificate> &certs);
     bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
     void setupWebChannel();
-
-#if QTWEBENGINE_DISABLED
-    QWebElement activeElement() const;
-#endif
-    QString userAgentForUrl(const QUrl &url) const;
 
 signals:
     void privacyChanged(bool status);
@@ -97,29 +91,14 @@ protected slots:
 private slots:
     void cleanBlockedObjects();
     void urlChanged(const QUrl &url);
-    void addJavaScriptObject();
 
     void watchedFileChanged(const QString &file);
     void windowCloseRequested();
     void authentication(const QUrl &requestUrl, QAuthenticator* auth);
     void proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, const QString &proxyHost);
 
-#if QTWEBENGINE_DISABLED
-    void frameCreated(QWebFrame* frame);
-    void frameInitialLayoutCompleted();
-    void dbQuotaExceeded(QWebEngineFrame* frame);
-    void printFrame(QWebEngineFrame* frame);
-#endif
-
     void doWebSearch(const QString &text);
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
-
-#ifdef USE_QTWEBKIT_2_2
-    void appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota);
-#endif
-
-protected:
-    bool event(QEvent* event);
 
 private:
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;

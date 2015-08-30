@@ -39,10 +39,6 @@
 #include "qtwebkit/spellcheck/speller.h"
 #endif
 
-#ifdef Q_OS_MAC
-#include "macwebviewscroller.h"
-#endif
-
 #include <iostream>
 
 #include <QDir>
@@ -51,7 +47,6 @@
 #include <QNetworkRequest>
 #include <QWebEngineHistory>
 #include <QClipboard>
-#include <QTouchEvent>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -60,9 +55,6 @@ WebView::WebView(QWidget* parent)
     , m_siteIconLoader(0)
     , m_isLoading(false)
     , m_progress(0)
-#if QTWEBENGINE_DISABLED
-    , m_clickedFrame(0)
-#endif
     , m_page(0)
     , m_disableTouchMocking(false)
     , m_isReloading(false)
@@ -80,10 +72,6 @@ WebView::WebView(QWidget* parent)
     installEventFilter(this);
 
     WebInspector::registerView(this);
-
-#ifdef Q_OS_MAC
-    new MacWebViewScroller(this);
-#endif
 }
 
 WebView::~WebView()
@@ -104,12 +92,6 @@ QIcon WebView::icon() const
     if (url().scheme() == QLatin1String("ftp")) {
         return IconProvider::standardIcon(QStyle::SP_ComputerIcon);
     }
-
-#if QTWEBENGINE_DISABLED
-    if (!QWebEngineView::icon().isNull()) {
-        return QWebEngineView::icon();
-    }
-#endif
 
     if (!m_siteIcon.isNull() && m_siteIconUrl.host() == url().host()) {
         return m_siteIcon;
@@ -163,9 +145,6 @@ void WebView::setPage(QWebEnginePage* page)
     QWebEngineView::setPage(page);
     m_page = qobject_cast<WebPage*>(page);
 
-#if QTWEBENGINE_DISABLED
-    connect(m_page, SIGNAL(saveFrameStateRequested(QWebEngineFrame*,QWebHistoryItem*)), this, SLOT(frameStateChanged()));
-#endif
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
     // Set default zoom level
@@ -175,14 +154,6 @@ void WebView::setPage(QWebEnginePage* page)
     initializeActions();
 
     mApp->plugins()->emitWebPageCreated(m_page);
-
-#if QTWEBENGINE_DISABLED
-    // Set white background by default.
-    // Fixes issue with dark themes. See #602
-    QPalette pal = palette();
-    pal.setBrush(QPalette::Base, Qt::white);
-    page->setPalette(pal);
-#endif
 }
 
 void WebView::load(const QUrl &url)
@@ -478,12 +449,6 @@ void WebView::slotLoadFinished()
     m_lastUrl = url();
 }
 
-void WebView::frameStateChanged()
-{
-    // QWebEngineFrame::baseUrl() is not updated yet, so we are invoking 0 second timer
-    QTimer::singleShot(0, this, SLOT(emitChangedUrl()));
-}
-
 void WebView::emitChangedUrl()
 {
     emit urlChanged(url());
@@ -748,92 +713,6 @@ void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
     }
 
     userDefinedOpenUrlInNewTab(actionUrl, true);
-}
-
-void WebView::loadClickedFrame()
-{
-#if QTWEBENGINE_DISABLED
-    QUrl frameUrl = m_clickedFrame->baseUrl();
-    if (frameUrl.isEmpty()) {
-        frameUrl = m_clickedFrame->requestedUrl();
-    }
-
-    load(frameUrl);
-#endif
-}
-
-void WebView::loadClickedFrameInNewTab(bool invert)
-{
-#if QTWEBENGINE_DISABLED
-    QUrl frameUrl = m_clickedFrame->baseUrl();
-    if (frameUrl.isEmpty()) {
-        frameUrl = m_clickedFrame->requestedUrl();
-    }
-
-    userDefinedOpenUrlInNewTab(frameUrl, invert);
-#endif
-}
-
-void WebView::loadClickedFrameInBgTab()
-{
-    loadClickedFrameInNewTab(true);
-}
-
-void WebView::reloadClickedFrame()
-{
-#if QTWEBENGINE_DISABLED
-    QUrl frameUrl = m_clickedFrame->baseUrl();
-    if (frameUrl.isEmpty()) {
-        frameUrl = m_clickedFrame->requestedUrl();
-    }
-
-    m_clickedFrame->load(frameUrl);
-#endif
-}
-
-void WebView::printClickedFrame()
-{
-#if QTWEBENGINE_DISABLED
-    printPage(m_clickedFrame);
-#endif
-}
-
-void WebView::clickedFrameZoomIn()
-{
-#if QTWEBENGINE_DISABLED
-    qreal zFactor = m_clickedFrame->zoomFactor() + 0.1;
-    if (zFactor > 2.5) {
-        zFactor = 2.5;
-    }
-
-    m_clickedFrame->setZoomFactor(zFactor);
-#endif
-}
-
-void WebView::clickedFrameZoomOut()
-{
-#if QTWEBENGINE_DISABLED
-    qreal zFactor = m_clickedFrame->zoomFactor() - 0.1;
-    if (zFactor < 0.5) {
-        zFactor = 0.5;
-    }
-
-    m_clickedFrame->setZoomFactor(zFactor);
-#endif
-}
-
-void WebView::clickedFrameZoomReset()
-{
-#if QTWEBENGINE_DISABLED
-    m_clickedFrame->setZoomFactor(zoomFactor());
-#endif
-}
-
-void WebView::showClickedFrameSource()
-{
-#if QTWEBENGINE_DISABLED
-    showSource(m_clickedFrame);
-#endif
 }
 
 #if QTWEBENGINE_DISABLED
@@ -1424,28 +1303,8 @@ void WebView::keyPressEvent(QKeyEvent* event)
         return;
     }
 
-    int eventKey = event->key();
-
-    // The right/left arrow keys within contents with right to left (RTL) layout have
-    // reversed behavior than left to right (LTR) layout.
-    // Example: Key_Right within LTR layout triggers QWebPage::MoveToNextChar but,
-    // Key_Right within RTL layout should trigger QWebPage::MoveToPreviousChar
-
-    // event->spontaneous() check guards recursive calling of keyPressEvent
-    // Events created from app have spontaneous() == false
 #if QTWEBENGINE_DISABLED
-    if (event->spontaneous() && (eventKey == Qt::Key_Left || eventKey == Qt::Key_Right)) {
-        const QWebElement elementHasCursor = activeElement();
-        if (!elementHasCursor.isNull()) {
-            const QString direction = elementHasCursor.styleProperty("direction", QWebElement::ComputedStyle);
-            if (direction == QLatin1String("rtl")) {
-                eventKey = eventKey == Qt::Key_Left ? Qt::Key_Right : Qt::Key_Left;
-                QKeyEvent ev(event->type(), eventKey, event->modifiers(), event->text(), event->isAutoRepeat());
-                keyPressEvent(&ev);
-                return;
-            }
-        }
-    }
+    int eventKey = event->key();
 
     switch (eventKey) {
     case Qt::Key_ZoomIn:
@@ -1594,9 +1453,7 @@ void WebView::keyReleaseEvent(QKeyEvent* event)
 void WebView::resizeEvent(QResizeEvent* event)
 {
     QWebEngineView::resizeEvent(event);
-#if QTWEBENGINE_DISABLED
-    emit viewportResized(page()->viewportSize());
-#endif
+    emit viewportResized(size());
 }
 
 void WebView::loadRequest(const LoadRequest &req)
@@ -1619,73 +1476,5 @@ bool WebView::eventFilter(QObject* obj, QEvent* event)
         }
     }
 
-#if QTWEBENGINE_DISABLED
-// This hack is no longer needed with QtWebKit 2.3 (bundled in Qt 5)
-#if QTWEBKIT_TO_2_3
-// This function was taken and modified from QTestBrowser to fix bug #33 with flightradar24.com
-// You can find original source and copyright here:
-// http://gitorious.org/+qtwebkit-developers/webkit/qtwebkit/blobs/qtwebkit-2.2/Tools/QtTestBrowser/launcherwindow.cpp
-    if (obj != this || m_disableTouchMocking) {
-        return false;
-    }
-
-    if (event->type() == QEvent::MouseButtonPress ||
-        event->type() == QEvent::MouseButtonRelease ||
-        event->type() == QEvent::MouseButtonDblClick ||
-        event->type() == QEvent::MouseMove
-       ) {
-
-        QMouseEvent* ev = static_cast<QMouseEvent*>(event);
-
-        if (ev->type() == QEvent::MouseMove && !(ev->buttons() & Qt::LeftButton)) {
-            return false;
-        }
-#endif
-
-        if (ev->type() == QEvent::MouseButtonPress && !(ev->buttons() & Qt::LeftButton)) {
-            return false;
-        }
-
-        QEvent::Type type = QEvent::TouchUpdate;
-        QTouchEvent::TouchPoint touchPoint;
-        touchPoint.setId(0);
-        touchPoint.setScreenPos(ev->globalPos());
-        touchPoint.setPos(ev->pos());
-        touchPoint.setPressure(1);
-
-        switch (ev->type()) {
-        case QEvent::MouseButtonPress:
-        case QEvent::MouseButtonDblClick:
-            touchPoint.setState(Qt::TouchPointPressed);
-            type = QEvent::TouchBegin;
-
-            break;
-
-        case QEvent::MouseButtonRelease:
-            touchPoint.setState(Qt::TouchPointReleased);
-            type = QEvent::TouchEnd;
-
-            break;
-
-        case QEvent::MouseMove:
-            touchPoint.setState(Qt::TouchPointMoved);
-            type = QEvent::TouchUpdate;
-
-            break;
-
-        default:
-            break;
-        }
-
-        QList<QTouchEvent::TouchPoint> touchPoints;
-        touchPoints << touchPoint;
-
-        QTouchEvent touchEv(type);
-        touchEv.setTouchPoints(touchPoints);
-        QCoreApplication::sendEvent(page(), &touchEv);
-
-        return false;
-    }
-#endif
     return QWebEngineView::eventFilter(obj, event);
 }

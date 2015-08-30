@@ -142,17 +142,6 @@ protected slots:
     void createSearchEngine();
 #endif
 
-    // Clicked frame actions
-    void loadClickedFrame();
-    void loadClickedFrameInNewTab(bool invert = false);
-    void loadClickedFrameInBgTab();
-    void reloadClickedFrame();
-    void printClickedFrame();
-    void clickedFrameZoomIn();
-    void clickedFrameZoomOut();
-    void clickedFrameZoomReset();
-    void showClickedFrameSource();
-
 protected:
     void wheelEvent(QWheelEvent* event);
     void mousePressEvent(QMouseEvent* event);
@@ -183,7 +172,6 @@ private slots:
     void pauseMedia();
     void muteMedia();
 #endif
-    void frameStateChanged();
     void emitChangedUrl();
     void addSpeedDial();
     void configureSpeedDial();
@@ -206,7 +194,6 @@ private:
 
 #if QTWEBENGINE_DISABLED
     QWebElement m_clickedElement;
-    QWebEngineFrame* m_clickedFrame;
 #endif
     QUrl m_clickedUrl;
 

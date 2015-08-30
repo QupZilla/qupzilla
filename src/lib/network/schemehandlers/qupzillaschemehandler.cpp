@@ -20,13 +20,13 @@
 #include "browserwindow.h"
 #include "mainapplication.h"
 #include "tabbedwebview.h"
-#include "webpage.h"
 #include "speeddial.h"
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "settings.h"
 #include "datapaths.h"
 #include "iconprovider.h"
+#include "useragentmanager.h"
 
 #include <QTimer>
 #include <QSettings>
@@ -415,7 +415,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace(QLatin1String("%USER-AGENT%"), mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()));
+    page.replace(QLatin1String("%USER-AGENT%"), mApp->userAgentManager()->userAgentForUrl(QUrl()));
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
