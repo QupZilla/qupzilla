@@ -68,8 +68,6 @@
 #include <QCheckBox>
 #include <QWebChannel>
 
-#include <iostream>
-
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
@@ -1205,28 +1203,6 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
     webView->setFocus();
 #endif
-}
-
-void WebPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID)
-{
-    switch (level) {
-    case InfoMessageLevel:
-        std::cout << "I";
-        break;
-
-    case WarningMessageLevel:
-        std::cout << "W";
-        break;
-
-    case ErrorMessageLevel:
-        std::cout << "E";
-        break;
-
-    default:
-        break;
-    }
-
-    std::cout << " " << lineNumber << ": " << message.toStdString() << " (" << sourceID.toStdString() << ")" << std::endl;
 }
 
 void WebPage::setJavaScriptEnabled(bool enabled)
