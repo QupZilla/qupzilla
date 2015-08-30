@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "pagethumbnailer.h"
 
-#include <QPainter>
+#include <QTimer>
 #include <QApplication>
 #include <QWebEngineView>
 
@@ -91,9 +91,10 @@ void PageThumbnailer::createThumbnail(bool status)
         return;
     }
 
-    m_title = m_view->title().trimmed();
-
-    emit thumbnailCreated(m_view->grab().scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    QTimer::singleShot(1000, this, [this]() {
+        m_title = m_view->title().trimmed();
+        emit thumbnailCreated(m_view->grab().scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    });
 }
 
 PageThumbnailer::~PageThumbnailer()
