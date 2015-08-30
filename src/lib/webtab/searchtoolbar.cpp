@@ -113,6 +113,7 @@ void SearchToolBar::caseSensitivityChanged()
 {
     updateFindFlags();
 
+    searchText(QString());
     searchText(ui->lineEdit->text());
 }
 
