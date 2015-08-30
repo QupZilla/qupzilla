@@ -76,7 +76,6 @@ QStringList WebPage::s_ignoredSslErrors;
 
 WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
-    , m_view(0)
     , m_fileWatcher(0)
     , m_runningLoop(0)
     , m_loadProgress(-1)
@@ -86,6 +85,7 @@ WebPage::WebPage(QObject* parent)
 {
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
     connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
+    connect(this, &QWebEnginePage::urlChanged, this, &WebPage::urlChanged);
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
 
@@ -100,23 +100,6 @@ WebPage::~WebPage()
         m_runningLoop->exit(1);
         m_runningLoop = 0;
     }
-}
-
-void WebPage::setWebView(TabbedWebView* view)
-{
-    if (m_view == view) {
-        return;
-    }
-
-    if (m_view) {
-        delete m_view;
-        m_view = 0;
-    }
-
-    m_view = view;
-    m_view->setWebPage(this);
-
-    connect(m_view, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 }
 
 void WebPage::scheduleAdjustPage()
@@ -926,7 +909,7 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
         return false;
     }
 
-    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    WebView* webView = qobject_cast<WebView*>(view());
     ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
@@ -935,7 +918,7 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
     ui->message->setText(msg);
     ui->lineEdit->setText(defaultValue);
     ui->lineEdit->setFocus();
-    widget->resize(originatingFrame->page()->viewportSize());
+    widget->resize(webView->size());
     widget->show();
 
     connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
@@ -970,7 +953,7 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
         return false;
     }
 
-    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    WebView* webView = qobject_cast<WebView*>(view());
     ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
@@ -978,7 +961,7 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
     ui->setupUi(widget);
     ui->message->setText(msg);
     ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
-    widget->resize(originatingFrame->page()->viewportSize());
+    widget->resize(webView->size());
     widget->show();
 
     connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
@@ -1024,7 +1007,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
     m_blockAlerts = dialog.isChecked();
 #else
-    WebView* webView = qobject_cast<WebView*>(originatingFrame->page()->view());
+    WebView* webView = qobject_cast<WebView*>(view());
     ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
 
     widget->setObjectName("jsFrame");
@@ -1032,7 +1015,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
     ui->setupUi(widget);
     ui->message->setText(msg);
     ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
-    widget->resize(originatingFrame->page()->viewportSize());
+    widget->resize(webView->size());
     widget->show();
 
     connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
@@ -1062,11 +1045,14 @@ void WebPage::setJavaScriptEnabled(bool enabled)
 
 QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
 {
+    TabbedWebView *tView = qobject_cast<TabbedWebView*>(view());
+    BrowserWindow *window = tView ? tView->browserWindow() : mApp->getWindow();
+
     switch (type) {
     case QWebEnginePage::WebBrowserWindow: // TODO
     case QWebEnginePage::WebBrowserTab: {
-        int index = m_view->browserWindow()->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
-        TabbedWebView* view = m_view->browserWindow()->weView(index);
+        int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
+        TabbedWebView* view = window->weView(index);
         view->setPage(new WebPage);
         return view->page();
     }
@@ -1076,7 +1062,7 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
         view->setPage(new WebPage);
         PopupWindow* popup = new PopupWindow(view);
         popup->show();
-        m_view->browserWindow()->addDeleteOnCloseWidget(popup);
+        window->addDeleteOnCloseWidget(popup);
         return view->page();
     }
 

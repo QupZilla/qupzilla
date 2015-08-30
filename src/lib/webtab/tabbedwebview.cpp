@@ -53,7 +53,6 @@ TabbedWebView::TabbedWebView(WebTab* webTab)
 
 void TabbedWebView::setWebPage(WebPage* page)
 {
-    page->setWebView(this);
     page->setParent(this);
     setPage(page);
 

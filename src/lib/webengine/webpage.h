@@ -30,7 +30,6 @@ class QWebEngineDownloadItem;
 
 class BrowserWindow;
 class AdBlockRule;
-class TabbedWebView;
 class SpeedDial;
 class NetworkManagerProxy;
 class DelayedFileWatcher;
@@ -51,7 +50,6 @@ public:
     WebPage(QObject* parent = 0);
     ~WebPage();
 
-    void setWebView(TabbedWebView* view);
     void populateNetworkRequest(QNetworkRequest &request);
 
     void setSSLCertificate(const QSslCertificate &cert);
@@ -120,7 +118,6 @@ private:
     static QStringList s_ignoredSslErrors;
 
     NetworkManagerProxy* m_networkProxy;
-    TabbedWebView* m_view;
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
