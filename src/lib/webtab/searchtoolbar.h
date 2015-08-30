@@ -59,7 +59,6 @@ public slots:
     void hide();
 
 private:
-    void handleSearchResult(bool found);
     Ui::SearchToolbar* ui;
     WebView* m_view;
 

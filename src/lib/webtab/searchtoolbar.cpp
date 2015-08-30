@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "searchtoolbar.h"
 #include "tabbedwebview.h"
+#include "webpage.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"
 #include "iconprovider.h"
@@ -118,27 +119,21 @@ void SearchToolBar::caseSensitivityChanged()
 void SearchToolBar::searchText(const QString &text)
 {
     m_view->findText(text, m_findFlags, [this](bool found) {
-        handleSearchResult(found);
+        if (ui->lineEdit->text().isEmpty())
+            found = true;
+
+        if (!found)
+            ui->results->setText(tr("No results found."));
+        else
+            ui->results->clear();
+
+        ui->lineEdit->setProperty("notfound", QVariant(!found));
+        ui->lineEdit->style()->unpolish(ui->lineEdit);
+        ui->lineEdit->style()->polish(ui->lineEdit);
+
+        // Clear selection
+        m_view->page()->runJavaScript(QSL("window.getSelection().empty();"));
     });
-}
-
-void SearchToolBar::handleSearchResult(bool found)
-{
-    if (ui->lineEdit->text().isEmpty()) {
-        found = true;
-    }
-
-    if (!found) {
-        ui->results->setText(tr("No results found."));
-    }
-    else {
-        ui->results->clear();
-    }
-
-    ui->lineEdit->setProperty("notfound", QVariant(!found));
-
-    ui->lineEdit->style()->unpolish(ui->lineEdit);
-    ui->lineEdit->style()->polish(ui->lineEdit);
 }
 
 bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
