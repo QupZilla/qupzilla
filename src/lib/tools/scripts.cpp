@@ -19,20 +19,7 @@
 #include "scripts.h"
 #include "qztools.h"
 
-QString Scripts::setCss(const QString &css)
-{
-    static QString source = QL1S("(function() {"
-                                 "var css = document.createElement('style');"
-                                 "css.setAttribute('type', 'text/css');"
-                                 "css.appendChild(document.createTextNode('%1'));"
-                                 "document.getElementsByTagName('head')[0].appendChild(css);"
-                                 "})()");
-
-    QString style = css;
-    style.replace(QL1S("'"), QL1S("\\'"));
-    style.replace(QL1S("\n"), QL1S("\\n"));
-    return source.arg(style);
-}
+#include <QUrlQuery>
 
 QString Scripts::setupWebChannel()
 {
@@ -48,4 +35,50 @@ QString Scripts::setupWebChannel()
                            "})()");
 
     return source.arg(QzTools::readAllFileContents(QSL(":/html/qwebchannel.js")));
+}
+
+QString Scripts::setCss(const QString &css)
+{
+    QString source = QL1S("(function() {"
+                          "var css = document.createElement('style');"
+                          "css.setAttribute('type', 'text/css');"
+                          "css.appendChild(document.createTextNode('%1'));"
+                          "document.getElementsByTagName('head')[0].appendChild(css);"
+                          "})()");
+
+    QString style = css;
+    style.replace(QL1S("'"), QL1S("\\'"));
+    style.replace(QL1S("\n"), QL1S("\\n"));
+    return source.arg(style);
+}
+
+QString Scripts::sendPostData(const QUrl &url, const QByteArray &data)
+{
+    QString source = QL1S("(function() {"
+                          "var form = document.createElement('form');"
+                          "form.setAttribute('method', 'POST');"
+                          "form.setAttribute('action', '%1');"
+                          "var val;"
+                          "%2"
+                          "form.submit();"
+                          "})()");
+
+    QString valueSource = QL1S("val = document.createElement('input');"
+                               "val.setAttribute('type', 'hidden');"
+                               "val.setAttribute('name', '%1');"
+                               "val.setAttribute('value', '%2');"
+                               "form.appendChild(val);");
+
+    QString values;
+    QUrlQuery query(data);
+
+    for (const QPair<QString, QString> &pair : query.queryItems(QUrl::FullyDecoded)) {
+        QString value = pair.first;
+        QString key = pair.second;
+        value.replace(QL1S("'"), QL1S("\\'"));
+        key.replace(QL1S("'"), QL1S("\\'"));
+        values.append(valueSource.arg(value, key));
+    }
+
+    return source.arg(url.toString(), values);
 }

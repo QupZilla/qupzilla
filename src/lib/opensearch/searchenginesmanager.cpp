@@ -146,8 +146,6 @@ LoadRequest SearchEnginesManager::searchResult(const Engine &engine, const QStri
     data.replace("%s", QUrl::toPercentEncoding(string));
 
     QNetworkRequest req(QUrl::fromEncoded(engine.url.toUtf8()));
-    req.setHeader(QNetworkRequest::ContentTypeHeader, QByteArray("application/x-www-form-urlencoded"));
-
     return LoadRequest(req, LoadRequest::PostOperation, data);
 }
 

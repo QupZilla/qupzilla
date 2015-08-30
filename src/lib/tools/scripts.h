@@ -28,8 +28,9 @@ class QWebEngineView;
 class QUPZILLA_EXPORT Scripts
 {
 public:
-    static QString setCss(const QString &css);
     static QString setupWebChannel();
+    static QString setCss(const QString &css);
+    static QString sendPostData(const QUrl &url, const QByteArray &data);
 };
 
 #endif // SCRIPTS_H

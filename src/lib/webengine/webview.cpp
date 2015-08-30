@@ -33,6 +33,7 @@
 #include "enhancedmenu.h"
 #include "locationbar.h"
 #include "webinspector.h"
+#include "scripts.h"
 
 #ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
@@ -1602,14 +1603,10 @@ void WebView::loadRequest(const LoadRequest &req)
 {
     m_aboutToLoadUrl = req.url();
 
-#if QTWEBENGINE_DISABLED
     if (req.operation() == LoadRequest::GetOperation)
-        QWebEngineView::load(req.networkRequest());
+        load(req.url());
     else
-        QWebEngineView::load(req.networkRequest(), QNetworkAccessManager::PostOperation, req.data());
-#else
-    load(req.url());
-#endif
+        m_page->runJavaScript(Scripts::sendPostData(req.url(), req.data()));
 }
 
 bool WebView::eventFilter(QObject* obj, QEvent* event)
