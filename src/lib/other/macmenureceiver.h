@@ -86,7 +86,6 @@ private slots:
     void showCookieManager();
     void showHistoryManager();
     void showBookmarksManager();
-    void showRSSManager();
     void showDownloadManager();
     void showMenubar();
     void showNavigationToolbar();

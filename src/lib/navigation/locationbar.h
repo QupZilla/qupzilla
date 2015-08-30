@@ -30,7 +30,6 @@ class TabbedWebView;
 class BookmarksIcon;
 class SiteIcon;
 class GoIcon;
-class RssIcon;
 class AutoFillIcon;
 class LoadRequest;
 
@@ -59,7 +58,6 @@ private slots:
     void updatePlaceHolderText();
 
     void setPrivacyState(bool state);
-    void setRssIconVisible(bool state);
     void setGoIconVisible(bool state);
 
     void showCompletion(const QString &completion);
@@ -97,14 +95,12 @@ private:
 
     BookmarksIcon* m_bookmarkIcon;
     GoIcon* m_goIcon;
-    RssIcon* m_rssIcon;
     SiteIcon* m_siteIcon;
     AutoFillIcon* m_autofillIcon;
 
     BrowserWindow* m_window;
     TabbedWebView* m_webView;
 
-    bool m_rssIconVisible;
     bool m_holdingAlt;
     int m_oldTextLength;
     int m_currentTextLength;

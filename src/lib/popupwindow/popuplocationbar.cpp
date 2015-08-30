@@ -22,7 +22,6 @@
 #include "iconprovider.h"
 #include "bookmarksicon.h"
 #include "autofillicon.h"
-#include "rssicon.h"
 #include "webpage.h"
 
 #include <QMovie>
@@ -85,8 +84,6 @@ void PopupLocationBar::setView(PopupWebView* view)
 
     m_bookmarkIcon->setWebView(m_view);
     m_autofillIcon->setWebView(m_view);
-
-    connect(m_view, SIGNAL(rssChanged(bool)), this, SLOT(showRSSIcon(bool)));
 }
 
 void PopupLocationBar::startLoading()
@@ -125,9 +122,4 @@ void PopupLocationBar::showUrl(const QUrl &url)
 void PopupLocationBar::showSiteIcon()
 {
     m_siteIcon->setIcon(m_view->icon());
-}
-
-void PopupLocationBar::showRSSIcon(bool state)
-{
-    updateTextMargins();
 }

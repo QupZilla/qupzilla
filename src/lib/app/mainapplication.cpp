@@ -29,7 +29,6 @@
 #include "cookiejar.h"
 #include "bookmarks.h"
 #include "qzsettings.h"
-#include "rssmanager.h"
 #include "proxystyle.h"
 #include "pluginproxy.h"
 #include "iconprovider.h"
@@ -84,7 +83,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_cookieJar(0)
     , m_plugins(0)
     , m_browsingLibrary(0)
-    , m_rssManager(0)
     , m_networkManager(0)
     , m_restoreManager(0)
     , m_downloadManager(0)
@@ -531,16 +529,6 @@ BrowsingLibrary* MainApplication::browsingLibrary()
     }
     return m_browsingLibrary;
 }
-
-#if QTWEBENGINE_DISABLED
-RSSManager* MainApplication::rssManager()
-{
-    if (!m_rssManager) {
-        m_rssManager = new RSSManager(getWindow());
-    }
-    return m_rssManager;
-}
-#endif
 
 QNetworkAccessManager* MainApplication::networkManager()
 {

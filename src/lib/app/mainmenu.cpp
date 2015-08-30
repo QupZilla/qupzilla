@@ -334,13 +334,6 @@ void MainMenu::showAdBlockDialog()
     AdBlockManager::instance()->showDialog();
 }
 
-void MainMenu::showRssManager()
-{
-    if (m_window) {
-        mApp->browsingLibrary()->showRSS(m_window);
-    }
-}
-
 void MainMenu::showWebInspector()
 {
     callSlot("showWebInspector");
@@ -622,7 +615,6 @@ void MainMenu::init()
     ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
     ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
     ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
-    ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(), tr("RSS &Reader"), SLOT(showRssManager()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(showWebInspector()), "Ctrl+Shift+I");
     ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
     m_menuTools->addSeparator();

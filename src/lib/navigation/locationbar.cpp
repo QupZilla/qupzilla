@@ -26,7 +26,6 @@
 #include "bookmarkitem.h"
 #include "siteicon.h"
 #include "goicon.h"
-#include "rssicon.h"
 #include "downicon.h"
 #include "qztools.h"
 #include "iconprovider.h"
@@ -124,7 +123,6 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(loadProgress(int)), SLOT(loadProgress(int)));
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
-    connect(m_webView, SIGNAL(rssChanged(bool)), this, SLOT(setRssIconVisible(bool)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
     connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
 }
@@ -305,11 +303,6 @@ void LocationBar::setGoIconVisible(bool state)
         }
     }
 
-    updateTextMargins();
-}
-
-void LocationBar::setRssIconVisible(bool state)
-{
     updateTextMargins();
 }
 

@@ -90,7 +90,6 @@ private slots:
     void showDownloadManager();
     void showCookieManager();
     void showAdBlockDialog();
-    void showRssManager();
     void showWebInspector();
     void showClearRecentHistoryDialog();
 

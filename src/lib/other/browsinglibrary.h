@@ -29,7 +29,6 @@ class BrowsingLibrary;
 
 class HistoryManager;
 class BookmarksManager;
-class RSSManager;
 class BrowserWindow;
 class QUPZILLA_EXPORT BrowsingLibrary : public QWidget
 {
@@ -41,13 +40,11 @@ public:
 
     void showHistory(BrowserWindow* window);
     void showBookmarks(BrowserWindow* window);
-    void showRSS(BrowserWindow* window);
 
     void optimizeDatabase();
 
     HistoryManager* historyManager() { return m_historyManager; }
     BookmarksManager* bookmarksManager() { return m_bookmarksManager; }
-    RSSManager* rssManager() { return m_rssManager; }
 
 private slots:
     void currentIndexChanged(int index);
@@ -63,9 +60,6 @@ private:
     Ui::BrowsingLibrary* ui;
     HistoryManager* m_historyManager;
     BookmarksManager* m_bookmarksManager;
-    RSSManager* m_rssManager;
-
-    bool m_rssLoaded;
 };
 
 #endif // LIBRARY_H

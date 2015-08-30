@@ -36,7 +36,6 @@
 #include "networkmanager.h"
 #include "autofill.h"
 #include "networkmanagerproxy.h"
-#include "rssmanager.h"
 #include "mainapplication.h"
 #include "checkboxdialog.h"
 #include "adblockmanager.h"

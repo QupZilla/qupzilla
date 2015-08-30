@@ -164,11 +164,6 @@ void MacMenuReceiver::showBookmarksManager()
     callSlot("showBookmarksManager");
 }
 
-void MacMenuReceiver::showRSSManager()
-{
-    callSlot("showRSSManager");
-}
-
 void MacMenuReceiver::showDownloadManager()
 {
     callSlot("showDownloadManager");

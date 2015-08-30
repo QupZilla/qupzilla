@@ -37,7 +37,6 @@ class MainMenu;
 class Bookmarks;
 class CookieJar;
 class AutoSaver;
-class RSSManager;
 class ProxyStyle;
 class PluginProxy;
 class BrowserWindow;
@@ -91,7 +90,6 @@ public:
     PluginProxy* plugins();
     BrowsingLibrary* browsingLibrary();
 
-    RSSManager* rssManager();
     QNetworkAccessManager* networkManager();
     RestoreManager* restoreManager();
     DownloadManager* downloadManager();
@@ -158,7 +156,6 @@ private:
     PluginProxy* m_plugins;
     BrowsingLibrary* m_browsingLibrary;
 
-    RSSManager* m_rssManager;
     QNetworkAccessManager* m_networkManager;
     RestoreManager* m_restoreManager;
     DownloadManager* m_downloadManager;

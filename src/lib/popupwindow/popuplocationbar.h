@@ -28,7 +28,6 @@ class PopupSiteIcon;
 class PopupWebView;
 class AutoFillIcon;
 class BookmarksIcon;
-class RssIcon;
 
 class QUPZILLA_EXPORT PopupLocationBar : public LineEdit
 {
@@ -48,7 +47,6 @@ public:
 public slots:
     void showUrl(const QUrl &url);
     void showSiteIcon();
-    void showRSSIcon(bool state);
 
 private:
     PopupWebView* m_view;
@@ -57,7 +55,6 @@ private:
     PopupSiteIcon* m_siteIcon;
     AutoFillIcon* m_autofillIcon;
     BookmarksIcon* m_bookmarkIcon;
-    RssIcon* m_rssIcon;
 };
 
 #endif // POPUPLOCATIONBAR_H

@@ -21,7 +21,6 @@
 #include "bookmarksexport/bookmarksexportdialog.h"
 #include "historymanager.h"
 #include "bookmarksmanager.h"
-#include "rssmanager.h"
 #include "mainapplication.h"
 #include "qztools.h"
 #include "settings.h"
@@ -34,7 +33,6 @@ BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
     , ui(new Ui::BrowsingLibrary)
     , m_historyManager(new HistoryManager(window))
     , m_bookmarksManager(new BookmarksManager(window))
-    , m_rssLoaded(false)
 {
     ui->setupUi(this);
 
@@ -73,13 +71,6 @@ void BrowsingLibrary::currentIndexChanged(int index)
     case 1:
         ui->searchLine->show();
         search();
-        break;
-
-    case 2:
-        if (!m_rssLoaded) {
-            m_rssLoaded = true;
-        }
-        ui->searchLine->hide();
         break;
 
     default:
@@ -127,23 +118,6 @@ void BrowsingLibrary::showBookmarks(BrowserWindow* window)
 
     raise();
     activateWindow();
-}
-
-void BrowsingLibrary::showRSS(BrowserWindow* window)
-{
-#if QTWEBENGINE_DISABLED
-    ui->tabs->SetCurrentIndex(2);
-    show();
-    m_rssManager->setMainWindow(window);
-
-    if (!m_rssLoaded) {
-        m_rssManager->refreshTable();
-        m_rssLoaded = true;
-    }
-
-    raise();
-    activateWindow();
-#endif
 }
 
 void BrowsingLibrary::closeEvent(QCloseEvent* e)

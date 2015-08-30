@@ -50,8 +50,6 @@ public:
     int loadingProgress() const;
     void fakeLoadingProgress(int progress);
 
-    bool hasRss() const;
-
     // Set zoom level (0 - 17)
     int zoomLevel() const;
     void setZoomLevel(int level);
@@ -80,7 +78,6 @@ signals:
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
-    void rssChanged(bool);
     void zoomLevelChanged(int);
 
 public slots:
@@ -187,7 +184,6 @@ private slots:
 #endif
     void frameStateChanged();
     void emitChangedUrl();
-    void checkRss();
     void addSpeedDial();
     void configureSpeedDial();
     void reloadAllSpeedDials();
@@ -218,9 +214,6 @@ private:
 
     bool m_disableTouchMocking;
     bool m_isReloading;
-
-    bool m_hasRss;
-    bool m_rssChecked;
 
     static bool s_forceContextMenuOnMouseRelease;
 };

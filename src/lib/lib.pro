@@ -34,7 +34,6 @@ INCLUDEPATH += 3rdparty \
                plugins \
                popupwindow \
                preferences \
-               rss \
                session \
                sidebar \
                tabwidget \
@@ -181,10 +180,6 @@ SOURCES += \
     preferences/sslmanager.cpp \
     preferences/thememanager.cpp \
     preferences/useragentdialog.cpp \
-    rss/rssicon.cpp \
-    rss/rssmanager.cpp \
-    rss/rssnotification.cpp \
-    rss/rsswidget.cpp \
     session/recoverywidget.cpp \
     session/restoremanager.cpp \
     sidebar/bookmarkssidebar.cpp \
@@ -384,10 +379,6 @@ HEADERS  += \
     preferences/sslmanager.h \
     preferences/thememanager.h \
     preferences/useragentdialog.h \
-    rss/rssicon.h \
-    rss/rssmanager.h \
-    rss/rssnotification.h \
-    rss/rsswidget.h \
     session/recoverywidget.h \
     session/restoremanager.h \
     sidebar/bookmarkssidebar.h \
@@ -485,9 +476,6 @@ FORMS    += \
     preferences/sslmanager.ui \
     preferences/thememanager.ui \
     preferences/useragentdialog.ui \
-    rss/rssmanager.ui \
-    rss/rssnotification.ui \
-    rss/rsswidget.ui \
     session/recoverywidget.ui \
     sidebar/bookmarkssidebar.ui \
     sidebar/historysidebar.ui \
