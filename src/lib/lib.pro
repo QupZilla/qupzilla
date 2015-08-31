@@ -58,6 +58,7 @@ SOURCES += \
     adblock/adblockdialog.cpp \
     adblock/adblockicon.cpp \
     adblock/adblockmanager.cpp \
+    adblock/adblockmatcher.cpp \
     adblock/adblockrule.cpp \
     adblock/adblocksearchtree.cpp \
     adblock/adblocksubscription.cpp \
@@ -222,11 +223,13 @@ SOURCES += \
     tools/progressbar.cpp \
     tools/qzregexp.cpp \
     tools/qztools.cpp \
+    tools/scripts.cpp \
     tools/sqldatabase.cpp \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
     webengine/javascript/externaljsobject.cpp \
+    webengine/javascript/autofilljsobject.cpp \
     webengine/loadrequest.cpp \
     webengine/webinspector.cpp \
     webengine/webpage.cpp \
@@ -235,9 +238,6 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
-    adblock/adblockmatcher.cpp \
-    tools/scripts.cpp \
-    webengine/javascript/autofilljsobject.cpp
 
 HEADERS  += \
     3rdparty/ecwin7.h \
@@ -254,6 +254,7 @@ HEADERS  += \
     adblock/adblockdialog.h \
     adblock/adblockicon.h \
     adblock/adblockmanager.h \
+    adblock/adblockmatcher.h \
     adblock/adblockrule.h \
     adblock/adblocksearchtree.h \
     adblock/adblocksubscription.h \
@@ -422,11 +423,13 @@ HEADERS  += \
     tools/progressbar.h \
     tools/qzregexp.h \
     tools/qztools.h \
+    tools/scripts.h \
     tools/sqldatabase.h \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
     webengine/javascript/externaljsobject.h \
+    webengine/javascript/autofilljsobject.h \
     webengine/loadrequest.h \
     webengine/webinspector.h \
     webengine/webpage.h \
@@ -435,9 +438,6 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
-    adblock/adblockmatcher.h \
-    tools/scripts.h \
-    webengine/javascript/autofilljsobject.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
