@@ -323,11 +323,6 @@ int TabWidget::addView(const LoadRequest &req, const Qz::NewTabPositionFlags &op
 
 int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
-#ifdef Q_OS_WIN
-    if (m_window->isTransparentBackgroundAllowed()) {
-        QtWin::extendFrameIntoClientArea(m_window);
-    }
-#endif
     QUrl url = req.url();
     m_lastTabIndex = currentIndex();
 
@@ -387,29 +382,12 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
         m_window->locationBar()->setFocus();
     }
 
-#if QTWEBENGINE_DISABLED
-    if (openFlags & Qz::NT_NotSelectedTab) {
-        WebTab* currentWebTab = weTab();
-        // Workarounding invalid QWebEnginePage::viewportSize() until QWebEngineView is shown
-        // Fixes invalid scrolling to anchor(#) links
-        if (currentWebTab && currentWebTab->webView()) {
-            TabbedWebView* currentView = currentWebTab->webView();
-            webTab->webView()->resize(currentView->size());
-            webTab->webView()->page()->setViewportSize(currentView->page()->viewportSize());
-        }
-    }
-#endif
-
     // Make sure user notice opening new background tabs
     if (!(openFlags & Qz::NT_SelectedTab)) {
         m_tabBar->ensureVisible(index);
     }
 
     emit changed();
-
-#ifdef Q_OS_WIN
-    QTimer::singleShot(0, m_window, SLOT(applyBlurToMainWindow()));
-#endif
     return index;
 }
 

@@ -224,12 +224,8 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->showReloadStopButtons->setChecked(settings.value("showReloadButton", true).toBool());
     ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
-    ui->useTransparentBg->setChecked(settings.value("useTransparentBackground", false).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
-#ifdef Q_OS_WIN
-    ui->useTransparentBg->setEnabled(QtWin::isCompositionEnabled());
-#endif
 
     //TABS
     settings.beginGroup("Browser-Tabs-Settings");
@@ -928,7 +924,6 @@ void Preferences::saveSettings()
     settings.setValue("showHomeButton", ui->showHome->isChecked());
     settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
     settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
-    settings.setValue("useTransparentBackground", ui->useTransparentBg->isChecked());
     settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
     settings.setValue("showReloadButton", ui->showReloadStopButtons->isChecked());
     settings.endGroup();

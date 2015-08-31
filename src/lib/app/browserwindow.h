@@ -104,8 +104,6 @@ public:
 
     QUrl homepageUrl() const;
 
-    bool isTransparentBackgroundAllowed() const;
-
     QAction* action(const QString &name) const;
 
 signals:
@@ -206,8 +204,6 @@ private:
     int m_sideBarWidth;
     int m_webViewWidth;
 
-    bool m_useTransparentBackground;
-
     // Shortcuts
     bool m_useTabNumberShortcuts;
     bool m_useSpeedDialNumberShortcuts;
@@ -226,18 +222,6 @@ private:
     int getCurrentVirtualDesktop() const;
     void moveToVirtualDesktop(int desktopId);
 #endif
-
-#ifdef Q_OS_WIN
-private slots:
-    void applyBlurToMainWindow(bool force = false);
-
-private:
-    bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-
-    void paintEvent(QPaintEvent* event);
-    bool eventFilter(QObject* object, QEvent* event);
-#endif
-
 };
 
 #endif // QUPZILLA_H
