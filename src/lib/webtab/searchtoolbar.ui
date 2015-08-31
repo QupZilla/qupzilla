@@ -64,6 +64,9 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="shortcut">
+      <string>Ctrl+Shift+G</string>
+     </property>
      <property name="autoRaise">
       <bool>true</bool>
      </property>
@@ -76,6 +79,9 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+G</string>
      </property>
      <property name="autoRaise">
       <bool>true</bool>
@@ -95,7 +101,7 @@
    <item>
     <widget class="MacToolButton" name="caseSensitive">
      <property name="text">
-      <string>Case sensitive</string>
+      <string>&amp;Match Case</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
