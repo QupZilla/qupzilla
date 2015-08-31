@@ -25,6 +25,7 @@ QString Scripts::setupWebChannel()
 {
     QString source =  QL1S("(function() {"
                            "%1"
+                           ""
                            "function registerExternal(e) {"
                            "    window.external = e;"
                            "    if (window.external) {"
@@ -33,6 +34,7 @@ QString Scripts::setupWebChannel()
                            "        document.dispatchEvent(event);"
                            "    }"
                            "}"
+                           ""
                            "if (self !== top) {"
                            "    if (top.external)"
                            "        registerExternal(top.external);"
@@ -42,9 +44,11 @@ QString Scripts::setupWebChannel()
                            "        });"
                            "    return;"
                            "}"
+                           ""
                            "new QWebChannel(qt.webChannelTransport, function(channel) {"
                            "    registerExternal(channel.objects.qz_object);"
                            "});"
+                           ""
                            "})()");
 
     return source.arg(QzTools::readAllFileContents(QSL(":/html/qwebchannel.js")));
@@ -68,6 +72,7 @@ QString Scripts::setupFormObserver()
                           "            return inputs[i].value;"
                           "    return '';"
                           "}"
+                          ""
                           "function registerForm(form) {"
                           "    form.addEventListener('submit', function() {"
                           "        var form = this;"
@@ -94,8 +99,18 @@ QString Scripts::setupFormObserver()
                           "        external.autoFill.formSubmitted(url, username, password, data);"
                           "    }, true);"
                           "}"
+                          ""
                           "for (var i = 0; i < document.forms.length; ++i)"
                           "    registerForm(document.forms[i]);"
+                          ""
+                          "var observer = new MutationObserver(function(mutations) {"
+                          "    for (var i = 0; i < mutations.length; ++i)"
+                          "        for (var j = 0; j < mutations[i].addedNodes.length; ++j)"
+                          "            if (mutations[i].addedNodes[j].tagName == 'form')"
+                          "                registerForm(mutations[i].addedNodes[j]);"
+                          "});"
+                          "observer.observe(document.documentElement, { childList: true });"
+                          ""
                           "})()");
 
     return source;
@@ -151,16 +166,8 @@ QString Scripts::completeFormData(const QByteArray &data)
 {
     QString source = QL1S("(function() {"
                           "var data = '%1'.split('&');"
-                          "var inputs = [];"
-                          "var frames = [window, window.frames];"
-                          "for (var i = 0; i < frames.length; ++i) {"
-                          "    var finputs = frames[i].document.getElementsByTagName('input');"
-                          "    for (var j = 0; j < finputs.length; ++j) {"
-                          "        var type = finputs[j].type.toLowerCase();"
-                          "        if (type == 'text' || type == 'password' || type == 'email')"
-                          "            inputs.push(finputs[j]);"
-                          "    }"
-                          "}"
+                          "var inputs = document.getElementsByTagName('input');"
+                          ""
                           "for (var i = 0; i < data.length; ++i) {"
                           "    var pair = data[i].split('=');"
                           "    if (pair.length != 2)"
@@ -169,10 +176,14 @@ QString Scripts::completeFormData(const QByteArray &data)
                           "    var val = decodeURIComponent(pair[1]);"
                           "    for (var j = 0; j < inputs.length; ++j) {"
                           "        var input = inputs[j];"
+                          "        var type = input.type.toLowerCase();"
+                          "        if (type != 'text' && type != 'password' && type != 'email')"
+                          "            continue;"
                           "        if (input.name == key)"
                           "            input.value = val;"
                           "    }"
                           "}"
+                          ""
                           "})()");
 
     QString d = data;
