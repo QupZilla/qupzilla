@@ -23,14 +23,23 @@
 #include "qzcommon.h"
 
 class QUrl;
-class QWebEngineFrame;
-class QWebElement;
+class QWebEnginePage;
 class QNetworkRequest;
 
 class BrowserWindow;
 class PasswordManager;
 struct PageFormData;
 struct PasswordEntry;
+
+struct PageFormData {
+    QString username;
+    QString password;
+    QByteArray postData;
+
+    bool isValid() const {
+        return !password.isEmpty();
+    }
+};
 
 class QUPZILLA_EXPORT AutoFill : public QObject
 {
@@ -60,8 +69,8 @@ public:
     void removeEntry(const PasswordEntry &entry);
     void removeAllEntries();
 
-    void post(const QNetworkRequest &request, const QByteArray &outgoingData);
-    QVector<PasswordEntry> completeFrame(QWebEngineFrame *frame);
+    void saveForm(QWebEnginePage *page, const QUrl &frameUrl, const PageFormData &formData);
+    QVector<PasswordEntry> completePage(QWebEnginePage *page, const QUrl &frameUrl);
 
     QByteArray exportPasswords();
     bool importPasswords(const QByteArray &data);

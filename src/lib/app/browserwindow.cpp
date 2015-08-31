@@ -33,7 +33,6 @@
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
 #include "sourceviewer.h"
-#include "networkmanager.h"
 #include "autofill.h"
 #include "networkmanagerproxy.h"
 #include "mainapplication.h"

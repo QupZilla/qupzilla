@@ -19,7 +19,6 @@
 #include "browserwindow.h"
 #include "webpage.h"
 #include "tabwidget.h"
-#include "networkmanager.h"
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "webtab.h"

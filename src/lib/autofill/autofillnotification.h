@@ -22,7 +22,6 @@
 
 #include "qzcommon.h"
 #include "animatedwidget.h"
-#include "pageformcompleter.h"
 #include "passwordmanager.h"
 #include "autofill.h"
 

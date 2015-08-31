@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - QtWebEngine based browser
 * Copyright (C) 2015 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -16,24 +16,24 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 
-#ifndef SCRIPTS_H
-#define SCRIPTS_H
+#ifndef AUTOFILLJSOBJECT_H
+#define AUTOFILLJSOBJECT_H
 
-#include <QString>
+#include <QObject>
 
-#include "qzcommon.h"
+class ExternalJsObject;
 
-class QWebEngineView;
-
-class QUPZILLA_EXPORT Scripts
+class AutoFillJsObject : public QObject
 {
+    Q_OBJECT
 public:
-    static QString setupWebChannel();
-    static QString setupFormObserver();
+    explicit AutoFillJsObject(ExternalJsObject *parent);
 
-    static QString setCss(const QString &css);
-    static QString sendPostData(const QUrl &url, const QByteArray &data);
-    static QString completeFormData(const QByteArray &data);
+public slots:
+    void formSubmitted(const QString &frameUrl, const QString &username, const QString &password, const QByteArray &data);
+
+private:
+    ExternalJsObject *m_jsObject;
 };
 
-#endif // SCRIPTS_H
+#endif // AUTOFILLJSOBJECT_H

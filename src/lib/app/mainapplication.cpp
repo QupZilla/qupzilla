@@ -33,7 +33,6 @@
 #include "pluginproxy.h"
 #include "iconprovider.h"
 #include "browserwindow.h"
-#include "networkmanager.h"
 #include "checkboxdialog.h"
 #include "profilemanager.h"
 #include "adblockmanager.h"
@@ -268,6 +267,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     loadSettings();
 
     m_plugins = new PluginProxy;
+    m_autoFill = new AutoFill(this);
 
     if (!noAddons)
         m_plugins->loadPlugins();
@@ -503,9 +503,6 @@ Bookmarks* MainApplication::bookmarks()
 
 AutoFill* MainApplication::autoFill()
 {
-    if (!m_autoFill) {
-        m_autoFill = new AutoFill(this);
-    }
     return m_autoFill;
 }
 

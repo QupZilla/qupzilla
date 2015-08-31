@@ -211,6 +211,9 @@ void WebPage::finished()
 
     // AdBlock
     cleanBlockedObjects();
+
+    // AutoFill
+    m_passwordEntries = mApp->autoFill()->completePage(this, url());
 }
 
 void WebPage::watchedFileChanged(const QString &file)
@@ -293,9 +296,17 @@ void WebPage::desktopServicesOpen(const QUrl &url)
 
 void WebPage::setupWebChannel()
 {
+    QWebChannel *old = webChannel();
+    const QString objectName = QSL("qz_object");
+
     QWebChannel *channel = new QWebChannel(this);
     channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
     setWebChannel(channel);
+
+    if (old) {
+        delete old->registeredObjects().value(objectName);
+        delete old;
+    }
 }
 
 void WebPage::windowCloseRequested()

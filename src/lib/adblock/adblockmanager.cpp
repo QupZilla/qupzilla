@@ -24,7 +24,6 @@
 #include "mainapplication.h"
 #include "webpage.h"
 #include "qztools.h"
-#include "networkmanager.h"
 #include "browserwindow.h"
 #include "settings.h"
 

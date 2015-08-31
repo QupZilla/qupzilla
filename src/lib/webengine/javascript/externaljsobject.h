@@ -21,14 +21,18 @@
 #include <QObject>
 
 class WebPage;
+class AutoFillJsObject;
 
 class ExternalJsObject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
+    Q_PROPERTY(QObject* autoFill READ autoFill CONSTANT)
 
 public:
     explicit ExternalJsObject(WebPage *page);
+
+    WebPage *page() const;
 
 public slots:
     void AddSearchProvider(const QString &engineUrl);
@@ -36,9 +40,10 @@ public slots:
 
 private:
     QObject *speedDial() const;
+    QObject *autoFill() const;
 
     WebPage *m_page;
-
+    AutoFillJsObject *m_autoFill;
 };
 
 #endif // EXTERNALJSOBJECT_H

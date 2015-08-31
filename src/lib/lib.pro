@@ -76,7 +76,6 @@ SOURCES += \
     autofill/autofillicon.cpp \
     autofill/autofillnotification.cpp \
     autofill/autofillwidget.cpp \
-    autofill/pageformcompleter.cpp \
     autofill/passwordbackends/databaseencryptedpasswordbackend.cpp \
     autofill/passwordbackends/databasepasswordbackend.cpp \
     autofill/passwordbackends/passwordbackend.cpp \
@@ -237,7 +236,8 @@ SOURCES += \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
     adblock/adblockmatcher.cpp \
-    tools/scripts.cpp
+    tools/scripts.cpp \
+    webengine/javascript/autofilljsobject.cpp
 
 HEADERS  += \
     3rdparty/ecwin7.h \
@@ -272,7 +272,6 @@ HEADERS  += \
     autofill/autofillicon.h \
     autofill/autofillnotification.h \
     autofill/autofillwidget.h \
-    autofill/pageformcompleter.h \
     autofill/passwordbackends/databaseencryptedpasswordbackend.h \
     autofill/passwordbackends/databasepasswordbackend.h \
     autofill/passwordbackends/passwordbackend.h \
@@ -326,7 +325,7 @@ HEADERS  += \
     navigation/siteicon.h \
     navigation/websearchbar.h \
     #network/cabundleupdater.h \
-    network/networkmanager.h \
+    #network/networkmanager.h \
     network/networkmanagerproxy.h \
     network/networkproxyfactory.h \
     network/pac/pacdatetime.h \
@@ -437,7 +436,8 @@ HEADERS  += \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
     adblock/adblockmatcher.h \
-    tools/scripts.h
+    tools/scripts.h \
+    webengine/javascript/autofilljsobject.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \

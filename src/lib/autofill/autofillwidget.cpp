@@ -17,11 +17,11 @@
 * ============================================================ */
 #include "autofillwidget.h"
 #include "ui_autofillwidget.h"
-#include "pageformcompleter.h"
 #include "autofill.h"
 #include "qztools.h"
 #include "webview.h"
 #include "webpage.h"
+#include "scripts.h"
 
 #include <QPushButton>
 
@@ -67,9 +67,7 @@ void AutoFillWidget::loginToPage()
 
     if (ok && QzTools::containsIndex(m_data, index)) {
         const PasswordEntry entry = m_data.at(index);
-
-        PageFormCompleter completer;
-        completer.completeFormData(m_view->page(), entry.data);
+        m_view->page()->runJavaScript(Scripts::completeFormData(entry.data));
     }
 
     close();

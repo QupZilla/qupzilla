@@ -21,11 +21,18 @@
 #include "speeddial.h"
 #include "webpage.h"
 #include "searchenginesmanager.h"
+#include "autofilljsobject.h"
 
 ExternalJsObject::ExternalJsObject(WebPage *page)
     : QObject(page)
     , m_page(page)
+    , m_autoFill(new AutoFillJsObject(this))
 {
+}
+
+WebPage *ExternalJsObject::page() const
+{
+    return m_page;
 }
 
 void ExternalJsObject::AddSearchProvider(const QString &engineUrl)
@@ -45,4 +52,9 @@ QObject *ExternalJsObject::speedDial() const
         return Q_NULLPTR;
 
     return mApp->plugins()->speedDial();
+}
+
+QObject *ExternalJsObject::autoFill() const
+{
+    return m_autoFill;
 }

@@ -23,14 +23,16 @@
 #include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
-#include "pageformcompleter.h"
 #include "settings.h"
 #include "passwordmanager.h"
 #include "qztools.h"
+#include "scripts.h"
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 #include <QNetworkRequest>
+#include <QWebEngineProfile>
+#include <QWebEngineScriptCollection>
 
 #include <QUrlQuery>
 
@@ -40,6 +42,15 @@ AutoFill::AutoFill(QObject* parent)
     , m_isStoring(false)
 {
     loadSettings();
+
+    // Setup AutoFill userscript
+    QWebEngineScript script;
+    script.setName(QSL("_qupzilla_autofill"));
+    script.setInjectionPoint(QWebEngineScript::DocumentReady);
+    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setRunsOnSubFrames(true);
+    script.setSourceCode(Scripts::setupFormObserver());
+    mApp->webProfile()->scripts()->insert(script);
 }
 
 PasswordManager* AutoFill::passwordManager() const
@@ -166,75 +177,18 @@ void AutoFill::removeAllEntries()
     m_manager->removeAllEntries();
 }
 
-// If password was filled in the page, returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completeFrame(QWebEngineFrame* frame)
+void AutoFill::saveForm(QWebEnginePage *page, const QUrl &frameUrl, const PageFormData &formData)
 {
-    bool completed = false;
-    QVector<PasswordEntry> list;
-
-    if (!frame) {
-        return list;
-    }
-
-#if QTWEBENGINE_DISABLED
-    const QUrl frameUrl = QzTools::frameUrl(frame);
-    if (!isStored(frameUrl)) {
-        return list;
-    }
-
-    list = getFormData(frameUrl);
-#endif
-
-    if (!list.isEmpty()) {
-        const PasswordEntry entry = list.first();
-
-        PageFormCompleter completer;
-        completed = completer.completeFormData(frame, entry.data);
-    }
-
-    if (!completed) {
-        list.clear();
-    }
-
-    return list;
-}
-
-void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingData)
-{
-    Q_UNUSED(request)
-    Q_UNUSED(outgoingData)
-#if QTWEBENGINE_DISABLED
     // Don't save in private browsing
-    if (mApp->isPrivate()) {
+    if (mApp->isPrivate() || !page)
         return;
-    }
 
-    QWebEngineFrame* frame = qobject_cast<QWebEngineFrame*>(request.originatingObject());
-    if (!frame) {
+    WebView* webView = qobject_cast<WebView*>(page->view());
+    if (!webView)
         return;
-    }
 
-    WebPage* webPage = qobject_cast<WebPage*>(frame->page());
-    if (!webPage) {
+    if (!isStoringEnabled(frameUrl))
         return;
-    }
-
-    WebView* webView = qobject_cast<WebView*>(webPage->view());
-    if (!webView) {
-        return;
-    }
-
-    const QUrl frameUrl = QzTools::frameUrl(frame);
-    if (!isStoringEnabled(frameUrl)) {
-        return;
-    }
-
-    PageFormCompleter completer;
-    const PageFormData formData = completer.extractFormData(frame, outgoingData);
-
-    if (!formData.isValid()) {
-        return;
-    }
 
     PasswordEntry updateData;
 
@@ -261,7 +215,24 @@ void AutoFill::post(const QNetworkRequest &request, const QByteArray &outgoingDa
 
     AutoFillNotification* aWidget = new AutoFillNotification(frameUrl, formData, updateData);
     webView->addNotification(aWidget);
-#endif
+}
+
+// Returns all saved passwords on this page
+QVector<PasswordEntry> AutoFill::completePage(QWebEnginePage *page, const QUrl &frameUrl)
+{
+    QVector<PasswordEntry> list;
+
+    if (!page || !isStored(frameUrl))
+        return list;
+
+    list = getFormData(frameUrl);
+
+    if (!list.isEmpty()) {
+        const PasswordEntry entry = list.first();
+        page->runJavaScript(Scripts::completeFormData(entry.data));
+    }
+
+    return list;
 }
 
 QByteArray AutoFill::exportPasswords()

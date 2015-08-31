@@ -49,6 +49,57 @@ QString Scripts::setupWebChannel()
     return source.arg(QzTools::readAllFileContents(QSL(":/html/qwebchannel.js")));
 }
 
+QString Scripts::setupFormObserver()
+{
+    QString source = QL1S("(function() {"
+                          "function findUsername(inputs) {"
+                          "    for (var i = 0; i < inputs.length; ++i)"
+                          "        if (inputs[i].type == 'text' && inputs[i].value.length && inputs[i].name.indexOf('user') != -1)"
+                          "            return inputs[i].value;"
+                          "    for (var i = 0; i < inputs.length; ++i)"
+                          "        if (inputs[i].type == 'text' && inputs[i].value.length && inputs[i].name.indexOf('name') != -1)"
+                          "            return inputs[i].value;"
+                          "    for (var i = 0; i < inputs.length; ++i)"
+                          "        if (inputs[i].type == 'text' && inputs[i].value.length)"
+                          "            return inputs[i].value;"
+                          "    for (var i = 0; i < inputs.length; ++i)"
+                          "        if (inputs[i].type == 'email' && inputs[i].value.length)"
+                          "            return inputs[i].value;"
+                          "    return '';"
+                          "}"
+                          "function registerForm(form) {"
+                          "    form.addEventListener('submit', function() {"
+                          "        var form = this;"
+                          "        var data = '';"
+                          "        var password = '';"
+                          "        var inputs = form.getElementsByTagName('input');"
+                          "        for (var i = 0; i < inputs.length; ++i) {"
+                          "            var input = inputs[i];"
+                          "            var type = input.type.toLowerCase();"
+                          "            if (type != 'text' && type != 'password' && type != 'email')"
+                          "                continue;"
+                          "            if (!password && type == 'password')"
+                          "                password = input.value;"
+                          "            data += encodeURIComponent(input.name);"
+                          "            data += '=';"
+                          "            data += encodeURIComponent(input.value);"
+                          "            data += '&';"
+                          "        }"
+                          "        if (!password)"
+                          "            return;"
+                          "        data = data.substring(0, data.length - 1);"
+                          "        var url = window.location.href;"
+                          "        var username = findUsername(inputs);"
+                          "        external.autoFill.formSubmitted(url, username, password, data);"
+                          "    }, true);"
+                          "}"
+                          "for (var i = 0; i < document.forms.length; ++i)"
+                          "    registerForm(document.forms[i]);"
+                          "})()");
+
+    return source;
+}
+
 QString Scripts::setCss(const QString &css)
 {
     QString source = QL1S("(function() {"
@@ -93,4 +144,37 @@ QString Scripts::sendPostData(const QUrl &url, const QByteArray &data)
     }
 
     return source.arg(url.toString(), values);
+}
+
+QString Scripts::completeFormData(const QByteArray &data)
+{
+    QString source = QL1S("(function() {"
+                          "var data = '%1'.split('&');"
+                          "var inputs = [];"
+                          "var frames = [window, window.frames];"
+                          "for (var i = 0; i < frames.length; ++i) {"
+                          "    var finputs = frames[i].document.getElementsByTagName('input');"
+                          "    for (var j = 0; j < finputs.length; ++j) {"
+                          "        var type = finputs[j].type.toLowerCase();"
+                          "        if (type == 'text' || type == 'password' || type == 'email')"
+                          "            inputs.push(finputs[j]);"
+                          "    }"
+                          "}"
+                          "for (var i = 0; i < data.length; ++i) {"
+                          "    var pair = data[i].split('=');"
+                          "    if (pair.length != 2)"
+                          "        continue;"
+                          "    var key = decodeURIComponent(pair[0]);"
+                          "    var val = decodeURIComponent(pair[1]);"
+                          "    for (var j = 0; j < inputs.length; ++j) {"
+                          "        var input = inputs[j];"
+                          "        if (input.name == key)"
+                          "            input.value = val;"
+                          "    }"
+                          "}"
+                          "})()");
+
+    QString d = data;
+    d.replace(QL1S("'"), QL1S("\\'"));
+    return source.arg(d);
 }

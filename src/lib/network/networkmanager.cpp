@@ -15,7 +15,6 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "networkmanager.h"
 #include "browserwindow.h"
 #include "autofill.h"
 #include "networkmanagerproxy.h"

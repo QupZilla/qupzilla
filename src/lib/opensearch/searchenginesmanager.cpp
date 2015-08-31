@@ -20,7 +20,6 @@
 #include "editsearchengine.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
-#include "networkmanager.h"
 #include "opensearchreader.h"
 #include "opensearchengine.h"
 #include "settings.h"
