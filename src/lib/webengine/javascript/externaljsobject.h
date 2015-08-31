@@ -20,20 +20,24 @@
 
 #include <QObject>
 
+class WebPage;
+
 class ExternalJsObject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
 
 public:
-    explicit ExternalJsObject(QObject* parent = 0);
+    explicit ExternalJsObject(WebPage *page);
 
 public slots:
     void AddSearchProvider(const QString &engineUrl);
     int IsSearchProviderInstalled(const QString &engineURL);
 
 private:
-    QObject* speedDial() const;
+    QObject *speedDial() const;
+
+    WebPage *m_page;
 
 };
 

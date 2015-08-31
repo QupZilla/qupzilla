@@ -19,10 +19,12 @@
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "speeddial.h"
+#include "webpage.h"
 #include "searchenginesmanager.h"
 
-ExternalJsObject::ExternalJsObject(QObject* parent)
-    : QObject(parent)
+ExternalJsObject::ExternalJsObject(WebPage *page)
+    : QObject(page)
+    , m_page(page)
 {
 }
 
@@ -37,7 +39,10 @@ int ExternalJsObject::IsSearchProviderInstalled(const QString &engineURL)
     return 0;
 }
 
-QObject* ExternalJsObject::speedDial() const
+QObject *ExternalJsObject::speedDial() const
 {
+    if (m_page->url().toString() != QL1S("qupzilla:speeddial"))
+        return Q_NULLPTR;
+
     return mApp->plugins()->speedDial();
 }
