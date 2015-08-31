@@ -115,21 +115,14 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     connect(m_view->page(), &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
     connect(m_view->page(), &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
-#if QTWEBENGINE_DISABLED
-    connect(m_view->page(), &WebPage::statusBarVisibilityChangeRequested, this, &PopupWindow::setStatusBarVisibility);
-    connect(m_view->page(), &WebPage::menuBarVisibilityChangeRequested, this, &PopupWindow::setMenuBarVisibility);
-    connect(m_view->page(), &WebPage::toolBarVisibilityChangeRequested, this, &PopupWindow::setToolBarVisibility);
-#endif
 
     m_view->setFocus();
     titleChanged();
 
     QUrl urlToShow = m_view->url();
-#if QTWEBENGINE_DISABLED
     if (urlToShow.isEmpty()) {
-        urlToShow = m_view->page()->mainFrame()->requestedUrl();
+        urlToShow = m_view->page()->requestedUrl();
     }
-#endif
 
     m_locationBar->showUrl(urlToShow);
 

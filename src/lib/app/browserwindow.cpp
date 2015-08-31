@@ -788,13 +788,11 @@ void BrowserWindow::toggleTabsOnTop(bool enable)
 void BrowserWindow::toggleCaretBrowsing()
 {
 #if QTWEBENGINE_DISABLED
-#if QTWEBKIT_FROM_2_3
     bool enable = !QWebEngineSettings::globalSettings()->testAttribute(QWebEngineSettings::CaretBrowsingEnabled);
 
     Settings().setValue("Web-Browser-Settings/CaretBrowsing", enable);
 
     QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::CaretBrowsingEnabled, enable);
-#endif
 #endif
 }
 
@@ -1320,7 +1318,6 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
             m_tabWidget->setCurrentIndex(number - 1);
             return;
         }
-#if QTWEBENGINE_DISABLED
         if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
             const QUrl url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
@@ -1334,7 +1331,6 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
             if (number == 2)
                 m_tabWidget->nextTab();
         }
-#endif
     }
 
     QMainWindow::keyPressEvent(event);

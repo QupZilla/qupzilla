@@ -65,19 +65,7 @@ BrowserWindow* TabbedWebView::browserWindow() const
 
 void TabbedWebView::setBrowserWindow(BrowserWindow* window)
 {
-#if QTWEBENGINE_DISABLED
-    if (m_window) {
-        disconnect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    }
-#endif
-
     m_window = window;
-
-#if QTWEBENGINE_DISABLED
-    if (m_window) {
-        connect(this, SIGNAL(statusBarMessage(QString)), m_window->statusBar(), SLOT(showMessage(QString)));
-    }
-#endif
 }
 
 void TabbedWebView::inspectElement()

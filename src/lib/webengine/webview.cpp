@@ -1166,15 +1166,6 @@ void WebView::initializeActions()
     stopAction->setText(tr("S&top"));
     stopAction->setIcon(QIcon::fromTheme(QSL("process-stop")));
 
-#if QTWEBENGINE_DISABLED
-    pageAction(QWebEnginePage::SetTextDirectionDefault)->setText(tr("Default"));
-    pageAction(QWebEnginePage::SetTextDirectionLeftToRight)->setText(tr("Left to Right"));
-    pageAction(QWebEnginePage::SetTextDirectionRightToLeft)->setText(tr("Right to Left"));
-    pageAction(QWebEnginePage::ToggleBold)->setText(tr("Bold"));
-    pageAction(QWebEnginePage::ToggleItalic)->setText(tr("Italic"));
-    pageAction(QWebEnginePage::ToggleUnderline)->setText(tr("Underline"));
-#endif
-
     // Make action shortcuts available for webview
     addAction(undoAction);
     addAction(redoAction);

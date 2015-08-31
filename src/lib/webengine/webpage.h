@@ -50,8 +50,6 @@ public:
     WebPage(QObject* parent = 0);
     ~WebPage();
 
-    void populateNetworkRequest(QNetworkRequest &request);
-
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
 

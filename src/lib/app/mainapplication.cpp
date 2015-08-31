@@ -203,9 +203,6 @@ MainApplication::MainApplication(int &argc, char** argv)
             appId.append(QLatin1String("Portable"));
         }
 
-        // QtWebEngine
-        appId.append(QL1S("-QtWebEngine"));
-
         // TODO: This should generate some random string for appId
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
@@ -897,9 +894,6 @@ void MainApplication::loadSettings()
 
     if (isPrivate()) {
         webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
-#if QTWEBENGINE_DISABLED
-        webSettings->setAttribute(QWebSettings::PrivateBrowsingEnabled, true);
-#endif
         history()->setSaving(false);
     }
 

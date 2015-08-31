@@ -569,23 +569,6 @@ QSslCertificate WebPage::sslCertificate()
     return QSslCertificate();
 }
 
-void WebPage::populateNetworkRequest(QNetworkRequest &request)
-{
-    WebPage* pagePointer = this;
-
-    QVariant variant = QVariant::fromValue((void*) pagePointer);
-    request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100), variant);
-
-#if QTWEBENGINE_DISABLED
-    if (m_lastRequestUrl == request.url()) {
-        request.setAttribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 101), m_lastRequestType);
-        if (m_lastRequestType == NavigationTypeLinkClicked) {
-            request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-        }
-    }
-#endif
-}
-
 void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
 {
     AdBlockedEntry entry;

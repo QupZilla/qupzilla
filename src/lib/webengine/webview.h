@@ -192,9 +192,6 @@ private:
     QUrl m_aboutToLoadUrl;
     QUrl m_lastUrl;
 
-#if QTWEBENGINE_DISABLED
-    QWebElement m_clickedElement;
-#endif
     QUrl m_clickedUrl;
 
     WebPage* m_page;

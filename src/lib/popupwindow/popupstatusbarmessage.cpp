@@ -42,9 +42,6 @@ void PopupStatusBarMessage::showMessage(const QString &message)
     else {
 #endif
         PopupWebView* view = m_popupWindow->webView();
-#if QTWEBENGINE_DISABLED
-        QWebEngineFrame* mainFrame = view->page()->mainFrame();
-#endif
 
         m_statusBarText->setText(message);
         m_statusBarText->setMaximumWidth(view->width());

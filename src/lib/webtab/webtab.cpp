@@ -301,49 +301,11 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 QPixmap WebTab::renderTabPreview()
 {
-#if QTWEBENGINE_DISABLED
-    WebPage* page = m_webView->page();
-    const QSize oldSize = page->viewportSize();
-    const QPoint originalScrollPosition = page->mainFrame()->scrollPosition();
-
-    // Hack to ensure rendering the same preview before and after the page was shown for the first time
-    // This can occur eg. with opening background tabs
-    TabbedWebView* currentWebView = m_window ? m_window->weView() : 0;
-    if (currentWebView) {
-        page->setViewportSize(currentWebView->size());
-    }
-
-    const int previewWidth = 230;
-    const int previewHeight = 150;
-    const int scrollBarExtent = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-    const int pageWidth = qMin(page->mainFrame()->contentsSize().width(), 1280);
-    const int pageHeight = (pageWidth / 23 * 15);
-    const qreal scalingFactor = 2 * static_cast<qreal>(previewWidth) / pageWidth;
-
-    page->setViewportSize(QSize(pageWidth, pageHeight));
-
-    QPixmap pageImage((2 * previewWidth) - scrollBarExtent, (2 * previewHeight) - scrollBarExtent);
-    pageImage.fill(Qt::transparent);
-
-    QPainter p(&pageImage);
-    p.scale(scalingFactor, scalingFactor);
-    m_webView->page()->mainFrame()->render(&p, QWebFrame::ContentsLayer);
-    p.end();
-
-    page->setViewportSize(oldSize);
-
-    // Restore also scrollbar positions, to prevent messing scrolling to anchor links
-    page->mainFrame()->setScrollBarValue(Qt::Vertical, originalScrollPosition.y());
-    page->mainFrame()->setScrollBarValue(Qt::Horizontal, originalScrollPosition.x());
-
-    return pageImage.scaled(previewWidth, previewHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-#else
     const int previewWidth = 230;
     const int previewHeight = 150;
 
     QPixmap p = m_webView->grab();
     return p.scaled(previewWidth, previewHeight, Qt::KeepAspectRatioByExpanding);
-#endif
 }
 
 void WebTab::showNotification(QWidget* notif)

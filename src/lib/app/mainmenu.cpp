@@ -402,9 +402,7 @@ void MainMenu::aboutToShowViewMenu()
     m_actions[QSL("View/PageSource")]->setEnabled(true);
 
 #if QTWEBENGINE_DISABLED
-#if QTWEBKIT_FROM_2_3
     m_actions[QSL("View/CaretBrowsing")]->setChecked(m_window->weView()->settings()->testAttribute(QWebEngineSettings::CaretBrowsingEnabled));
-#endif
 #endif
 }
 

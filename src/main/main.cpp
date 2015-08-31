@@ -83,11 +83,7 @@ void qupzilla_signal_handler(int s)
     stream << "Time: " << currentDateTime.toString() << endl;
     stream << "Qt version: " << qVersion() << " (compiled with " << QT_VERSION_STR << ")" << endl;
     stream << "QupZilla version: " << Qz::VERSION << endl;
-#if QTWEBENGINE_DISABLED
-    stream << "WebKit version: " << qWebKitVersion() << endl;
-#else
-    stream << "WebKit version: QtWebEngine" << endl;
-#endif
+    stream << "Rendering engine: QtWebEngine" << endl;
     stream << endl;
     stream << "============== BACKTRACE ==============" << endl;
 
