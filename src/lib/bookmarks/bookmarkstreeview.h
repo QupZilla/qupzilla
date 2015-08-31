@@ -70,11 +70,10 @@ private slots:
     void indexExpanded(const QModelIndex &parent);
     void indexCollapsed(const QModelIndex &parent);
 
-    void slotSelectionChanged();
-
 private:
     void restoreExpandedState(const QModelIndex &parent);
     void rowsInserted(const QModelIndex &parent, int start, int end);
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseMoveEvent(QMouseEvent* event);

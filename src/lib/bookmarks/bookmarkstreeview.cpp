@@ -41,9 +41,8 @@ BookmarksTreeView::BookmarksTreeView(QWidget* parent)
     setItemDelegate(new BookmarksItemDelegate(this));
     header()->resizeSections(QHeaderView::ResizeToContents);
 
-    connect(this, SIGNAL(expanded(QModelIndex)), this, SLOT(indexExpanded(QModelIndex)));
-    connect(this, SIGNAL(collapsed(QModelIndex)), this, SLOT(indexCollapsed(QModelIndex)));
-    connect(this, SIGNAL(slotSelectionChanged(QItemSelection,QItemSelection)), this, SLOT(slotSelectionChanged()));
+    connect(this, &QTreeView::expanded, this, &BookmarksTreeView::indexExpanded);
+    connect(this, &QTreeView::collapsed, this, &BookmarksTreeView::indexCollapsed);
 }
 
 BookmarksTreeView::ViewType BookmarksTreeView::viewType() const
@@ -151,11 +150,6 @@ void BookmarksTreeView::indexCollapsed(const QModelIndex &parent)
     }
 }
 
-void BookmarksTreeView::slotSelectionChanged()
-{
-    emit bookmarksSelected(selectedBookmarks());
-}
-
 void BookmarksTreeView::restoreExpandedState(const QModelIndex &parent)
 {
     for (int i = 0; i < m_filter->rowCount(parent); ++i) {
@@ -170,6 +164,14 @@ void BookmarksTreeView::rowsInserted(const QModelIndex &parent, int start, int e
 {
     restoreExpandedState(parent);
     QTreeView::rowsInserted(parent, start, end);
+}
+
+void BookmarksTreeView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    Q_UNUSED(selected)
+    Q_UNUSED(deselected)
+
+    emit bookmarksSelected(selectedBookmarks());
 }
 
 void BookmarksTreeView::contextMenuEvent(QContextMenuEvent* event)
