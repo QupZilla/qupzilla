@@ -325,6 +325,8 @@ void SpeedDial::setSdSize(int count)
 void SpeedDial::setSdCentered(int cntr)
 {
     m_sdcentered = cntr;
+
+    m_autoSaver->changeOcurred();
 }
 
 void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
