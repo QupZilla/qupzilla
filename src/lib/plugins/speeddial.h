@@ -60,6 +60,7 @@ public:
     int sdCntr();
 
     QString backgroundImage();
+    QString backgroundImageUrl();
     QString backgroundImageSize();
     QString initialScript();
 
@@ -73,7 +74,7 @@ public slots:
     void loadThumbnail(const QString &url, bool loadTitle);
     void removeImageForUrl(const QString &url);
 
-    QString getOpenFileName();
+    QStringList getOpenFileName();
     QString urlFromUserInput(const QString &url);
     void setBackgroundImage(const QString &image);
     void setBackgroundImageSize(const QString &size);
@@ -94,6 +95,7 @@ private:
     QString m_initialScript;
     QString m_thumbnailsDir;
     QString m_backgroundImage;
+    QString m_backgroundImageUrl;
     QString m_backgroundImageSize;
     int m_maxPagesInRow;
     int m_sizeOfSpeedDials;

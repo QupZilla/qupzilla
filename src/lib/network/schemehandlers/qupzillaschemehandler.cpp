@@ -312,6 +312,7 @@ QString QupZillaSchemeReply::speeddialPage()
 
     page.replace(QLatin1String("%INITIAL-SCRIPT%"), dial->initialScript());
     page.replace(QLatin1String("%IMG_BACKGROUND%"), dial->backgroundImage());
+    page.replace(QLatin1String("%URL_BACKGROUND%"), dial->backgroundImageUrl());
     page.replace(QLatin1String("%B_SIZE%"), dial->backgroundImageSize());
     page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
     page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));

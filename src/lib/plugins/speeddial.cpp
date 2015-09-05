@@ -55,7 +55,7 @@ void SpeedDial::loadSettings()
     Settings settings;
     settings.beginGroup("SpeedDial");
     QString allPages = settings.value("pages", QString()).toString();
-    m_backgroundImage = settings.value("background", QString()).toString();
+    setBackgroundImage(settings.value("background", QString()).toString());
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
@@ -89,7 +89,7 @@ void SpeedDial::saveSettings()
     Settings settings;
     settings.beginGroup("SpeedDial");
     settings.setValue("pages", generateAllPages());
-    settings.setValue("background", m_backgroundImage);
+    settings.setValue("background", m_backgroundImageUrl);
     settings.setValue("backsize", m_backgroundImageSize);
     settings.setValue("pagesrow", m_maxPagesInRow);
     settings.setValue("sdsize", m_sizeOfSpeedDials);
@@ -184,6 +184,11 @@ QString SpeedDial::backgroundImage()
     return m_backgroundImage;
 }
 
+QString SpeedDial::backgroundImageUrl()
+{
+    return m_backgroundImageUrl;
+}
+
 QString SpeedDial::backgroundImageSize()
 {
     ENSURE_LOADED;
@@ -276,16 +281,18 @@ void SpeedDial::removeImageForUrl(const QString &url)
     }
 }
 
-QString SpeedDial::getOpenFileName()
+QStringList SpeedDial::getOpenFileName()
 {
     const QString fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
     const QString image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Select image..."), QDir::homePath(), fileTypes);
 
-    if (image.isEmpty()) {
-        return image;
-    }
+    if (image.isEmpty())
+        return QStringList();
 
-    return QUrl::fromLocalFile(image).toEncoded();
+    const QByteArray data = QzTools::pixmapToByteArray(QPixmap(image));
+    const QByteArray imageData = QByteArrayLiteral("data:image/png;base64,") + data;
+
+    return {imageData, QUrl::fromLocalFile(image).toEncoded()};
 }
 
 QString SpeedDial::urlFromUserInput(const QString &url)
@@ -295,7 +302,9 @@ QString SpeedDial::urlFromUserInput(const QString &url)
 
 void SpeedDial::setBackgroundImage(const QString &image)
 {
-    m_backgroundImage = image;
+    const QByteArray data = QzTools::pixmapToByteArray(QPixmap(QUrl::fromEncoded(image.toUtf8()).toLocalFile()));
+    m_backgroundImage = QByteArrayLiteral("data:image/png;base64,") + data;
+    m_backgroundImageUrl = image;
 }
 
 void SpeedDial::setBackgroundImageSize(const QString &size)

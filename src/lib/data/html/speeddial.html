@@ -347,9 +347,10 @@ function alignPage() {
 }
 
 function bgImageSel() {
-    external.speedDial.getOpenFileName(function(img) {
-        if (img) {
-            document.getElementById('BgImgHold').value = img;
+    external.speedDial.getOpenFileName(function(arr) {
+        if (arr.length) {
+            document.getElementById('BgImgHold').value = arr[0];
+            document.getElementById('BgImgHoldUrl').value = arr[1];
         }
     });
 }
@@ -359,7 +360,7 @@ function saveSettings() {
     DIAL_WIDTH = parseInt($('#SdSize').val());
     SD_CNTR = ($('#SdCntrToggle').attr('checked') ? 1 : 0 );
 
-    external.speedDial.setBackgroundImage($('#BgImgHold').val());
+    external.speedDial.setBackgroundImage($('#BgImgHoldUrl').val());
     external.speedDial.setBackgroundImageSize($('#BgImgSelSiz').val());
     external.speedDial.setPagesInRow(MAX_PAGES_ROW);
     external.speedDial.setSdSize(DIAL_WIDTH);
@@ -371,13 +372,13 @@ function saveSettings() {
 function bgImgToggle() {
     var check = document.getElementById('BgImgToggle');
     var BgImgSel = document.getElementById('BgImgSel');
-    var BgImgHold = document.getElementById('BgImgHold');
+    var BgImgHoldUrl = document.getElementById('BgImgHoldUrl');
     var BgImgSz = document.getElementById('BgImgSelSiz');
 
     BgImgSel.disabled = (check.checked ? false : true);
-    BgImgHold.disabled = (check.checked ? false : true);
+    BgImgHoldUrl.disabled = (check.checked ? false : true);
     BgImgSz.disabled = (check.checked ? false : true);
-    BgImgHold.value = (check.checked ? "%IMG_BACKGROUND%" : '');
+    BgImgHoldUrl.value = (check.checked ? "%URL_BACKGROUND%" : '');
 }
 
 function sdSizeToggle() {
@@ -487,6 +488,7 @@ if (window.external) {
     <div class="content">
       <p>
         <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
+        <input id="BgImgHoldUrl" type="hidden" value="%URL_BACKGROUND%" />
       </p>
       <center><p>
         <label for="BgImgSelSiz">%TXT_PLACEMENT%</label>
