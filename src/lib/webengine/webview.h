@@ -36,7 +36,6 @@ public:
     ~WebView();
 
     QIcon icon() const;
-    QUrl url() const;
 
     QString title() const;
     bool isTitleEmpty() const;
@@ -153,7 +152,6 @@ protected:
 
     void loadRequest(const LoadRequest &req);
     void applyZoom();
-    QUrl lastUrl();
 
 #if QTWEBENGINE_DISABLED
     bool isMediaElement(const QWebElement &element);
@@ -189,8 +187,6 @@ private:
 
     bool m_isLoading;
     int m_progress;
-    QUrl m_aboutToLoadUrl;
-    QUrl m_lastUrl;
 
     QUrl m_clickedUrl;
 

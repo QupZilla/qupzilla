@@ -91,10 +91,6 @@ void TabbedWebView::urlChanged(const QUrl &url)
     if (m_webTab->isCurrentTab() && m_window) {
         m_window->navigationBar()->refreshHistory();
     }
-
-    if (lastUrl() != url) {
-        emit changed();
-    }
 }
 
 void TabbedWebView::slotLoadProgress(int prog)

@@ -120,17 +120,6 @@ bool WebView::isTitleEmpty() const
     return QWebEngineView::title().isEmpty();
 }
 
-QUrl WebView::url() const
-{
-    QUrl returnUrl = page()->url();
-
-    if (LocationBar::convertUrlToText(returnUrl).isEmpty()) {
-        returnUrl = m_aboutToLoadUrl;
-    }
-
-    return returnUrl;
-}
-
 WebPage* WebView::page() const
 {
     return m_page;
@@ -390,11 +379,6 @@ void WebView::reload()
 {
     m_isReloading = true;
 
-    if (LocationBar::convertUrlToText(QWebEngineView::url()).isEmpty() && !m_aboutToLoadUrl.isEmpty()) {
-        load(m_aboutToLoadUrl);
-        return;
-    }
-
     QWebEngineView::reload();
 }
 
@@ -446,7 +430,6 @@ void WebView::slotLoadFinished()
     }
 
     m_isReloading = false;
-    m_lastUrl = url();
 }
 
 void WebView::emitChangedUrl()
@@ -731,14 +714,7 @@ void WebView::printPage(QWebEngineFrame* frame)
 
     dialog->open();
 }
-#endif
 
-QUrl WebView::lastUrl()
-{
-    return m_lastUrl;
-}
-
-#if QTWEBENGINE_DISABLED
 bool WebView::isMediaElement(const QWebElement &element)
 {
     return (element.tagName().toLower() == QLatin1String("video")
@@ -1449,8 +1425,6 @@ void WebView::resizeEvent(QResizeEvent* event)
 
 void WebView::loadRequest(const LoadRequest &req)
 {
-    m_aboutToLoadUrl = req.url();
-
     if (req.operation() == LoadRequest::GetOperation)
         load(req.url());
     else
