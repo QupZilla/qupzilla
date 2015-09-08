@@ -93,7 +93,6 @@ public slots:
     void editSelectAll();
     void editDelete();
 
-    void reload();
     void reloadBypassCache();
 
     void back();
@@ -185,7 +184,6 @@ private:
     QUrl m_siteIconUrl;
     IconLoader* m_siteIconLoader;
 
-    bool m_isLoading;
     int m_progress;
 
     QUrl m_clickedUrl;
@@ -194,7 +192,6 @@ private:
     bool m_actionsInitialized;
 
     bool m_disableTouchMocking;
-    bool m_isReloading;
     bool m_firstLoad;
 
     static bool s_forceContextMenuOnMouseRelease;

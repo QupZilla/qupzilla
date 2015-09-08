@@ -88,6 +88,8 @@ QString TabbedWebView::getIp() const
 
 void TabbedWebView::urlChanged(const QUrl &url)
 {
+    Q_UNUSED(url)
+
     if (m_webTab->isCurrentTab() && m_window) {
         m_window->navigationBar()->refreshHistory();
     }

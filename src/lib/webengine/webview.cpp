@@ -53,11 +53,9 @@ bool WebView::s_forceContextMenuOnMouseRelease = false;
 WebView::WebView(QWidget* parent)
     : QWebEngineView(parent)
     , m_siteIconLoader(0)
-    , m_isLoading(false)
-    , m_progress(0)
+    , m_progress(100)
     , m_page(0)
     , m_disableTouchMocking(false)
-    , m_isReloading(false)
     , m_firstLoad(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
@@ -193,7 +191,7 @@ void WebView::load(const LoadRequest &request)
 
 bool WebView::isLoading() const
 {
-    return m_isLoading;
+    return m_progress < 100;
 }
 
 int WebView::loadingProgress() const
@@ -375,13 +373,6 @@ void WebView::editDelete()
     QApplication::sendEvent(this, &ev);
 }
 
-void WebView::reload()
-{
-    m_isReloading = true;
-
-    QWebEngineView::reload();
-}
-
 void WebView::reloadBypassCache()
 {
     triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
@@ -411,7 +402,6 @@ void WebView::forward()
 
 void WebView::slotLoadStarted()
 {
-    m_isLoading = true;
     m_progress = 0;
 }
 
@@ -422,14 +412,9 @@ void WebView::slotLoadProgress(int progress)
 
 void WebView::slotLoadFinished()
 {
-    m_isLoading = false;
     m_progress = 100;
 
-    if (!m_isReloading) {
-        mApp->history()->addHistoryEntry(this);
-    }
-
-    m_isReloading = false;
+    mApp->history()->addHistoryEntry(this);
 }
 
 void WebView::emitChangedUrl()
