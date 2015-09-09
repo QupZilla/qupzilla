@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - QtWebEngine based browser
+* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,7 @@
 #ifndef COMMANDLINEOPTIONS_H
 #define COMMANDLINEOPTIONS_H
 
-#include <QPair>
-#include <QString>
 #include <QVector>
-#include <iostream>
 
 #include "qzcommon.h"
 
@@ -35,14 +32,12 @@ public:
 
     typedef QVector<ActionPair> ActionPairList;
 
-    explicit CommandLineOptions(int &argc);
+    explicit CommandLineOptions();
     ActionPairList getActions();
 
 private:
-    void showHelp();
     void parseActions();
 
-    int m_argc;
     ActionPairList m_actions;
 };
 

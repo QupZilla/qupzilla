@@ -65,6 +65,8 @@
 #include <QWebEngineDownloadItem>
 #include <QWebEngineScriptCollection>
 
+#include <iostream>
+
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 #include "registerqappassociation.h"
 #endif
@@ -100,9 +102,14 @@ MainApplication::MainApplication(int &argc, char** argv)
     setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     setApplicationName(QLatin1String("QupZilla"));
-    setApplicationVersion(Qz::VERSION);
     setOrganizationDomain(QLatin1String("qupzilla"));
     setWindowIcon(QIcon::fromTheme(QSL("qupzilla"), QIcon(QSL(":icons/exeicons/qupzilla-window.png"))));
+
+#ifdef GIT_REVISION
+    setApplicationVersion(QSL("%1 (%2)").arg(Qz::VERSION, GIT_REVISION));
+#else
+    setApplicationVersion(Qz::VERSION);
+#endif
 
     // Set fallback icon theme (eg. on Windows/Mac)
     if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
@@ -135,8 +142,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     bool newInstance = false;
 
     if (argc > 1) {
-        CommandLineOptions cmd(argc);
-
+        CommandLineOptions cmd;
         foreach (const CommandLineOptions::ActionPair &pair, cmd.getActions()) {
             switch (pair.action) {
             case Qz::CL_StartWithoutAddons:
