@@ -85,11 +85,11 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
                 if (fd_CmdLineFile) {
                     int r = fscanf(fd_CmdLineFile, "%20s", chrarry_NameOfProcess) ; // read from /proc/<NR>/cmdline
 
+                    fclose(fd_CmdLineFile);  // close the file prior to exiting the routine
+
                     if (r < 1) {
                         continue;
                     }
-
-                    fclose(fd_CmdLineFile);  // close the file prior to exiting the routine
 
                     if (strrchr(chrarry_NameOfProcess, '/')) {
                         chrptr_StringToCompare = strrchr(chrarry_NameOfProcess, '/') + 1 ;
