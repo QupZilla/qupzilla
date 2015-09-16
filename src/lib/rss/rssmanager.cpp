@@ -229,7 +229,7 @@ void RSSManager::editFeed()
 
     QSqlQuery query;
     query.prepare("UPDATE rss SET address=?, title=? WHERE address=?");
-    query.bindValue(0, address);
+    query.bindValue(0, QUrl(address));
     query.bindValue(1, title);
     query.bindValue(2, url);
     query.exec();
