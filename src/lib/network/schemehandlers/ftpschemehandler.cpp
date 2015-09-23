@@ -301,7 +301,7 @@ QString FtpSchemeReply::loadDirectory()
     else {
         title = QString::fromLatin1(titleByteArray);
     }
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(QzTools::escape(title)));
     page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
@@ -352,7 +352,7 @@ QString FtpSchemeReply::loadDirectory()
         line += QLatin1String("<a href=\"");
         line += itemUrl.toEncoded();
         line += QLatin1String("\">");
-        line += item.name();
+        line += QzTools::escape(item.name());
         line += QLatin1String("</a></td><td class=\"td-size\">");
         line += item.isDir() ? QString() : QzTools::fileSizeToString(item.size());
         line += QLatin1String("</td><td>");
@@ -389,7 +389,7 @@ QString FtpSchemeReply::clickableSections(const QString &path)
     for (int i = 0; i < sections.size(); ++i) {
         QStringList currentParentSections = sections.mid(0, i + 1);
         QUrl currentParentUrl = QUrl(currentParentSections.join(QLatin1String("/")));
-        title += QString("<a href=\"%1\">%2</a>/").arg(currentParentUrl.toEncoded(), sections.at(i));
+        title += QString("<a href=\"%1\">%2</a>/").arg(currentParentUrl.toEncoded(), QzTools::escape(sections.at(i)));
     }
 
     return title;
