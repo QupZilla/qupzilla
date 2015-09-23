@@ -170,7 +170,7 @@ QString FileSchemeReply::loadDirectory()
     QString page = sPage;
     QString title = request().url().toLocalFile();
     title.replace(QLatin1Char('/'), QDir::separator());
-    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(title));
+    page.replace(QLatin1String("%TITLE%"), tr("Index for %1").arg(QzTools::escape(title)));
     page.replace(QLatin1String("%CLICKABLE-TITLE%"), tr("Index for %1").arg(clickableSections(title)));
 
     QString upDirDisplay = QLatin1String("none");
@@ -203,7 +203,7 @@ QString FileSchemeReply::loadDirectory()
         line += QLatin1String("<a href=\"");
         line += QUrl::fromLocalFile(info.absoluteFilePath()).toEncoded();
         line += QLatin1String("\">");
-        line += info.fileName();
+        line += QzTools::escape(info.fileName());
         line += QLatin1String("</a></td><td class=\"td-size\">");
         line += info.isDir() ? QString() : QzTools::fileSizeToString(info.size());
         line += QLatin1String("</td><td>");
@@ -245,7 +245,7 @@ QString FileSchemeReply::clickableSections(const QString &path)
 #ifndef Q_OS_WIN
         localFile.prepend(dirSeparator);
 #endif
-        title += QString("<a href=\"%1\">%2</a>%3").arg(QUrl::fromLocalFile(localFile).toEncoded(), sections.at(i), dirSeparator);
+        title += QString("<a href=\"%1\">%2</a>%3").arg(QUrl::fromLocalFile(localFile).toEncoded(), QzTools::escape(sections.at(i)), dirSeparator);
     }
 
     return title;
