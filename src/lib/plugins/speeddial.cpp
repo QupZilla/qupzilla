@@ -59,7 +59,7 @@ void SpeedDial::loadSettings()
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
-    m_sdcentered = settings.value("sdcenter", 0).toInt();
+    m_sdcentered = settings.value("sdcenter", false).toBool();
     settings.endGroup();
 
     if (allPages.isEmpty()) {
@@ -170,7 +170,7 @@ int SpeedDial::sdSize()
     return m_sizeOfSpeedDials;
 }
 
-int SpeedDial::sdCntr()
+bool SpeedDial::sdCenter()
 {
     ENSURE_LOADED;
 
@@ -322,9 +322,9 @@ void SpeedDial::setSdSize(int count)
     m_sizeOfSpeedDials = count;
 }
 
-void SpeedDial::setSdCentered(int cntr)
+void SpeedDial::setSdCentered(bool centered)
 {
-    m_sdcentered = cntr;
+    m_sdcentered = centered;
 
     m_autoSaver->changeOcurred();
 }
