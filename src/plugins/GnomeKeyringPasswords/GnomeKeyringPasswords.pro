@@ -15,6 +15,7 @@ TRANSLATIONS += \
     translations/bg_BG.ts \
     translations/ca_ES.ts \
     translations/cs_CZ.ts \
+    translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/es_ES.ts \
@@ -30,6 +31,7 @@ TRANSLATIONS += \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ko_KR.ts \
+    translations/lt.ts \
     translations/lv_LV.ts \
     translations/nl_NL.ts \
     translations/nqo.ts \

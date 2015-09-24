@@ -7,6 +7,30 @@
         <file>data/tab-loading.png</file>
         <file>data/tab-pinned.png</file>
         <file>data/side-by-side.png</file>
+        <file>locale/cs_CZ.qm</file>
+        <file>locale/da_DK.qm</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/el_GR.qm</file>
+        <file>locale/es_ES.qm</file>
+        <file>locale/es_MX.qm</file>
+        <file>locale/eu_ES.qm</file>
         <file>locale/fa_IR.qm</file>
+        <file>locale/fr_FR.qm</file>
+        <file>locale/he_IL.qm</file>
+        <file>locale/hr_HR.qm</file>
+        <file>locale/id_ID.qm</file>
+        <file>locale/it_IT.qm</file>
+        <file>locale/lt.qm</file>
+        <file>locale/nl_NL.qm</file>
+        <file>locale/pl_PL.qm</file>
+        <file>locale/pt_PT.qm</file>
+        <file>locale/ru_RU.qm</file>
+        <file>locale/sr@ijekavianlatin.qm</file>
+        <file>locale/sr@ijekavian.qm</file>
+        <file>locale/sr@latin.qm</file>
+        <file>locale/sr.qm</file>
+        <file>locale/tr_TR.qm</file>
+        <file>locale/zh_CN.qm</file>
+        <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

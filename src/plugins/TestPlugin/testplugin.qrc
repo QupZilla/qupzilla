@@ -21,6 +21,7 @@
         <file>locale/ja_JP.qm</file>
         <file>locale/ka_GE.qm</file>
         <file>locale/ko_KR.qm</file>
+        <file>locale/lt.qm</file>
         <file>locale/lv_LV.qm</file>
         <file>locale/nb_NO.qm</file>
         <file>locale/nl_NL.qm</file>
@@ -32,6 +33,7 @@
         <file>locale/sk_SK.qm</file>
         <file>locale/sr@ijekavianlatin.qm</file>
         <file>locale/sr@ijekavian.qm</file>
+        <file>locale/sr@Ijekavian.qm</file>
         <file>locale/sr@latin.qm</file>
         <file>locale/sr.qm</file>
         <file>locale/sv_SE.qm</file>

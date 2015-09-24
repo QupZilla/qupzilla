@@ -3,6 +3,7 @@ TRANSLATIONS += \
     $$PWD/bg_BG.ts \
     $$PWD/ca_ES.ts \
     $$PWD/cs_CZ.ts \
+    $$PWD/da_DK.ts \
     $$PWD/de_DE.ts \
     $$PWD/el_GR.ts \
     $$PWD/es_ES.ts \
@@ -21,6 +22,7 @@ TRANSLATIONS += \
     $$PWD/ja_JP.ts \
     $$PWD/ka_GE.ts \
     $$PWD/lg.ts \
+    $$PWD/lt.ts \
     $$PWD/lv_LV.ts \
     $$PWD/nl_NL.ts \
     $$PWD/nqo.ts \

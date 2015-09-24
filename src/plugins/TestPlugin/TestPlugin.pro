@@ -35,6 +35,7 @@ TRANSLATIONS += \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
     translations/ko_KR.ts \
+    translations/lt.ts \
     translations/lv_LV.ts \
     translations/nb_NO.ts \
     translations/nl_NL.ts \
@@ -46,6 +47,7 @@ TRANSLATIONS += \
     translations/sk_SK.ts \
     translations/sr@ijekavianlatin.ts \
     translations/sr@ijekavian.ts \
+    translations/sr@Ijekavian.ts \
     translations/sr@latin.ts \
     translations/sr.ts \
     translations/sv_SE.ts \

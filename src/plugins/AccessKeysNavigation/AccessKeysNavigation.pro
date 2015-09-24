@@ -25,23 +25,26 @@ TRANSLATIONS += \
     translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
+    translations/es_419.ts \
     translations/es_AR.ts \
     translations/es_ES.ts \
     translations/es_MX.ts \
     translations/es_VE.ts \
-    translations/es_419.ts \
     translations/eu_ES.ts \
     translations/fa_IR.ts \
     translations/fi_FI.ts \
     translations/fr_FR.ts \
     translations/gl_ES.ts \
     translations/he_IL.ts \
+    translations/hi_IN.ts \
+    translations/hi.ts \
     translations/hr_HR.ts \
     translations/hu_HU.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
+    translations/lt.ts \
     translations/lv_LV.ts \
     translations/my_MM.ts \
     translations/nb_NO.ts \
@@ -63,6 +66,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 PLUGIN_DIR = $$PWD

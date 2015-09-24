@@ -16,6 +16,11 @@ file_filter = src/plugins/AutoScroll/translations/<lang>.ts
 source_lang = en
 minimum_perc = 60
 
+[qupzilla.flashcookiemanager-plugin]
+file_filter = src/plugins/FlashCookieManager/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
 [qupzilla.gnomekeyringpasswords-plugin]
 file_filter = src/plugins/GnomeKeyringPasswords/translations/<lang>.ts
 source_lang = en
@@ -43,6 +48,11 @@ minimum_perc = 60
 
 [qupzilla.statusbaricons-plugin]
 file_filter = src/plugins/StatusBarIcons/translations/<lang>.ts
+source_lang = en
+minimum_perc = 60
+
+[qupzilla.tabmanager-plugin]
+file_filter = src/plugins/TabManager/translations/<lang>.ts
 source_lang = en
 minimum_perc = 60
 
