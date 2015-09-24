@@ -57,6 +57,7 @@ var TITLE_RELOAD = '%TITLE-RELOAD%';
 var TITLE_FETCHTITLE = '%TITLE-FETCHTITLE%';
 var MAX_PAGES_ROW = %ROW-PAGES%;
 var DIAL_WIDTH = %SD-SIZE%;
+var SD_CENTER = %SD-CENTER%;
 
 var editingId = -1;
 
@@ -341,6 +342,12 @@ function alignPage() {
     if (margintop < 0) margintop = 0;
 
     $("#quickdial").css('margin-top', margintop + 'px');
+
+    $('#SdCntrToggle').prop('checked', SD_CENTER);
+    $('#quickdial div.entry').css({
+        float: SD_CENTER ? 'none' : 'left',
+        display: SD_CENTER ? 'inline-block' : 'block'
+    });
 }
 
 function bgImageSel() {
@@ -353,13 +360,13 @@ function bgImageSel() {
 function saveSettings() {
     MAX_PAGES_ROW = $('#PgInRow').val();
     DIAL_WIDTH = parseInt($('#SdSize').val());
-    SD_CNTR = ($('#SdCntrToggle').attr('checked') ? 1 : 0 );
+    SD_CENTER = $('#SdCntrToggle').attr('checked') ? true : false;
 
     external.speedDial.setBackgroundImage($('#BgImgHold').val());
     external.speedDial.setBackgroundImageSize($('#BgImgSelSiz').val());
     external.speedDial.setPagesInRow(MAX_PAGES_ROW);
     external.speedDial.setSdSize(DIAL_WIDTH);
-    external.speedDial.setSdCentered(SD_CNTR);
+    external.speedDial.setSdCentered(SD_CENTER);
 
     alignPage();
 }
@@ -401,17 +408,12 @@ function bgImgUpdate() {
 
 $(document).ready(function () {
   $('#BgImgSelSiz').val('%B_SIZE%').attr('selected','selected');
-  var bgImg = "%IMG_BACKGROUND%";
-  var sdSize = 'DIAL_WIDTH';
-  var sdCntr = "%SD-CNTR%";
-
-  bgImg == '' ? $('#BgImgToggle').prop('checked', false) : $('#BgImgToggle').prop('checked', true)
-  sdSize == '240' ? $('#SdSizeToggle').prop('checked', false) : $('#SdSizeToggle').prop('checked', true)
+  $('#BgImgToggle').prop('checked', "%IMG_BACKGROUND%"!= "");
+  $('#SdSizeToggle').prop('checked', DIAL_WIDTH != 240);
+  $('#SdCntrToggle').prop('checked', SD_CENTER);
   $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
   $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
   $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
-  sdCntr == 0 ? $('#SdCntrToggle').prop('checked', false) : $('#SdCntrToggle').prop('checked', true);
-  sdCntr == 0 ? '' : $('#quickdial div.entry').css({'float':'none', 'display':'inline-block'});
 });
 
 </script>

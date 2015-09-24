@@ -338,7 +338,7 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace(QLatin1String("%B_SIZE%"), dial->backgroundImageSize());
     page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
     page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));
-    page.replace(QLatin1String("%SD-CNTR%"), QString::number(dial->sdCntr()));
+    page.replace(QLatin1String("%SD-CENTER%"), dial->sdCenter() ? QSL("true") : QSL("false"));
 
     return page;
 }
