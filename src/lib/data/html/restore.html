@@ -12,7 +12,25 @@ h1 {font-size: 150%;font-weight: bold;border-bottom: 1px solid #f4f4f4;margin-%L
 h2 {font-size: 100%;font-weight: normal;border-bottom: 1px solid #f4f4f4;margin-%LEFT_STR%: 48px;padding: 5px 0px 10px 2px;margin-%RIGHT_STR%: 50px;}
 ul {font-size: 90%;padding-%LEFT_STR%: 48px;margin: 20px 0;max-width:600px;}
 li {padding: 5px;}
+#buttons {margin: 20px 50px;}
+#restore-session-button {font-weight: bold;}
 </style>
+
+<script type="text/javascript">
+
+function startNewSession()
+{
+    document.getElementById("start-new-session-button").disabled = true;
+    external.recovery.startNewSession();
+}
+
+function restoreSession()
+{
+    document.getElementById("restore-session-button").disabled = true;
+    external.recovery.restoreSession();
+}
+
+</script>
 </head>
 <body>
   <div id="box">
@@ -23,7 +41,11 @@ li {padding: 5px;}
     <ul>
       <li>%TRY-REMOVING%</li>
       <li>%START-NEW%</li>
-      <object type="application/x-qt-plugin" classid="RecoveryWidget" name="recovery-widget" height="250" width="500">
     </ul>
+
+    <div id="buttons">
+      <input type="button" id="start-new-session-button" value="Start New Session" onclick="startNewSession();">
+      <input type="button" id="restore-session-button" value="   Restore   " onclick="restoreSession();">
+    </div>
   </div>
 </body></html>

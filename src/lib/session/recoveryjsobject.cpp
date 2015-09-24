@@ -16,24 +16,36 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 
-#include "autofilljsobject.h"
-#include "externaljsobject.h"
+#include "recoveryjsobject.h"
 #include "mainapplication.h"
-#include "autofill.h"
 #include "webpage.h"
+#include "tabbedwebview.h"
+#include "browserwindow.h"
 
-AutoFillJsObject::AutoFillJsObject(ExternalJsObject *parent)
-    : QObject(parent)
-    , m_jsObject(parent)
+RecoveryJsObject::RecoveryJsObject(RestoreManager *manager)
+    : QObject()
+    , m_manager(manager)
+    , m_page(Q_NULLPTR)
 {
 }
 
-void AutoFillJsObject::formSubmitted(const QString &frameUrl, const QString &username, const QString &password, const QByteArray &data)
+void RecoveryJsObject::setPage(WebPage *page)
 {
-    PageFormData formData;
-    formData.username = username;
-    formData.password = password;
-    formData.postData = data;
+    Q_ASSERT(page);
 
-    mApp->autoFill()->saveForm(m_jsObject->page(), QUrl(frameUrl), formData);
+    m_page = page;
+}
+
+void RecoveryJsObject::startNewSession()
+{
+    m_page->load(static_cast<TabbedWebView*>(m_page->view())->browserWindow()->homepageUrl());
+
+    mApp->destroyRestoreManager();
+}
+
+void RecoveryJsObject::restoreSession()
+{
+    if (!mApp->restoreSession(static_cast<TabbedWebView*>(m_page->view())->browserWindow() , m_manager->restoreData())) {
+        startNewSession();
+    }
 }

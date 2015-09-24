@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - QtWebEngine based browser
+* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,37 +15,30 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef EXTERNALJSOBJECT_H
-#define EXTERNALJSOBJECT_H
+
+#ifndef RECOVERYJSOBJECT_H
+#define RECOVERYJSOBJECT_H
 
 #include <QObject>
 
 class WebPage;
-class AutoFillJsObject;
+class RestoreManager;
 
-class ExternalJsObject : public QObject
+class RecoveryJsObject : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
-    Q_PROPERTY(QObject* autoFill READ autoFill CONSTANT)
-    Q_PROPERTY(QObject* recovery READ recovery CONSTANT)
-
 public:
-    explicit ExternalJsObject(WebPage *page);
+    explicit RecoveryJsObject(RestoreManager *manager);
 
-    WebPage *page() const;
+    void setPage(WebPage *page);
 
 public slots:
-    void AddSearchProvider(const QString &engineUrl);
-    int IsSearchProviderInstalled(const QString &engineURL);
+    void startNewSession();
+    void restoreSession();
 
 private:
-    QObject *speedDial() const;
-    QObject *autoFill() const;
-    QObject *recovery() const;
-
+    RestoreManager *m_manager;
     WebPage *m_page;
-    AutoFillJsObject *m_autoFill;
 };
 
-#endif // EXTERNALJSOBJECT_H
+#endif // RECOVERYJSOBJECT_H

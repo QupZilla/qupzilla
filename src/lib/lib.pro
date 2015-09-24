@@ -181,6 +181,7 @@ SOURCES += \
     preferences/thememanager.cpp \
     preferences/useragentdialog.cpp \
     session/recoverywidget.cpp \
+    session/recoveryjsobject.cpp \
     session/restoremanager.cpp \
     sidebar/bookmarkssidebar.cpp \
     sidebar/historysidebar.cpp \
@@ -228,8 +229,8 @@ SOURCES += \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
-    webengine/javascript/externaljsobject.cpp \
     webengine/javascript/autofilljsobject.cpp \
+    webengine/javascript/externaljsobject.cpp \
     webengine/loadrequest.cpp \
     webengine/webinspector.cpp \
     webengine/webpage.cpp \
@@ -380,6 +381,7 @@ HEADERS  += \
     preferences/thememanager.h \
     preferences/useragentdialog.h \
     session/recoverywidget.h \
+    session/recoveryjsobject.h \
     session/restoremanager.h \
     sidebar/bookmarkssidebar.h \
     sidebar/historysidebar.h \
@@ -428,8 +430,8 @@ HEADERS  += \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
-    webengine/javascript/externaljsobject.h \
     webengine/javascript/autofilljsobject.h \
+    webengine/javascript/externaljsobject.h \
     webengine/loadrequest.h \
     webengine/webinspector.h \
     webengine/webpage.h \

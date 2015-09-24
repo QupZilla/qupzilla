@@ -22,6 +22,7 @@
 #include "webpage.h"
 #include "searchenginesmanager.h"
 #include "autofilljsobject.h"
+#include "restoremanager.h"
 
 ExternalJsObject::ExternalJsObject(WebPage *page)
     : QObject(page)
@@ -57,4 +58,12 @@ QObject *ExternalJsObject::speedDial() const
 QObject *ExternalJsObject::autoFill() const
 {
     return m_autoFill;
+}
+
+QObject *ExternalJsObject::recovery() const
+{
+    if (!mApp->restoreManager() || m_page->url().toString() != QL1S("qupzilla:restore"))
+        return Q_NULLPTR;
+
+    return mApp->restoreManager()->recoveryObject(m_page);
 }

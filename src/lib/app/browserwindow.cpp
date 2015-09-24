@@ -186,7 +186,6 @@ void BrowserWindow::postLaunch()
 
     switch (m_windowType) {
     case Qz::BW_FirstAppWindow:
-#if QTWEBENGINE_DISABLED
         if (mApp->isStartingAfterCrash()) {
             addTab = false;
             startUrl.clear();
@@ -195,11 +194,6 @@ void BrowserWindow::postLaunch()
         else if (afterLaunch == 3 && mApp->restoreManager()) {
             addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
-#else
-        if (afterLaunch == 3 && mApp->restoreManager()) {
-            addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
-        }
-#endif
         else {
             // Pinned tabs are restored in MainApplication::restoreStateSlot
             // Make sure they will be restored also when not restoring session

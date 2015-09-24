@@ -17,13 +17,20 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "restoremanager.h"
+#include "recoveryjsobject.h"
 #include "datapaths.h"
 
 #include <QFile>
 
 RestoreManager::RestoreManager()
+    : m_recoveryObject(new RecoveryJsObject(this))
 {
     createFromFile(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
+}
+
+RestoreManager::~RestoreManager()
+{
+    delete m_recoveryObject;
 }
 
 RestoreData RestoreManager::restoreData() const
@@ -34,6 +41,12 @@ RestoreData RestoreManager::restoreData() const
 bool RestoreManager::isValid() const
 {
     return !m_data.isEmpty();
+}
+
+QObject *RestoreManager::recoveryObject(WebPage *page)
+{
+    m_recoveryObject->setPage(page);
+    return m_recoveryObject;
 }
 
 void RestoreManager::createFromFile(const QString &file)

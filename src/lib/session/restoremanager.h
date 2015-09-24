@@ -22,6 +22,9 @@
 #include "webtab.h"
 #include "qzcommon.h"
 
+class WebPage;
+class RecoveryJsObject;
+
 class QUPZILLA_EXPORT RestoreManager
 {
 public:
@@ -32,13 +35,17 @@ public:
     };
 
     explicit RestoreManager();
+    virtual ~RestoreManager();
 
-    QVector<RestoreManager::WindowData> restoreData() const;
     bool isValid() const;
+    QVector<RestoreManager::WindowData> restoreData() const;
+
+    QObject *recoveryObject(WebPage *page);
 
 private:
     void createFromFile(const QString &file);
 
+    RecoveryJsObject *m_recoveryObject;
     QVector<RestoreManager::WindowData> m_data;
 };
 
