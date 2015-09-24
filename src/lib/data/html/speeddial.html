@@ -70,6 +70,20 @@ function addSpeedDial()
 
 function configureSpeedDial()
 {
+    // Load settings
+    $('#PgInRow').val(MAX_PAGES_ROW);
+    $('#sliderValuePg').html(MAX_PAGES_ROW);
+    $('#SdSize').val(DIAL_WIDTH);
+    $('#SdSizeToggle').prop('checked', DIAL_WIDTH != 240);
+    $('#sliderValueSd').html(DIAL_WIDTH);
+    $('#BgImgSelSiz').val('%B_SIZE%').attr('selected', 'selected');
+    $('#BgImgToggle').prop('checked', "%IMG_BACKGROUND%" != "");
+    $('#SdCntrToggle').prop('checked', SD_CENTER);
+    $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
+    $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
+    $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
+
+    // Show dialog
     $('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
     $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
     $('#settingsBox').click(function(event) { event.stopPropagation(); });
@@ -346,11 +360,10 @@ function alignPage() {
 
     $("#quickdial").css('margin-top', margintop + 'px');
 
-    $('#SdCntrToggle').prop('checked', SD_CENTER);
-    $('#quickdial div.entry').css({
-        float: SD_CENTER ? 'none' : 'left',
-        display: SD_CENTER ? 'inline-block' : 'block'
-    });
+    if (SD_CENTER)
+        enableCentering();
+    else
+        diasableCentering();
 }
 
 function bgImageSel() {
@@ -411,15 +424,21 @@ function bgImgUpdate() {
     document.documentElement.style.backgroundSize = imgSize;
 }
 
-$(document).ready(function () {
-  $('#BgImgSelSiz').val('%B_SIZE%').attr('selected','selected');
-  $('#BgImgToggle').prop('checked', "%IMG_BACKGROUND%"!= "");
-  $('#SdSizeToggle').prop('checked', DIAL_WIDTH != 240);
-  $('#SdCntrToggle').prop('checked', SD_CENTER);
-  $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
-  $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
-  $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
-});
+function enableCentering()
+{
+    $('#quickdial div.entry').css({
+        float: 'none',
+        display: 'inline-block'
+    });
+}
+
+function disableCentering()
+{
+    $('#quickdial div.entry').css({
+        float: 'left',
+        display: 'block'
+    });
+}
 
 </script>
 </head>
@@ -450,6 +469,13 @@ function init()
         containment: 'document',
         opacity: 0.8,
         distance: 40,
+        start: function(event, ui) {
+            disableCentering();
+        },
+        stop: function(event, ui) {
+            if (SD_CENTER)
+                enableCentering();
+        },
         update: function(event, ui) {
             external.speedDial.changed(allPages());
         }
@@ -472,16 +498,16 @@ if (window.external) {
       <label for="PgInRow">%TXT_NRROWS%</label>
     </div>
     <div class="rowsel">
-      <span id="sliderValuePg">%ROW-PAGES%</span>
-      <input id="PgInRow" type="range" min="2" max="10" value="%ROW-PAGES%" step="1" onchange="$('#sliderValuePg').html(this.value);" />
+      <span id="sliderValuePg"></span>
+      <input id="PgInRow" type="range" min="2" max="10" step="1" onchange="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdcntrt" id="SdCntrToggle" />&nbsp;<label for="SdCntrToggle">%TXT_CNTRDLS%</label><br />
       <input type="checkbox" name="sdsizet" id="SdSizeToggle" onchange="sdSizeToggle()" />&nbsp;<label for="SdSizeToggle">%TXT_SDSIZE%</label>
     </div>
     <div class="rowsel">
-      <span id="sliderValueSd">%SD-SIZE%</span>
-      <input id="SdSize" type="range" min="100" max="500" value="%SD-SIZE%" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+      <span id="sliderValueSd"></span>
+      <input id="SdSize" type="range" min="100" max="500" step="1" onchange="$('#sliderValueSd').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>
