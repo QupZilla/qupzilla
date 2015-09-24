@@ -51,11 +51,8 @@ void HTML5PermissionsManager::requestPermissions(WebPage* page, const QUrl &orig
     }
 
     // Ask user for permission
-    WebView* view = qobject_cast<WebView*>(page->view());
-    if (view) {
-        HTML5PermissionsNotification* notif = new HTML5PermissionsNotification(origin, page, feature);
-        view->addNotification(notif);
-    }
+    HTML5PermissionsNotification* notif = new HTML5PermissionsNotification(origin, page, feature);
+    page->view()->addNotification(notif);
 }
 
 void HTML5PermissionsManager::rememberPermissions(const QUrl &origin, const QWebEnginePage::Feature &feature,

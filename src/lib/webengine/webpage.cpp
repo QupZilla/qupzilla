@@ -102,22 +102,22 @@ WebPage::~WebPage()
     }
 }
 
+WebView *WebPage::view() const
+{
+    return static_cast<WebView*>(QWebEnginePage::view());
+}
+
 void WebPage::scheduleAdjustPage()
 {
-    WebView* webView = qobject_cast<WebView*>(view());
-    if (!webView) {
-        return;
-    }
-
-    if (webView->isLoading()) {
+    if (view()->isLoading()) {
         m_adjustingScheduled = true;
     }
     else {
-        const QSize originalSize = webView->size();
+        const QSize originalSize = view()->size();
         QSize newSize(originalSize.width() - 1, originalSize.height() - 1);
 
-        webView->resize(newSize);
-        webView->resize(originalSize);
+        view()->resize(newSize);
+        view()->resize(originalSize);
     }
 }
 
@@ -311,12 +311,7 @@ void WebPage::setupWebChannel()
 
 void WebPage::windowCloseRequested()
 {
-    WebView* webView = qobject_cast<WebView*>(view());
-    if (!webView) {
-        return;
-    }
-
-    webView->closeView();
+    view()->closeView();
 }
 
 void WebPage::authentication(const QUrl &requestUrl, QAuthenticator* auth)
@@ -455,12 +450,8 @@ void WebPage::proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, 
 
 void WebPage::doWebSearch(const QString &text)
 {
-    WebView* webView = qobject_cast<WebView*>(view());
-
-    if (webView) {
-        const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(text);
-        webView->load(searchRequest);
-    }
+    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(text);
+    view()->load(searchRequest);
 }
 
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
@@ -839,8 +830,7 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
         return false;
     }
 
-    WebView* webView = qobject_cast<WebView*>(view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
+    ResizableFrame* widget = new ResizableFrame(view()->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsPrompt* ui = new Ui_jsPrompt();
@@ -868,7 +858,7 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
     *result = x;
 
     delete widget;
-    webView->setFocus();
+    view()->setFocus();
 
     return _result;
 #endif
@@ -883,8 +873,7 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
         return false;
     }
 
-    WebView* webView = qobject_cast<WebView*>(view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
+    ResizableFrame* widget = new ResizableFrame(view()->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsConfirm* ui = new Ui_jsConfirm();
@@ -908,7 +897,7 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
     bool result = ui->buttonBox->clickedButtonRole() == QDialogButtonBox::AcceptRole;
 
     delete widget;
-    webView->setFocus();
+    view()->setFocus();
 
     return result;
 #endif
@@ -937,18 +926,17 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
     m_blockAlerts = dialog.isChecked();
 #else
-    WebView* webView = qobject_cast<WebView*>(view());
-    ResizableFrame* widget = new ResizableFrame(webView->overlayWidget());
+    ResizableFrame* widget = new ResizableFrame(view()->overlayWidget());
 
     widget->setObjectName("jsFrame");
     Ui_jsAlert* ui = new Ui_jsAlert();
     ui->setupUi(widget);
     ui->message->setText(msg);
     ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
-    widget->resize(webView->size());
+    widget->resize(view()->size());
     widget->show();
 
-    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(view(), SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
     m_runningLoop = &eLoop;
@@ -963,7 +951,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
     delete widget;
 
-    webView->setFocus();
+    view()->setFocus();
 #endif
 }
 

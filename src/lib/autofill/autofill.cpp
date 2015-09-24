@@ -177,14 +177,10 @@ void AutoFill::removeAllEntries()
     m_manager->removeAllEntries();
 }
 
-void AutoFill::saveForm(QWebEnginePage *page, const QUrl &frameUrl, const PageFormData &formData)
+void AutoFill::saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData &formData)
 {
     // Don't save in private browsing
     if (mApp->isPrivate() || !page)
-        return;
-
-    WebView* webView = qobject_cast<WebView*>(page->view());
-    if (!webView)
         return;
 
     if (!isStoringEnabled(frameUrl))
@@ -214,7 +210,7 @@ void AutoFill::saveForm(QWebEnginePage *page, const QUrl &frameUrl, const PageFo
     }
 
     AutoFillNotification* aWidget = new AutoFillNotification(frameUrl, formData, updateData);
-    webView->addNotification(aWidget);
+    page->view()->addNotification(aWidget);
 }
 
 // Returns all saved passwords on this page

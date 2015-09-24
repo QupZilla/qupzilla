@@ -26,6 +26,7 @@ class QUrl;
 class QWebEnginePage;
 class QNetworkRequest;
 
+class WebPage;
 class BrowserWindow;
 class PasswordManager;
 struct PageFormData;
@@ -69,7 +70,7 @@ public:
     void removeEntry(const PasswordEntry &entry);
     void removeAllEntries();
 
-    void saveForm(QWebEnginePage *page, const QUrl &frameUrl, const PageFormData &formData);
+    void saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData &formData);
     QVector<PasswordEntry> completePage(QWebEnginePage *page, const QUrl &frameUrl);
 
     QByteArray exportPasswords();

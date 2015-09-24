@@ -28,10 +28,8 @@
 class QEventLoop;
 class QWebEngineDownloadItem;
 
-class BrowserWindow;
+class WebView;
 class AdBlockRule;
-class SpeedDial;
-class NetworkManagerProxy;
 class DelayedFileWatcher;
 
 class QUPZILLA_EXPORT WebPage : public QWebEnginePage
@@ -49,6 +47,8 @@ public:
 
     WebPage(QObject* parent = 0);
     ~WebPage();
+
+    WebView *view() const;
 
     void setSSLCertificate(const QSslCertificate &cert);
     QSslCertificate sslCertificate();
@@ -113,7 +113,6 @@ private:
     static QTime s_lastUnsupportedUrlTime;
     static QStringList s_ignoredSslErrors;
 
-    NetworkManagerProxy* m_networkProxy;
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 

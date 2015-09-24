@@ -41,7 +41,7 @@ public:
     bool isTitleEmpty() const;
 
     WebPage* page() const;
-    void setPage(QWebEnginePage* page);
+    void setPage(WebPage* page);
 
     void load(const QUrl &url);
     void load(const LoadRequest &request);

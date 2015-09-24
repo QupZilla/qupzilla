@@ -123,7 +123,7 @@ WebPage* WebView::page() const
     return m_page;
 }
 
-void WebView::setPage(QWebEnginePage* page)
+void WebView::setPage(WebPage *page)
 {
     if (m_page == page) {
         return;
