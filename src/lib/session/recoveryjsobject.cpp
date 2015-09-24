@@ -38,14 +38,29 @@ void RecoveryJsObject::setPage(WebPage *page)
 
 void RecoveryJsObject::startNewSession()
 {
-    m_page->load(static_cast<TabbedWebView*>(m_page->view())->browserWindow()->homepageUrl());
+    BrowserWindow *window = getBrowserWindow();
+    if (!window)
+        return;
+
+    m_page->load(window->homepageUrl());
 
     mApp->destroyRestoreManager();
 }
 
 void RecoveryJsObject::restoreSession()
 {
-    if (!mApp->restoreSession(static_cast<TabbedWebView*>(m_page->view())->browserWindow() , m_manager->restoreData())) {
+    BrowserWindow *window = getBrowserWindow();
+    if (!window)
+        return;
+
+    bool ok = mApp->restoreSession(window , m_manager->restoreData());
+
+    if (!ok)
         startNewSession();
-    }
+}
+
+BrowserWindow *RecoveryJsObject::getBrowserWindow() const
+{
+    TabbedWebView *view = qobject_cast<TabbedWebView*>(m_page->view());
+    return view ? view->browserWindow() : Q_NULLPTR;
 }

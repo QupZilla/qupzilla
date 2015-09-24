@@ -22,6 +22,7 @@
 #include <QObject>
 
 class WebPage;
+class BrowserWindow;
 class RestoreManager;
 
 class RecoveryJsObject : public QObject
@@ -37,6 +38,8 @@ public slots:
     void restoreSession();
 
 private:
+    BrowserWindow *getBrowserWindow() const;
+
     RestoreManager *m_manager;
     WebPage *m_page;
 };
