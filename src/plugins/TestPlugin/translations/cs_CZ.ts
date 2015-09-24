@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="37"/>
         <source>Testing Sidebar</source>
-        <translation>Testovací postranní bar</translation>
+        <translation>Testovací postranní lišta</translation>
     </message>
 </context>
 </TS>
