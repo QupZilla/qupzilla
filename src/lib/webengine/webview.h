@@ -116,7 +116,6 @@ protected slots:
     void slotLoadProgress(int progress);
     void slotLoadFinished();
     void slotIconUrlChanged(const QUrl &url);
-    void slotUrlChanged(const QUrl &url);
 
     // Context menu slots
     void openUrlInNewWindow();
@@ -176,7 +175,6 @@ private slots:
 private:
     void initializeActions();
 
-    QList<int> m_zoomLevels;
     int m_currentZoomLevel;
 
     QIcon m_siteIcon;
@@ -190,7 +188,6 @@ private:
     WebPage* m_page;
     bool m_actionsInitialized;
 
-    bool m_disableTouchMocking;
     bool m_firstLoad;
 
     static bool s_forceContextMenuOnMouseRelease;

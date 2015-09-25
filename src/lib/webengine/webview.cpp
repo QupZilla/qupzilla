@@ -55,17 +55,14 @@ WebView::WebView(QWidget* parent)
     , m_siteIconLoader(0)
     , m_progress(100)
     , m_page(0)
-    , m_disableTouchMocking(false)
     , m_firstLoad(false)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
     connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
-    connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(slotUrlChanged(QUrl)));
     connect(this, SIGNAL(iconUrlChanged(QUrl)), this, SLOT(slotIconUrlChanged(QUrl)));
 
-    m_zoomLevels = zoomLevels();
-    m_currentZoomLevel = m_zoomLevels.indexOf(100);
+    m_currentZoomLevel = zoomLevels().indexOf(100);
 
     installEventFilter(this);
 
@@ -308,14 +305,14 @@ void WebView::addNotification(QWidget* notif)
 
 void WebView::applyZoom()
 {
-    setZoomFactor(qreal(m_zoomLevels.at(m_currentZoomLevel)) / 100.0);
+    setZoomFactor(qreal(zoomLevels().at(m_currentZoomLevel)) / 100.0);
 
     emit zoomLevelChanged(m_currentZoomLevel);
 }
 
 void WebView::zoomIn()
 {
-    if (m_currentZoomLevel < m_zoomLevels.count() - 1) {
+    if (m_currentZoomLevel < zoomLevels().count() - 1) {
         m_currentZoomLevel++;
         applyZoom();
     }
@@ -437,24 +434,6 @@ void WebView::slotIconUrlChanged(const QUrl &url)
 
         IconProvider::instance()->saveIcon(this);
     });
-}
-
-void WebView::slotUrlChanged(const QUrl &url)
-{
-    static QStringList exceptions;
-    if (exceptions.isEmpty()) {
-        exceptions << "google." << "twitter.";
-    }
-
-    // Disable touch mocking on pages known not to work properly
-    const QString host = url.host();
-    m_disableTouchMocking = false;
-
-    foreach (const QString &site, exceptions) {
-        if (host.contains(site)) {
-            m_disableTouchMocking = true;
-        }
-    }
 }
 
 void WebView::openUrlInNewWindow()
