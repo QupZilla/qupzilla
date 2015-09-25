@@ -35,6 +35,8 @@ public:
     static QString sendPostData(const QUrl &url, const QByteArray &data);
     static QString completeFormData(const QByteArray &data);
     static QString getOpenSearchLinks();
+    static QString getAllImages();
+    static QString getAllMetaAttributes();
 };
 
 #endif // SCRIPTS_H

@@ -301,13 +301,11 @@ void MainMenu::webSearch()
 
 void MainMenu::showSiteInfo()
 {
-#if QTWEBENGINE_DISABLED
     if (m_window) {
         SiteInfo* info = new SiteInfo(m_window->weView(), m_window);
         info->setAttribute(Qt::WA_DeleteOnClose);
         info->show();
     }
-#endif
 }
 
 void MainMenu::showDownloadManager()

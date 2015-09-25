@@ -14,31 +14,14 @@
    <string>Site Info</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="HorizontalListWidget" name="listWidget">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <item>
-      <property name="text">
-       <string>General</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Media</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Databases</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Security</string>
-      </property>
-     </item>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
     </widget>
    </item>
    <item row="1" column="0">
@@ -57,14 +40,21 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="0" column="0">
+    <widget class="HorizontalListWidget" name="listWidget">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
+     <item>
+      <property name="text">
+       <string>General</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Media</string>
+      </property>
+     </item>
     </widget>
    </item>
    <item row="2" column="0">
@@ -85,30 +75,16 @@
          <property name="fieldGrowthPolicy">
           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
          </property>
-         <item row="1" column="1">
-          <widget class="SqueezeLabelV2" name="encodingLabel">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
-            <string/>
-           </property>
-           <property name="textInteractionFlags">
-            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Size:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="SqueezeLabelV2" name="sizeLabel">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="textInteractionFlags">
-            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+            <string>Site address:</string>
            </property>
           </widget>
          </item>
@@ -134,23 +110,20 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>Site address:</string>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_6">
            <property name="text">
             <string>Encoding:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="SqueezeLabelV2" name="encodingLabel">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
            </property>
           </widget>
          </item>
@@ -203,19 +176,6 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="3">
-        <widget class="QPushButton" name="secDetailsButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Details</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="0">
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -247,7 +207,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="page2">
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QSplitter" name="splitter">
@@ -285,13 +245,6 @@
              </column>
             </widget>
            </item>
-           <item>
-            <widget class="QDialogButtonBox" name="saveButton">
-             <property name="standardButtons">
-              <set>QDialogButtonBox::Save</set>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="layoutWidget">
@@ -315,149 +268,6 @@
           </layout>
          </widget>
         </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="page_4">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QListWidget" name="databaseList">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>&lt;b&gt;Database details&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QFormLayout" name="formLayout_2">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Name:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Path:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>Size:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="SqueezeLabelV2" name="databasePath">
-           <property name="minimumSize">
-            <size>
-             <width>450</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;database not selected&gt;</string>
-           </property>
-           <property name="textInteractionFlags">
-            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="SqueezeLabelV2" name="databaseName">
-           <property name="minimumSize">
-            <size>
-             <width>450</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;database not selected&gt;</string>
-           </property>
-           <property name="textInteractionFlags">
-            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="SqueezeLabelV2" name="databaseSize">
-           <property name="minimumSize">
-            <size>
-             <width>450</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;database not selected&gt;</string>
-           </property>
-           <property name="textInteractionFlags">
-            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>124</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="page_2">
-      <layout class="QGridLayout" name="gridLayout_4">
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="certLabel">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="0">
-        <layout class="QVBoxLayout" name="certFrame"/>
        </item>
       </layout>
      </widget>

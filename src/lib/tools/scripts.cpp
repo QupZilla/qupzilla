@@ -210,3 +210,40 @@ QString Scripts::getOpenSearchLinks()
 
     return source;
 }
+
+QString Scripts::getAllImages()
+{
+    QString source = QL1S("(function() {"
+                          "var out = [];"
+                          "var imgs = document.getElementsByTagName('img');"
+                          "for (var i = 0; i < imgs.length; ++i) {"
+                          "    var e = imgs[i];"
+                          "    out.push({"
+                          "        src: e.src,"
+                          "        alt: e.alt"
+                          "    });"
+                          "}"
+                          "return out;"
+                          "})()");
+
+    return source;
+}
+
+QString Scripts::getAllMetaAttributes()
+{
+    QString source = QL1S("(function() {"
+                          "var out = [];"
+                          "var meta = document.getElementsByTagName('meta');"
+                          "for (var i = 0; i < meta.length; ++i) {"
+                          "    var e = meta[i];"
+                          "    out.push({"
+                          "        name: e.getAttribute('name'),"
+                          "        content: e.getAttribute('content'),"
+                          "        httpequiv: e.getAttribute('http-equiv')"
+                          "    });"
+                          "}"
+                          "return out;"
+                          "})()");
+
+    return source;
+}

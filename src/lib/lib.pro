@@ -156,7 +156,7 @@ SOURCES += \
     other/licenseviewer.cpp \
     #other/pagescreen.cpp \
     other/qzsettings.cpp \
-    #other/siteinfo.cpp \
+    other/siteinfo.cpp \
     other/siteinfowidget.cpp \
     #other/sourceviewer.cpp \
     #other/sourceviewersearch.cpp \
@@ -353,7 +353,7 @@ HEADERS  += \
     other/licenseviewer.h \
     #other/pagescreen.h \
     other/qzsettings.h \
-    #other/siteinfo.h \
+    other/siteinfo.h \
     other/siteinfowidget.h \
     #other/sourceviewer.h \
     #other/sourceviewersearch.h \

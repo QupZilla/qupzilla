@@ -25,17 +25,13 @@
 #include "certificateinfowidget.h"
 #include "qztools.h"
 #include "iconprovider.h"
-
-#if QTWEBENGINE_DISABLED
+#include "scripts.h"
 
 #include <QMenu>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QNetworkDiskCache>
-#include <QWebEngineFrame>
 #include <QClipboard>
-#include <QWebSecurityOrigin>
-#include <QWebDatabase>
 #include <QTimer>
 
 QString SiteInfo::showCertInfo(const QString &string)
@@ -51,6 +47,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)
+    , m_baseUrl(view->url())
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -63,113 +60,71 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     ui->listWidget->item(0)->setIcon(QIcon::fromTheme("document-properties", QIcon(":/icons/preferences/document-properties.png")));
     ui->listWidget->item(1)->setIcon(QIcon::fromTheme("applications-graphics", QIcon(":/icons/preferences/applications-graphics.png")));
-    ui->listWidget->item(2)->setIcon(QIcon::fromTheme("text-x-sql", QIcon(":/icons/preferences/text-x-sql.png")));
-    ui->listWidget->item(3)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
     ui->listWidget->item(0)->setSelected(true);
 
-    WebPage* webPage = view->page();
-    QWebEngineFrame* frame = view->page()->mainFrame();
-    QString title = view->title();
-    QSslCertificate cert = webPage->sslCertificate();
-    m_baseUrl = frame->baseUrl();
+    // General
+    ui->heading->setText(QString("<b>%1</b>:").arg(m_view->title()));
+    ui->siteAddress->setText(m_view->url().toString());
 
-    //GENERAL
-    ui->heading->setText(QString("<b>%1</b>:").arg(title));
-    ui->siteAddress->setText(view->url().toString());
-    ui->sizeLabel->setText(QzTools::fileSizeToString(webPage->totalBytes()));
-    QString encoding;
-
-    //Meta
-    QWebElementCollection meta = frame->findAllElements("meta");
-    for (int i = 0; i < meta.count(); i++) {
-        QWebElement element = meta.at(i);
-
-        QString content = element.attribute("content");
-        QString name = element.attribute("name");
-        if (name.isEmpty()) {
-            name = element.attribute("http-equiv");
-        }
-        if (!element.attribute("charset").isEmpty()) {
-            encoding = element.attribute("charset");
-        }
-        if (content.contains(QLatin1String("charset="))) {
-            encoding = content.mid(content.indexOf(QLatin1String("charset=")) + 8);
-        }
-
-        if (content.isEmpty() || name.isEmpty()) {
-            continue;
-        }
-        QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeTags);
-        item->setText(0, name);
-        item->setText(1, content);
-        ui->treeTags->addTopLevelItem(item);
-    }
-    if (encoding.isEmpty()) {
-        encoding = QWebEngineSettings::globalSettings()->defaultTextEncoding();
-    }
-    ui->encodingLabel->setText(encoding.toUpper());
-
-    //MEDIA
-    QWebElementCollection img = frame->findAllElements("img");
-    for (int i = 0; i < img.count(); i++) {
-        QWebElement element = img.at(i);
-
-        QString src = element.attribute("src");
-        QString alt = element.attribute("alt");
-        if (alt.isEmpty()) {
-            if (src.indexOf(QLatin1Char('/')) == -1) {
-                alt = src;
-            }
-            else {
-                int pos = src.lastIndexOf(QLatin1Char('/'));
-                alt = src.mid(pos);
-                alt.remove(QLatin1Char('/'));
-            }
-        }
-        if (src.isEmpty() || alt.isEmpty()) {
-            continue;
-        }
-        QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeImages);
-        item->setText(0, alt);
-        item->setText(1, src);
-        ui->treeImages->addTopLevelItem(item);
-    }
-
-    //DATABASES
-    const QList<QWebDatabase> &databases = frame->securityOrigin().databases();
-
-    int counter = 0;
-    foreach (const QWebDatabase &b, databases) {
-        QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
-        item->setText(b.displayName());
-        item->setData(Qt::UserRole + 10, counter);
-
-        ++counter;
-    }
-
-    if (counter == 0) {
-        QListWidgetItem* item = new QListWidgetItem(ui->databaseList);
-        item->setText(tr("No databases are used by this page."));
-        item->setFlags(item->flags() & Qt::ItemIsSelectable);
-    }
-
-    //SECURITY
-    if (QzTools::isCertificateValid(cert)) {
+    if (m_view->url().scheme() == QL1S("https"))
         ui->securityLabel->setText(tr("<b>Connection is Encrypted.</b>"));
-        ui->certLabel->setText(tr("<b>Your connection to this page is secured with this certificate: </b>"));
-        m_certWidget = new CertificateInfoWidget(cert);
-        ui->certFrame->addWidget(m_certWidget);
-    }
-    else {
+    else
         ui->securityLabel->setText(tr("<b>Connection Not Encrypted.</b>"));
-        ui->certLabel->setText(tr("<b>Your connection to this page is not secured!</b>"));
-    }
+
+    m_view->page()->runJavaScript(QSL("document.charset"), [this](const QVariant &res) {
+        ui->encodingLabel->setText(res.toString());
+    });
+
+    // Meta
+    m_view->page()->runJavaScript(Scripts::getAllMetaAttributes(), [this](const QVariant &res) {
+        const QVariantList &list = res.toList();
+        Q_FOREACH (const QVariant &val, list) {
+            const QVariantMap &meta = val.toMap();
+            QString content = meta.value(QSL("content")).toString();
+            QString name = meta.value(QSL("name")).toString();
+
+            if (name.isEmpty())
+                name = meta.value(QSL("httpequiv")).toString();
+
+            if (content.isEmpty() || name.isEmpty())
+                continue;
+
+            QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeTags);
+            item->setText(0, name);
+            item->setText(1, content);
+            ui->treeTags->addTopLevelItem(item);
+        }
+    });
+
+    // Images
+    m_view->page()->runJavaScript(Scripts::getAllImages(), [this](const QVariant &res) {
+        const QVariantList &list = res.toList();
+        Q_FOREACH (const QVariant &val, list) {
+            const QVariantMap &img = val.toMap();
+            QString src = img.value(QSL("src")).toString();
+            QString alt = img.value(QSL("alt")).toString();
+            if (alt.isEmpty()) {
+                if (src.indexOf(QLatin1Char('/')) == -1) {
+                    alt = src;
+                }
+                else {
+                    int pos = src.lastIndexOf(QLatin1Char('/'));
+                    alt = src.mid(pos);
+                    alt.remove(QLatin1Char('/'));
+                }
+            }
+
+            if (src.isEmpty() || alt.isEmpty())
+                continue;
+
+            QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeImages);
+            item->setText(0, alt);
+            item->setText(1, src);
+            ui->treeImages->addTopLevelItem(item);
+        }
+    });
 
     connect(ui->listWidget, SIGNAL(currentRowChanged(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
-    connect(ui->secDetailsButton, SIGNAL(clicked()), this, SLOT(securityDetailsClicked()));
-    connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(downloadImage()));
-
-    connect(ui->databaseList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(databaseItemChanged(QListWidgetItem*)));
     connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
     connect(ui->treeImages, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(imagesCustomContextMenuRequested(QPoint)));
 
@@ -178,7 +133,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     ui->treeTags->sortByColumn(-1);
 
-    QzTools::setWmClass("Site Info", this);
+    //QzTools::setWmClass("Site Info", this);
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
@@ -196,26 +151,6 @@ void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
     menu.exec(ui->treeImages->viewport()->mapToGlobal(p));
 }
 
-void SiteInfo::databaseItemChanged(QListWidgetItem* item)
-{
-    if (!item) {
-        return;
-    }
-
-    int id = item->data(Qt::UserRole + 10).toInt();
-    const QList<QWebDatabase> &list = m_view->page()->mainFrame()->securityOrigin().databases();
-
-    if (id > list.count() - 1) {
-        return;
-    }
-
-    const QWebDatabase db = list.at(id);
-
-    ui->databaseName->setText(QString("%1 (%2)").arg(db.displayName(), db.name()));
-    ui->databasePath->setText(db.fileName());
-    ui->databaseSize->setText(QzTools::fileSizeToString(db.size()));
-}
-
 void SiteInfo::copyActionData()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -223,32 +158,7 @@ void SiteInfo::copyActionData()
     }
 }
 
-void SiteInfo::downloadImage()
-{
-    QTreeWidgetItem* item = ui->treeImages->currentItem();
-    if (!item) {
-        return;
-    }
-
-    if (m_activePixmap.isNull()) {
-        QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
-        return;
-    }
-
-    QString imageFileName = QzTools::getFileNameFromUrl(QUrl(item->text(1)));
-
-    QString filePath = QzTools::getSaveFileName("SiteInfo-DownloadImage", this, tr("Save image..."), QDir::homePath() + QDir::separator() + imageFileName);
-    if (filePath.isEmpty()) {
-        return;
-    }
-
-    if (!m_activePixmap.save(filePath)) {
-        QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
-        return;
-    }
-}
-
-void SiteInfo::showImagePreview(QTreeWidgetItem* item)
+void SiteInfo::showImagePreview(QTreeWidgetItem *item)
 {
     if (!item) {
         return;
@@ -271,6 +181,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
         m_activePixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
     }
     else {
+#if QTWEBENGINE_DISABLED
         QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
         if (!cacheData) {
             m_activePixmap = QPixmap();
@@ -278,6 +189,7 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
         else {
             m_activePixmap.loadFromData(cacheData->readAll());
         }
+#endif
     }
 
     if (m_activePixmap.isNull()) {
@@ -290,15 +202,8 @@ void SiteInfo::showImagePreview(QTreeWidgetItem* item)
     ui->mediaPreview->setScene(scene);
 }
 
-void SiteInfo::securityDetailsClicked()
-{
-    ui->listWidget->setCurrentRow(3);
-}
-
 SiteInfo::~SiteInfo()
 {
     delete ui;
     delete m_certWidget;
 }
-
-#endif

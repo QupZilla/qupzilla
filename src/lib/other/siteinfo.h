@@ -23,8 +23,6 @@
 #include <QDialog>
 #include <QUrl>
 
-#if QTWEBENGINE_DISABLED
-
 namespace Ui
 {
 class SiteInfo;
@@ -47,13 +45,9 @@ public:
     static QString showCertInfo(const QString &string);
 
 private slots:
-    void databaseItemChanged(QListWidgetItem* item);
-    void showImagePreview(QTreeWidgetItem* item);
-    void securityDetailsClicked();
-
+    void showImagePreview(QTreeWidgetItem *item);
     void imagesCustomContextMenuRequested(const QPoint &p);
     void copyActionData();
-    void downloadImage();
 
 private:
     Ui::SiteInfo* ui;
@@ -63,7 +57,5 @@ private:
     QPixmap m_activePixmap;
     QUrl m_baseUrl;
 };
-
-#endif
 
 #endif // SITEINFO_H

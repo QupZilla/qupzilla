@@ -567,10 +567,8 @@ void WebView::showSource()
 
 void WebView::showSiteInfo()
 {
-#if QTWEBENGINE_DISABLED
     SiteInfo* s = new SiteInfo(this, this);
     s->show();
-#endif
 }
 
 void WebView::searchSelectedText()
