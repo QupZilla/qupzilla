@@ -32,17 +32,15 @@
 #include <QInputDialog>
 #include <QCloseEvent>
 
-CookieManager::CookieManager(QWidget* parent)
-    : QDialog(parent)
+CookieManager::CookieManager()
+    : QWidget()
     , ui(new Ui::CookieManager)
     , m_refreshCookieJar(true)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->setupUi(this);
-
-    if (!parent)
-        QzTools::centerWidgetOnScreen(this);
+    QzTools::centerWidgetOnScreen(this);
 
     if (isRightToLeft()) {
         ui->cookieTree->headerItem()->setTextAlignment(0, Qt::AlignRight | Qt::AlignVCenter);

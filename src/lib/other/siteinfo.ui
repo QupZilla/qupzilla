@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>SiteInfo</class>
- <widget class="QDialog" name="SiteInfo">
+ <widget class="QWidget" name="SiteInfo">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -293,7 +293,7 @@
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
    <receiver>SiteInfo</receiver>
-   <slot>accept()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>248</x>
@@ -301,22 +301,6 @@
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>SiteInfo</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
      <y>274</y>
     </hint>
    </hints>

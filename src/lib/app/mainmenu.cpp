@@ -123,7 +123,7 @@ void MainMenu::showAboutDialog()
 void MainMenu::showPreferences()
 {
     if (!m_preferences)
-        m_preferences = new Preferences(m_window, this);
+        m_preferences = new Preferences(m_window);
 
     m_preferences->show();
     m_preferences->raise();
@@ -302,8 +302,7 @@ void MainMenu::webSearch()
 void MainMenu::showSiteInfo()
 {
     if (m_window) {
-        SiteInfo* info = new SiteInfo(m_window->weView(), m_window);
-        info->setAttribute(Qt::WA_DeleteOnClose);
+        SiteInfo* info = new SiteInfo(m_window->weView());
         info->show();
     }
 }
@@ -317,7 +316,7 @@ void MainMenu::showDownloadManager()
 
 void MainMenu::showCookieManager()
 {
-    CookieManager* m = new CookieManager(0);
+    CookieManager* m = new CookieManager();
     m->show();
     m->raise();
 }

@@ -546,7 +546,7 @@ void WebView::showSource()
 
 void WebView::showSiteInfo()
 {
-    SiteInfo* s = new SiteInfo(this, this);
+    SiteInfo* s = new SiteInfo(this);
     s->show();
 }
 

@@ -89,8 +89,8 @@ static QString createLanguageItem(const QString &lang)
     return QString("%1, %2 (%3)").arg(language, country, lang);
 }
 
-Preferences::Preferences(BrowserWindow* window, QWidget* parent)
-    : QDialog(parent)
+Preferences::Preferences(BrowserWindow* window)
+    : QWidget()
     , ui(new Ui::Preferences)
     , m_window(window)
     , m_autoFillManager(0)
@@ -100,6 +100,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     ui->languages->setLayoutDirection(Qt::LeftToRight);
+    QzTools::centerWidgetOnScreen(this);
 
     m_themesManager = new ThemeManager(ui->themesWidget, this);
     m_pluginsList = new PluginsManager(this);
@@ -680,8 +681,8 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager* dialog = new CookieManager(this);
-    dialog->open();
+    CookieManager* dialog = new CookieManager();
+    dialog->show();
 }
 
 void Preferences::showHtml5Permissions()

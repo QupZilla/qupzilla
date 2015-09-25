@@ -19,7 +19,7 @@
 #define PREFERENCES_H
 
 #include <QUrl>
-#include <QDialog>
+#include <QWidget>
 #include <QPointer>
 
 #include "qzcommon.h"
@@ -38,12 +38,12 @@ class PluginsManager;
 class DesktopNotification;
 class ThemeManager;
 
-class QUPZILLA_EXPORT Preferences : public QDialog
+class QUPZILLA_EXPORT Preferences : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Preferences(BrowserWindow* window, QWidget* parent = 0);
+    explicit Preferences(BrowserWindow* window);
     ~Preferences();
 
 private slots:

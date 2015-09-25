@@ -190,8 +190,8 @@ void ClearPrivateData::optimizeDb()
 
 void ClearPrivateData::showCookieManager()
 {
-    CookieManager* dialog = new CookieManager(this);
-    dialog->open();
+    CookieManager* dialog = new CookieManager();
+    dialog->show();
 }
 
 void ClearPrivateData::showNotifsPerms()

@@ -42,8 +42,8 @@ QString SiteInfo::showCertInfo(const QString &string)
     return string;
 }
 
-SiteInfo::SiteInfo(WebView* view, QWidget* parent)
-    : QDialog(parent)
+SiteInfo::SiteInfo(WebView* view)
+    : QWidget()
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)
@@ -52,6 +52,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     ui->treeTags->setLayoutDirection(Qt::LeftToRight);
+    QzTools::centerWidgetOnScreen(this);
 
     ListItemDelegate* delegate = new ListItemDelegate(24, ui->listWidget);
     delegate->setUpdateParentHeight(true);
@@ -133,7 +134,7 @@ SiteInfo::SiteInfo(WebView* view, QWidget* parent)
 
     ui->treeTags->sortByColumn(-1);
 
-    //QzTools::setWmClass("Site Info", this);
+    QzTools::setWmClass("Site Info", this);
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)

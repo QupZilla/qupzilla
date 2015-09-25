@@ -20,8 +20,8 @@
 
 #include "qzcommon.h"
 
-#include <QDialog>
 #include <QUrl>
+#include <QWidget>
 
 namespace Ui
 {
@@ -34,12 +34,12 @@ class QTreeWidgetItem;
 class WebView;
 class CertificateInfoWidget;
 
-class QUPZILLA_EXPORT SiteInfo : public QDialog
+class QUPZILLA_EXPORT SiteInfo : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit SiteInfo(WebView* view, QWidget* parent = 0);
+    explicit SiteInfo(WebView* view);
     ~SiteInfo();
 
     static QString showCertInfo(const QString &string);
