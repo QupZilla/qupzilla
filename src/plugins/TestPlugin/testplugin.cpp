@@ -141,6 +141,8 @@ void TestPlugin::showSettings(QWidget* parent)
 
 void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
 {
+    Q_UNUSED(r)
+
     // Called from WebView when creating context menu
 
     m_view = view;

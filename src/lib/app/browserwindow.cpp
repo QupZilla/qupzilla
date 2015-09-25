@@ -780,17 +780,6 @@ void BrowserWindow::toggleTabsOnTop(bool enable)
     m_navigationContainer->toggleTabsOnTop(enable);
 }
 
-void BrowserWindow::toggleCaretBrowsing()
-{
-#if QTWEBENGINE_DISABLED
-    bool enable = !QWebEngineSettings::globalSettings()->testAttribute(QWebEngineSettings::CaretBrowsingEnabled);
-
-    Settings().setValue("Web-Browser-Settings/CaretBrowsing", enable);
-
-    QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::CaretBrowsingEnabled, enable);
-#endif
-}
-
 void BrowserWindow::toggleFullScreen()
 {
     if (isFullScreen()) {

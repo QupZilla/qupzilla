@@ -282,11 +282,6 @@ void MainMenu::zoomReset()
     }
 }
 
-void MainMenu::toggleCaretBrowsing()
-{
-    callSlot("toggleCaretBrowsing");
-}
-
 void MainMenu::showPageSource()
 {
     callSlot("showSource");
@@ -400,10 +395,6 @@ void MainMenu::aboutToShowViewMenu()
     m_actions[QSL("View/ShowStatusBar")]->setChecked(m_window->statusBar()->isVisible());
     m_actions[QSL("View/FullScreen")]->setChecked(m_window->isFullScreen());
     m_actions[QSL("View/PageSource")]->setEnabled(true);
-
-#if QTWEBENGINE_DISABLED
-    m_actions[QSL("View/CaretBrowsing")]->setChecked(m_window->weView()->settings()->testAttribute(QWebEngineSettings::CaretBrowsingEnabled));
-#endif
 }
 
 void MainMenu::aboutToHideViewMenu()
@@ -596,7 +587,6 @@ void MainMenu::init()
     ADD_ACTION("View/ZoomOut", m_menuView, QIcon::fromTheme(QSL("zoom-out")), tr("Zoom &Out"), SLOT(zoomOut()), "Ctrl+-");
     ADD_ACTION("View/ZoomReset", m_menuView, QIcon::fromTheme(QSL("zoom-original")), tr("Reset"), SLOT(zoomReset()), "Ctrl+0");
     m_menuView->addSeparator();
-    ADD_CHECKABLE_ACTION("View/CaretBrowsing", m_menuView, QIcon(), tr("&Caret Browsing"), SLOT(toggleCaretBrowsing()), "F7");
     m_menuView->addMenu(encodingMenu);
     m_menuView->addSeparator();
     ADD_ACTION("View/PageSource", m_menuView, QIcon::fromTheme(QSL("text-html")), tr("&Page Source"), SLOT(showPageSource()), "Ctrl+U");
@@ -668,10 +658,6 @@ void MainMenu::init()
     m_menuEdit->addAction(m_actions[QSL("Standard/Preferences")]);
 #elif !defined(Q_OS_MAC)
     m_menuTools->addAction(m_actions[QSL("Standard/Preferences")]);
-#endif
-
-#ifndef QTWEBKIT_FROM_2_3
-    m_actions[QSL("View/CaretBrowsing")]->setVisible(false);
 #endif
 
     // Menus are hidden by default

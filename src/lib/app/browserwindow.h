@@ -129,7 +129,6 @@ public slots:
     void toggleShowNavigationToolbar();
     void toggleTabsOnTop(bool enable);
 
-    void toggleCaretBrowsing();
     void toggleFullScreen();
     void toggleOfflineMode();
 

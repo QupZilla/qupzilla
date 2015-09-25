@@ -120,7 +120,6 @@ private slots:
     void toggleFullScreen();
     void changeEncoding(QObject* obj = 0);
 
-    void triggerCaretBrowsing();
     void triggerTabsOnTop(bool enable);
 
     void closeWindow();

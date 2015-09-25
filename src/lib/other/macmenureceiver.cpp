@@ -304,11 +304,6 @@ void MacMenuReceiver::changeEncoding(QObject* obj)
     callSlot("changeEncoding", false, Q_ARG(QObject*, obj));
 }
 
-void MacMenuReceiver::triggerCaretBrowsing()
-{
-    callSlot("triggerCaretBrowsing");
-}
-
 void MacMenuReceiver::triggerTabsOnTop(bool enable)
 {
     callSlot("triggerTabsOnTop", false, Q_ARG(bool, enable));

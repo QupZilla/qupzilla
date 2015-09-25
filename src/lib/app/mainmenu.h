@@ -80,7 +80,6 @@ private slots:
     void zoomIn();
     void zoomOut();
     void zoomReset();
-    void toggleCaretBrowsing();
     void showPageSource();
     void showFullScreen();
 
