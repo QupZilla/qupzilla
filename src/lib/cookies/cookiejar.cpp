@@ -57,7 +57,6 @@ void CookieJar::loadSettings()
     settings.endGroup();
 
 #if QTWEBENGINE_DISABLED
-#if QTWEBKIT_FROM_2_3
     switch (m_allowThirdParty) {
     case 0:
         QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
@@ -71,7 +70,6 @@ void CookieJar::loadSettings()
         QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
         break;
     }
-#endif
 #endif
 }
 
@@ -219,19 +217,6 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
             return true;
         }
     }
-
-// This feature is now natively in QtWebKit 2.3
-#if QTWEBKIT_TO_2_3
-    if (m_allowThirdParty) {
-        bool result = matchDomain(cookieDomain, domain);
-        if (!result) {
-#ifdef COOKIE_DEBUG
-            qDebug() << "purged for domain mismatch" << cookie << cookieDomain << domain;
-#endif
-            return true;
-        }
-    }
-#endif
 
     if (m_filterTrackingCookie && cookie.name().startsWith("__utm")) {
 #ifdef COOKIE_DEBUG

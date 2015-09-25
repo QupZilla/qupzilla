@@ -504,15 +504,6 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     }
     resize(s);
 
-#if QTWEBKIT_TO_2_3
-    ui->caretBrowsing->setHidden(true);
-    ui->animateScrolling->setHidden(true);
-#endif
-
-#if QTWEBKIT_TO_2_2
-    ui->html5permissions->setDisabled(true);
-#endif
-
     settings.beginGroup(QSL("Preferences"));
     restoreGeometry(settings.value(QSL("Geometry")).toByteArray());
     settings.endGroup();

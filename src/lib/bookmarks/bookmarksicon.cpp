@@ -40,9 +40,7 @@ BookmarksIcon::BookmarksIcon(QWidget* parent)
     connect(mApp->bookmarks(), SIGNAL(bookmarkAdded(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkRemoved(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(mApp->bookmarks(), SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
-#if QTWEBENGINE_DISABLED
     connect(mApp->plugins()->speedDial(), SIGNAL(pagesChanged()), this, SLOT(speedDialChanged()));
-#endif
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(iconClicked()));
 }

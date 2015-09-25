@@ -20,7 +20,6 @@
 #include "browserwindow.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
-#include "webpluginfactory.h"
 #include "mainapplication.h"
 #include "checkboxdialog.h"
 #include "widget.h"

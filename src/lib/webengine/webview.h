@@ -169,7 +169,6 @@ private slots:
     void pauseMedia();
     void muteMedia();
 #endif
-    void emitChangedUrl();
     void addSpeedDial();
     void configureSpeedDial();
     void reloadAllSpeedDials();

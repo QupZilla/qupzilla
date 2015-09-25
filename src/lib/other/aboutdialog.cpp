@@ -24,6 +24,7 @@
 #include "qtwin.h"
 
 #include <QWebEnginePage>
+#include <QWebEngineProfile>
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent),
@@ -75,9 +76,7 @@ void AboutDialog::showAbout()
         m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(Qz::COPYRIGHT, Qz::AUTHOR);
         m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(Qz::BUILDTIME);
         m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
-#if QTWEBENGINE_DISABLED
-        m_aboutHtml += "<p>" + (mApp->windowCount() > 0 ? mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()) : QString()) + "</p>";
-#endif
+        m_aboutHtml += "<p>" + mApp->webProfile()->httpUserAgent() + "</p>";
         m_aboutHtml += "</div></center>";
     }
     ui->textBrowser->setHtml(m_aboutHtml);

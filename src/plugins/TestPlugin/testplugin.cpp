@@ -139,7 +139,6 @@ void TestPlugin::showSettings(QWidget* parent)
     m_settings.data()->raise();
 }
 
-#if QTWEBENGINE_DISABLED
 void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
 {
     // Called from WebView when creating context menu
@@ -147,6 +146,7 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
     m_view = view;
 
     QString title;
+#if QTWEBENGINE_DISABLED
     if (!r.imageUrl().isEmpty()) {
         title += " on image";
     }
@@ -158,10 +158,10 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
     if (r.isContentEditable()) {
         title += " on input";
     }
+#endif
 
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
 }
-#endif
 
 bool TestPlugin::mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
 {

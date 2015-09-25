@@ -417,11 +417,6 @@ void WebView::slotLoadFinished()
     mApp->history()->addHistoryEntry(this);
 }
 
-void WebView::emitChangedUrl()
-{
-    emit urlChanged(url());
-}
-
 void WebView::slotIconUrlChanged(const QUrl &url)
 {
     if (m_siteIconUrl == url) {

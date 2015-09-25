@@ -124,23 +124,10 @@ void StatusBarMessage::showMessage(const QString &message)
     else {
 #endif
         WebView* view = m_window->weView();
-#if QTWEBENGINE_DISABLED
-        QWebEngineFrame* mainFrame = view->page()->mainFrame();
-#endif
 
-        int horizontalScrollSize = 0;
-        int verticalScrollSize = 0;
-
-#if QTWEBENGINE_DISABLED
-        const int scrollbarSize = m_window->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-
-        if (mainFrame->scrollBarMaximum(Qt::Horizontal)) {
-            horizontalScrollSize = scrollbarSize;
-        }
-        if (mainFrame->scrollBarMaximum(Qt::Vertical)) {
-            verticalScrollSize = scrollbarSize;
-        }
-#endif
+        // Hardcode some sane value as we can't get the real value with QtWebEngine
+        int horizontalScrollSize = 20;
+        int verticalScrollSize = 20;
 
         m_statusBarText->setText(message);
         m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);

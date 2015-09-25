@@ -43,9 +43,6 @@ JsOptions::JsOptions(QWidget* parent)
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
 
-#if QTWEBKIT_TO_2_2
-    ui->jscanCloseWindow->setHidden(true);
-#endif
 //     Disable for now, as it does not do anything (yet)
     ui->jscanHideTool->setHidden(true);
 }

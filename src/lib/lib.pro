@@ -233,7 +233,6 @@ SOURCES += \
     webengine/loadrequest.cpp \
     webengine/webinspector.cpp \
     webengine/webpage.cpp \
-    webengine/webpluginfactory.cpp \
     webengine/webview.cpp \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
@@ -433,7 +432,6 @@ HEADERS  += \
     webengine/loadrequest.h \
     webengine/webinspector.h \
     webengine/webpage.h \
-    webengine/webpluginfactory.h \
     webengine/webview.h \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \

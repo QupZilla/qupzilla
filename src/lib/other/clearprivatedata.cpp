@@ -82,18 +82,11 @@ void ClearPrivateData::clearWebDatabases()
 
 void ClearPrivateData::clearCache()
 {
-#if QTWEBENGINE_DISABLED
-    QWebEngineSettings::globalSettings()->clearMemoryCaches();
-#endif
-
     QFile::remove(DataPaths::currentProfilePath() + "/ApplicationCache.db");
 }
 
 void ClearPrivateData::clearIcons()
 {
-#if QTWEBENGINE_DISABLED
-    QWebEngineSettings::globalSettings()->clearIconDatabase();
-#endif
     IconProvider::instance()->clearIconsDatabase();
 }
 
