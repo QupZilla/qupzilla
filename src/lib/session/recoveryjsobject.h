@@ -20,6 +20,7 @@
 #define RECOVERYJSOBJECT_H
 
 #include <QObject>
+#include <QJsonArray>
 
 class WebPage;
 class BrowserWindow;
@@ -34,8 +35,10 @@ public:
     void setPage(WebPage *page);
 
 public slots:
+    QJsonArray restoreData() const;
+
     void startNewSession();
-    void restoreSession();
+    void restoreSession(const QStringList &excludeWin, const QStringList &excludeTab);
 
 private:
     BrowserWindow *getBrowserWindow() const;

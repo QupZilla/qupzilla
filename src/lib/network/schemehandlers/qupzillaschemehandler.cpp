@@ -335,6 +335,10 @@ QString QupZillaSchemeReply::restorePage()
         rPage.replace(QLatin1String("%APOLOGIZE%"), tr("We apologize for this. Would you like to restore the last saved state?"));
         rPage.replace(QLatin1String("%TRY-REMOVING%"), tr("Try removing one or more tabs that you think cause troubles"));
         rPage.replace(QLatin1String("%START-NEW%"), tr("Or you can start completely new session"));
+        rPage.replace(QLatin1String("%WINDOW%"), tr("Window"));
+        rPage.replace(QLatin1String("%WINDOWS-AND-TABS%"), tr("Windows and Tabs"));
+        rPage.replace(QLatin1String("%BUTTON-START-NEW%"), tr("Start New Session"));
+        rPage.replace(QLatin1String("%BUTTON-RESTORE%"), tr("Restore"));
         rPage = QzTools::applyDirectionToPage(rPage);
     }
 

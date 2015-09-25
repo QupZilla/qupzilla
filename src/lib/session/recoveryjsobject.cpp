@@ -21,6 +21,9 @@
 #include "webpage.h"
 #include "tabbedwebview.h"
 #include "browserwindow.h"
+#include "qztools.h"
+
+#include <QJsonObject>
 
 RecoveryJsObject::RecoveryJsObject(RestoreManager *manager)
     : QObject()
@@ -36,6 +39,31 @@ void RecoveryJsObject::setPage(WebPage *page)
     m_page = page;
 }
 
+QJsonArray RecoveryJsObject::restoreData() const
+{
+    QJsonArray out;
+
+    int i = 0;
+    Q_FOREACH (const RestoreManager::WindowData &w, m_manager->restoreData()) {
+        int j = 0;
+        QJsonArray tabs;
+        Q_FOREACH (const WebTab::SavedTab &t, w.tabsState) {
+            QJsonObject tab;
+            tab[QSL("tab")] = j++;
+            tab[QSL("icon")] = QString(QSL("data:image/png;base64,") + QzTools::pixmapToByteArray(t.icon.pixmap(16)));
+            tab[QSL("title")] = t.title;
+            tabs.append(tab);
+        }
+
+        QJsonObject window;
+        window[QSL("window")] = i++;
+        window[QSL("tabs")] = tabs;
+        out.append(window);
+    }
+
+    return out;
+}
+
 void RecoveryJsObject::startNewSession()
 {
     BrowserWindow *window = getBrowserWindow();
@@ -47,15 +75,39 @@ void RecoveryJsObject::startNewSession()
     mApp->destroyRestoreManager();
 }
 
-void RecoveryJsObject::restoreSession()
+void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStringList &excludeTab)
 {
+    Q_ASSERT(excludeWin.size() == excludeTab.size());
+
+    RestoreData data = m_manager->restoreData();
+
+    for (int i = 0; i < excludeWin.size(); ++i) {
+        int win = excludeWin.at(i).toInt();
+        int tab = excludeTab.at(i).toInt();
+
+        if (!QzTools::containsIndex(data, win) || !QzTools::containsIndex(data.at(win).tabsState, tab))
+            continue;
+
+        RestoreManager::WindowData &wd = data[win];
+
+        wd.tabsState.remove(tab);
+        if (wd.currentTab >= tab)
+            --wd.currentTab;
+
+        if (wd.tabsState.isEmpty()) {
+            data.remove(win);
+            continue;
+        }
+
+        if (wd.currentTab < 0)
+            wd.currentTab = wd.tabsState.size() - 1;
+    }
+
     BrowserWindow *window = getBrowserWindow();
     if (!window)
         return;
 
-    bool ok = mApp->restoreSession(window , m_manager->restoreData());
-
-    if (!ok)
+    if (!mApp->restoreSession(window , data))
         startNewSession();
 }
 

@@ -180,7 +180,6 @@ SOURCES += \
     preferences/sslmanager.cpp \
     preferences/thememanager.cpp \
     preferences/useragentdialog.cpp \
-    session/recoverywidget.cpp \
     session/recoveryjsobject.cpp \
     session/restoremanager.cpp \
     sidebar/bookmarkssidebar.cpp \
@@ -380,7 +379,6 @@ HEADERS  += \
     preferences/sslmanager.h \
     preferences/thememanager.h \
     preferences/useragentdialog.h \
-    session/recoverywidget.h \
     session/recoveryjsobject.h \
     session/restoremanager.h \
     sidebar/bookmarkssidebar.h \
@@ -478,7 +476,6 @@ FORMS    += \
     preferences/sslmanager.ui \
     preferences/thememanager.ui \
     preferences/useragentdialog.ui \
-    session/recoverywidget.ui \
     sidebar/bookmarkssidebar.ui \
     sidebar/historysidebar.ui \
     tools/certificateinfowidget.ui \

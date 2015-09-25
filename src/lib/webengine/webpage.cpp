@@ -36,7 +36,6 @@
 #include "qzsettings.h"
 #include "useragentmanager.h"
 #include "delayedfilewatcher.h"
-#include "recoverywidget.h"
 #include "searchenginesmanager.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "schemehandlers/fileschemehandler.h"
