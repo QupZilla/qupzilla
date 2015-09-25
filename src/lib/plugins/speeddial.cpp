@@ -218,8 +218,7 @@ QString SpeedDial::initialScript()
             }
         }
         else {
-            QByteArray data = QzTools::pixmapToByteArray(QPixmap(imgSource));
-            imgSource = QByteArrayLiteral("data:image/png;base64,") + data;
+            imgSource = QzTools::pixmapToDataUrl(QPixmap(imgSource)).toString();
         }
 
         m_initialScript.append(QString("addBox('%1', '%2', '%3');\n").arg(page.url, page.title, imgSource));
@@ -289,10 +288,7 @@ QStringList SpeedDial::getOpenFileName()
     if (image.isEmpty())
         return QStringList();
 
-    const QByteArray data = QzTools::pixmapToByteArray(QPixmap(image));
-    const QByteArray imageData = QByteArrayLiteral("data:image/png;base64,") + data;
-
-    return {imageData, QUrl::fromLocalFile(image).toEncoded()};
+    return {QzTools::pixmapToDataUrl(QPixmap(image)).toString(), QUrl::fromLocalFile(image).toEncoded()};
 }
 
 QString SpeedDial::urlFromUserInput(const QString &url)
@@ -302,8 +298,7 @@ QString SpeedDial::urlFromUserInput(const QString &url)
 
 void SpeedDial::setBackgroundImage(const QString &image)
 {
-    const QByteArray data = QzTools::pixmapToByteArray(QPixmap(QUrl::fromEncoded(image.toUtf8()).toLocalFile()));
-    m_backgroundImage = QByteArrayLiteral("data:image/png;base64,") + data;
+    m_backgroundImage = QzTools::pixmapToDataUrl(QPixmap(QUrl(image).toLocalFile())).toString();
     m_backgroundImageUrl = image;
 }
 
@@ -359,8 +354,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     if (loadTitle)
         emit pageTitleLoaded(url, title);
 
-    QByteArray data = QzTools::pixmapToByteArray(QPixmap(fileName));
-    emit thumbnailLoaded(url, QString(QByteArrayLiteral("data:image/png;base64,") + data));
+    emit thumbnailLoaded(url, QzTools::pixmapToDataUrl(QPixmap(fileName)).toString());
 }
 
 QString SpeedDial::escapeTitle(QString title) const

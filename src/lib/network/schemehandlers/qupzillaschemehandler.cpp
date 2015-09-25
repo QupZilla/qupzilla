@@ -329,7 +329,7 @@ QString QupZillaSchemeReply::restorePage()
         rPage.append(QzTools::readAllFileContents(":html/restore.html"));
         rPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         rPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        rPage.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToByteArray(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45, 45)));
+        rPage.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
         rPage.replace(QLatin1String("%TITLE%"), tr("Restore Session"));
         rPage.replace(QLatin1String("%OOPS%"), tr("Oops, QupZilla crashed."));
         rPage.replace(QLatin1String("%APOLOGIZE%"), tr("We apologize for this. Would you like to restore the last saved state?"));

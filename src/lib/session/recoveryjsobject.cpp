@@ -50,7 +50,7 @@ QJsonArray RecoveryJsObject::restoreData() const
         Q_FOREACH (const WebTab::SavedTab &t, w.tabsState) {
             QJsonObject tab;
             tab[QSL("tab")] = j++;
-            tab[QSL("icon")] = QString(QSL("data:image/png;base64,") + QzTools::pixmapToByteArray(t.icon.pixmap(16)));
+            tab[QSL("icon")] = QzTools::pixmapToDataUrl(t.icon.pixmap(16)).toString();
             tab[QSL("title")] = t.title;
             tabs.append(tab);
         }

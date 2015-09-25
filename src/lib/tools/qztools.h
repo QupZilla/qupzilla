@@ -34,6 +34,7 @@ class QUPZILLA_EXPORT QzTools
 public:
     static QByteArray pixmapToByteArray(const QPixmap &pix);
     static QPixmap pixmapFromByteArray(const QByteArray &data);
+    static QUrl pixmapToDataUrl(const QPixmap &pix);
 
     static QString readAllFileContents(const QString &filename);
     static QByteArray readAllFileByteContents(const QString &filename);

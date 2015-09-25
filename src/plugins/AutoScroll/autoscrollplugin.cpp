@@ -107,9 +107,9 @@ void AutoScrollPlugin::updateScript()
     source.replace(QSL("%MOVE_SPEED%"), settings.value(QSL("Speed"), 5).toString());
     source.replace(QSL("%CTRL_CLICK%"), settings.value(QSL("CtrlClick"), true).toString());
     source.replace(QSL("%MIDDLE_CLICK%"), settings.value(QSL("MiddleClick"), true).toString());
-    source.replace(QSL("%IMG_ALL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_all.png"))));
-    source.replace(QSL("%IMG_HORIZONTAL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_horizontal.png"))));
-    source.replace(QSL("%IMG_VERTICAL%"), QzTools::pixmapToByteArray(QPixmap(QSL(":/autoscroll/data/scroll_vertical.png"))));
+    source.replace(QSL("%IMG_ALL%"), QzTools::pixmapToDataUrl(QPixmap(QSL(":/autoscroll/data/scroll_all.png"))).toString());
+    source.replace(QSL("%IMG_HORIZONTAL%"), QzTools::pixmapToDataUrl(QPixmap(QSL(":/autoscroll/data/scroll_horizontal.png"))).toString());
+    source.replace(QSL("%IMG_VERTICAL%"), QzTools::pixmapToDataUrl(QPixmap(QSL(":/autoscroll/data/scroll_vertical.png"))).toString());
 
     script.setSourceCode(source);
 

@@ -60,11 +60,11 @@
 
     function image(o) {
       if (o.width && o.height) {
-        return "data:image/png;base64,%IMG_ALL%"
+        return "%IMG_ALL%"
       } else if (o.width) {
-        return "data:image/png;base64,%IMG_HORIZONTAL%"
+        return "%IMG_HORIZONTAL%"
       } else {
-        return "data:image/png;base64,%IMG_VERTICAL%"
+        return "%IMG_VERTICAL%"
       }
     }
 
