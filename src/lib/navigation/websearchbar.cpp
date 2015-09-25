@@ -29,6 +29,7 @@
 #include "searchenginesdialog.h"
 #include "networkmanager.h"
 #include "iconprovider.h"
+#include "scripts.h"
 
 #include <QMimeData>
 #include <QAbstractItemView>
@@ -106,9 +107,26 @@ void WebSearchBar::aboutToShowMenu()
     QMenu* menu = m_boxSearchType->menu();
 
     menu->addSeparator();
-    completeMenuWithAvailableEngines(menu);
-    menu->addSeparator();
-    menu->addAction(IconProvider::settingsIcon(), tr("Manage Search Engines"), this, SLOT(openSearchEnginesDialog()));
+
+    m_window->weView()->page()->runJavaScript(Scripts::getOpenSearchLinks(), [this, menu](const QVariant &res) {
+        const QVariantList &list = res.toList();
+        Q_FOREACH (const QVariant &val, list) {
+            const QVariantMap &link = val.toMap();
+            QUrl url = m_window->weView()->url().resolved(link.value(QSL("url")).toUrl());
+            QString title = link.value(QSL("title")).toString();
+
+            if (url.isEmpty())
+                continue;
+
+            if (title.isEmpty())
+                title = m_window->weView()->title();
+
+            menu->addAction(m_window->weView()->icon(), tr("Add %1 ...").arg(title), this, SLOT(addEngineFromAction()))->setData(url);
+        }
+
+        menu->addSeparator();
+        menu->addAction(IconProvider::settingsIcon(), tr("Manage Search Engines"), this, SLOT(openSearchEnginesDialog()));
+    });
 }
 
 void WebSearchBar::addSuggestions(const QStringList &list)
@@ -212,33 +230,6 @@ void WebSearchBar::searchInNewTab()
     int index = m_window->tabWidget()->addView(QUrl());
     m_window->weView(index)->setFocus();
     m_window->weView(index)->load(m_searchManager->searchResult(m_activeEngine, text()));
-}
-
-void WebSearchBar::completeMenuWithAvailableEngines(QMenu* menu)
-{
-    Q_UNUSED(menu)
-#if QTWEBENGINE_DISABLED
-    WebView* view = m_window->weView();
-    QWebEngineFrame* frame = view->page()->mainFrame();
-
-    QWebElementCollection elements = frame->documentElement().findAll(QLatin1String("link[rel=search]"));
-    foreach (const QWebElement &element, elements) {
-        if (element.attribute("type") != QLatin1String("application/opensearchdescription+xml")) {
-            continue;
-        }
-        QUrl url = view->url().resolved(QUrl::fromEncoded(element.attribute("href").toUtf8()));
-        QString title = element.attribute("title");
-
-        if (url.isEmpty()) {
-            continue;
-        }
-        if (title.isEmpty()) {
-            title = view->title();
-        }
-
-        menu->addAction(view->icon(), tr("Add %1 ...").arg(title), this, SLOT(addEngineFromAction()))->setData(url);
-    }
-#endif
 }
 
 void WebSearchBar::addEngineFromAction()

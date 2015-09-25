@@ -73,7 +73,6 @@ private:
     void dropEvent(QDropEvent* event);
     void keyPressEvent(QKeyEvent* event);
 
-    void completeMenuWithAvailableEngines(QMenu* menu);
     void contextMenuEvent(QContextMenuEvent* event);
 
     QCompleter* m_completer;

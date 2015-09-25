@@ -190,3 +190,23 @@ QString Scripts::completeFormData(const QByteArray &data)
     d.replace(QL1S("'"), QL1S("\\'"));
     return source.arg(d);
 }
+
+QString Scripts::getOpenSearchLinks()
+{
+    QString source = QL1S("(function() {"
+                          "var out = [];"
+                          "var links = document.getElementsByTagName('link');"
+                          "for (var i = 0; i < links.length; ++i) {"
+                          "    var e = links[i];"
+                          "    if (e.type == 'application/opensearchdescription+xml') {"
+                          "        out.push({"
+                          "            url: e.href,"
+                          "            title: e.title"
+                          "        });"
+                          "    }"
+                          "}"
+                          "return out;"
+                          "})()");
+
+    return source;
+}
