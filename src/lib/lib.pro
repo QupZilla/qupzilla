@@ -504,7 +504,7 @@ qtHaveModule(ftp) {
     INSTALLS += target
 
     !contains(DEFINES, NO_X11) {
-        LIBS += -lX11
+        LIBS += -lxcb
         QT *= x11extras
     }
 

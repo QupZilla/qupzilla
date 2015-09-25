@@ -45,8 +45,7 @@
 #endif
 #ifdef QZ_WS_X11
 #include <QX11Info>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
+#include <xcb/xcb.h>
 #endif
 
 #ifdef Q_OS_WIN
@@ -818,26 +817,26 @@ QString QzTools::escape(const QString &string)
 #endif
 }
 
-void* QzTools::X11Display(const QWidget* widget)
-{
-    Q_UNUSED(widget)
-
-#ifdef QZ_WS_X11
-    return QX11Info::display();
-#else
-    return 0;
-#endif
-}
-
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
 #ifdef QZ_WS_X11
-    QByteArray nameData = name.toUtf8();
+    if (!QX11Info::isPlatformX11())
+        return;
 
-    XClassHint classHint;
-    classHint.res_name = const_cast<char*>(nameData.constData());
-    classHint.res_class = const_cast<char*>("QupZilla");
-    XSetClassHint((Display*)X11Display(widget), widget->winId(), &classHint);
+    const QByteArray &nameData = name.toUtf8();
+    const QByteArray &classData = QByteArrayLiteral("QupZilla");
+
+    uint32_t class_len = nameData.length() + 1 + classData.length() + 1;
+    char *class_hint = (char*) malloc(class_len);
+
+    qstrcpy(class_hint, nameData.constData());
+    qstrcpy(class_hint + nameData.length() + 1, classData.constData());
+
+    xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, widget->winId(),
+                        XCB_ATOM_WM_CLASS, XCB_ATOM_STRING, 8, class_len, class_hint);
+
+    free(class_hint);
+
 #else
     Q_UNUSED(name)
     Q_UNUSED(widget)

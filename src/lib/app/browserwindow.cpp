@@ -86,8 +86,9 @@
 #include <QScrollArea>
 
 #ifdef QZ_WS_X11
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
+#include <QX11Info>
+#include <xcb/xcb.h>
+#include <xcb/xcb_atom.h>
 #endif
 
 #ifdef Q_OS_WIN
@@ -1469,47 +1470,67 @@ bool BrowserWindow::restoreState(const QByteArray &state, int version)
 #ifdef QZ_WS_X11
 int BrowserWindow::getCurrentVirtualDesktop() const
 {
-    Display* display = static_cast<Display*>(QzTools::X11Display(this));
-    Atom actual_type;
-    int actual_format;
-    unsigned long nitems;
-    unsigned long bytes;
-    unsigned long* data;
+    if (!QX11Info::isPlatformX11())
+        return 0;
 
-    Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
-    if (net_wm_desktop == None) {
-        return -1;
-    }
+    xcb_intern_atom_cookie_t intern_atom;
+    xcb_intern_atom_reply_t *atom_reply = 0;
+    xcb_atom_t atom;
+    xcb_get_property_cookie_t cookie;
+    xcb_get_property_reply_t *reply = 0;
+    uint32_t value;
 
-    int status = XGetWindowProperty(display, winId(), net_wm_desktop, 0, 1,
-                                    False, XA_CARDINAL, &actual_type, &actual_format,
-                                    &nitems, &bytes, (unsigned char**) &data);
+    intern_atom = xcb_intern_atom(QX11Info::connection(), false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
+    atom_reply = xcb_intern_atom_reply(QX11Info::connection(), intern_atom, 0);
 
-    if (status != Success || data == NULL) {
-        return -1;
-    }
+    if (!atom_reply)
+        goto error;
 
-    int desktop = *data;
-    XFree(data);
+    atom = atom_reply->atom;
 
-    return desktop;
+    cookie = xcb_get_property(QX11Info::connection(), false, winId(), atom, XCB_ATOM_CARDINAL, 0, 1);
+    reply = xcb_get_property_reply(QX11Info::connection(), cookie, 0);
+
+    if (!reply || reply->type != XCB_ATOM_CARDINAL || reply->value_len != 1 || reply->format != sizeof(uint32_t) * 8)
+        goto error;
+
+    value = *reinterpret_cast<uint32_t*>(xcb_get_property_value(reply));
+
+    free(reply);
+    free(atom_reply);
+    return value;
+
+error:
+    free(reply);
+    free(atom_reply);
+    return 0;
 }
 
 void BrowserWindow::moveToVirtualDesktop(int desktopId)
 {
+    if (!QX11Info::isPlatformX11())
+        return;
+
     // Don't move when window is already visible or it is first app window
-    if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow) {
+    if (desktopId < 0 || isVisible() || m_windowType == Qz::BW_FirstAppWindow)
         return;
-    }
 
-    Display* display = static_cast<Display*>(QzTools::X11Display(this));
+    xcb_intern_atom_cookie_t intern_atom;
+    xcb_intern_atom_reply_t *atom_reply = 0;
+    xcb_atom_t atom;
 
-    Atom net_wm_desktop = XInternAtom(display, "_NET_WM_DESKTOP", False);
-    if (net_wm_desktop == None) {
-        return;
-    }
+    intern_atom = xcb_intern_atom(QX11Info::connection(), false, qstrlen("_NET_WM_DESKTOP"), "_NET_WM_DESKTOP");
+    atom_reply = xcb_intern_atom_reply(QX11Info::connection(), intern_atom, 0);
 
-    XChangeProperty(display, winId(), net_wm_desktop, XA_CARDINAL,
-                    32, PropModeReplace, (unsigned char*) &desktopId, 1L);
+    if (!atom_reply)
+        goto error;
+
+    atom = atom_reply->atom;
+
+    xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, winId(), atom,
+                        XCB_ATOM_CARDINAL, 32, 1, (const void*) &desktopId);
+
+error:
+    free(atom_reply);
 }
 #endif

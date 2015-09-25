@@ -33,7 +33,7 @@ Linux / Unix
 
   You need to have Qt 4 (>= 4.7) or Qt 5 development libraries, pkg-config is
   highly recommended to correctly detect QtWebKit version.
-  Next compulsory requirement is OpenSSL (libcrypto). X11 libraries are also
+  Next compulsory requirement is OpenSSL (libcrypto). xcb libraries are also
   required unless you specify NO_X11 build option.
 
   To build spellcheck plugin, you need:
@@ -151,8 +151,10 @@ Available Defines
 
  Linux / Unix specific defines:
 
-     NO_X11               Disable all direct X11 calls.
-                          Enable this when building for Wayland.
+     NO_X11               Disable all X11 calls.
+                          Enable this when building for Wayland-only.
+                          All X11 calls are guarded by runtime X11 platform check
+                          even without this option.
 
                           example:
                           $ export NO_X11="true"
