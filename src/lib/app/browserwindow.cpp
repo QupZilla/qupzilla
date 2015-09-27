@@ -196,8 +196,7 @@ void BrowserWindow::postLaunch()
             addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
         else {
-            // Pinned tabs are restored in MainApplication::restoreStateSlot
-            // Make sure they will be restored also when not restoring session
+            // Restore pinned tabs also when not restoring session
             m_tabWidget->restorePinnedTabs();
         }
         break;

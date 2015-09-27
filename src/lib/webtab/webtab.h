@@ -44,11 +44,12 @@ public:
         QUrl url;
         QIcon icon;
         QByteArray history;
+        bool isPinned;
 
-        SavedTab() { }
+        SavedTab();
         SavedTab(WebTab* webTab);
 
-        bool isEmpty() const;
+        bool isValid() const;
         void clear();
 
         friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedTab &tab);

@@ -714,9 +714,18 @@ void MainApplication::saveSession()
         }
     }
 
-    BrowserWindow* qupzilla_ = getWindow();
-    if (qupzilla_ && m_windows.count() == 1) {
-        qupzilla_->tabWidget()->savePinnedTabs();
+    int afterLaunch = Settings().value("Web-URL-Settings/afterLaunch", 3).toInt();
+
+    if (afterLaunch == 3) {
+        // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
+        QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
+    }
+    else {
+        // Pinned tabs are saved only for last window into pinnedtabs.dat
+        BrowserWindow* qupzilla_ = getWindow();
+        if (qupzilla_ && m_windows.count() == 1) {
+            qupzilla_->tabWidget()->savePinnedTabs();
+        }
     }
 
     QFile file(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));

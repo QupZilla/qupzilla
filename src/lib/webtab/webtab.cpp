@@ -34,7 +34,12 @@
 #include <QTimer>
 #include <QSplitter>
 
-static const int savedTabVersion = 1;
+static const int savedTabVersion = 2;
+
+WebTab::SavedTab::SavedTab()
+    : isPinned(false)
+{
+}
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
@@ -42,11 +47,12 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
     url = webTab->url();
     icon = webTab->icon();
     history = webTab->historyData();
+    isPinned = webTab->isPinned();
 }
 
-bool WebTab::SavedTab::isEmpty() const
+bool WebTab::SavedTab::isValid() const
 {
-    return url.isEmpty();
+    return !url.isEmpty();
 }
 
 void WebTab::SavedTab::clear()
@@ -55,6 +61,7 @@ void WebTab::SavedTab::clear()
     url.clear();
     icon = QIcon();
     history.clear();
+    isPinned = false;
 }
 
 QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
@@ -64,6 +71,7 @@ QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
     stream << tab.url;
     stream << tab.icon.pixmap(16);
     stream << tab.history;
+    stream << tab.isPinned;
 
     return stream;
 }
@@ -73,11 +81,17 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     int version;
     stream >> version;
 
+    if (version < 1)
+        return stream;
+
     QPixmap pixmap;
     stream >> tab.title;
     stream >> tab.url;
     stream >> pixmap;
     stream >> tab.history;
+
+    if (version >= 2)
+        stream >> tab.isPinned;
 
     tab.icon = QIcon(pixmap);
 
@@ -255,14 +269,14 @@ TabIcon* WebTab::tabIcon() const
 
 bool WebTab::isRestored() const
 {
-    return m_savedTab.isEmpty();
+    return !m_savedTab.isValid();
 }
 
 void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
     Q_ASSERT(m_tabBar);
 
-    if (qzSettings->loadTabsOnActivation) {
+    if (!tab.isPinned && qzSettings->loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
 
@@ -297,6 +311,7 @@ void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 {
     p_restoreTab(tab.url, tab.history);
+    m_isPinned = tab.isPinned;
 }
 
 QPixmap WebTab::renderTabPreview()
