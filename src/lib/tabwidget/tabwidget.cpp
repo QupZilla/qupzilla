@@ -835,9 +835,8 @@ QByteArray TabWidget::saveState()
 
     for (int i = 0; i < count(); ++i) {
         WebTab* webTab = weTab(i);
-        if (!webTab || webTab->isPinned()) {
+        if (!webTab)
             continue;
-        }
 
         WebTab::SavedTab tab(webTab);
         tabList.append(tab);
@@ -859,17 +858,14 @@ QByteArray TabWidget::saveState()
 
 bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
-    Qz::BrowserWindowType type = m_window->windowType();
-
-    if (type == Qz::BW_FirstAppWindow || type == Qz::BW_MacFirstWindow) {
-        restorePinnedTabs();
-    }
-
     for (int i = 0; i < tabs.size(); ++i) {
         WebTab::SavedTab tab = tabs.at(i);
 
-        int index = addView(QUrl(), Qz::NT_CleanSelectedTab);
+        int index = addView(QUrl(), Qz::NT_CleanSelectedTab, false, tab.isPinned);
         weTab(index)->restoreTab(tab);
+
+        if (tab.isPinned)
+            m_tabBar->updatePinnedTabCloseButton(index);
     }
 
     setCurrentIndex(currentTab);
