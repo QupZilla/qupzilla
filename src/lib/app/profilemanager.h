@@ -28,14 +28,14 @@ public:
     explicit ProfileManager();
 
     // Make sure the config dir exists and have correct structure
-    void initConfigDir() const;
+    void initConfigDir();
     // Set current profile name (from profiles.ini) and ensure dir exists with correct structure
     void initCurrentProfile(const QString &profileName);
 
     // Return 0 on success, -1 profile already exists, -2 cannot create directory
-    int createProfile(const QString &profileName);
+    static int createProfile(const QString &profileName);
     // Return false on error (profile does not exists)
-    bool removeProfile(const QString &profileName);
+    static bool removeProfile(const QString &profileName);
 
     // Name of current profile
     static QString currentProfile();

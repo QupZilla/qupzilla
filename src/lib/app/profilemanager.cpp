@@ -32,7 +32,7 @@ ProfileManager::ProfileManager()
 {
 }
 
-void ProfileManager::initConfigDir() const
+void ProfileManager::initConfigDir()
 {
     QDir dir(DataPaths::path(DataPaths::Config));
 

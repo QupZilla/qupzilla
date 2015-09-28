@@ -810,8 +810,7 @@ void Preferences::createProfile()
         return;
     }
 
-    ProfileManager profileManager;
-    int res = profileManager.createProfile(name);
+    int res = ProfileManager::createProfile(name);
 
     if (res == -1) {
         QMessageBox::warning(this, tr("Error!"), tr("This profile already exists!"));
@@ -836,8 +835,7 @@ void Preferences::deleteProfile()
         return;
     }
 
-    ProfileManager profileManager;
-    profileManager.removeProfile(name);
+    ProfileManager::removeProfile(name);
 
     ui->startProfile->removeItem(ui->startProfile->currentIndex());
 }
@@ -1086,8 +1084,7 @@ void Preferences::saveSettings()
     settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
-    ProfileManager profileManager;
-    profileManager.setStartingProfile(ui->startProfile->currentText());
+    ProfileManager::setStartingProfile(ui->startProfile->currentText());
 
     m_pluginsList->save();
     m_themesManager->save();
