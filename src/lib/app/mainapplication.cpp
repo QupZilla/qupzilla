@@ -305,6 +305,9 @@ MainApplication::MainApplication(int &argc, char** argv)
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
             }
+
+            // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
+            QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
         }
     }
 
@@ -716,11 +719,7 @@ void MainApplication::saveSession()
 
     int afterLaunch = Settings().value("Web-URL-Settings/afterLaunch", 3).toInt();
 
-    if (afterLaunch == 3) {
-        // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
-        QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
-    }
-    else {
+    if (afterLaunch != 3) {
         // Pinned tabs are saved only for last window into pinnedtabs.dat
         BrowserWindow* qupzilla_ = getWindow();
         if (qupzilla_ && m_windows.count() == 1) {
