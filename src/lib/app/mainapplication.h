@@ -53,6 +53,13 @@ class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
     Q_OBJECT
 
 public:
+    enum AfterLaunch {
+        OpenBlankPage = 0,
+        OpenHomePage = 1,
+        OpenSpeedDial = 2,
+        RestoreSession = 3
+    };
+
     explicit MainApplication(int &argc, char** argv);
     ~MainApplication();
 
@@ -67,6 +74,8 @@ public:
 
     BrowserWindow* getWindow() const;
     BrowserWindow* createWindow(Qz::BrowserWindowType type, const QUrl &startUrl = QUrl());
+
+    AfterLaunch afterLaunch() const;
 
     bool restoreSession(BrowserWindow* window, RestoreData restoreData);
     void destroyRestoreManager();

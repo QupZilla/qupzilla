@@ -162,22 +162,20 @@ void BrowserWindow::postLaunch()
 {
     loadSettings();
 
-    Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
     bool addTab = true;
     QUrl startUrl;
 
-    switch (afterLaunch) {
-    case 0:
+    switch (mApp->afterLaunch()) {
+    case MainApplication::OpenBlankPage:
         startUrl = QUrl();
         break;
 
-    case 2:
+    case MainApplication::OpenSpeedDial:
         startUrl = QUrl("qupzilla:speeddial");
         break;
 
-    case 1:
-    case 3:
+    case MainApplication::OpenHomePage:
+    case MainApplication::RestoreSession:
         startUrl = m_homepage;
         break;
 
@@ -192,7 +190,7 @@ void BrowserWindow::postLaunch()
             startUrl.clear();
             m_tabWidget->addView(QUrl("qupzilla:restore"), Qz::NT_CleanSelectedTabAtTheEnd);
         }
-        else if (afterLaunch == 3 && mApp->restoreManager()) {
+        else if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->restoreManager()) {
             addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
         else {
@@ -1336,10 +1334,9 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     }
 
     Settings settings;
-    int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-    if (afterLaunch == 3 && mApp->windowCount() == 1) {
+    if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->windowCount() == 1) {
         askOnClose = false;
     }
 

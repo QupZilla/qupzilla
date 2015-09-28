@@ -146,9 +146,8 @@ Preferences::Preferences(BrowserWindow* window)
     m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("qupzilla:speeddial"))).toUrl();
     ui->homepage->setText(m_homepage.toEncoded());
     ui->newTabUrl->setText(m_newTabUrl.toEncoded());
-    int afterLaunch = settings.value("afterLaunch", 3).toInt();
     settings.endGroup();
-    ui->afterLaunch->setCurrentIndex(afterLaunch);
+    ui->afterLaunch->setCurrentIndex(mApp->afterLaunch());
     ui->checkUpdates->setChecked(settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool());
     ui->dontLoadTabsUntilSelected->setChecked(settings.value("Web-Browser-Settings/LoadTabsOnActivation", true).toBool());
 

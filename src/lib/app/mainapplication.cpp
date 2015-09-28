@@ -287,7 +287,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     if (!isPrivate()) {
         Settings settings;
         m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-        int afterLaunch = settings.value("Web-URL-Settings/afterLaunch", 3).toInt();
         settings.setValue("SessionRestore/isRunning", true);
 
 #ifndef DISABLE_UPDATES_CHECK
@@ -300,7 +299,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
         backupSavedSessions();
 
-        if (m_isStartingAfterCrash || afterLaunch == 3) {
+        if (m_isStartingAfterCrash || afterLaunch() == RestoreSession) {
             m_restoreManager = new RestoreManager();
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
@@ -388,6 +387,11 @@ BrowserWindow* MainApplication::createWindow(Qz::BrowserWindowType type, const Q
 
     m_windows.prepend(window);
     return window;
+}
+
+MainApplication::AfterLaunch MainApplication::afterLaunch() const
+{
+    return static_cast<AfterLaunch>(Settings().value(QSL("Web-URL-Settings/afterLaunch"), RestoreSession).toInt());
 }
 
 bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
@@ -717,9 +721,7 @@ void MainApplication::saveSession()
         }
     }
 
-    int afterLaunch = Settings().value("Web-URL-Settings/afterLaunch", 3).toInt();
-
-    if (afterLaunch != 3) {
+    if (afterLaunch() != RestoreSession) {
         // Pinned tabs are saved only for last window into pinnedtabs.dat
         BrowserWindow* qupzilla_ = getWindow();
         if (qupzilla_ && m_windows.count() == 1) {
