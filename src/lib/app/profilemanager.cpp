@@ -124,25 +124,29 @@ bool ProfileManager::removeProfile(const QString &profileName)
     return true;
 }
 
-QString ProfileManager::currentProfile() const
+// static
+QString ProfileManager::currentProfile()
 {
     QString path = DataPaths::currentProfilePath();
     return path.mid(path.lastIndexOf(QLatin1Char('/')) + 1);
 }
 
-QString ProfileManager::startingProfile() const
+// static
+QString ProfileManager::startingProfile()
 {
     QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     return settings.value(QLatin1String("Profiles/startProfile"), QLatin1String("default")).toString();
 }
 
+// static
 void ProfileManager::setStartingProfile(const QString &profileName)
 {
     QSettings settings(DataPaths::path(DataPaths::Profiles) + QLatin1String("/profiles.ini"), QSettings::IniFormat);
     settings.setValue(QLatin1String("Profiles/startProfile"), profileName);
 }
 
-QStringList ProfileManager::availableProfiles() const
+// static
+QStringList ProfileManager::availableProfiles()
 {
     QDir dir(DataPaths::path(DataPaths::Profiles));
     return dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);

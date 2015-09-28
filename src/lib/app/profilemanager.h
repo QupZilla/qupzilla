@@ -38,14 +38,14 @@ public:
     bool removeProfile(const QString &profileName);
 
     // Name of current profile
-    QString currentProfile() const;
+    static QString currentProfile();
 
     // Name of starting profile
-    QString startingProfile() const;
-    void setStartingProfile(const QString &profileName);
+    static QString startingProfile();
+    static void setStartingProfile(const QString &profileName);
 
     // Names of available profiles
-    QStringList availableProfiles() const;
+    static QStringList availableProfiles();
 
 private:
     void updateCurrentProfile();

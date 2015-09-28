@@ -100,36 +100,16 @@ void DataPaths::init()
     // Config
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
     // Use %LOCALAPPDATA%/qupzilla as Config path on Windows
-    QString dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-    // Backwards compatibility
-    if (dataLocation.isEmpty()) {
-        dataLocation = QDir::homePath() + QLatin1String("/.config/qupzilla");
-    }
-
-    QDir confPath = QDir(dataLocation);
-    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
-
-    if (!oldConfPath.exists()) {
-        oldConfPath = QDir::homePath() + QLatin1String("/.config/qupzilla");
-    }
+    m_paths[Config].append(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
 #elif defined(Q_OS_MAC)
-    QDir confPath = QDir(QDir::homePath() + QLatin1String("/Library/Application Support/QupZilla"));
-    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla"));
+    m_paths[Config].append(QDir::homePath() + QLatin1String("/Library/Application Support/QupZilla"));
 #else // Unix
-    QDir confPath = QDir(QDir::homePath() + QLatin1String("/.config/qupzilla"));
-    QDir oldConfPath = QDir(QDir::homePath() + QLatin1String("/.qupzilla"));
+    QString configHome = QFile::decodeName(qgetenv("XDG_CONFIG_HOME"));
+    if (configHome.isEmpty())
+        configHome = QDir::homePath() + QLatin1String("/.config");
+    configHome.append(QLatin1String("/qupzilla"));
+    m_paths[Config].append(configHome);
 #endif
-
-    if (oldConfPath.exists() && !confPath.exists()) {
-        m_paths[Config].append(oldConfPath.absolutePath());
-
-        qWarning() << "WARNING: Using deprecated configuration path" << oldConfPath.absolutePath();
-        qWarning() << "WARNING: This path may not be supported in future versions!";
-        qWarning() << "WARNING: Please move your configuration into" << confPath.absolutePath();
-    }
-    else {
-        m_paths[Config].append(confPath.absolutePath());
-    }
 
     // Profiles
     m_paths[Profiles].append(m_paths[Config].first() + QLatin1String("/profiles"));
@@ -161,4 +141,16 @@ void DataPaths::init()
 void DataPaths::initCurrentProfile(const QString &profilePath)
 {
     m_paths[CurrentProfile].append(profilePath);
+
+    // Cache
+#ifdef Q_OS_UNIX
+    QString cacheHome = QFile::decodeName(qgetenv("XDG_CACHE_HOME"));
+    if (!cacheHome.isEmpty())
+        m_paths[Cache].append(cacheHome + QLatin1String("/qupzilla"));
+#endif
+
+    if (m_paths[Cache].isEmpty())
+        m_paths[Cache].append(m_paths[CurrentProfile].first() + QLatin1String("/cache"));
+
+    QDir().mkpath(m_paths[Cache].first());
 }

@@ -903,9 +903,10 @@ void MainApplication::loadSettings()
     profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
     profile->setPersistentStoragePath(DataPaths::currentProfilePath());
 
-    const QString defaultBasePath = QSL("%1/networkcache/").arg(DataPaths::currentProfilePath());
-    const QString basePath = settings.value("Web-Browser-Settings/CachePath", defaultBasePath).toString();
-    const QString cachePath = QString("%1/QtWebEngine/").arg(basePath);
+    QString defaultPath = DataPaths::path(DataPaths::Cache);
+    if (!defaultPath.startsWith(DataPaths::currentProfilePath()))
+            defaultPath.append(QLatin1Char('/') + ProfileManager::currentProfile());
+    const QString &cachePath = settings.value("Web-Browser-Settings/CachePath", defaultPath).toString();
     profile->setCachePath(cachePath);
 
     if (isPrivate()) {

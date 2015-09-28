@@ -30,10 +30,12 @@ public:
         Translations = 1,        // $AppData/locale
         Themes = 2,              // $AppData/themes
         Plugins = 3,             // $AppData/plugins
-        Config = 4,              // ~/.config/qupzilla or %LOCALAPPDATA%/qupzilla or $AppData/data (portable)
+        Config = 4,              // $XDG_CONFIG_HOME/qupzilla or %LOCALAPPDATA%/qupzilla or $AppData/data (portable)
         Profiles = 5,            // $Config/profiles
         CurrentProfile = 6,      // $Profiles/current_profile
-        Temp = 7                 // $Config/tmp
+        Temp = 7,                // $Config/tmp
+        Cache = 8,               // $XDG_CACHE_HOME/qupzilla or $CurrentProfile/cache
+        LastPath = 9
     };
 
     explicit DataPaths();
@@ -57,7 +59,7 @@ private:
     void init();
     void initCurrentProfile(const QString &profilePath);
 
-    QStringList m_paths[8];
+    QStringList m_paths[LastPath];
 };
 
 #endif // DATAPATHS_H

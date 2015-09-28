@@ -198,12 +198,11 @@ Preferences::Preferences(BrowserWindow* window)
     }
 
     // PROFILES
-    ProfileManager profileManager;
-    QString startingProfile = profileManager.startingProfile();
-    ui->activeProfile->setText("<b>" + profileManager.currentProfile() + "</b>");
+    QString startingProfile = ProfileManager::startingProfile();
+    ui->activeProfile->setText("<b>" + ProfileManager::currentProfile() + "</b>");
     ui->startProfile->addItem(startingProfile);
 
-    foreach (const QString &name, profileManager.availableProfiles()) {
+    foreach (const QString &name, ProfileManager::availableProfiles()) {
         if (startingProfile != name) {
             ui->startProfile->addItem(name);
         }
