@@ -964,7 +964,9 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     BrowserWindow *window = tView ? tView->browserWindow() : mApp->getWindow();
 
     switch (type) {
-    case QWebEnginePage::WebBrowserWindow: // TODO
+    case QWebEnginePage::WebBrowserWindow:
+        // TODO: Investigate when this is called from html
+        qDebug() << "WebBrowserWindow";
     case QWebEnginePage::WebBrowserTab: {
         int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
         TabbedWebView* view = window->weView(index);
