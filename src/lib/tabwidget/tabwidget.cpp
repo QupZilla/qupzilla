@@ -366,7 +366,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     }
 
     connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(webTab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    connect(webTab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(webTab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     if (url.isValid() && url != req.url()) {
