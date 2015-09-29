@@ -389,7 +389,7 @@ void BrowserWindow::setupMenu()
     connect(openLocationAction, SIGNAL(activated()), this, SLOT(openLocation()));
 
     QShortcut* inspectorAction = new QShortcut(QKeySequence(QSL("F12")), this);
-    connect(inspectorAction, SIGNAL(activated()), this, SLOT(showWebInspector()));
+    connect(inspectorAction, SIGNAL(activated()), this, SLOT(toggleWebInspector()));
 }
 
 QAction* BrowserWindow::createEncodingAction(const QString &codecName,
@@ -804,6 +804,13 @@ void BrowserWindow::showWebInspector()
 {
     if (weView() && weView()->webTab()) {
         weView()->webTab()->showWebInspector();
+    }
+}
+
+void BrowserWindow::toggleWebInspector()
+{
+    if (weView() && weView()->webTab()) {
+        weView()->webTab()->toggleWebInspector();
     }
 }
 

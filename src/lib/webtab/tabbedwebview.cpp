@@ -69,8 +69,7 @@ void TabbedWebView::setBrowserWindow(BrowserWindow* window)
 
 void TabbedWebView::inspectElement()
 {
-    if (m_window)
-        m_window->showWebInspector();
+    m_webTab->showWebInspector();
 }
 
 WebTab* TabbedWebView::webTab() const

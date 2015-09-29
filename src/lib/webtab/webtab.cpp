@@ -151,6 +151,17 @@ void WebTab::showWebInspector()
     m_splitter->addWidget(inspector);
 }
 
+void WebTab::toggleWebInspector()
+{
+    if (m_splitter->count() == 1) {
+        showWebInspector();
+        return;
+    }
+
+    if (m_splitter->count() > 1 && m_splitter->widget(1)->inherits("WebInspector"))
+        delete m_splitter->widget(1);
+}
+
 QUrl WebTab::url() const
 {
     if (isRestored()) {

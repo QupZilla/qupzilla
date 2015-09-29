@@ -84,7 +84,9 @@ public:
     int tabIndex() const;
 
     bool isCurrentTab() const;
+
     void showWebInspector();
+    void toggleWebInspector();
 
     bool isRestored() const;
     void restoreTab(const SavedTab &tab);
