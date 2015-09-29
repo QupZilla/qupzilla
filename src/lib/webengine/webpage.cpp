@@ -41,6 +41,7 @@
 #include "tabwidget.h"
 #include "scripts.h"
 #include "networkmanager.h"
+#include "webhittestresult.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -104,6 +105,23 @@ WebPage::~WebPage()
 WebView *WebPage::view() const
 {
     return static_cast<WebView*>(QWebEnginePage::view());
+}
+
+QVariant WebPage::execJavaScript(const QString &scriptSource)
+{
+    QEventLoop loop;
+    QVariant result;
+    runJavaScript(scriptSource, [&loop, &result](const QVariant &res) {
+        result = res;
+        loop.exit();
+    });
+    loop.exec();
+    return result;
+}
+
+WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
+{
+    return WebHitTestResult(this, pos);
 }
 
 void WebPage::scheduleAdjustPage()

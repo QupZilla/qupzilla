@@ -236,6 +236,7 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
+    webengine/webhittestresult.cpp
 
 HEADERS  += \
     3rdparty/ecwin7.h \
@@ -434,6 +435,7 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
+    webengine/webhittestresult.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \

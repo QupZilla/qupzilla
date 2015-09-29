@@ -29,6 +29,7 @@ class QWebEngineDownloadItem;
 
 class WebView;
 class AdBlockRule;
+class WebHitTestResult;
 class DelayedFileWatcher;
 
 class QUPZILLA_EXPORT WebPage : public QWebEnginePage
@@ -48,6 +49,10 @@ public:
     ~WebPage();
 
     WebView *view() const;
+
+    QVariant execJavaScript(const QString &scriptSource);
+
+    WebHitTestResult hitTestContent(const QPoint &pos) const;
 
     bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result) Q_DECL_OVERRIDE;
     bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
