@@ -34,6 +34,7 @@
 #include "locationbar.h"
 #include "webinspector.h"
 #include "scripts.h"
+#include "webhittestresult.h"
 
 #ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
@@ -1140,32 +1141,18 @@ void WebView::_mousePressEvent(QMouseEvent *event)
         event->accept();
         break;
 
-    case Qt::MiddleButton: {
-#if QTWEBENGINE_DISABLED
-        QWebEngineFrame* frame = page()->frameAt(event->pos());
-        if (frame) {
-            m_clickedUrl = frame->hitTestContent(event->pos()).linkUrl();
-            if (!m_clickedUrl.isEmpty()) {
-                return;
-            }
-        }
-#endif
-
+    case Qt::MiddleButton:
+        m_clickedUrl = page()->hitTestContent(event->pos()).linkUrl();
+        if (!m_clickedUrl.isEmpty())
+            event->accept();
         break;
-    }
 
     case Qt::LeftButton: {
-#if QTWEBENGINE_DISABLED
-        QWebEngineFrame* frame = page()->frameAt(event->pos());
-        if (frame) {
-            const QUrl link = frame->hitTestContent(event->pos()).linkUrl();
-            if (event->modifiers() & Qt::ControlModifier && isUrlValid(link)) {
-                userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
-                event->accept();
-                return;
-            }
+        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
+        if (event->modifiers() & Qt::ControlModifier && isUrlValid(link)) {
+            userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
+            event->accept();
         }
-#endif
         break;
     }
 
@@ -1183,17 +1170,11 @@ void WebView::_mouseReleaseEvent(QMouseEvent *event)
 
     switch (event->button()) {
     case Qt::MiddleButton: {
-#if QTWEBENGINE_DISABLED
-        QWebEngineFrame* frame = page()->frameAt(event->pos());
-        if (frame) {
-            const QUrl link = frame->hitTestContent(event->pos()).linkUrl();
-            if (m_clickedUrl == link && isUrlValid(link)) {
-                userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
-                event->accept();
-                return;
-            }
+        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
+        if (m_clickedUrl == link && isUrlValid(link)) {
+            userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
+            event->accept();
         }
-#endif
         break;
     }
 
