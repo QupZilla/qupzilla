@@ -1096,30 +1096,6 @@ bool BrowserWindow::event(QEvent* event)
     return QMainWindow::event(event);
 }
 
-void BrowserWindow::printPage(QWebEngineFrame* frame)
-{
-    Q_UNUSED(frame)
-#if QTWEBENGINE_DISABLED
-    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->resize(800, 750);
-    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-
-    if (!frame) {
-        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
-
-        connect(dialog, SIGNAL(paintRequested(QPrinter*)), weView(), SLOT(print(QPrinter*)));
-    }
-    else {
-        dialog->printer()->setDocName(QzTools::getFileNameFromUrl(QzTools::frameUrl(frame)));
-
-        connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
-    }
-
-    dialog->open();
-#endif
-}
-
 void BrowserWindow::savePageScreen()
 {
 #if QTWEBENGINE_DISABLED

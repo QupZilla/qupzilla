@@ -176,7 +176,6 @@ SOURCES += \
     preferences/pluginlistdelegate.cpp \
     preferences/pluginsmanager.cpp \
     preferences/preferences.cpp \
-    preferences/sslmanager.cpp \
     preferences/thememanager.cpp \
     preferences/useragentdialog.cpp \
     session/recoveryjsobject.cpp \
@@ -374,7 +373,6 @@ HEADERS  += \
     preferences/pluginlistdelegate.h \
     preferences/pluginsmanager.h \
     preferences/preferences.h \
-    preferences/sslmanager.h \
     preferences/thememanager.h \
     preferences/useragentdialog.h \
     session/recoveryjsobject.h \
@@ -471,7 +469,6 @@ FORMS    += \
     preferences/jsoptions.ui \
     preferences/pluginslist.ui \
     preferences/preferences.ui \
-    preferences/sslmanager.ui \
     preferences/thememanager.ui \
     preferences/useragentdialog.ui \
     sidebar/bookmarkssidebar.ui \

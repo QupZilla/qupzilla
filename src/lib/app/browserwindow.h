@@ -140,7 +140,6 @@ public slots:
     void bookmarkAllTabs();
     void loadAddress(const QUrl &url);
     void showSource(WebView *view = Q_NULLPTR);
-    void printPage(QWebEngineFrame* frame = 0);
 
 private slots:
     void addTab();

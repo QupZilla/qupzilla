@@ -1036,9 +1036,6 @@ void Preferences::saveSettings()
     mApp->history()->loadSettings();
     mApp->reloadSettings();
     mApp->plugins()->c2f_saveSettings();
-#if QTWEBENGINE_DISABLED
-    mApp->networkManager()->loadSettings();
-#endif
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
 }
