@@ -57,11 +57,9 @@ private slots:
     void showHtml5Permissions();
     void useActualHomepage();
     void useActualNewTab();
-    void openSslManager();
     void showAcceptLanguage();
     void chooseUserStyleClicked();
     void deleteHtml5storage();
-    void chooseExternalDownloadManager();
     void openUserAgentManager();
     void openJsOptions();
     void openSearchEnginesManager();
@@ -73,7 +71,6 @@ private slots:
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
     void setProxyAutoConfigEnabled(bool state);
-    void useExternalDownManagerChanged(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
     void showTabPreviewsChanged(bool state);
     void changeCachePathClicked();
@@ -82,7 +79,6 @@ private slots:
     void newTabChanged(int value);
     void afterLaunchChanged(int value);
     void cacheValueChanged(int value);
-    void pageCacheValueChanged(int value);
 
     void createProfile();
     void deleteProfile();

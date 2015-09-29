@@ -1111,16 +1111,9 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="allowJava">
+                  <widget class="QCheckBox" name="linksInFocusChain">
                    <property name="text">
-                    <string>Allow JAVA</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="allowDNSPrefetch">
-                   <property name="text">
-                    <string>Allow DNS Prefetch</string>
+                    <string>Include links in focus chain</string>
                    </property>
                   </widget>
                  </item>
@@ -1128,20 +1121,6 @@
                   <widget class="QCheckBox" name="xssAuditing">
                    <property name="text">
                     <string extracomment="try to detect possible XSS attacks when executing javascript">Enable XSS Auditing</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="printEBackground">
-                   <property name="text">
-                    <string extracomment="when you are printing page (on printer), it determine whether to also print background (color, image) of html elements">Print element background</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="linksInFocusChain">
-                   <property name="text">
-                    <string extracomment="focus also links on page (basically &lt;a&gt; elements) when pressing Tab key">Include links in focus chain</string>
                    </property>
                   </widget>
                  </item>
@@ -1156,23 +1135,6 @@
                   <widget class="QCheckBox" name="spatialNavigation">
                    <property name="text">
                     <string>Enable spatial navigation</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="zoomTextOnly">
-                   <property name="text">
-                    <string>Zoom text only</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="formsUndoRedo">
-                   <property name="toolTip">
-                    <string>If you disable this, it will still be accesible via standard Qt shortcuts</string>
-                   </property>
-                   <property name="text">
-                    <string>Enable Undo/Redo for editable forms</string>
                    </property>
                   </widget>
                  </item>
@@ -1264,41 +1226,7 @@
               <layout class="QGridLayout" name="gridLayout_19">
                <item row="0" column="0" colspan="2">
                 <layout class="QGridLayout" name="gridLayout_4">
-                 <item row="0" column="3">
-                  <widget class="QFrame" name="frame_2">
-                   <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <property name="leftMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>6</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>6</number>
-                    </property>
-                    <item>
-                     <widget class="QSlider" name="pagesInCache">
-                      <property name="maximum">
-                       <number>20</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
+                 <item row="1" column="1">
                   <widget class="QFrame" name="cacheFrame">
                    <layout class="QHBoxLayout" name="horizontalLayout_5">
                     <item>
@@ -1318,7 +1246,7 @@
                    </layout>
                   </widget>
                  </item>
-                 <item row="2" column="3">
+                 <item row="1" column="2">
                   <widget class="QSlider" name="cacheMB">
                    <property name="minimum">
                     <number>20</number>
@@ -1334,40 +1262,14 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="2">
-                  <widget class="QLabel" name="pageCacheLabel">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>20</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0" colspan="2">
-                  <widget class="QLabel" name="label_10">
-                   <property name="text">
-                    <string>Maximum pages in cache: </string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0" colspan="4">
+                 <item row="0" column="0" colspan="3">
                   <widget class="QCheckBox" name="allowCache">
                    <property name="text">
                     <string>Allow storing network cache on disk</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="3" column="1">
+                 <item row="2" column="1">
                   <widget class="QLabel" name="storeCacheLabel">
                    <property name="text">
                     <string>Store cache in:</string>
@@ -1377,7 +1279,7 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="3" column="3">
+                 <item row="2" column="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_20">
                    <item>
                     <widget class="QLineEdit" name="cachePath"/>
@@ -2101,14 +2003,6 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="1" colspan="3">
-            <widget class="QCheckBox" name="downlaodNativeSystemDialog">
-             <property name="text">
-              <string>Use native system file dialog
-(may or may not cause problems with downloading SSL secured content)</string>
-             </property>
-            </widget>
-           </item>
            <item row="7" column="1" colspan="3">
             <widget class="QCheckBox" name="closeDownManOnFinish">
              <property name="text">
@@ -2116,70 +2010,7 @@
              </property>
             </widget>
            </item>
-           <item row="10" column="0" colspan="4">
-            <widget class="QLabel" name="label_51">
-             <property name="text">
-              <string>&lt;b&gt;External download manager&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="0" colspan="4">
-            <widget class="QCheckBox" name="useExternalDownManager">
-             <property name="text">
-              <string>Use external download manager</string>
-             </property>
-            </widget>
-           </item>
-           <item row="13" column="1" colspan="3">
-            <layout class="QFormLayout" name="formLayout_2">
-             <property name="fieldGrowthPolicy">
-              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_52">
-               <property name="text">
-                <string>Executable:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_53">
-               <property name="text">
-                <string>Arguments:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="externalDownArguments">
-               <property name="placeholderText">
-                <string>Leave blank if unsure</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <widget class="QLineEdit" name="externalDownExecutable"/>
-               </item>
-               <item>
-                <widget class="MacToolButton" name="chooseExternalDown">
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="label_64">
-               <property name="text">
-                <string>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="9" column="0" colspan="4">
+           <item row="8" column="0" colspan="4">
             <spacer name="verticalSpacer_10">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2258,7 +2089,7 @@
          </widget>
          <widget class="QWidget" name="privacyPage">
           <layout class="QGridLayout" name="gridLayout_12">
-           <item row="24" column="1" colspan="3">
+           <item row="22" column="1" colspan="3">
             <widget class="QCheckBox" name="sendReferer">
              <property name="text">
               <string>Send Referer header to servers</string>
@@ -2272,31 +2103,21 @@
              </property>
             </widget>
            </item>
-           <item row="25" column="1" colspan="3">
+           <item row="23" column="1" colspan="3">
             <widget class="QCheckBox" name="doNotTrack">
              <property name="text">
               <string>Send Do Not Track header to servers</string>
              </property>
             </widget>
            </item>
-           <item row="22" column="0" colspan="4">
+           <item row="20" column="0" colspan="4">
             <widget class="QLabel" name="label_50">
              <property name="text">
               <string>&lt;b&gt;Other&lt;/b&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="16" column="0" colspan="3">
-            <widget class="QLabel" name="label_49">
-             <property name="text">
-              <string>Manage CA certificates</string>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="30" column="0" colspan="4">
+           <item row="28" column="0" colspan="4">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2310,46 +2131,6 @@
             </spacer>
            </item>
            <item row="16" column="3">
-            <widget class="QPushButton" name="sslManagerButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Certificate Manager</string>
-             </property>
-            </widget>
-           </item>
-           <item row="14" column="0" colspan="4">
-            <widget class="QLabel" name="label_48">
-             <property name="text">
-              <string>&lt;b&gt;SSL Certificates&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="17" column="0" colspan="4">
-            <widget class="QLabel" name="label_61">
-             <property name="mouseTracking">
-              <bool>true</bool>
-             </property>
-             <property name="text">
-              <string>&lt;b&gt;JavaScript&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="18" column="0" colspan="3">
-            <widget class="QLabel" name="label_25">
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Manage JavaScript privacy options</string>
-             </property>
-            </widget>
-           </item>
-           <item row="18" column="3">
             <widget class="QPushButton" name="jsOptionsButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -2359,6 +2140,16 @@
              </property>
              <property name="text">
               <string>JavaScript options</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="0" colspan="4">
+            <widget class="QLabel" name="label_61">
+             <property name="mouseTracking">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>&lt;b&gt;JavaScript&lt;/b&gt;</string>
              </property>
             </widget>
            </item>
@@ -2375,7 +2166,17 @@
              </property>
             </widget>
            </item>
-           <item row="24" column="0">
+           <item row="16" column="0" colspan="3">
+            <widget class="QLabel" name="label_25">
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Manage JavaScript privacy options</string>
+             </property>
+            </widget>
+           </item>
+           <item row="22" column="0">
             <spacer name="horizontalSpacer_20">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2390,6 +2191,13 @@
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="19" column="0" colspan="3">
+            <widget class="QLabel" name="label_63">
+             <property name="text">
+              <string>Manage HTML5 permissions</string>
+             </property>
+            </widget>
            </item>
            <item row="12" column="0" colspan="3">
             <widget class="QLabel" name="label_19">
@@ -2411,21 +2219,14 @@
              </property>
             </spacer>
            </item>
-           <item row="20" column="0" colspan="4">
+           <item row="18" column="0" colspan="4">
             <widget class="QLabel" name="label_62">
              <property name="text">
               <string>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</string>
              </property>
             </widget>
            </item>
-           <item row="21" column="0" colspan="3">
-            <widget class="QLabel" name="label_63">
-             <property name="text">
-              <string>Manage HTML5 permissions</string>
-             </property>
-            </widget>
-           </item>
-           <item row="21" column="3">
+           <item row="19" column="3">
             <widget class="QPushButton" name="html5permissions">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -2857,7 +2658,6 @@
   <tabstop>downLoc</tabstop>
   <tabstop>downButt</tabstop>
   <tabstop>closeDownManOnFinish</tabstop>
-  <tabstop>downlaodNativeSystemDialog</tabstop>
   <tabstop>allowPassManager</tabstop>
   <tabstop>useOSDNotifications</tabstop>
   <tabstop>useNativeSystemNotifications</tabstop>
@@ -2878,7 +2678,6 @@
   <tabstop>noProxy</tabstop>
   <tabstop>showStatusbar</tabstop>
   <tabstop>showNavigationToolbar</tabstop>
-  <tabstop>pagesInCache</tabstop>
   <tabstop>showHome</tabstop>
   <tabstop>showBookmarksToolbar</tabstop>
  </tabstops>

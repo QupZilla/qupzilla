@@ -29,7 +29,6 @@
 #include "pluginproxy.h"
 #include "pluginsmanager.h"
 #include "qtwin.h"
-#include "sslmanager.h"
 #include "jsoptions.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"
@@ -275,16 +274,11 @@ Preferences::Preferences(BrowserWindow* window)
     settings.beginGroup("Web-Browser-Settings");
     ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
     ui->allowJavaScript->setChecked(settings.value("allowJavaScript", true).toBool());
-    ui->allowJava->setChecked(settings.value("allowJava", true).toBool());
-    ui->allowDNSPrefetch->setChecked(settings.value("DNS-Prefetch", false).toBool());
     ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
-    ui->zoomTextOnly->setChecked(settings.value("zoomTextOnly", false).toBool());
     ui->spatialNavigation->setChecked(settings.value("SpatialNavigation", false).toBool());
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
-    ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
-    ui->formsUndoRedo->setChecked(settings.value("enableFormsUndoRedo", false).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
         ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
@@ -293,10 +287,6 @@ Preferences::Preferences(BrowserWindow* window)
     ui->closeAppWithCtrlQ->setChecked(settings.value("closeAppWithCtrlQ", true).toBool());
 
     //Cache
-    ui->pagesInCache->setValue(settings.value("maximumCachedPages", 3).toInt());
-    connect(ui->pagesInCache, SIGNAL(valueChanged(int)), this, SLOT(pageCacheValueChanged(int)));
-    ui->pageCacheLabel->setText(QString::number(ui->pagesInCache->value()));
-
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
@@ -338,23 +328,16 @@ Preferences::Preferences(BrowserWindow* window)
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
     ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
-    ui->downlaodNativeSystemDialog->setChecked(settings.value("useNativeDialog", DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG).toBool());
     if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
     }
     else {
         ui->useDefined->setChecked(true);
     }
-    ui->useExternalDownManager->setChecked(settings.value("UseExternalManager", false).toBool());
-    ui->externalDownExecutable->setText(settings.value("ExternalManagerExecutable", "").toString());
-    ui->externalDownArguments->setText(settings.value("ExternalManagerArguments", "").toString());
 
-    connect(ui->useExternalDownManager, SIGNAL(toggled(bool)), this, SLOT(useExternalDownManagerChanged(bool)));
     connect(ui->useDefined, SIGNAL(toggled(bool)), this, SLOT(downLocChanged(bool)));
     connect(ui->downButt, SIGNAL(clicked()), this, SLOT(chooseDownPath()));
-    connect(ui->chooseExternalDown, SIGNAL(clicked()), this, SLOT(chooseExternalDownloadManager()));
     downLocChanged(ui->useDefined->isChecked());
-    useExternalDownManagerChanged(ui->useExternalDownManager->isChecked());
     settings.endGroup();
 
     //FONTS
@@ -479,7 +462,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
     connect(ui->cookieManagerBut, SIGNAL(clicked()), this, SLOT(showCookieManager()));
     connect(ui->html5permissions, SIGNAL(clicked()), this, SLOT(showHtml5Permissions()));
-    connect(ui->sslManagerButton, SIGNAL(clicked()), this, SLOT(openSslManager()));
     connect(ui->preferredLanguages, SIGNAL(clicked()), this, SLOT(showAcceptLanguage()));
     connect(ui->deleteHtml5storage, SIGNAL(clicked()), this, SLOT(deleteHtml5storage()));
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
@@ -626,16 +608,6 @@ void Preferences::deleteHtml5storage()
     ui->deleteHtml5storage->setEnabled(false);
 }
 
-void Preferences::chooseExternalDownloadManager()
-{
-    QString path = QzTools::getOpenFileName("Preferences-ExternalDownloadManager", this, tr("Choose executable location..."), QDir::homePath());
-    if (path.isEmpty()) {
-        return;
-    }
-
-    ui->externalDownExecutable->setText(path);
-}
-
 void Preferences::openUserAgentManager()
 {
     UserAgentDialog* dialog = new UserAgentDialog(this);
@@ -689,12 +661,6 @@ void Preferences::showHtml5Permissions()
     dialog->open();
 }
 
-void Preferences::openSslManager()
-{
-    SSLManager* m = new SSLManager(this);
-    m->open();
-}
-
 void Preferences::openJsOptions()
 {
     JsOptions* dialog = new JsOptions(this);
@@ -726,18 +692,6 @@ void Preferences::afterLaunchChanged(int value)
 void Preferences::cacheValueChanged(int value)
 {
     ui->MBlabel->setText(QString::number(value) + " MB");
-}
-
-void Preferences::pageCacheValueChanged(int value)
-{
-    ui->pageCacheLabel->setText(QString::number(value));
-}
-
-void Preferences::useExternalDownManagerChanged(bool state)
-{
-    ui->externalDownExecutable->setEnabled(state);
-    ui->externalDownArguments->setEnabled(state);
-    ui->chooseExternalDown->setEnabled(state);
 }
 
 void Preferences::useDifferentProxyForHttpsChanged(bool state)
@@ -940,10 +894,6 @@ void Preferences::saveSettings()
         settings.setValue("defaultDownloadPath", ui->downLoc->text());
     }
     settings.setValue("CloseManagerOnFinish", ui->closeDownManOnFinish->isChecked());
-    settings.setValue("useNativeDialog", ui->downlaodNativeSystemDialog->isChecked());
-    settings.setValue("UseExternalManager", ui->useExternalDownManager->isChecked());
-    settings.setValue("ExternalManagerExecutable", ui->externalDownExecutable->text());
-    settings.setValue("ExternalManagerArguments", ui->externalDownArguments->text());
     settings.endGroup();
 
     //FONTS
@@ -972,26 +922,20 @@ void Preferences::saveSettings()
     settings.beginGroup("Web-Browser-Settings");
     settings.setValue("allowFlash", ui->allowPlugins->isChecked());
     settings.setValue("allowJavaScript", ui->allowJavaScript->isChecked());
-    settings.setValue("allowJava", ui->allowJava->isChecked());
-    settings.setValue("DNS-Prefetch", ui->allowDNSPrefetch->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
-    settings.setValue("zoomTextOnly", ui->zoomTextOnly->isChecked());
     settings.setValue("SpatialNavigation", ui->spatialNavigation->isChecked());
     settings.setValue("AnimateScrolling", ui->animateScrolling->isChecked());
-    settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("wheelScrollLines", ui->wheelScroll->value());
     settings.setValue("DoNotTrack", ui->doNotTrack->isChecked());
     settings.setValue("CheckUpdates", ui->checkUpdates->isChecked());
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
-    settings.setValue("enableFormsUndoRedo", ui->formsUndoRedo->isChecked());
     settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif
     //Cache
-    settings.setValue("maximumCachedPages", ui->pagesInCache->value());
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
     settings.setValue("CachePath", ui->cachePath->text());

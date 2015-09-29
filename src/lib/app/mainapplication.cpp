@@ -899,15 +899,17 @@ void MainApplication::loadSettings()
     settings.endGroup();
 
     QWebEngineProfile* profile = QWebEngineProfile::defaultProfile();
-    profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
     profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
     profile->setPersistentStoragePath(DataPaths::currentProfilePath());
 
     QString defaultPath = DataPaths::path(DataPaths::Cache);
     if (!defaultPath.startsWith(DataPaths::currentProfilePath()))
-            defaultPath.append(QLatin1Char('/') + ProfileManager::currentProfile());
+        defaultPath.append(QLatin1Char('/') + ProfileManager::currentProfile());
     const QString &cachePath = settings.value("Web-Browser-Settings/CachePath", defaultPath).toString();
     profile->setCachePath(cachePath);
+
+    const bool allowCache = settings.value(QSL("Web-Browser-Settings/AllowLocalCache"), true).toBool();
+    profile->setHttpCacheType(allowCache ? QWebEngineProfile::DiskHttpCache : QWebEngineProfile::MemoryHttpCache);
 
     if (isPrivate()) {
         webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
