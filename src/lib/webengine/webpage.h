@@ -80,11 +80,9 @@ private slots:
     void urlChanged(const QUrl &url);
 
     void watchedFileChanged(const QString &file);
-    void windowCloseRequested();
-    void authentication(const QUrl &requestUrl, QAuthenticator* auth);
-    void proxyAuthentication(const QUrl &requestUrl, QAuthenticator* auth, const QString &proxyHost);
-
     void doWebSearch(const QString &text);
+
+    void windowCloseRequested();
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
 
 private:
@@ -104,7 +102,6 @@ private:
     static QString s_lastUploadLocation;
     static QUrl s_lastUnsupportedUrl;
     static QTime s_lastUnsupportedUrlTime;
-    static QStringList s_ignoredSslErrors;
 
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;

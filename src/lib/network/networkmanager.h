@@ -19,6 +19,7 @@
 #define NETWORKMANAGER_H
 
 #include <QNetworkAccessManager>
+#include <QWebEngineCertificateError>
 
 #include "qzcommon.h"
 
@@ -28,6 +29,13 @@ class QUPZILLA_EXPORT NetworkManager : public QNetworkAccessManager
 
 public:
     explicit NetworkManager(QObject *parent = Q_NULLPTR);
+
+    bool certificateError(const QWebEngineCertificateError &error, QWidget *parent = Q_NULLPTR);
+    void authentication(const QUrl &url, QAuthenticator *auth, QWidget *parent = Q_NULLPTR);
+    void proxyAuthentication(const QString &proxyHost, QAuthenticator *auth, QWidget *parent = Q_NULLPTR);
+
+private:
+    QHash<QString, QWebEngineCertificateError::Error> m_ignoredSslErrors;
 };
 
 #if QTWEBENGINE_DISABLED

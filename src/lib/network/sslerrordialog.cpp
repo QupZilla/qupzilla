@@ -28,7 +28,8 @@ SslErrorDialog::SslErrorDialog(QWidget* parent)
 {
     ui->setupUi(this);
     ui->icon->setPixmap(IconProvider::standardIcon(QStyle::SP_MessageBoxCritical).pixmap(52));
-    ui->buttonBox->addButton(tr("Only for this session"), QDialogButtonBox::ApplyRole);
+    // Disabled until there is reliable way to save certificate error
+    //ui->buttonBox->addButton(tr("Only for this session"), QDialogButtonBox::ApplyRole);
     ui->buttonBox->button(QDialogButtonBox::No)->setFocus();
 
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
