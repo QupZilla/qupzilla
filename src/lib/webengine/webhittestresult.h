@@ -36,6 +36,7 @@ public:
     bool isContentEditable() const;
     bool isContentSelected() const;
     bool isNull() const;
+    QString linkTitle() const;
     QUrl linkUrl() const;
     QUrl mediaUrl() const;
     QPoint pos() const;
@@ -50,6 +51,7 @@ private:
     QUrl m_imageUrl;
     bool m_isContentEditable;
     bool m_isContentSelected;
+    QString m_linkTitle;
     QUrl m_linkUrl;
     QUrl m_mediaUrl;
     QPoint m_pos;

@@ -44,6 +44,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "    imageUrl: '',"
                           "    contentEditable: isEditableElement(e),"
                           "    contentSelected: window.getSelection().containsNode(e, true),"
+                          "    linkTitle: '',"
                           "    linkUrl: '',"
                           "    mediaUrl: '',"
                           "    pos: '',"
@@ -54,12 +55,16 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "res.pos = [r.top, r.left];"
                           "if (e.tagName == 'IMG')"
                           "    res.imageUrl = e.getAttribute('src');"
-                          "if (e.tagName == 'A')"
+                          "if (e.tagName == 'A') {"
+                          "    res.linkTitle = e.text;"
                           "    res.linkUrl = e.getAttribute('href');"
+                          "}"
                           "if (isMediaElement(e))"
                           "    res.mediaUrl = e.getAttribute('src');"
                           "var pe = e.parentElement;"
                           "while (pe) {"
+                          "    if (res.linkTitle == '' && pe.tagName == 'A')"
+                          "        res.linkTitle = pe.text;"
                           "    if (res.linkUrl == '' && pe.tagName == 'A')"
                           "        res.linkUrl = pe.getAttribute('href');"
                           "    if (res.mediaUrl == '' && isMediaElement(pe))"
@@ -94,9 +99,19 @@ bool WebHitTestResult::isContentEditable() const
     return m_isContentEditable;
 }
 
+bool WebHitTestResult::isContentSelected() const
+{
+    return m_isContentSelected;
+}
+
 bool WebHitTestResult::isNull() const
 {
     return m_isNull;
+}
+
+QString WebHitTestResult::linkTitle() const
+{
+    return m_linkTitle;
 }
 
 QUrl WebHitTestResult::linkUrl() const
@@ -128,6 +143,7 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     m_imageUrl = map.value(QSL("imageUrl")).toUrl();
     m_isContentEditable = map.value(QSL("contentEditable")).toBool();
     m_isContentSelected = map.value(QSL("contentSelected")).toBool();
+    m_linkTitle = map.value(QSL("linkTitle")).toString();
     m_linkUrl = map.value(QSL("linkUrl")).toUrl();
     m_mediaUrl = map.value(QSL("mediaUrl")).toUrl();
     m_tagName = map.value(QSL("tagName")).toString();

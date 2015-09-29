@@ -41,7 +41,7 @@ public slots:
     void inspectElement();
 
 private:
-    void contextMenuEvent(QContextMenuEvent* event);
+    void _contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
 
     Menu* m_menu;
 };

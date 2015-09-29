@@ -657,61 +657,7 @@ void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
     userDefinedOpenUrlInNewTab(actionUrl, true);
 }
 
-#if QTWEBENGINE_DISABLED
-void WebView::printPage(QWebEngineFrame* frame)
-{
-    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->resize(800, 750);
-
-    if (!frame) {
-        connect(dialog, SIGNAL(paintRequested(QPrinter*)), this, SLOT(print(QPrinter*)));
-    }
-    else {
-        connect(dialog, SIGNAL(paintRequested(QPrinter*)), frame, SLOT(print(QPrinter*)));
-    }
-
-    dialog->open();
-}
-
-bool WebView::isMediaElement(const QWebElement &element)
-{
-    return (element.tagName().toLower() == QLatin1String("video")
-            || element.tagName().toLower() == QLatin1String("audio"));
-}
-
-void WebView::checkForForm(QMenu* menu, const QWebElement &element)
-{
-    QWebElement parentElement = element.parent();
-
-    while (!parentElement.isNull()) {
-        if (parentElement.tagName().toLower() == QLatin1String("form")) {
-            break;
-        }
-
-        parentElement = parentElement.parent();
-    }
-
-    if (parentElement.isNull()) {
-        return;
-    }
-
-    const QString url = parentElement.attribute("action");
-    const QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
-
-    if (!url.isEmpty() && (method == QLatin1String("GET") || method == QLatin1String("POST"))) {
-        menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
-
-        m_clickedElement = element;
-    }
-}
-
-void WebView::createSearchEngine()
-{
-    mApp->searchEnginesManager()->addEngineFromForm(m_clickedElement, this);
-}
-
-void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos)
+void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
 {
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
@@ -724,7 +670,7 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 #endif
 
-    if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QLatin1String("javascript")) {
+    if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QL1S("javascript")) {
         createLinkContextMenu(menu, hitTest);
     }
 
@@ -732,58 +678,27 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
         createImageContextMenu(menu, hitTest);
     }
 
+#if QTWEBENGINE_DISABLED
     if (isMediaElement(hitTest.element())) {
         createMediaContextMenu(menu, hitTest);
     }
+#endif
 
     if (hitTest.isContentEditable()) {
         // This only checks if the menu is empty (only spellchecker actions added)
         if (menu->actions().count() == spellCheckActionCount) {
-            QMenu* pageMenu = page()->createStandardContextMenu();
-            // Apparently createStandardContextMenu() can return null pointer
-            if (pageMenu) {
-                if (qzSettings->enableFormsUndoRedo) {
-                    menu->addAction(pageAction(QWebPage::Undo));
-                    menu->addAction(pageAction(QWebPage::Redo));
-                    menu->addSeparator();
-                }
-                int i = 0;
-                foreach (QAction* act, pageMenu->actions()) {
-                    if (act->isSeparator()) {
-                        menu->addSeparator();
-                        continue;
-                    }
-
-                    // Hiding double Direction + Fonts menu (bug in QtWebKit 2.2)
-                    if (i <= 1 && act->menu()) {
-                        if (act->menu()->actions().contains(pageAction(QWebPage::SetTextDirectionDefault)) ||
-                            act->menu()->actions().contains(pageAction(QWebPage::ToggleBold))
-                           ) {
-                            act->setVisible(false);
-                        }
-                    }
-
-                    menu->addAction(act);
-
-                    if (act == pageAction(QWebPage::Paste)) {
-                        QAction* a = menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), this, SLOT(editDelete()));
-                        a->setShortcut(QKeySequence("Del"));
-                    }
-
-                    ++i;
-                }
-
-                if (menu->actions().last() == pageAction(QWebEnginePage::InspectElement)) {
-                    // We have own Inspect Element action
-                    menu->actions().last()->setVisible(false);
-                }
-
-                delete pageMenu;
-            }
+            menu->addAction(pageAction(QWebEnginePage::Undo));
+            menu->addAction(pageAction(QWebEnginePage::Redo));
+            menu->addSeparator();
+            menu->addAction(pageAction(QWebEnginePage::Cut));
+            menu->addAction(pageAction(QWebEnginePage::Copy));
+            menu->addAction(pageAction(QWebEnginePage::Paste));
         }
 
-        if (hitTest.element().tagName().toLower() == QLatin1String("input")) {
+        if (hitTest.tagName() == QL1S("input")) {
+#if QTWEBENGINE_DISABLED
             checkForForm(menu, hitTest.element());
+#endif
         }
 
 #ifdef USE_HUNSPELL
@@ -796,17 +711,15 @@ void WebView::createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, c
     }
 
     if (menu->isEmpty()) {
-        createPageContextMenu(menu, pos);
+        createPageContextMenu(menu);
     }
 
     menu->addSeparator();
     mApp->plugins()->populateWebViewMenu(menu, this, hitTest);
 }
 
-void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
+void WebView::createPageContextMenu(QMenu* menu)
 {
-    QWebEngineFrame* frameAtPos = page()->frameAt(pos);
-
     QAction* action = menu->addAction(tr("&Back"), this, SLOT(back()));
     action->setIcon(IconProvider::standardIcon(QStyle::SP_ArrowBack));
     action->setEnabled(history()->canGoBack());
@@ -825,38 +738,13 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
         return;
     }
 
-    menu->addAction(pageAction(QWebPage::Reload));
-    menu->addAction(pageAction(QWebPage::Stop));
-    menu->addSeparator();
-
-    if (frameAtPos && page()->mainFrame() != frameAtPos) {
-        m_clickedFrame = frameAtPos;
-        Menu* frameMenu = new Menu(tr("This frame"));
-        frameMenu->setCloseOnMiddleClick(true);
-        frameMenu->addAction(tr("Show &only this frame"), this, SLOT(loadClickedFrame()));
-        Action* act = new Action(IconProvider::newTabIcon(), tr("Show this frame in new &tab"));
-        connect(act, SIGNAL(triggered()), this, SLOT(loadClickedFrameInNewTab()));
-        connect(act, SIGNAL(ctrlTriggered()), this, SLOT(loadClickedFrameInBgTab()));
-        frameMenu->addAction(act);
-        frameMenu->addSeparator();
-        frameMenu->addAction(QIcon::fromTheme(QSL("view-refresh")), tr("&Reload"), this, SLOT(reloadClickedFrame()));
-        frameMenu->addAction(QIcon::fromTheme("document-print"), tr("Print frame"), this, SLOT(printClickedFrame()));
-        frameMenu->addSeparator();
-        frameMenu->addAction(QIcon::fromTheme("zoom-in"), tr("Zoom &in"), this, SLOT(clickedFrameZoomIn()));
-        frameMenu->addAction(QIcon::fromTheme("zoom-out"), tr("&Zoom out"), this, SLOT(clickedFrameZoomOut()));
-        frameMenu->addAction(QIcon::fromTheme("zoom-original"), tr("Reset"), this, SLOT(clickedFrameZoomReset()));
-        frameMenu->addSeparator();
-        frameMenu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce of frame"), this, SLOT(showClickedFrameSource()));
-
-        menu->addMenu(frameMenu);
-    }
-
+    menu->addAction(pageAction(QWebEnginePage::Reload));
+    menu->addAction(pageAction(QWebEnginePage::Stop));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
-    menu->addAction(QIcon::fromTheme("document-print"), tr("&Print page"), this, SLOT(printPage()));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-select-all"), tr("Select &all"), this, SLOT(editSelectAll()));
     menu->addSeparator();
@@ -875,7 +763,7 @@ void WebView::createPageContextMenu(QMenu* menu, const QPoint &pos)
     menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
 }
 
-void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+void WebView::createLinkContextMenu(QMenu* menu, const WebHitTestResult &hitTest)
 {
     menu->addSeparator();
     Action* act = new Action(IconProvider::newTabIcon(), tr("Open link in new &tab"));
@@ -902,7 +790,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTes
     }
 }
 
-void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTest)
 {
     menu->addSeparator();
     Action* act = new Action(tr("Show i&mage"));
@@ -923,7 +811,7 @@ void WebView::createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     }
 }
 
-void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
+void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult &hitTest)
 {
     Q_UNUSED(hitTest)
 
@@ -994,6 +882,38 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult
     menu->addMenu(swMenu);
 }
 
+#if QTWEBENGINE_DISABLED
+void WebView::checkForForm(QMenu* menu, const QWebElement &element)
+{
+    QWebElement parentElement = element.parent();
+
+    while (!parentElement.isNull()) {
+        if (parentElement.tagName().toLower() == QLatin1String("form")) {
+            break;
+        }
+
+        parentElement = parentElement.parent();
+    }
+
+    if (parentElement.isNull()) {
+        return;
+    }
+
+    const QString url = parentElement.attribute("action");
+    const QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
+
+    if (!url.isEmpty() && (method == QLatin1String("GET") || method == QLatin1String("POST"))) {
+        menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
+
+        m_clickedElement = element;
+    }
+}
+
+void WebView::createSearchEngine()
+{
+    mApp->searchEnginesManager()->addEngineFromForm(m_clickedElement, this);
+}
+
 void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     m_clickedElement = hitTest.element();
@@ -1013,30 +933,6 @@ void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTe
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
-}
-
-void WebView::pauseMedia()
-{
-    bool paused = m_clickedElement.evaluateJavaScript("this.paused").toBool();
-
-    if (paused) {
-        m_clickedElement.evaluateJavaScript("this.play()");
-    }
-    else {
-        m_clickedElement.evaluateJavaScript("this.pause()");
-    }
-}
-
-void WebView::muteMedia()
-{
-    bool muted = m_clickedElement.evaluateJavaScript("this.muted").toBool();
-
-    if (muted) {
-        m_clickedElement.evaluateJavaScript("this.muted = false");
-    }
-    else {
-        m_clickedElement.evaluateJavaScript("this.muted = true");
-    }
 }
 #endif
 
@@ -1251,10 +1147,26 @@ void WebView::_keyReleaseEvent(QKeyEvent *event)
     }
 }
 
+void WebView::_contextMenuEvent(QContextMenuEvent *event)
+{
+    Q_UNUSED(event)
+}
+
 void WebView::resizeEvent(QResizeEvent *event)
 {
     QWebEngineView::resizeEvent(event);
     emit viewportResized(size());
+}
+
+void WebView::contextMenuEvent(QContextMenuEvent *event)
+{
+    const QPoint pos = event->pos();
+    const QContextMenuEvent::Reason reason = event->reason();
+
+    QTimer::singleShot(0, this, [this, pos, reason]() {
+        QContextMenuEvent ev(reason, pos);
+        _contextMenuEvent(&ev);
+    });
 }
 
 void WebView::loadRequest(const LoadRequest &req)

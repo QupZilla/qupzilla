@@ -23,6 +23,9 @@
 #include "iconprovider.h"
 #include "enhancedmenu.h"
 #include "loadrequest.h"
+#include "webpage.h"
+#include "webhittestresult.h"
+#include "webinspector.h"
 
 #include <QContextMenuEvent>
 
@@ -70,19 +73,18 @@ void PopupWebView::closeView()
 
 void PopupWebView::inspectElement()
 {
-#if QTWEBENGINE_DISABLED
-    triggerPageAction(QWebEnginePage::InspectElement);
-#endif
+    WebInspector *inspector = new WebInspector;
+    inspector->setView(this);
+    inspector->show();
 }
 
-void PopupWebView::contextMenuEvent(QContextMenuEvent* event)
+void PopupWebView::_contextMenuEvent(QContextMenuEvent *event)
 {
     m_menu->clear();
 
-#if QTWEBENGINE_DISABLED
-    const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
+    const WebHitTestResult hitTest = page()->hitTestContent(event->pos());
 
-    createContextMenu(m_menu, hitTest, event->pos());
+    createContextMenu(m_menu, hitTest);
 
     m_menu->addSeparator();
     m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
@@ -91,10 +93,10 @@ void PopupWebView::contextMenuEvent(QContextMenuEvent* event)
         // Prevent choosing first option with double rightclick
         const QPoint pos = event->globalPos();
         QPoint p(pos.x(), pos.y() + 1);
+
         m_menu->popup(p);
         return;
     }
-#endif
 
-    WebView::contextMenuEvent(event);
+    WebView::_contextMenuEvent(event);
 }

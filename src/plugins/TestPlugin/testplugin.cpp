@@ -22,10 +22,11 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "sidebar.h"
+#include "webhittestresult.h"
 
+#include <QMenu>
 #include <QTranslator>
 #include <QPushButton>
-#include <QMenu>
 
 TestPlugin::TestPlugin()
     : QObject()
@@ -139,7 +140,7 @@ void TestPlugin::showSettings(QWidget* parent)
     m_settings.data()->raise();
 }
 
-void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
+void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &r)
 {
     Q_UNUSED(r)
 
@@ -148,7 +149,6 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
     m_view = view;
 
     QString title;
-#if QTWEBENGINE_DISABLED
     if (!r.imageUrl().isEmpty()) {
         title += " on image";
     }
@@ -160,7 +160,6 @@ void TestPlugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTe
     if (r.isContentEditable()) {
         title += " on input";
     }
-#endif
 
     menu->addAction(tr("My first plugin action") + title, this, SLOT(actionSlot()));
 }

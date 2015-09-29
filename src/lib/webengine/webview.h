@@ -27,6 +27,7 @@
 class WebPage;
 class LoadRequest;
 class IconLoader;
+class WebHitTestResult;
 
 class QUPZILLA_EXPORT WebView : public QWebEngineView
 {
@@ -98,9 +99,6 @@ public slots:
     void back();
     void forward();
 
-#if QTWEBENGINE_DISABLED
-    void printPage(QWebEngineFrame* frame = 0);
-#endif
     void showSource();
     void sendPageByMail();
     void savePageAs();
@@ -135,12 +133,9 @@ protected slots:
     void userDefinedOpenUrlInNewTab(const QUrl &url = QUrl(), bool invert = false);
     void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
-#if QTWEBENGINE_DISABLED
-    void createSearchEngine();
-#endif
-
 protected:
     void resizeEvent(QResizeEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event);
 
     virtual void _wheelEvent(QWheelEvent *event);
     virtual void _mousePressEvent(QMouseEvent *event);
@@ -148,27 +143,24 @@ protected:
     virtual void _mouseMoveEvent(QMouseEvent *event);
     virtual void _keyPressEvent(QKeyEvent *event);
     virtual void _keyReleaseEvent(QKeyEvent *event);
+    virtual void _contextMenuEvent(QContextMenuEvent *event);
 
     void loadRequest(const LoadRequest &req);
     void applyZoom();
 
-#if QTWEBENGINE_DISABLED
-    bool isMediaElement(const QWebElement &element);
-    void checkForForm(QMenu* menu, const QWebElement &element);
+    void createContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createPageContextMenu(QMenu *menu);
+    void createLinkContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createImageContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createSelectedTextContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
 
-    void createContextMenu(QMenu* menu, const QWebHitTestResult &hitTest, const QPoint &pos);
-    void createPageContextMenu(QMenu* menu, const QPoint &pos);
-    void createLinkContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
-    void createImageContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
-    void createSelectedTextContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
+#if QTWEBENGINE_DISABLED
+    void checkForForm(QMenu* menu, const QWebElement &element);
+    void createSearchEngine();
     void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 #endif
 
 private slots:
-#if QTWEBENGINE_DISABLED
-    void pauseMedia();
-    void muteMedia();
-#endif
     void addSpeedDial();
     void configureSpeedDial();
     void reloadAllSpeedDials();

@@ -71,7 +71,7 @@ private slots:
     void inspectElement();
 
 private:
-    void contextMenuEvent(QContextMenuEvent* event);
+    void _contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
     void _mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
     BrowserWindow* m_window;

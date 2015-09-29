@@ -30,9 +30,8 @@
 #include "enhancedmenu.h"
 #include "adblockicon.h"
 #include "locationbar.h"
+#include "webhittestresult.h"
 
-#include <QMovie>
-#include <QStatusBar>
 #include <QHostInfo>
 #include <QContextMenuEvent>
 
@@ -70,10 +69,8 @@ void TabbedWebView::setBrowserWindow(BrowserWindow* window)
 
 void TabbedWebView::inspectElement()
 {
-#if QTWEBENGINE_DISABLED
-    m_webTab->showWebInspector();
-    triggerPageAction(QWebEnginePage::InspectElement);
-#endif
+    if (m_window)
+        m_window->showWebInspector();
 }
 
 WebTab* TabbedWebView::webTab() const
@@ -164,35 +161,6 @@ QWidget* TabbedWebView::overlayWidget()
     return m_webTab;
 }
 
-void TabbedWebView::contextMenuEvent(QContextMenuEvent* event)
-{
-    m_menu->clear();
-
-#if QTWEBENGINE_DISABLED
-    const QWebHitTestResult hitTest = page()->mainFrame()->hitTestContent(event->pos());
-
-    createContextMenu(m_menu, hitTest, event->pos());
-
-    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
-        m_menu->addAction(m_window->adBlockIcon()->menuAction());
-    }
-
-    m_menu->addSeparator();
-    m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
-
-    if (!m_menu->isEmpty()) {
-        // Prevent choosing first option with double rightclick
-        const QPoint pos = event->globalPos();
-        QPoint p(pos.x(), pos.y() + 1);
-
-        m_menu->popup(p);
-        return;
-    }
-#endif
-
-    WebView::contextMenuEvent(event);
-}
-
 void TabbedWebView::closeView()
 {
     emit wantsCloseTab(tabIndex());
@@ -219,6 +187,33 @@ void TabbedWebView::setAsCurrentTab()
     if (m_window) {
         m_window->tabWidget()->setCurrentWidget(m_webTab);
     }
+}
+
+void TabbedWebView::_contextMenuEvent(QContextMenuEvent *event)
+{
+    m_menu->clear();
+
+    const WebHitTestResult hitTest = page()->hitTestContent(event->pos());
+
+    createContextMenu(m_menu, hitTest);
+
+    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
+        m_menu->addAction(m_window->adBlockIcon()->menuAction());
+    }
+
+    m_menu->addSeparator();
+    m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
+
+    if (!m_menu->isEmpty()) {
+        // Prevent choosing first option with double rightclick
+        const QPoint pos = event->globalPos();
+        QPoint p(pos.x(), pos.y() + 1);
+
+        m_menu->popup(p);
+        return;
+    }
+
+    WebView::_contextMenuEvent(event);
 }
 
 void TabbedWebView::_mouseMoveEvent(QMouseEvent *event)

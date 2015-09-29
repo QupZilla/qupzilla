@@ -48,13 +48,13 @@ struct PluginSpec {
 
 class QTranslator;
 class QMenu;
-class QWebHitTestResult;
 class QMouseEvent;
 class QKeyEvent;
 class QWheelEvent;
 
 class WebView;
 class WebPage;
+class WebHitTestResult;
 
 class PluginInterface
 {
@@ -70,7 +70,7 @@ public:
     virtual QTranslator* getTranslator(const QString &locale) { Q_UNUSED(locale) return 0; }
     virtual void showSettings(QWidget* parent = 0) { Q_UNUSED(parent) }
 
-    virtual void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
+    virtual void populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
 
     virtual bool mouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
     virtual bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }

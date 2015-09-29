@@ -89,7 +89,7 @@ void PluginProxy::pluginUnloaded(PluginInterface* plugin)
     m_keyReleaseHandlers.removeOne(plugin);
 }
 
-void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
+void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &r)
 {
     if (!menu || !view) {
         return;

@@ -39,7 +39,7 @@ public:
 
     void registerAppEventHandler(const EventHandlerType &type, PluginInterface* obj);
 
-    void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r);
+    void populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &r);
 
     bool processMouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
     bool processMousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
