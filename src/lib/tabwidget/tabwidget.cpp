@@ -456,7 +456,7 @@ void TabWidget::closeTab(int index, bool force)
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(webView, SIGNAL(changed()), this, SIGNAL(changed()));
+    disconnect(webView, SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     m_lastBackgroundTabIndex = -1;
@@ -604,7 +604,7 @@ void TabWidget::detachTab(int index)
 
     m_locationBars->removeWidget(tab->locationBar());
     disconnect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    disconnect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    disconnect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     tab->detach();

@@ -55,7 +55,6 @@ public:
 signals:
     void wantsCloseTab(int);
     void ipChanged(QString);
-    void changed();
 
 public slots:
     void setAsCurrentTab();
