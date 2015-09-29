@@ -119,32 +119,6 @@ void WebPage::scheduleAdjustPage()
     }
 }
 
-void WebPage::addRejectedCerts(const QList<QSslCertificate> &certs)
-{
-    foreach (const QSslCertificate &cert, certs) {
-        if (!m_rejectedSslCerts.contains(cert)) {
-            m_rejectedSslCerts.append(cert);
-        }
-    }
-}
-
-bool WebPage::containsRejectedCerts(const QList<QSslCertificate> &certs)
-{
-    int matches = 0;
-
-    foreach (const QSslCertificate &cert, certs) {
-        if (m_rejectedSslCerts.contains(cert)) {
-            ++matches;
-        }
-
-        if (m_sslCert == cert) {
-            m_sslCert.clear();
-        }
-    }
-
-    return matches == certs.count();
-}
-
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;
@@ -169,11 +143,11 @@ void WebPage::progress(int prog)
 {
     m_loadProgress = prog;
 
-    bool secStatus = QzTools::isCertificateValid(sslCertificate());
+    bool secStatus = url().scheme() == QL1S("https");
 
     if (secStatus != m_secureStatus) {
         m_secureStatus = secStatus;
-        emit privacyChanged(QzTools::isCertificateValid(sslCertificate()));
+        emit privacyChanged(secStatus);
     }
 }
 
@@ -483,16 +457,16 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
 #endif
 }
 
-bool WebPage::certificateError(const QWebEngineCertificateError &certificateError)
+bool WebPage::certificateError(const QWebEngineCertificateError &error)
 {
-    if (s_ignoredSslErrors.contains(certificateError.url().host()))
+    if (s_ignoredSslErrors.contains(error.url().host()))
         return true;
 
     QString title = tr("SSL Certificate Error!");
     QString text1 = tr("The page you are trying to access has the following errors in the SSL certificate:");
     QString text2 = tr("Would you like to make an exception for this certificate?");
 
-    QString message = QSL("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>").arg(title, text1, certificateError.errorDescription(), text2);
+    QString message = QSL("<b>%1</b><p>%2</p><ul><li>%3</li></ul><p>%4</p>").arg(title, text1, error.errorDescription(), text2);
 
     SslErrorDialog dialog(view());
     dialog.setText(message);
@@ -501,11 +475,8 @@ bool WebPage::certificateError(const QWebEngineCertificateError &certificateErro
     switch (dialog.result()) {
     case SslErrorDialog::Yes:
         // TODO: Permanent exceptions
-        s_ignoredSslErrors.append(certificateError.url().host());
-        return true;
-
     case SslErrorDialog::OnlyForThisSession:
-        s_ignoredSslErrors.append(certificateError.url().host());
+        s_ignoredSslErrors.append(error.url().host());
         return true;
 
     case SslErrorDialog::No:
@@ -541,21 +512,6 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
         s_lastUploadLocation = files.first();
 
     return files;
-}
-
-void WebPage::setSSLCertificate(const QSslCertificate &cert)
-{
-    //    if (cert != m_SslCert)
-    m_sslCert = cert;
-}
-
-QSslCertificate WebPage::sslCertificate()
-{
-    if (url().scheme() == QLatin1String("https") && QzTools::isCertificateValid(m_sslCert)) {
-        return m_sslCert;
-    }
-
-    return QSslCertificate();
 }
 
 void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)

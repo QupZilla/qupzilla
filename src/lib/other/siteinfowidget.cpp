@@ -37,10 +37,8 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
     setPopupAlignment(Qt::AlignLeft);
 
     WebView* view = m_window->weView();
-    WebPage* webPage = view->page();
-    QUrl url = view->url();
 
-    if (QzTools::isCertificateValid(webPage->sslCertificate())) {
+    if (view->url().scheme() == QL1S("https")) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/safe.png"));
     }
@@ -49,9 +47,9 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
         ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/unsafe.png"));
     }
 
-    QString scheme = url.scheme();
+    QString scheme = view->url().scheme();
     QSqlQuery query;
-    QString host = url.host();
+    QString host = view->url().host();
 
     query.prepare("SELECT sum(count) FROM history WHERE url LIKE ?");
     query.addBindValue(QString("%1://%2%").arg(scheme, host));

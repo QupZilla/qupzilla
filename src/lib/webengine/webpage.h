@@ -19,7 +19,6 @@
 #define WEBPAGE_H
 
 #include <QWebEnginePage>
-#include <QSslCertificate>
 #include <QVector>
 
 #include "qzcommon.h"
@@ -50,9 +49,6 @@ public:
 
     WebView *view() const;
 
-    void setSSLCertificate(const QSslCertificate &cert);
-    QSslCertificate sslCertificate();
-
     bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result) Q_DECL_OVERRIDE;
     bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
     void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
@@ -69,9 +65,6 @@ public:
     bool isRunningLoop();
 
     bool isLoading() const;
-
-    void addRejectedCerts(const QList<QSslCertificate> &certs);
-    bool containsRejectedCerts(const QList<QSslCertificate> &certs);
 
     void setupWebChannel();
 
@@ -96,7 +89,7 @@ private slots:
 
 private:
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;
-    bool certificateError(const QWebEngineCertificateError &certificateError) Q_DECL_OVERRIDE;
+    bool certificateError(const QWebEngineCertificateError &error) Q_DECL_OVERRIDE;
     QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;
     QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type) Q_DECL_OVERRIDE;
 
@@ -116,8 +109,6 @@ private:
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
-    QSslCertificate m_sslCert;
-    QVector<QSslCertificate> m_rejectedSslCerts;
     QVector<AdBlockedEntry> m_adBlockedEntries;
     QVector<PasswordEntry> m_passwordEntries;
 
