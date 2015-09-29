@@ -154,6 +154,14 @@ void WebTab::showWebInspector()
     m_inspector->show();
 }
 
+void WebTab::toggleWebInspector()
+{
+    if (!m_inspector || m_inspector->isHidden())
+        showWebInspector();
+    else
+        m_inspector->hideInspector();
+}
+
 QUrl WebTab::url() const
 {
     if (isRestored()) {

@@ -124,6 +124,7 @@ public slots:
     void setWindowTitle(const QString &t);
 
     void showWebInspector();
+    void toggleWebInspector();
     void showHistoryManager();
 
     void toggleShowMenubar();

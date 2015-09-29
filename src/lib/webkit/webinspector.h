@@ -31,9 +31,11 @@ class QUPZILLA_EXPORT WebInspector : public QWebInspector
 public:
     explicit WebInspector(QWidget* parent = 0);
 
+public slots:
+    void hideInspector();
+
 private slots:
     void updateCloseButton();
-    void hideInspector();
 
 private:
     void hideEvent(QHideEvent* event);
