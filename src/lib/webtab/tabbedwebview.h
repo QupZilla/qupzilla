@@ -72,7 +72,7 @@ private slots:
 
 private:
     void contextMenuEvent(QContextMenuEvent* event);
-    void mouseMoveEvent(QMouseEvent* event);
+    void _mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
     BrowserWindow* m_window;
     WebTab* m_webTab;

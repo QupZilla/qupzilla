@@ -56,6 +56,7 @@ WebView::WebView(QWidget* parent)
     , m_progress(100)
     , m_page(0)
     , m_firstLoad(false)
+    , m_rwhvqt(0)
 {
     connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
     connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
@@ -1108,25 +1109,23 @@ void WebView::initializeActions()
     addAction(selectAllAction);
 }
 
-void WebView::wheelEvent(QWheelEvent* event)
+void WebView::_wheelEvent(QWheelEvent *event)
 {
     if (mApp->plugins()->processWheelEvent(Qz::ON_WebView, this, event)) {
+        event->accept();
         return;
     }
 
     if (event->modifiers() & Qt::ControlModifier) {
         event->delta() > 0 ? zoomIn() : zoomOut();
         event->accept();
-
-        return;
     }
-
-    QWebEngineView::wheelEvent(event);
 }
 
-void WebView::mousePressEvent(QMouseEvent* event)
+void WebView::_mousePressEvent(QMouseEvent *event)
 {
     if (mApp->plugins()->processMousePress(Qz::ON_WebView, this, event)) {
+        event->accept();
         return;
     }
 
@@ -1167,18 +1166,18 @@ void WebView::mousePressEvent(QMouseEvent* event)
             }
         }
 #endif
+        break;
     }
 
     default:
         break;
     }
-
-    QWebEngineView::mousePressEvent(event);
 }
 
-void WebView::mouseReleaseEvent(QMouseEvent* event)
+void WebView::_mouseReleaseEvent(QMouseEvent *event)
 {
     if (mApp->plugins()->processMouseRelease(Qz::ON_WebView, this, event)) {
+        event->accept();
         return;
     }
 
@@ -1202,50 +1201,46 @@ void WebView::mouseReleaseEvent(QMouseEvent* event)
         if (s_forceContextMenuOnMouseRelease) {
             QContextMenuEvent ev(QContextMenuEvent::Mouse, event->pos(), event->globalPos(), event->modifiers());
             QApplication::sendEvent(this, &ev);
+            event->accept();
         }
         break;
 
     default:
         break;
     }
-
-    QWebEngineView::mouseReleaseEvent(event);
 }
 
-void WebView::mouseMoveEvent(QMouseEvent* event)
+void WebView::_mouseMoveEvent(QMouseEvent *event)
 {
     if (mApp->plugins()->processMouseMove(Qz::ON_WebView, this, event)) {
-        return;
+        event->accept();
     }
-
-    QWebEngineView::mouseMoveEvent(event);
 }
 
-void WebView::keyPressEvent(QKeyEvent* event)
+void WebView::_keyPressEvent(QKeyEvent *event)
 {
     if (mApp->plugins()->processKeyPress(Qz::ON_WebView, this, event)) {
+        event->accept();
         return;
     }
 
-#if QTWEBENGINE_DISABLED
     int eventKey = event->key();
 
     switch (eventKey) {
     case Qt::Key_ZoomIn:
         zoomIn();
         event->accept();
-        return;
+        break;
 
     case Qt::Key_ZoomOut:
         zoomOut();
         event->accept();
-        return;
+        break;
 
     case Qt::Key_Plus:
         if (event->modifiers() & Qt::ControlModifier) {
             zoomIn();
             event->accept();
-            return;
         }
         break;
 
@@ -1253,7 +1248,6 @@ void WebView::keyPressEvent(QKeyEvent* event)
         if (event->modifiers() & Qt::ControlModifier) {
             zoomOut();
             event->accept();
-            return;
         }
         break;
 
@@ -1261,120 +1255,22 @@ void WebView::keyPressEvent(QKeyEvent* event)
         if (event->modifiers() & Qt::ControlModifier) {
             zoomReset();
             event->accept();
-            return;
         }
         break;
 
     default:
         break;
     }
-
-    // Text navigation is handled automatically in editable elements
-    const QString js = QSL("document.activeElement.contentEditable==='true'||typeof document.activeElement.value != 'undefined'");
-    QWebFrame* frame = page()->currentFrame();
-    if (frame && frame->evaluateJavaScript(js).toBool())
-        return QWebView::keyPressEvent(event);
-
-    switch (eventKey) {
-    case Qt::Key_Up:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            triggerPageAction(QWebPage::SelectPreviousLine);
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_Down:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            triggerPageAction(QWebEnginePage::SelectNextLine);
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_Left:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            if (event->modifiers() == Qt::ShiftModifier) {
-                triggerPageAction(QWebEnginePage::SelectPreviousChar);
-            }
-            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
-                triggerPageAction(QWebEnginePage::SelectPreviousWord);
-            }
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_Right:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            if (event->modifiers() == Qt::ShiftModifier) {
-                triggerPageAction(QWebEnginePage::SelectNextChar);
-            }
-            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
-                triggerPageAction(QWebEnginePage::SelectNextWord);
-            }
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_Home:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            if (event->modifiers() == Qt::ShiftModifier) {
-                triggerPageAction(QWebEnginePage::SelectStartOfLine);
-            }
-            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
-                triggerPageAction(QWebEnginePage::SelectStartOfDocument);
-            }
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_End:
-        if (event->modifiers() & Qt::ShiftModifier) {
-            if (event->modifiers() == Qt::ShiftModifier) {
-                triggerPageAction(QWebEnginePage::SelectEndOfLine);
-            }
-            else if (event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
-                triggerPageAction(QWebEnginePage::SelectEndOfDocument);
-            }
-            event->accept();
-            return;
-        }
-        break;
-
-    case Qt::Key_Insert:
-        if (event->modifiers() == Qt::ControlModifier) {
-            triggerPageAction(QWebEnginePage::Copy);
-            event->accept();
-            return;
-        }
-        if (event->modifiers() == Qt::ShiftModifier) {
-            triggerPageAction(QWebEnginePage::Paste);
-            event->accept();
-            return;
-        }
-        break;
-
-    default:
-        break;
-    }
-#endif
-
-    QWebEngineView::keyPressEvent(event);
 }
 
-void WebView::keyReleaseEvent(QKeyEvent* event)
+void WebView::_keyReleaseEvent(QKeyEvent *event)
 {
     if (mApp->plugins()->processKeyRelease(Qz::ON_WebView, this, event)) {
-        return;
+        event->accept();
     }
-
-    QWebEngineView::keyReleaseEvent(event);
 }
 
-void WebView::resizeEvent(QResizeEvent* event)
+void WebView::resizeEvent(QResizeEvent *event)
 {
     QWebEngineView::resizeEvent(event);
     emit viewportResized(size());
@@ -1388,13 +1284,60 @@ void WebView::loadRequest(const LoadRequest &req)
         m_page->runJavaScript(Scripts::sendPostData(req.url(), req.data()));
 }
 
-bool WebView::eventFilter(QObject* obj, QEvent* event)
+bool WebView::eventFilter(QObject *obj, QEvent *event)
 {
     if (s_forceContextMenuOnMouseRelease && obj == this && event->type() == QEvent::ContextMenu) {
         QContextMenuEvent* ev = static_cast<QContextMenuEvent*>(event);
         if (ev->reason() == QContextMenuEvent::Mouse && ev->spontaneous()) {
             ev->accept();
             return true;
+        }
+    }
+
+    // Hack to find widget that receives input events
+    if (obj == this && event->type() == QEvent::ChildAdded) {
+        QObject *child = static_cast<QChildEvent*>(event)->child();
+        if (qstrcmp(child->metaObject()->className(), "QtWebEngineCore::RenderWidgetHostViewQtDelegateWidget") == 0) {
+            m_rwhvqt = child;
+            m_rwhvqt->installEventFilter(this);
+        }
+    }
+
+    // Forward events to WebView
+    if (obj == m_rwhvqt) {
+        switch (event->type()) {
+        case QEvent::KeyPress:
+            event->setAccepted(false);
+            _keyPressEvent(static_cast<QKeyEvent*>(event));
+            return event->isAccepted();
+
+        case QEvent::KeyRelease:
+            event->setAccepted(false);
+            _keyReleaseEvent(static_cast<QKeyEvent*>(event));
+            return event->isAccepted();
+
+        case QEvent::MouseButtonPress:
+            event->setAccepted(false);
+            _mousePressEvent(static_cast<QMouseEvent*>(event));
+            return event->isAccepted();
+
+        case QEvent::MouseButtonRelease:
+            event->setAccepted(false);
+            _mouseReleaseEvent(static_cast<QMouseEvent*>(event));
+            return event->isAccepted();
+
+        case QEvent::MouseMove:
+            event->setAccepted(false);
+            _mouseMoveEvent(static_cast<QMouseEvent*>(event));
+            return event->isAccepted();
+
+        case QEvent::Wheel:
+            event->setAccepted(false);
+            _wheelEvent(static_cast<QWheelEvent*>(event));
+            return event->isAccepted();
+
+        default:
+            break;
         }
     }
 

@@ -60,7 +60,7 @@ public:
     bool onBeforeUnload();
 
     void addNotification(QWidget* notif);
-    bool eventFilter(QObject* obj, QEvent* event);
+    bool eventFilter(QObject *obj, QEvent *event);
 
     virtual QWidget* overlayWidget() = 0;
 
@@ -140,13 +140,14 @@ protected slots:
 #endif
 
 protected:
-    void wheelEvent(QWheelEvent* event);
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void mouseMoveEvent(QMouseEvent* event);
-    void keyPressEvent(QKeyEvent* event);
-    void keyReleaseEvent(QKeyEvent* event);
-    void resizeEvent(QResizeEvent* event);
+    void resizeEvent(QResizeEvent *event);
+
+    virtual void _wheelEvent(QWheelEvent *event);
+    virtual void _mousePressEvent(QMouseEvent *event);
+    virtual void _mouseReleaseEvent(QMouseEvent *event);
+    virtual void _mouseMoveEvent(QMouseEvent *event);
+    virtual void _keyPressEvent(QKeyEvent *event);
+    virtual void _keyReleaseEvent(QKeyEvent *event);
 
     void loadRequest(const LoadRequest &req);
     void applyZoom();
@@ -187,8 +188,9 @@ private:
 
     WebPage* m_page;
     bool m_actionsInitialized;
-
     bool m_firstLoad;
+
+    QObject *m_rwhvqt;
 
     static bool s_forceContextMenuOnMouseRelease;
 };

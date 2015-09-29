@@ -221,7 +221,7 @@ void TabbedWebView::setAsCurrentTab()
     }
 }
 
-void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
+void TabbedWebView::_mouseMoveEvent(QMouseEvent *event)
 {
     if (m_window && m_window->isFullScreen()) {
         if (m_window->fullScreenNavigationVisible()) {
@@ -232,5 +232,5 @@ void TabbedWebView::mouseMoveEvent(QMouseEvent* event)
         }
     }
 
-    WebView::mouseMoveEvent(event);
+    WebView::_mouseMoveEvent(event);
 }
