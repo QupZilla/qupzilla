@@ -821,6 +821,8 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)
 {
+    Q_UNUSED(securityOrigin)
+
 #ifndef NONBLOCK_JS_DIALOGS
     return QWebEnginePage::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
 #else
@@ -836,10 +838,10 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
     ui->message->setText(msg);
     ui->lineEdit->setText(defaultValue);
     ui->lineEdit->setFocus();
-    widget->resize(webView->size());
+    widget->resize(view()->size());
     widget->show();
 
-    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(view(), SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
     connect(ui->lineEdit, SIGNAL(returnPressed()), ui->buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 
     QEventLoop eLoop;
@@ -864,6 +866,8 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
 
 bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
 {
+    Q_UNUSED(securityOrigin)
+
 #ifndef NONBLOCK_JS_DIALOGS
     return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
 #else
@@ -878,10 +882,10 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
     ui->setupUi(widget);
     ui->message->setText(msg);
     ui->buttonBox->button(QDialogButtonBox::Ok)->setFocus();
-    widget->resize(webView->size());
+    widget->resize(view()->size());
     widget->show();
 
-    connect(webView, SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
+    connect(view(), SIGNAL(viewportResized(QSize)), widget, SLOT(slotResize(QSize)));
 
     QEventLoop eLoop;
     m_runningLoop = &eLoop;
