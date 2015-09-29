@@ -29,6 +29,7 @@ QList<QWebEngineView*> WebInspector::s_views;
 WebInspector::WebInspector(QWidget *parent)
     : QWebEngineView(parent)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QSL("web-inspector"));
     setMinimumHeight(80);
 
