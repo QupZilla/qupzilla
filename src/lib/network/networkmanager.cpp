@@ -15,6 +15,15 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
+#include "networkmanager.h"
+
+NetworkManager::NetworkManager(QObject *parent)
+    : QNetworkAccessManager(parent)
+{
+}
+
+#if QTWEBENGINE_DISABLED
+
 #include "browserwindow.h"
 #include "autofill.h"
 #include "networkmanagerproxy.h"
@@ -50,8 +59,6 @@
 #include <QMessageBox>
 #include <QAuthenticator>
 #include <QDirIterator>
-
-#if QTWEBENGINE_DISABLED
 
 static QString fileNameForCert(const QSslCertificate &cert)
 {

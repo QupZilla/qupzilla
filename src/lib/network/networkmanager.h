@@ -18,6 +18,18 @@
 #ifndef NETWORKMANAGER_H
 #define NETWORKMANAGER_H
 
+#include <QNetworkAccessManager>
+
+#include "qzcommon.h"
+
+class QUPZILLA_EXPORT NetworkManager : public QNetworkAccessManager
+{
+    Q_OBJECT
+
+public:
+    explicit NetworkManager(QObject *parent = Q_NULLPTR);
+};
+
 #if QTWEBENGINE_DISABLED
 
 #include <QSslError>

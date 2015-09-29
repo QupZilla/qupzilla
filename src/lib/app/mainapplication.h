@@ -40,6 +40,7 @@ class AutoSaver;
 class ProxyStyle;
 class PluginProxy;
 class BrowserWindow;
+class NetworkManager;
 class BrowsingLibrary;
 class DownloadManager;
 class UserAgentManager;
@@ -99,7 +100,7 @@ public:
     PluginProxy* plugins();
     BrowsingLibrary* browsingLibrary();
 
-    QNetworkAccessManager* networkManager();
+    NetworkManager* networkManager();
     RestoreManager* restoreManager();
     DownloadManager* downloadManager();
     UserAgentManager* userAgentManager();
@@ -165,7 +166,7 @@ private:
     PluginProxy* m_plugins;
     BrowsingLibrary* m_browsingLibrary;
 
-    QNetworkAccessManager* m_networkManager;
+    NetworkManager* m_networkManager;
     RestoreManager* m_restoreManager;
     DownloadManager* m_downloadManager;
     UserAgentManager* m_userAgentManager;

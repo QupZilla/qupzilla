@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "iconprovider.h"
 #include "mainapplication.h"
+#include "networkmanager.h"
 #include "followredirectreply.h"
 #include "sqldatabase.h"
 #include "autosaver.h"

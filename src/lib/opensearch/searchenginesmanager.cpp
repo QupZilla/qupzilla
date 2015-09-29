@@ -18,6 +18,7 @@
 #include "searchenginesmanager.h"
 #include "searchenginesdialog.h"
 #include "editsearchengine.h"
+#include "networkmanager.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
 #include "opensearchreader.h"

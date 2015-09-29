@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "webinspector.h"
 #include "mainapplication.h"
+#include "networkmanager.h"
 
 #include <QJsonArray>
 #include <QJsonObject>

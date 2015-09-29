@@ -34,6 +34,7 @@
 #include "iconprovider.h"
 #include "browserwindow.h"
 #include "checkboxdialog.h"
+#include "networkmanager.h"
 #include "profilemanager.h"
 #include "adblockmanager.h"
 #include "restoremanager.h"
@@ -537,10 +538,10 @@ BrowsingLibrary* MainApplication::browsingLibrary()
     return m_browsingLibrary;
 }
 
-QNetworkAccessManager* MainApplication::networkManager()
+NetworkManager *MainApplication::networkManager()
 {
     if (!m_networkManager) {
-        m_networkManager = new QNetworkAccessManager(this);
+        m_networkManager = new NetworkManager(this);
     }
     return m_networkManager;
 }

@@ -28,7 +28,6 @@
 #include "autofill.h"
 #include "popupwebview.h"
 #include "popupwindow.h"
-#include "networkmanagerproxy.h"
 #include "adblockicon.h"
 #include "adblockmanager.h"
 #include "iconprovider.h"

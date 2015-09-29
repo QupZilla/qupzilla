@@ -130,8 +130,7 @@ SOURCES += \
     navigation/siteicon.cpp \
     navigation/websearchbar.cpp \
     #network/cabundleupdater.cpp \
-    #network/networkmanager.cpp \
-    network/networkmanagerproxy.cpp \
+    network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
     network/pac/pacmanager.cpp \
     network/pac/proxyautoconfig.cpp \
@@ -325,8 +324,7 @@ HEADERS  += \
     navigation/siteicon.h \
     navigation/websearchbar.h \
     #network/cabundleupdater.h \
-    #network/networkmanager.h \
-    network/networkmanagerproxy.h \
+    network/networkmanager.h \
     network/networkproxyfactory.h \
     network/pac/pacdatetime.h \
     network/pac/pacmanager.h \
