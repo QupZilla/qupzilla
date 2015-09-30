@@ -880,16 +880,16 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
 
 void WebView::checkForForm(QAction *action, const QPoint &pos)
 {
-    m_formData.clear();
+    m_clickedPos = pos;
     QPointer<QAction> act = action;
 
     page()->runJavaScript(Scripts::getFormData(pos), [this, act](const QVariant &res) {
-        m_formData = res.toMap();
-        if (!act || m_formData.isEmpty())
+        const QVariantMap &map = res.toMap();
+        if (!act || map.isEmpty())
             return;
 
-        const QUrl url = m_formData.value(QSL("action")).toUrl();
-        const QString method = m_formData.value(QSL("method")).toString();
+        const QUrl url = map.value(QSL("action")).toUrl();
+        const QString method = map.value(QSL("method")).toString();
 
         if (!url.isEmpty() && (method == QL1S("get") || method == QL1S("post"))) {
             act->setVisible(true);
@@ -902,7 +902,9 @@ void WebView::checkForForm(QAction *action, const QPoint &pos)
 
 void WebView::createSearchEngine()
 {
-    mApp->searchEnginesManager()->addEngineFromForm(m_formData, this);
+    page()->runJavaScript(Scripts::getFormData(m_clickedPos), [this](const QVariant &res) {
+        mApp->searchEnginesManager()->addEngineFromForm(res.toMap(), this);
+    });
 }
 
 #if QTWEBENGINE_DISABLED

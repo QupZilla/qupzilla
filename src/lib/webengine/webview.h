@@ -177,13 +177,13 @@ private:
     int m_progress;
 
     QUrl m_clickedUrl;
+    QPoint m_clickedPos;
 
     WebPage* m_page;
     bool m_actionsInitialized;
     bool m_firstLoad;
 
     QObject *m_rwhvqt;
-    QVariantMap m_formData;
 
     static bool s_forceContextMenuOnMouseRelease;
 };
