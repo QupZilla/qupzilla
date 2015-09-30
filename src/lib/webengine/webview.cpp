@@ -226,13 +226,11 @@ void WebView::restoreHistory(const QByteArray &data)
 
 bool WebView::onBeforeUnload()
 {
-#if QTWEBENGINE_DISABLED
-    const QString res = page()->mainFrame()->evaluateJavaScript("window.onbeforeunload(new Event(\"beforeunload\"))").toString();
+    const QString &source = QSL("window.onbeforeunload(new Event('beforeunload'))");
+    const QString &res = page()->execJavaScript(source, 200).toString();
 
-    if (!res.isEmpty()) {
-        return page()->javaScriptConfirm(page()->mainFrame(), res);
-    }
-#endif
+    if (!res.isEmpty())
+        return page()->javaScriptConfirm(url(), res);
 
     return true;
 }

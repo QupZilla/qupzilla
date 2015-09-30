@@ -431,7 +431,7 @@ void TabWidget::closeTab(int index, bool force)
         return;
 
     // window.onbeforeunload handling
-    if (!webView->onBeforeUnload())
+    if (!force && !webView->onBeforeUnload())
         return;
 
     // Save tab url and history
