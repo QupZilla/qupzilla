@@ -28,7 +28,7 @@ namespace Ui
 class SiteInfo;
 }
 
-class QListWidgetItem;
+class QNetworkReply;
 class QTreeWidgetItem;
 
 class WebView;
@@ -50,11 +50,14 @@ private slots:
     void copyActionData();
 
 private:
+    void showLoadingText();
+    void showPixmap(const QPixmap &pixmap);
+
     Ui::SiteInfo* ui;
     CertificateInfoWidget* m_certWidget;
     WebView* m_view;
+    QNetworkReply *m_imageReply;
 
-    QPixmap m_activePixmap;
     QUrl m_baseUrl;
 };
 

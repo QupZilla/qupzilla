@@ -26,6 +26,7 @@
 #include "qztools.h"
 #include "iconprovider.h"
 #include "scripts.h"
+#include "networkmanager.h"
 
 #include <QMenu>
 #include <QMessageBox>
@@ -47,6 +48,7 @@ SiteInfo::SiteInfo(WebView* view)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)
+    , m_imageReply(Q_NULLPTR)
     , m_baseUrl(view->url())
 {
     setAttribute(Qt::WA_DeleteOnClose);
@@ -159,6 +161,29 @@ void SiteInfo::copyActionData()
     }
 }
 
+void SiteInfo::showLoadingText()
+{
+    delete ui->mediaPreview->scene();
+    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
+
+    scene->addText(tr("Loading..."));
+
+    ui->mediaPreview->setScene(scene);
+}
+
+void SiteInfo::showPixmap(const QPixmap &pixmap)
+{
+    delete ui->mediaPreview->scene();
+    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
+
+    if (pixmap.isNull())
+        scene->addText(tr("Preview not available"));
+    else
+        scene->addPixmap(pixmap);
+
+    ui->mediaPreview->setScene(scene);
+}
+
 void SiteInfo::showImagePreview(QTreeWidgetItem *item)
 {
     if (!item) {
@@ -168,39 +193,38 @@ void SiteInfo::showImagePreview(QTreeWidgetItem *item)
     if (imageUrl.isRelative()) {
         imageUrl = m_baseUrl.resolved(imageUrl);
     }
-    QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
+
+    QPixmap pixmap;
+    bool loading = false;
 
     if (imageUrl.scheme() == QLatin1String("data")) {
         QByteArray encodedUrl = item->text(1).toUtf8();
         QByteArray imageData = encodedUrl.mid(encodedUrl.indexOf(',') + 1);
-        m_activePixmap = QzTools::pixmapFromByteArray(imageData);
+        pixmap = QzTools::pixmapFromByteArray(imageData);
     }
     else if (imageUrl.scheme() == QLatin1String("file")) {
-        m_activePixmap = QPixmap(imageUrl.toLocalFile());
+        pixmap = QPixmap(imageUrl.toLocalFile());
     }
     else if (imageUrl.scheme() == QLatin1String("qrc")) {
-        m_activePixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
+        pixmap = QPixmap(imageUrl.toString().mid(3)); // Remove qrc from url
     }
     else {
-#if QTWEBENGINE_DISABLED
-        QIODevice* cacheData = mApp->networkCache()->data(imageUrl);
-        if (!cacheData) {
-            m_activePixmap = QPixmap();
-        }
-        else {
-            m_activePixmap.loadFromData(cacheData->readAll());
-        }
-#endif
+        delete m_imageReply;
+        m_imageReply = mApp->networkManager()->get(QNetworkRequest(imageUrl));
+        connect(m_imageReply, &QNetworkReply::finished, this, [this]() {
+            if (m_imageReply->error() != QNetworkReply::NoError)
+                return;
+
+            const QByteArray &data = m_imageReply->readAll();
+            showPixmap(QPixmap::fromImage(QImage::fromData(data)));
+        });
+
+        loading = true;
+        showLoadingText();
     }
 
-    if (m_activePixmap.isNull()) {
-        scene->addText(tr("Preview not available"));
-    }
-    else {
-        scene->addPixmap(m_activePixmap);
-    }
-
-    ui->mediaPreview->setScene(scene);
+    if (!loading)
+        showPixmap(pixmap);
 }
 
 SiteInfo::~SiteInfo()
