@@ -34,6 +34,7 @@
 #include <QNetworkDiskCache>
 #include <QClipboard>
 #include <QTimer>
+#include <QGraphicsPixmapItem>
 
 QString SiteInfo::showCertInfo(const QString &string)
 {
@@ -127,6 +128,7 @@ SiteInfo::SiteInfo(WebView* view)
         }
     });
 
+    connect(ui->saveButton, SIGNAL(clicked(QAbstractButton*)), this, SLOT(saveImage()));
     connect(ui->listWidget, SIGNAL(currentRowChanged(int)), ui->stackedWidget, SLOT(setCurrentIndex(int)));
     connect(ui->treeImages, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(showImagePreview(QTreeWidgetItem*)));
     connect(ui->treeImages, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(imagesCustomContextMenuRequested(QPoint)));
@@ -150,7 +152,7 @@ void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Image Location"), this, SLOT(copyActionData()))->setData(item->text(1));
     menu.addAction(tr("Copy Image Name"), this, SLOT(copyActionData()))->setData(item->text(0));
     menu.addSeparator();
-    menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(downloadImage()));
+    menu.addAction(QIcon::fromTheme("document-save"), tr("Save Image to Disk"), this, SLOT(saveImage()));
     menu.exec(ui->treeImages->viewport()->mapToGlobal(p));
 }
 
@@ -158,6 +160,46 @@ void SiteInfo::copyActionData()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         qApp->clipboard()->setText(action->data().toString());
+    }
+}
+
+void SiteInfo::saveImage()
+{
+    QTreeWidgetItem* item = ui->treeImages->currentItem();
+    if (!item) {
+        return;
+    }
+
+    if (!ui->mediaPreview->scene() || ui->mediaPreview->scene()->items().isEmpty())
+        return;
+
+    QGraphicsItem *graphicsItem = ui->mediaPreview->scene()->items().first();
+    QGraphicsPixmapItem *pixmapItem = static_cast<QGraphicsPixmapItem*>(graphicsItem);
+    if (graphicsItem->type() != QGraphicsPixmapItem::Type || !pixmapItem)
+        return;
+
+    if (!pixmapItem || pixmapItem->pixmap().isNull()) {
+        QMessageBox::warning(this, tr("Error!"), tr("This preview is not available!"));
+        return;
+    }
+
+    QString imageFileName = QzTools::getFileNameFromUrl(QUrl(item->text(1)));
+    int index = imageFileName.lastIndexOf(QLatin1Char('.'));
+    if (index != -1) {
+        imageFileName = imageFileName.left(index);
+        imageFileName.append(QL1S(".png"));
+    }
+
+    QString filePath = QzTools::getSaveFileName("SiteInfo-DownloadImage", this, tr("Save image..."),
+                                                QDir::homePath() + QDir::separator() + imageFileName,
+                                                QSL("*.png"));
+    if (filePath.isEmpty()) {
+        return;
+    }
+
+    if (!pixmapItem->pixmap().save(filePath, "PNG")) {
+        QMessageBox::critical(this, tr("Error!"), tr("Cannot write to file!"));
+        return;
     }
 }
 

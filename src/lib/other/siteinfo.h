@@ -48,6 +48,7 @@ private slots:
     void showImagePreview(QTreeWidgetItem *item);
     void imagesCustomContextMenuRequested(const QPoint &p);
     void copyActionData();
+    void saveImage();
 
 private:
     void showLoadingText();

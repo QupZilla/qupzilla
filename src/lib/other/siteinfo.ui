@@ -250,6 +250,13 @@
          <widget class="QWidget" name="layoutWidget">
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
+            <widget class="QDialogButtonBox" name="saveButton">
+             <property name="standardButtons">
+              <set>QDialogButtonBox::Save</set>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="label_5">
              <property name="maximumSize">
               <size>
