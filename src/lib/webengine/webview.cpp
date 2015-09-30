@@ -464,30 +464,6 @@ void WebView::copyLinkToClipboard()
     }
 }
 
-void WebView::savePageAs()
-{
-#if QTWEBENGINE_DISABLED
-    if (url().isEmpty() || url().toString() == QLatin1String("about:blank")) {
-        return;
-    }
-
-    QNetworkRequest request(url());
-    QString suggestedFileName = QzTools::getFileNameFromUrl(url());
-    if (!suggestedFileName.contains(QLatin1Char('.'))) {
-        suggestedFileName.append(QLatin1String(".html"));
-    }
-
-    DownloadManager::DownloadInfo info;
-    info.page = page();
-    info.suggestedFileName = suggestedFileName;
-    info.askWhatToDo = false;
-    info.forceChoosingPath = true;
-
-    DownloadManager* dManager = mApp->downloadManager();
-    dManager->download(request, info);
-#endif
-}
-
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 {
     QNetworkRequest request(url);
@@ -731,9 +707,6 @@ void WebView::createPageContextMenu(QMenu* menu)
     menu->addAction(pageAction(QWebEnginePage::Stop));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
-#if QTWEBENGINE_DISABLED
-    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
-#endif
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
     menu->addSeparator();

@@ -59,7 +59,6 @@ private slots:
     void openFile();
     void closeWindow();
     void toggleOfflineMode();
-    void savePageAs();
     void sendLink();
     void printPage();
 

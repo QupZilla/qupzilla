@@ -333,10 +333,18 @@ Preferences::Preferences(BrowserWindow* window)
     else {
         ui->useDefined->setChecked(true);
     }
+    ui->useExternalDownManager->setChecked(settings.value("UseExternalManager", false).toBool());
+    ui->externalDownExecutable->setText(settings.value("ExternalManagerExecutable", "").toString());
+    ui->externalDownArguments->setText(settings.value("ExternalManagerArguments", "").toString());
+
+    connect(ui->useExternalDownManager, SIGNAL(toggled(bool)), this, SLOT(useExternalDownManagerChanged(bool)));
+
 
     connect(ui->useDefined, SIGNAL(toggled(bool)), this, SLOT(downLocChanged(bool)));
     connect(ui->downButt, SIGNAL(clicked()), this, SLOT(chooseDownPath()));
+    connect(ui->chooseExternalDown, SIGNAL(clicked()), this, SLOT(chooseExternalDownloadManager()));
     downLocChanged(ui->useDefined->isChecked());
+    useExternalDownManagerChanged(ui->useExternalDownManager->isChecked());
     settings.endGroup();
 
     //FONTS
@@ -483,6 +491,16 @@ Preferences::Preferences(BrowserWindow* window)
     settings.endGroup();
 
     QzTools::setWmClass("Preferences", this);
+}
+
+void Preferences::chooseExternalDownloadManager()
+{
+    QString path = QzTools::getOpenFileName("Preferences-ExternalDownloadManager", this, tr("Choose executable location..."), QDir::homePath());
+    if (path.isEmpty()) {
+        return;
+    }
+
+    ui->externalDownExecutable->setText(path);
 }
 
 void Preferences::showStackedPage(QListWidgetItem* item)
@@ -653,6 +671,13 @@ void Preferences::openJsOptions()
 {
     JsOptions* dialog = new JsOptions(this);
     dialog->open();
+}
+
+void Preferences::useExternalDownManagerChanged(bool state)
+{
+    ui->externalDownExecutable->setEnabled(state);
+    ui->externalDownArguments->setEnabled(state);
+    ui->chooseExternalDown->setEnabled(state);
 }
 
 void Preferences::openSearchEnginesManager()
@@ -875,6 +900,10 @@ void Preferences::saveSettings()
         settings.setValue("defaultDownloadPath", ui->downLoc->text());
     }
     settings.setValue("CloseManagerOnFinish", ui->closeDownManOnFinish->isChecked());
+    settings.setValue("UseExternalManager", ui->useExternalDownManager->isChecked());
+    settings.setValue("ExternalManagerExecutable", ui->externalDownExecutable->text());
+    settings.setValue("ExternalManagerArguments", ui->externalDownArguments->text());
+
     settings.endGroup();
 
     //FONTS

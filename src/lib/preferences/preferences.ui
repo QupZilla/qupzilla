@@ -1969,7 +1969,70 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0" colspan="4">
+           <item row="10" column="0" colspan="4">
+            <widget class="QLabel" name="label_51">
+             <property name="text">
+              <string>&lt;b&gt;External download manager&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0" colspan="4">
+            <widget class="QCheckBox" name="useExternalDownManager">
+             <property name="text">
+              <string>Use external download manager</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1" colspan="3">
+            <layout class="QFormLayout" name="formLayout_2">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_52">
+               <property name="text">
+                <string>Executable:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_53">
+               <property name="text">
+                <string>Arguments:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="externalDownArguments">
+               <property name="placeholderText">
+                <string>Leave blank if unsure</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QLineEdit" name="externalDownExecutable"/>
+               </item>
+               <item>
+                <widget class="MacToolButton" name="chooseExternalDown">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_64">
+               <property name="text">
+                <string>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="9" column="0" colspan="4">
             <spacer name="verticalSpacer_10">
              <property name="orientation">
               <enum>Qt::Vertical</enum>

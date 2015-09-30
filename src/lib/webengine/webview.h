@@ -101,7 +101,6 @@ public slots:
 
     void showSource();
     void sendPageByMail();
-    void savePageAs();
 
     void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position);
 

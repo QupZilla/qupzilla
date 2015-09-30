@@ -280,7 +280,6 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
 
     menu.addAction(tr("Open Folder"), this, SLOT(openFolder()));
     menu.addSeparator();
-    //menu.addAction(tr("Go to Download Page"), this, SLOT(goToDownloadPage()))->setEnabled(!m_downloadPage.isEmpty());
     menu.addAction(QIcon::fromTheme("edit-copy"), tr("Copy Download Link"), this, SLOT(copyDownloadLink()));
     menu.addSeparator();
     menu.addAction(QIcon::fromTheme("process-stop"), tr("Cancel downloading"), this, SLOT(stop()))->setEnabled(m_downloading);
@@ -290,20 +289,6 @@ void DownloadItem::customContextMenuRequested(const QPoint &pos)
         menu.actions().at(0)->setEnabled(false);
     }
     menu.exec(mapToGlobal(pos));
-}
-
-void DownloadItem::goToDownloadPage()
-{
-#if QTWEBENGINE_DISABLED
-    BrowserWindow* qz = mApp->getWindow();
-
-    if (qz) {
-        qz->tabWidget()->addView(m_downloadPage, Qz::NT_SelectedTab);
-    }
-    else {
-        mApp->createWindow(Qz::BW_NewWindow, m_downloadPage);
-    }
-#endif
 }
 
 void DownloadItem::copyDownloadLink()

@@ -222,22 +222,6 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
         return;
     }
 
-#if QTWEBENGINE_DISABLED
-    // Get download page
-    QUrl downloadPage;
-    WebView* view = qobject_cast<WebView*>(info.page->view());
-    if (!info.page->url().isEmpty()) {
-        downloadPage = info.page->url();
-    }
-    else if (info.page->history()->canGoBack()) {
-        downloadPage = info.page->history()->backItem().url();
-    }
-    // Close empty tab
-    else if (view && info.page->history()->count() == 0) {
-        view->closeView();
-    }
-#endif
-
     QString fileName = QFileInfo(downloadItem->path()).fileName();
 
     // Set download path and accept

@@ -67,7 +67,6 @@ private slots:
     void customContextMenuRequested(const QPoint &pos);
     void clear();
 
-    void goToDownloadPage();
     void copyDownloadLink();
 
 private:

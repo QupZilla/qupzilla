@@ -60,6 +60,7 @@ private slots:
     void showAcceptLanguage();
     void chooseUserStyleClicked();
     void deleteHtml5storage();
+    void chooseExternalDownloadManager();
     void openUserAgentManager();
     void openJsOptions();
     void openSearchEnginesManager();
@@ -70,6 +71,7 @@ private slots:
     void allowCacheChanged(bool state);
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
+    void useExternalDownManagerChanged(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
     void showTabPreviewsChanged(bool state);
     void changeCachePathClicked();
