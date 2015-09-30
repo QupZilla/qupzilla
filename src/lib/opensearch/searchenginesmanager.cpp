@@ -290,9 +290,11 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         parameterUrl = QUrl("http://foo.bar");
     }
 
+    const QString inputName = element.attribute("name");
+
 #if QT_VERSION >= 0x050000
     QUrlQuery query(parameterUrl);
-    query.addQueryItem(element.attribute("name"), "%s");
+    query.addQueryItem(inputName, "SEARCH");
 
     QWebElementCollection allInputs = formElement.findAll("input");
     foreach (QWebElement e, allInputs) {
@@ -308,7 +310,7 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     QList<QPair<QByteArray, QByteArray> > queryItems;
 
     QPair<QByteArray, QByteArray> item;
-    item.first = element.attribute("name").toUtf8();
+    item.first = inputName.toUtf8();
     item.second = "%s";
     queryItems.append(item);
 
@@ -339,6 +341,12 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     if (isPost) {
         QByteArray data = parameterUrl.toEncoded(QUrl::RemoveScheme);
         engine.postData = data.contains('?') ? data.mid(data.lastIndexOf('?') + 1) : QByteArray();
+#if QT_VERSION >= 0x050000
+        engine.postData.replace((inputName + QL1S("=SEARCH")).toUtf8(), (inputName + QL1S("=%s")).toUtf8());
+    }
+    else {
+        engine.url.replace(inputName + QL1S("=SEARCH"), inputName + QL1S("=%s"));
+#endif
     }
 
     EditSearchEngine dialog(SearchEnginesDialog::tr("Add Search Engine"), view);
