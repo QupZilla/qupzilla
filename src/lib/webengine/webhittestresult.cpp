@@ -35,7 +35,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "    if (e.isContentEditable)"
                           "        return true;"
                           "    if (e.tagName == 'INPUT' || e.tagName == 'TEXTAREA')"
-                          "        return !e.readonly;"
+                          "        return e.getAttribute('readonly') != 'readonly';"
                           "    return false;"
                           "}"
                           "var res = {"
