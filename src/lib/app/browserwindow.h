@@ -150,7 +150,6 @@ private slots:
     void loadSettings();
     void postLaunch();
 
-    void savePageScreen();
     void refreshHistory();
     void webSearch();
     void searchOnPage();

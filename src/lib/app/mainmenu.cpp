@@ -79,7 +79,6 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
     superMenu->addSeparator();
-    superMenu->addAction(m_actions[QSL("File/SavePageScreen")]);
     superMenu->addAction(m_actions[QSL("File/SendLink")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Edit/SelectAll")]);
@@ -170,11 +169,6 @@ void MainMenu::savePageAs()
     if (m_window) {
         m_window->weView()->savePageAs();
     }
-}
-
-void MainMenu::savePageScreen()
-{
-    callSlot("savePageScreen");
 }
 
 void MainMenu::sendLink()
@@ -533,7 +527,6 @@ void MainMenu::init()
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
     ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
-    ADD_ACTION("File/SavePageScreen", m_menuFile, QIcon::fromTheme(QSL("image-loading")), tr("Save Page Screen"), SLOT(savePageScreen()), "Ctrl+Shift+S");
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
     ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
     m_menuFile->addSeparator();

@@ -46,7 +46,6 @@
 #include "statusbarmessage.h"
 #include "browsinglibrary.h"
 #include "navigationbar.h"
-#include "pagescreen.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
 #include "qztools.h"
 #include "reloadstopbutton.h"
@@ -1094,14 +1093,6 @@ bool BrowserWindow::event(QEvent* event)
     }
 
     return QMainWindow::event(event);
-}
-
-void BrowserWindow::savePageScreen()
-{
-#if QTWEBENGINE_DISABLED
-    PageScreen* dialog = new PageScreen(weView(), this);
-    dialog->show();
-#endif
 }
 
 void BrowserWindow::resizeEvent(QResizeEvent* event)

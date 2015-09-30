@@ -459,7 +459,7 @@ FORMS    += \
     other/clearprivatedata.ui \
     other/checkboxdialog.ui \
     other/iconchooser.ui \
-    other/pagescreen.ui \
+    #other/pagescreen.ui \
     other/siteinfo.ui \
     other/siteinfowidget.ui \
     other/sourceviewersearch.ui \

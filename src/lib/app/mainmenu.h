@@ -60,7 +60,6 @@ private slots:
     void closeWindow();
     void toggleOfflineMode();
     void savePageAs();
-    void savePageScreen();
     void sendLink();
     void printPage();
 

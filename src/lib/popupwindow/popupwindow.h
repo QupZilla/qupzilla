@@ -59,7 +59,6 @@ private slots:
     void loadProgress(int value);
     void loadFinished();
 
-    void savePageScreen();
     void searchOnPage();
 
 private:

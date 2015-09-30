@@ -20,7 +20,6 @@
 #include "webpage.h"
 #include "popupstatusbarmessage.h"
 #include "progressbar.h"
-#include "pagescreen.h"
 #include "searchtoolbar.h"
 #include "qzsettings.h"
 #include "popuplocationbar.h"
@@ -57,7 +56,6 @@ PopupWindow::PopupWindow(PopupWebView* view)
 
     QMenu* menuFile = new QMenu(tr("File"));
     menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), m_view, SLOT(savePageAs()))->setShortcut(QKeySequence("Ctrl+S"));
-    menuFile->addAction(tr("Save Page Screen"), this, SLOT(savePageScreen()));
     menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), m_view, SLOT(sendPageByMail()));
     //menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
     menuFile->addSeparator();
@@ -203,14 +201,6 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     m_view->deleteLater();
 
     event->accept();
-}
-
-void PopupWindow::savePageScreen()
-{
-#if QTWEBENGINE_DISABLED
-    PageScreen* pageScreen = new PageScreen(m_view, this);
-    pageScreen->show();
-#endif
 }
 
 void PopupWindow::searchOnPage()
