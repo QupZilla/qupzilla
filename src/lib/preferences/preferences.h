@@ -70,11 +70,9 @@ private slots:
     void allowCacheChanged(bool state);
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
-    void setProxyAutoConfigEnabled(bool state);
     void useDifferentProxyForHttpsChanged(bool state);
     void showTabPreviewsChanged(bool state);
     void changeCachePathClicked();
-    void reloadPacFileClicked();
 
     void newTabChanged(int value);
     void afterLaunchChanged(int value);

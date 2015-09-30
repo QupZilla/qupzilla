@@ -514,13 +514,6 @@ void WebView::downloadUrlToDisk()
 #endif
 }
 
-void WebView::copyImageToClipboard()
-{
-#if QTWEBENGINE_DISABLED
-    triggerPageAction(QWebEnginePage::CopyImageToClipboard);
-#endif
-}
-
 void WebView::openActionUrl()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -800,7 +793,6 @@ void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTes
     connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
     connect(act, SIGNAL(ctrlTriggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
-    menu->addAction(tr("Copy im&age"), this, SLOT(copyImageToClipboard()))->setData(hitTest.imageUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
 #if QTWEBENGINE_DISABLED

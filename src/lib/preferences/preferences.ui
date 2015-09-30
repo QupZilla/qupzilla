@@ -1405,48 +1405,14 @@
                <string>Proxy Configuration</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_8">
-               <item row="9" column="1">
-                <layout class="QHBoxLayout" name="horizontalLayout_22">
-                 <item>
-                  <widget class="QLineEdit" name="pacUrl">
-                   <property name="placeholderText">
-                    <string>Proxy Auto-Config (.pac) file</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="reloadPac">
-                   <property name="text">
-                    <string>Reload</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_27">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>50</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
-               </item>
-               <item row="10" column="0" colspan="2">
+               <item row="8" column="0" colspan="2">
                 <widget class="QLabel" name="label_54">
                  <property name="text">
                   <string>&lt;b&gt;Exceptions&lt;/b&gt;</string>
                  </property>
                 </widget>
                </item>
-               <item row="11" column="1">
+               <item row="9" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_27">
                  <item>
                   <widget class="QLabel" name="label_40">
@@ -1460,7 +1426,7 @@
                  </item>
                 </layout>
                </item>
-               <item row="12" column="0">
+               <item row="10" column="0">
                 <spacer name="verticalSpacer_14">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -1652,13 +1618,6 @@
                   </spacer>
                  </item>
                 </layout>
-               </item>
-               <item row="8" column="0" colspan="2">
-                <widget class="QRadioButton" name="pacProxy">
-                 <property name="text">
-                  <string>Use script for automatic configuration:</string>
-                 </property>
-                </widget>
                </item>
                <item row="0" column="0" colspan="2">
                 <widget class="QRadioButton" name="noProxy">

@@ -47,7 +47,6 @@
 #include "registerqappassociation.h"
 #include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
-#include "pac/pacmanager.h"
 #include "searchenginesdialog.h"
 
 #include <QSettings>
@@ -426,7 +425,6 @@ Preferences::Preferences(BrowserWindow* window)
     ui->systemProxy->setChecked(proxyPreference == NetworkProxyFactory::SystemProxy);
     ui->noProxy->setChecked(proxyPreference == NetworkProxyFactory::NoProxy);
     ui->manualProxy->setChecked(proxyPreference == NetworkProxyFactory::DefinedProxy);
-    ui->pacProxy->setChecked(proxyPreference == NetworkProxyFactory::ProxyAutoConfig);
     if (proxyType == QNetworkProxy::HttpProxy) {
         ui->proxyType->setCurrentIndex(0);
     }
@@ -445,18 +443,14 @@ Preferences::Preferences(BrowserWindow* window)
     ui->httpsProxyUsername->setText(settings.value("HttpsUsername", "").toString());
     ui->httpsProxyPassword->setText(settings.value("HttpsPassword", "").toString());
 
-    ui->pacUrl->setText(settings.value("PacUrl", QUrl()).toUrl().toString());
     ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(","));
     settings.endGroup();
 
     useDifferentProxyForHttpsChanged(ui->useHttpsProxy->isChecked());
     setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
-    setProxyAutoConfigEnabled(proxyPreference == NetworkProxyFactory::ProxyAutoConfig);
 
     connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
-    connect(ui->pacProxy, SIGNAL(toggled(bool)), this, SLOT(setProxyAutoConfigEnabled(bool)));
     connect(ui->useHttpsProxy, SIGNAL(toggled(bool)), this, SLOT(useDifferentProxyForHttpsChanged(bool)));
-    connect(ui->reloadPac, SIGNAL(clicked()), this, SLOT(reloadPacFileClicked()));
 
     //CONNECTS
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
@@ -633,12 +627,6 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     ui->useHttpsProxy->setEnabled(state);
 }
 
-void Preferences::setProxyAutoConfigEnabled(bool state)
-{
-    ui->pacUrl->setEnabled(state);
-    ui->reloadPac->setEnabled(state);
-}
-
 void Preferences::saveHistoryChanged(bool stat)
 {
     ui->deleteHistoryOnClose->setEnabled(stat);
@@ -715,13 +703,6 @@ void Preferences::changeCachePathClicked()
     }
 
     ui->cachePath->setText(path);
-}
-
-void Preferences::reloadPacFileClicked()
-{
-#if QTWEBENGINE_DISABLED
-    mApp->networkManager()->proxyFactory()->pacManager()->downloadPacFile();
-#endif
 }
 
 void Preferences::showPassManager(bool state)
@@ -995,9 +976,6 @@ void Preferences::saveSettings()
     else if (ui->noProxy->isChecked()) {
         proxyPreference = NetworkProxyFactory::NoProxy;
     }
-    else if (ui->pacProxy->isChecked()) {
-        proxyPreference = NetworkProxyFactory::ProxyAutoConfig;
-    }
     else {
         proxyPreference = NetworkProxyFactory::DefinedProxy;
     }
@@ -1024,7 +1002,6 @@ void Preferences::saveSettings()
     settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
     settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
 
-    settings.setValue("PacUrl", ui->pacUrl->text());
     settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
