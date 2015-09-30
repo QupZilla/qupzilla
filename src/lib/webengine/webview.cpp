@@ -669,11 +669,9 @@ void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
         createImageContextMenu(menu, hitTest);
     }
 
-#if QTWEBENGINE_DISABLED
-    if (isMediaElement(hitTest.element())) {
+    if (!hitTest.mediaUrl().isEmpty()) {
         createMediaContextMenu(menu, hitTest);
     }
-#endif
 
     if (hitTest.isContentEditable()) {
         // This only checks if the menu is empty (only spellchecker actions added)
@@ -878,6 +876,23 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
     menu->addMenu(swMenu);
 }
 
+void WebView::createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
+{
+    m_clickedPos = hitTest.pos();
+    bool paused = hitTest.mediaPaused();
+    bool muted = hitTest.mediaMuted();
+
+    menu->addSeparator();
+    menu->addAction(paused ? tr("&Play") : tr("&Pause"), this, SLOT(toggleMediaPause()))->setIcon(QIcon::fromTheme(paused ? "media-playback-start" : "media-playback-pause"));
+    menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(toggleMediaMute()))->setIcon(QIcon::fromTheme(muted ? "audio-volume-muted" : "audio-volume-high"));
+    menu->addSeparator();
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.mediaUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(hitTest.mediaUrl());
+#if QTWEBENGINE_DISABLED
+    menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(hitTest.mediaUrl());
+#endif
+}
+
 void WebView::checkForForm(QAction *action, const QPoint &pos)
 {
     m_clickedPos = pos;
@@ -907,29 +922,6 @@ void WebView::createSearchEngine()
     });
 }
 
-#if QTWEBENGINE_DISABLED
-void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
-{
-    m_clickedElement = hitTest.element();
-
-    if (m_clickedElement.isNull()) {
-        return;
-    }
-
-    bool paused = m_clickedElement.evaluateJavaScript("this.paused").toBool();
-    bool muted = m_clickedElement.evaluateJavaScript("this.muted").toBool();
-    QUrl videoUrl = m_clickedElement.evaluateJavaScript("this.currentSrc").toUrl();
-
-    menu->addSeparator();
-    menu->addAction(paused ? tr("&Play") : tr("&Pause"), this, SLOT(pauseMedia()))->setIcon(QIcon::fromTheme(paused ? "media-playback-start" : "media-playback-pause"));
-    menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(muteMedia()))->setIcon(QIcon::fromTheme(muted ? "audio-volume-muted" : "audio-volume-high"));
-    menu->addSeparator();
-    menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(videoUrl);
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(videoUrl);
-    menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadUrlToDisk()))->setData(videoUrl);
-}
-#endif
-
 void WebView::addSpeedDial()
 {
     page()->runJavaScript("addSpeedDial()");
@@ -943,6 +935,16 @@ void WebView::configureSpeedDial()
 void WebView::reloadAllSpeedDials()
 {
     page()->runJavaScript("reloadAll()");
+}
+
+void WebView::toggleMediaPause()
+{
+    page()->runJavaScript(Scripts::toggleMediaPause(m_clickedPos));
+}
+
+void WebView::toggleMediaMute()
+{
+    page()->runJavaScript(Scripts::toggleMediaMute(m_clickedPos));
 }
 
 void WebView::initializeActions()

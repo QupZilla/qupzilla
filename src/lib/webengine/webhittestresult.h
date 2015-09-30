@@ -39,6 +39,8 @@ public:
     QString linkTitle() const;
     QUrl linkUrl() const;
     QUrl mediaUrl() const;
+    bool mediaPaused() const;
+    bool mediaMuted() const;
     QPoint pos() const;
     QString tagName() const;
 
@@ -54,6 +56,8 @@ private:
     QString m_linkTitle;
     QUrl m_linkUrl;
     QUrl m_mediaUrl;
+    bool m_mediaPaused;
+    bool m_mediaMuted;
     QPoint m_pos;
     QString m_tagName;
 };

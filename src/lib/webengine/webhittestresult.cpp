@@ -22,6 +22,8 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     : m_isNull(true)
     , m_isContentEditable(false)
     , m_isContentSelected(false)
+    , m_mediaPaused(false)
+    , m_mediaMuted(false)
     , m_pos(pos)
 {
     QString source = QL1S("(function() {"
@@ -57,17 +59,17 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "    res.linkTitle = e.text;"
                           "    res.linkUrl = e.getAttribute('href');"
                           "}"
-                          "if (isMediaElement(e))"
-                          "    res.mediaUrl = e.getAttribute('src');"
-                          "var pe = e.parentElement;"
-                          "while (pe) {"
-                          "    if (res.linkTitle == '' && pe.tagName == 'A')"
-                          "        res.linkTitle = pe.text;"
-                          "    if (res.linkUrl == '' && pe.tagName == 'A')"
-                          "        res.linkUrl = pe.getAttribute('href');"
-                          "    if (res.mediaUrl == '' && isMediaElement(pe))"
-                          "        res.mediaUrl = pe.getAttribute('src');"
-                          "    pe = pe.parentElement;"
+                          "while (e) {"
+                          "    if (res.linkTitle == '' && e.tagName == 'A')"
+                          "        res.linkTitle = e.text;"
+                          "    if (res.linkUrl == '' && e.tagName == 'A')"
+                          "        res.linkUrl = e.getAttribute('href');"
+                          "    if (res.mediaUrl == '' && isMediaElement(e)) {"
+                          "        res.mediaUrl = e.currentSrc;"
+                          "        res.mediaPaused = e.paused;"
+                          "        res.mediaMuted = e.muted;"
+                          "    }"
+                          "    e = e.parentElement;"
                           "}"
                           "return res;"
                           "})()");
@@ -122,6 +124,16 @@ QUrl WebHitTestResult::mediaUrl() const
     return m_mediaUrl;
 }
 
+bool WebHitTestResult::mediaPaused() const
+{
+    return m_mediaPaused;
+}
+
+bool WebHitTestResult::mediaMuted() const
+{
+    return m_mediaMuted;
+}
+
 QPoint WebHitTestResult::pos() const
 {
     return m_pos;
@@ -144,6 +156,8 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     m_linkTitle = map.value(QSL("linkTitle")).toString();
     m_linkUrl = map.value(QSL("linkUrl")).toUrl();
     m_mediaUrl = map.value(QSL("mediaUrl")).toUrl();
+    m_mediaPaused = map.value(QSL("mediaPaused")).toBool();
+    m_mediaMuted = map.value(QSL("mediaMuted")).toBool();
     m_tagName = map.value(QSL("tagName")).toString();
 
     const QVariantList &rect = map.value(QSL("boundingRect")).toList();

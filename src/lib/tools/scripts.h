@@ -38,6 +38,8 @@ public:
     static QString getAllImages();
     static QString getAllMetaAttributes();
     static QString getFormData(const QPoint &pos);
+    static QString toggleMediaPause(const QPoint &pos);
+    static QString toggleMediaMute(const QPoint &pos);
 };
 
 #endif // SCRIPTS_H

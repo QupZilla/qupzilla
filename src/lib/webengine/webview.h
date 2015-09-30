@@ -152,18 +152,19 @@ protected:
     void createLinkContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
     void createImageContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
     void createSelectedTextContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
 
     void checkForForm(QAction *action, const QPoint &pos);
     void createSearchEngine();
 
-#if QTWEBENGINE_DISABLED
-    void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
-#endif
 
 private slots:
     void addSpeedDial();
     void configureSpeedDial();
     void reloadAllSpeedDials();
+
+    void toggleMediaPause();
+    void toggleMediaMute();
 
 private:
     void initializeActions();
