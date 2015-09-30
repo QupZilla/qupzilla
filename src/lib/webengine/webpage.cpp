@@ -107,15 +107,22 @@ WebView *WebPage::view() const
     return static_cast<WebView*>(QWebEnginePage::view());
 }
 
-QVariant WebPage::execJavaScript(const QString &scriptSource)
+QVariant WebPage::execJavaScript(const QString &scriptSource, int timeout)
 {
-    QEventLoop loop;
+    QPointer<QEventLoop> loop = new QEventLoop;
     QVariant result;
-    runJavaScript(scriptSource, [&loop, &result](const QVariant &res) {
-        result = res;
-        loop.exit();
+    QTimer::singleShot(timeout, loop, &QEventLoop::quit);
+
+    runJavaScript(scriptSource, [loop, &result](const QVariant &res) {
+        if (loop && loop->isRunning()) {
+            result = res;
+            loop->quit();
+        }
     });
-    loop.exec();
+
+    loop->exec();
+    delete loop;
+
     return result;
 }
 

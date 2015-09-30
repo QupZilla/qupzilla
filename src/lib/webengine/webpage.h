@@ -50,7 +50,7 @@ public:
 
     WebView *view() const;
 
-    QVariant execJavaScript(const QString &scriptSource);
+    QVariant execJavaScript(const QString &scriptSource, int timeout = 500);
 
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
