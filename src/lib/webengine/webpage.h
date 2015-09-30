@@ -96,11 +96,6 @@ private:
     QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;
     QWebEnginePage* createWindow(QWebEnginePage::WebWindowType type) Q_DECL_OVERRIDE;
 
-#if QTWEBENGINE_DISABLED
-    bool supportsExtension(Extension extension) const;
-    bool extension(Extension extension, const ExtensionOption* option, ExtensionReturn* output = 0);
-#endif
-
     void handleUnknownProtocol(const QUrl &url);
     void desktopServicesOpen(const QUrl &url);
 
