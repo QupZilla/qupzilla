@@ -22,10 +22,10 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     : m_isNull(true)
     , m_isContentEditable(false)
     , m_isContentSelected(false)
+    , m_pos(pos)
 {
     QString source = QL1S("(function() {"
                           "var e = document.elementFromPoint(%1, %2);"
-                          "console.log(e);"
                           "if (!e)"
                           "    return;"
                           "function isMediaElement(e) {"
@@ -47,12 +47,10 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "    linkTitle: '',"
                           "    linkUrl: '',"
                           "    mediaUrl: '',"
-                          "    pos: '',"
                           "    tagName: e.tagName.toLowerCase()"
                           "};"
                           "var r = e.getBoundingClientRect();"
                           "res.boundingRect = [r.top, r.left, r.width, r.height];"
-                          "res.pos = [r.top, r.left];"
                           "if (e.tagName == 'IMG')"
                           "    res.imageUrl = e.getAttribute('src');"
                           "if (e.tagName == 'A') {"
@@ -147,10 +145,6 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     m_linkUrl = map.value(QSL("linkUrl")).toUrl();
     m_mediaUrl = map.value(QSL("mediaUrl")).toUrl();
     m_tagName = map.value(QSL("tagName")).toString();
-
-    const QVariantList &point = map.value(QSL("pos")).toList();
-    if (point.size() == 2)
-        m_pos = QPoint(point.at(0).toInt(), point.at(1).toInt());
 
     const QVariantList &rect = map.value(QSL("boundingRect")).toList();
     if (rect.size() == 4)

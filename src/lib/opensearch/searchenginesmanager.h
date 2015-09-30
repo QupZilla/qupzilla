@@ -63,7 +63,7 @@ public:
     void addEngine(OpenSearchEngine* engine);
     void addEngine(const Engine &engine);
 
-    void addEngineFromForm(const QWebElement &element, WebView* view);
+    void addEngineFromForm(const QVariantMap &formData, WebView *view);
 
     void removeEngine(const Engine &engine);
 

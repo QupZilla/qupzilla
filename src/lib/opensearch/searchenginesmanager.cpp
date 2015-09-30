@@ -254,29 +254,15 @@ void SearchEnginesManager::addEngine(const Engine &engine)
     emit enginesChanged();
 }
 
-void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView* view)
+void SearchEnginesManager::addEngineFromForm(const QVariantMap &formData, WebView *view)
 {
-    Q_UNUSED(element)
-    Q_UNUSED(view)
-#if QTWEBENGINE_DISABLED
-    QWebElement formElement = element.parent();
-
-    while (!formElement.isNull()) {
-        if (formElement.tagName().toLower() == QLatin1String("form")) {
-            break;
-        }
-
-        formElement = formElement.parent();
-    }
-
-    if (formElement.isNull()) {
+    if (formData.isEmpty())
         return;
-    }
 
-    const QString method = formElement.hasAttribute("method") ? formElement.attribute("method").toUpper() : "GET";
-    bool isPost = method == QLatin1String("POST");
+    const QString method = formData.value(QSL("method")).toString();
+    bool isPost = method == QL1S("post");
 
-    QUrl actionUrl = QUrl::fromEncoded(formElement.attribute("action").toUtf8());
+    QUrl actionUrl = formData.value(QSL("action")).toUrl();
 
     if (actionUrl.isRelative()) {
         actionUrl = view->url().resolved(actionUrl);
@@ -288,16 +274,24 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
         parameterUrl = QUrl("http://foo.bar");
     }
 
+    const QString &inputName = formData.value(QSL("inputName")).toString();
+
     QUrlQuery query(parameterUrl);
-    query.addQueryItem(element.attribute("name"), "%s");
+    query.addQueryItem(inputName, QSL("SEARCH"));
 
-    QWebElementCollection allInputs = formElement.findAll("input");
-    foreach (QWebElement e, allInputs) {
-        if (element == e || !e.hasAttribute("name")) {
+    const QVariantList &inputs = formData.value(QSL("inputs")).toList();
+    foreach (const QVariant &pair, inputs) {
+        const QVariantList &list = pair.toList();
+        if (list.size() != 2)
             continue;
-        }
 
-        query.addQueryItem(e.attribute("name"), e.evaluateJavaScript("this.value").toString());
+        const QString &name = list.at(0).toString();
+        const QString &value = list.at(1).toString();
+
+        if (name == inputName || name.isEmpty() || value.isEmpty())
+            continue;
+
+        query.addQueryItem(name, value);
     }
 
     parameterUrl.setQuery(query);
@@ -314,6 +308,9 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     if (isPost) {
         QByteArray data = parameterUrl.toEncoded(QUrl::RemoveScheme);
         engine.postData = data.contains('?') ? data.mid(data.lastIndexOf('?') + 1) : QByteArray();
+        engine.postData.replace((inputName + QL1S("=SEARCH")).toUtf8(), (inputName + QL1S("=%s")).toUtf8());
+    } else {
+        engine.url.replace(inputName + QL1S("=SEARCH"), inputName + QL1S("=%s"));
     }
 
     EditSearchEngine dialog(SearchEnginesDialog::tr("Add Search Engine"), view);
@@ -337,7 +334,6 @@ void SearchEnginesManager::addEngineFromForm(const QWebElement &element, WebView
     }
 
     addEngine(engine);
-#endif
 }
 
 void SearchEnginesManager::addEngine(OpenSearchEngine* engine)

@@ -154,9 +154,10 @@ protected:
     void createImageContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
     void createSelectedTextContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
 
-#if QTWEBENGINE_DISABLED
-    void checkForForm(QMenu* menu, const QWebElement &element);
+    void checkForForm(QAction *action, const QPoint &pos);
     void createSearchEngine();
+
+#if QTWEBENGINE_DISABLED
     void createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest);
 #endif
 
@@ -183,6 +184,7 @@ private:
     bool m_firstLoad;
 
     QObject *m_rwhvqt;
+    QVariantMap m_formData;
 
     static bool s_forceContextMenuOnMouseRelease;
 };

@@ -247,3 +247,35 @@ QString Scripts::getAllMetaAttributes()
 
     return source;
 }
+
+QString Scripts::getFormData(const QPoint &pos)
+{
+    QString source = QL1S("(function() {"
+                          "var e = document.elementFromPoint(%1, %2);"
+                          "if (!e || e.tagName != 'INPUT')"
+                          "    return;"
+                          "var fe = e.parentElement;"
+                          "while (fe) {"
+                          "    if (fe.tagName == 'FORM')"
+                          "        break;"
+                          "    fe = fe.parentElement;"
+                          "}"
+                          "if (!fe)"
+                          "    return;"
+                          "var res = {"
+                          "    method: fe.method.toLowerCase(),"
+                          "    action: fe.action,"
+                          "    inputName: e.name,"
+                          "    inputs: [],"
+                          "};"
+                          "for (var i = 0; i < fe.length; ++i) {"
+                          "    var input = fe.elements[i];"
+                          "    res.inputs.push([input.name, input.value]);"
+                          "}"
+                          "console.log(res);"
+                          "return res;"
+                          "})()");
+
+    return source.arg(QString::number(pos.x()), QString::number(pos.y()));
+
+}

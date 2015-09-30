@@ -694,9 +694,9 @@ void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
         }
 
         if (hitTest.tagName() == QL1S("input")) {
-#if QTWEBENGINE_DISABLED
-            checkForForm(menu, hitTest.element());
-#endif
+            QAction *act = menu->addAction(QString());
+            act->setVisible(false);
+            checkForForm(act, hitTest.pos());
         }
 
 #ifdef USE_HUNSPELL
@@ -886,38 +886,34 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
     menu->addMenu(swMenu);
 }
 
-#if QTWEBENGINE_DISABLED
-void WebView::checkForForm(QMenu* menu, const QWebElement &element)
+void WebView::checkForForm(QAction *action, const QPoint &pos)
 {
-    QWebElement parentElement = element.parent();
+    m_formData.clear();
+    QPointer<QAction> act = action;
 
-    while (!parentElement.isNull()) {
-        if (parentElement.tagName().toLower() == QLatin1String("form")) {
-            break;
+    page()->runJavaScript(Scripts::getFormData(pos), [this, act](const QVariant &res) {
+        m_formData = res.toMap();
+        if (!act || m_formData.isEmpty())
+            return;
+
+        const QUrl url = m_formData.value(QSL("action")).toUrl();
+        const QString method = m_formData.value(QSL("method")).toString();
+
+        if (!url.isEmpty() && (method == QL1S("get") || method == QL1S("post"))) {
+            act->setVisible(true);
+            act->setIcon(QIcon(QSL(":icons/menu/search-icon.png")));
+            act->setText(tr("Create Search Engine"));
+            connect(act, &QAction::triggered, this, &WebView::createSearchEngine);
         }
-
-        parentElement = parentElement.parent();
-    }
-
-    if (parentElement.isNull()) {
-        return;
-    }
-
-    const QString url = parentElement.attribute("action");
-    const QString method = parentElement.hasAttribute("method") ? parentElement.attribute("method").toUpper() : "GET";
-
-    if (!url.isEmpty() && (method == QLatin1String("GET") || method == QLatin1String("POST"))) {
-        menu->addAction(QIcon(":icons/menu/search-icon.png"), tr("Create Search Engine"), this, SLOT(createSearchEngine()));
-
-        m_clickedElement = element;
-    }
+    });
 }
 
 void WebView::createSearchEngine()
 {
-    mApp->searchEnginesManager()->addEngineFromForm(m_clickedElement, this);
+    mApp->searchEnginesManager()->addEngineFromForm(m_formData, this);
 }
 
+#if QTWEBENGINE_DISABLED
 void WebView::createMediaContextMenu(QMenu* menu, const QWebHitTestResult &hitTest)
 {
     m_clickedElement = hitTest.element();
