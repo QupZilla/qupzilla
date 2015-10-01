@@ -194,7 +194,7 @@ LoadRequest LocationBar::createLoadRequest() const
     }
 
     if (req.isEmpty()) {
-        const QUrl guessedUrl = WebView::guessUrlFromString(text());
+        const QUrl guessedUrl = QUrl::fromUserInput(text());
         if (!guessedUrl.isEmpty())
             req.setUrl(guessedUrl);
         else

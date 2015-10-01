@@ -407,7 +407,7 @@ int TabWidget::addView(WebTab* tab)
 void TabWidget::addTabFromClipboard()
 {
     QString selectionClipboard = QApplication::clipboard()->text(QClipboard::Selection);
-    QUrl guessedUrl = WebView::guessUrlFromString(selectionClipboard);
+    QUrl guessedUrl = QUrl::fromUserInput(selectionClipboard);
 
     if (!guessedUrl.isEmpty()) {
         addView(guessedUrl, Qz::NT_SelectedNewEmptyTab);

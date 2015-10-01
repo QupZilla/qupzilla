@@ -66,7 +66,6 @@ public:
     virtual QWidget* overlayWidget() = 0;
 
     static bool isUrlValid(const QUrl &url);
-    static QUrl guessUrlFromString(const QString &string);
     static QList<int> zoomLevels();
 
     // Force context menu event to be sent on mouse release

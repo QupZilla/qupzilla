@@ -828,7 +828,7 @@ void Preferences::saveSettings()
 {
     Settings settings;
     //GENERAL URLs
-    QUrl homepage = QUrl::fromEncoded(ui->homepage->text().toUtf8());
+    QUrl homepage = QUrl::fromUserInput(ui->homepage->text());
 
     settings.beginGroup("Web-URL-Settings");
     settings.setValue("homepage", homepage);
@@ -848,7 +848,7 @@ void Preferences::saveSettings()
         break;
 
     case 3:
-        settings.setValue("newTabUrl", QUrl::fromEncoded(ui->newTabUrl->text().toUtf8()));
+        settings.setValue("newTabUrl", QUrl::fromUserInput(ui->newTabUrl->text()));
         break;
 
     default:
