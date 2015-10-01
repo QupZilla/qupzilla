@@ -1282,6 +1282,8 @@ void WebView::wheelEvent(QWheelEvent* event)
 
 void WebView::mousePressEvent(QMouseEvent* event)
 {
+    m_clickedUrl = QUrl();
+
     if (mApp->plugins()->processMousePress(Qz::ON_WebView, this, event)) {
         return;
     }
