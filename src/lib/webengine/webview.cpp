@@ -990,6 +990,9 @@ void WebView::_wheelEvent(QWheelEvent *event)
 
 void WebView::_mousePressEvent(QMouseEvent *event)
 {
+    m_clickedUrl = QUrl();
+    m_clickedPos = QPoint();
+
     if (mApp->plugins()->processMousePress(Qz::ON_WebView, this, event)) {
         event->accept();
         return;
