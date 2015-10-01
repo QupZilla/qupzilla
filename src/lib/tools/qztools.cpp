@@ -223,22 +223,23 @@ QString QzTools::ensureUniqueFilename(const QString &name, const QString &append
         return name;
     }
 
-    QString tmpFileName = name;
+    QString tmpPath = name;
     int i = 1;
-    while (QFile::exists(tmpFileName)) {
-        tmpFileName = name;
-        int index = tmpFileName.lastIndexOf(QLatin1Char('.'));
+    while (QFile::exists(tmpPath)) {
+        tmpPath = name;
+        int fileNameIndex = tmpPath.lastIndexOf(QL1C('/'));
+        int index = tmpPath.lastIndexOf(QL1C('.'), fileNameIndex);
 
         QString appendString = appendFormat.arg(i);
         if (index == -1) {
-            tmpFileName.append(appendString);
+            tmpPath.append(appendString);
         }
         else {
-            tmpFileName = tmpFileName.left(index) + appendString + tmpFileName.mid(index);
+            tmpPath = tmpPath.left(index) + appendString + tmpPath.mid(index);
         }
         i++;
     }
-    return tmpFileName;
+    return tmpPath;
 }
 
 QString QzTools::getFileNameFromUrl(const QUrl &url)
