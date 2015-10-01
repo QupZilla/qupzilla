@@ -862,7 +862,7 @@ void MainApplication::loadSettings()
 
     loadTheme(activeTheme);
 
-    QWebEngineSettings* webSettings = QWebEngineSettings::globalSettings();
+    QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
 
     // Web browsing settings
     settings.beginGroup("Web-Browser-Settings");

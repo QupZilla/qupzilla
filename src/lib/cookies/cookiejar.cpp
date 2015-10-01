@@ -59,15 +59,15 @@ void CookieJar::loadSettings()
 #if QTWEBENGINE_DISABLED
     switch (m_allowThirdParty) {
     case 0:
-        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
+        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
         break;
 
     case 1:
-        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysBlockThirdPartyCookies);
+        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysBlockThirdPartyCookies);
         break;
 
     case 2:
-        QWebSettings::globalSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
+        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
         break;
     }
 #endif

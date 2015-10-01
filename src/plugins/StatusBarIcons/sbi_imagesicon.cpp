@@ -39,7 +39,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPat
     m_loadingImages = settings.value("LoadImages", true).toBool();
     settings.endGroup();
 
-    QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
+    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
 
     updateIcon();
 
@@ -96,7 +96,7 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // Switch it in websettings
     m_loadingImages = enable;
-    QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
+    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
     updateIcon();
 
     // We should reload page on disabling images

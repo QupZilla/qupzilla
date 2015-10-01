@@ -349,7 +349,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     //FONTS
     settings.beginGroup("Browser-Fonts");
-    QWebEngineSettings* webSettings = QWebEngineSettings::globalSettings();
+    QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
     ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString()));
     ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", webSettings->fontFamily(QWebEngineSettings::CursiveFont)).toString()));
     ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", webSettings->fontFamily(QWebEngineSettings::FantasyFont)).toString()));

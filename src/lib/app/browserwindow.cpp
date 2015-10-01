@@ -417,7 +417,7 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
     });
 
     QMenu* subMenu = new QMenu(name, menu);
-    const QString activeCodecName = QWebEngineSettings::globalSettings()->defaultTextEncoding();
+    const QString activeCodecName = QWebEngineSettings::defaultSettings()->defaultTextEncoding();
 
     foreach (const QString &codecName, codecNames) {
         subMenu->addAction(createEncodingAction(codecName, activeCodecName, subMenu));
@@ -605,7 +605,7 @@ void BrowserWindow::changeEncoding()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         const QString encoding = action->data().toString();
-        QWebEngineSettings::globalSettings()->setDefaultTextEncoding(encoding);
+        QWebEngineSettings::defaultSettings()->setDefaultTextEncoding(encoding);
 
         Settings settings;
         settings.setValue("Web-Browser-Settings/DefaultEncoding", encoding);
@@ -915,7 +915,7 @@ void BrowserWindow::createSidebarsMenu(QMenu* menu)
 
 void BrowserWindow::createEncodingMenu(QMenu* menu)
 {
-    const QString activeCodecName = QWebEngineSettings::globalSettings()->defaultTextEncoding();
+    const QString activeCodecName = QWebEngineSettings::defaultSettings()->defaultTextEncoding();
 
     QStringList isoCodecs;
     QStringList utfCodecs;
