@@ -49,7 +49,6 @@ public:
 
     QWidget* overlayWidget() Q_DECL_OVERRIDE;
     void closeView() Q_DECL_OVERRIDE;
-    void openNewTab(Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
 
 signals:

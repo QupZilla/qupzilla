@@ -105,7 +105,6 @@ public slots:
     void openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position);
 
     virtual void closeView() = 0;
-    virtual void openNewTab(Qz::NewTabPositionFlags position) { Q_UNUSED(position) }
     virtual void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) = 0;
 
 protected slots:
