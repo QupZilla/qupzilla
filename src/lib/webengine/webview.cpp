@@ -1013,11 +1013,7 @@ void WebView::_mousePressEvent(QMouseEvent *event)
         break;
 
     case Qt::LeftButton: {
-        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
-        if (event->modifiers() & Qt::ControlModifier && isUrlValid(link)) {
-            userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
-            event->accept();
-        }
+        m_clickedUrl = page()->hitTestContent(event->pos()).linkUrl();
         break;
     }
 
@@ -1039,6 +1035,21 @@ void WebView::_mouseReleaseEvent(QMouseEvent *event)
         if (m_clickedUrl == link && isUrlValid(link)) {
             userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
             event->accept();
+        }
+        break;
+    }
+
+    case Qt::LeftButton: {
+        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
+        if (m_clickedUrl == link && isUrlValid(link)) {
+            if (event->modifiers() & Qt::ControlModifier) {
+                userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
+                event->accept();
+            }
+            else if (event->modifiers() & Qt::ShiftModifier) {
+                mApp->createWindow(Qz::BW_NewWindow, link);
+                event->accept();
+            }
         }
         break;
     }
