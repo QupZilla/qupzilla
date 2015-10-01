@@ -173,11 +173,13 @@ LoadRequest LocationBar::createLoadRequest() const
 {
     LoadRequest req;
 
+    const QString &t = text().trimmed();
+
     // Check for Search Engine shortcut
-    int firstSpacePos = text().indexOf(QLatin1Char(' '));
+    int firstSpacePos = t.indexOf(QLatin1Char(' '));
     if (firstSpacePos != -1) {
-        const QString shortcut = text().left(firstSpacePos);
-        const QString searchedString = text().mid(firstSpacePos).trimmed();
+        const QString shortcut = t.left(firstSpacePos);
+        const QString searchedString = t.mid(firstSpacePos).trimmed();
 
         SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
         if (!en.name.isEmpty()) {
@@ -186,7 +188,7 @@ LoadRequest LocationBar::createLoadRequest() const
     }
 
     // Check for Bookmark keyword
-    QList<BookmarkItem*> items = mApp->bookmarks()->searchKeyword(text());
+    QList<BookmarkItem*> items = mApp->bookmarks()->searchKeyword(t);
     if (!items.isEmpty()) {
         BookmarkItem* item = items.first();
         item->updateVisitCount();
@@ -194,11 +196,18 @@ LoadRequest LocationBar::createLoadRequest() const
     }
 
     if (req.isEmpty()) {
-        const QUrl guessedUrl = QUrl::fromUserInput(text());
-        if (!guessedUrl.isEmpty())
-            req.setUrl(guessedUrl);
-        else
-            req.setUrl(QUrl::fromEncoded(text().toUtf8()));
+        // One word needs special handling, because QUrl::fromUserInput
+        // would convert it to QUrl("http://WORD")
+        if (!t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
+            req.setUrl(QUrl(t));
+        }
+        else {
+            const QUrl &guessed = QUrl::fromUserInput(t);
+            if (!guessed.isEmpty())
+                req.setUrl(guessed);
+            else
+                req.setUrl(QUrl::fromEncoded(t.toUtf8()));
+        }
     }
 
     return req;

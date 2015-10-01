@@ -312,12 +312,6 @@ void WebPage::windowCloseRequested()
     view()->closeView();
 }
 
-void WebPage::doWebSearch(const QString &text)
-{
-    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(text);
-    view()->load(searchRequest);
-}
-
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
 {
     mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);

@@ -109,7 +109,7 @@ public slots:
 protected slots:
     void slotLoadStarted();
     void slotLoadProgress(int progress);
-    void slotLoadFinished();
+    void slotLoadFinished(bool ok);
     void slotIconUrlChanged(const QUrl &url);
 
     // Context menu slots
@@ -178,7 +178,6 @@ private:
     QPoint m_clickedPos;
 
     WebPage* m_page;
-    bool m_actionsInitialized;
     bool m_firstLoad;
 
     QObject *m_rwhvqt;

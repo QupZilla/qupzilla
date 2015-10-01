@@ -83,10 +83,7 @@ protected slots:
 private slots:
     void cleanBlockedObjects();
     void urlChanged(const QUrl &url);
-
     void watchedFileChanged(const QString &file);
-    void doWebSearch(const QString &text);
-
     void windowCloseRequested();
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
 

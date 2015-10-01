@@ -48,6 +48,7 @@
 #include <QNetworkRequest>
 #include <QWebEngineHistory>
 #include <QClipboard>
+#include <QHostInfo>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -59,10 +60,10 @@ WebView::WebView(QWidget* parent)
     , m_firstLoad(false)
     , m_rwhvqt(0)
 {
-    connect(this, SIGNAL(loadStarted()), this, SLOT(slotLoadStarted()));
-    connect(this, SIGNAL(loadProgress(int)), this, SLOT(slotLoadProgress(int)));
-    connect(this, SIGNAL(loadFinished(bool)), this, SLOT(slotLoadFinished()));
-    connect(this, SIGNAL(iconUrlChanged(QUrl)), this, SLOT(slotIconUrlChanged(QUrl)));
+    connect(this, &QWebEngineView::loadStarted, this, &WebView::slotLoadStarted);
+    connect(this, &QWebEngineView::loadProgress, this, &WebView::slotLoadProgress);
+    connect(this, &QWebEngineView::loadFinished, this, &WebView::slotLoadFinished);
+    connect(this, &QWebEngineView::iconUrlChanged, this, &WebView::slotIconUrlChanged);
 
     m_currentZoomLevel = zoomLevels().indexOf(100);
 
@@ -156,6 +157,9 @@ void WebView::load(const LoadRequest &request)
 {
     const QUrl reqUrl = request.url();
 
+    if (reqUrl.isEmpty())
+        return;
+
     if (reqUrl.scheme() == QL1S("javascript")) {
         const QString scriptSource = reqUrl.toString().mid(11);
         // Is the javascript source percent encoded or not?
@@ -167,7 +171,7 @@ void WebView::load(const LoadRequest &request)
         return;
     }
 
-    if (reqUrl.isEmpty() || isUrlValid(reqUrl)) {
+    if (isUrlValid(reqUrl)) {
         loadRequest(request);
         return;
     }
@@ -178,10 +182,14 @@ void WebView::load(const LoadRequest &request)
         !reqUrl.path().contains(QL1C(' ')) &&
         !reqUrl.path().contains(QL1C('.'))
        ) {
-        LoadRequest req = request;
-        req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
-        loadRequest(req);
-        return;
+        // FIXME: This is blocking...
+        QHostInfo info = QHostInfo::fromName(reqUrl.path());
+        if (info.error() != QHostInfo::HostNotFound) {
+            LoadRequest req = request;
+            req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
+            loadRequest(req);
+            return;
+        }
     }
 
     const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
@@ -371,11 +379,12 @@ void WebView::slotLoadProgress(int progress)
     m_progress = progress;
 }
 
-void WebView::slotLoadFinished()
+void WebView::slotLoadFinished(bool ok)
 {
     m_progress = 100;
 
-    mApp->history()->addHistoryEntry(this);
+    if (ok)
+        mApp->history()->addHistoryEntry(this);
 }
 
 void WebView::slotIconUrlChanged(const QUrl &url)
