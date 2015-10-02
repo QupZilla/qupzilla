@@ -1033,7 +1033,7 @@ void WebView::_mouseReleaseEvent(QMouseEvent *event)
     case Qt::RightButton:
         if (s_forceContextMenuOnMouseRelease) {
             QContextMenuEvent ev(QContextMenuEvent::Mouse, event->pos(), event->globalPos(), event->modifiers());
-            QApplication::sendEvent(this, &ev);
+            _contextMenuEvent(&ev);
             event->accept();
         }
         break;
@@ -1116,6 +1116,10 @@ void WebView::resizeEvent(QResizeEvent *event)
 
 void WebView::contextMenuEvent(QContextMenuEvent *event)
 {
+    // Context menu is created in mouseReleaseEvent
+    if (s_forceContextMenuOnMouseRelease)
+        return;
+
     const QPoint pos = event->pos();
     const QContextMenuEvent::Reason reason = event->reason();
 
@@ -1135,14 +1139,6 @@ void WebView::loadRequest(const LoadRequest &req)
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)
 {
-    if (s_forceContextMenuOnMouseRelease && obj == this && event->type() == QEvent::ContextMenu) {
-        QContextMenuEvent* ev = static_cast<QContextMenuEvent*>(event);
-        if (ev->reason() == QContextMenuEvent::Mouse && ev->spontaneous()) {
-            ev->accept();
-            return true;
-        }
-    }
-
     // Hack to find widget that receives input events
     if (obj == this && event->type() == QEvent::ChildAdded) {
         QObject *child = static_cast<QChildEvent*>(event)->child();

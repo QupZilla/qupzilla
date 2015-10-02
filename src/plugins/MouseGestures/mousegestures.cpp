@@ -27,8 +27,7 @@
 #include "QjtMouseGesture.h"
 
 #include <QMouseEvent>
-#include <QWebFrame>
-#include <QWebHistory>
+#include <QWebEngineHistory>
 #include <QSettings>
 
 MouseGestures::MouseGestures(const QString &settingsPath, QObject* parent)
@@ -98,14 +97,6 @@ void MouseGestures::initFilter()
 bool MouseGestures::mousePress(QObject* obj, QMouseEvent* event)
 {
     m_view = qobject_cast<WebView*>(obj);
-
-    QWebFrame* frame = m_view.data()->page()->mainFrame();
-
-    if (frame->scrollBarGeometry(Qt::Vertical).contains(event->pos()) ||
-        frame->scrollBarGeometry(Qt::Horizontal).contains(event->pos())
-       ) {
-        return false;
-    }
 
     if (m_enableRockerNavigation && event->buttons() == (Qt::RightButton | Qt::LeftButton)) {
         bool accepted = false;
@@ -183,11 +174,16 @@ void MouseGestures::upGestured()
 
 void MouseGestures::downGestured()
 {
-    if (!m_view) {
+    TabbedWebView* view = qobject_cast<TabbedWebView*>(m_view.data());
+    if (!view)
         return;
-    }
 
-    m_view.data()->openNewTab(Qz::NT_SelectedNewEmptyTab);
+    BrowserWindow* window = view->browserWindow();
+    if (!window)
+        return;
+
+    TabWidget* tabWidget = window->tabWidget();
+    tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab);
 }
 
 void MouseGestures::leftGestured()
@@ -245,7 +241,7 @@ void MouseGestures::downUpGestured()
     BrowserWindow* window = view->browserWindow();
     if (!window)
         return;
-    
+
     TabWidget* tabWidget = window->tabWidget();
     tabWidget->duplicateTab(tabWidget->currentIndex());
 }

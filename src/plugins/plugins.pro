@@ -44,6 +44,5 @@ isEqual(QT_MAJOR_VERSION, 5): !qtHaveModule(KWallet): disablePlugin(KWalletPassw
 disablePlugin(AccessKeysNavigation)
 disablePlugin(CopyTitle)
 disablePlugin(MailHandle)
-disablePlugin(MouseGestures)
 disablePlugin(PIM)
 disablePlugin(Videoner)
