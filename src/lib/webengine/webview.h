@@ -63,6 +63,7 @@ public:
     void addNotification(QWidget* notif);
     bool eventFilter(QObject *obj, QEvent *event);
 
+    QWidget *inputWidget() const;
     virtual QWidget* overlayWidget() = 0;
 
     static bool isUrlValid(const QUrl &url);

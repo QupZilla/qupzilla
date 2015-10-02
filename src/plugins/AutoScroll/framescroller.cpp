@@ -16,14 +16,14 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "framescroller.h"
+#include "webpage.h"
 
 #include <QTimer>
-#include <QWebFrame>
-#include <QtCore/qmath.h>
+#include <QtMath>
 
 FrameScroller::FrameScroller(QObject* parent)
     : QObject(parent)
-    , m_frame(0)
+    , m_page(0)
     , m_lengthX(0)
     , m_lengthY(0)
     , m_divider(8.0)
@@ -33,9 +33,9 @@ FrameScroller::FrameScroller(QObject* parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(scrollStep()));
 }
 
-void FrameScroller::setFrame(QWebFrame* frame)
+void FrameScroller::setPage(WebPage *page)
 {
-    m_frame = frame;
+    m_page = page;
 }
 
 double FrameScroller::scrollDivider() const
@@ -50,8 +50,6 @@ void FrameScroller::setScrollDivider(double divider)
 
 void FrameScroller::startScrolling(int lengthX, int lengthY)
 {
-    Q_ASSERT(m_frame);
-
     m_lengthX = lengthX;
     m_lengthY = lengthY;
 
@@ -70,5 +68,5 @@ void FrameScroller::stopScrolling()
 
 void FrameScroller::scrollStep()
 {
-    m_frame->scroll(qCeil(m_lengthX / m_divider), qCeil(m_lengthY / m_divider));
+    m_page->scroll(qCeil(m_lengthX / m_divider), qCeil(m_lengthY / m_divider));
 }

@@ -19,10 +19,10 @@
 #include "framescroller.h"
 #include "webview.h"
 #include "webpage.h"
+#include "webhittestresult.h"
 
 #include <QApplication>
 #include <QMouseEvent>
-#include <QWebFrame>
 #include <QSettings>
 #include <QLabel>
 
@@ -115,6 +115,19 @@ bool AutoScroller::mouseRelease(QObject* obj, QMouseEvent* event)
     return false;
 }
 
+bool AutoScroller::wheel(QObject *obj, QWheelEvent *event)
+{
+    Q_UNUSED(obj)
+    Q_UNUSED(event);
+
+    if (m_indicator->isVisible()) {
+        stopScrolling();
+        return true;
+    }
+
+    return false;
+}
+
 double AutoScroller::scrollDivider() const
 {
     return m_frameScroller->scrollDivider();
@@ -154,20 +167,22 @@ bool AutoScroller::eventFilter(QObject* obj, QEvent* event)
 
 bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
 {
-    QWebFrame* frame = view->page()->frameAt(pos);
-
-    if (!frame) {
-        return false;
-    }
-
-    const QWebHitTestResult res = frame->hitTestContent(pos);
+    const WebHitTestResult res = view->page()->hitTestContent(pos);
 
     if (res.isContentEditable() || !res.linkUrl().isEmpty()) {
         return false;
     }
 
-    bool vertical = frame->scrollBarGeometry(Qt::Vertical).isValid();
-    bool horizontal = frame->scrollBarGeometry(Qt::Horizontal).isValid();
+    QString source = QL1S("var out = {"
+                          " vertical: window.innerWidth > document.documentElement.clientWidth,"
+                          " horizontal: window.innerHeight > document.documentElement.clientHeight"
+                          "};"
+                          "out;");
+
+    const QVariantMap &map = view->page()->execJavaScript(source).toMap();
+
+    bool vertical = map.value(QSL("vertical")).toBool();
+    bool horizontal = map.value(QSL("horizontal")).toBool();
 
     if (!vertical && !horizontal) {
         return false;
@@ -193,9 +208,9 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
     m_indicator->move(p);
     m_indicator->show();
 
-    m_frameScroller->setFrame(frame);
+    m_frameScroller->setPage(view->page());
 
-    m_view->grabMouse();
+    m_view->inputWidget()->grabMouse();
     QApplication::setOverrideCursor(Qt::ArrowCursor);
 
     return true;
@@ -203,7 +218,7 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
 
 void AutoScroller::stopScrolling()
 {
-    m_view->releaseMouse();
+    m_view->inputWidget()->releaseMouse();
     QApplication::restoreOverrideCursor();
 
     m_indicator->hide();

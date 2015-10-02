@@ -131,6 +131,11 @@ WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
     return WebHitTestResult(this, pos);
 }
 
+void WebPage::scroll(int x, int y)
+{
+    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(QString::number(x), QString::number(y)));
+}
+
 void WebPage::scheduleAdjustPage()
 {
     if (view()->isLoading()) {

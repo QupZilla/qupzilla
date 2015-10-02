@@ -36,7 +36,7 @@ PluginSpec AutoScrollPlugin::pluginSpec()
     spec.name = "AutoScroll";
     spec.info = "AutoScroll plugin";
     spec.description = "Provides support for autoscroll with middle mouse button";
-    spec.version = "0.1.5";
+    spec.version = "0.2.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":/autoscroll/data/scroll_all.png");
     spec.hasSettings = true;
@@ -53,6 +53,7 @@ void AutoScrollPlugin::init(InitState state, const QString &settingsPath)
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseReleaseHandler);
+    QZ_REGISTER_EVENT_HANDLER(PluginProxy::WheelEventHandler);
 }
 
 void AutoScrollPlugin::unload()
@@ -105,6 +106,15 @@ bool AutoScrollPlugin::mouseRelease(const Qz::ObjectName &type, QObject* obj, QM
 {
     if (type == Qz::ON_WebView) {
         return m_scroller->mouseRelease(obj, event);
+    }
+
+    return false;
+}
+
+bool AutoScrollPlugin::wheelEvent(const Qz::ObjectName &type, QObject *obj, QWheelEvent *event)
+{
+    if (type == Qz::ON_WebView) {
+        return m_scroller->wheel(obj, event);
     }
 
     return false;

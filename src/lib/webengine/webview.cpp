@@ -243,6 +243,11 @@ bool WebView::onBeforeUnload()
     return true;
 }
 
+QWidget *WebView::inputWidget() const
+{
+    return qobject_cast<QWidget*>(m_rwhvqt);
+}
+
 // static
 bool WebView::isUrlValid(const QUrl &url)
 {

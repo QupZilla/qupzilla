@@ -21,7 +21,8 @@
 #include <QObject>
 
 class QTimer;
-class QWebFrame;
+
+class WebPage;
 
 class FrameScroller : public QObject
 {
@@ -30,7 +31,7 @@ class FrameScroller : public QObject
 public:
     explicit FrameScroller(QObject* parent = 0);
 
-    void setFrame(QWebFrame* frame);
+    void setPage(WebPage *page);
 
     double scrollDivider() const;
     void setScrollDivider(double divider);
@@ -42,7 +43,7 @@ private slots:
     void scrollStep();
 
 private:
-    QWebFrame* m_frame;
+    WebPage *m_page;
     QTimer* m_timer;
 
     int m_lengthX;

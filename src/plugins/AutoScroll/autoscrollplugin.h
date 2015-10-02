@@ -46,6 +46,7 @@ public:
     bool mouseMove(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
     bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
     bool mouseRelease(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event);
+    bool wheelEvent(const Qz::ObjectName &type, QObject *obj, QWheelEvent *event);
 
 private:
     AutoScroller* m_scroller;

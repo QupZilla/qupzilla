@@ -22,6 +22,7 @@
 #include <QPoint>
 
 class QMouseEvent;
+class QWheelEvent;
 class QLabel;
 class QRect;
 
@@ -38,6 +39,7 @@ public:
     bool mouseMove(QObject* obj, QMouseEvent* event);
     bool mousePress(QObject* obj, QMouseEvent* event);
     bool mouseRelease(QObject* obj, QMouseEvent* event);
+    bool wheel(QObject* obj, QWheelEvent *event);
 
     double scrollDivider() const;
     void setScrollDivider(double divider);
