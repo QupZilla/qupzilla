@@ -42,6 +42,9 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
+    if (view->url().scheme() == QL1S("qupzilla"))
+        return;
+
     BufferedIcon item;
     item.first = view->url();
     item.second = view->icon().pixmap(16, 16).toImage();
