@@ -26,8 +26,8 @@ defineTest(disablePlugin) {
 
 addSubdir($$PWD)
 
-#outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
-#!equals(outOfDirPlugins, ""): addSubdir($$(QUPZILLA_PLUGINS_SRCDIR))
+outOfDirPlugins = $$(QUPZILLA_PLUGINS_SRCDIR)
+!equals(outOfDirPlugins, ""): addSubdir($$(QUPZILLA_PLUGINS_SRCDIR))
 
 # TestPlugin only in debug build
 !CONFIG(debug, debug|release): disablePlugin(TestPlugin)
@@ -42,6 +42,3 @@ isEqual(QT_MAJOR_VERSION, 5): !qtHaveModule(KWallet): disablePlugin(KWalletPassw
 
 # QtWebEngine disable
 disablePlugin(AccessKeysNavigation)
-disablePlugin(CopyTitle)
-disablePlugin(MailHandle)
-disablePlugin(Videoner)
