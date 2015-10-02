@@ -993,10 +993,9 @@ void WebView::_mousePressEvent(QMouseEvent *event)
             event->accept();
         break;
 
-    case Qt::LeftButton: {
+    case Qt::LeftButton:
         m_clickedUrl = page()->hitTestContent(event->pos()).linkUrl();
         break;
-    }
 
     default:
         break;
@@ -1011,29 +1010,31 @@ void WebView::_mouseReleaseEvent(QMouseEvent *event)
     }
 
     switch (event->button()) {
-    case Qt::MiddleButton: {
-        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
-        if (m_clickedUrl == link && isUrlValid(link)) {
-            userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
-            event->accept();
-        }
-        break;
-    }
-
-    case Qt::LeftButton: {
-        const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
-        if (m_clickedUrl == link && isUrlValid(link)) {
-            if (event->modifiers() & Qt::ControlModifier) {
+    case Qt::MiddleButton:
+        if (!m_clickedUrl.isEmpty()) {
+            const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
+            if (m_clickedUrl == link && isUrlValid(link)) {
                 userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                 event->accept();
             }
-            else if (event->modifiers() & Qt::ShiftModifier) {
-                mApp->createWindow(Qz::BW_NewWindow, link);
-                event->accept();
+        }
+        break;
+
+    case Qt::LeftButton:
+        if (!m_clickedUrl.isEmpty()) {
+            const QUrl link = page()->hitTestContent(event->pos()).linkUrl();
+            if (m_clickedUrl == link && isUrlValid(link)) {
+                if (event->modifiers() & Qt::ControlModifier) {
+                    userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
+                    event->accept();
+                }
+                else if (event->modifiers() & Qt::ShiftModifier) {
+                    mApp->createWindow(Qz::BW_NewWindow, link);
+                    event->accept();
+                }
             }
         }
         break;
-    }
 
     case Qt::RightButton:
         if (s_forceContextMenuOnMouseRelease) {
