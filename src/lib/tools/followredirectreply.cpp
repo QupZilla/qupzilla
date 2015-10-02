@@ -19,8 +19,8 @@
 
 #include <QNetworkAccessManager>
 
-FollowRedirectReply::FollowRedirectReply(const QUrl &url, QNetworkAccessManager* manager)
-    : QObject()
+FollowRedirectReply::FollowRedirectReply(const QUrl &url, QNetworkAccessManager* manager, QObject *parent)
+    : QObject(parent)
     , m_manager(manager)
     , m_redirectCount(0)
 {

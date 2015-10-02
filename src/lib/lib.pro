@@ -226,16 +226,17 @@ SOURCES += \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
+    webengine/iconloader.cpp \
     webengine/javascript/autofilljsobject.cpp \
     webengine/javascript/externaljsobject.cpp \
     webengine/loadrequest.cpp \
+    webengine/webhittestresult.cpp \
     webengine/webinspector.cpp \
     webengine/webpage.cpp \
     webengine/webview.cpp \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
-    webengine/webhittestresult.cpp
 
 HEADERS  += \
     3rdparty/ecwin7.h \
@@ -424,16 +425,17 @@ HEADERS  += \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
+    webengine/iconloader.h \
     webengine/javascript/autofilljsobject.h \
     webengine/javascript/externaljsobject.h \
     webengine/loadrequest.h \
+    webengine/webhittestresult.cpp \
     webengine/webinspector.h \
     webengine/webpage.h \
     webengine/webview.h \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
-    webengine/webhittestresult.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \

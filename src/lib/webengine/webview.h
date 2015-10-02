@@ -170,7 +170,6 @@ private:
     int m_currentZoomLevel;
 
     QIcon m_siteIcon;
-    QUrl m_siteIconUrl;
     IconLoader* m_siteIconLoader;
 
     int m_progress;

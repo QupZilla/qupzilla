@@ -35,6 +35,7 @@
 #include "webinspector.h"
 #include "scripts.h"
 #include "webhittestresult.h"
+#include "iconloader.h"
 
 #ifdef USE_HUNSPELL
 #include "qtwebkit/spellcheck/speller.h"
@@ -79,20 +80,16 @@ WebView::~WebView()
 
 QIcon WebView::icon() const
 {
-    if (url().scheme() == QLatin1String("qupzilla")) {
-        return QIcon(":icons/qupzilla.png");
-    }
-
-    if (url().scheme() == QLatin1String("file")) {
-        return IconProvider::standardIcon(QStyle::SP_DriveHDIcon);
+    if (!m_siteIcon.isNull()) {
+        return m_siteIcon;
     }
 
     if (url().scheme() == QLatin1String("ftp")) {
         return IconProvider::standardIcon(QStyle::SP_ComputerIcon);
     }
 
-    if (!m_siteIcon.isNull() && m_siteIconUrl.host() == url().host()) {
-        return m_siteIcon;
+    if (url().scheme() == QLatin1String("file")) {
+        return IconProvider::standardIcon(QStyle::SP_DriveHDIcon);
     }
 
     return IconProvider::iconForUrl(url());
@@ -394,11 +391,6 @@ void WebView::slotLoadFinished(bool ok)
 
 void WebView::slotIconUrlChanged(const QUrl &url)
 {
-    if (m_siteIconUrl == url) {
-        emit iconChanged();
-        return;
-    }
-
     delete m_siteIconLoader;
     m_siteIconLoader = new IconLoader(url, this);
 
@@ -407,7 +399,6 @@ void WebView::slotIconUrlChanged(const QUrl &url)
             return;
 
         m_siteIcon = icon;
-        m_siteIconUrl = url;
         emit iconChanged();
 
         IconProvider::instance()->saveIcon(this);

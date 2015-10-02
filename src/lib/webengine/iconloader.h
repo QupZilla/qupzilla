@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - QtWebEngine based browser
+* Copyright (C) 2015  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,46 +15,33 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-
-#ifndef FOLLOWREDIRECTREPLY_H
-#define FOLLOWREDIRECTREPLY_H
+#ifndef ICONLOADER_H
+#define ICONLOADER_H
 
 #include <QObject>
-#include <QNetworkReply>
 
 #include "qzcommon.h"
 
-class QNetworkAccessManager;
-class QNetworkReply;
-class QUrl;
+class QIcon;
 
-class QUPZILLA_EXPORT FollowRedirectReply : public QObject
+class FollowRedirectReply;
+
+class QUPZILLA_EXPORT IconLoader : public QObject
 {
     Q_OBJECT
+
 public:
-    explicit FollowRedirectReply(const QUrl &url, QNetworkAccessManager* manager, QObject *parent = Q_NULLPTR);
-    ~FollowRedirectReply();
-
-    QNetworkReply* reply() const;
-    QUrl originalUrl() const;
-    QUrl url() const;
-
-    QNetworkReply::NetworkError error() const;
-    QString errorString() const;
-
-    QByteArray readAll();
+    explicit IconLoader(const QUrl &url, QObject* parent = 0);
 
 signals:
-    void finished();
+    void iconLoaded(const QIcon &icon);
+    void error();
 
 private slots:
-    void replyFinished();
+    void finished();
 
 private:
-    QNetworkAccessManager* m_manager;
-    QNetworkReply* m_reply;
-    int m_redirectCount;
-
+    FollowRedirectReply* m_reply;
 };
 
-#endif // FOLLOWREDIRECTREPLY_H
+#endif // ICONLOADER_H
