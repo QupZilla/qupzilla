@@ -15,32 +15,45 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef AUTOSCROLLSETTINGS_H
-#define AUTOSCROLLSETTINGS_H
+#ifndef AUTOSCROLLER_H
+#define AUTOSCROLLER_H
 
-#include <QDialog>
+#include <QObject>
+#include <QPoint>
 
-namespace Ui
-{
-class AutoScrollSettings;
-}
+class QMouseEvent;
+class QLabel;
+class QRect;
 
-class AutoScroller;
+class WebView;
+class FrameScroller;
 
-class AutoScrollSettings : public QDialog
+class AutoScroller : public QObject
 {
     Q_OBJECT
-
 public:
-    explicit AutoScrollSettings(AutoScroller* scroller, QWidget* parent = 0);
-    ~AutoScrollSettings();
+    explicit AutoScroller(const QString &settingsFile, QObject* parent = 0);
+    ~AutoScroller();
 
-private slots:
-    void accepted();
+    bool mouseMove(QObject* obj, QMouseEvent* event);
+    bool mousePress(QObject* obj, QMouseEvent* event);
+    bool mouseRelease(QObject* obj, QMouseEvent* event);
+
+    double scrollDivider() const;
+    void setScrollDivider(double divider);
 
 private:
-    Ui::AutoScrollSettings* ui;
-    AutoScroller* m_scroller;
+    bool eventFilter(QObject* obj, QEvent* event);
+
+    bool showIndicator(WebView* view, const QPoint &pos);
+    void stopScrolling();
+
+    QRect indicatorGlobalRect() const;
+
+    WebView* m_view;
+    QLabel* m_indicator;
+    FrameScroller* m_frameScroller;
+    QString m_settingsFile;
 };
 
-#endif // AUTOSCROLLSETTINGS_H
+#endif // AUTOSCROLLER_H

@@ -20,6 +20,7 @@
 
 #include "plugininterface.h"
 
+class WebPage;
 class GM_Manager;
 
 class GM_Plugin : public QObject, public PluginInterface

@@ -3,9 +3,13 @@ TARGET = $$qtLibraryTarget(AutoScroll)
 os2: TARGET = AutoScrl
 
 SOURCES += autoscrollplugin.cpp \
+    autoscroller.cpp \
+    framescroller.cpp \
     autoscrollsettings.cpp
 
 HEADERS += autoscrollplugin.h \
+    autoscroller.h \
+    framescroller.h \
     autoscrollsettings.h
 
 FORMS += \
