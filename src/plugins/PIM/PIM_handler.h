@@ -20,15 +20,14 @@
 #define PIM_HANDLER_H
 
 #include <QObject>
-#include <QWebElement>
 #include <QMessageBox>
-#include <QWebHitTestResult>
 #include <QMenu>
 #include <QPointer>
 #include <QHash>
 
 class WebView;
 class WebPage;
+class WebHitTestResult;
 
 class PIM_Settings;
 
@@ -38,7 +37,7 @@ class PIM_Handler : public QObject
 public:
     explicit PIM_Handler(const QString &sPath, QObject* parent = 0);
 
-    void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &hitTest);
+    void populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &hitTest);
     bool keyPress(WebView* view, QKeyEvent* event);
 
     void unloadPlugin();
@@ -75,7 +74,7 @@ private:
         PI_Invalid = 128
     };
 
-    PI_Type nameMatch(const QString &name);
+    QString matchingJsTable() const;
 
     QHash<PI_Type, QString> m_allInfo;
     QHash<PI_Type, QStringList> m_infoMatches;
@@ -83,7 +82,7 @@ private:
 
     QPointer<PIM_Settings> m_settings;
     QPointer<WebView> m_view;
-    QWebElement m_element;
+    QPoint m_clickedPos;
 
     QString m_settingsFile;
     bool m_loaded;

@@ -272,7 +272,6 @@ QString Scripts::getFormData(const QPoint &pos)
                           "    var input = fe.elements[i];"
                           "    res.inputs.push([input.name, input.value]);"
                           "}"
-                          "console.log(res);"
                           "return res;"
                           "})()");
 

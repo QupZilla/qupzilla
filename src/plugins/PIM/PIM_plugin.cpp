@@ -38,7 +38,7 @@ PluginSpec PIM_Plugin::pluginSpec()
     spec.name = "PIM";
     spec.info = "Personal Information Manager";
     spec.description = "Adds ability for Qupzilla to store some personal data";
-    spec.version = "0.1.2";
+    spec.version = "0.2.0";
     spec.author = QString::fromUtf8("Mladen Pejaković <pejakm@autistici.org>");
     spec.icon = QPixmap(":/PIM/data/PIM.png");
     spec.hasSettings = true;
@@ -81,7 +81,7 @@ void PIM_Plugin::showSettings(QWidget* parent)
     m_handler->showSettings(parent);
 }
 
-void PIM_Plugin::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r)
+void PIM_Plugin::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &r)
 {
     m_handler->populateWebViewMenu(menu, view, r);
 }

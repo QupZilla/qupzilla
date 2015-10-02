@@ -20,11 +20,10 @@
 #include "PIM_settings.h"
 #include "webview.h"
 #include "webpage.h"
+#include "webhittestresult.h"
 
 #include <QApplication>
 #include <QSettings>
-#include <QWebPage>
-#include <QWebFrame>
 #include <QLabel>
 #include <QToolTip>
 #include <QKeyEvent>
@@ -99,10 +98,10 @@ void PIM_Handler::showSettings(QWidget* parent)
     m_settings.data()->raise();
 }
 
-void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &hitTest)
+void PIM_Handler::populateWebViewMenu(QMenu* menu, WebView* view, const WebHitTestResult &hitTest)
 {
     m_view = view;
-    m_element = hitTest.element();
+    m_clickedPos = hitTest.pos();
 
     if (!hitTest.isContentEditable()) {
         return;
@@ -152,20 +151,23 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
         return false;
     }
 
-    const QWebElement document = view->page()->mainFrame()->documentElement();
-    const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
+    QString source = QL1S("var inputs = document.getElementsByTagName('input');"
+                          "var table = %1;"
+                          "for (var i = 0; i < inputs.length; ++i) {"
+                          "    var input = inputs[i];"
+                          "    if (input.type != 'text' || input.name == '')"
+                          "        continue;"
+                          "    for (var key in table) {"
+                          "        if (!table.hasOwnProperty(key))"
+                          "            continue;"
+                          "        if (key == input.name || input.name.indexOf(key) != -1) {"
+                          "            input.value = table[key];"
+                          "            break;"
+                          "        }"
+                          "    }"
+                          "}");
 
-    foreach (QWebElement element, elements) {
-        const QString name = element.attribute("name");
-        if (name.isEmpty()) {
-            continue;
-        }
-
-        PI_Type match = nameMatch(name);
-        if (match != PI_Invalid) {
-            element.evaluateJavaScript(QString("this.value = \"%1\"").arg(m_allInfo[match]));
-        }
-    }
+    view->page()->runJavaScript(source.arg(matchingJsTable()));
 
     return true;
 }
@@ -182,14 +184,24 @@ void PIM_Handler::webPageCreated(WebPage* page)
 
 void PIM_Handler::pimInsert()
 {
-    QAction* action = qobject_cast<QAction*>(sender());
-    if (m_element.isNull() || !action) {
+    if (!m_view || m_clickedPos.isNull())
         return;
-    }
+
+    QAction* action = qobject_cast<QAction*>(sender());
+    if (!action)
+        return;
 
     QString info = action->data().toString();
     info.replace(QLatin1Char('"'), QLatin1String("\\\""));
-    m_element.evaluateJavaScript(QString("var newVal = this.value.substring(0, this.selectionStart) + \"%1\" + this.value.substring(this.selectionEnd); this.value = newVal;").arg(info));
+
+    QString source = QL1S("var e = document.elementFromPoint(%1, %2);"
+                          "if (e) {"
+                          "    var v = e.value.substring(0, e.selectionStart);"
+                          "    v += \"%3\" + e.value.substring(e.selectionEnd);"
+                          "    e.value = v;"
+                          "}");
+    source = source.arg(QString::number(m_clickedPos.x()), QString::number(m_clickedPos.y()), info);
+    m_view->page()->runJavaScript(source);
 }
 
 void PIM_Handler::pageLoadFinished()
@@ -203,37 +215,42 @@ void PIM_Handler::pageLoadFinished()
         loadSettings();
     }
 
-    const QWebElement document = page->mainFrame()->documentElement();
-    const QWebElementCollection elements = document.findAll("input[type=\"text\"]");
+    QString source = QL1S("var inputs = document.getElementsByTagName('input');"
+                          "var table = %1;"
+                          "for (var i = 0; i < inputs.length; ++i) {"
+                          "    var input = inputs[i];"
+                          "    if (input.type != 'text' || input.name == '')"
+                          "        continue;"
+                          "    for (var key in table) {"
+                          "        if (!table.hasOwnProperty(key) || table[key] == '')"
+                          "            continue;"
+                          "        if (key == input.name || input.name.indexOf(key) != -1) {"
+                          "            input.style['-webkit-appearance'] = 'none';"
+                          "            input.style['-webkit-box-shadow'] = 'inset 0 0 2px 1px #EEE000';"
+                          "            break;"
+                          "        }"
+                          "    }"
+                          "}");
 
-    foreach (QWebElement element, elements) {
-        const QString name = element.attribute("name");
-        if (name.isEmpty()) {
-            continue;
-        }
-
-        PI_Type match = nameMatch(name);
-        if (match != PI_Invalid) {
-            element.setStyleProperty("-webkit-appearance", "none");
-            element.setStyleProperty("-webkit-box-shadow", "inset 0 0 2px 1px #EEE000");
-        }
-    }
+    page->runJavaScript(source.arg(matchingJsTable()));
 }
 
-PIM_Handler::PI_Type PIM_Handler::nameMatch(const QString &name)
+QString PIM_Handler::matchingJsTable() const
 {
-    for (int i = 0; i < PI_Max; ++i) {
-        if (!m_allInfo[PI_Type(i)].isEmpty()) {
-            foreach (const QString &n, m_infoMatches[PI_Type(i)]) {
-                if (name == n) {
-                    return PI_Type(i);
-                }
-                if (name.contains(n)) {
-                    return PI_Type(i);
-                }
-            }
+    QString values;
+
+    QHashIterator<PI_Type, QStringList> i(m_infoMatches);
+    while (i.hasNext()) {
+        i.next();
+        foreach (const QString &value, i.value()) {
+            QString key = m_allInfo.value(i.key());
+            key.replace(QL1C('"'), QL1S("\\\""));
+            values.append(QSL("\"%1\":\"%2\",").arg(value, key));
         }
     }
 
-    return PI_Invalid;
+    if (!values.isEmpty())
+        values = values.left(values.size() - 1);
+
+    return QSL("{ %1 }").arg(values);
 }
