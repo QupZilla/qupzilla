@@ -87,3 +87,15 @@ void WebInspector::updateCloseButton()
                                "    window.close();"
                                "})"));
 }
+
+void WebInspector::keyPressEvent(QKeyEvent *event)
+{
+    Q_UNUSED(event)
+    // Stop propagation
+}
+
+void WebInspector::keyReleaseEvent(QKeyEvent *event)
+{
+    Q_UNUSED(event)
+    // Stop propagation
+}

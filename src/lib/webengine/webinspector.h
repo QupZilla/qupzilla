@@ -44,6 +44,9 @@ private slots:
     void updateCloseButton();
 
 private:
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void keyReleaseEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+
     static QList<QWebEngineView*> s_views;
 };
 
