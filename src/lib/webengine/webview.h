@@ -117,7 +117,9 @@ protected slots:
     void openUrlInNewWindow();
     void sendLinkByMail();
     void copyLinkToClipboard();
-    void downloadUrlToDisk();
+    void downloadLinkToDisk();
+    void downloadImageToDisk();
+    void downloadMediaToDisk();
     void openActionUrl();
     void showSiteInfo();
     void searchSelectedText();
