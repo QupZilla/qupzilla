@@ -88,7 +88,6 @@ public:
     // Name of current Qt style
     QString styleName() const;
 
-    // TODO: Move translating into own class (LocaleManager ?)
     QString currentLanguageFile() const;
     QString currentLanguage() const;
 
