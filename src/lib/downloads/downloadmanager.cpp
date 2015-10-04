@@ -90,7 +90,7 @@ void DownloadManager::loadSettings()
 
 void DownloadManager::show()
 {
-    m_timer.start(1000 * 2, this);
+    m_timer.start(500, this);
 
     QWidget::show();
     raise();
