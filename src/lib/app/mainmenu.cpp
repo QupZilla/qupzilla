@@ -29,7 +29,6 @@
 #include "adblockmanager.h"
 #include "downloadmanager.h"
 #include "mainapplication.h"
-#include "browsinglibrary.h"
 #include "clearprivatedata.h"
 #include "qzsettings.h"
 

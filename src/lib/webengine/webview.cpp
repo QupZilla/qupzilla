@@ -1054,9 +1054,7 @@ void WebView::_keyPressEvent(QKeyEvent *event)
         return;
     }
 
-    int eventKey = event->key();
-
-    switch (eventKey) {
+    switch (event->key()) {
     case Qt::Key_ZoomIn:
         zoomIn();
         event->accept();
@@ -1177,6 +1175,22 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
             event->setAccepted(false);
             _wheelEvent(static_cast<QWheelEvent*>(event));
             return event->isAccepted();
+
+        default:
+            break;
+        }
+    }
+
+    // Block already handled events
+    if (obj == this) {
+        switch (event->type()) {
+        case QEvent::KeyPress:
+        case QEvent::KeyRelease:
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonRelease:
+        case QEvent::MouseMove:
+        case QEvent::Wheel:
+            return true;
 
         default:
             break;
