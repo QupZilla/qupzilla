@@ -210,13 +210,15 @@ MainApplication::MainApplication(int &argc, char** argv)
             appId.append(QLatin1String("Portable"));
         }
 
-        // TODO: This should generate some random string for appId
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
                 std::cout << "New instance cannot be started with default profile!" << std::endl;
             }
             else {
-                appId.append(startProfile);
+                // Generate unique appId so it is possible to start more separate instances
+                // of the same profile. It is dangerous to run more instances of the same profile,
+                // but if the user wants it, we should allow it.
+                appId.append(startProfile + QString::number(QDateTime::currentMSecsSinceEpoch()));
             }
         }
 
