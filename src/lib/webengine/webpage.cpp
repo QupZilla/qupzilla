@@ -36,7 +36,6 @@
 #include "delayedfilewatcher.h"
 #include "searchenginesmanager.h"
 #include "html5permissions/html5permissionsmanager.h"
-#include "schemehandlers/fileschemehandler.h"
 #include "javascript/externaljsobject.h"
 #include "tabwidget.h"
 #include "scripts.h"

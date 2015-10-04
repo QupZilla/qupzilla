@@ -42,7 +42,7 @@ class QUPZILLA_EXPORT DownloadItem : public QWidget
     Q_OBJECT
 
 public:
-    explicit DownloadItem(QListWidgetItem* item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, DownloadManager* manager);
+    explicit DownloadItem(QListWidgetItem* item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, bool openFile, DownloadManager* manager);
     bool isDownloading() { return m_downloading; }
     bool isCancelled();
     QTime remainingTime() { return m_remTime; }
@@ -86,6 +86,7 @@ private:
     QTime m_remTime;
     QBasicTimer m_timer;
     QUrl m_downUrl;
+    bool m_openFile;
     bool m_validIcon;
 
     bool m_downloading;

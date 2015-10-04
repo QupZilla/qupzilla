@@ -20,7 +20,7 @@
 
 #include <QClipboard>
 
-DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent)
+DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QUrl &url, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
     , m_url(url)
@@ -29,8 +29,6 @@ DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QPix
     ui->setupUi(this);
 
     ui->fileName->setText("<b>" + fileName + "</b>");
-    ui->fileIcon->setPixmap(fileIcon);
-    ui->fileType->setText(mimeType);
     ui->fromServer->setText(url.host());
     setWindowTitle(tr("Opening %1").arg(fileName));
 

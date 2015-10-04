@@ -34,7 +34,7 @@ class QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DownloadOptionsDialog(const QString &fileName, const QPixmap &fileIcon, const QString &mimeType, const QUrl &url, QWidget* parent = 0);
+    explicit DownloadOptionsDialog(const QString &fileName, const QUrl &url, QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
     void showExternalManagerOption(bool show);

@@ -105,7 +105,6 @@ SOURCES += \
     bookmarks/bookmarkswidget.cpp \
     cookies/cookiejar.cpp \
     cookies/cookiemanager.cpp \
-    #downloads/downloadfilehelper.cpp \
     downloads/downloaditem.cpp \
     downloads/downloadmanager.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -135,7 +134,7 @@ SOURCES += \
     network/pac/pacmanager.cpp \
     network/pac/proxyautoconfig.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
-    network/schemehandlers/fileschemehandler.cpp \
+    #network/schemehandlers/fileschemehandler.cpp \
     #network/schemehandlers/ftpschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
@@ -300,7 +299,6 @@ HEADERS  += \
     bookmarks/bookmarkswidget.h \
     cookies/cookiejar.h \
     cookies/cookiemanager.h \
-    #downloads/downloadfilehelper.h \
     downloads/downloaditem.h \
     downloads/downloadmanager.h \
     downloads/downloadoptionsdialog.h \
@@ -331,7 +329,7 @@ HEADERS  += \
     network/pac/pacmanager.h \
     network/pac/proxyautoconfig.h \
     network/schemehandlers/adblockschemehandler.h \
-    network/schemehandlers/fileschemehandler.h \
+    #network/schemehandlers/fileschemehandler.h \
     #network/schemehandlers/ftpschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/schemehandler.h \

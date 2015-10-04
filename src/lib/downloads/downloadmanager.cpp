@@ -28,8 +28,8 @@
 #include "qztools.h"
 #include "webpage.h"
 #include "webview.h"
-#include "downloadfilehelper.h"
 #include "settings.h"
+#include "datapaths.h"
 
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -89,10 +89,6 @@ void DownloadManager::loadSettings()
 
     if (!m_externalArguments.contains(QLatin1String("%d"))) {
         m_externalArguments.append(QLatin1String(" %d"));
-    }
-
-    if (m_downloadPath.isEmpty()) {
-        m_downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
     }
 }
 
@@ -216,21 +212,53 @@ void DownloadManager::clearList()
 
 void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 {
-    if (m_useExternalManager) {
-        startExternalManager(downloadItem->url());
+    QString downloadPath;
+    bool openFile = false;
+
+    QString fileName = QFileInfo(downloadItem->path()).fileName();
+
+    if (m_downloadPath.isEmpty()) {
+        // Ask what to do
+        DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
+        optionsDialog.showExternalManagerOption(m_useExternalManager);
+        optionsDialog.setLastDownloadOption(m_lastDownloadOption);
+
+        switch (optionsDialog.exec()) {
+        case 1: // Open
+            openFile = true;
+            downloadPath = QzTools::ensureUniqueFilename(DataPaths::path(DataPaths::Temp) + QLatin1Char('/') + fileName);
+            m_lastDownloadOption = OpenFile;
+            break;
+
+        case 2: // Save
+            downloadPath = QFileDialog::getSaveFileName(mApp->activeWindow(), tr("Save file as..."), m_lastDownloadPath + fileName);
+            m_lastDownloadOption = SaveFile;
+            break;
+
+        case 3: // External manager
+            startExternalManager(downloadItem->url());
+            // fallthrough
+
+        default:
+            downloadItem->cancel();
+            return;
+        }
+    } else {
+        downloadPath = QzTools::ensureUniqueFilename(m_downloadPath + QL1C('/') + fileName);
+    }
+
+    if (downloadPath.isEmpty()) {
         downloadItem->cancel();
         return;
     }
 
-    QString fileName = QFileInfo(downloadItem->path()).fileName();
-
     // Set download path and accept
-    downloadItem->setPath(QzTools::ensureUniqueFilename(QSL("%1/%2").arg(m_downloadPath, fileName)));
+    downloadItem->setPath(downloadPath);
     downloadItem->accept();
 
     // Create download item
     QListWidgetItem* listItem = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(listItem, downloadItem, m_downloadPath, fileName, this);
+    DownloadItem* downItem = new DownloadItem(listItem, downloadItem, QFileInfo(downloadPath).absolutePath(), fileName, openFile, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
     ui->list->setItemWidget(listItem, downItem);

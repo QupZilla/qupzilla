@@ -43,7 +43,7 @@
 
 //#define DOWNMANAGER_DEBUG
 
-DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, DownloadManager* manager)
+DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downloadItem, const QString &path, const QString &fileName, bool openFile, DownloadManager* manager)
     : QWidget()
     , ui(new Ui::DownloadItem)
     , m_item(item)
@@ -51,6 +51,7 @@ DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downlo
     , m_path(path)
     , m_fileName(fileName)
     , m_downUrl(downloadItem->url())
+    , m_openFile(openFile)
     , m_validIcon(false)
     , m_downloading(false)
     , m_downloadStopped(false)
@@ -122,10 +123,12 @@ void DownloadItem::finished()
     qDebug() << __FUNCTION__ << m_reply;
 #endif
 
+    bool success = false;
     QString host = m_download->url().host();
 
     switch (m_download->state()) {
     case QWebEngineDownloadItem::DownloadCompleted:
+        success = true;
         ui->downloadInfo->setText(tr("Done - %1 (%2)").arg(host, QDateTime::currentDateTime().toString(Qt::DefaultLocaleShortDate)));
         break;
 
@@ -147,6 +150,9 @@ void DownloadItem::finished()
 
     m_item->setSizeHint(sizeHint());
     m_downloading = false;
+
+    if (success && m_openFile)
+        openFile();
 
     emit downloadFinished(true);
 }
