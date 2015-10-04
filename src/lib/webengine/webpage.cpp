@@ -592,8 +592,11 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
 
     switch (type) {
     case QWebEnginePage::WebBrowserWindow:
-        // TODO: Investigate when this is called from html
-        qDebug() << "WebBrowserWindow";
+        // WebBrowserWindow is only called after Shift+LeftClick on link, but we handle
+        // this case ourselves, so it should never be called.
+        qWarning() << "Asked to created WebBrowserWindow!";
+        Q_UNREACHABLE();
+
     case QWebEnginePage::WebBrowserTab: {
         int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
         TabbedWebView* view = window->weView(index);
