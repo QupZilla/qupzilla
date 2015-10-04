@@ -330,22 +330,6 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
         return false;
 
     return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
-
-#if QTWEBENGINE_DISABLED
-    if (type == QWebEnginePage::NavigationTypeFormResubmitted) {
-        // Don't show this dialog if app is still starting
-        if (!view() || !view()->isVisible()) {
-            return false;
-        }
-        QString message = tr("To display this page, QupZilla must resend the request \n"
-                             "(such as a search or order confirmation) that was performed earlier.");
-        bool result = (QMessageBox::question(view(), tr("Confirm form resubmission"),
-                                             message, QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes);
-        if (!result) {
-            return false;
-        }
-    }
-#endif
 }
 
 bool WebPage::certificateError(const QWebEngineCertificateError &error)
