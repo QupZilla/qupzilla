@@ -30,7 +30,7 @@
 
 #include <QTimer>
 #include <QSettings>
-#include <QtWebEngineWidgets/private/qwebengineurlrequestjob_p.h>
+#include <QWebEngineUrlRequestJob>
 
 static QString authorString(const char* name, const QString &mail)
 {
@@ -38,7 +38,7 @@ static QString authorString(const char* name, const QString &mail)
 }
 
 QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
-    : QWebEngineUrlSchemeHandler(QByteArrayLiteral("qupzilla"), mApp->webProfile(), parent)
+    : QWebEngineUrlSchemeHandler(QByteArrayLiteral("qupzilla"), parent)
 {
 }
 

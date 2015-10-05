@@ -18,7 +18,7 @@
 #ifndef QUPZILLASCHEMEHANDLER_H
 #define QUPZILLASCHEMEHANDLER_H
 
-#include <QtWebEngineWidgets/private/qwebengineurlschemehandler_p.h>
+#include <QWebEngineUrlSchemeHandler>
 #include <QBuffer>
 #include <QIODevice>
 

@@ -435,23 +435,17 @@ void WebView::copyLinkToClipboard()
 
 void WebView::downloadLinkToDisk()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     triggerPageAction(QWebEnginePage::DownloadLinkToDisk);
-#endif
 }
 
 void WebView::downloadImageToDisk()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     triggerPageAction(QWebEnginePage::DownloadImageToDisk);
-#endif
 }
 
 void WebView::downloadMediaToDisk()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     triggerPageAction(QWebEnginePage::DownloadMediaToDisk);
-#endif
 }
 
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
@@ -715,9 +709,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const WebHitTestResult &hitTest
     bData << hitTest.linkUrl() << hitTest.linkTitle();
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()));
-#endif
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
     menu->addSeparator();
@@ -738,9 +730,7 @@ void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTes
     menu->addAction(act);
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()));
-#endif
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
     menu->addSeparator();
 
@@ -833,9 +823,7 @@ void WebView::createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTes
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.mediaUrl());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(hitTest.mediaUrl());
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadMediaToDisk()));
-#endif
 }
 
 void WebView::checkForForm(QAction *action, const QPoint &pos)

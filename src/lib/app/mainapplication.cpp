@@ -46,7 +46,6 @@
 #include "searchenginesmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
-#include "network/schemehandlers/qupzillaschemehandler.h"
 #include "scripts.h"
 
 #include <QWebEngineSettings>
@@ -247,6 +246,8 @@ MainApplication::MainApplication(int &argc, char** argv)
     m_webProfile = isPrivate() ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
+    m_networkManager = new NetworkManager(this);
+
     // Setup QWebChannel userscript
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_webchannel"));
@@ -277,9 +278,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     if (!noAddons)
         m_plugins->loadPlugins();
-
-    // Create scheme handlers
-    new QupZillaSchemeHandler(this);
 
     BrowserWindow* window = createWindow(Qz::BW_FirstAppWindow, startUrl);
     connect(window, SIGNAL(startingCompleted()), this, SLOT(restoreOverrideCursor()));
@@ -545,9 +543,6 @@ BrowsingLibrary* MainApplication::browsingLibrary()
 
 NetworkManager *MainApplication::networkManager()
 {
-    if (!m_networkManager) {
-        m_networkManager = new NetworkManager(this);
-    }
     return m_networkManager;
 }
 

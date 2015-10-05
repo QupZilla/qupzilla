@@ -21,6 +21,7 @@
 #include "mainapplication.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
+#include "network/schemehandlers/qupzillaschemehandler.h"
 
 #include <QLabel>
 #include <QDialog>
@@ -31,11 +32,15 @@
 #include <QDialogButtonBox>
 #include <QNetworkReply>
 #include <QNetworkProxy>
+#include <QWebEngineProfile>
 #include <QWebEngineCertificateError>
 
 NetworkManager::NetworkManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
+    // Create scheme handlers
+    mApp->webProfile()->installUrlSchemeHandler(new QupZillaSchemeHandler(this));
+
     connect(this, &QNetworkAccessManager::authenticationRequired, this, [this](QNetworkReply *reply, QAuthenticator *auth) {
         authentication(reply->url(), auth);
     });
