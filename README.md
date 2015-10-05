@@ -10,7 +10,8 @@ Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/q
 THIS IS QTWEBENGINE BRANCH
 ----------------------------------------------------------------------------------------
 
-Master branch is now for QtWebEngine. It is still in very early development state, so expect
-a lot of features found in QtWebKit branch not working here. Thanks for understanding!  
+Master branch is now for QtWebEngine (>= 5.6). It is still in very early development state, 
+so expect a lot of features found in QtWebKit branch not working here. Thanks for understanding!  
   
+For QtWebEngine (= 5.5), please use [qt5.5](https://github.com/QupZilla/qupzilla/tree/qt5.5)  
 For QtWebKit, please use [v1.8](https://github.com/QupZilla/qupzilla/tree/v1.8)
