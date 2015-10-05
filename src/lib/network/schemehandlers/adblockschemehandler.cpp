@@ -19,6 +19,7 @@
 #include "adblockmanager.h"
 #include "emptynetworkreply.h"
 
+#include <QBuffer>
 #include <QUrlQuery>
 #include <QMessageBox>
 #include <QWebEngineUrlRequestJob>
@@ -30,6 +31,10 @@ AdBlockSchemeHandler::AdBlockSchemeHandler(QObject *parent)
 
 void AdBlockSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
+    // Ignore the request
+    job->setReply(QByteArray(), new QBuffer());
+    //job->setError(QWebEngineUrlRequestJob::RequestAborted);
+
     const QUrl url = job->requestUrl();
     const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();
 
@@ -47,7 +52,6 @@ void AdBlockSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
     }
 
     if (subscriptionTitle.isEmpty() || subscriptionUrl.isEmpty()) {
-        job->setError(QWebEngineUrlRequestJob::RequestAborted);
         return;
     }
 
@@ -58,6 +62,4 @@ void AdBlockSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
         AdBlockManager::instance()->addSubscription(subscriptionTitle, subscriptionUrl);
         AdBlockManager::instance()->showDialog();
     }
-
-    job->setError(QWebEngineUrlRequestJob::RequestAborted);
 }

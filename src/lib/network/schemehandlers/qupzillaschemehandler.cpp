@@ -44,7 +44,14 @@ QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
 
 void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
-    job->setReply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
+    QStringList knownPages;
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
+
+    if (knownPages.contains(job->requestUrl().path()))
+        job->setReply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
+    else
+        job->setReply(QByteArray(), new QBuffer());
+        //m_job->setError(QWebEngineUrlRequestJob::UrlNotFound);
 }
 
 QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)
@@ -54,16 +61,8 @@ QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *
 {
     m_pageName = m_job->requestUrl().path();
 
-    QStringList knownPages;
-    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
-
-    if (knownPages.contains(m_pageName)) {
-        open(QIODevice::ReadOnly);
-        m_buffer.open(QIODevice::ReadWrite);
-    }
-    else {
-        //m_job->setError(QWebEngineUrlRequestJob::UrlNotFound);
-    }
+    open(QIODevice::ReadOnly);
+    m_buffer.open(QIODevice::ReadWrite);
 }
 
 void QupZillaSchemeReply::loadPage()
