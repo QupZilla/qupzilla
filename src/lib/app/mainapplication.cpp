@@ -304,10 +304,10 @@ MainApplication::MainApplication(int &argc, char** argv)
             m_restoreManager = new RestoreManager();
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
+            } else {
+                // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
+                QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
             }
-
-            // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
-            QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
         }
     }
 
