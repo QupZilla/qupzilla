@@ -316,7 +316,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
     // Other
     ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
-    ui->sendReferer->setChecked(settings.value("SendReferer", true).toBool());
 
     //CSS Style
     ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
@@ -961,7 +960,6 @@ void Preferences::saveSettings()
     settings.setValue("deleteHistoryOnClose", ui->deleteHistoryOnClose->isChecked());
     settings.setValue("HTML5StorageEnabled", ui->html5storage->isChecked());
     settings.setValue("deleteHTML5StorageOnClose", ui->deleteHtml5storageOnClose->isChecked());
-    settings.setValue("SendReferer", ui->sendReferer->isChecked());
     settings.endGroup();
 
     //NOTIFICATIONS

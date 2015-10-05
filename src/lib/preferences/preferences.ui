@@ -2111,24 +2111,10 @@
          </widget>
          <widget class="QWidget" name="privacyPage">
           <layout class="QGridLayout" name="gridLayout_12">
-           <item row="22" column="1" colspan="3">
-            <widget class="QCheckBox" name="sendReferer">
-             <property name="text">
-              <string>Send Referer header to servers</string>
-             </property>
-            </widget>
-           </item>
            <item row="8" column="0" colspan="3">
             <widget class="QLabel" name="label_12">
              <property name="text">
               <string>&lt;b&gt;Cookies&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="23" column="1" colspan="3">
-            <widget class="QCheckBox" name="doNotTrack">
-             <property name="text">
-              <string>Send Do Not Track header to servers</string>
              </property>
             </widget>
            </item>
@@ -2258,6 +2244,13 @@
              </property>
              <property name="text">
               <string>HTML5 Permissions</string>
+             </property>
+            </widget>
+           </item>
+           <item row="22" column="1" colspan="3">
+            <widget class="QCheckBox" name="doNotTrack">
+             <property name="text">
+              <string>Send Do Not Track header to servers</string>
              </property>
             </widget>
            </item>
