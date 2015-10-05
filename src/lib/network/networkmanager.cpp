@@ -237,4 +237,6 @@ void NetworkManager::loadSettings()
     settings.endGroup();
 
     mApp->webProfile()->setHttpAcceptLanguage(AcceptLanguage::generateHeader(langs));
+
+    m_urlInterceptor->loadSettings();
 }

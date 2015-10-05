@@ -18,20 +18,29 @@
 
 #include "networkurlinterceptor.h"
 #include "urlinterceptor.h"
+#include "settings.h"
 
 NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
+    , m_sendDNT(false)
 {
 }
 
 bool NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-    foreach (UrlInterceptor *interceptor, m_interceptors) {
-        if (interceptor->interceptRequest(info))
-            return true;
+    bool result = false;
+
+    if (m_sendDNT) {
+        result = true;
+        info.setExtraHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
     }
 
-    return false;
+    foreach (UrlInterceptor *interceptor, m_interceptors) {
+        if (interceptor->interceptRequest(info))
+            result = true;
+    }
+
+    return result;
 }
 
 void NetworkUrlInterceptor::installUrlInterceptor(UrlInterceptor *interceptor)
@@ -43,4 +52,12 @@ void NetworkUrlInterceptor::installUrlInterceptor(UrlInterceptor *interceptor)
 void NetworkUrlInterceptor::removeUrlInterceptor(UrlInterceptor *interceptor)
 {
     m_interceptors.removeOne(interceptor);
+}
+
+void NetworkUrlInterceptor::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+    m_sendDNT = settings.value("DoNotTrack", false).toBool();
+    settings.endGroup();
 }

@@ -35,8 +35,11 @@ public:
     void installUrlInterceptor(UrlInterceptor *interceptor);
     void removeUrlInterceptor(UrlInterceptor *interceptor);
 
+    void loadSettings();
+
 private:
     QList<UrlInterceptor*> m_interceptors;
+    bool m_sendDNT;
 };
 
 #endif // NETWORKURLINTERCEPTOR_H
