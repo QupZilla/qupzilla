@@ -135,7 +135,6 @@ SOURCES += \
     network/pac/proxyautoconfig.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
     #network/schemehandlers/fileschemehandler.cpp \
-    #network/schemehandlers/ftpschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
     notifications/desktopnotification.cpp \
@@ -330,7 +329,6 @@ HEADERS  += \
     network/pac/proxyautoconfig.h \
     network/schemehandlers/adblockschemehandler.h \
     #network/schemehandlers/fileschemehandler.h \
-    #network/schemehandlers/ftpschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/schemehandler.h \
     network/sslerrordialog.h \
