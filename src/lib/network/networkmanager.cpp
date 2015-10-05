@@ -21,8 +21,9 @@
 #include "mainapplication.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
-#include "network/schemehandlers/adblockschemehandler.h"
-#include "network/schemehandlers/qupzillaschemehandler.h"
+#include "networkurlinterceptor.h"
+#include "schemehandlers/adblockschemehandler.h"
+#include "schemehandlers/qupzillaschemehandler.h"
 
 #include <QLabel>
 #include <QDialog>
@@ -42,6 +43,10 @@ NetworkManager::NetworkManager(QObject *parent)
     // Create scheme handlers
     mApp->webProfile()->installUrlSchemeHandler(new AdBlockSchemeHandler(this));
     mApp->webProfile()->installUrlSchemeHandler(new QupZillaSchemeHandler(this));
+
+    // Create url interceptor
+    m_urlInterceptor = new NetworkUrlInterceptor(this);
+    mApp->webProfile()->setRequestInterceptor(m_urlInterceptor);
 
     connect(this, &QNetworkAccessManager::authenticationRequired, this, [this](QNetworkReply *reply, QAuthenticator *auth) {
         authentication(reply->url(), auth);
@@ -206,4 +211,14 @@ void NetworkManager::proxyAuthentication(const QString &proxyHost, QAuthenticato
 
     auth->setUser(user->text());
     auth->setPassword(pass->text());
+}
+
+void NetworkManager::installUrlInterceptor(UrlInterceptor *interceptor)
+{
+    m_urlInterceptor->installUrlInterceptor(interceptor);
+}
+
+void NetworkManager::removeUrlInterceptor(UrlInterceptor *interceptor)
+{
+    m_urlInterceptor->removeUrlInterceptor(interceptor);
 }

@@ -131,6 +131,7 @@ SOURCES += \
     #network/cabundleupdater.cpp \
     network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
+    network/networkurlinterceptor.cpp \
     network/pac/pacmanager.cpp \
     network/pac/proxyautoconfig.cpp \
     network/schemehandlers/adblockschemehandler.cpp \
@@ -324,6 +325,7 @@ HEADERS  += \
     #network/cabundleupdater.h \
     network/networkmanager.h \
     network/networkproxyfactory.h \
+    network/networkurlinterceptor.h \
     network/pac/pacdatetime.h \
     network/pac/pacmanager.h \
     network/pac/proxyautoconfig.h \
@@ -331,6 +333,7 @@ HEADERS  += \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/schemehandler.h \
+    network/urlinterceptor.h \
     network/sslerrordialog.h \
     notifications/desktopnotification.h \
     notifications/desktopnotificationsfactory.h \

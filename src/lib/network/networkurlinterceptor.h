@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - QtWebEngine based browser
+* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,34 +15,28 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef NETWORKMANAGER_H
-#define NETWORKMANAGER_H
 
-#include <QNetworkAccessManager>
-#include <QWebEngineCertificateError>
+#ifndef NETWORKURLINTERCEPTOR_H
+#define NETWORKURLINTERCEPTOR_H
+
+#include <QWebEngineUrlRequestInterceptor>
 
 #include "qzcommon.h"
 
 class UrlInterceptor;
-class NetworkUrlInterceptor;
 
-class QUPZILLA_EXPORT NetworkManager : public QNetworkAccessManager
+class QUPZILLA_EXPORT NetworkUrlInterceptor : public QWebEngineUrlRequestInterceptor
 {
-    Q_OBJECT
-
 public:
-    explicit NetworkManager(QObject *parent = Q_NULLPTR);
+    explicit NetworkUrlInterceptor(QObject* parent = Q_NULLPTR);
 
-    bool certificateError(const QWebEngineCertificateError &error, QWidget *parent = Q_NULLPTR);
-    void authentication(const QUrl &url, QAuthenticator *auth, QWidget *parent = Q_NULLPTR);
-    void proxyAuthentication(const QString &proxyHost, QAuthenticator *auth, QWidget *parent = Q_NULLPTR);
+    bool interceptRequest(QWebEngineUrlRequestInfo &info);
 
     void installUrlInterceptor(UrlInterceptor *interceptor);
     void removeUrlInterceptor(UrlInterceptor *interceptor);
 
 private:
-    NetworkUrlInterceptor *m_urlInterceptor;
-    QHash<QString, QWebEngineCertificateError::Error> m_ignoredSslErrors;
+    QList<UrlInterceptor*> m_interceptors;
 };
 
-#endif // NETWORKMANAGER_H
+#endif // NETWORKURLINTERCEPTOR_H
