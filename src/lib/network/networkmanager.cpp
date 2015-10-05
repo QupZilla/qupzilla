@@ -21,6 +21,7 @@
 #include "mainapplication.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
+#include "network/schemehandlers/adblockschemehandler.h"
 #include "network/schemehandlers/qupzillaschemehandler.h"
 
 #include <QLabel>
@@ -39,6 +40,7 @@ NetworkManager::NetworkManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
     // Create scheme handlers
+    mApp->webProfile()->installUrlSchemeHandler(new AdBlockSchemeHandler(this));
     mApp->webProfile()->installUrlSchemeHandler(new QupZillaSchemeHandler(this));
 
     connect(this, &QNetworkAccessManager::authenticationRequired, this, [this](QNetworkReply *reply, QAuthenticator *auth) {

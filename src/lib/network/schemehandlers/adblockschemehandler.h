@@ -18,15 +18,16 @@
 #ifndef ADBLOCKSCHEMEHANDLER_H
 #define ADBLOCKSCHEMEHANDLER_H
 
-#include "qzcommon.h"
-#include "schemehandler.h"
+#include <QWebEngineUrlSchemeHandler>
 
-class QUPZILLA_EXPORT AdBlockSchemeHandler : public SchemeHandler
+#include "qzcommon.h"
+
+class QUPZILLA_EXPORT AdBlockSchemeHandler : public QWebEngineUrlSchemeHandler
 {
 public:
-    AdBlockSchemeHandler();
+    explicit AdBlockSchemeHandler(QObject *parent = Q_NULLPTR);
 
-    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData);
+    void requestStarted(QWebEngineUrlRequestJob *job) Q_DECL_OVERRIDE;
 };
 
 #endif // ADBLOCKSCHEMEHANDLER_H

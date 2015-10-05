@@ -19,25 +19,18 @@
 #include "adblockmanager.h"
 #include "emptynetworkreply.h"
 
-#include <QNetworkRequest>
-#include <QMessageBox>
-
 #include <QUrlQuery>
+#include <QMessageBox>
+#include <QWebEngineUrlRequestJob>
 
-AdBlockSchemeHandler::AdBlockSchemeHandler()
-    : SchemeHandler()
+AdBlockSchemeHandler::AdBlockSchemeHandler(QObject *parent)
+    : QWebEngineUrlSchemeHandler(QByteArrayLiteral("abp"), parent)
 {
 }
 
-QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice* outgoingData)
+void AdBlockSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
-    Q_UNUSED(outgoingData)
-
-    if (op != QNetworkAccessManager::GetOperation) {
-        return 0;
-    }
-
-    const QUrl url = request.url();
+    const QUrl url = job->requestUrl();
     const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();
 
     QString subscriptionTitle;
@@ -45,16 +38,17 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
 
     for (int i = 0; i < queryItems.count(); ++i) {
         QPair<QString, QString> pair = queryItems.at(i);
-        if (pair.first == QLatin1String("location")) {
+        if (pair.first == QL1S("location")) {
             subscriptionUrl = pair.second;
         }
-        else if (pair.first == QLatin1String("title")) {
+        else if (pair.first == QL1S("title")) {
             subscriptionTitle = pair.second;
         }
     }
 
     if (subscriptionTitle.isEmpty() || subscriptionUrl.isEmpty()) {
-        return 0;
+        job->setError(QWebEngineUrlRequestJob::RequestAborted);
+        return;
     }
 
     const QString message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
@@ -65,5 +59,5 @@ QNetworkReply* AdBlockSchemeHandler::createRequest(QNetworkAccessManager::Operat
         AdBlockManager::instance()->showDialog();
     }
 
-    return new EmptyNetworkReply;
+    job->setError(QWebEngineUrlRequestJob::RequestAborted);
 }

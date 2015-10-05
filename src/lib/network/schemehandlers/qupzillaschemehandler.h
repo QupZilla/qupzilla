@@ -18,9 +18,9 @@
 #ifndef QUPZILLASCHEMEHANDLER_H
 #define QUPZILLASCHEMEHANDLER_H
 
-#include <QWebEngineUrlSchemeHandler>
 #include <QBuffer>
 #include <QIODevice>
+#include <QWebEngineUrlSchemeHandler>
 
 #include "qzcommon.h"
 
