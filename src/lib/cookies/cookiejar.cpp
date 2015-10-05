@@ -29,19 +29,9 @@
 //#define COOKIE_DEBUG
 
 CookieJar::CookieJar(QObject* parent)
-    : QNetworkCookieJar(parent)
-    , m_autoSaver(0)
+    : QWebEngineCookieStoreClient(parent)
 {
-    m_autoSaver = new AutoSaver(this);
-    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveCookies()));
-
     loadSettings();
-    restoreCookies();
-}
-
-CookieJar::~CookieJar()
-{
-    m_autoSaver->saveIfNecessary();
 }
 
 void CookieJar::loadSettings()
@@ -49,28 +39,11 @@ void CookieJar::loadSettings()
     Settings settings;
     settings.beginGroup("Cookie-Settings");
     m_allowCookies = settings.value("allowCookies", true).toBool();
-    m_allowThirdParty = settings.value("allowThirdPartyCookies", 0).toInt();
+    m_filterThirdParty = settings.value("filterThirdPartyCookies", false).toBool();
     m_filterTrackingCookie = settings.value("filterTrackingCookie", false).toBool();
-    m_deleteOnClose = settings.value("deleteCookiesOnClose", false).toBool();
     m_whitelist = settings.value("whitelist", QStringList()).toStringList();
     m_blacklist = settings.value("blacklist", QStringList()).toStringList();
     settings.endGroup();
-
-#if QTWEBENGINE_DISABLED
-    switch (m_allowThirdParty) {
-    case 0:
-        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysAllowThirdPartyCookies);
-        break;
-
-    case 1:
-        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AlwaysBlockThirdPartyCookies);
-        break;
-
-    case 2:
-        QWebSettings::defaultSettings()->setThirdPartyCookiePolicy(QWebSettings::AllowThirdPartyWithExistingCookies);
-        break;
-    }
-#endif
 }
 
 void CookieJar::setAllowCookies(bool allow)
@@ -78,126 +51,17 @@ void CookieJar::setAllowCookies(bool allow)
     m_allowCookies = allow;
 }
 
-bool CookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url)
+bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource)
 {
-    QList<QNetworkCookie> newList;
+    const QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies(cookieLine);
+    Q_ASSERT(cookies.size() == 1);
 
-    foreach (QNetworkCookie cookie, cookieList) {
-        // If cookie domain is empty, set it to url.host()
-        if (cookie.domain().isEmpty()) {
-            cookie.setDomain(url.host());
-        }
-
-        if (!rejectCookie(url.host(), cookie)) {
-            newList.append(cookie);
-        }
-    }
-
-    bool added = QNetworkCookieJar::setCookiesFromUrl(newList, url);
-
-    if (added) {
-        m_autoSaver->changeOcurred();
-    }
-
-    return added;
+    QNetworkCookie cookie = cookies.first();
+    return !rejectCookie(firstPartyUrl.host(), cookie, cookieSource.host());
 }
 
-QList<QNetworkCookie> CookieJar::allCookies() const
+bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const
 {
-    return QNetworkCookieJar::allCookies();
-}
-
-void CookieJar::setAllCookies(const QList<QNetworkCookie> &cookieList)
-{
-    m_autoSaver->changeOcurred();
-    QNetworkCookieJar::setAllCookies(cookieList);
-}
-
-void CookieJar::clearCookies()
-{
-    setAllCookies(QList<QNetworkCookie>());
-}
-
-void CookieJar::restoreCookies()
-{
-    if (mApp->isPrivate()) {
-        return;
-    }
-
-    const QString cookiesFile = DataPaths::currentProfilePath() + QLatin1String("/cookies.dat");
-    QDateTime now = QDateTime::currentDateTime();
-
-    QList<QNetworkCookie> restoredCookies;
-    QFile file(cookiesFile);
-    file.open(QIODevice::ReadOnly);
-    QDataStream stream(&file);
-    int count;
-
-    stream >> count;
-    for (int i = 0; i < count; i++) {
-        QByteArray rawForm;
-        stream >> rawForm;
-        const QList<QNetworkCookie> &cookieList = QNetworkCookie::parseCookies(rawForm);
-        if (cookieList.isEmpty()) {
-            continue;
-        }
-
-        const QNetworkCookie cookie = cookieList.at(0);
-
-        if (cookie.expirationDate() < now) {
-            continue;
-        }
-        restoredCookies.append(cookie);
-    }
-
-    file.close();
-    QNetworkCookieJar::setAllCookies(restoredCookies);
-}
-
-void CookieJar::saveCookies()
-{
-    if (mApp->isPrivate()) {
-        return;
-    }
-
-    QList<QNetworkCookie> cookies = allCookies();
-
-    if (m_deleteOnClose) {
-        // If we are deleting cookies on close, save only whitelisted cookies
-        cookies.clear();
-        QList<QNetworkCookie> aCookies = allCookies();
-
-        foreach (const QNetworkCookie &cookie, aCookies) {
-            if (listMatchesDomain(m_whitelist, cookie.domain())) {
-                cookies.append(cookie);
-            }
-        }
-    }
-
-    QFile file(DataPaths::currentProfilePath() + QLatin1String("/cookies.dat"));
-    file.open(QIODevice::WriteOnly);
-    QDataStream stream(&file);
-    int count = cookies.count();
-
-    stream << count;
-    for (int i = 0; i < count; i++) {
-        const QNetworkCookie cookie = cookies.at(i);
-
-        if (cookie.isSessionCookie()) {
-            continue;
-        }
-        stream << cookie.toRawForm();
-    }
-
-    file.close();
-}
-
-bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie) const
-{
-    Q_UNUSED(domain)
-
-    const QString cookieDomain = cookie.domain();
-
     if (!m_allowCookies) {
         bool result = listMatchesDomain(m_whitelist, cookieDomain);
         if (!result) {
@@ -213,6 +77,16 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
         if (result) {
 #ifdef COOKIE_DEBUG
             qDebug() << "found in blacklist" << cookie;
+#endif
+            return true;
+        }
+    }
+
+    if (m_filterThirdParty) {
+        bool result = matchDomain(cookieDomain, domain);
+        if (!result) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "purged for domain mismatch" << cookie << cookieDomain << domain;
 #endif
             return true;
         }

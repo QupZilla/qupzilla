@@ -20,50 +20,37 @@
 
 #include <QFile>
 #include <QStringList>
-#include <QNetworkCookieJar>
+#include <QWebEngineCookieStoreClient>
 
 #include "qzcommon.h"
 
 class AutoSaver;
 
-class QUPZILLA_EXPORT CookieJar : public QNetworkCookieJar
+class QUPZILLA_EXPORT CookieJar : public QWebEngineCookieStoreClient
 {
     Q_OBJECT
 
 public:
     explicit CookieJar(QObject* parent = 0);
-    ~CookieJar();
 
     void loadSettings();
 
     void setAllowCookies(bool allow);
-    bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url);
-
-    QList<QNetworkCookie> allCookies() const;
-    void setAllCookies(const QList<QNetworkCookie> &cookieList);
-
-    void clearCookies();
-    void restoreCookies();
-
-private slots:
-    void saveCookies();
+    bool acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) Q_DECL_OVERRIDE;
 
 protected:
     bool matchDomain(QString cookieDomain, QString siteDomain) const;
     bool listMatchesDomain(const QStringList &list, const QString &cookieDomain) const;
 
 private:
-    bool rejectCookie(const QString &domain, const QNetworkCookie &cookie) const;
+    bool rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const;
 
     bool m_allowCookies;
     bool m_filterTrackingCookie;
-    int m_allowThirdParty;
-    bool m_deleteOnClose;
+    bool m_filterThirdParty;
 
     QStringList m_whitelist;
     QStringList m_blacklist;
-
-    AutoSaver* m_autoSaver;
 };
 
 #endif // COOKIEJAR_H

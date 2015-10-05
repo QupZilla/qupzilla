@@ -18,6 +18,7 @@
 #include "networkmanager.h"
 #include "autofill.h"
 #include "qztools.h"
+#include "cookiejar.h"
 #include "mainapplication.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
@@ -47,6 +48,9 @@ NetworkManager::NetworkManager(QObject *parent)
     // Create url interceptor
     m_urlInterceptor = new NetworkUrlInterceptor(this);
     mApp->webProfile()->setRequestInterceptor(m_urlInterceptor);
+
+    // Create cookie jar
+    mApp->webProfile()->setCookieStoreClient(mApp->cookieJar());
 
     connect(this, &QNetworkAccessManager::authenticationRequired, this, [this](QNetworkReply *reply, QAuthenticator *auth) {
         authentication(reply->url(), auth);

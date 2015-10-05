@@ -14,7 +14,16 @@
    <string>Cookies</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>4</number>
+   </property>
+   <property name="topMargin">
+    <number>4</number>
+   </property>
+   <property name="rightMargin">
+    <number>4</number>
+   </property>
+   <property name="bottomMargin">
     <number>4</number>
    </property>
    <item>
@@ -208,7 +217,16 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
@@ -222,13 +240,6 @@
            <widget class="QPushButton" name="removeOne">
             <property name="text">
              <string>Remove cookies</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="blockDomain">
-            <property name="text">
-             <string>Remove and block domain</string>
             </property>
            </widget>
           </item>
@@ -371,21 +382,7 @@
        <string>Settings</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0" colspan="3">
-        <widget class="QLabel" name="label_13">
-         <property name="text">
-          <string>&lt;b&gt;Cookie Settings&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QCheckBox" name="saveCookies">
-         <property name="text">
-          <string>Allow storing of cookies</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
+       <item row="1" column="0">
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -401,46 +398,24 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="1">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="2">
-        <widget class="QCheckBox" name="deleteCookiesOnClose">
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="filter3rdParty">
          <property name="text">
-          <string>Delete cookies on close</string>
+          <string>Filter 3rd party cookies</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="3">
-        <spacer name="horizontalSpacer_22">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>344</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="4" column="1" colspan="2">
-        <widget class="QLabel" name="label_14">
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>Allow 3rd party cookies:</string>
+          <string>&lt;b&gt;Cookie Settings&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QCheckBox" name="saveCookies">
+         <property name="text">
+          <string>Allow storing of cookies</string>
          </property>
         </widget>
        </item>
@@ -467,7 +442,7 @@
        <item row="5" column="1" colspan="3">
         <widget class="QLabel" name="label_19">
          <property name="text">
-          <string>&lt;b&gt;Warning:&lt;/b&gt; Allow 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
+          <string>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -479,30 +454,6 @@
          <property name="standardButtons">
           <set>QDialogButtonBox::Close</set>
          </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <widget class="QComboBox" name="allowThirdPartyCookies">
-         <property name="toolTip">
-          <string>&lt;p&gt;&lt;b&gt;Always:&lt;/b&gt; Allow third-party resources to set and retrieve cookies.&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;Never:&lt;/b&gt; Never allow third-party resources to set and retrieve cookies.&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;Keep existing:&lt;/b&gt; If the cookie jar already contains cookies from a third-party, allow it to set and retrieve new and existing cookies.&lt;/p&gt;</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Always</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Never</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Keep existing</string>
-          </property>
-         </item>
         </widget>
        </item>
       </layout>

@@ -136,7 +136,7 @@ void ClearPrivateData::dialogAccepted()
     }
 
     if (ui->cookies->isChecked()) {
-        mApp->cookieJar()->setAllCookies(QList<QNetworkCookie>());
+        mApp->cookieJar()->deleteAllCookies();
     }
 
     if (ui->cache->isChecked()) {

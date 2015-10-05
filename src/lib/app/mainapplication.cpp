@@ -243,6 +243,16 @@ MainApplication::MainApplication(int &argc, char** argv)
     setQuitOnLastWindowClosed(true);
 #endif
 
+    QSettings::setDefaultFormat(QSettings::IniFormat);
+    QDesktopServices::setUrlHandler("http", this, "addNewTab");
+    QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
+
+    ProfileManager profileManager;
+    profileManager.initConfigDir();
+    profileManager.initCurrentProfile(startProfile);
+
+    Settings::createSettings(DataPaths::currentProfilePath() + QLatin1String("/settings.ini"));
+
     m_webProfile = isPrivate() ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
@@ -256,16 +266,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupWebChannel());
     m_webProfile->scripts()->insert(script);
-
-    QSettings::setDefaultFormat(QSettings::IniFormat);
-    QDesktopServices::setUrlHandler("http", this, "addNewTab");
-    QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
-
-    ProfileManager profileManager;
-    profileManager.initConfigDir();
-    profileManager.initCurrentProfile(startProfile);
-
-    Settings::createSettings(DataPaths::currentProfilePath() + QLatin1String("/settings.ini"));
 
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSession()));

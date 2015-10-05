@@ -28,6 +28,7 @@ class CookieManager;
 }
 
 class QTreeWidgetItem;
+class QNetworkCookie;
 
 class BrowserWindow;
 
@@ -43,12 +44,8 @@ public:
 
 private slots:
     void currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent);
-    void removeCookie();
+    void remove();
     void removeAll();
-    void blockCurrentHostAndRemoveCookie();
-
-    void slotRefreshTable();
-    void slotRefreshFilters();
 
     void addWhitelist();
     void removeWhitelist();
@@ -56,18 +53,24 @@ private slots:
     void removeBlacklist();
 
     void deletePressed();
-    void saveCookiesChanged(bool state);
 
     void filterString(const QString &string);
+
+    void addCookie(const QNetworkCookie &cookie);
+    void removeCookie(const QNetworkCookie &cookie);
 
 private:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);
+
     void addBlacklist(const QString &server);
+    QString cookieDomain(const QNetworkCookie &cookie) const;
+    QTreeWidgetItem *cookieItem(const QNetworkCookie &cookie) const;
 
     Ui::CookieManager* ui;
 
-    bool m_refreshCookieJar;
+    QHash<QString, QTreeWidgetItem*> m_domainHash;
+    QHash<QTreeWidgetItem*, QNetworkCookie> m_itemHash;
 };
 
 #endif // COOKIEMANAGER_H
