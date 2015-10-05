@@ -54,7 +54,7 @@ SOURCES += \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/stylehelper.cpp \
     adblock/adblockaddsubscriptiondialog.cpp \
-    adblock/adblockblockednetworkreply.cpp \
+    adblock/adblockurlinterceptor.cpp \
     adblock/adblockdialog.cpp \
     adblock/adblockicon.cpp \
     adblock/adblockmanager.cpp \
@@ -248,7 +248,7 @@ HEADERS  += \
     3rdparty/squeezelabelv2.h \
     3rdparty/stylehelper.h \
     adblock/adblockaddsubscriptiondialog.h \
-    adblock/adblockblockednetworkreply.h \
+    adblock/adblockurlinterceptor.h \
     adblock/adblockdialog.h \
     adblock/adblockicon.h \
     adblock/adblockmanager.h \

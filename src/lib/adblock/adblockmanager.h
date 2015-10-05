@@ -25,14 +25,14 @@
 #include "qzcommon.h"
 
 class QUrl;
-class QNetworkReply;
-class QNetworkRequest;
+class QWebEngineUrlRequestInfo;
 
 class AdBlockRule;
 class AdBlockDialog;
 class AdBlockMatcher;
 class AdBlockCustomList;
 class AdBlockSubscription;
+class AdBlockUrlInterceptor;
 
 class QUPZILLA_EXPORT AdBlockManager : public QObject
 {
@@ -57,7 +57,7 @@ public:
     AdBlockSubscription* subscriptionByName(const QString &name) const;
     QList<AdBlockSubscription*> subscriptions() const;
 
-    QNetworkReply* block(const QNetworkRequest &request);
+    bool block(QWebEngineUrlRequestInfo &request);
 
     QStringList disabledRules() const;
     void addDisabledRule(const QString &filter);
@@ -92,6 +92,7 @@ private:
     AdBlockMatcher* m_matcher;
     QStringList m_disabledRules;
 
+    AdBlockUrlInterceptor *m_interceptor;
     QPointer<AdBlockDialog> m_adBlockDialog;
 };
 

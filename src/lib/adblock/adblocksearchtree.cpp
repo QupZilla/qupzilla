@@ -18,6 +18,8 @@
 #include "adblocksearchtree.h"
 #include "adblockrule.h"
 
+#include <QWebEngineUrlRequestInfo>
+
 AdBlockSearchTree::AdBlockSearchTree()
     : m_root(new Node)
 {
@@ -67,7 +69,7 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
     return true;
 }
 
-const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const QString &domain, const QString &urlString) const
+const AdBlockRule* AdBlockSearchTree::find(const QWebEngineUrlRequestInfo &request, const QString &domain, const QString &urlString) const
 {
     int len = urlString.size();
 
@@ -87,7 +89,7 @@ const AdBlockRule* AdBlockSearchTree::find(const QNetworkRequest &request, const
     return 0;
 }
 
-const AdBlockRule* AdBlockSearchTree::prefixSearch(const QNetworkRequest &request, const QString &domain, const QString &urlString, const QChar* string, int len) const
+const AdBlockRule* AdBlockSearchTree::prefixSearch(const QWebEngineUrlRequestInfo &request, const QString &domain, const QString &urlString, const QChar* string, int len) const
 {
     if (len <= 0) {
         return 0;

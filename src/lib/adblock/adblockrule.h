@@ -53,8 +53,8 @@
 #include "qzcommon.h"
 #include "qzregexp.h"
 
-class QNetworkRequest;
 class QUrl;
+class QWebEngineUrlRequestInfo;
 
 class AdBlockSubscription;
 
@@ -91,16 +91,17 @@ public:
     bool isInternalDisabled() const;
 
     bool urlMatch(const QUrl &url) const;
-    bool networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const;
+    bool networkMatch(const QWebEngineUrlRequestInfo &request, const QString &domain, const QString &encodedUrl) const;
 
     bool matchDomain(const QString &domain) const;
-    bool matchThirdParty(const QNetworkRequest &request) const;
-    bool matchObject(const QNetworkRequest &request) const;
-    bool matchSubdocument(const QNetworkRequest &request) const;
-    bool matchXmlHttpRequest(const QNetworkRequest &request) const;
-    bool matchImage(const QString &encodedUrl) const;
+    bool matchThirdParty(const QWebEngineUrlRequestInfo &request) const;
+    bool matchObject(const QWebEngineUrlRequestInfo &request) const;
+    bool matchSubdocument(const QWebEngineUrlRequestInfo &request) const;
+    bool matchXmlHttpRequest(const QWebEngineUrlRequestInfo &request) const;
+    bool matchImage(const QWebEngineUrlRequestInfo &request) const;
 
 protected:
+    bool stringMatch(const QString &domain, const QString &encodedUrl) const;
     bool isMatchingDomain(const QString &domain, const QString &filter) const;
     bool isMatchingRegExpStrings(const QString &url) const;
     QStringList parseRegExpFilter(const QString &filter) const;

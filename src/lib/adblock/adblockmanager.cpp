@@ -19,13 +19,14 @@
 #include "adblockdialog.h"
 #include "adblockmatcher.h"
 #include "adblocksubscription.h"
-#include "adblockblockednetworkreply.h"
+#include "adblockurlinterceptor.h"
 #include "datapaths.h"
 #include "mainapplication.h"
 #include "webpage.h"
 #include "qztools.h"
 #include "browserwindow.h"
 #include "settings.h"
+#include "networkmanager.h"
 
 #include <QDateTime>
 #include <QTextStream>
@@ -46,6 +47,7 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_enabled(true)
     , m_useLimitedEasyList(true)
     , m_matcher(new AdBlockMatcher(this))
+    , m_interceptor(new AdBlockUrlInterceptor(this))
 {
     load();
 }
@@ -83,7 +85,7 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
     return m_subscriptions;
 }
 
-QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
+bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 {
 #ifdef ADBLOCK_DEBUG
     QElapsedTimer timer;
@@ -96,34 +98,22 @@ QNetworkReply* AdBlockManager::block(const QNetworkRequest &request)
     if (!isEnabled() || !canRunOnScheme(urlScheme))
         return 0;
 
+    bool res = false;
     const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
 
     if (blockedRule) {
-        QVariant v = request.attribute((QNetworkRequest::Attribute)(QNetworkRequest::User + 100));
-        WebPage* webPage = static_cast<WebPage*>(v.value<void*>());
-        if (webPage) {
-            if (!canBeBlocked(webPage->url())) {
-                return 0;
-            }
-
-            webPage->addAdBlockRule(blockedRule, request.url());
-        }
-
-        AdBlockBlockedNetworkReply* reply = new AdBlockBlockedNetworkReply(blockedRule, this);
-        reply->setRequest(request);
-
+        res = true;
+        request.blockRequest(true);
 #ifdef ADBLOCK_DEBUG
         qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
 #endif
-
-        return reply;
     }
 
 #ifdef ADBLOCK_DEBUG
     qDebug() << timer.elapsed() << request.url();
 #endif
 
-    return 0;
+    return res;
 }
 
 QStringList AdBlockManager::disabledRules() const
@@ -217,6 +207,7 @@ void AdBlockManager::load()
     settings.endGroup();
 
     if (!m_enabled) {
+        mApp->networkManager()->removeUrlInterceptor(m_interceptor);
         return;
     }
 
@@ -285,6 +276,8 @@ void AdBlockManager::load()
 
     m_matcher->update();
     m_loaded = true;
+
+    mApp->networkManager()->installUrlInterceptor(m_interceptor);
 }
 
 void AdBlockManager::updateAllSubscriptions()

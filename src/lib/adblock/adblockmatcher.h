@@ -24,6 +24,8 @@
 #include "qzcommon.h"
 #include "adblocksearchtree.h"
 
+class QWebEngineUrlRequestInfo;
+
 class AdBlockManager;
 
 class QUPZILLA_EXPORT AdBlockMatcher : public QObject
@@ -34,7 +36,7 @@ public:
     explicit AdBlockMatcher(AdBlockManager* manager);
     ~AdBlockMatcher();
 
-    const AdBlockRule* match(const QNetworkRequest &request, const QString &urlDomain, const QString &urlString) const;
+    const AdBlockRule* match(const QWebEngineUrlRequestInfo &request, const QString &urlDomain, const QString &urlString) const;
 
     bool adBlockDisabledForUrl(const QUrl &url) const;
     bool elemHideDisabledForUrl(const QUrl &url) const;

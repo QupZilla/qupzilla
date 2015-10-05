@@ -52,11 +52,10 @@
 #include <QUrl>
 #include <QString>
 #include <QStringList>
-#include <QNetworkRequest>
 #include <QWebEnginePage>
+#include <QWebEngineUrlRequestInfo>
 
-// Version for Qt < 4.8 has one issue, it will wrongly
-// count .co.uk (and others) as second-level domain
+#if QTWEBENGINE_DISABLED
 static QString toSecondLevelDomain(const QUrl &url)
 {
     const QString topLevelDomain = url.topLevelDomain();
@@ -78,6 +77,7 @@ static QString toSecondLevelDomain(const QUrl &url)
 
     return domain + topLevelDomain;
 }
+#endif
 
 AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscription)
     : m_subscription(subscription)
@@ -203,36 +203,20 @@ bool AdBlockRule::urlMatch(const QUrl &url) const
         return false;
     }
 
+
     const QString encodedUrl = url.toEncoded();
     const QString domain = url.host();
 
-    return networkMatch(QNetworkRequest(url), domain, encodedUrl);
+    return stringMatch(domain, encodedUrl);
 }
 
-bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &domain, const QString &encodedUrl) const
+bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QString &domain, const QString &encodedUrl) const
 {
     if (m_type == CssRule || !m_isEnabled || m_isInternalDisabled) {
         return false;
     }
 
-    bool matched = false;
-
-    if (m_type == StringContainsMatchRule) {
-        matched = encodedUrl.contains(m_matchString, m_caseSensitivity);
-    }
-    else if (m_type == DomainMatchRule) {
-        matched = isMatchingDomain(domain, m_matchString);
-    }
-    else if (m_type == StringEndsMatchRule) {
-        matched = encodedUrl.endsWith(m_matchString, m_caseSensitivity);
-    }
-    else if (m_type == RegExpMatchRule) {
-        if (!isMatchingRegExpStrings(encodedUrl)) {
-            return false;
-        }
-
-        matched = (m_regExp->regExp.indexIn(encodedUrl) != -1);
-    }
+    bool matched = stringMatch(domain, encodedUrl);
 
     if (matched) {
         // Check domain restrictions
@@ -261,7 +245,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
         }
 
         // Check image restriction
-        if (hasOption(ImageOption) && !matchImage(encodedUrl)) {
+        if (hasOption(ImageOption) && !matchImage(request)) {
             return false;
         }
     }
@@ -311,8 +295,9 @@ bool AdBlockRule::matchDomain(const QString &domain) const
     return false;
 }
 
-bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
+bool AdBlockRule::matchThirdParty(const QWebEngineUrlRequestInfo &request) const
 {
+#if QTWEBENGINE_DISABLED
     const QString referer = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString()).toString();
 
     if (referer.isEmpty()) {
@@ -326,50 +311,36 @@ bool AdBlockRule::matchThirdParty(const QNetworkRequest &request) const
     bool match = refererHost != host;
 
     return hasException(ThirdPartyOption) ? !match : match;
-}
-
-bool AdBlockRule::matchObject(const QNetworkRequest &request) const
-{
-    bool match = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 150)).toString() == QL1S("object");
-
-    return hasException(ObjectOption) ? !match : match;
-}
-
-bool AdBlockRule::matchSubdocument(const QNetworkRequest &request) const
-{
-    Q_UNUSED(request)
-#if QTWEBENGINE_DISABLED
-    QWebEngineFrame* originatingFrame = static_cast<QWebEngineFrame*>(request.originatingObject());
-    if (!originatingFrame) {
-        return false;
-    }
-
-    QWebEnginePage* page = originatingFrame->page();
-    if (!page) {
-        return false;
-    }
-
-    bool match = !(originatingFrame == page->mainFrame());
-
-    return hasException(SubdocumentOption) ? !match : match;
 #else
+    Q_UNUSED(request)
     return false;
 #endif
 }
 
-bool AdBlockRule::matchXmlHttpRequest(const QNetworkRequest &request) const
+bool AdBlockRule::matchObject(const QWebEngineUrlRequestInfo &request) const
 {
-    bool match = request.rawHeader("X-Requested-With") == QByteArray("XMLHttpRequest");
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeObject;
+
+    return hasException(ObjectOption) ? !match : match;
+}
+
+bool AdBlockRule::matchSubdocument(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeSubFrame;
+
+    return hasException(SubdocumentOption) ? !match : match;
+}
+
+bool AdBlockRule::matchXmlHttpRequest(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeXhr;
 
     return hasException(XMLHttpRequestOption) ? !match : match;
 }
 
-bool AdBlockRule::matchImage(const QString &encodedUrl) const
+bool AdBlockRule::matchImage(const QWebEngineUrlRequestInfo &request) const
 {
-    bool match = encodedUrl.endsWith(QL1S(".png")) ||
-                 encodedUrl.endsWith(QL1S(".jpg")) ||
-                 encodedUrl.endsWith(QL1S(".gif")) ||
-                 encodedUrl.endsWith(QL1S(".jpeg"));
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeImage;
 
     return hasException(ImageOption) ? !match : match;
 }
@@ -658,6 +629,27 @@ QList<QStringMatcher> AdBlockRule::createStringMatchers(const QStringList &filte
     }
 
     return matchers;
+}
+
+bool AdBlockRule::stringMatch(const QString &domain, const QString &encodedUrl) const
+{
+    if (m_type == StringContainsMatchRule) {
+        return encodedUrl.contains(m_matchString, m_caseSensitivity);
+    }
+    else if (m_type == DomainMatchRule) {
+        return isMatchingDomain(domain, m_matchString);
+    }
+    else if (m_type == StringEndsMatchRule) {
+        return encodedUrl.endsWith(m_matchString, m_caseSensitivity);
+    }
+    else if (m_type == RegExpMatchRule) {
+        if (!isMatchingRegExpStrings(encodedUrl)) {
+            return false;
+        }
+        return (m_regExp->regExp.indexIn(encodedUrl) != -1);
+    }
+
+    return false;
 }
 
 bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter) const
