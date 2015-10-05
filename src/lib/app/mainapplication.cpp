@@ -868,6 +868,7 @@ void MainApplication::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
 
     webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, settings.value("HTML5StorageEnabled", true).toBool());
+    webSettings->setAttribute(QWebEngineSettings::PluginsEnabled, settings.value("allowPlugins", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::JavascriptEnabled, settings.value("allowJavaScript", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, settings.value("allowJavaScriptOpenWindow", false).toBool());
     webSettings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());

@@ -271,7 +271,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     // BROWSING
     settings.beginGroup("Web-Browser-Settings");
-    ui->allowPlugins->setChecked(settings.value("allowFlash", true).toBool());
+    ui->allowPlugins->setChecked(settings.value("allowPlugins", true).toBool());
     ui->allowJavaScript->setChecked(settings.value("allowJavaScript", true).toBool());
     ui->linksInFocusChain->setChecked(settings.value("IncludeLinkInFocusChain", false).toBool());
     ui->spatialNavigation->setChecked(settings.value("SpatialNavigation", false).toBool());
@@ -930,7 +930,7 @@ void Preferences::saveSettings()
 
     //BROWSING
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("allowFlash", ui->allowPlugins->isChecked());
+    settings.setValue("allowPlugins", ui->allowPlugins->isChecked());
     settings.setValue("allowJavaScript", ui->allowJavaScript->isChecked());
     settings.setValue("IncludeLinkInFocusChain", ui->linksInFocusChain->isChecked());
     settings.setValue("SpatialNavigation", ui->spatialNavigation->isChecked());
