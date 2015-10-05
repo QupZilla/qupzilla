@@ -81,6 +81,7 @@ protected:
     void mousePressEvent(QMouseEvent* e);
     void mouseReleaseEvent(QMouseEvent* e);
     void mouseDoubleClickEvent(QMouseEvent* e);
+    void contextMenuEvent(QContextMenuEvent *e);
     void paintEvent(QPaintEvent* e);
 
 private:

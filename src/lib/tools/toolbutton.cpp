@@ -203,6 +203,15 @@ void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
     }
 }
 
+void ToolButton::contextMenuEvent(QContextMenuEvent *e)
+{
+    // Block to prevent showing both context menu and button menu
+    if (menu())
+        return;
+
+    QToolButton::contextMenuEvent(e);
+}
+
 void ToolButton::paintEvent(QPaintEvent* e)
 {
     if (!(m_options & MultiIconOption)) {
