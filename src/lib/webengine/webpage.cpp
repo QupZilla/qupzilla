@@ -165,7 +165,6 @@ void WebPage::urlChanged(const QUrl &url)
     Q_UNUSED(url)
 
     if (isLoading()) {
-        m_adBlockedEntries.clear();
         m_blockAlerts = false;
     }
 }
@@ -376,22 +375,6 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
     return files;
 }
 
-void WebPage::addAdBlockRule(const AdBlockRule* rule, const QUrl &url)
-{
-    AdBlockedEntry entry;
-    entry.rule = rule;
-    entry.url = url;
-
-    if (!m_adBlockedEntries.contains(entry)) {
-        m_adBlockedEntries.append(entry);
-    }
-}
-
-QVector<WebPage::AdBlockedEntry> WebPage::adBlockedEntries() const
-{
-    return m_adBlockedEntries;
-}
-
 bool WebPage::hasMultipleUsernames() const
 {
     return m_passwordEntries.count() > 1;
@@ -408,40 +391,6 @@ void WebPage::cleanBlockedObjects()
     if (!manager->isEnabled()) {
         return;
     }
-
-#if QTWEBENGINE_DISABLED
-    const QWebElement docElement = mainFrame()->documentElement();
-
-    foreach (const AdBlockedEntry &entry, m_adBlockedEntries) {
-        const QString urlString = entry.url.toString();
-        if (urlString.endsWith(QLatin1String(".js")) || urlString.endsWith(QLatin1String(".css"))) {
-            continue;
-        }
-
-        QString urlEnd;
-
-        int pos = urlString.lastIndexOf(QLatin1Char('/'));
-        if (pos > 8) {
-            urlEnd = urlString.mid(pos + 1);
-        }
-
-        if (urlString.endsWith(QLatin1Char('/'))) {
-            urlEnd = urlString.left(urlString.size() - 1);
-        }
-
-        QString selector("img[src$=\"%1\"], iframe[src$=\"%1\"],embed[src$=\"%1\"]");
-        QWebElementCollection elements = docElement.findAll(selector.arg(urlEnd));
-
-        foreach (QWebElement element, elements) {
-            QString src = element.attribute("src");
-            src.remove(QLatin1String("../"));
-
-            if (urlString.contains(src)) {
-                element.setStyleProperty("display", "none");
-            }
-        }
-    }
-#endif
 
     // Apply domain-specific element hiding rules
     const QString elementHiding = manager->elementHidingRulesForDomain(url());

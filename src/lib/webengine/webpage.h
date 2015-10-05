@@ -28,7 +28,6 @@ class QEventLoop;
 class QWebEngineDownloadItem;
 
 class WebView;
-class AdBlockRule;
 class WebHitTestResult;
 class DelayedFileWatcher;
 
@@ -36,16 +35,7 @@ class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
-    struct AdBlockedEntry {
-        const AdBlockRule* rule;
-        QUrl url;
-
-        bool operator==(const AdBlockedEntry &other) const {
-            return (this->rule == other.rule && this->url == other.url);
-        }
-    };
-
-    WebPage(QObject* parent = 0);
+    explicit WebPage(QObject* parent = 0);
     ~WebPage();
 
     WebView *view() const;
@@ -61,9 +51,6 @@ public:
     void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
 
     void setJavaScriptEnabled(bool enabled);
-
-    void addAdBlockRule(const AdBlockRule* rule, const QUrl &url);
-    QVector<AdBlockedEntry> adBlockedEntries() const;
 
     bool hasMultipleUsernames() const;
     QVector<PasswordEntry> autoFillData() const;
@@ -107,7 +94,6 @@ private:
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
-    QVector<AdBlockedEntry> m_adBlockedEntries;
     QVector<PasswordEntry> m_passwordEntries;
 
     QUrl m_lastRequestUrl;
