@@ -287,7 +287,9 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
     Q_ASSERT(m_tabBar);
 
-    if (!tab.isPinned && qzSettings->loadTabsOnActivation) {
+    m_isPinned = tab.isPinned;
+
+    if (!m_isPinned && qzSettings->loadTabsOnActivation) {
         m_savedTab = tab;
         int index = tabIndex();
 
@@ -324,7 +326,6 @@ void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 {
     p_restoreTab(tab.url, tab.history);
-    m_isPinned = tab.isPinned;
 }
 
 QPixmap WebTab::renderTabPreview()
