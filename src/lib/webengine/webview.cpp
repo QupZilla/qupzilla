@@ -391,6 +391,7 @@ void WebView::slotLoadFinished(bool ok)
 
 void WebView::slotIconUrlChanged(const QUrl &url)
 {
+    m_siteIcon = QIcon();
     delete m_siteIconLoader;
     m_siteIconLoader = new IconLoader(url, this);
 
