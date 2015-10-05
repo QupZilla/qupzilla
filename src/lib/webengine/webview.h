@@ -107,6 +107,9 @@ public slots:
     virtual void closeView() = 0;
     virtual void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) = 0;
 
+    virtual bool isFullScreen() = 0;
+    virtual void requestFullScreen(bool enable) = 0;
+
 protected slots:
     void slotLoadStarted();
     void slotLoadProgress(int progress);

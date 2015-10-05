@@ -1077,6 +1077,13 @@ void WebView::_keyPressEvent(QKeyEvent *event)
         }
         break;
 
+    case Qt::Key_Escape:
+        if (isFullScreen()) {
+            triggerPageAction(QWebEnginePage::ExitFullScreen);
+            event->accept();
+        }
+        break;
+
     default:
         break;
     }

@@ -59,6 +59,19 @@ void PopupWebView::closeView()
     parentWidget()->close();
 }
 
+bool PopupWebView::isFullScreen()
+{
+    return parentWidget()->isFullScreen();
+}
+
+void PopupWebView::requestFullScreen(bool enable)
+{
+    if (enable)
+        parentWidget()->showFullScreen();
+    else
+        parentWidget()->showNormal();
+}
+
 void PopupWebView::inspectElement()
 {
     WebInspector *inspector = new WebInspector;

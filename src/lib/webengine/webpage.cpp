@@ -81,6 +81,7 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::urlChanged, this, &WebPage::urlChanged);
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
+    connect(this, &QWebEnginePage::fullScreenRequested, this, &WebPage::fullScreenRequested);
 
     connect(this, &QWebEnginePage::authenticationRequired, this, [this](const QUrl &url, QAuthenticator *auth) {
         mApp->networkManager()->authentication(url, auth, view());
@@ -316,9 +317,19 @@ void WebPage::windowCloseRequested()
     view()->closeView();
 }
 
+void WebPage::fullScreenRequested(bool fullScreen)
+{
+    view()->requestFullScreen(fullScreen);
+}
+
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
 {
     mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
+}
+
+bool WebPage::isFullScreen()
+{
+    return view()->isFullScreen();
 }
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)

@@ -114,6 +114,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     , m_startTab(0)
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
+    , m_isHtmlFullScreen(false)
     , m_hideNavigationTimer(0)
 {
     setObjectName("mainwindow");
@@ -799,6 +800,12 @@ void BrowserWindow::toggleOfflineMode()
     qzSettings->workOffline = enable;
 }
 
+void BrowserWindow::enterHtmlFullScreen()
+{
+    showFullScreen();
+    m_isHtmlFullScreen = true;
+}
+
 void BrowserWindow::showWebInspector()
 {
     if (weView() && weView()->webTab()) {
@@ -1023,6 +1030,9 @@ bool BrowserWindow::fullScreenNavigationVisible() const
 
 void BrowserWindow::showNavigationWithFullScreen()
 {
+    if (m_isHtmlFullScreen)
+        return;
+
     if (m_hideNavigationTimer->isActive()) {
         m_hideNavigationTimer->stop();
     }
@@ -1080,6 +1090,7 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationContainer->show();
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
             m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
+            m_isHtmlFullScreen = false;
         }
 
         if (m_hideNavigationTimer) {

@@ -33,10 +33,11 @@ public:
     QWidget* overlayWidget() Q_DECL_OVERRIDE;
     void loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position) Q_DECL_OVERRIDE;
 
-signals:
+    void closeView() Q_DECL_OVERRIDE;
+    bool isFullScreen() Q_DECL_OVERRIDE;
+    void requestFullScreen(bool enable) Q_DECL_OVERRIDE;
 
 public slots:
-    void closeView();
     void inspectElement();
 
 private:

@@ -174,6 +174,22 @@ void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags
     }
 }
 
+bool TabbedWebView::isFullScreen()
+{
+    return m_window && m_window->isFullScreen();
+}
+
+void TabbedWebView::requestFullScreen(bool enable)
+{
+    if (!m_window)
+        return;
+
+    if (enable)
+        m_window->enterHtmlFullScreen();
+    else
+        m_window->showNormal();
+}
+
 void TabbedWebView::setAsCurrentTab()
 {
     if (m_window) {

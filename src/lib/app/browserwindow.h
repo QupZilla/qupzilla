@@ -132,6 +132,7 @@ public slots:
 
     void toggleFullScreen();
     void toggleOfflineMode();
+    void enterHtmlFullScreen();
 
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);
@@ -210,6 +211,7 @@ private:
     // Remember visibility of menubar and statusbar after entering Fullscreen
     bool m_menuBarVisible;
     bool m_statusBarVisible;
+    bool m_isHtmlFullScreen;
     Qt::WindowStates m_windowStates;
     QTimer* m_hideNavigationTimer;
 
