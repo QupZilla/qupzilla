@@ -248,6 +248,21 @@ bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QS
         if (hasOption(ImageOption) && !matchImage(request)) {
             return false;
         }
+
+        // Check script restriction
+        if (hasOption(ScriptOption) && !matchScript(request)) {
+            return false;
+        }
+
+        // Check stylesheet restriction
+        if (hasOption(StyleSheetOption) && !matchStyleSheet(request)) {
+            return false;
+        }
+
+        // Check object-subrequest restriction
+        if (hasOption(ObjectSubrequestOption) && !matchObjectSubrequest(request)) {
+            return false;
+        }
     }
 
     return matched;
@@ -345,6 +360,27 @@ bool AdBlockRule::matchImage(const QWebEngineUrlRequestInfo &request) const
     return hasException(ImageOption) ? !match : match;
 }
 
+bool AdBlockRule::matchScript(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeScript;
+
+    return hasException(ScriptOption) ? !match : match;
+}
+
+bool AdBlockRule::matchStyleSheet(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeStylesheet;
+
+    return hasException(StyleSheetOption) ? !match : match;
+}
+
+bool AdBlockRule::matchObjectSubrequest(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeSubResource;
+
+    return hasException(ObjectSubrequestOption) ? !match : match;
+}
+
 void AdBlockRule::parseFilter()
 {
     QString parsedLine = m_filter;
@@ -421,6 +457,21 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith(QL1S("image"))) {
                 setOption(ImageOption);
                 setException(ImageOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("script"))) {
+                setOption(ScriptOption);
+                setException(ScriptOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("stylesheet"))) {
+                setOption(StyleSheetOption);
+                setException(StyleSheetOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("object-subrequest"))) {
+                setOption(ObjectSubrequestOption);
+                setException(ObjectSubrequestOption, option.startsWith(QL1C('~')));
                 ++handledOptions;
             }
             else if (option == QL1S("document") && m_isException) {

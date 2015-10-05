@@ -99,6 +99,9 @@ public:
     bool matchSubdocument(const QWebEngineUrlRequestInfo &request) const;
     bool matchXmlHttpRequest(const QWebEngineUrlRequestInfo &request) const;
     bool matchImage(const QWebEngineUrlRequestInfo &request) const;
+    bool matchScript(const QWebEngineUrlRequestInfo &request) const;
+    bool matchStyleSheet(const QWebEngineUrlRequestInfo &request) const;
+    bool matchObjectSubrequest(const QWebEngineUrlRequestInfo &request) const;
 
 protected:
     bool stringMatch(const QString &domain, const QString &encodedUrl) const;
@@ -123,10 +126,13 @@ private:
         SubdocumentOption = 8,
         XMLHttpRequestOption = 16,
         ImageOption = 32,
+        ScriptOption = 64,
+        StyleSheetOption = 128,
+        ObjectSubrequestOption = 256,
 
         // Exception only options
-        DocumentOption = 64,
-        ElementHideOption = 128
+        DocumentOption = 1024,
+        ElementHideOption = 2048
     };
 
     Q_DECLARE_FLAGS(RuleOptions, RuleOption)
