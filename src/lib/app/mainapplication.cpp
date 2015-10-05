@@ -924,6 +924,7 @@ void MainApplication::loadSettings()
     }
 
     qzSettings->loadSettings();
+    networkManager()->loadSettings();
     userAgentManager()->loadSettings();
 }
 

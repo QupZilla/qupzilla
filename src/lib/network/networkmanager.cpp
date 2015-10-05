@@ -18,7 +18,9 @@
 #include "networkmanager.h"
 #include "autofill.h"
 #include "qztools.h"
+#include "settings.h"
 #include "cookiejar.h"
+#include "acceptlanguage.h"
 #include "mainapplication.h"
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
@@ -225,4 +227,14 @@ void NetworkManager::installUrlInterceptor(UrlInterceptor *interceptor)
 void NetworkManager::removeUrlInterceptor(UrlInterceptor *interceptor)
 {
     m_urlInterceptor->removeUrlInterceptor(interceptor);
+}
+
+void NetworkManager::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("Language");
+    QStringList langs = settings.value("acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList();
+    settings.endGroup();
+
+    mApp->webProfile()->setHttpAcceptLanguage(AcceptLanguage::generateHeader(langs));
 }

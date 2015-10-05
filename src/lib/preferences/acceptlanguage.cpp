@@ -37,6 +37,7 @@
 #include "ui_acceptlanguage.h"
 #include "ui_addacceptlanguage.h"
 #include "mainapplication.h"
+#include "networkmanager.h"
 #include "settings.h"
 
 QStringList AcceptLanguage::defaultLanguage()
@@ -215,6 +216,8 @@ void AcceptLanguage::accept()
     Settings settings;
     settings.beginGroup("Language");
     settings.setValue("acceptLanguage", langs);
+
+    mApp->networkManager()->loadSettings();
 
     QDialog::close();
 }

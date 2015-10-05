@@ -40,6 +40,8 @@ public:
     void installUrlInterceptor(UrlInterceptor *interceptor);
     void removeUrlInterceptor(UrlInterceptor *interceptor);
 
+    void loadSettings();
+
 private:
     NetworkUrlInterceptor *m_urlInterceptor;
     QHash<QString, QWebEngineCertificateError::Error> m_ignoredSslErrors;
