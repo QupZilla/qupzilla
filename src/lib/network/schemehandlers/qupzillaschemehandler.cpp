@@ -268,6 +268,7 @@ QString QupZillaSchemeReply::speeddialPage()
 
     if (dPage.isEmpty()) {
         dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
+        dPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/other/empty-page.png"));
         dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
         dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.png"));
         dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.png"));
