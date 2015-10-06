@@ -490,12 +490,6 @@ RESOURCES += \
     data/icons.qrc \
     data/oxygen-fallback.qrc
 
-qtHaveModule(ftp) {
-    QT *= ftp
-} else {
-    include(3rdparty/qftp/qftp.pri)
-}
-
 !mac:unix {
     target.path = $$library_folder
 
