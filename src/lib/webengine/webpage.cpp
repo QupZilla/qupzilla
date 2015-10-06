@@ -323,7 +323,10 @@ void WebPage::fullScreenRequested(bool fullScreen)
 
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
 {
-    mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
+    if (feature == MouseLock && view()->isFullScreen())
+        setFeaturePermission(origin, feature, PermissionGrantedByUser);
+    else
+        mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
 }
 
 bool WebPage::isFullScreen()
