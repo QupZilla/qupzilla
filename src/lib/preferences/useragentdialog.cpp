@@ -78,6 +78,11 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
 
     enableGlobalComboBox(ui->changeGlobal->isChecked());
     enablePerSiteFrame(ui->changePerSite->isChecked());
+
+#if !QTWEBENGINE_DISABLED
+    ui->perSiteFrame->setVisible(false);
+    ui->changePerSite->setVisible(false);
+#endif
 }
 
 void UserAgentDialog::addSite()
