@@ -87,10 +87,13 @@ void HTML5PermissionsNotification::grantPermissions()
         return;
     }
 
-    if (m_feature == QWebEnginePage::MouseLock)
-        QCursor::setPos(m_page->view()->mapToGlobal(m_page->view()->rect().center()));
-
     QTimer::singleShot(0, this, [this]() {
+        // We need to have cursor inside view to correctly grab mouse
+        if (m_feature == QWebEnginePage::MouseLock) {
+            QWidget *view = m_page->view();
+            QCursor::setPos(view->mapToGlobal(view->rect().center()));
+        }
+
         m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
     });
 
