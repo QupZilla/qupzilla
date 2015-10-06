@@ -29,8 +29,6 @@ class DownloadManager;
 }
 
 class QUrl;
-class QNetworkReply;
-class QNetworkRequest;
 class QNetworkAccessManager;
 class QListWidgetItem;
 class QWebEngineDownloadItem;
@@ -101,7 +99,6 @@ private:
     void keyPressEvent(QKeyEvent* e);
 
     Ui::DownloadManager* ui;
-    QNetworkAccessManager* m_networkManager;
     QBasicTimer m_timer;
 
     QString m_lastDownloadPath;

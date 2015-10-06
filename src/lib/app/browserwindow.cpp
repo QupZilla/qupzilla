@@ -74,7 +74,6 @@
 #include <QSqlQuery>
 #include <QTextCodec>
 #include <QFileDialog>
-#include <QNetworkRequest>
 #include <QDesktopServices>
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
@@ -225,10 +224,7 @@ void BrowserWindow::postLaunch()
     }
 
     if (addTab) {
-        QNetworkRequest request(startUrl);
-        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-        m_tabWidget->addView(request, Qz::NT_CleanSelectedTabAtTheEnd);
+        m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTabAtTheEnd);
 
         if (startUrl.isEmpty() || startUrl.toString() == QLatin1String("qupzilla:speeddial")) {
             locationBar()->setFocus();
@@ -237,10 +233,7 @@ void BrowserWindow::postLaunch()
 
     // Something went really wrong .. add one tab
     if (m_tabWidget->tabBar()->normalTabsCount() <= 0) {
-        QNetworkRequest request(m_homepage);
-        request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-        m_tabWidget->addView(request, Qz::NT_SelectedTabAtTheEnd);
+        m_tabWidget->addView(m_homepage, Qz::NT_SelectedTabAtTheEnd);
     }
 
     mApp->plugins()->emitMainWindowCreated(this);

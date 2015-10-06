@@ -145,8 +145,7 @@ LoadRequest SearchEnginesManager::searchResult(const Engine &engine, const QStri
     QByteArray data = engine.postData;
     data.replace("%s", QUrl::toPercentEncoding(string));
 
-    QNetworkRequest req(QUrl::fromEncoded(engine.url.toUtf8()));
-    return LoadRequest(req, LoadRequest::PostOperation, data);
+    return LoadRequest(QUrl::fromEncoded(engine.url.toUtf8()), LoadRequest::PostOperation, data);
 }
 
 LoadRequest SearchEnginesManager::searchResult(const QString &string)

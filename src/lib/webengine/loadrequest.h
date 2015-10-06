@@ -18,11 +18,9 @@
 #ifndef LOADREQUEST_H
 #define LOADREQUEST_H
 
-#include <QNetworkRequest>
+#include <QUrl>
 
 #include "qzcommon.h"
-
-class QWebView;
 
 class QUPZILLA_EXPORT LoadRequest
 {
@@ -34,8 +32,7 @@ public:
 
     LoadRequest();
     LoadRequest(const LoadRequest &other);
-    LoadRequest(const QUrl &url);
-    LoadRequest(const QNetworkRequest &req, Operation op = GetOperation, const QByteArray &data = QByteArray());
+    LoadRequest(const QUrl &url, Operation op = GetOperation, const QByteArray &data = QByteArray());
 
     LoadRequest &operator=(const LoadRequest &other);
 
@@ -46,9 +43,6 @@ public:
 
     QString urlString() const;
 
-    QNetworkRequest networkRequest() const;
-    void setNetworkRequest(const QNetworkRequest &req);
-
     Operation operation() const;
     void setOperation(Operation op);
 
@@ -56,7 +50,7 @@ public:
     void setData(const QByteArray &data);
 
 private:
-    QNetworkRequest m_request;
+    QUrl m_url;
     Operation m_operation;
     QByteArray m_data;
 };

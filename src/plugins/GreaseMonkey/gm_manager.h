@@ -25,7 +25,6 @@
 
 class QUrl;
 class QWebFrame;
-class QNetworkRequest;
 
 class BrowserWindow;
 class GM_Script;

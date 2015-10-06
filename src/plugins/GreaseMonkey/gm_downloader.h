@@ -22,8 +22,6 @@
 #include <QList>
 #include <QUrl>
 
-class QNetworkRequest;
-
 class GM_Manager;
 
 class FollowRedirectReply;

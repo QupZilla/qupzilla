@@ -32,7 +32,6 @@ class QUPZILLA_EXPORT Updater : public QObject
     Q_OBJECT
 public:
     explicit Updater(BrowserWindow* window, QObject* parent = 0);
-    ~Updater();
 
     struct QUPZILLA_EXPORT Version {
         bool isValid;
@@ -53,7 +52,7 @@ public:
     };
 
 private slots:
-    void downCompleted(QNetworkReply* reply);
+    void downCompleted();
     void start();
     void downloadNewVersion();
 

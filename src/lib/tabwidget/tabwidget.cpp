@@ -625,11 +625,7 @@ int TabWidget::duplicateTab(int index)
     const QString title = webTab->title();
     const QByteArray history = webTab->historyData();
 
-    QNetworkRequest req(url);
-    req.setRawHeader("Referer", url.toEncoded());
-    req.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-    int id = addView(req, title, Qz::NT_CleanNotSelectedTab);
+    int id = addView(url, title, Qz::NT_CleanNotSelectedTab);
     weTab(id)->setHistoryData(history);
 
     return id;

@@ -22,7 +22,6 @@
 #include <QIcon>
 #include <QList>
 #include <QVariant>
-#include <QNetworkRequest>
 
 #include "qzcommon.h"
 #include "opensearchengine.h"

@@ -55,8 +55,6 @@ DownloadManager::DownloadManager(QWidget* parent)
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));
     QzTools::centerWidgetOnScreen(this);
 
-    m_networkManager = mApp->networkManager();
-
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clearList()));
 
     QShortcut* clearShortcut = new QShortcut(QKeySequence("CTRL+L"), this);

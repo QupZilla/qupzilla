@@ -17,28 +17,20 @@
 * ============================================================ */
 #include "loadrequest.h"
 
-#include <QWebEngineView>
-
 LoadRequest::LoadRequest()
     : m_operation(GetOperation)
 {
 }
 
 LoadRequest::LoadRequest(const LoadRequest &other)
-    : m_request(other.m_request)
+    : m_url(other.m_url)
     , m_operation(other.m_operation)
     , m_data(other.m_data)
 {
 }
 
-LoadRequest::LoadRequest(const QUrl &url)
-    : m_operation(GetOperation)
-{
-    setUrl(url);
-}
-
-LoadRequest::LoadRequest(const QNetworkRequest &req, LoadRequest::Operation op, const QByteArray &data)
-    : m_request(req)
+LoadRequest::LoadRequest(const QUrl &url, LoadRequest::Operation op, const QByteArray &data)
+    : m_url(url)
     , m_operation(op)
     , m_data(data)
 {
@@ -46,7 +38,7 @@ LoadRequest::LoadRequest(const QNetworkRequest &req, LoadRequest::Operation op, 
 
 LoadRequest &LoadRequest::operator=(const LoadRequest &other)
 {
-    m_request = other.m_request;
+    m_url = other.m_url;
     m_operation = other.m_operation;
     m_data = other.m_data;
     return *this;
@@ -54,32 +46,22 @@ LoadRequest &LoadRequest::operator=(const LoadRequest &other)
 
 bool LoadRequest::isEmpty() const
 {
-    return m_request.url().isEmpty();
+    return m_url.isEmpty();
 }
 
 QUrl LoadRequest::url() const
 {
-    return m_request.url();
+    return m_url;
 }
 
 void LoadRequest::setUrl(const QUrl &url)
 {
-    m_request.setUrl(url);
+    m_url = url;
 }
 
 QString LoadRequest::urlString() const
 {
-    return QUrl::fromPercentEncoding(m_request.url().toEncoded());
-}
-
-QNetworkRequest LoadRequest::networkRequest() const
-{
-    return m_request;
-}
-
-void LoadRequest::setNetworkRequest(const QNetworkRequest &req)
-{
-    m_request = req;
+    return QUrl::fromPercentEncoding(m_url.toEncoded());
 }
 
 LoadRequest::Operation LoadRequest::operation() const

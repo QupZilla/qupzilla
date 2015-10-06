@@ -21,9 +21,9 @@
 #include "mainapplication.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
+#include "networkmanager.h"
 
 #include <QTimer>
-#include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
@@ -129,14 +129,17 @@ void Updater::start()
 
 void Updater::startDownloadingUpdateInfo(const QUrl &url)
 {
-    QNetworkAccessManager* manager = new QNetworkAccessManager();
-    manager->get(QNetworkRequest(QUrl(url)));
+    QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(QUrl(url)));
 
-    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(downCompleted(QNetworkReply*)));
+    connect(reply, SIGNAL(finished()), this, SLOT(downCompleted()));
 }
 
-void Updater::downCompleted(QNetworkReply* reply)
+void Updater::downCompleted()
 {
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    if (!reply)
+        return;
+
     QString html = reply->readAll();
 
     if (html.startsWith(QLatin1String("Version:"))) {
@@ -149,14 +152,10 @@ void Updater::downCompleted(QNetworkReply* reply)
         }
     }
 
-    reply->manager()->deleteLater();
+    reply->deleteLater();
 }
 
 void Updater::downloadNewVersion()
 {
     m_window->tabWidget()->addView(QUrl::fromEncoded(QByteArray(Qz::WWWADDRESS) + QByteArray("/download")), tr("Update"), Qz::NT_NotSelectedTab);
-}
-
-Updater::~Updater()
-{
 }

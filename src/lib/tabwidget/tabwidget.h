@@ -19,7 +19,6 @@
 #define TABWIDGET_H
 
 #include <QTabWidget>
-#include <QNetworkRequest>
 #include <QMenu>
 
 #include "tabstackedwidget.h"

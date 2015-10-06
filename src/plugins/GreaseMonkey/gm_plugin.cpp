@@ -27,7 +27,6 @@
 #include "tabbedwebview.h"
 
 #include <QTranslator>
-#include <QNetworkRequest>
 
 GM_Plugin::GM_Plugin()
     : QObject()

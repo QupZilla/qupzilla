@@ -53,8 +53,6 @@
 #include "adblockrule.h"
 #include "adblocksearchtree.h"
 
-class QNetworkRequest;
-class QNetworkReply;
 class QUrl;
 
 class FollowRedirectReply;

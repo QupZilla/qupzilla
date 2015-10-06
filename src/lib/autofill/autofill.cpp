@@ -30,7 +30,6 @@
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QNetworkRequest>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
 

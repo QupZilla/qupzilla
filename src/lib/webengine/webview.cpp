@@ -46,7 +46,6 @@
 #include <QDir>
 #include <QTimer>
 #include <QDesktopServices>
-#include <QNetworkRequest>
 #include <QWebEngineHistory>
 #include <QClipboard>
 #include <QHostInfo>
@@ -451,10 +450,7 @@ void WebView::downloadMediaToDisk()
 
 void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 {
-    QNetworkRequest request(url);
-    request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-    loadInNewTab(request, position);
+    loadInNewTab(url, position);
 }
 
 void WebView::openActionUrl()
@@ -495,12 +491,7 @@ void WebView::searchSelectedText()
         }
     }
 
-    LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
-    QNetworkRequest r = req.networkRequest();
-    r.setRawHeader("Referer", req.url().toEncoded());
-    r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-    req.setNetworkRequest(r);
-
+    const LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
     loadInNewTab(req, Qz::NT_SelectedTab);
 }
 
@@ -513,12 +504,7 @@ void WebView::searchSelectedTextInBackgroundTab()
         }
     }
 
-    LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
-    QNetworkRequest r = req.networkRequest();
-    r.setRawHeader("Referer", req.url().toEncoded());
-    r.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-    req.setNetworkRequest(r);
-
+    const LoadRequest req = mApp->searchEnginesManager()->searchResult(engine, selectedText());
     loadInNewTab(req, Qz::NT_NotSelectedTab);
 }
 

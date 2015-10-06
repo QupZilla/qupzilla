@@ -102,13 +102,7 @@ void TabbedWebView::slotLoadProgress(int prog)
 
 void TabbedWebView::userLoadAction(const LoadRequest &req)
 {
-    QNetworkRequest request(req.networkRequest());
-    request.setRawHeader("X-QupZilla-UserLoadAction", QByteArray("1"));
-
-    LoadRequest r = req;
-    r.setNetworkRequest(request);
-
-    load(r);
+    load(req);
 }
 
 void TabbedWebView::slotLoadStarted()

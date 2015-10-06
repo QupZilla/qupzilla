@@ -24,7 +24,6 @@
 
 class QUrl;
 class QWebEnginePage;
-class QNetworkRequest;
 
 class WebPage;
 class BrowserWindow;
