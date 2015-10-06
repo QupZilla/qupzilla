@@ -224,10 +224,12 @@ bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QS
             return false;
         }
 
+#if QTWEBENGINE_DISABLED
         // Check third-party restriction
         if (hasOption(ThirdPartyOption) && !matchThirdParty(request)) {
             return false;
         }
+#endif
 
         // Check object restrictions
         if (hasOption(ObjectOption) && !matchObject(request)) {
@@ -434,11 +436,13 @@ void AdBlockRule::parseFilter()
                 m_caseSensitivity = Qt::CaseSensitive;
                 ++handledOptions;
             }
+#if QTWEBENGINE_DISABLED
             else if (option.endsWith(QL1S("third-party"))) {
                 setOption(ThirdPartyOption);
                 setException(ThirdPartyOption, option.startsWith(QL1C('~')));
                 ++handledOptions;
             }
+#endif
             else if (option.endsWith(QL1S("object"))) {
                 setOption(ObjectOption);
                 setException(ObjectOption, option.startsWith(QL1C('~')));
