@@ -128,7 +128,6 @@ SOURCES += \
     navigation/reloadstopbutton.cpp \
     navigation/siteicon.cpp \
     navigation/websearchbar.cpp \
-    #network/cabundleupdater.cpp \
     network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
     network/networkurlinterceptor.cpp \
@@ -152,16 +151,12 @@ SOURCES += \
     other/checkboxdialog.cpp \
     other/iconchooser.cpp \
     other/licenseviewer.cpp \
-    #other/pagescreen.cpp \
     other/qzsettings.cpp \
     other/siteinfo.cpp \
     other/siteinfowidget.cpp \
-    #other/sourceviewer.cpp \
-    #other/sourceviewersearch.cpp \
     other/statusbarmessage.cpp \
     other/updater.cpp \
     other/useragentmanager.cpp \
-    #plugins/clicktoflash.cpp \
     plugins/pluginproxy.cpp \
     plugins/plugins.cpp \
     plugins/speeddial.cpp \
@@ -322,7 +317,6 @@ HEADERS  += \
     navigation/reloadstopbutton.h \
     navigation/siteicon.h \
     navigation/websearchbar.h \
-    #network/cabundleupdater.h \
     network/networkmanager.h \
     network/networkproxyfactory.h \
     network/networkurlinterceptor.h \
@@ -349,16 +343,12 @@ HEADERS  += \
     other/checkboxdialog.h \
     other/iconchooser.h \
     other/licenseviewer.h \
-    #other/pagescreen.h \
     other/qzsettings.h \
     other/siteinfo.h \
     other/siteinfowidget.h \
-    #other/sourceviewer.h \
-    #other/sourceviewersearch.h \
     other/statusbarmessage.h \
     other/updater.h \
     other/useragentmanager.h \
-    #plugins/clicktoflash.h \
     plugins/plugininterface.h \
     plugins/pluginproxy.h \
     plugins/plugins.h \
@@ -460,10 +450,8 @@ FORMS    += \
     other/clearprivatedata.ui \
     other/checkboxdialog.ui \
     other/iconchooser.ui \
-    #other/pagescreen.ui \
     other/siteinfo.ui \
     other/siteinfowidget.ui \
-    other/sourceviewersearch.ui \
     preferences/acceptlanguage.ui \
     preferences/addacceptlanguage.ui \
     preferences/autofillmanager.ui \
