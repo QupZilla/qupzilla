@@ -21,6 +21,7 @@
 #include "mainapplication.h"
 #include "iconprovider.h"
 
+#include <QTimer>
 #include <QWebEnginePage>
 
 HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, QWebEnginePage* page, const QWebEnginePage::Feature &feature)
@@ -86,7 +87,12 @@ void HTML5PermissionsNotification::grantPermissions()
         return;
     }
 
-    m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
+    if (m_feature == QWebEnginePage::MouseLock)
+        QCursor::setPos(m_page->view()->mapToGlobal(m_page->view()->rect().center()));
+
+    QTimer::singleShot(0, this, [this]() {
+        m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
+    });
 
     if (ui->remember->isChecked()) {
         mApp->html5PermissionsManager()->rememberPermissions(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
