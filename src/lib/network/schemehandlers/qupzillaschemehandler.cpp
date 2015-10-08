@@ -48,10 +48,10 @@ void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
     knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
 
     if (knownPages.contains(job->requestUrl().path()))
-        job->setReply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
+        job->reply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
     else
-        job->setReply(QByteArray(), new QBuffer());
-        //m_job->setError(QWebEngineUrlRequestJob::UrlNotFound);
+        job->reply(QByteArray(), new QBuffer());
+        //job->fail(QWebEngineUrlRequestJob::UrlNotFound);
 }
 
 QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)

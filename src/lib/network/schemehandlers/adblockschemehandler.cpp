@@ -32,8 +32,8 @@ AdBlockSchemeHandler::AdBlockSchemeHandler(QObject *parent)
 void AdBlockSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
     // Ignore the request
-    job->setReply(QByteArray(), new QBuffer());
-    //job->setError(QWebEngineUrlRequestJob::RequestAborted);
+    job->reply(QByteArray(), new QBuffer());
+    //job->fail(QWebEngineUrlRequestJob::RequestAborted);
 
     const QUrl url = job->requestUrl();
     const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();

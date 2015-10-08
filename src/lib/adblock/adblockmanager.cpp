@@ -91,9 +91,9 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
     QElapsedTimer timer;
     timer.start();
 #endif
-    const QString urlString = request.url().toEncoded().toLower();
-    const QString urlDomain = request.url().host().toLower();
-    const QString urlScheme = request.url().scheme().toLower();
+    const QString urlString = request.requestUrl().toEncoded().toLower();
+    const QString urlDomain = request.requestUrl().host().toLower();
+    const QString urlScheme = request.requestUrl().scheme().toLower();
 
     if (!isEnabled() || !canRunOnScheme(urlScheme))
         return 0;
@@ -103,7 +103,7 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 
     if (blockedRule) {
         res = true;
-        request.blockRequest(true);
+        request.block(true);
 #ifdef ADBLOCK_DEBUG
         qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
 #endif
