@@ -1,6 +1,6 @@
 /* ============================================================
-* GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - QtWebEngine based browser
+* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,36 +15,24 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef GM_PLUGIN_H
-#define GM_PLUGIN_H
 
-#include "plugininterface.h"
+#ifndef GM_URLINTERCEPTOR_H
+#define GM_URLINTERCEPTOR_H
 
-class WebPage;
+#include "urlinterceptor.h"
+
 class GM_Manager;
 
-class GM_Plugin : public QObject, public PluginInterface
+class GM_UrlInterceptor : public UrlInterceptor
 {
-    Q_OBJECT
-    Q_INTERFACES(PluginInterface)
-
-#if QT_VERSION >= 0x050000
-    Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.GreaseMonkey")
-#endif
-
 public:
-    explicit GM_Plugin();
-    PluginSpec pluginSpec();
+    explicit GM_UrlInterceptor(GM_Manager* manager);
 
-    void init(InitState state, const QString &settingsPath);
-    void unload();
-    bool testPlugin();
-
-    QTranslator* getTranslator(const QString &locale);
-    void showSettings(QWidget* parent = 0);
+    bool interceptRequest(QWebEngineUrlRequestInfo &info);
 
 private:
-    GM_Manager* m_manager;
+    GM_Manager *m_manager;
+
 };
 
-#endif // GM_PLUGIN_H
+#endif // GM_URLINTERCEPTOR_H

@@ -19,12 +19,14 @@
 #include "gm_script.h"
 #include "gm_downloader.h"
 #include "gm_icon.h"
+#include "gm_urlinterceptor.h"
 #include "settings/gm_settings.h"
 
 #include "browserwindow.h"
 #include "webpage.h"
 #include "qztools.h"
 #include "mainapplication.h"
+#include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
 
 #include <QTimer>
@@ -37,9 +39,16 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
-    //, m_jsObject(new GM_JSObject(this))
+    , m_interceptor(new GM_UrlInterceptor(this))
 {
+    mApp->networkManager()->installUrlInterceptor(m_interceptor);
+
     QTimer::singleShot(0, this, SLOT(load()));
+}
+
+GM_Manager::~GM_Manager()
+{
+    mApp->networkManager()->removeUrlInterceptor(m_interceptor);
 }
 
 void GM_Manager::showSettings(QWidget* parent)
@@ -54,7 +63,7 @@ void GM_Manager::showSettings(QWidget* parent)
 
 void GM_Manager::downloadScript(const QUrl &url)
 {
-    new GM_Downloader(url, this);
+    QMetaObject::invokeMethod(this, "doDownloadScript", Qt::QueuedConnection, Q_ARG(QUrl, url));
 }
 
 QString GM_Manager::settinsPath() const
@@ -232,8 +241,6 @@ void GM_Manager::load()
             mApp->webProfile()->scripts()->insert(script->webScript());
         }
     }
-
-    //m_jsObject->setSettingsFile(m_settingsPath + QL1S("/extensions.ini"));
 }
 
 void GM_Manager::scriptChanged()
@@ -245,6 +252,11 @@ void GM_Manager::scriptChanged()
     QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
     collection->remove(collection->findScript(script->fullName()));
     collection->insert(script->webScript());
+}
+
+void GM_Manager::doDownloadScript(const QUrl &url)
+{
+    new GM_Downloader(url, this);
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

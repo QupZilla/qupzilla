@@ -16,7 +16,8 @@ SOURCES += gm_plugin.cpp \
     settings/gm_settingsscriptinfo.cpp \
     settings/gm_settingslistwidget.cpp \
 #    gm_jsobject.cpp \
-    gm_icon.cpp
+    gm_icon.cpp \
+    gm_urlinterceptor.cpp
 
 HEADERS += gm_plugin.h \
     gm_manager.h \
@@ -30,7 +31,8 @@ HEADERS += gm_plugin.h \
     settings/gm_settingsscriptinfo.h \
     settings/gm_settingslistwidget.h \
 #    gm_jsobject.h \
-    gm_icon.h
+    gm_icon.h \
+    gm_urlinterceptor.h
 
 FORMS += \
     gm_addscriptdialog.ui \

@@ -87,20 +87,6 @@ void GM_Plugin::showSettings(QWidget* parent)
     m_manager->showSettings(parent);
 }
 
-bool GM_Plugin::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
-{
-    Q_UNUSED(page)
-    Q_UNUSED(type)
-    Q_UNUSED(isMainFrame)
-
-    if (url.toString().endsWith(QL1S(".user.js"))) {
-        m_manager->downloadScript(url);
-        return false;
-    }
-
-    return true;
-}
-
 #if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(GreaseMonkey, GM_Plugin)
 #endif
