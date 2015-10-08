@@ -63,6 +63,8 @@ public:
     void addDisabledRule(const QString &filter);
     void removeDisabledRule(const QString &filter);
 
+    bool addSubscriptionFromUrl(const QUrl &url);
+
     AdBlockSubscription* addSubscription(const QString &title, const QString &url);
     bool removeSubscription(AdBlockSubscription* subscription);
 

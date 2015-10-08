@@ -25,7 +25,6 @@
 #include "passwordmanager.h"
 #include "sslerrordialog.h"
 #include "networkurlinterceptor.h"
-#include "schemehandlers/adblockschemehandler.h"
 #include "schemehandlers/qupzillaschemehandler.h"
 
 #include <QLabel>
@@ -44,7 +43,6 @@ NetworkManager::NetworkManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
     // Create scheme handlers
-    mApp->webProfile()->installUrlSchemeHandler(new AdBlockSchemeHandler(this));
     mApp->webProfile()->installUrlSchemeHandler(new QupZillaSchemeHandler(this));
 
     // Create url interceptor

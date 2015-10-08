@@ -96,8 +96,6 @@ private:
 
     QVector<PasswordEntry> m_passwordEntries;
 
-    QUrl m_lastRequestUrl;
-
     int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;

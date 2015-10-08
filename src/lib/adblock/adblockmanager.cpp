@@ -32,6 +32,8 @@
 #include <QTextStream>
 #include <QDir>
 #include <QTimer>
+#include <QMessageBox>
+#include <QUrlQuery>
 
 //#define ADBLOCK_DEBUG
 
@@ -129,6 +131,35 @@ void AdBlockManager::addDisabledRule(const QString &filter)
 void AdBlockManager::removeDisabledRule(const QString &filter)
 {
     m_disabledRules.removeOne(filter);
+}
+
+bool AdBlockManager::addSubscriptionFromUrl(const QUrl &url)
+{
+    const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();
+
+    QString subscriptionTitle;
+    QString subscriptionUrl;
+
+    for (int i = 0; i < queryItems.count(); ++i) {
+        QPair<QString, QString> pair = queryItems.at(i);
+        if (pair.first == QL1S("location"))
+            subscriptionUrl = pair.second;
+        else if (pair.first == QL1S("title"))
+            subscriptionTitle = pair.second;
+    }
+
+    if (subscriptionTitle.isEmpty() || subscriptionUrl.isEmpty())
+        return false;
+
+    const QString message = AdBlockManager::tr("Do you want to add <b>%1</b> subscription?").arg(subscriptionTitle);
+
+    QMessageBox::StandardButton result = QMessageBox::question(0, AdBlockManager::tr("AdBlock Subscription"), message, QMessageBox::Yes | QMessageBox::No);
+    if (result == QMessageBox::Yes) {
+        AdBlockManager::instance()->addSubscription(subscriptionTitle, subscriptionUrl);
+        AdBlockManager::instance()->showDialog();
+    }
+
+    return true;
 }
 
 AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const QString &url)

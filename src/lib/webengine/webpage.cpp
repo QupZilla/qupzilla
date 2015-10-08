@@ -28,7 +28,6 @@
 #include "autofill.h"
 #include "popupwebview.h"
 #include "popupwindow.h"
-#include "adblockicon.h"
 #include "adblockmanager.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
@@ -336,9 +335,11 @@ bool WebPage::isFullScreen()
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
-    m_lastRequestUrl = url;
-
     if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
+        return false;
+
+    // AdBlock
+    if (url.scheme() == QL1S("abp") && AdBlockManager::instance()->addSubscriptionFromUrl(url))
         return false;
 
     return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);

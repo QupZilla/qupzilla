@@ -133,7 +133,6 @@ SOURCES += \
     network/networkurlinterceptor.cpp \
     network/pac/pacmanager.cpp \
     network/pac/proxyautoconfig.cpp \
-    network/schemehandlers/adblockschemehandler.cpp \
     #network/schemehandlers/fileschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
@@ -323,7 +322,6 @@ HEADERS  += \
     network/pac/pacdatetime.h \
     network/pac/pacmanager.h \
     network/pac/proxyautoconfig.h \
-    network/schemehandlers/adblockschemehandler.h \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/schemehandlers/schemehandler.h \
