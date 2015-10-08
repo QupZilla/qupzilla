@@ -1,3 +1,27 @@
+Version 1.8.7
+    * released 8 October 2015
+    * save pinned tabs per-window when set to restore session
+    * Shift+Left click on links now opens link in new window
+    * show web inspector action now toggles inspector
+    * add button to create new userscript in GreaseMonkey
+    * add "Anti-Adblock Killer" AdBlock subscription
+    * add Ctrl+G and Ctrl+Shift+G shortcuts in search toolbar
+    * fix enabling select all and find actions in menu
+    * fix searching for strings with special whitespaces from locationbar
+    * fix build with KF5 KWallet
+    * fix crash when blocking popup window with AdBlock
+    * fix icon animation when blocking popup window with AdBlock
+    * fix build with Qt 5.5 and gcc 4.9
+    * fix incorrectly accepting some cookies
+    * fix creating new config directory
+    * fix saving settings without changing pages in SpeedDial
+    * fix center dials option in SpeedDial
+    * fix not escaping characters for (file, ftp) dir listings
+    * fix not showing restore page when opening new url from cli
+    * fix adding search engine from form on page with Qt 5
+    * fix saving homepage/new tab urls from preferences
+    * Linux: use run-time detection of X11 platform
+
 Version 1.8.6
     * released 26 January 2015
     * added TabManager and FlashCookieManager plugins
