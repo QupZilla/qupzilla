@@ -216,6 +216,8 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
 
     // 1.8.x bugfix releases
     if (prof >= Updater::Version("1.8.0") && prof < Updater::Version("1.9.0")) {
+        if (prof == Updater::Version("1.8.6"))
+            update186();
         return;
     }
 
@@ -353,4 +355,136 @@ void ProfileManager::update140()
 void ProfileManager::update160()
 {
     // Nothing to upgrade
+}
+
+static QVector<WebTab::SavedTab> pinnedWebTabs(const QString &file)
+{
+    QVector<WebTab::SavedTab> out;
+
+    QFile f(file);
+    f.open(QIODevice::ReadOnly);
+    QByteArray sd = f.readAll();
+    f.close();
+
+    QDataStream stream(&sd, QIODevice::ReadOnly);
+    if (stream.atEnd())
+        return out;
+
+    int version;
+    stream >> version;
+
+    QStringList pinnedTabs;
+    stream >> pinnedTabs;
+    QList<QByteArray> tabHistory;
+    stream >> tabHistory;
+
+    for (int i = 0; i < pinnedTabs.count(); ++i) {
+        WebTab::SavedTab tab;
+        tab.url = QUrl(pinnedTabs.at(i));
+        tab.history = tabHistory.at(i);
+        tab.isPinned = true;
+        out.append(tab);
+    }
+
+    return out;
+}
+
+static QVector<RestoreManager::WindowData> restoreData(const QString &file)
+{
+    QVector<RestoreManager::WindowData> out;
+
+    QFile recoveryFile(file);
+    recoveryFile.open(QIODevice::ReadOnly);
+
+    QDataStream stream(&recoveryFile);
+    if (stream.atEnd())
+        return out;
+
+    int version;
+    stream >> version;
+
+    int windowCount;
+    stream >> windowCount;
+
+    for (int win = 0; win < windowCount; ++win) {
+        QByteArray tabState;
+        QByteArray windowState;
+        stream >> tabState;
+        stream >> windowState;
+
+        RestoreManager::WindowData wd;
+        wd.windowState = windowState;
+
+        QDataStream tabStream(tabState);
+        if (tabStream.atEnd()) {
+            continue;
+        }
+
+        QVector<WebTab::SavedTab> tabs;
+        int tabListCount = 0;
+        tabStream >> tabListCount;
+        for (int i = 0; i < tabListCount; ++i) {
+            WebTab::SavedTab tab;
+            tabStream >> tab;
+            tabs.append(tab);
+        }
+        wd.tabsState = tabs;
+
+        int currentTab;
+        tabStream >> currentTab;
+        wd.currentTab = currentTab;
+
+        out.append(wd);
+    }
+
+    return out;
+}
+
+static void saveRestoreData(const QVector<RestoreManager::WindowData> &data, const QString &file)
+{
+    QByteArray sessionData;
+    QDataStream stream(&sessionData, QIODevice::WriteOnly);
+
+    stream << Qz::sessionVersion;
+    stream << data.count();
+
+    foreach (const RestoreManager::WindowData w, data) {
+        QByteArray tabData;
+        QDataStream tabStream(&tabData, QIODevice::WriteOnly);
+        tabStream << w.tabsState.count();
+        foreach (const WebTab::SavedTab &tab, w.tabsState) {
+            tabStream << tab;
+        }
+        tabStream << w.currentTab;
+
+        stream << tabData;
+        stream << w.windowState;
+    }
+
+    QFile f(file);
+    f.open(QIODevice::WriteOnly);
+    f.write(sessionData);
+    f.close();
+}
+
+void ProfileManager::update186()
+{
+    std::cout << "QupZilla: Upgrading profile version from 1.8.6..." << std::endl;
+
+    const QString pinnedTabsPath = DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat");
+    const QString sessionPath = DataPaths::currentProfilePath() + QL1S("/session.dat");
+
+    if (!QFile::exists(pinnedTabsPath) || !QFile::exists(sessionPath))
+        return;
+
+    const QVector<WebTab::SavedTab> pinnedTabs = pinnedWebTabs(pinnedTabsPath);
+    if (pinnedTabs.isEmpty())
+        return;
+
+    QVector<RestoreManager::WindowData> data = restoreData(sessionPath);
+    if (data.isEmpty() || data.at(0).tabsState.isEmpty())
+        return;
+
+    data[0].tabsState = pinnedTabs + data[0].tabsState;
+    saveRestoreData(data, sessionPath);
 }
