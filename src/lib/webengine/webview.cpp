@@ -23,7 +23,6 @@
 #include "history.h"
 #include "pluginproxy.h"
 #include "downloadmanager.h"
-#include "sourceviewer.h"
 #include "siteinfo.h"
 #include "searchenginesmanager.h"
 #include "browsinglibrary.h"

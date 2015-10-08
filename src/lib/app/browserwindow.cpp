@@ -32,7 +32,6 @@
 #include "cookiemanager.h"
 #include "bookmarkstoolbar.h"
 #include "clearprivatedata.h"
-#include "sourceviewer.h"
 #include "autofill.h"
 #include "mainapplication.h"
 #include "checkboxdialog.h"
