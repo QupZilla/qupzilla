@@ -188,44 +188,13 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
 
     Updater::Version prof(profile);
 
-    if (prof == Updater::Version("1.0.0")) {
-        update100();
+    if (prof < Updater::Version("1.9.0")) {
+        std::cout << "QupZilla: Incompatible profile version detected (" << qPrintable(profile) << "), overwriting profile data..." << std::endl;
+        copyDataToProfile();
         return;
     }
 
-    if (prof == Updater::Version("1.1.0") || prof == Updater::Version("1.1.5") || prof == Updater::Version("1.1.8")) {
-        update118();
-        return;
-    }
-
-    if (prof == Updater::Version("1.2.0")) {
-        update120();
-        return;
-    }
-
-    if (prof == Updater::Version("1.3.0") || prof == Updater::Version("1.3.1")) {
-        update130();
-        return;
-    }
-
-    if (prof >= Updater::Version("1.4.0") && prof <= Updater::Version("1.5.0")) {
-        update140();
-        return;
-    }
-
-    if (prof >= Updater::Version("1.6.0") && prof < Updater::Version("1.8.0")) {
-        update160();
-        return;
-    }
-
-    if (prof >= Updater::Version("1.8.0") && prof < Updater::Version("1.9.0")) {
-        // do nothing
-        return;
-    }
-
-    std::cout << "QupZilla: Incompatible profile version detected (" << qPrintable(profile) << "), overwriting profile data..." << std::endl;
-
-    copyDataToProfile();
+    // Nothing for now
 }
 
 void ProfileManager::copyDataToProfile()
@@ -281,80 +250,4 @@ void ProfileManager::connectDatabase()
     }
 
     m_databaseConnected = true;
-}
-
-void ProfileManager::update100()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.0.0..." << std::endl;
-
-    connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE autofill ADD COLUMN last_used NUMERIC");
-    query.exec("UPDATE autofill SET last_used=0");
-
-    update118();
-}
-
-void ProfileManager::update118()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.1.8..." << std::endl;
-
-    connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE folders ADD COLUMN parent TEXT");
-
-    update120();
-}
-
-void ProfileManager::update120()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.2.0..." << std::endl;
-
-    connectDatabase();
-
-    QSqlDatabase db = QSqlDatabase::database();
-    db.transaction();
-
-    // This is actually just renaming bookmarks.toolbar_position to bookmarks.position
-    QSqlQuery query;
-    query.exec("ALTER TABLE bookmarks RENAME TO tmp_bookmarks");
-    query.exec("CREATE TABLE bookmarks (icon TEXT, folder TEXT, id INTEGER PRIMARY KEY, title VARCHAR(200), url VARCHAR(200), position NUMERIC)");
-    query.exec("INSERT INTO bookmarks(icon, folder, id, title, url, position)"
-               "SELECT icon, folder, id, title, url, toolbar_position FROM tmp_bookmarks");
-    query.exec("DROP TABLE tmp_bookmarks");
-    query.exec("CREATE INDEX bookmarksTitle ON bookmarks(title ASC)");
-    query.exec("CREATE INDEX bookmarksUrl ON bookmarks(url ASC)");
-
-    db.commit();
-
-    update130();
-}
-
-void ProfileManager::update130()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.3.0..." << std::endl;
-
-    connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE bookmarks ADD COLUMN keyword TEXT");
-
-    update140();
-}
-
-void ProfileManager::update140()
-{
-    std::cout << "QupZilla: Upgrading profile version from 1.4.0..." << std::endl;
-
-    connectDatabase();
-
-    QSqlQuery query;
-    query.exec("ALTER TABLE search_engines ADD COLUMN postData TEXT");
-}
-
-void ProfileManager::update160()
-{
-    // Nothing to upgrade
 }
