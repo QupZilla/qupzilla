@@ -144,7 +144,7 @@ public:
     {
         QFile file(name);
         file.open(QFile::WriteOnly);
-        file.write(QByteArrayLiteral("qupzilla-test"));
+        file.write(QByteArray("qupzilla-test"));
         file.close();
     }
 
