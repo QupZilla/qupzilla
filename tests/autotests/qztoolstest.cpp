@@ -18,7 +18,23 @@
 #include "qztoolstest.h"
 #include "qztools.h"
 
+#include <QDir>
 #include <QtTest/QtTest>
+
+void QzToolsTest::initTestCase()
+{
+    m_tmpPath = QDir::tempPath() + QL1S("/qupzilla-test/qztoolstest");
+    QDir().mkpath(m_tmpPath);
+
+    QVERIFY(QDir(m_tmpPath).exists());
+}
+
+void QzToolsTest::cleanupTestCase()
+{
+    QDir().rmpath(m_tmpPath);
+
+    QVERIFY(!QDir(m_tmpPath).exists());
+}
 
 void QzToolsTest::samePartOfStrings_data()
 {
@@ -116,4 +132,119 @@ void QzToolsTest::splitCommandArguments()
     QFETCH(QStringList, result);
 
     QCOMPARE(QzTools::splitCommandArguments(command), result);
+}
+
+class TempFile
+{
+    QString name;
+
+public:
+    explicit TempFile(const QString &name)
+        : name(name)
+    {
+        QFile file(name);
+        file.open(QFile::WriteOnly);
+        file.write(QByteArrayLiteral("qupzilla-test"));
+        file.close();
+    }
+
+    ~TempFile()
+    {
+        QFile::remove(name);
+    }
+};
+
+void QzToolsTest::ensureUniqueFilename()
+{
+    QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out")), createPath("test.out"));
+    QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test"));
+
+    // default appendFormat = (%1)
+    {
+        TempFile f1(createPath("test.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out")), createPath("test(1).out"));
+        TempFile f2(createPath("test(1).out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out")), createPath("test(2).out"));
+        TempFile f3(createPath("test(2).out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out")), createPath("test(3).out"));
+    }
+    {
+        TempFile f1(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test(1)"));
+        TempFile f2(createPath("test(1)"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test(2)"));
+        TempFile f3(createPath("test(2)"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test(3)"));
+    }
+    {
+        TempFile f1(createPath("test(1)"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test"));
+        TempFile f2(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test")), createPath("test(2)"));
+    }
+
+    // appendFormat = %1
+    {
+        QString appendFormat = QSL("%1");
+
+        TempFile f1(createPath("test.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test1.out"));
+        TempFile f2(createPath("test1.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test2.out"));
+        TempFile f3(createPath("test2.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test3.out"));
+    }
+    {
+        QString appendFormat = QSL("%1");
+
+        TempFile f1(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test1"));
+        TempFile f2(createPath("test1"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test2"));
+        TempFile f3(createPath("test2"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test3"));
+    }
+    {
+        QString appendFormat = QSL("%1");
+
+        TempFile f1(createPath("test1"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test"));
+        TempFile f2(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test2"));
+    }
+
+    // appendFormat = .%1
+    {
+        QString appendFormat = QSL(".%1");
+
+        TempFile f1(createPath("test.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test.1.out"));
+        TempFile f2(createPath("test.1.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test.2.out"));
+        TempFile f3(createPath("test.2.out"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test.out"), appendFormat), createPath("test.3.out"));
+    }
+    {
+        QString appendFormat = QSL(".%1");
+
+        TempFile f1(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test.1"));
+        TempFile f2(createPath("test.1"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test.2"));
+        TempFile f3(createPath("test.2"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test.3"));
+    }
+    {
+        QString appendFormat = QSL(".%1");
+
+        TempFile f1(createPath("test.1"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test"));
+        TempFile f2(createPath("test"));
+        QCOMPARE(QzTools::ensureUniqueFilename(createPath("test"), appendFormat), createPath("test.2"));
+    }
+}
+
+QString QzToolsTest::createPath(const char *file) const
+{
+    return m_tmpPath + QL1S("/") + file;
 }

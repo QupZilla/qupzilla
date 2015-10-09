@@ -25,6 +25,9 @@ class QzToolsTest : public QObject
     Q_OBJECT
 
 private slots:
+    void initTestCase();
+    void cleanupTestCase();
+
     void samePartOfStrings_data();
     void samePartOfStrings();
 
@@ -33,6 +36,13 @@ private slots:
 
     void splitCommandArguments_data();
     void splitCommandArguments();
+
+    void ensureUniqueFilename();
+
+private:
+    QString createPath(const char *file) const;
+
+    QString m_tmpPath;
 
 };
 
