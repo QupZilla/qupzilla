@@ -81,11 +81,17 @@ void WebInspector::unregisterView(QWebEngineView *view)
 
 void WebInspector::updateCloseButton()
 {
-    page()->runJavaScript(QL1S("var button = document.getElementsByClassName('toolbar-close-button-item')[0];"
-                               "button.style.display = 'inline-block';"
+    page()->runJavaScript(QL1S("var toolbar = document.getElementsByClassName('inspector-view-toolbar')[1];"
+                               "var button = document.createElement('button');"
+                               "button.style.width = '26px';"
+                               "button.style.height = '26px';"
+                               "button.style.border = 'none';"
+                               "button.style.background = 'url(qrc:html/close.png) no-repeat';"
+                               "button.style.backgroundPosition = 'center center';"
                                "button.addEventListener('click', function() {"
                                "    window.close();"
-                               "})"));
+                               "});"
+                               "toolbar.appendChild(button);"));
 }
 
 void WebInspector::keyPressEvent(QKeyEvent *event)
