@@ -83,6 +83,7 @@ class KWalletPasswordBackendTest : public PasswordBackendTest
     Q_OBJECT
 
 protected:
+    void init();
     void reloadBackend();
 };
 #endif
@@ -95,6 +96,7 @@ class GnomeKeyringPasswordBackendTest : public PasswordBackendTest
     Q_OBJECT
 
 protected:
+    void init();
     void reloadBackend();
 };
 #endif

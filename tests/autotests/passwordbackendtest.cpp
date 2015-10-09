@@ -22,6 +22,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QDBusMessage>
+#include <QDBusConnection>
 
 #ifdef Q_OS_WIN
 #include "qt_windows.h"
@@ -272,6 +274,20 @@ void DatabaseEncryptedPasswordBackendTest::cleanup()
 
 #ifdef HAVE_KDE_PASSWORDS_PLUGIN
 // KWalletPassswordBackendTest
+void KWalletPassswordBackendTest::init()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
+                                                      QStringLiteral("/org/freedesktop/DBus"),
+                                                      QStringLiteral("org.freedesktop.DBus"),
+                                                      QStringLiteral("StartServiceByName"));
+    msg << "org.kde.kwalletd5";
+    msg << quint32(0);
+
+    QDBusMessage reply = QDBusConnection::sessionBus().call(msg);
+    if (reply.arguments().isEmpty() || reply.arguments().first().toInt() != 1)
+        QSKIP("This test requires org.kde.kwalletd5 service.");
+}
+
 void KWalletPasswordBackendTest::reloadBackend()
 {
     delete m_backend;
@@ -281,6 +297,20 @@ void KWalletPasswordBackendTest::reloadBackend()
 
 #ifdef HAVE_GNOME_PASSWORDS_PLUGIN
 // GnomeKeyringPassswordBackendTest
+void GnomeKeyringPasswordBackendTest::init()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
+                                                      QStringLiteral("/org/freedesktop/DBus"),
+                                                      QStringLiteral("org.freedesktop.DBus"),
+                                                      QStringLiteral("StartServiceByName"));
+    msg << "org.freedesktop.secrets";
+    msg << quint32(0);
+
+    QDBusMessage reply = QDBusConnection::sessionBus().call(msg);
+    if (reply.arguments().isEmpty() || reply.arguments().first().toInt() != 1)
+        QSKIP("This test requires org.freedesktop.secrets service.");
+}
+
 void GnomeKeyringPasswordBackendTest::reloadBackend()
 {
     delete m_backend;
