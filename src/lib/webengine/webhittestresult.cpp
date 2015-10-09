@@ -170,6 +170,8 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     if (rect.size() == 4)
         m_boundingRect = QRect(rect.at(0).toInt(), rect.at(1).toInt(), rect.at(2).toInt(), rect.at(3).toInt());
 
+    if (!m_imageUrl.isEmpty())
+        m_imageUrl = url.resolved(m_imageUrl);
     if (!m_linkUrl.isEmpty())
         m_linkUrl = url.resolved(m_linkUrl);
     if (!m_mediaUrl.isEmpty())
