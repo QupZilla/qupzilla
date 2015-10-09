@@ -11,10 +11,8 @@ QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
 
 # KWallet plugin
 exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
-    isEqual(QT_MAJOR_VERSION, 4) | qtHaveModule(KWallet) {
-        LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
-        DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
-    }
+    LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
+    DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
 }
 
 # GnomeKeyring plugin

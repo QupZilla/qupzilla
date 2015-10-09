@@ -20,6 +20,12 @@
 
 #include <QDateTime>
 
+#if QT_VERSION >= 0x050000
+#include <KF5/KWallet/KWallet>
+#else
+#include <KDE/KWallet/Wallet>
+#endif
+
 static PasswordEntry decodeEntry(const QByteArray &data)
 {
     QDataStream stream(data);
