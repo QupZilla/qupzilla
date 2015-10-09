@@ -235,13 +235,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", false).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->showClosedTabsButton->setChecked(settings.value("showClosedTabsButton", false).toBool());
-    ui->showTabPreviews->setChecked(settings.value("showTabPreviews", false).toBool());
-    ui->animatedTabPreviews->setChecked(settings.value("tabPreviewAnimationsEnabled", true).toBool());
     ui->showCloseOnInactive->setCurrentIndex(settings.value("showCloseOnInactiveTabs", 0).toInt());
     settings.endGroup();
-
-    connect(ui->showTabPreviews, SIGNAL(toggled(bool)), this, SLOT(showTabPreviewsChanged(bool)));
-    showTabPreviewsChanged(ui->showTabPreviews->isChecked());
 
     //AddressBar
     settings.beginGroup("AddressBar");
@@ -714,11 +709,6 @@ void Preferences::useDifferentProxyForHttpsChanged(bool state)
     ui->httpsProxyPassword->setEnabled(state);
 }
 
-void Preferences::showTabPreviewsChanged(bool state)
-{
-    ui->animatedTabPreviews->setEnabled(state);
-}
-
 void Preferences::changeCachePathClicked()
 {
     QString path = QzTools::getExistingDirectory("Preferences-CachePath", this, tr("Choose cache path..."), ui->cachePath->text());
@@ -885,8 +875,6 @@ void Preferences::saveSettings()
     settings.setValue("dontCloseWithOneTab", ui->dontCloseOnLastTab->isChecked());
     settings.setValue("AskOnClosing", ui->askWhenClosingMultipleTabs->isChecked());
     settings.setValue("showClosedTabsButton", ui->showClosedTabsButton->isChecked());
-    settings.setValue("showTabPreviews", ui->showTabPreviews->isChecked());
-    settings.setValue("tabPreviewAnimationsEnabled", ui->animatedTabPreviews->isChecked());
     settings.setValue("showCloseOnInactiveTabs", ui->showCloseOnInactive->currentIndex());
     settings.endGroup();
 

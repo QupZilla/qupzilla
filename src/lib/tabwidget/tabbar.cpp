@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "tabbar.h"
 #include "tabwidget.h"
-#include "tabpreview.h"
 #include "browserwindow.h"
 #include "webtab.h"
 #include "toolbutton.h"
@@ -44,8 +43,6 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     : ComboTabBar()
     , m_window(window)
     , m_tabWidget(tabWidget)
-    , m_tabPreview(new TabPreview(window, window))
-    , m_showTabPreviews(false)
     , m_hideTabBarWithOneTab(false)
     , m_showCloseOnInactive(0)
     , m_clickedTab(0)
@@ -64,20 +61,9 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(currentTabChanged(int)));
 
-    m_tabPreviewShowTimer = new QTimer(this);
-    m_tabPreviewShowTimer->setInterval(300);
-    m_tabPreviewShowTimer->setSingleShot(true);
-    connect(m_tabPreviewShowTimer, SIGNAL(timeout()), this, SLOT(showTabPreview()));
-
-    m_tabPreviewHideTimer = new QTimer(this);
-    m_tabPreviewHideTimer->setInterval(300);
-    m_tabPreviewHideTimer->setSingleShot(true);
-    connect(m_tabPreviewHideTimer, SIGNAL(timeout()), m_tabPreview, SLOT(hideAnimated()));
-
     // ComboTabBar features
     setUsesScrollButtons(true);
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
-    connect(this, SIGNAL(scrollBarValueChanged(int)), this, SLOT(hideTabPreview()));
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overflowChanged(bool)));
 
     if (mApp->isPrivate()) {
@@ -95,8 +81,6 @@ void TabBar::loadSettings()
     Settings settings;
     settings.beginGroup("Browser-Tabs-Settings");
     m_hideTabBarWithOneTab = settings.value("hideTabsWithOneTab", false).toBool();
-    m_tabPreview->setAnimationsEnabled(settings.value("tabPreviewAnimationsEnabled", true).toBool());
-    m_showTabPreviews = settings.value("showTabPreviews", false).toBool();
     bool activateLastTab = settings.value("ActivateLastTabWhenClosingActual", false).toBool();
     m_showCloseOnInactive = settings.value("showCloseOnInactiveTabs", 0).toInt(0);
     settings.endGroup();
@@ -123,7 +107,6 @@ void TabBar::setVisible(bool visible)
         visible = !(count() == 1 && m_hideTabBarWithOneTab);
     }
 
-    hideTabPreview(false);
     ComboTabBar::setVisible(visible);
 }
 
@@ -438,8 +421,6 @@ void TabBar::currentTabChanged(int index)
         return;
     }
 
-    hideTabPreview(false);
-
     // Don't hide close buttons when dragging tabs
     if (m_dragStartPosition.isNull()) {
         showCloseButton(index);
@@ -503,49 +484,6 @@ void TabBar::setTabText(int index, const QString &text)
     ComboTabBar::setTabText(index, tabText);
 }
 
-void TabBar::showTabPreview(bool delayed)
-{
-    if (!m_showTabPreviews) {
-        return;
-    }
-
-    if (delayed) {
-        int index = tabAt(mapFromGlobal(QCursor::pos()));
-        if (index == -1 || QApplication::mouseButtons() != Qt::NoButton) {
-            return;
-        }
-
-        m_tabPreview->setPreviewIndex(index);
-        m_tabPreviewShowTimer->stop();
-    }
-
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_tabPreview->previewIndex()));
-    if (!webTab) {
-        return;
-    }
-
-    m_tabPreviewHideTimer->stop();
-    m_tabPreview->setWebTab(webTab, m_tabPreview->previewIndex() == currentIndex());
-
-    QRect r(tabRect(m_tabPreview->previewIndex()));
-    r.setTopLeft(mapTo(m_window, r.topLeft()));
-    r.setBottomRight(mapTo(m_window, r.bottomRight()));
-
-    m_tabPreview->showOnRect(r);
-}
-
-void TabBar::hideTabPreview(bool delayed)
-{
-    m_tabPreviewShowTimer->stop();
-
-    if (delayed) {
-        m_tabPreviewHideTimer->start();
-    }
-    else {
-        m_tabPreview->hideAnimated();
-    }
-}
-
 void TabBar::tabInserted(int index)
 {
     Q_UNUSED(index)
@@ -585,8 +523,6 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
-    hideTabPreview(false);
-
     if (mApp->plugins()->processMousePress(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -611,20 +547,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
         if (manhattanLength > QApplication::startDragDistance()) {
             m_tabWidget->buttonAddTab()->hide();
-            hideTabPreview();
         }
-    }
-
-    // Tab Preview
-    const int tab = tabAt(event->pos());
-
-    if (m_tabPreview->isVisible() && tab != -1 && tab != m_tabPreview->previewIndex() && event->buttons() == Qt::NoButton && m_dragStartPosition.isNull()) {
-        m_tabPreview->setPreviewIndex(tab);
-        showTabPreview(false);
-    }
-
-    if (!m_tabPreview->isVisible()) {
-        m_tabPreviewShowTimer->start();
     }
 
     ComboTabBar::mouseMoveEvent(event);
@@ -667,7 +590,7 @@ bool TabBar::event(QEvent* event)
 {
     switch (event->type()) {
     case QEvent::ToolTip:
-        if (!m_showTabPreviews && !isDragInProgress()) {
+        if (!isDragInProgress()) {
             QHelpEvent* ev = static_cast<QHelpEvent*>(event);
             int index = tabAt(ev->pos());
 
@@ -675,16 +598,6 @@ bool TabBar::event(QEvent* event)
                 QToolTip::showText(mapToGlobal(ev->pos()), tabToolTip(index));
             }
         }
-        break;
-
-    case QEvent::Leave:
-        if (!rect().contains(mapFromGlobal(QCursor::pos()))) {
-            hideTabPreview();
-        }
-        break;
-
-    case QEvent::Wheel:
-        hideTabPreview(false);
         break;
 
     default:

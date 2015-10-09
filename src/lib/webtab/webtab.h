@@ -93,8 +93,6 @@ public:
     void p_restoreTab(const SavedTab &tab);
     void p_restoreTab(const QUrl &url, const QByteArray &history);
 
-    QPixmap renderTabPreview();
-
 private slots:
     void showNotification(QWidget* notif);
     void loadStarted();

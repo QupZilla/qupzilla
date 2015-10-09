@@ -326,15 +326,6 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
     p_restoreTab(tab.url, tab.history);
 }
 
-QPixmap WebTab::renderTabPreview()
-{
-    const int previewWidth = 230;
-    const int previewHeight = 150;
-
-    QPixmap p = m_webView->grab();
-    return p.scaled(previewWidth, previewHeight, Qt::KeepAspectRatioByExpanding);
-}
-
 void WebTab::showNotification(QWidget* notif)
 {
     const int notifPos = 0;

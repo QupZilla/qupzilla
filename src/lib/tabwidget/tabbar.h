@@ -26,7 +26,6 @@
 
 class BrowserWindow;
 class TabWidget;
-class TabPreview;
 class WebTab;
 
 class QUPZILLA_EXPORT TabBar : public ComboTabBar
@@ -75,9 +74,6 @@ private slots:
     void closeAllButCurrent();
     void closeTabFromButton();
 
-    void showTabPreview(bool delayed = true);
-    void hideTabPreview(bool delayed = true);
-
 private:
     inline bool validIndex(int index) const { return index >= 0 && index < count(); }
 
@@ -103,11 +99,7 @@ private:
 
     BrowserWindow* m_window;
     TabWidget* m_tabWidget;
-    TabPreview* m_tabPreview;
-    QTimer* m_tabPreviewShowTimer;
-    QTimer* m_tabPreviewHideTimer;
 
-    bool m_showTabPreviews;
     bool m_hideTabBarWithOneTab;
 
     int m_showCloseOnInactive;

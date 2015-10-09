@@ -179,7 +179,6 @@ SOURCES += \
     tabwidget/combotabbar.cpp \
     tabwidget/tabbar.cpp \
     tabwidget/tabicon.cpp \
-    tabwidget/tabpreview.cpp \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
     tools/aesinterface.cpp \
@@ -372,7 +371,6 @@ HEADERS  += \
     tabwidget/combotabbar.h \
     tabwidget/tabbar.h \
     tabwidget/tabicon.h \
-    tabwidget/tabpreview.h \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
     tools/aesinterface.h \
