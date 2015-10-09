@@ -24,7 +24,7 @@
 
 #include "qzcommon.h"
 
-class QWebEngineView;
+class QQuickWidget;
 class QPixmap;
 
 class QUPZILLA_EXPORT PageThumbnailer : public QObject
@@ -49,12 +49,10 @@ signals:
     void thumbnailCreated(const QPixmap &);
 
 public slots:
-
-private slots:
     void createThumbnail(bool status);
 
 private:
-    QWebEngineView* m_view;
+    QQuickWidget *m_view;
 
     QSize m_size;
     QUrl m_url;

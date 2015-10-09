@@ -19,24 +19,21 @@
 
 #include <QTimer>
 #include <QApplication>
-#include <QWebEngineView>
+
+#include <QQmlContext>
+#include <QQuickItem>
+#include <QQuickWidget>
 
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
-    , m_view(new QWebEngineView())
+    , m_view(new QQuickWidget())
     , m_size(QSize(450, 253))
     , m_loadTitle(false)
 {
-    // Every page should fit in this resolution
-    m_view->resize(QSize(1280, 720));
-
-    // Well ...
-    QWidget *w = QApplication::activeWindow();
+    m_view->setAttribute(Qt::WA_DontShowOnScreen);
+    m_view->setSource(QUrl(QSL("qrc:data/thumbnailer.qml")));
+    m_view->rootContext()->setContextProperty(QSL("thumbnailer"), this);
     m_view->show();
-    if (w) {
-        QApplication::setActiveWindow(w);
-        w->activateWindow();
-    }
 }
 
 void PageThumbnailer::setSize(const QSize &size)
@@ -79,9 +76,14 @@ QString PageThumbnailer::title()
 
 void PageThumbnailer::start()
 {
-    m_view->load(m_url);
-
-    connect(m_view, &QWebEngineView::loadFinished, this, &PageThumbnailer::createThumbnail);
+    if (m_view->rootObject()) {
+        m_view->rootObject()->setProperty("url", m_url);
+    }
+    else {
+        QTimer::singleShot(0, this, [this]() {
+            emit thumbnailCreated(QPixmap());
+        });
+    }
 }
 
 void PageThumbnailer::createThumbnail(bool status)
@@ -92,8 +94,8 @@ void PageThumbnailer::createThumbnail(bool status)
     }
 
     QTimer::singleShot(1000, this, [this]() {
-        m_title = m_view->title().trimmed();
-        emit thumbnailCreated(m_view->grab().scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        m_title = m_view->rootObject()->property("title").toString().trimmed();
+        emit thumbnailCreated(QPixmap::fromImage(m_view->grabFramebuffer().scaled(m_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
     });
 }
 
