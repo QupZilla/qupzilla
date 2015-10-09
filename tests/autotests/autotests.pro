@@ -45,7 +45,6 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty \
                $$PWD/../../src/lib/plugins \
                $$PWD/../../src/lib/popupwindow \
                $$PWD/../../src/lib/preferences \
-               $$PWD/../../src/lib/rss \
                $$PWD/../../src/lib/session \
                $$PWD/../../src/lib/sidebar \
                $$PWD/../../src/lib/tabwidget \
@@ -55,9 +54,7 @@ INCLUDEPATH += $$PWD/../../src/lib/3rdparty \
 
 HEADERS += \
     qztoolstest.h \
-    formcompletertest.h \
     cookiestest.h \
-    downloadstest.h \
     adblocktest.h \
     updatertest.h \
     pactest.h \
@@ -67,9 +64,7 @@ HEADERS += \
 SOURCES += \
     qztoolstest.cpp \
     main.cpp \
-    formcompletertest.cpp \
     cookiestest.cpp \
-    downloadstest.cpp \
     adblocktest.cpp \
     updatertest.cpp \
     pactest.cpp \

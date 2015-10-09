@@ -16,9 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "qztoolstest.h"
-#include "formcompletertest.h"
 #include "cookiestest.h"
-#include "downloadstest.h"
 #include "adblocktest.h"
 #include "updatertest.h"
 #include "pactest.h"
@@ -29,7 +27,6 @@
 
 #define RUN_TEST(X) \
     { \
-    qDebug() << ""; \
     X t; \
     int r = QTest::qExec(&t, argc, argv); \
     if (r != 0) return 1; \
@@ -41,9 +38,7 @@ int main(int argc, char *argv[])
     QTEST_DISABLE_KEYPAD_NAVIGATION;
 
     RUN_TEST(QzToolsTest)
-    RUN_TEST(FormCompleterTest)
     RUN_TEST(CookiesTest)
-    RUN_TEST(DownloadsTest)
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
     RUN_TEST(PacTest)
