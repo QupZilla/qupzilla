@@ -221,27 +221,31 @@ QUrl QzTools::frameUrl(QWebFrame* frame)
 
 QString QzTools::ensureUniqueFilename(const QString &name, const QString &appendFormat)
 {
-    if (!QFile::exists(name)) {
+    Q_ASSERT(appendFormat.contains(QL1S("%1")));
+
+    QFileInfo info(name);
+
+    if (!info.exists())
         return name;
-    }
 
-    QString tmpPath = name;
+    const QDir dir = info.absoluteDir();
+    const QString fileName = info.fileName();
+
     int i = 1;
-    while (QFile::exists(tmpPath)) {
-        tmpPath = name;
-        int fileNameIndex = tmpPath.lastIndexOf(QL1C('/'));
-        int index = tmpPath.lastIndexOf(QL1C('.'), fileNameIndex);
 
-        QString appendString = appendFormat.arg(i);
-        if (index == -1) {
-            tmpPath.append(appendString);
-        }
-        else {
-            tmpPath = tmpPath.left(index) + appendString + tmpPath.mid(index);
-        }
+    while (info.exists()) {
+        QString file = fileName;
+        int index = file.lastIndexOf(QL1C('.'));
+        const QString appendString = appendFormat.arg(i);
+        if (index == -1)
+            file.append(appendString);
+        else
+            file = file.left(index) + appendString + file.mid(index);
+        info.setFile(dir, file);
         i++;
     }
-    return tmpPath;
+
+    return info.absoluteFilePath();
 }
 
 QString QzTools::getFileNameFromUrl(const QUrl &url)
