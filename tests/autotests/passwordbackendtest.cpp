@@ -100,6 +100,7 @@ void PasswordBackendTest::storeTest()
     reloadBackend();
 
     // Check entry retrieved from backend engine
+    QVERIFY(!m_backend->getEntries(QUrl("org.qupzilla.google.com")).isEmpty());
     stored = m_backend->getEntries(QUrl("org.qupzilla.google.com")).first();
     QVERIFY(compareEntries(stored, entry) == true);
 
@@ -199,8 +200,10 @@ void PasswordBackendTest::updateLastUsedTest()
     entry.username.append("s");
     m_backend->addEntry(entry);
 
+    QVERIFY(!m_backend->getEntries(QUrl("org.qupzilla.google.com")).isEmpty());
     QVERIFY(compareEntries(entry, m_backend->getEntries(QUrl("org.qupzilla.google.com")).first()));
     reloadBackend();
+    QVERIFY(!m_backend->getEntries(QUrl("org.qupzilla.google.com")).isEmpty());
     QVERIFY(compareEntries(entry, m_backend->getEntries(QUrl("org.qupzilla.google.com")).first()));
 
     m_backend->removeEntry(m_backend->getEntries(QUrl("org.qupzilla.google.com")).first());
