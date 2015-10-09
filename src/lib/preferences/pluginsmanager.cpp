@@ -35,7 +35,6 @@ PluginsManager::PluginsManager(QWidget* parent)
 {
     ui->setupUi(this);
     ui->list->setLayoutDirection(Qt::LeftToRight);
-    ui->whitelist->setLayoutDirection(Qt::LeftToRight);
 
     //Application Extensions
     Settings settings;
@@ -52,24 +51,6 @@ PluginsManager::PluginsManager(QWidget* parent)
     connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
     ui->list->setItemDelegate(new PluginListDelegate(ui->list));
-
-    //WebKit Plugins
-    connect(ui->add, SIGNAL(clicked()), this, SLOT(addWhitelist()));
-    connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeWhitelist()));
-    connect(ui->allowClick2Flash, SIGNAL(clicked(bool)), this, SLOT(allowC2FChanged(bool)));
-
-    ui->whitelist->sortByColumn(-1);
-
-    settings.beginGroup("ClickToFlash");
-    QStringList whitelist = mApp->plugins()->c2f_getWhiteList();
-    ui->allowClick2Flash->setChecked(settings.value("Enable", true).toBool());
-    settings.endGroup();
-    foreach (const QString &site, whitelist) {
-        QTreeWidgetItem* item = new QTreeWidgetItem(ui->whitelist);
-        item->setText(0, site);
-    }
-
-    allowC2FChanged(ui->allowClick2Flash->isChecked());
 }
 
 void PluginsManager::load()
@@ -78,28 +59,6 @@ void PluginsManager::load()
         refresh();
         m_loaded = true;
     }
-}
-
-void PluginsManager::addWhitelist()
-{
-    QString site = QInputDialog::getText(this, tr("Add site to whitelist"), tr("Server without http:// (ex. youtube.com)"));
-    if (site.isEmpty()) {
-        return;
-    }
-
-    mApp->plugins()->c2f_addWhitelist(site);
-    ui->whitelist->insertTopLevelItem(0, new QTreeWidgetItem(QStringList(site)));
-}
-
-void PluginsManager::removeWhitelist()
-{
-    QTreeWidgetItem* item = ui->whitelist->currentItem();
-    if (!item) {
-        return;
-    }
-
-    mApp->plugins()->c2f_removeWhitelist(item->text(0));
-    delete item;
 }
 
 void PluginsManager::save()
@@ -145,20 +104,6 @@ void PluginsManager::allowAppPluginsChanged(bool state)
     }
 
     refresh();
-}
-
-void PluginsManager::allowC2FChanged(bool state)
-{
-    Settings settings;
-    settings.beginGroup("ClickToFlash");
-    settings.setValue("Enable", state);
-    settings.endGroup();
-
-    ui->whitelist->setEnabled(state);
-    ui->add->setEnabled(state);
-    ui->remove->setEnabled(state);
-
-    mApp->plugins()->c2f_setEnabled(state);
 }
 
 void PluginsManager::refresh()

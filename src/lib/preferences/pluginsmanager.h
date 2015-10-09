@@ -41,18 +41,12 @@ public:
     void save();
 
 private slots:
-    //App extension
     void settingsClicked();
     void currentChanged(QListWidgetItem* item);
     void itemChanged(QListWidgetItem* item);
     void allowAppPluginsChanged(bool state);
 
     void refresh();
-
-    //WebKit plugins
-    void addWhitelist();
-    void removeWhitelist();
-    void allowC2FChanged(bool state);
 
 private:
     void sortItems();
