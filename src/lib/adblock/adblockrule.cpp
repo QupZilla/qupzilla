@@ -55,7 +55,6 @@
 #include <QWebEnginePage>
 #include <QWebEngineUrlRequestInfo>
 
-#if QTWEBENGINE_DISABLED
 static QString toSecondLevelDomain(const QUrl &url)
 {
     const QString topLevelDomain = url.topLevelDomain();
@@ -77,7 +76,6 @@ static QString toSecondLevelDomain(const QUrl &url)
 
     return domain + topLevelDomain;
 }
-#endif
 
 AdBlockRule::AdBlockRule(const QString &filter, AdBlockSubscription* subscription)
     : m_subscription(subscription)
@@ -220,16 +218,14 @@ bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QS
 
     if (matched) {
         // Check domain restrictions
-        if (hasOption(DomainRestrictedOption) && !matchDomain(domain)) {
+        if (hasOption(DomainRestrictedOption) && !matchDomain(request.firstPartyUrl().host())) {
             return false;
         }
 
-#if QTWEBENGINE_DISABLED
         // Check third-party restriction
         if (hasOption(ThirdPartyOption) && !matchThirdParty(request)) {
             return false;
         }
-#endif
 
         // Check object restrictions
         if (hasOption(ObjectOption) && !matchObject(request)) {
@@ -314,24 +310,13 @@ bool AdBlockRule::matchDomain(const QString &domain) const
 
 bool AdBlockRule::matchThirdParty(const QWebEngineUrlRequestInfo &request) const
 {
-#if QTWEBENGINE_DISABLED
-    const QString referer = request.attribute(QNetworkRequest::Attribute(QNetworkRequest::User + 151), QString()).toString();
-
-    if (referer.isEmpty()) {
-        return false;
-    }
-
     // Third-party matching should be performed on second-level domains
-    const QString refererHost = toSecondLevelDomain(QUrl(referer));
-    const QString host = toSecondLevelDomain(request.url());
+    const QString firstPartyHost = toSecondLevelDomain(request.firstPartyUrl());
+    const QString host = toSecondLevelDomain(request.requestUrl());
 
-    bool match = refererHost != host;
+    bool match = firstPartyHost != host;
 
     return hasException(ThirdPartyOption) ? !match : match;
-#else
-    Q_UNUSED(request)
-    return false;
-#endif
 }
 
 bool AdBlockRule::matchObject(const QWebEngineUrlRequestInfo &request) const
@@ -436,13 +421,11 @@ void AdBlockRule::parseFilter()
                 m_caseSensitivity = Qt::CaseSensitive;
                 ++handledOptions;
             }
-#if QTWEBENGINE_DISABLED
             else if (option.endsWith(QL1S("third-party"))) {
                 setOption(ThirdPartyOption);
                 setException(ThirdPartyOption, option.startsWith(QL1C('~')));
                 ++handledOptions;
             }
-#endif
             else if (option.endsWith(QL1S("object"))) {
                 setOption(ObjectOption);
                 setException(ObjectOption, option.startsWith(QL1C('~')));
