@@ -132,7 +132,7 @@ WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
 
 void WebPage::scroll(int x, int y)
 {
-    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(QString::number(x), QString::number(y)));
+    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y));
 }
 
 void WebPage::scheduleAdjustPage()

@@ -453,7 +453,7 @@ QString QupZillaSchemeReply::configPage()
 
             case QVariant::Point: {
                 const QPoint point = keyValue.toPoint();
-                keyString = QString("QPoint(%1, %2)").arg(QString::number(point.x()), QString::number(point.y()));
+                keyString = QString("QPoint(%1, %2)").arg(point.x()).arg(point.y());
                 break;
             }
 

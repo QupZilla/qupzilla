@@ -200,7 +200,7 @@ void PIM_Handler::pimInsert()
                           "    v += \"%3\" + e.value.substring(e.selectionEnd);"
                           "    e.value = v;"
                           "}");
-    source = source.arg(QString::number(m_clickedPos.x()), QString::number(m_clickedPos.y()), info);
+    source = source.arg(m_clickedPos.x()).arg(m_clickedPos.y()).arg(info);
     m_view->page()->runJavaScript(source);
 }
 

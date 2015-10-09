@@ -275,8 +275,7 @@ QString Scripts::getFormData(const QPoint &pos)
                           "return res;"
                           "})()");
 
-    return source.arg(QString::number(pos.x()), QString::number(pos.y()));
-
+    return source.arg(pos.x()).arg(pos.y());
 }
 
 QString Scripts::toggleMediaPause(const QPoint &pos)
@@ -291,8 +290,7 @@ QString Scripts::toggleMediaPause(const QPoint &pos)
                           "    e.pause();"
                           "})()");
 
-    return source.arg(QString::number(pos.x()), QString::number(pos.y()));
-
+    return source.arg(pos.x()).arg(pos.y());
 }
 
 QString Scripts::toggleMediaMute(const QPoint &pos)
@@ -304,6 +302,5 @@ QString Scripts::toggleMediaMute(const QPoint &pos)
                           "e.muted = !e.muted;"
                           "})()");
 
-    return source.arg(QString::number(pos.x()), QString::number(pos.y()));
-
+    return source.arg(pos.x()).arg(pos.y());
 }

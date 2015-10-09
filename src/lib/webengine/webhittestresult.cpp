@@ -81,7 +81,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "})()");
 
     WebPage *p = const_cast<WebPage*>(page);
-    const QString &js = source.arg(QString::number(pos.x()), QString::number(pos.y()));
+    const QString &js = source.arg(pos.x()).arg(pos.y());
     init(page->url(), p->execJavaScript(js).toMap());
 }
 
