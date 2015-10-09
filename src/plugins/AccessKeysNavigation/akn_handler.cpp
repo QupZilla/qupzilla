@@ -362,6 +362,7 @@ void AKN_Handler::makeAccessKeyLabel(const QChar &accessKey, const QWebElement &
     QColor color = QColor(220, 243, 253);
     color.setAlpha(175);
     p.setColor(QPalette::Window, color);
+    p.setColor(QPalette::WindowText, Qt::black);
 
     label->setPalette(p);
     label->setAutoFillBackground(true);
