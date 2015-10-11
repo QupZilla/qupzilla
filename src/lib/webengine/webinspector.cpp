@@ -83,9 +83,10 @@ void WebInspector::updateCloseButton()
 {
     page()->runJavaScript(QL1S("var toolbar = document.getElementsByClassName('inspector-view-toolbar')[1];"
                                "var button = document.createElement('button');"
-                               "button.style.width = '26px';"
-                               "button.style.height = '26px';"
+                               "button.style.width = '22px';"
+                               "button.style.height = '22px';"
                                "button.style.border = 'none';"
+                               "button.style.cursor = 'pointer';"
                                "button.style.background = 'url(qrc:html/close.png) no-repeat';"
                                "button.style.backgroundPosition = 'center center';"
                                "button.addEventListener('click', function() {"
