@@ -37,7 +37,6 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QHBoxLayout>
-#include <QToolTip>
 
 TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     : ComboTabBar()
@@ -584,27 +583,6 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     }
 
     ComboTabBar::mouseReleaseEvent(event);
-}
-
-bool TabBar::event(QEvent* event)
-{
-    switch (event->type()) {
-    case QEvent::ToolTip:
-        if (!isDragInProgress()) {
-            QHelpEvent* ev = static_cast<QHelpEvent*>(event);
-            int index = tabAt(ev->pos());
-
-            if (index >= 0) {
-                QToolTip::showText(mapToGlobal(ev->pos()), tabToolTip(index));
-            }
-        }
-        break;
-
-    default:
-        break;
-    }
-
-    return ComboTabBar::event(event);
 }
 
 void TabBar::wheelEvent(QWheelEvent* event)

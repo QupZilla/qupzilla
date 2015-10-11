@@ -133,6 +133,7 @@ public:
     void setUsesScrollButtons(bool useButtons);
 
     bool isDragInProgress() const;
+    bool isScrollInProgress() const;
     bool isMainBarOverflowed() const;
 
     // Width of all widgets in the corner
@@ -165,6 +166,7 @@ protected:
     int mainTabBarWidth() const;
     int pinTabBarWidth() const;
 
+    bool event(QEvent *event);
     void wheelEvent(QWheelEvent* event);
     void showEvent(QShowEvent* event);
     void enterEvent(QEvent* event);
@@ -266,8 +268,9 @@ class QUPZILLA_EXPORT TabScrollBar : public QScrollBar
     Q_OBJECT
 public:
     explicit TabScrollBar(QWidget* parent = 0);
-
     ~TabScrollBar();
+
+    bool isScrolling() const;
 
     void animateToValue(int to, QEasingCurve::Type type = QEasingCurve::OutQuad);
 

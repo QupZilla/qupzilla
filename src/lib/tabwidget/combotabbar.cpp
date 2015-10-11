@@ -34,6 +34,7 @@
 #include <QTabBar>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QToolTip>
 
 // taken from qtabbar_p.h
 #define ANIMATION_DURATION 250
@@ -578,6 +579,24 @@ int ComboTabBar::pinTabBarWidth() const
     return m_pinnedTabBarWidget->isHidden() ? 0 : m_pinnedTabBarWidget->width();
 }
 
+bool ComboTabBar::event(QEvent *event)
+{
+    switch (event->type()) {
+    case QEvent::ToolTip:
+        if (!isDragInProgress() && !isScrollInProgress()) {
+            int index = tabAt(mapFromGlobal(QCursor::pos()));
+            if (index >= 0)
+                QToolTip::showText(QCursor::pos(), tabToolTip(index));
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    return QWidget::event(event);
+}
+
 void ComboTabBar::wheelEvent(QWheelEvent* event)
 {
     event->accept();
@@ -746,6 +765,11 @@ void ComboTabBar::setUsesScrollButtons(bool useButtons)
 bool ComboTabBar::isDragInProgress() const
 {
     return m_mainTabBar->isDragInProgress() || m_pinnedTabBar->isDragInProgress();
+}
+
+bool ComboTabBar::isScrollInProgress() const
+{
+    return m_mainTabBarWidget->scrollBar()->isScrolling() || m_pinnedTabBarWidget->scrollBar()->isScrolling();
 }
 
 bool ComboTabBar::isMainBarOverflowed() const
@@ -1279,6 +1303,11 @@ TabScrollBar::TabScrollBar(QWidget* parent)
 
 TabScrollBar::~TabScrollBar()
 {
+}
+
+bool TabScrollBar::isScrolling() const
+{
+    return m_animation->state() == QPropertyAnimation::Running;
 }
 
 void TabScrollBar::animateToValue(int to, QEasingCurve::Type type)
