@@ -121,7 +121,6 @@ public:
 
     void insertCloseButton(int index);
     void setCloseButtonsToolTip(const QString &tip);
-    void enableBluredBackground(bool enable);
 
     QTabBar::ButtonPosition iconButtonPosition();
     QTabBar::ButtonPosition closeButtonPosition();
@@ -202,7 +201,6 @@ private:
     bool m_mainBarOverFlowed;
     bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
-    bool m_bluredBackground;
     bool m_blockCurrentChangedSignal;
 
     friend class TabBarHelper;

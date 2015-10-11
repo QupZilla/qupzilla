@@ -46,7 +46,6 @@ ComboTabBar::ComboTabBar(QWidget* parent)
     , m_mainBarOverFlowed(false)
     , m_lastAppliedOverflow(false)
     , m_usesScrollButtons(false)
-    , m_bluredBackground(false)
     , m_blockCurrentChangedSignal(false)
 {
     QObject::setObjectName(QSL("tabbarwidget"));
@@ -564,11 +563,6 @@ void ComboTabBar::setCloseButtonsToolTip(const QString &tip)
     m_closeButtonsToolTip = tip;
 }
 
-void ComboTabBar::enableBluredBackground(bool enable)
-{
-    m_bluredBackground = enable;
-}
-
 int ComboTabBar::mainTabBarWidth() const
 {
     return m_mainTabBar->width();
@@ -630,15 +624,6 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
 
 bool ComboTabBar::eventFilter(QObject* obj, QEvent* ev)
 {
-    if (m_bluredBackground  && ev->type() == QEvent::Paint &&
-        (obj == m_leftContainer || obj == m_rightContainer ||
-         obj == m_mainTabBarWidget || obj == m_pinnedTabBarWidget)) {
-        QPaintEvent* event = static_cast<QPaintEvent*>(ev);
-        QPainter p(qobject_cast<QWidget*>(obj));
-        p.setCompositionMode(QPainter::CompositionMode_Clear);
-        p.fillRect(event->rect(), QColor(0, 0, 0, 0));
-    }
-
     if (obj == m_mainTabBar && ev->type() == QEvent::Resize) {
         QResizeEvent* event = static_cast<QResizeEvent*>(ev);
         if (event->oldSize().height() != event->size().height()) {
