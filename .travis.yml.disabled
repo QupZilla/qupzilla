@@ -2,7 +2,7 @@ language: cpp
 cache: apt
 
 env:
-  - QT=qt55
+  - QT=qt56
 
 branches:
   only:
@@ -15,12 +15,12 @@ before_install:
 install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
-  - if [[ "$QT" == "qt55" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt55; sudo apt-get update -qq; sudo apt-get install -qq qt55tools qt55script qt55webengine qt55webchannel; fi
+  - if [[ "$QT" == "qt56" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt55; sudo apt-get update -qq; sudo apt-get install -qq qt55tools qt55script qt55webengine qt55webchannel; fi
 
 script:
   - QMAKE="qmake"
-  - if [[ "$QT" == "qt55" ]]; then QMAKE="/opt/qt55/bin/qmake"; fi
+  - if [[ "$QT" == "qt56" ]]; then QMAKE="/opt/qt56/bin/qmake"; fi
   - $QMAKE
   - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
   - make || exit 1
-#  - cd scripts && ./run_tests.sh $QMAKE
+  - cd scripts && ./run_tests.sh $QMAKE
