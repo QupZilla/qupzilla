@@ -393,7 +393,7 @@ void TabBar::updatePinnedTabCloseButton(int index)
 
 void TabBar::closeCurrentTab()
 {
-    m_tabWidget->closeTab(currentIndex());
+    m_tabWidget->requestCloseTab(currentIndex());
 }
 
 void TabBar::closeTabFromButton()
@@ -410,7 +410,7 @@ void TabBar::closeTabFromButton()
     }
 
     if (tabToClose != -1) {
-        m_tabWidget->closeTab(tabToClose);
+        m_tabWidget->requestCloseTab(tabToClose);
     }
 }
 
@@ -577,7 +577,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
         int id = tabAt(event->pos());
         if (id != -1) {
-            m_tabWidget->closeTab(id);
+            m_tabWidget->requestCloseTab(id);
             return;
         }
     }

@@ -1413,7 +1413,7 @@ void BrowserWindow::closeTab()
 {
     // Don't close pinned tabs with keyboard shortcuts (Ctrl+W, Ctrl+F4)
     if (weView() && !weView()->webTab()->isPinned()) {
-        m_tabWidget->closeTab();
+        m_tabWidget->requestCloseTab();
     }
 }
 

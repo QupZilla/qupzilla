@@ -216,11 +216,20 @@ void MouseGestures::rightGestured()
 
 void MouseGestures::downRightGestured()
 {
+    TabbedWebView *view = qobject_cast<TabbedWebView*>(m_view.data());
+    if (!view)
+        return;
+
+    BrowserWindow *window = view->browserWindow();
+    if (!window)
+        return;
+
+    TabWidget *tabWidget = window->tabWidget();
     if (!m_view) {
         return;
     }
 
-    m_view.data()->closeView();
+    tabWidget->requestCloseTab(view->tabIndex());
 }
 
 void MouseGestures::downLeftGestured()

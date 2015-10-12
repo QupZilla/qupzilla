@@ -51,7 +51,6 @@ signals:
     void reloadTab(int index);
     void stopTab(int index);
     void closeAllButCurrent(int index);
-    void closeTab(int index);
     void duplicateTab(int index);
     void detachTab(int index);
 
@@ -63,7 +62,7 @@ private slots:
 
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
-    void closeTab() { emit closeTab(m_clickedTab); }
+    void closeTab() { emit tabCloseRequested(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
     void detachTab() { emit detachTab(m_clickedTab); }
 

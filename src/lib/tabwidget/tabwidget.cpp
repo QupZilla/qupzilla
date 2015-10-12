@@ -124,10 +124,9 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(this, SIGNAL(currentChanged(int)), m_window, SLOT(refreshHistory()));
     connect(this, SIGNAL(changed()), mApp, SLOT(changeOcurred()));
 
-    connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
+    connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(requestCloseTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
     connect(m_tabBar, SIGNAL(stopTab(int)), this, SLOT(stopTab(int)));
-    connect(m_tabBar, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(detachTab(int)), this, SLOT(detachTab(int)));
@@ -138,7 +137,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(mApp, SIGNAL(settingsReloaded()), this, SLOT(loadSettings()));
 
     m_menuTabs = new MenuTabs(this);
-    connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(closeTab(int)));
+    connect(m_menuTabs, SIGNAL(closeTab(int)), this, SLOT(requestCloseTab(int)));
 
     m_menuClosedTabs = new QMenu(this);
 
@@ -414,45 +413,20 @@ void TabWidget::addTabFromClipboard()
     }
 }
 
-void TabWidget::closeTab(int index, bool force)
+void TabWidget::closeTab(int index)
 {
     if (index == -1)
         index = currentIndex();
 
-    WebTab* webTab = weTab(index);
+    WebTab *webTab = weTab(index);
     if (!webTab || !validIndex(index))
         return;
 
-    TabbedWebView* webView = webTab->webView();
-    bool isRestorePage = webView->url().toString() == QL1S("qupzilla:restore");
-
-    // Don't close restore page!
-    if (!force && isRestorePage && mApp->restoreManager())
-        return;
-
-    // window.onbeforeunload handling
-    if (!force && !webView->onBeforeUnload())
-        return;
+    TabbedWebView *webView = webTab->webView();
 
     // Save tab url and history
-    if (!isRestorePage)
+    if (webView->url().toString() != QL1S("qupzilla:restore"))
         m_closedTabsManager->saveTab(webTab, index);
-
-    // This would close last tab, so we close the window instead
-    if (!force && count() == 1) {
-        // If we are not closing window upon closing last tab, let's just load new-tab-url
-        if (m_dontCloseWithOneTab) {
-            if (webView->url() == m_urlOnNewTab) {
-                // We don't want to accumulate more than one closed tab, if user tries
-                // to close the last tab multiple times
-                m_closedTabsManager->takeLastClosedTab();
-            }
-            webView->load(m_urlOnNewTab);
-            return;
-        }
-        m_window->close();
-        return;
-    }
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -472,6 +446,40 @@ void TabWidget::closeTab(int index, bool force)
     updateClosedTabsButton();
 
     emit changed();
+}
+
+void TabWidget::requestCloseTab(int index)
+{
+    if (index == -1)
+        index = currentIndex();
+
+    WebTab *webTab = weTab(index);
+    if (!webTab || !validIndex(index))
+        return;
+
+    TabbedWebView *webView = webTab->webView();
+
+    // Don't close restore page!
+    if (webView->url().toString() == QL1S("qupzilla:restore") && mApp->restoreManager())
+        return;
+
+    // This would close last tab, so we close the window instead
+    if (count() == 1) {
+        // If we are not closing window upon closing last tab, let's just load new-tab-url
+        if (m_dontCloseWithOneTab) {
+            if (webView->url() == m_urlOnNewTab) {
+                // We don't want to accumulate more than one closed tab, if user tries
+                // to close the last tab multiple times
+                m_closedTabsManager->takeLastClosedTab();
+            }
+            webView->load(m_urlOnNewTab);
+            return;
+        }
+        m_window->close();
+        return;
+    }
+
+    webView->triggerPageAction(QWebEnginePage::RequestClose);
 }
 
 void TabWidget::currentTabChanged(int index)
@@ -590,7 +598,7 @@ void TabWidget::closeAllButCurrent(int index)
         if (akt == widget(tabIndex)) {
             continue;
         }
-        closeTab(tabIndex);
+        requestCloseTab(tabIndex);
     }
 }
 
@@ -856,7 +864,7 @@ void TabWidget::closeRecoveryTab()
 {
     foreach (WebTab* tab, allTabs(false)) {
         if (tab->url().toString() == QLatin1String("qupzilla:restore")) {
-            closeTab(tab->tabIndex(), true);
+            closeTab(tab->tabIndex());
         }
     }
 }

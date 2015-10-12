@@ -228,17 +228,6 @@ void WebView::restoreHistory(const QByteArray &data)
     m_page->setupWebChannel();
 }
 
-bool WebView::onBeforeUnload()
-{
-    const QString &source = QSL("window.onbeforeunload(new Event('beforeunload'))");
-    const QString &res = page()->execJavaScript(source, 200).toString();
-
-    if (!res.isEmpty())
-        return page()->javaScriptConfirm(url(), res);
-
-    return true;
-}
-
 QWidget *WebView::inputWidget() const
 {
     return qobject_cast<QWidget*>(m_rwhvqt);

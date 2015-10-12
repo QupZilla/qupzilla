@@ -357,7 +357,7 @@ void TabManagerWidget::closeSelectedTabs(const QHash<BrowserWindow*, WebTab*> &t
         QList<WebTab*> tabs = tabsHash.values(mainWindow);
 
         foreach (WebTab* webTab, tabs) {
-            mainWindow->tabWidget()->closeTab(webTab->tabIndex());
+            mainWindow->tabWidget()->requestCloseTab(webTab->tabIndex());
         }
     }
 }

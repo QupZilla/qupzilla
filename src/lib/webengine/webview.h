@@ -57,9 +57,6 @@ public:
 
     void restoreHistory(const QByteArray &data);
 
-    // Executes window.onbeforeunload, returns true if view can be closed
-    bool onBeforeUnload();
-
     void addNotification(QWidget* notif);
     bool eventFilter(QObject *obj, QEvent *event);
 

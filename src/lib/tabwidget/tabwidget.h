@@ -106,7 +106,11 @@ public slots:
     void addTabFromClipboard();
     int duplicateTab(int index);
 
-    void closeTab(int index = -1, bool force = false);
+    // Force close tab
+    void closeTab(int index = -1);
+    // Request close tab (may be rejected)
+    void requestCloseTab(int index = -1);
+
     void reloadTab(int index);
     void reloadAllTabs();
     void stopTab(int index);
