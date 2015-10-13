@@ -100,6 +100,17 @@ void PluginProxy::populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitT
     }
 }
 
+void PluginProxy::populateExtensionsMenu(QMenu *menu)
+{
+    if (!menu) {
+        return;
+    }
+
+    foreach (PluginInterface* iPlugin, m_loadedPlugins) {
+        iPlugin->populateExtensionsMenu(menu);
+    }
+}
+
 bool PluginProxy::processMouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event)
 {
     bool accepted = false;
