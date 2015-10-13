@@ -21,6 +21,7 @@
 #define mApp MainApplication::instance()
 
 #include <QList>
+#include <QPointer>
 
 #include "qtsingleapplication/qtsingleapplication.h"
 #include "restoremanager.h"
@@ -164,7 +165,7 @@ private:
     AutoSaver* m_autoSaver;
 
     QList<BrowserWindow*> m_windows;
-    BrowserWindow* m_lastActiveWindow;
+    QPointer<BrowserWindow> m_lastActiveWindow;
 
     QList<PostLaunchAction> m_postLaunchActions;
 
