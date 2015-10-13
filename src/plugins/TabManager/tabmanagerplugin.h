@@ -49,6 +49,7 @@ public:
 
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
+    void  populateExtensionsMenu(QMenu* menu);
 
     void removeManagerWidget();
 
