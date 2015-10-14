@@ -32,6 +32,8 @@ TabStackedWidget::TabStackedWidget(QWidget* parent)
     : QWidget(parent)
     , m_stack(0)
     , m_tabBar(0)
+    , m_currentIndex(-1)
+    , m_previousIndex(-1)
 {
     m_stack = new QStackedWidget(this);
     m_mainLayout = new QVBoxLayout;
@@ -92,6 +94,16 @@ void TabStackedWidget::tabWasMoved(int from, int to)
 
 void TabStackedWidget::tabWasRemoved(int index)
 {
+    if (m_previousIndex == index)
+        m_previousIndex = -1;
+    else if (m_previousIndex > index)
+        --m_previousIndex;
+
+    if (m_currentIndex == index)
+        m_currentIndex = -1;
+    else if (m_currentIndex > index)
+        --m_currentIndex;
+
     m_tabBar->removeTab(index);
 }
 
@@ -167,6 +179,9 @@ void TabStackedWidget::showTab(int index)
         m_stack->setCurrentIndex(index);
     }
 
+    m_previousIndex = m_currentIndex;
+    m_currentIndex = index;
+
     // This is slot connected to ComboTabBar::currentChanged
     // We must send the signal even with invalid index (-1)
     emit currentChanged(index);
@@ -205,6 +220,12 @@ int TabStackedWidget::insertTab(int index, QWidget* w, const QString &label, boo
         index = m_stack->insertWidget(index, w);
         m_tabBar->insertTab(index, QIcon(), label, false);
     }
+
+    if (m_previousIndex >= index)
+        ++m_previousIndex;
+    if (m_currentIndex >= index)
+        ++m_currentIndex;
+
     QTimer::singleShot(0, this, SLOT(setUpLayout()));
 
     return index;
@@ -266,6 +287,9 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
 void TabStackedWidget::removeTab(int index)
 {
     if (QWidget* w = m_stack->widget(index)) {
+        // Select another current tab before remove, so it won't be handled by QTabBar
+        if (index == currentIndex() && count() > 1)
+            selectTabOnRemove();
         m_stack->removeWidget(w);
     }
 }
@@ -308,4 +332,38 @@ int TabStackedWidget::count() const
 bool TabStackedWidget::validIndex(int index) const
 {
     return (index < m_stack->count() && index >= 0);
+}
+
+void TabStackedWidget::selectTabOnRemove()
+{
+    Q_ASSERT(count() > 1);
+
+    int index = -1;
+
+    switch (m_tabBar->selectionBehaviorOnRemove()) {
+    case QTabBar::SelectPreviousTab:
+        if (validIndex(m_previousIndex)) {
+            index = m_previousIndex;
+            break;
+        }
+        // fallthrough
+
+    case QTabBar::SelectLeftTab:
+        index = currentIndex() - 1;
+        if (!validIndex(index))
+            index = 1;
+        break;
+
+    case QTabBar::SelectRightTab:
+        index = currentIndex() + 1;
+        if (!validIndex(index))
+            index = currentIndex() - 1;
+        break;
+
+    default:
+        break;
+    }
+
+    Q_ASSERT(validIndex(index));
+    setCurrentIndex(index);
 }

@@ -81,11 +81,15 @@ protected:
 
 private:
     bool validIndex(int index) const;
+    void selectTabOnRemove();
 
     QStackedWidget* m_stack;
     ComboTabBar* m_tabBar;
     QVBoxLayout* m_mainLayout;
     bool m_dirtyTabBar;
+
+    int m_currentIndex;
+    int m_previousIndex;
 };
 
 #endif // TABSTACKEDWIDGET_H
