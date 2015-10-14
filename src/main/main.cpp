@@ -194,7 +194,7 @@ int main(int argc, char* argv[])
     if (app.isClosing())
         return 0;
 
-    app.setProxyStyle(new ProxyStyle);
+    app.setStyle(new ProxyStyle);
 
     return app.exec();
 }
