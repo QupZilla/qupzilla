@@ -35,6 +35,7 @@
 #include <QTimer>
 #include <QSplitter>
 
+bool WebTab::s_pinningTab = false;
 static const int savedTabVersion = 2;
 
 WebTab::SavedTab::SavedTab()
@@ -199,6 +200,8 @@ QWebHistory* WebTab::history() const
 
 void WebTab::detach()
 {
+    Q_ASSERT(m_tabBar);
+
     // Remove icon from tab
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
 
@@ -418,7 +421,7 @@ void WebTab::showEvent(QShowEvent* event)
 {
     QWidget::showEvent(event);
 
-    if (!isRestored()) {
+    if (!isRestored() && !s_pinningTab) {
         // When session is being restored, restore the tab immediately
         if (mApp->isRestoring()) {
             slotRestore();
@@ -447,5 +450,10 @@ void WebTab::togglePinned()
     Q_ASSERT(m_window);
 
     m_isPinned = !m_isPinned;
+
+    // Workaround bug in TabStackedWidget when pinning tab, other tabs may be accidentaly
+    // shown and restored state even when they won't be switched to by user.
+    s_pinningTab = true;
     m_window->tabWidget()->pinUnPinTab(tabIndex(), title());
+    s_pinningTab = false;
 }
