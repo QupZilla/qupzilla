@@ -30,6 +30,7 @@
 
 #include <QTimer>
 #include <QSettings>
+#include <QUrlQuery>
 #include <QWebEngineUrlRequestJob>
 
 static QString authorString(const char* name, const QString &mail)
@@ -45,7 +46,7 @@ QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
 void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
     QStringList knownPages;
-    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore" << "adblock";
 
     if (knownPages.contains(job->requestUrl().path()))
         job->reply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
@@ -90,6 +91,9 @@ void QupZillaSchemeReply::loadPage()
     }
     else if (m_pageName == QLatin1String("restore")) {
         stream << restorePage();
+    }
+    else if (m_pageName == QLatin1String("adblock")) {
+        stream << adblockPage();
     }
 
     stream.flush();
@@ -477,6 +481,30 @@ QString QupZillaSchemeReply::configPage()
     }
 
     page.replace(QLatin1String("%PREFS-INFO%"), allGroupsString);
+
+    return page;
+}
+
+QString QupZillaSchemeReply::adblockPage()
+{
+    static QString aPage;
+
+    if (aPage.isEmpty()) {
+        aPage.append(QzTools::readAllFileContents(":html/adblock.html"));
+        aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
+        aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        aPage.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
+        aPage.replace(QLatin1String("%TITLE%"), tr("Blocked content"));
+        aPage = QzTools::applyDirectionToPage(aPage);
+    }
+
+
+    QString page = aPage;
+    QUrlQuery query(m_job->requestUrl());
+
+    const QString rule = query.queryItemValue(QSL("rule"));
+    const QString subscription = query.queryItemValue(QSL("subscription"));
+    page.replace(QLatin1String("%RULE%"), tr("Blocked by <i>%1 (%2)</i>").arg(rule, subscription));
 
     return page;
 }

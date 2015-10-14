@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>html/errorPage.html</file>
         <file>html/adblock_big.png</file>
-        <file>html/adblockPage.html</file>
+        <file>html/adblock.html</file>
         <file>html/about.html</file>
         <file>html/box-border.png</file>
         <file>html/copyright</file>

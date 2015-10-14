@@ -53,6 +53,7 @@ private:
     QString speeddialPage();
     QString restorePage();
     QString configPage();
+    QString adblockPage();
 
     bool m_loaded;
     QBuffer m_buffer;

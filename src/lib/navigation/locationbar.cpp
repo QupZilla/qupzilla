@@ -222,7 +222,7 @@ QString LocationBar::convertUrlToText(const QUrl &url)
 
     QString stringUrl = QzTools::urlEncodeQueryString(url);
 
-    if (stringUrl == QLatin1String("qupzilla:speeddial") || stringUrl == QLatin1String("about:blank")) {
+    if (stringUrl == QL1S("qupzilla:speeddial") || stringUrl.startsWith(QL1S("qupzilla:adblock")) || stringUrl == QL1S("about:blank")) {
         stringUrl.clear();
     }
 

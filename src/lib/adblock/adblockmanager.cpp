@@ -105,14 +105,26 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 
     if (blockedRule) {
         res = true;
-        request.block(true);
+
+        if (request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMainFrame) {
+            QUrl url(QSL("qupzilla:adblock"));
+            QUrlQuery query;
+            query.addQueryItem(QSL("rule"), blockedRule->filter());
+            query.addQueryItem(QSL("subscription"), blockedRule->subscription()->title());
+            url.setQuery(query);
+            request.redirect(url);
+        }
+        else {
+            request.block(true);
+        }
+
 #ifdef ADBLOCK_DEBUG
-        qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.url();
+        qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.requestUrl();
 #endif
     }
 
 #ifdef ADBLOCK_DEBUG
-    qDebug() << timer.elapsed() << request.url();
+    qDebug() << timer.elapsed() << request.requestUrl();
 #endif
 
     return res;
