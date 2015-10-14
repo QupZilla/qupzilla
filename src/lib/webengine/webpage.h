@@ -76,6 +76,7 @@ private slots:
     void windowCloseRequested();
     void fullScreenRequested(bool fullScreen);
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
+    void renderProcessTerminated(RenderProcessTerminationStatus terminationStatus, int exitCode);
 
 private:
     bool isFullScreen() Q_DECL_OVERRIDE;

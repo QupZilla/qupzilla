@@ -81,6 +81,7 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::featurePermissionRequested, this, &WebPage::featurePermissionRequested);
     connect(this, &QWebEnginePage::windowCloseRequested, this, &WebPage::windowCloseRequested);
     connect(this, &QWebEnginePage::fullScreenRequested, this, &WebPage::fullScreenRequested);
+    connect(this, &QWebEnginePage::renderProcessTerminated, this, &WebPage::renderProcessTerminated);
 
     connect(this, &QWebEnginePage::authenticationRequired, this, [this](const QUrl &url, QAuthenticator *auth) {
         mApp->networkManager()->authentication(url, auth, view());
@@ -326,6 +327,28 @@ void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePag
         setFeaturePermission(origin, feature, PermissionGrantedByUser);
     else
         mApp->html5PermissionsManager()->requestPermissions(this, origin, feature);
+}
+
+void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode)
+{
+    Q_UNUSED(exitCode)
+
+    if (terminationStatus == NormalTerminationStatus)
+        return;
+
+    QTimer::singleShot(0, this, [this]() {
+        QString page = QzTools::readAllFileContents(":html/tabcrash.html");
+        page.replace(QL1S("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
+        page.replace(QL1S("%FAVICON%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16)).toString());
+        page.replace(QL1S("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
+        page.replace(QL1S("%TITLE%"), tr("Failed loading page"));
+        page.replace(QL1S("%HEADING%"), tr("Failed loading page"));
+        page.replace(QL1S("%LI-1%"), tr("Something went wrong while loading this page."));
+        page.replace(QL1S("%LI-2%"), tr("Try reloading the page or closing some tabs to make more memory available."));
+        page.replace(QL1S("%RELOAD-PAGE%"), tr("Reload page"));
+        page = QzTools::applyDirectionToPage(page);
+        setHtml(page.toUtf8(), url());
+    });
 }
 
 bool WebPage::isFullScreen()

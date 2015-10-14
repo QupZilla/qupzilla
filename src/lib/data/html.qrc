@@ -21,6 +21,7 @@
         <file>html/config.html</file>
         <file>html/restore.html</file>
         <file>html/dirlist.html</file>
+        <file>html/tabcrash.html</file>
         <file>html/qwebchannel.js</file>
     </qresource>
 </RCC>

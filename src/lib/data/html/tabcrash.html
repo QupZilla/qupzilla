@@ -1,0 +1,27 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>%TITLE%</title>
+<link rel="icon" href="%FAVICON%" type="image/x-icon" />
+<style>
+html {background: #dddddd;font-family: sans-serif;color: #525c66;}
+html * {font-size: 100%;line-height: 1.6;}
+#box {max-width:650px;min-width:400px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;border-width: 20px;text-align: %LEFT_STR%;-webkit-border-image: url(%BOX-BORDER%) 25;direction: %DIRECTION%;}
+hr {color: lightgray;width: 100%;}
+img {float: %LEFT_STR%;margin-%LEFT_STR%: -20px;margin-top: 15px;}
+h1 {font-size: 150%;font-weight: bold;border-bottom: 1px solid #f4f4f4;margin-%LEFT_STR%: 48px;margin-%RIGHT_STR%: 50px;}
+ul {font-size: 90%;padding-%LEFT_STR%: 48px;margin: 20px 0;max-width:600px;}
+li {padding: 5px;}
+#reloadButton {margin-top: 20px;min-width: 100px;}
+</style>
+</head>
+<body>
+  <div id="box">
+    <img src="%IMAGE%" >
+    <h1>%HEADING%</h1>
+    <ul>
+      <li>%LI-1%</li>
+      <li>%LI-2%</li>
+      <input type="submit" id="reloadButton" value="%RELOAD-PAGE%" onclick="window.location.reload()">
+    </ul>
+  </div>
+</body></html>
