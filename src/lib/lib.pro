@@ -468,7 +468,6 @@ FORMS    += \
     webtab/searchtoolbar.ui \
 
 RESOURCES += \
-    data/certs.qrc \
     data/data.qrc \
     data/html.qrc \
     data/icons.qrc \
@@ -485,8 +484,6 @@ RESOURCES += \
     }
 
     LIBS += -lcrypto
-
-    RESOURCES -= data/certs.qrc
 }
 
 win32 {
@@ -503,7 +500,6 @@ os2 {
 mac {
     HEADERS += other/macmenureceiver.h \
     SOURCES += other/macmenureceiver.cpp \
-    RESOURCES -= data/certs.qrc
 
     LIBS += -lcrypto -framework CoreServices
 }
