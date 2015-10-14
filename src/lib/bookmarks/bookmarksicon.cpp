@@ -59,7 +59,7 @@ void BookmarksIcon::checkBookmark(const QUrl &url, bool forceCheck)
     QList<BookmarkItem*> items = mApp->bookmarks()->searchBookmarks(url);
     m_bookmark = items.isEmpty() ? 0 : items.first();
 
-    if (m_bookmark || !mApp->plugins()->speedDial()->pageForUrl(url).url.isEmpty()) {
+    if (m_bookmark || mApp->plugins()->speedDial()->pageForUrl(url).isValid()) {
         setBookmarkSaved();
     }
     else {

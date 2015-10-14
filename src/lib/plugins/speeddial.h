@@ -38,6 +38,10 @@ public:
         QString title;
         QString url;
 
+        bool isValid() const {
+            return !url.isEmpty();
+        }
+
         bool operator==(const Page &other) {
             return (this->title == other.title &&
                     this->url == other.url);
