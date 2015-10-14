@@ -498,7 +498,6 @@ QString QupZillaSchemeReply::adblockPage()
         aPage = QzTools::applyDirectionToPage(aPage);
     }
 
-
     QString page = aPage;
     QUrlQuery query(m_job->requestUrl());
 
