@@ -101,7 +101,9 @@ SpeedDial::Page SpeedDial::pageForUrl(const QUrl &url)
 {
     ENSURE_LOADED;
 
-    const QString urlString = url.toString();
+    QString urlString = url.toString();
+    if (urlString.endsWith(QL1C('/')))
+        urlString = urlString.left(urlString.size() - 1);
 
     foreach (const Page &page, m_pages) {
         if (page.url == urlString) {
@@ -145,7 +147,7 @@ void SpeedDial::removePage(const Page &page)
 {
     ENSURE_LOADED;
 
-    if (page.url.isEmpty()) {
+    if (!page.isValid()) {
         return;
     }
 
@@ -213,7 +215,7 @@ QString SpeedDial::initialScript()
         if (!QFile(imgSource).exists()) {
             imgSource = "qrc:html/loading.gif";
 
-            if (page.url.isEmpty()) {
+            if (!page.isValid()) {
                 imgSource.clear();
             }
         }
@@ -249,6 +251,9 @@ void SpeedDial::changed(const QString &allPages)
         Page page;
         page.url = tmp.at(0).mid(5);
         page.title = tmp.at(1).mid(7);
+
+        if (page.url.endsWith(QL1C('/')))
+            page.url = page.url.left(page.url.size() - 1);
 
         m_pages.append(page);
     }
