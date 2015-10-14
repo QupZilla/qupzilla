@@ -116,6 +116,8 @@ private:
 
     SavedTab m_savedTab;
     bool m_isPinned;
+
+    static bool s_pinningTab;
 };
 
 #endif // WEBTAB_H
