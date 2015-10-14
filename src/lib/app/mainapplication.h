@@ -37,7 +37,6 @@ class MainMenu;
 class Bookmarks;
 class CookieJar;
 class AutoSaver;
-class ProxyStyle;
 class PluginProxy;
 class BrowserWindow;
 class NetworkManager;
@@ -81,9 +80,6 @@ public:
     bool restoreSession(BrowserWindow* window, RestoreData restoreData);
     void destroyRestoreManager();
     void reloadSettings();
-
-    ProxyStyle* proxyStyle() const;
-    void setProxyStyle(ProxyStyle* style);
 
     // Name of current Qt style
     QString styleName() const;
@@ -175,7 +171,6 @@ private:
     QWebEngineProfile* m_webProfile;
 
     AutoSaver* m_autoSaver;
-    ProxyStyle* m_proxyStyle;
 
     QList<BrowserWindow*> m_windows;
     BrowserWindow* m_lastActiveWindow;

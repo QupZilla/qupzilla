@@ -93,7 +93,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_desktopNotifications(0)
     , m_webProfile(0)
     , m_autoSaver(0)
-    , m_proxyStyle(0)
     , m_lastActiveWindow(0)
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
@@ -463,24 +462,10 @@ void MainApplication::reloadSettings()
     emit settingsReloaded();
 }
 
-ProxyStyle* MainApplication::proxyStyle() const
-{
-    return m_proxyStyle;
-}
-
-void MainApplication::setProxyStyle(ProxyStyle* style)
-{
-    m_proxyStyle = style;
-
-    QApplication::setStyle(style);
-}
-
 QString MainApplication::styleName() const
 {
-    if (m_proxyStyle && m_proxyStyle->baseStyle())
-        return m_proxyStyle->baseStyle()->objectName();
-
-    return style()->objectName();
+    QProxyStyle *proxyStyle = qobject_cast<QProxyStyle*>(style());
+    return proxyStyle ? proxyStyle->baseStyle()->objectName() : style()->objectName();
 }
 
 QString MainApplication::currentLanguageFile() const
