@@ -27,6 +27,7 @@
 #include "iconprovider.h"
 #include "scripts.h"
 #include "networkmanager.h"
+#include "locationbar.h"
 
 #include <QMenu>
 #include <QMessageBox>
@@ -35,14 +36,6 @@
 #include <QClipboard>
 #include <QTimer>
 #include <QGraphicsPixmapItem>
-
-QString SiteInfo::showCertInfo(const QString &string)
-{
-    if (string.isEmpty()) {
-        return tr("<not set in certificate>");
-    }
-    return string;
-}
 
 SiteInfo::SiteInfo(WebView* view)
     : QWidget()
@@ -139,6 +132,17 @@ SiteInfo::SiteInfo(WebView* view)
     ui->treeTags->sortByColumn(-1);
 
     QzTools::setWmClass("Site Info", this);
+}
+
+bool SiteInfo::canShowSiteInfo(const QUrl &url)
+{
+    if (LocationBar::convertUrlToText(url).isEmpty())
+        return false;
+
+    if (url.scheme() == QL1S("qupzilla") || url.scheme() == QL1S("view-source"))
+        return false;
+
+    return true;
 }
 
 void SiteInfo::imagesCustomContextMenuRequested(const QPoint &p)

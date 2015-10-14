@@ -42,7 +42,7 @@ public:
     explicit SiteInfo(WebView* view);
     ~SiteInfo();
 
-    static QString showCertInfo(const QString &string);
+    static bool canShowSiteInfo(const QUrl &url);
 
 private slots:
     void showImagePreview(QTreeWidgetItem *item);

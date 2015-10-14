@@ -20,6 +20,7 @@
 #include "locationbar.h"
 #include "tabbedwebview.h"
 #include "qztools.h"
+#include "siteinfo.h"
 
 #include <QDrag>
 #include <QTimer>
@@ -159,9 +160,8 @@ bool SiteIcon::showPopup()
 
     QUrl url = m_view->url();
 
-    if (url.isEmpty() || url.scheme() == QLatin1String("qupzilla")) {
+    if (!SiteInfo::canShowSiteInfo(url))
         return false;
-    }
 
     setDown(true);
 

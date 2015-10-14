@@ -678,7 +678,9 @@ void WebView::createPageContextMenu(QMenu* menu)
 
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("text-html"), tr("Show so&urce code"), this, SLOT(showSource()));
-    menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
+
+    if (SiteInfo::canShowSiteInfo(url()))
+        menu->addAction(QIcon::fromTheme("dialog-information"), tr("Show info ab&out site"), this, SLOT(showSiteInfo()));
 }
 
 void WebView::createLinkContextMenu(QMenu* menu, const WebHitTestResult &hitTest)

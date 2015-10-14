@@ -287,7 +287,7 @@ void MainMenu::webSearch()
 
 void MainMenu::showSiteInfo()
 {
-    if (m_window) {
+    if (m_window && SiteInfo::canShowSiteInfo(m_window->weView()->url())) {
         SiteInfo* info = new SiteInfo(m_window->weView());
         info->show();
     }
@@ -415,7 +415,10 @@ void MainMenu::aboutToHideEditMenu()
 
 void MainMenu::aboutToShowToolsMenu()
 {
-    m_actions[QSL("Tools/SiteInfo")]->setEnabled(true);
+    if (!m_window)
+        return;
+
+    m_actions[QSL("Tools/SiteInfo")]->setEnabled(SiteInfo::canShowSiteInfo(m_window->weView()->url()));
 }
 
 void MainMenu::aboutToHideToolsMenu()
