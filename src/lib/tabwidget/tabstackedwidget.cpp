@@ -253,33 +253,28 @@ void TabStackedWidget::setTabToolTip(int index, const QString &tip)
 
 int TabStackedWidget::pinUnPinTab(int index, const QString &title)
 {
-    int newIndex = -1;
     QWidget* widget = m_stack->widget(index);
     QWidget* currentWidget = m_stack->currentWidget();
-    bool makePinned = false;
+
+    if (!widget || !currentWidget)
+        return -1;
+
+    bool makePinned = index >= m_tabBar->pinnedTabsCount();
+    QWidget* button = m_tabBar->tabButton(index, m_tabBar->iconButtonPosition());
 
     m_tabBar->m_blockCurrentChangedSignal = true;
+    m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), 0);
 
-    if (widget) {
-        makePinned = index >= m_tabBar->pinnedTabsCount();
-        QWidget* button = m_tabBar->tabButton(index, m_tabBar->iconButtonPosition());
+    m_stack->removeWidget(widget);
+    int newIndex = insertTab(makePinned ? 0 : m_tabBar->pinnedTabsCount(), widget, title, makePinned);
 
-        m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), 0);
-
-        m_stack->removeWidget(widget);
-        newIndex = insertTab(makePinned ? 0 : m_tabBar->pinnedTabsCount(), widget, title, makePinned);
-
-        m_tabBar->setTabButton(newIndex, m_tabBar->iconButtonPosition(), button);
-    }
-
+    m_tabBar->setTabButton(newIndex, m_tabBar->iconButtonPosition(), button);
     m_tabBar->m_blockCurrentChangedSignal = false;
 
-    // Restore current index
+    // Restore current widget
     setCurrentWidget(currentWidget);
 
-    if (widget) {
-        emit pinStateChanged(newIndex, makePinned);
-    }
+    emit pinStateChanged(newIndex, makePinned);
 
     return newIndex;
 }
