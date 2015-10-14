@@ -230,7 +230,7 @@ void WebView::restoreHistory(const QByteArray &data)
 
 QWidget *WebView::inputWidget() const
 {
-    return qobject_cast<QWidget*>(m_rwhvqt);
+    return m_rwhvqt;
 }
 
 // static
@@ -1122,8 +1122,8 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
 {
     // Hack to find widget that receives input events
     if (obj == this && event->type() == QEvent::ChildAdded) {
-        QObject *child = static_cast<QChildEvent*>(event)->child();
-        if (qstrcmp(child->metaObject()->className(), "QtWebEngineCore::RenderWidgetHostViewQtDelegateWidget") == 0) {
+        QWidget *child = qobject_cast<QWidget*>(static_cast<QChildEvent*>(event)->child());
+        if (child && child->inherits("QtWebEngineCore::RenderWidgetHostViewQtDelegateWidget")) {
             m_rwhvqt = child;
             m_rwhvqt->installEventFilter(this);
         }

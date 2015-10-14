@@ -183,7 +183,7 @@ private:
     WebPage* m_page;
     bool m_firstLoad;
 
-    QObject *m_rwhvqt;
+    QWidget *m_rwhvqt;
 
     static bool s_forceContextMenuOnMouseRelease;
 };
