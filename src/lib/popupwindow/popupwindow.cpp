@@ -220,9 +220,8 @@ void PopupWindow::titleChanged()
 
 void PopupWindow::setWindowGeometry(QRect newRect)
 {
-    if (!qzSettings->allowJsGeometryChange) {
+    if (!Settings().value("allowJavaScriptGeometryChange", true).toBool())
         return;
-    }
 
     // left/top was set while width/height not
     if (!newRect.topLeft().isNull() && newRect.size().isNull()) {
@@ -242,21 +241,4 @@ void PopupWindow::setWindowGeometry(QRect newRect)
             QzTools::centerWidgetOnScreen(this);
         }
     }
-}
-
-void PopupWindow::setStatusBarVisibility(bool visible)
-{
-    m_statusBar->setVisible(qzSettings->allowJsHideStatusBar ? visible : true);
-}
-
-void PopupWindow::setMenuBarVisibility(bool visible)
-{
-    m_menuBar->setVisible(qzSettings->allowJsHideMenuBar ? visible : true);
-}
-
-void PopupWindow::setToolBarVisibility(bool visible)
-{
-    // Does nothing now
-    // m_toolBar->setVisible(qzSettings->allowJsHideToolBar ? visible : true);
-    Q_UNUSED(visible)
 }

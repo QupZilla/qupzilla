@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>214</width>
-    <height>261</height>
+    <height>193</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,26 +24,6 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="jscanCloseWindow">
-       <property name="text">
-        <string>Close windows</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QCheckBox" name="jscanOpenWindow">
        <property name="text">
         <string>Open popup windows</string>
@@ -54,27 +34,6 @@
       <widget class="QCheckBox" name="jscanChangeSize">
        <property name="text">
         <string>Change window size</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="jscanHideMenu">
-       <property name="text">
-        <string>Hide menu bar</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="jscanHideStatus">
-       <property name="text">
-        <string>Hide status bar</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="jscanHideTool">
-       <property name="text">
-        <string>Hide tool bar</string>
        </property>
       </widget>
      </item>

@@ -46,9 +46,6 @@ public:
 
 public slots:
     void setWindowGeometry(QRect newRect);
-    void setStatusBarVisibility(bool visible);
-    void setMenuBarVisibility(bool visible);
-    void setToolBarVisibility(bool visible);
 
 private slots:
     void titleChanged();

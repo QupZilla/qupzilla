@@ -49,10 +49,6 @@ public:
     // Web-Browser-Settings
     int defaultZoomLevel;
     bool loadTabsOnActivation;
-    bool allowJsGeometryChange;
-    bool allowJsHideMenuBar;
-    bool allowJsHideStatusBar;
-    bool allowJsHideToolBar;
 
     QStringList autoOpenProtocols;
     QStringList blockedProtocols;

@@ -21,9 +21,6 @@
 #include "mainapplication.h"
 #include "settings.h"
 
-#include <QWebEnginePage> // QTWEBKIT_VERSION_CHECK macro
-#include <QFileDialog>
-
 JsOptions::JsOptions(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::JsOptions)
@@ -34,29 +31,18 @@ JsOptions::JsOptions(QWidget* parent)
 
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    ui->jscanCloseWindow->setChecked(settings.value("allowJavaScriptCloseWindow", false).toBool());
     ui->jscanOpenWindow->setChecked(settings.value("allowJavaScriptOpenWindow", false).toBool());
     ui->jscanChangeSize->setChecked(settings.value("allowJavaScriptGeometryChange", true).toBool());
-    ui->jscanHideMenu->setChecked(settings.value("allowJavaScriptHideMenuBar", true).toBool());
-    ui->jscanHideStatus->setChecked(settings.value("allowJavaScriptHideStatusBar", true).toBool());
-    ui->jscanHideTool->setChecked(settings.value("allowJavaScriptHideToolBar", true).toBool());
     ui->jscanAccessClipboard->setChecked(settings.value("allowJavaScriptAccessClipboard", false).toBool());
     settings.endGroup();
-
-//     Disable for now, as it does not do anything (yet)
-    ui->jscanHideTool->setHidden(true);
 }
 
 void JsOptions::accept()
 {
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("allowJavaScriptCloseWindow", ui->jscanCloseWindow->isChecked());
     settings.setValue("allowJavaScriptOpenWindow", ui->jscanOpenWindow->isChecked());
     settings.setValue("allowJavaScriptGeometryChange", ui->jscanChangeSize->isChecked());
-    settings.setValue("allowJavaScriptHideMenuBar", ui->jscanHideMenu->isChecked());
-    settings.setValue("allowJavaScriptHideStatusBar", ui->jscanHideStatus->isChecked());
-    settings.setValue("allowJavaScriptHideToolBar", ui->jscanHideTool->isChecked());
     settings.setValue("allowJavaScriptAccessClipboard", ui->jscanAccessClipboard->isChecked());
     settings.endGroup();
 
