@@ -97,7 +97,6 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("Help/InfoAboutApp")]);
     superMenu->addAction(m_actions[QSL("Help/ConfigInfo")]);
     superMenu->addAction(m_actions[QSL("Help/ReportIssue")]);
-    superMenu->addAction(m_actions[QSL("File/WorkOffline")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Standard/Quit")]);
 
@@ -172,11 +171,6 @@ void MainMenu::sendLink()
 void MainMenu::printPage()
 {
     callSlot("printPage");
-}
-
-void MainMenu::toggleOfflineMode()
-{
-    callSlot("toggleOfflineMode");
 }
 
 void MainMenu::editUndo()
@@ -361,7 +355,6 @@ void MainMenu::aboutToShowFileMenu()
 #ifndef Q_OS_MAC
     m_actions[QSL("File/CloseWindow")]->setEnabled(mApp->windowCount() > 1);
 #endif
-    m_actions[QSL("File/WorkOffline")]->setChecked(qzSettings->workOffline);
 }
 
 void MainMenu::aboutToHideFileMenu()
@@ -523,8 +516,6 @@ void MainMenu::init()
     m_menuFile->addSeparator();
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
     ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
-    m_menuFile->addSeparator();
-    ADD_CHECKABLE_ACTION("File/WorkOffline", m_menuFile, QIcon(), tr("Work &Offline"), SLOT(toggleOfflineMode()), "");
     m_menuFile->addSeparator();
     m_menuFile->addAction(m_actions[QSL("Standard/Quit")]);
 

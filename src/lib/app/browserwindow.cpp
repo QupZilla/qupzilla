@@ -783,15 +783,6 @@ void BrowserWindow::toggleFullScreen()
     }
 }
 
-void BrowserWindow::toggleOfflineMode()
-{
-    bool enable = !qzSettings->workOffline;
-
-    Settings().setValue("Web-Browser-Settings/WorkOffline", enable);
-
-    qzSettings->workOffline = enable;
-}
-
 void BrowserWindow::enterHtmlFullScreen()
 {
     showFullScreen();
