@@ -233,8 +233,17 @@ void NetworkManager::loadSettings()
     settings.beginGroup("Language");
     QStringList langs = settings.value("acceptLanguage", AcceptLanguage::defaultLanguage()).toStringList();
     settings.endGroup();
-
     mApp->webProfile()->setHttpAcceptLanguage(AcceptLanguage::generateHeader(langs));
+
+    QNetworkProxy proxy;
+    settings.beginGroup("Web-Proxy");
+    proxy.setType(QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt()));
+    proxy.setHostName(settings.value("HostName", QString()).toString());
+    proxy.setPort(settings.value("Port", 8080).toInt());
+    proxy.setUser(settings.value("Username", QString()).toString());
+    proxy.setPassword(settings.value("Password", QString()).toString());
+    settings.endGroup();
+    QNetworkProxy::setApplicationProxy(proxy);
 
     m_urlInterceptor->loadSettings();
 }

@@ -72,7 +72,6 @@ private slots:
     void showPassManager(bool state);
     void setManualProxyConfigurationEnabled(bool state);
     void useExternalDownManagerChanged(bool state);
-    void useDifferentProxyForHttpsChanged(bool state);
     void changeCachePathClicked();
 
     void newTabChanged(int value);

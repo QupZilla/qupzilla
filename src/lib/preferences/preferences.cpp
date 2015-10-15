@@ -421,38 +421,26 @@ Preferences::Preferences(BrowserWindow* window)
 
     // Proxy Configuration
     settings.beginGroup("Web-Proxy");
-    NetworkProxyFactory::ProxyPreference proxyPreference = NetworkProxyFactory::ProxyPreference(settings.value("UseProxy", NetworkProxyFactory::SystemProxy).toInt());
     QNetworkProxy::ProxyType proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
 
-    ui->systemProxy->setChecked(proxyPreference == NetworkProxyFactory::SystemProxy);
-    ui->noProxy->setChecked(proxyPreference == NetworkProxyFactory::NoProxy);
-    ui->manualProxy->setChecked(proxyPreference == NetworkProxyFactory::DefinedProxy);
-    if (proxyType == QNetworkProxy::HttpProxy) {
-        ui->proxyType->setCurrentIndex(0);
+    ui->systemProxy->setChecked(proxyType == QNetworkProxy::NoProxy);
+    ui->manualProxy->setChecked(proxyType != QNetworkProxy::NoProxy);
+    if (proxyType == QNetworkProxy::Socks5Proxy) {
+        ui->proxyType->setCurrentIndex(1);
     }
     else {
-        ui->proxyType->setCurrentIndex(1);
+        ui->proxyType->setCurrentIndex(0);
     }
 
     ui->proxyServer->setText(settings.value("HostName", "").toString());
     ui->proxyPort->setText(settings.value("Port", 8080).toString());
     ui->proxyUsername->setText(settings.value("Username", "").toString());
     ui->proxyPassword->setText(settings.value("Password", "").toString());
-
-    ui->useHttpsProxy->setChecked(settings.value("UseDifferentProxyForHttps", false).toBool());
-    ui->httpsProxyServer->setText(settings.value("HttpsHostName", "").toString());
-    ui->httpsProxyPort->setText(settings.value("HttpsPort", 8080).toString());
-    ui->httpsProxyUsername->setText(settings.value("HttpsUsername", "").toString());
-    ui->httpsProxyPassword->setText(settings.value("HttpsPassword", "").toString());
-
-    ui->proxyExceptions->setText(settings.value("ProxyExceptions", QStringList() << "localhost" << "127.0.0.1").toStringList().join(","));
     settings.endGroup();
 
-    useDifferentProxyForHttpsChanged(ui->useHttpsProxy->isChecked());
-    setManualProxyConfigurationEnabled(proxyPreference == NetworkProxyFactory::DefinedProxy);
+    setManualProxyConfigurationEnabled(proxyType != QNetworkProxy::NoProxy);
 
     connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
-    connect(ui->useHttpsProxy, SIGNAL(toggled(bool)), this, SLOT(useDifferentProxyForHttpsChanged(bool)));
 
     //CONNECTS
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(buttonClicked(QAbstractButton*)));
@@ -633,10 +621,6 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
     ui->proxyPort->setEnabled(state);
     ui->proxyUsername->setEnabled(state);
     ui->proxyPassword->setEnabled(state);
-
-    useDifferentProxyForHttpsChanged(state ? ui->useHttpsProxy->isChecked() : false);
-
-    ui->useHttpsProxy->setEnabled(state);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -699,14 +683,6 @@ void Preferences::afterLaunchChanged(int value)
 void Preferences::cacheValueChanged(int value)
 {
     ui->MBlabel->setText(QString::number(value) + " MB");
-}
-
-void Preferences::useDifferentProxyForHttpsChanged(bool state)
-{
-    ui->httpsProxyServer->setEnabled(state);
-    ui->httpsProxyPort->setEnabled(state);
-    ui->httpsProxyUsername->setEnabled(state);
-    ui->httpsProxyPassword->setEnabled(state);
 }
 
 void Preferences::changeCachePathClicked()
@@ -984,19 +960,11 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     //Proxy Configuration
-    NetworkProxyFactory::ProxyPreference proxyPreference;
-    if (ui->systemProxy->isChecked()) {
-        proxyPreference = NetworkProxyFactory::SystemProxy;
-    }
-    else if (ui->noProxy->isChecked()) {
-        proxyPreference = NetworkProxyFactory::NoProxy;
-    }
-    else {
-        proxyPreference = NetworkProxyFactory::DefinedProxy;
-    }
-
     QNetworkProxy::ProxyType proxyType;
-    if (ui->proxyType->currentIndex() == 0) {
+    if (ui->systemProxy->isChecked()) {
+        proxyType = QNetworkProxy::NoProxy;
+    }
+    else if (ui->proxyType->currentIndex() == 0) {
         proxyType = QNetworkProxy::HttpProxy;
     }
     else {
@@ -1005,19 +973,10 @@ void Preferences::saveSettings()
 
     settings.beginGroup("Web-Proxy");
     settings.setValue("ProxyType", proxyType);
-    settings.setValue("UseProxy", proxyPreference);
     settings.setValue("HostName", ui->proxyServer->text());
     settings.setValue("Port", ui->proxyPort->text().toInt());
     settings.setValue("Username", ui->proxyUsername->text());
     settings.setValue("Password", ui->proxyPassword->text());
-
-    settings.setValue("UseDifferentProxyForHttps", ui->useHttpsProxy->isChecked());
-    settings.setValue("HttpsHostName", ui->httpsProxyServer->text());
-    settings.setValue("HttpsPort", ui->httpsProxyPort->text());
-    settings.setValue("HttpsUsername", ui->httpsProxyUsername->text());
-    settings.setValue("HttpsPassword", ui->httpsProxyPassword->text());
-
-    settings.setValue("ProxyExceptions", ui->proxyExceptions->text().split(QLatin1Char(','), QString::SkipEmptyParts));
     settings.endGroup();
 
     ProfileManager::setStartingProfile(ui->startProfile->currentText());
@@ -1030,6 +989,7 @@ void Preferences::saveSettings()
     mApp->plugins()->c2f_saveSettings();
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
+    mApp->networkManager()->loadSettings();
 }
 
 Preferences::~Preferences()
