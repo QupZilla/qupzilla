@@ -120,6 +120,7 @@ private slots:
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
     void onFocusChanged();
+    void checkDefaultWebBrowser();
 
 private:
     enum PostLaunchAction {
@@ -133,7 +134,6 @@ private:
 
     void translateApp();
     void backupSavedSessions();
-    void checkDefaultWebBrowser();
 
     QUrl userStyleSheet(const QString &filePath) const;
 

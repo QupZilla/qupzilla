@@ -18,6 +18,8 @@
 * ============================================================ */
 
 #include "registerqappassociation.h"
+#include "mainapplication.h"
+#include "browserwindow.h"
 
 #include "ShlObj.h"
 #include <QMessageBox>
@@ -105,7 +107,7 @@ bool RegisterQAppAssociation::registerAppCapabilities()
         capabilitiesKey = regLocalMachine.value("Software/RegisteredApplications/" + _appRegisteredName).toString();
 
         if (capabilitiesKey.isEmpty()) {
-            QMessageBox::warning(0, tr("Warning!"),
+            QMessageBox::warning(mApp->getWindow(), tr("Warning!"),
                                  tr("There are some problems. Please, reinstall QupZilla.\n"
                                     "Maybe relaunch with administrator right do a magic for you! ;)"));
             return false;
