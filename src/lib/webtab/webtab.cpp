@@ -234,8 +234,7 @@ void WebTab::attach(BrowserWindow* window)
 
 void WebTab::setHistoryData(const QByteArray &data)
 {
-    QDataStream historyStream(data);
-    historyStream >> *m_webView->history();
+    m_webView->restoreHistory(data);
 }
 
 QByteArray WebTab::historyData() const

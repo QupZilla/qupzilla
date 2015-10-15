@@ -629,12 +629,8 @@ int TabWidget::duplicateTab(int index)
 
     WebTab* webTab = weTab(index);
 
-    const QUrl url = webTab->url();
-    const QString title = webTab->title();
-    const QByteArray history = webTab->historyData();
-
-    int id = addView(url, title, Qz::NT_CleanNotSelectedTab);
-    weTab(id)->setHistoryData(history);
+    int id = addView(QUrl(), webTab->title(), Qz::NT_CleanNotSelectedTab);
+    weTab(id)->p_restoreTab(webTab->url(), webTab->historyData());
 
     return id;
 }
