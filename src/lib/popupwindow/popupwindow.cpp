@@ -55,7 +55,6 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_menuBar = new QMenuBar(this);
 
     QMenu* menuFile = new QMenu(tr("File"));
-    menuFile->addAction(QIcon::fromTheme("document-save"), tr("&Save Page As..."), m_view, SLOT(savePageAs()))->setShortcut(QKeySequence("Ctrl+S"));
     menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), m_view, SLOT(sendPageByMail()));
     //menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
     menuFile->addSeparator();
