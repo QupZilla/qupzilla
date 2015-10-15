@@ -148,6 +148,7 @@ void NetworkManager::authentication(const QUrl &url, QAuthenticator *auth, QWidg
     }
 
     if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
         return;
     }
 
@@ -164,14 +165,16 @@ void NetworkManager::authentication(const QUrl &url, QAuthenticator *auth, QWidg
             fill->addEntry(url, user->text(), pass->text());
         }
     }
+
+    delete dialog;
 }
 
 void NetworkManager::proxyAuthentication(const QString &proxyHost, QAuthenticator *auth, QWidget *parent)
 {
-    QVector<PasswordEntry> passwords = mApp->autoFill()->getFormData(QUrl(proxyHost));
-    if (!passwords.isEmpty()) {
-        auth->setUser(passwords.at(0).username);
-        auth->setPassword(passwords.at(0).password);
+    const QNetworkProxy proxy = QNetworkProxy::applicationProxy();
+    if (!proxy.user().isEmpty() && !proxy.password().isEmpty()) {
+        auth->setUser(proxy.user());
+        auth->setPassword(proxy.password());
         return;
     }
 
@@ -189,8 +192,6 @@ void NetworkManager::proxyAuthentication(const QString &proxyHost, QAuthenticato
     QLineEdit* user = new QLineEdit(dialog);
     QLineEdit* pass = new QLineEdit(dialog);
     pass->setEchoMode(QLineEdit::Password);
-    QCheckBox* save = new QCheckBox(dialog);
-    save->setText(tr("Remember username and password for this proxy."));
 
     QDialogButtonBox* box = new QDialogButtonBox(dialog);
     box->addButton(QDialogButtonBox::Ok);
@@ -202,19 +203,17 @@ void NetworkManager::proxyAuthentication(const QString &proxyHost, QAuthenticato
     formLa->addRow(label);
     formLa->addRow(userLab, user);
     formLa->addRow(passLab, pass);
-    formLa->addRow(save);
     formLa->addWidget(box);
 
     if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
         return;
-    }
-
-    if (save->isChecked()) {
-        mApp->autoFill()->addEntry(QUrl(proxyHost), user->text(), pass->text());
     }
 
     auth->setUser(user->text());
     auth->setPassword(pass->text());
+
+    delete dialog;
 }
 
 void NetworkManager::installUrlInterceptor(UrlInterceptor *interceptor)
