@@ -34,7 +34,7 @@ void SBI_ProxyWidget::clear()
     ui->proxyPassword->clear();
 
     ui->proxyType->setCurrentIndex(0);
-    ui->noProxy->setChecked(true);
+    ui->systemProxy->setChecked(true);
 }
 
 SBI_NetworkProxy* SBI_ProxyWidget::getProxy() const
@@ -46,10 +46,8 @@ SBI_NetworkProxy* SBI_ProxyWidget::getProxy() const
     proxy->setUserName(ui->proxyUsername->text());
     proxy->setPassword(ui->proxyPassword->text());
 
-    if (ui->noProxy->isChecked()) {
+    if (ui->systemProxy->isChecked()) {
         proxy->setType(QNetworkProxy::NoProxy);
-    } else if (ui->systemProxy->isChecked()) {
-        proxy->setType(QNetworkProxy::DefaultProxy);
     } else {
         proxy->setType(ui->proxyType->currentIndex() == 0 ? QNetworkProxy::HttpProxy : QNetworkProxy::Socks5Proxy);
     }
@@ -67,10 +65,6 @@ void SBI_ProxyWidget::setProxy(const SBI_NetworkProxy &proxy)
 
     switch (proxy.type()) {
     case QNetworkProxy::NoProxy:
-        ui->noProxy->setChecked(true);
-        break;
-
-    case QNetworkProxy::DefaultProxy:
         ui->systemProxy->setChecked(true);
         break;
 
