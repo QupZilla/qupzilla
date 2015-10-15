@@ -35,13 +35,16 @@ public:
     void loadSettings();
 
     QString userAgentForUrl(const QUrl &url) const;
+
     QString globalUserAgent() const;
+    QString defaultUserAgent() const;
 
     bool usePerDomainUserAgents() const;
     QHash<QString, QString> perDomainUserAgentsList() const;
 
 private:
     QString m_globalUserAgent;
+    QString m_defaultUserAgent;
 
     bool m_usePerDomainUserAgent;
     QHash<QString, QString> m_userAgentsList;

@@ -21,11 +21,14 @@
 #include "settings.h"
 
 #include <QWebEngineProfile>
+#include <QRegularExpression>
 
 UserAgentManager::UserAgentManager(QObject* parent)
     : QObject(parent)
     , m_usePerDomainUserAgent(false)
 {
+    m_defaultUserAgent = QWebEngineProfile::defaultProfile()->httpUserAgent();
+    m_defaultUserAgent.replace(QRegularExpression(QSL("QtWebEngine/[^\\s]+")), QSL("QupZilla/%1").arg(Qz::VERSION));
 }
 
 void UserAgentManager::loadSettings()
@@ -49,11 +52,7 @@ void UserAgentManager::loadSettings()
         }
     }
 
-    QString userAgent = m_globalUserAgent;
-    if (userAgent.isEmpty()) {
-        userAgent = QWebEngineProfile::defaultProfile()->httpUserAgent();
-        userAgent.replace(QSL("QtWebEngine/%1").arg(qVersion()), QSL("QupZilla/%1").arg(Qz::VERSION));
-    }
+    const QString userAgent = m_globalUserAgent.isEmpty() ? m_defaultUserAgent : m_globalUserAgent;
     QWebEngineProfile::defaultProfile()->setHttpUserAgent(userAgent);
 }
 
@@ -77,6 +76,11 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
 QString UserAgentManager::globalUserAgent() const
 {
     return m_globalUserAgent;
+}
+
+QString UserAgentManager::defaultUserAgent() const
+{
+    return m_defaultUserAgent;
 }
 
 bool UserAgentManager::usePerDomainUserAgents() const
