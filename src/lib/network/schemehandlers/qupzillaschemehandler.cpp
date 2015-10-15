@@ -202,12 +202,11 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Version"),
 #ifdef GIT_REVISION
-                              QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
+                              QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)));
 #else
-                              Qz::VERSION
+                              Qz::VERSION));
 #endif
-                                                          ) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QSL("QtWebEngine")));
+
         aPage.replace(QLatin1String("%MAIN-DEVELOPER%"), tr("Main developer"));
         aPage.replace(QLatin1String("%MAIN-DEVELOPER-TEXT%"), authorString(Qz::AUTHOR, "nowrep@gmail.com"));
         aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
@@ -383,7 +382,6 @@ QString QupZillaSchemeReply::configPage()
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("WebKit version"), QSL("QtWebEngine")) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Build time"), Qz::BUILDTIME) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystem()));
 
