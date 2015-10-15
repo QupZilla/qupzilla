@@ -117,7 +117,7 @@ void NetworkManager::authentication(const QUrl &url, QAuthenticator *auth, QWidg
     connect(box, SIGNAL(accepted()), dialog, SLOT(accept()));
 
     label->setText(tr("A username and password are being requested by %1. "
-                      "The site says: \"%2\"").arg(url.host(), QzTools::escape(auth->realm())));
+                      "The site says: \"%2\"").arg(url.host(), auth->realm().toHtmlEscaped()));
 
     formLa->addRow(label);
     formLa->addRow(userLab, user);

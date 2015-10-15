@@ -39,10 +39,8 @@
 #include <QSysInfo>
 #include <QProcess>
 #include <QMessageBox>
-
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
+
 #ifdef QZ_WS_X11
 #include <QX11Info>
 #include <xcb/xcb.h>
@@ -177,19 +175,11 @@ QString QzTools::urlEncodeQueryString(const QUrl &url)
     QString returnString = url.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     if (url.hasQuery()) {
-#if QT_VERSION >= 0x050000
         returnString += QLatin1Char('?') + url.query(QUrl::FullyEncoded);
-#else
-        returnString += QLatin1Char('?') + url.encodedQuery();
-#endif
     }
 
     if (url.hasFragment()) {
-#if QT_VERSION >= 0x050000
         returnString += QLatin1Char('#') + url.fragment(QUrl::FullyEncoded);
-#else
-        returnString += QLatin1Char('#') + url.encodedFragment();
-#endif
     }
 
     returnString.replace(QLatin1Char(' '), QLatin1String("%20"));
@@ -798,28 +788,6 @@ bool QzTools::startExternalProcess(const QString &executable, const QString &arg
     }
 
     return success;
-}
-
-// Qt5 migration help functions
-bool QzTools::isCertificateValid(const QSslCertificate &cert)
-{
-#if QT_VERSION >= 0x050000
-    const QDateTime currentTime = QDateTime::currentDateTime();
-    return currentTime >= cert.effectiveDate() &&
-           currentTime <= cert.expiryDate() &&
-           !cert.isBlacklisted();
-#else
-    return cert.isValid();
-#endif
-}
-
-QString QzTools::escape(const QString &string)
-{
-#if QT_VERSION >= 0x050000
-    return string.toHtmlEscaped();
-#else
-    return Qt::escape(string);
-#endif
 }
 
 void QzTools::setWmClass(const QString &name, const QWidget* widget)

@@ -189,7 +189,3 @@ QString TabManagerPlugin::settingsPath()
 {
     return s_settingsPath;
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(TabManager, TabManagerPlugin)
-#endif

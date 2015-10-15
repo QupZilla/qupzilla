@@ -128,7 +128,7 @@ void PluginsManager::refresh()
         }
         item->setIcon(icon);
 
-        QString pluginInfo = QString("<b>%1</b> %2<br/><i>%3</i><br/>%4").arg(spec.name, spec.version, QzTools::escape(spec.author), spec.info);
+        QString pluginInfo = QString("<b>%1</b> %2<br/><i>%3</i><br/>%4").arg(spec.name, spec.version, spec.author.toHtmlEscaped(), spec.info);
         item->setToolTip(pluginInfo);
 
         item->setText(spec.name);

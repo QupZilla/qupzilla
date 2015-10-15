@@ -192,7 +192,7 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         aPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
-        aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), QzTools::escape(QzTools::readAllFileContents(":html/copyright")));
+        aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), QzTools::readAllFileContents(":html/copyright").toHtmlEscaped());
 
         aPage.replace(QLatin1String("%TITLE%"), tr("About QupZilla"));
         aPage.replace(QLatin1String("%ABOUT-QUPZILLA%"), tr("About QupZilla"));
@@ -429,7 +429,7 @@ QString QupZillaSchemeReply::configPage()
     foreach (const Plugins::Plugin &plugin, availablePlugins) {
         PluginSpec spec = plugin.pluginSpec;
         pluginsString.append(QString("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td></tr>").arg(
-                                 spec.name, spec.version, QzTools::escape(spec.author), spec.description));
+                                 spec.name, spec.version, spec.author.toHtmlEscaped(), spec.description));
     }
 
     if (pluginsString.isEmpty()) {
@@ -471,7 +471,7 @@ QString QupZillaSchemeReply::configPage()
                 keyString = QLatin1String("\"empty\"");
             }
 
-            groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, QzTools::escape(keyString)));
+            groupString.append(QString("<tr><td>%1</td><td>%2</td></tr>").arg(key, keyString.toHtmlEscaped()));
         }
 
         settings->endGroup();

@@ -104,7 +104,3 @@ bool MouseGesturesPlugin::mouseMove(const Qz::ObjectName &type, QObject* obj, QM
 
     return false;
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(MouseGestures, MouseGesturesPlugin)
-#endif

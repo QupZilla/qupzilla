@@ -44,10 +44,7 @@ class FCM_Plugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
-
-#if QT_VERSION >= 0x050000
     Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.FlashCookieManager")
-#endif
 
 public:
     explicit FCM_Plugin();

@@ -82,10 +82,6 @@ public:
 
     static QString operatingSystem();
 
-    // Qt5 migration help functions
-    static bool isCertificateValid(const QSslCertificate &cert);
-    static QString escape(const QString &string);
-
     static void setWmClass(const QString &name, const QWidget* widget);
 
     template <typename T>

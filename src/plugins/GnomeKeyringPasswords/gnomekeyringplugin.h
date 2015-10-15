@@ -26,10 +26,7 @@ class GnomeKeyringPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
-
-#if QT_VERSION >= 0x050000
     Q_PLUGIN_METADATA(IID "QupZilla.Browser.plugin.GnomeKeyringPasswords")
-#endif
 
 public:
     explicit GnomeKeyringPlugin();

@@ -37,7 +37,7 @@ QString CertificateInfoWidget::certificateItemText(const QSslCertificate &cert)
 
 QString CertificateInfoWidget::clearCertSpecialSymbols(const QString &string)
 {
-    QString n = QzTools::escape(string);
+    QString n = string.toHtmlEscaped();
 
     if (!n.contains(QLatin1String("\\"))) {
         return n;

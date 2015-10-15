@@ -69,7 +69,3 @@ QTranslator* GnomeKeyringPlugin::getTranslator(const QString &locale)
     translator->load(locale, ":/gkp/locale/");
     return translator;
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(GnomeKeyringPasswords, GnomeKeyringPlugin)
-#endif

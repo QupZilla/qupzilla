@@ -494,7 +494,3 @@ QString FCM_Plugin::extractOriginFrom(const QString &path)
 
     return origin;
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(FlashCookieManagerPlugin, FCM_Plugin)
-#endif
