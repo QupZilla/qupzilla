@@ -117,7 +117,8 @@ StatusBarMessage::StatusBarMessage(BrowserWindow* window)
 void StatusBarMessage::showMessage(const QString &message)
 {
     if (m_window->statusBar()->isVisible()) {
-        m_window->statusBar()->showMessage(message);
+        const static QChar LRE(0x202a);
+        m_window->statusBar()->showMessage(message.isRightToLeft() ? message : (LRE + message));
     }
 #ifdef Q_OS_WIN
     else if (mApp->activeWindow() == m_window) {
