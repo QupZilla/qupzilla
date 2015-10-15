@@ -95,7 +95,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_html5PermissionsManager(0)
     , m_desktopNotifications(0)
     , m_autoSaver(0)
-    , m_lastActiveWindow(0)
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     , m_registerQAppAssociation(0)
 #endif
@@ -357,7 +356,7 @@ QList<BrowserWindow*> MainApplication::windows() const
 BrowserWindow* MainApplication::getWindow() const
 {
     if (m_lastActiveWindow) {
-        return m_lastActiveWindow;
+        return m_lastActiveWindow.data();
     }
 
     return m_windows.isEmpty() ? 0 : m_windows.first();

@@ -71,6 +71,7 @@ public:
     virtual void showSettings(QWidget* parent = 0) { Q_UNUSED(parent) }
 
     virtual void populateWebViewMenu(QMenu* menu, WebView* view, const QWebHitTestResult &r) { Q_UNUSED(menu) Q_UNUSED(view) Q_UNUSED(r) }
+    virtual void populateExtensionsMenu(QMenu* menu) { Q_UNUSED(menu) }
 
     virtual bool mouseDoubleClick(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }
     virtual bool mousePress(const Qz::ObjectName &type, QObject* obj, QMouseEvent* event) { Q_UNUSED(type) Q_UNUSED(obj) Q_UNUSED(event) return false; }

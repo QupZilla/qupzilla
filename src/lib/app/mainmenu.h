@@ -132,6 +132,7 @@ private:
     QMenu* m_menuView;
     QMenu* m_menuTools;
     QMenu* m_menuHelp;
+    QMenu* m_submenuExtensions;
     HistoryMenu* m_menuHistory;
     BookmarksMenu* m_menuBookmarks;
 };

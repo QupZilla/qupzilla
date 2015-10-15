@@ -61,6 +61,7 @@ public:
 
     QTranslator* getTranslator(const QString &locale);
     void showSettings(QWidget* parent = 0);
+    void  populateExtensionsMenu(QMenu* menu);
 
     void setFlashCookies(const QList<FlashCookie> &flashCookies);
     QList<FlashCookie> flashCookies();

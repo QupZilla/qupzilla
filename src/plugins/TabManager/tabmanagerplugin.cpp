@@ -28,6 +28,7 @@
 #include <QSettings>
 #include <QAction>
 #include <QTimer>
+#include <QMenu>
 
 QString TabManagerPlugin::s_settingsPath;
 
@@ -132,6 +133,17 @@ void TabManagerPlugin::showSettings(QWidget* parent)
                 m_controller->addStatusBarIcon(window);
             }
         }
+    }
+}
+
+void TabManagerPlugin::populateExtensionsMenu(QMenu* menu)
+{
+    if (m_controller->viewType() == TabManagerWidgetController::ShowAsWindow) {
+        QAction* showAction = m_controller->createMenuAction();
+        showAction->setParent(menu);
+        showAction->setCheckable(false);
+        connect(showAction, SIGNAL(triggered()), m_controller, SLOT(raiseTabManager()));
+        menu->addAction(showAction);
     }
 }
 

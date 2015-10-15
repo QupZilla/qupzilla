@@ -32,6 +32,7 @@
 #include "browsinglibrary.h"
 #include "clearprivatedata.h"
 #include "qzsettings.h"
+#include "pluginproxy.h"
 
 #include <QApplication>
 #include <QMetaObject>
@@ -447,6 +448,11 @@ void MainMenu::aboutToHideEditMenu()
 void MainMenu::aboutToShowToolsMenu()
 {
     m_actions[QSL("Tools/SiteInfo")]->setEnabled(true);
+
+    m_submenuExtensions->clear();
+    mApp->plugins()->populateExtensionsMenu(m_submenuExtensions);
+
+    m_submenuExtensions->menuAction()->setVisible(!m_submenuExtensions->actions().isEmpty());
 }
 
 void MainMenu::aboutToHideToolsMenu()
@@ -621,6 +627,10 @@ void MainMenu::init()
     ADD_ACTION("Tools/RssReader", m_menuTools, QIcon(), tr("RSS &Reader"), SLOT(showRssManager()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(toggleWebInspector()), "Ctrl+Shift+I");
     ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
+
+    m_submenuExtensions = new QMenu(tr("&Extensions"));
+    m_submenuExtensions->menuAction()->setVisible(false);
+    m_menuTools->addMenu(m_submenuExtensions);
     m_menuTools->addSeparator();
 
     // Help menu

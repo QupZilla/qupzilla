@@ -29,6 +29,7 @@
 #include <QSettings>
 #include <QTranslator>
 #include <QDir>
+#include <QMenu>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
 #include <QProcessEnvironment>
@@ -119,6 +120,13 @@ void FCM_Plugin::showSettings(QWidget* parent)
 
     showFlashCookieManager();
     m_fcmDialog->showPage(2);
+}
+
+void FCM_Plugin::populateExtensionsMenu(QMenu* menu)
+{
+    QAction* showFCM = new QAction(QIcon(":/flashcookiemanager/data/flash-cookie-manager.png"), tr("Flash Cookie Manager"), menu);
+    connect(showFCM, SIGNAL(triggered()), this, SLOT(showFlashCookieManager()));
+    menu->addAction(showFCM);
 }
 
 void FCM_Plugin::setFlashCookies(const QList<FlashCookie> &flashCookies)
@@ -383,7 +391,7 @@ QWidget* FCM_Plugin::createStatusBarIcon(BrowserWindow* mainWindow)
     icon->setCursor(Qt::PointingHandCursor);
     QPixmap p(":/flashcookiemanager/data/flash-cookie-manager.png");
     icon->setPixmap(p.scaledToHeight(16));
-    icon->setToolTip(tr("Show/Hide Flash Cookie Manager"));
+    icon->setToolTip(tr("Show Flash Cookie Manager"));
 
     connect(icon, SIGNAL(clicked(QPoint)), this, SLOT(showFlashCookieManager()));
 
