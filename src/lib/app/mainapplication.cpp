@@ -681,8 +681,9 @@ void MainApplication::postLaunch()
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(messageReceived(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 
-    checkDefaultWebBrowser();
     QtWin::createJumpList();
+
+    QTimer::singleShot(1000, this, SLOT(checkDefaultWebBrowser()));
 }
 
 void MainApplication::saveSession()

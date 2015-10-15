@@ -128,6 +128,7 @@ private slots:
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
     void onFocusChanged();
+    void checkDefaultWebBrowser();
 
     void downloadRequested(QWebEngineDownloadItem *download);
 
@@ -143,7 +144,6 @@ private:
 
     void translateApp();
     void backupSavedSessions();
-    void checkDefaultWebBrowser();
 
     void setUserStyleSheet(const QString &filePath);
 
