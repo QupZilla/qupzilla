@@ -28,6 +28,7 @@ QList<QWebEngineView*> WebInspector::s_views;
 
 WebInspector::WebInspector(QWidget *parent)
     : QWebEngineView(parent)
+    , m_view(Q_NULLPTR)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setObjectName(QSL("web-inspector"));
@@ -36,7 +37,7 @@ WebInspector::WebInspector(QWidget *parent)
     registerView(this);
 
     connect(page(), &QWebEnginePage::windowCloseRequested, this, &WebInspector::deleteLater);
-    connect(page(), &QWebEnginePage::loadFinished, this, &WebInspector::updateCloseButton);
+    connect(page(), &QWebEnginePage::loadFinished, this, &WebInspector::loadFinished);
 }
 
 WebInspector::~WebInspector()
@@ -46,8 +47,10 @@ WebInspector::~WebInspector()
 
 void WebInspector::setView(QWebEngineView *view)
 {
+    m_view = view;
+
     QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(WEBINSPECTOR_PORT));
-    int index = s_views.indexOf(view);
+    int index = s_views.indexOf(m_view);
 
     QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(inspectorUrl.resolved(QUrl("json/list"))));
     connect(reply, &QNetworkReply::finished, this, [=]() {
@@ -61,6 +64,11 @@ void WebInspector::setView(QWebEngineView *view)
         pushView(this);
         show();
     });
+}
+
+void WebInspector::inspectElement()
+{
+    m_inspectElement = true;
 }
 
 void WebInspector::pushView(QWebEngineView *view)
@@ -79,8 +87,9 @@ void WebInspector::unregisterView(QWebEngineView *view)
     s_views.removeOne(view);
 }
 
-void WebInspector::updateCloseButton()
+void WebInspector::loadFinished()
 {
+    // Update close button
     page()->runJavaScript(QL1S("var toolbar = document.getElementsByClassName('inspector-view-toolbar')[1];"
                                "var button = document.createElement('button');"
                                "button.style.width = '22px';"
@@ -93,6 +102,12 @@ void WebInspector::updateCloseButton()
                                "    window.close();"
                                "});"
                                "toolbar.appendChild(button);"));
+
+    // Inspect element
+    if (m_inspectElement) {
+        m_view->triggerPageAction(QWebEnginePage::InspectElement);
+        m_inspectElement = false;
+    }
 }
 
 void WebInspector::keyPressEvent(QKeyEvent *event)

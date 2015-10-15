@@ -142,24 +142,29 @@ TabbedWebView* WebTab::webView() const
     return m_webView;
 }
 
-void WebTab::showWebInspector()
+bool WebTab::haveInspector() const
 {
-    if (m_splitter->count() != 1)
+    return m_splitter->count() > 1 && m_splitter->widget(1)->inherits("WebInspector");
+}
+
+void WebTab::showWebInspector(bool inspectElement)
+{
+    if (haveInspector())
         return;
 
     WebInspector *inspector = new WebInspector(this);
     inspector->setView(m_webView);
+    if (inspectElement)
+        inspector->inspectElement();
+
     m_splitter->addWidget(inspector);
 }
 
 void WebTab::toggleWebInspector()
 {
-    if (m_splitter->count() == 1) {
+    if (!haveInspector())
         showWebInspector();
-        return;
-    }
-
-    if (m_splitter->count() > 1 && m_splitter->widget(1)->inherits("WebInspector"))
+    else
         delete m_splitter->widget(1);
 }
 

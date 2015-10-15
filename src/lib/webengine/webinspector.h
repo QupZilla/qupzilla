@@ -35,19 +35,23 @@ public:
     ~WebInspector();
 
     void setView(QWebEngineView *view);
+    void inspectElement();
 
     static void pushView(QWebEngineView *view);
     static void registerView(QWebEngineView *view);
     static void unregisterView(QWebEngineView *view);
 
 private slots:
-    void updateCloseButton();
+    void loadFinished();
 
 private:
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
     void keyReleaseEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
 
     static QList<QWebEngineView*> s_views;
+
+    bool m_inspectElement;
+    QWebEngineView *m_view;
 };
 
 #endif // WEBINSPECTORDOCKWIDGET_H

@@ -18,11 +18,14 @@
 #ifndef POPUPWEBVIEW_H
 #define POPUPWEBVIEW_H
 
+#include <QPointer>
+
 #include "qzcommon.h"
 #include "webview.h"
 
-class LoadRequest;
 class Menu;
+class LoadRequest;
+class WebInspector;
 
 class QUPZILLA_EXPORT PopupWebView : public WebView
 {
@@ -44,6 +47,7 @@ private:
     void _contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
 
     Menu* m_menu;
+    QPointer<WebInspector> m_inspector;
 };
 
 #endif // POPUPWEBVIEW_H

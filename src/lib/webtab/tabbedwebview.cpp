@@ -69,7 +69,10 @@ void TabbedWebView::setBrowserWindow(BrowserWindow* window)
 
 void TabbedWebView::inspectElement()
 {
-    m_webTab->showWebInspector();
+    if (m_webTab->haveInspector())
+        triggerPageAction(QWebEnginePage::InspectElement);
+    else
+        m_webTab->showWebInspector(true);
 }
 
 WebTab* TabbedWebView::webTab() const

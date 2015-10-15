@@ -85,7 +85,8 @@ public:
 
     bool isCurrentTab() const;
 
-    void showWebInspector();
+    bool haveInspector() const;
+    void showWebInspector(bool inspectElement = false);
     void toggleWebInspector();
 
     bool isRestored() const;

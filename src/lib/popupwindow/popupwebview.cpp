@@ -74,9 +74,15 @@ void PopupWebView::requestFullScreen(bool enable)
 
 void PopupWebView::inspectElement()
 {
-    WebInspector *inspector = new WebInspector;
-    inspector->setView(this);
-    inspector->show();
+    if (m_inspector) {
+        triggerPageAction(QWebEnginePage::InspectElement);
+        return;
+    }
+
+    m_inspector = new WebInspector;
+    m_inspector->setView(this);
+    m_inspector->inspectElement();
+    m_inspector->show();
 }
 
 void PopupWebView::_contextMenuEvent(QContextMenuEvent *event)
