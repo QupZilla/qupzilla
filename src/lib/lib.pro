@@ -11,9 +11,6 @@ include(../defines.pri)
 include(../../translations/translations.pri)
 include(3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
-# QTWEBENGINE DISABLED
-#include(plugins/qtwebkit/qtwebkit-plugins.pri)
-
 CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
