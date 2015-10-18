@@ -35,6 +35,8 @@ QString TestPlugin_Sidebar::title() const
 QAction* TestPlugin_Sidebar::createMenuAction()
 {
     QAction* act = new QAction(tr("Testing Sidebar"), 0);
+    // don't reparent it, see: issue#1719
+    act->setParent(this);
     act->setCheckable(true);
 
     return act;

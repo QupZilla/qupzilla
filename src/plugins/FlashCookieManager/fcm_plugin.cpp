@@ -99,7 +99,8 @@ void FCM_Plugin::unload()
         m_statusBarIcons.remove(window);
     }
 
-    delete m_fcmDialog;
+    delete m_extensionAction.data();
+    delete m_fcmDialog.data();
 }
 
 bool FCM_Plugin::testPlugin()
@@ -124,9 +125,13 @@ void FCM_Plugin::showSettings(QWidget* parent)
 
 void FCM_Plugin::populateExtensionsMenu(QMenu* menu)
 {
-    QAction* showFCM = new QAction(QIcon(":/flashcookiemanager/data/flash-cookie-manager.png"), tr("Flash Cookie Manager"), menu);
-    connect(showFCM, SIGNAL(triggered()), this, SLOT(showFlashCookieManager()));
-    menu->addAction(showFCM);
+    if (!m_extensionAction) {
+        m_extensionAction = new QAction(QIcon(":/flashcookiemanager/data/flash-cookie-manager.png"), tr("Flash Cookie Manager"), 0);
+        connect(m_extensionAction.data(), SIGNAL(triggered()), this, SLOT(showFlashCookieManager()));
+    }
+
+    if (!menu->actions().contains(m_extensionAction.data()))
+        menu->addAction(m_extensionAction.data());
 }
 
 void FCM_Plugin::setFlashCookies(const QList<FlashCookie> &flashCookies)

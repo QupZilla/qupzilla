@@ -76,7 +76,8 @@ void TestPlugin::init(InitState state, const QString &settingsPath)
     QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
 
     // Adding new sidebar into application
-    SideBarManager::addSidebar("testplugin-sidebar", new TestPlugin_Sidebar(this));
+    m_testSidebar = new TestPlugin_Sidebar(this);
+    SideBarManager::addSidebar("testplugin-sidebar", m_testSidebar);
 }
 
 void TestPlugin::unload()
@@ -91,6 +92,10 @@ void TestPlugin::unload()
 
     // Deleting settings dialog if opened
     delete m_settings.data();
+
+    // Deleting TestPlugin_Sidebar instance
+    delete m_testSidebar;
+    m_testSidebar = 0;
 }
 
 bool TestPlugin::testPlugin()
