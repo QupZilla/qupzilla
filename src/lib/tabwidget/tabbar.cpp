@@ -51,6 +51,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     , m_clickedTab(0)
     , m_normalTabWidth(0)
     , m_activeTabWidth(0)
+    , m_forceHidden(false)
 {
     setObjectName("tabbar");
     setElideMode(Qt::ElideRight);
@@ -114,7 +115,9 @@ TabWidget* TabBar::tabWidget() const
 
 void TabBar::setVisible(bool visible)
 {
-    if (visible && m_window->isFullScreen()) {
+    if (m_forceHidden) {
+        hideTabPreview(false);
+        ComboTabBar::setVisible(false);
         return;
     }
 
@@ -125,6 +128,12 @@ void TabBar::setVisible(bool visible)
 
     hideTabPreview(false);
     ComboTabBar::setVisible(visible);
+}
+
+void TabBar::setForceHidden(bool hidden)
+{
+    m_forceHidden = hidden;
+    setVisible(!m_forceHidden);
 }
 
 void TabBar::overflowChanged(bool overflowed)

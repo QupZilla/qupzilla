@@ -4,16 +4,19 @@ os2: TARGET = TabManPl
 
 SOURCES += tabmanagerplugin.cpp \
     tabmanagerwidget.cpp \
-    tabmanagerwidgetcontroller.cpp
+    tabmanagerwidgetcontroller.cpp \
+    tabmanagersettings.cpp
 
 HEADERS += tabmanagerplugin.h \
     tabmanagerwidget.h \
-    tabmanagerwidgetcontroller.h
+    tabmanagerwidgetcontroller.h \
+    tabmanagersettings.h
 
 RESOURCES += tabmanagerplugin.qrc
 
 FORMS += \
-    tabmanagerwidget.ui
+    tabmanagerwidget.ui \
+    tabmanagersettings.ui
 
 TRANSLATIONS += \
     translations/cs_CZ.ts \

@@ -27,11 +27,6 @@ class TabManagerWidgetController : public SideBarInterface
 {
     Q_OBJECT
 public:
-    enum ViewType {
-        ShowAsSideBar = 0,
-        ShowAsWindow = 1
-    };
-
     explicit TabManagerWidgetController(QObject* parent = 0);
     ~TabManagerWidgetController();
 
@@ -40,9 +35,6 @@ public:
     QWidget* createSideBarWidget(BrowserWindow* mainWindow);
 
     QWidget* createStatusBarIcon(BrowserWindow* mainWindow);
-
-    ViewType viewType();
-    void setViewType(ViewType type);
 
     TabManagerWidget::GroupType groupType();
     TabManagerWidget* createTabManagerWidget(BrowserWindow* mainClass, QWidget* parent = 0, bool defaultWidget = false);
@@ -54,14 +46,13 @@ public:
 
 public slots:
     void setGroupType(TabManagerWidget::GroupType type);
-    void mainWindowCreated(BrowserWindow* window, bool refresh = true);
     void mainWindowDeleted(BrowserWindow* window);
     void raiseTabManager();
     void showSideBySide();
+    void emitRefreshTree();
 
 private:
     TabManagerWidget* m_defaultTabManager;
-    ViewType m_viewType;
     TabManagerWidget::GroupType m_groupType;
 
     QHash<BrowserWindow*, QWidget*> m_statusBarIcons;
