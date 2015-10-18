@@ -21,6 +21,7 @@
 #include "browserwindow.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
+#include "tabbar.h"
 
 #include <QDesktopWidget>
 #include <QStatusBar>
@@ -32,7 +33,6 @@
 TabManagerWidgetController::TabManagerWidgetController(QObject* parent)
     : SideBarInterface(parent)
     , m_defaultTabManager(0)
-    , m_viewType(ShowAsWindow)
     , m_groupType(TabManagerWidget::GroupByWindow)
 {
 }
@@ -90,16 +90,6 @@ QWidget* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWind
     m_actions.insert(mainWindow, showAction);
 
     return icon;
-}
-
-TabManagerWidgetController::ViewType TabManagerWidgetController::viewType()
-{
-    return m_viewType;
-}
-
-void TabManagerWidgetController::setViewType(ViewType type)
-{
-    m_viewType = type;
 }
 
 TabManagerWidget::GroupType TabManagerWidgetController::groupType()
@@ -163,19 +153,6 @@ void TabManagerWidgetController::removeStatusBarIcon(BrowserWindow* window)
     }
 }
 
-void TabManagerWidgetController::mainWindowCreated(BrowserWindow* window, bool refresh)
-{
-    if (window) {
-        addStatusBarIcon(window);
-        connect(window->tabWidget(), SIGNAL(currentChanged(int)), this, SIGNAL(requestRefreshTree()));
-        connect(window->tabWidget(), SIGNAL(pinStateChanged(int,bool)), this, SIGNAL(pinStateChanged(int,bool)));
-    }
-
-    if (refresh) {
-        emit requestRefreshTree();
-    }
-}
-
 void TabManagerWidgetController::mainWindowDeleted(BrowserWindow* window)
 {
     removeStatusBarIcon(window);
@@ -230,4 +207,9 @@ void TabManagerWidgetController::showSideBySide()
     defaultTabManager()->show();
     defaultTabManager()->activateWindow();
     defaultTabManager()->raise();
+}
+
+void TabManagerWidgetController::emitRefreshTree()
+{
+    emit requestRefreshTree();
 }

@@ -38,6 +38,7 @@ public:
 
     TabWidget* tabWidget() const;
     void setVisible(bool visible);
+    void setForceHidden(bool hidden);
 
     void overrideTabTextColor(int index, QColor color);
     void restoreTabTextColor(int index);
@@ -108,6 +109,8 @@ private:
 
     QColor m_originalTabTextColor;
     QPoint m_dragStartPosition;
+
+    bool m_forceHidden;
 };
 
 #endif // TABBAR_H
