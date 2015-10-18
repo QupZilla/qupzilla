@@ -22,6 +22,9 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "sidebar.h"
+#include "tabwidget.h"
+#include "tabbar.h"
+#include "tabmanagersettings.h"
 
 #include <QInputDialog>
 #include <QTranslator>
@@ -36,7 +39,9 @@ TabManagerPlugin::TabManagerPlugin()
     : QObject()
     , m_controller(0)
     , m_tabManagerWidget(0)
+    , m_viewType(Undefined)
     , m_initState(false)
+    , m_asTabBarReplacement(false)
 {
 }
 
@@ -46,7 +51,7 @@ PluginSpec TabManagerPlugin::pluginSpec()
     spec.name = "Tab Manager";
     spec.info = "Simple yet powerful tab manager for QupZilla";
     spec.description = "Adds ability to managing tabs and windows";
-    spec.version = "0.4.1";
+    spec.version = "0.5.0";
     spec.author = "Razi Alavizadeh <s.r.alavizadeh@gmail.com>";
     spec.icon = QPixmap(":tabmanager/data/tabmanager.png");
     spec.hasSettings = true;
@@ -59,7 +64,7 @@ void TabManagerPlugin::init(InitState state, const QString &settingsPath)
     Q_UNUSED(state)
 
     m_controller = new TabManagerWidgetController(this);
-    connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), m_controller, SLOT(mainWindowCreated(BrowserWindow*)));
+    connect(mApp->plugins(), SIGNAL(mainWindowCreated(BrowserWindow*)), this, SLOT(mainWindowCreated(BrowserWindow*)));
     connect(mApp->plugins(), SIGNAL(mainWindowDeleted(BrowserWindow*)), m_controller, SLOT(mainWindowDeleted(BrowserWindow*)));
     connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), m_controller, SIGNAL(requestRefreshTree()));
     connect(mApp->plugins(), SIGNAL(webPageDeleted(WebPage*)), m_controller, SIGNAL(requestRefreshTree(WebPage*)));
@@ -71,21 +76,19 @@ void TabManagerPlugin::init(InitState state, const QString &settingsPath)
     QSettings settings(s_settingsPath + QL1S("/tabmanager.ini"), QSettings::IniFormat);
     settings.beginGroup("View");
     m_controller->setGroupType(TabManagerWidget::GroupType(settings.value("GroupType", TabManagerWidget::GroupByWindow).toInt()));
-    m_controller->setViewType(TabManagerWidgetController::ViewType(settings.value("ViewType", TabManagerWidgetController::ShowAsWindow).toInt()));
+    m_viewType = ViewType(settings.value("ViewType", ShowAsWindow).toInt());
+    m_asTabBarReplacement = settings.value("AsTabBarReplacement", false).toBool();
     settings.endGroup();
 
+    setAsTabBarReplacement(m_asTabBarReplacement);
     insertManagerWidget();
 }
 
 void TabManagerPlugin::unload()
 {
-    // save settings
-    QSettings settings(s_settingsPath + QL1S("/tabmanager.ini"), QSettings::IniFormat);
-    settings.beginGroup("View");
-    settings.setValue("GroupType", m_controller->groupType());
-    settings.setValue("ViewType", m_controller->viewType());
-    settings.endGroup();
+    saveSettings();
 
+    setTabBarVisible(true);
     removeManagerWidget();
 
     delete m_controller;
@@ -105,40 +108,13 @@ QTranslator* TabManagerPlugin::getTranslator(const QString &locale)
 
 void TabManagerPlugin::showSettings(QWidget* parent)
 {
-    bool ok;
-    QString viewType = QInputDialog::getItem(parent, tr("Tab Manager View Type"),
-                       tr("<p>Please select view type:<br />"
-                          "<b>Note:</b> The \"<i>Window</i>\" type is recommended for managing lots of windows/tabs")
-                       , QStringList() << tr("SideBar") << tr("Window")
-                       , m_controller->viewType(), false, &ok, Qt::WindowStaysOnTopHint);
-    TabManagerWidgetController::ViewType type;
-    if (viewType == tr("SideBar")) {
-        type = TabManagerWidgetController::ShowAsSideBar;
-    }
-    else {
-        type = TabManagerWidgetController::ShowAsWindow;
-    }
-
-    if (ok && type != m_controller->viewType()) {
-        removeManagerWidget();
-        m_controller->setViewType(type);
-        insertManagerWidget();
-
-        if (type == TabManagerWidgetController::ShowAsSideBar) {
-            mApp->getWindow()->sideBarManager()->showSideBar("TabManager");
-        }
-        else if (type == TabManagerWidgetController::ShowAsWindow) {
-            // add statusbar icon
-            foreach (BrowserWindow* window, mApp->windows()) {
-                m_controller->addStatusBarIcon(window);
-            }
-        }
-    }
+    TabManagerSettings* settings = new TabManagerSettings(this, parent);
+    settings->exec();
 }
 
 void TabManagerPlugin::populateExtensionsMenu(QMenu* menu)
 {
-    if (m_controller->viewType() == TabManagerWidgetController::ShowAsWindow) {
+    if (viewType() == ShowAsWindow) {
         QAction* showAction = m_controller->createMenuAction();
         showAction->setCheckable(false);
         connect(showAction, SIGNAL(triggered()), m_controller, SLOT(raiseTabManager()));
@@ -148,10 +124,10 @@ void TabManagerPlugin::populateExtensionsMenu(QMenu* menu)
 
 void TabManagerPlugin::insertManagerWidget()
 {
-    if (m_controller->viewType() == TabManagerWidgetController::ShowAsSideBar) {
+    if (viewType() == ShowAsSideBar) {
         SideBarManager::addSidebar("TabManager", m_controller);
     }
-    else if (m_controller->viewType() == TabManagerWidgetController::ShowAsWindow) {
+    else if (viewType() == ShowAsWindow) {
         if (!m_tabManagerWidget) {
             m_tabManagerWidget = m_controller->createTabManagerWidget(mApp->getWindow(), 0, true);
             m_tabManagerWidget->setWindowFlags(Qt::Window);
@@ -160,19 +136,43 @@ void TabManagerPlugin::insertManagerWidget()
 
     if (m_initState) {
         foreach (BrowserWindow* window, mApp->windows()) {
-            m_controller->mainWindowCreated(window, false);
+            mainWindowCreated(window, false);
+        }
+        m_initState = false;
+    }
+}
+
+void TabManagerPlugin::mainWindowCreated(BrowserWindow* window, bool refresh)
+{
+    if (window) {
+        window->tabWidget()->tabBar()->setForceHidden(m_asTabBarReplacement);
+
+        if (m_viewType == ShowAsWindow) {
+            m_controller->addStatusBarIcon(window);
         }
 
-        m_initState = false;
+        connect(window->tabWidget(), SIGNAL(currentChanged(int)), m_controller, SIGNAL(requestRefreshTree()));
+        connect(window->tabWidget(), SIGNAL(pinStateChanged(int,bool)), m_controller, SIGNAL(pinStateChanged(int,bool)));
+    }
+
+    if (refresh) {
+        m_controller->emitRefreshTree();
+    }
+}
+
+void TabManagerPlugin::setTabBarVisible(bool visible)
+{
+    foreach (BrowserWindow* window, mApp->windows()) {
+        window->tabWidget()->tabBar()->setForceHidden(!visible);
     }
 }
 
 void TabManagerPlugin::removeManagerWidget()
 {
-    if (m_controller->viewType() == TabManagerWidgetController::ShowAsSideBar) {
+    if (viewType() == ShowAsSideBar) {
         SideBarManager::removeSidebar("TabManager");
     }
-    else if (m_controller->viewType() == TabManagerWidgetController::ShowAsWindow) {
+    else if (viewType() == ShowAsWindow) {
         // remove statusbar icon
         foreach (BrowserWindow* window, mApp->windows()) {
             m_controller->removeStatusBarIcon(window);
@@ -184,9 +184,57 @@ void TabManagerPlugin::removeManagerWidget()
     }
 }
 
+
+TabManagerPlugin::ViewType TabManagerPlugin::viewType()
+{
+    return m_viewType;
+}
+
+void TabManagerPlugin::setViewType(ViewType type)
+{
+    if (m_viewType != type) {
+        removeManagerWidget();
+        m_viewType  = type;
+        insertManagerWidget();
+
+        if (!m_initState) {
+            if (m_viewType == ShowAsSideBar) {
+                mApp->getWindow()->sideBarManager()->showSideBar("TabManager");
+            }
+            else if (m_viewType == ShowAsWindow) {
+                // add statusbar icon
+                foreach (BrowserWindow* window, mApp->windows()) {
+                    m_controller->addStatusBarIcon(window);
+                }
+            }
+        }
+    }
+}
+
 QString TabManagerPlugin::settingsPath()
 {
     return s_settingsPath;
+}
+
+void TabManagerPlugin::saveSettings()
+{
+    QSettings settings(s_settingsPath + QL1S("/tabmanager.ini"), QSettings::IniFormat);
+    settings.beginGroup("View");
+    settings.setValue("GroupType", m_controller->groupType());
+    settings.setValue("ViewType", viewType());
+    settings.setValue("AsTabBarReplacement", asTabBarReplacement());
+    settings.endGroup();
+}
+
+bool TabManagerPlugin::asTabBarReplacement() const
+{
+    return m_asTabBarReplacement;
+}
+
+void TabManagerPlugin::setAsTabBarReplacement(bool yes)
+{
+    m_asTabBarReplacement = yes;
+    setTabBarVisible(!m_asTabBarReplacement);
 }
 
 #if QT_VERSION < 0x050000

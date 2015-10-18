@@ -51,19 +51,38 @@ public:
     void showSettings(QWidget* parent = 0);
     void  populateExtensionsMenu(QMenu* menu);
 
+    enum ViewType {
+        ShowAsSideBar = 0,
+        ShowAsWindow = 1,
+        Undefined = -1
+    };
+
     void removeManagerWidget();
 
+    ViewType viewType();
+    void setViewType(ViewType type);
+
     static QString settingsPath();
+    void saveSettings();
+
+    bool asTabBarReplacement() const;
+    void setAsTabBarReplacement(bool yes);
 
 public slots:
     void insertManagerWidget();
 
+private slots:
+    void mainWindowCreated(BrowserWindow* window, bool refresh = true);
+
 private:
+    void setTabBarVisible(bool visible);
+
     TabManagerWidgetController* m_controller;
     TabManagerWidget* m_tabManagerWidget;
     static QString s_settingsPath;
-    QString m_viewType;
+    ViewType m_viewType;
     bool m_initState;
+    bool m_asTabBarReplacement;
 };
 
 #endif // TABMANAGERPLUGIN_H
