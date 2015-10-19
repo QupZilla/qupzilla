@@ -31,7 +31,7 @@ History
 
 The very first version of QupZilla has been released in December 2010 and it was written
 in Python with PyQt4 bindings. After a few versions, QupZilla has been completely rewritten
-in C++ with the Qt Framework. The Windows version of QupZilla was compiled using MingW, but due to
+in C++ with the Qt Framework. The Windows version of QupZilla was compiled using MinGW, but due to
 a huge problem with Flash, it is now compiled with Microsoft Visual C++ Compiler 2008.
 First public release was 1.0.0-b4.
 
