@@ -93,7 +93,7 @@ void qupzilla_signal_handler(int s)
 
     file.close();
 
-    std::cout << "Backtrace successfuly saved in " << qPrintable(dir.absoluteFilePath(file.fileName())) << std::endl;
+    std::cout << "Backtrace successfully saved in " << qPrintable(dir.absoluteFilePath(file.fileName())) << std::endl;
 }
 #endif // defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__)
 
