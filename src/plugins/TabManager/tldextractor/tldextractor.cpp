@@ -259,7 +259,7 @@ void TLDExtractor::loadData()
         const QString tldDataFileDownloadLink = QLatin1String("http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1");
         QMessageBox::information(0, tr("File not found!"),
                                  tr("File \'effective_tld_names.dat\' was not found!\n"
-                                    "You can download it form \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
+                                    "You can download it from \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
                                  .arg(tldDataFileDownloadLink).arg(m_dataSearchPaths.join("\n")));
 
         return;
@@ -362,7 +362,7 @@ bool TLDExtractor::test()
 
         QMessageBox::information(0, tr("File not found!"),
                                  tr("File \'test_psl.txt\' was not found!\n"
-                                    "You can download it form \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
+                                    "You can download it from \'<a href=\"%1\"><b>here</b></a>\' to one of the following paths:\n%2")
                                  .arg(testFileDownloadLink).arg(m_dataSearchPaths.join("\n")));
 
         return false;

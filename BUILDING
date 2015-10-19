@@ -4,7 +4,7 @@ General
   If you can, you should use precompiled packages for your distribution.
   But if you cannot use them, or they are not available, please read
   this information before compiling.
-  After your binary is successfuly compiled, you need to copy bin/ folder
+  After your binary is successfully compiled, you need to copy bin/ folder
   from git to specific directory by your system you compiled for.
   On Linux, you can easily do it by running make install.
   If you are unsure where is the right place, you can check it directly from
@@ -60,7 +60,7 @@ MAC OS X
 
     $ ./mac/macdeploy.sh <path-to-macdeployqt>
 
-  You need to specifiy path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
+  You need to specify path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
   if it is not in PATH.
 
 OS/2
@@ -88,7 +88,7 @@ Available Defines
     $ export NAME="value"
 
  General:
-   PORTABLE_BUILD         QupZilla won't write any data outside of path of exection.
+   PORTABLE_BUILD         QupZilla won't write any data outside of path of execution.
                           It will also disable plugins by default.
                           (disabled by default)
 

@@ -354,7 +354,7 @@ void DownloadItem::stop(bool askForDeleteFile)
     emit downloadFinished(false);
 
     if (askForDeleteFile) {
-        QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete dowloaded file?"), QMessageBox::Yes | QMessageBox::No);
+        QMessageBox::StandardButton button = QMessageBox::question(m_item->listWidget()->parentWidget(), tr("Delete file"), tr("Do you want to also delete downloaded file?"), QMessageBox::Yes | QMessageBox::No);
         if (button == QMessageBox::Yes) {
             QFile::remove(outputfile);
         }

@@ -17,7 +17,7 @@ for educational purposes. But from its start, QupZilla has grown into a feature-
 QupZilla has all standard functions you expect from a web browser. It includes bookmarks,
 history (both also in sidebar) and tabs. Above that, you can manage RSS feeds with an included
 RSS reader, block ads with a built-in AdBlock plugin, block Flash content with Click2Flash
-and edit the local CA Certificates database with an SSL Manager.
+and edit the local CA Certificates database with an SSL manager.
 
 QupZilla's main aim is to be a very fast and very stable QtWebKit browser available to everyone.
 There are already a lot of QtWebKit browsers available, but they are either bound to the KDE
@@ -30,7 +30,7 @@ History
 
 The very first version of QupZilla has been released in December 2010 and it was written
 in Python with PyQt4 bindings. After a few versions, QupZilla has been completely rewritten
-in C++ with the Qt Framework. The Windows version of QupZilla was compiled using MingW, but due to
+in C++ with the Qt Framework. The Windows version of QupZilla was compiled using MinGW, but due to
 a huge problem with Flash, it is now compiled with Microsoft Visual C++ Compiler 2008.
 First public release was 1.0.0-b4.
 
