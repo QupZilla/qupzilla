@@ -19,7 +19,7 @@ LangString DESC_SecPlugins ${LANG_ENGLISH} "Other plugins available to install."
 LangString DESC_SecDesktop ${LANG_ENGLISH} "Add launcher to desktop."
 LangString DESC_SecExtensions ${LANG_ENGLISH} "Associate QupZilla with .htm(l) files"
 LangString DESC_SecThemes ${LANG_ENGLISH} "Additional themes for QupZilla"
-LangString DESC_SecSetASDefault ${LANG_ENGLISH} "Set Qupzilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_ENGLISH} "Set QupZilla as default internet browser"
 LangString DESC_SecProtocols ${LANG_ENGLISH} "Associate QupZilla with http(s) and ftp protocols"
 ;
 LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
@@ -53,7 +53,7 @@ LangString MSG_RunningInstance ${LANG_ARABIC} "كَبزيلّا مفتوح ال�
 LangString MSG_InstallationCanceled ${LANG_ARABIC} "ألغى المستخدم العملية."
 
 ;;;;Spanish
-LangString PRODUCT_DESC  ${LANG_SPANISH} "Qupzilla es un nuevo, rápido y seguro navegador web de código abierto. Qupzilla está bajo licencia GPL versión 3 o (o en su opción) en cualquier versión. Está basado en el motor WebKit y en Qt Framework."
+LangString PRODUCT_DESC  ${LANG_SPANISH} "QupZilla es un nuevo, rápido y seguro navegador web de código abierto. QupZilla está bajo licencia GPL versión 3 o (o en su opción) en cualquier versión. Está basado en el motor WebKit y en Qt Framework."
 ;
 LangString TITLE_SecMain ${LANG_SPANISH} "Componentes iniciales"
 LangString TITLE_SecTranslations ${LANG_SPANISH} "Traducciones"
@@ -71,12 +71,12 @@ LangString DESC_SecMain ${LANG_SPANISH} "Componentes iniciales de aplicación"
 LangString DESC_SecTranslations ${LANG_SPANISH} "Otras traduciones disponibles al instalar. Por defecto en inglés."
 LangString DESC_SecPlugins ${LANG_SPANISH} "Otros plugins disponibles al instalar."
 LangString DESC_SecDesktop ${LANG_SPANISH} "Añade acceso directo al escritorio."
-LangString DESC_SecExtensions ${LANG_SPANISH} "Asociar Qupzilla con archivos .htm(l)"
-LangString DESC_SecThemes ${LANG_SPANISH} "Temas adicionales para Qupzilla"
-LangString DESC_SecSetASDefault ${LANG_SPANISH} "Hacer Qupzilla tu navegador web por defecto"
-LangString DESC_SecProtocols ${LANG_SPANISH} "Asociar Qupzilla con los protocolos http(s) y ftp"
+LangString DESC_SecExtensions ${LANG_SPANISH} "Asociar QupZilla con archivos .htm(l)"
+LangString DESC_SecThemes ${LANG_SPANISH} "Temas adicionales para QupZilla"
+LangString DESC_SecSetASDefault ${LANG_SPANISH} "Hacer QupZilla tu navegador web por defecto"
+LangString DESC_SecProtocols ${LANG_SPANISH} "Asociar QupZilla con los protocolos http(s) y ftp"
 ;
-LangString MSG_RunningInstance ${LANG_SPANISH} "Qupzilla se está ejecutando, Quieres que el instalador intente finalizarlo?"
+LangString MSG_RunningInstance ${LANG_SPANISH} "QupZilla se está ejecutando, Quieres que el instalador intente finalizarlo?"
 LangString MSG_InstallationCanceled ${LANG_SPANISH} "Proceso cancelado por usuario."
 
 ;;;;Czech
@@ -126,7 +126,7 @@ LangString DESC_SecPlugins ${LANG_CATALAN} "Altres plugins disponibles per insta
 LangString DESC_SecDesktop ${LANG_CATALAN} "Afegeix una drecera a l'escriptori."
 LangString DESC_SecExtensions ${LANG_CATALAN} "Associa el QupZilla amb els fitxers .htm i .html"
 LangString DESC_SecThemes ${LANG_CATALAN} "Temes addicionals per al QupZilla"
-LangString DESC_SecSetASDefault ${LANG_CATALAN} "Fes que el Qupzilla sigui el navegador predeterminat"
+LangString DESC_SecSetASDefault ${LANG_CATALAN} "Fes que el QupZilla sigui el navegador predeterminat"
 LangString DESC_SecProtocols ${LANG_CATALAN} "Associa el QupZilla amb els protocols http i https"
 ;
 LangString MSG_RunningInstance ${LANG_CATALAN} "El QupZilla ja està actiu. Voleu que l'instal·lador provi d'aturar-lo?"
@@ -171,7 +171,7 @@ LangString DESC_SecPlugins ${LANG_GERMAN} "Weitere Plugins stehen zur Verfügung
 LangString DESC_SecDesktop ${LANG_GERMAN} "Starter zum Desktop hinzufügen."
 LangString DESC_SecExtensions ${LANG_GERMAN} "Verknüpfe QupZilla mit *.htm(l) Dateien"
 LangString DESC_SecThemes ${LANG_GERMAN} "Weitere Themen für QupZilla"
-LangString DESC_SecSetASDefault ${LANG_GERMAN} "Qupzilla als Standard-Browser verwenden"
+LangString DESC_SecSetASDefault ${LANG_GERMAN} "QupZilla als Standard-Browser verwenden"
 LangString DESC_SecProtocols ${LANG_GERMAN} "Verknüpfe QupZilla mit HTTP(S)- und FTP-Protokoll"
 ;
 LangString MSG_RunningInstance ${LANG_GERMAN} "QupZilla ist bereits gestartet! Soll die Installationsroutine versuchen, QupZilla zu beenden?"
@@ -196,7 +196,7 @@ LangString DESC_SecExtensions ${LANG_DUTCH} "Associeer QupZilla met .htm en .htm
 LangString DESC_SecThemes ${LANG_DUTCH} "Extra thema's voor QupZilla"
 
 ;;;;Portuguese
-LangString PRODUCT_DESC  ${LANG_PORTUGUESE} "O QupZilla é um navegador web rápido, seguro e de código livre. O QupZilla está sujeito aos termos da GPL versão 3 ou (por opção) qualquer versão posterior. O Qupzilla é baseado nas tecnologias WebKit e Qt."
+LangString PRODUCT_DESC  ${LANG_PORTUGUESE} "O QupZilla é um navegador web rápido, seguro e de código livre. O QupZilla está sujeito aos termos da GPL versão 3 ou (por opção) qualquer versão posterior. O QupZilla é baseado nas tecnologias WebKit e Qt."
 ;
 LangString TITLE_SecMain ${LANG_PORTUGUESE} "Principais componentes"
 LangString TITLE_SecTranslations ${LANG_PORTUGUESE} "Traduções"
@@ -216,7 +216,7 @@ LangString DESC_SecPlugins ${LANG_PORTUGUESE} "Outros plugins disponíveis"
 LangString DESC_SecDesktop ${LANG_PORTUGUESE} "Adicionar ícone ao ambiente de trabalho"
 LangString DESC_SecExtensions ${LANG_PORTUGUESE} "Associar QupZilla aos ficheiros .htm e .html"
 LangString DESC_SecThemes ${LANG_PORTUGUESE} "Temas extra para o QupZilla"
-LangString DESC_SecSetASDefault ${LANG_PORTUGUESE} "Definir o Qupzilla como navegador web padrão"
+LangString DESC_SecSetASDefault ${LANG_PORTUGUESE} "Definir o QupZilla como navegador web padrão"
 LangString DESC_SecProtocols ${LANG_PORTUGUESE} "Associar o QupZilla com os protocolos http e https"
 ;
 LangString MSG_RunningInstance ${LANG_PORTUGUESE} "O QupZilla está em execução! Pretende que o instalador tente terminar o processo?"
@@ -565,7 +565,7 @@ LangString DESC_SecPlugins ${LANG_HEBREW} "תוספות אחרות זמינות 
 LangString DESC_SecDesktop ${LANG_HEBREW} "הוסף משגר אל שולחן עבודה."
 LangString DESC_SecExtensions ${LANG_HEBREW} "שייך את QupZilla עם קבצי .htm(l)"
 LangString DESC_SecThemes ${LANG_HEBREW} "ערכות נושא נוספות עבור QupZilla"
-LangString DESC_SecSetASDefault ${LANG_HEBREW} "הגדר את Qupzilla כדפדפן אינטרנט ברירת מחדל"
+LangString DESC_SecSetASDefault ${LANG_HEBREW} "הגדר את QupZilla כדפדפן אינטרנט ברירת מחדל"
 LangString DESC_SecProtocols ${LANG_HEBREW} "שייך את QupZilla עם פרוטוקול http(s) ופרוטוקול ftp"
 ;
 LangString MSG_RunningInstance ${LANG_HEBREW} "QupZilla כבר מורץ כעת! האם ברצונך מהמתקין לנסות לסיימו?"
@@ -592,7 +592,7 @@ LangString DESC_SecPlugins ${LANG_BASQUE} "Ezartzeko eskuragarri dauden beste pl
 LangString DESC_SecDesktop ${LANG_BASQUE} "Gehitu abiarazlea mahaigainean."
 LangString DESC_SecExtensions ${LANG_BASQUE} "Elkartu QupZilla .htm(l) agiriekin"
 LangString DESC_SecThemes ${LANG_BASQUE} "QupZilla-rentzako azalgai gehigarriak"
-LangString DESC_SecSetASDefault ${LANG_BASQUE} "Ezarri Qupzilla berezko internet nabigatzaile bezala"
+LangString DESC_SecSetASDefault ${LANG_BASQUE} "Ezarri QupZilla berezko internet nabigatzaile bezala"
 LangString DESC_SecProtocols ${LANG_BASQUE} "Elkartu QupZilla http(s) eta ftp protokoloekin"
 ;
 LangString MSG_RunningInstance ${LANG_BASQUE} "QupZilla jadanik ekinean dago! Nahi duzu ezartzaileak hura amaitzen saiatzea?"
@@ -640,16 +640,16 @@ LangString TITLE_SecProtocols ${LANG_SWEDISH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_UKRAINIAN} "Protocol Associations"
 
 LangString DESC_SecSetASDefault ${LANG_SLOVAK} "Nastaviť Qupzillu ako predvolený internetový prehliadač"
-LangString DESC_SecSetASDefault ${LANG_DUTCH} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_GREEK} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_ITALIAN} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_ROMANIAN} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_TRADCHINESE} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_SIMPCHINESE} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_INDONESIAN} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_GEORGIAN} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_SWEDISH} "Set Qupzilla as default internet browser"
-LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set Qupzilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_DUTCH} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_GREEK} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_ITALIAN} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_ROMANIAN} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_TRADCHINESE} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_SIMPCHINESE} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_INDONESIAN} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_GEORGIAN} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_SWEDISH} "Set QupZilla as default internet browser"
+LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set QupZilla as default internet browser"
 
 LangString DESC_SecProtocols ${LANG_SLOVAK} "Asociovať QupZillu s http(s) a ftp protokolmi"
 LangString DESC_SecProtocols ${LANG_DUTCH} "Associate QupZilla with http(s) and ftp protocols"

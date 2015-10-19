@@ -17,7 +17,7 @@ resource app_version {
 	internal = 0,
 
 	short_info = "QupZilla",
-	long_info = "Qupzilla © 2010-2014 David Rosca"
+	long_info = "QupZilla © 2010-2014 David Rosca"
 };
 
 resource file_types message {
