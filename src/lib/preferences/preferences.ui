@@ -1100,7 +1100,7 @@
                  <item>
                   <widget class="QCheckBox" name="allowJava">
                    <property name="text">
-                    <string>Allow JAVA</string>
+                    <string>Allow Java</string>
                    </property>
                   </widget>
                  </item>
@@ -1163,7 +1163,7 @@
                  <item>
                   <widget class="QCheckBox" name="formsUndoRedo">
                    <property name="toolTip">
-                    <string>If you disable this, it will still be accesible via standard Qt shortcuts</string>
+                    <string>If you disable this, it will still be accessible via standard Qt shortcuts</string>
                    </property>
                    <property name="text">
                     <string>Enable Undo/Redo for editable forms</string>

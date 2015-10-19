@@ -244,7 +244,7 @@
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>All certificates must have .crt suffix.
-After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</string>
+After adding or removing certificate paths, it is necessary to restart QupZilla in order to take effect the changes.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
