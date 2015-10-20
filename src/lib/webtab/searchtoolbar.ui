@@ -65,7 +65,7 @@
       </sizepolicy>
      </property>
      <property name="shortcut">
-      <string>Ctrl+Shift+G</string>
+      <string notr="true">Ctrl+Shift+G</string>
      </property>
      <property name="autoRaise">
       <bool>true</bool>
@@ -81,7 +81,7 @@
       </sizepolicy>
      </property>
      <property name="shortcut">
-      <string>Ctrl+G</string>
+      <string notr="true">Ctrl+G</string>
      </property>
      <property name="autoRaise">
       <bool>true</bool>

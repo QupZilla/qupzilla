@@ -197,53 +197,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="69"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
         <source>Blocked popup window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="69"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
         <source>AdBlock blocked unwanted popup window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="88"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="89"/>
         <source>AdBlock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="115"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="116"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="123"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
         <source>Disable on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="129"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="130"/>
         <source>Disable only on this page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="139"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="140"/>
         <source>Blocked Popup Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="144"/>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="161"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="145"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="162"/>
         <source>%1 with (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="155"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="156"/>
         <source>No content blocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="158"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="159"/>
         <source>Blocked URL (AdBlock Rule) - click to edit rule</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1066,83 +1066,83 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="132"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="133"/>
         <source>QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="347"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="348"/>
         <source>IP Address of current page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="661"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="664"/>
         <source> (Private Browsing)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="913"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="923"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="974"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="984"/>
         <source>&amp;Menu Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="979"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="989"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="983"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="993"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="989"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="999"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1048"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1095"/>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1095"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1095"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1085"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1095"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1087"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1097"/>
         <source>Open file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1201"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1211"/>
         <location filename="../src/lib/other/pagescreen.cpp" line="170"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1455"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1465"/>
         <source>There are still %n open tabs and your session won&apos;t be stored. 
 Are you sure to close this window?</source>
         <translation type="unfinished">
@@ -1151,12 +1151,12 @@ Are you sure to close this window?</source>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1456"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1466"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1457"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1467"/>
         <source>There are still open tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1792,7 +1792,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="357"/>
-        <source>Do you want to also delete dowloaded file?</source>
+        <source>Do you want to also delete downloaded file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2591,22 +2591,22 @@ Are you sure to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1067"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1065"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1066"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1070"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1068"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1116"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2614,257 +2614,262 @@ Are you sure to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="502"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>&amp;About QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="507"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>Pr&amp;eferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="513"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
         <source>New Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
         <source>&amp;New Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
         <source>New &amp;Private Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>Open Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
         <source>Open &amp;File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="558"/>
         <source>&amp;Save Page As...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Save Page Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="560"/>
         <source>Send Link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>&amp;Print...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Work &amp;Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
         <source>&amp;Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="548"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
         <source>C&amp;opy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
         <source>Select &amp;All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
         <source>Toolbars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
         <source>Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Character &amp;Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
         <source>Sta&amp;tus Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
         <source>&amp;Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
         <source>Zoom &amp;In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="607"/>
         <source>Zoom &amp;Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="608"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
         <source>&amp;Caret Browsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="586"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
         <source>&amp;Page Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="614"/>
         <source>&amp;FullScreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="617"/>
         <source>&amp;Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="621"/>
         <source>&amp;Web Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="622"/>
         <source>Site &amp;Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
         <source>&amp;Download Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="625"/>
         <source>&amp;Cookies Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="626"/>
         <source>&amp;AdBlock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="627"/>
         <source>RSS &amp;Reader</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="628"/>
         <source>Web In&amp;spector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="629"/>
         <source>Clear Recent &amp;History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="631"/>
+        <source>&amp;Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="637"/>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="640"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="614"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="645"/>
         <source>Information about application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="615"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="646"/>
         <source>Configuration Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="616"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="647"/>
         <source>Report &amp;Issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="629"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="660"/>
         <source>Restore &amp;Closed Tab</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3052,7 +3057,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
-        <source>Save username and password on this site</source>
+        <source>Save username and password for this site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3768,7 +3773,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1103"/>
-        <source>Allow JAVA</source>
+        <source>Allow Java</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3816,7 +3821,7 @@ Are you sure to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1166"/>
-        <source>If you disable this, it will still be accesible via standard Qt shortcuts</source>
+        <source>If you disable this, it will still be accessible via standard Qt shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4419,42 +4424,42 @@ Are you sure to close this window?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="341"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="344"/>
         <source>Unknown size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="346"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="349"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="351"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="354"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="355"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="358"/>
         <source>GB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="792"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="804"/>
         <source>Executable: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="793"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="805"/>
         <source>Arguments: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="795"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="807"/>
         <source>Cannot start external program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="796"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="808"/>
         <source>Cannot start external program! %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5129,12 +5134,12 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
 <context>
     <name>RegisterQAppAssociation</name>
     <message>
-        <location filename="../src/lib/other/registerqappassociation.cpp" line="108"/>
+        <location filename="../src/lib/other/registerqappassociation.cpp" line="110"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/other/registerqappassociation.cpp" line="109"/>
+        <location filename="../src/lib/other/registerqappassociation.cpp" line="111"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
@@ -5238,7 +5243,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/sslmanager.ui" line="246"/>
         <source>All certificates must have .crt suffix.
-After adding or removing certificate paths, it is neccessary to restart QupZilla in order to take effect the changes.</source>
+After adding or removing certificate paths, it is necessary to restart QupZilla in order to take effect the changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5311,7 +5316,7 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="49"/>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="344"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="352"/>
         <source>Add Search Engine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5334,27 +5339,27 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SearchEnginesManager</name>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
         <source>Search Engine Added</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="445"/>
         <source>Search Engine is not valid!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="446"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
+        <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="446"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5380,13 +5385,13 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.ui" line="88"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
         <source>Highlight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.ui" line="98"/>
-        <source>Case sensitive</source>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="104"/>
+        <source>&amp;Match Case</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5801,17 +5806,17 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>SpeedDial</name>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="296"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="301"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="297"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="302"/>
         <source>Select image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="350"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="357"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5922,78 +5927,78 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="151"/>
         <source>Close Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="151"/>
         <source>Do you really want to close other tabs?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="325"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="330"/>
         <source>&amp;New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="334"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Stop Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="337"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Reload Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="340"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>&amp;Duplicate Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="343"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="346"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Un&amp;pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="346"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>&amp;Pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
         <source>Re&amp;load All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>&amp;Bookmark This Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="365"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
         <source>Cl&amp;ose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6370,12 +6375,12 @@ After adding or removing certificate paths, it is neccessary to restart QupZilla
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="361"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="388"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="377"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="404"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
