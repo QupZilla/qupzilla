@@ -87,10 +87,6 @@ If you are using Ubuntu, you can download QupZilla from PPA:
     $ sudo apt-get update
     $ sudo apt-get install qupzilla
 
-    for development version:
-
-    $ sudo apt-get install qupzilla-next
-
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
 
