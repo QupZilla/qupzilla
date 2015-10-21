@@ -116,7 +116,6 @@ void TabManagerPlugin::populateExtensionsMenu(QMenu* menu)
 {
     if (viewType() == ShowAsWindow) {
         QAction* showAction = m_controller->createMenuAction();
-        showAction->setParent(menu);
         showAction->setCheckable(false);
         connect(showAction, SIGNAL(triggered()), m_controller, SLOT(raiseTabManager()));
         menu->addAction(showAction);

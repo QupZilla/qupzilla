@@ -34,7 +34,10 @@ QString TestPlugin_Sidebar::title() const
 
 QAction* TestPlugin_Sidebar::createMenuAction()
 {
-    QAction* act = new QAction(tr("Testing Sidebar"), 0);
+    // The action must be parented to some object from plugin, otherwise
+    // there may be a crash when unloading the plugin.
+
+    QAction* act = new QAction(tr("Testing Sidebar"), this);
     act->setCheckable(true);
 
     return act;

@@ -48,7 +48,7 @@ QString TabManagerWidgetController::title() const
 
 QAction* TabManagerWidgetController::createMenuAction()
 {
-    QAction* act = new QAction(tr("Tab Manager"), 0);
+    QAction* act = new QAction(tr("Tab Manager"), this);
     act->setCheckable(true);
     act->setIcon(QIcon(":tabmanager/data/tabmanager.png"));
     act->setShortcut(QKeySequence("Ctrl+Shift+M"));
