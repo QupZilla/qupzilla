@@ -18,13 +18,8 @@
 #ifndef TESTPLUGIN_H
 #define TESTPLUGIN_H
 
-//Include actual plugininterface.h for your version of QupZilla
-//This file is available to download at QupZilla website
-
+// Include plugininterface.h for your version of QupZilla
 #include "plugininterface.h"
-
-//For clean plugin directory, please build necessary files into
-//plugin in .qrc data files
 
 #include <QLabel>
 #include <QMessageBox>

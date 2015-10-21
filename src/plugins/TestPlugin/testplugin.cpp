@@ -33,8 +33,7 @@ TestPlugin::TestPlugin()
     , m_view(0)
 {
     // Don't do anything expensive in constructor!
-    // It will be called even if user doesn't have
-    // plugin allowed
+    // It will be called even if user doesn't have the plugin allowed
 }
 
 PluginSpec TestPlugin::pluginSpec()
@@ -43,7 +42,7 @@ PluginSpec TestPlugin::pluginSpec()
     spec.name = "Example Plugin";
     spec.info = "Example minimal plugin";
     spec.description = "Very simple minimal plugin example";
-    spec.version = "0.1.6";
+    spec.version = "0.1.7";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QPixmap(":qupzilla.png");
     spec.hasSettings = true;
