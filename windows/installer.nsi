@@ -110,36 +110,53 @@ notRunning:
   File "libhunspell.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "sqlite3.dll"
-  File "Microsoft.VC90.CRT.manifest"
-  File "msvcm90.dll"
-  File "msvcp90.dll"
-  File "msvcr90.dll"
-  File "QtCore4.dll"
-  File "QtGui4.dll"
-  File "QtNetwork4.dll"
-  File "QtScript4.dll"
-  File "QtSql4.dll"
-  File "QtWebKit4.dll"
-  File "QtXmlPatterns4.dll"
+  File "Microsoft.VC120.CRT.manifest"
+  File "qt.conf"
+  File "msvcp120.dll"
+  File "msvcr120.dll"
+  File "vccorlib120.dll"
+  File "icudt54.dll"
+  File "icuin54.dll"
+  File "icuuc54.dll"
+  File "Qt5Core.dll"
+  File "Qt5Gui.dll"
+  File "Qt5Multimedia.dll"
+  File "Qt5MultimediaWidgets.dll"
+  File "Qt5Network.dll"
+  File "Qt5OpenGL.dll"
+  File "Qt5Positioning.dll"
+  File "Qt5PrintSupport.dll"
+  File "Qt5Qml.dll"
+  File "Qt5Quick.dll"
+  File "Qt5Script.dll"
+  File "Qt5Sensors.dll"
+  File "Qt5Sql.dll"
+  File "Qt5WebChannel.dll"
+  File "Qt5WebKit.dll"
+  File "Qt5WebKitWidgets.dll"
+  File "Qt5Widgets.dll"
+  File "Qt5XmlPatterns.dll"
 
-  SetOutPath "$INSTDIR\imageformats"
-  File "imageformats\qico4.dll"
-  File "imageformats\qsvg4.dll"
-  File "imageformats\qgif4.dll"
-  File "imageformats\qjpeg4.dll"
-  File "imageformats\qmng4.dll"
-  File "imageformats\qtiff4.dll"
-  File "imageformats\qtga4.dll"
-
-  SetOutPath "$INSTDIR\codecs"
-  File "codecs\qcncodecs4.dll"
-  File "codecs\qjpcodecs4.dll"
-  File "codecs\qkrcodecs4.dll"
-  File "codecs\qtwcodecs4.dll"
-
+  SetOutPath "$INSTDIR\audio"
+  File "audio\qtaudio_windows.dll"
+  
   SetOutPath "$INSTDIR\iconengines"
-  File "iconengines\qsvgicon4.dll"
+  File "iconengines\qsvgicon.dll"
+  
+  SetOutPath "$INSTDIR\imageformats"
+  File "imageformats\*.dll"
+  
+  SetOutPath "$INSTDIR\mediaservice"
+  File "mediaservice\wmfengine.dll"
+  
+  SetOutPath "$INSTDIR\platforms"
+  File "platforms\qwindows.dll"
+
+  SetOutPath "$INSTDIR\printsupport"
+  File "printsupport\windowsprintersupport.dll"
+
+  SetOutPath "$INSTDIR\sqldrivers"
+  File "sqldrivers\qsqlite.dll"
 
   SetOutPath "$INSTDIR\hunspell\doc"
   File "wininstall\hunspell\doc\*"
@@ -492,14 +509,6 @@ Section -Uninstaller
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLUpdateInfo" "http://blog.qupzilla.com/"
   ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
   WriteRegDWORD ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "EstimatedSize" "$0"
-SectionEnd
-
-Section -MSVC
-  InitPluginsDir
-  SetOutPath $PLUGINSDIR
-  File "wininstall\vcredist_x86.exe"
-  DetailPrint "Installing Visual C++ 2008 Libraries"
-  ExecWait '"$PLUGINSDIR\vcredist_x86.exe" /passive /Q:a /c:"msiexec /qb /i vcredist.msi"'
 SectionEnd
 
 Section Uninstall
