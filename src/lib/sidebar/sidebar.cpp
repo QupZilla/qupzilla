@@ -190,6 +190,7 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
 void SideBarManager::sideBarRemoved(const QString &id)
 {
     if (m_activeBar == id && m_sideBar) {
+        m_sideBar.data()->setWidget(Q_NULLPTR);
         m_sideBar.data()->close();
     }
 }
