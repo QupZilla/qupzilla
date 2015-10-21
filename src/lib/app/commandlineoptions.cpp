@@ -101,7 +101,6 @@ void CommandLineOptions::parseActions()
 #ifdef GIT_REVISION
                  << " rev " << GIT_REVISION << " "
 #endif
-                 << "(build " << Qz::BUILDTIME << ")"
                  << endl;
             ActionPair pair;
             pair.action = Qz::CL_ExitAction;

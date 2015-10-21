@@ -64,7 +64,6 @@ extern const int bookmarksVersion;
 
 QUPZILLA_EXPORT extern const char* APPNAME;
 QUPZILLA_EXPORT extern const char* VERSION;
-QUPZILLA_EXPORT extern const char* BUILDTIME;
 QUPZILLA_EXPORT extern const char* AUTHOR;
 QUPZILLA_EXPORT extern const char* COPYRIGHT;
 QUPZILLA_EXPORT extern const char* WWWADDRESS;
