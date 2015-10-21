@@ -10,6 +10,10 @@ lessThan(QT_VERSION, 5.5) {
     error("QupZilla requires at least Qt 5.5!")
 }
 
+lessThan(QT.webengine.VERSION, 5.6) {
+    error("QupZilla requires at least QtWebEngine 5.6!")
+}
+
 # Create plugins directory first on Mac / Linux
 mac|unix: system(test -d bin/plugins || mkdir bin/plugins)
 
