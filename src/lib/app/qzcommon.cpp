@@ -27,7 +27,7 @@ QUPZILLA_EXPORT const char* APPNAME = "QupZilla";
 QUPZILLA_EXPORT const char* VERSION = QUPZILLA_VERSION;
 QUPZILLA_EXPORT const char* BUILDTIME =  __DATE__" "__TIME__;
 QUPZILLA_EXPORT const char* AUTHOR = "David Rosca";
-QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2014";
+QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2015";
 QUPZILLA_EXPORT const char* WWWADDRESS = "http://www.qupzilla.com";
 QUPZILLA_EXPORT const char* WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 }
