@@ -26,7 +26,6 @@
 class BrowserWindow;
 class FCM_Dialog;
 class QTimer;
-class QAction;
 
 struct FlashCookie {
     QString name;
@@ -109,7 +108,6 @@ private:
     QStringList m_whitelist;
     QStringList m_newCookiesList;
     mutable QString m_flashDataPathForOS;
-    QPointer<QAction> m_extensionAction;
 };
 
 Q_DECLARE_METATYPE(FlashCookie);

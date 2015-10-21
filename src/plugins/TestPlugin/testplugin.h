@@ -32,8 +32,6 @@
 #include <QVBoxLayout>
 #include <QPointer>
 
-class TestPlugin_Sidebar;
-
 class TestPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
@@ -66,7 +64,6 @@ private:
 
     WebView* m_view;
     QString m_settingsPath;
-    TestPlugin_Sidebar* m_testSidebar;
 };
 
 #endif // TESTPLUGIN_H

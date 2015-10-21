@@ -49,8 +49,6 @@ QString TabManagerWidgetController::title() const
 QAction* TabManagerWidgetController::createMenuAction()
 {
     QAction* act = new QAction(tr("Tab Manager"), 0);
-    // don't reparent it, see: issue#1719
-    act->setParent(this);
     act->setCheckable(true);
     act->setIcon(QIcon(":tabmanager/data/tabmanager.png"));
     act->setShortcut(QKeySequence("Ctrl+Shift+M"));
@@ -82,6 +80,7 @@ QWidget* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWind
 
     QAction* showAction = createMenuAction();
     showAction->setCheckable(false);
+    showAction->setParent(icon);
     mainWindow->addAction(showAction);
     connect(showAction, SIGNAL(triggered()), this, SLOT(raiseTabManager()));
 
@@ -112,6 +111,7 @@ TabManagerWidget* TabManagerWidgetController::createTabManagerWidget(BrowserWind
         m_defaultTabManager = tabManagerWidget;
         QAction* showAction = createMenuAction();
         showAction->setCheckable(false);
+        showAction->setParent(m_defaultTabManager);
         m_defaultTabManager->addAction(showAction);
         connect(showAction, SIGNAL(triggered()), this, SLOT(raiseTabManager()));
         connect(tabManagerWidget, SIGNAL(showSideBySide()), this, SLOT(showSideBySide()));
