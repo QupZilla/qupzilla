@@ -75,7 +75,6 @@ void AboutDialog::showAbout()
                        );
         m_aboutHtml += tr("<b>QtWebEngine version %1</b></p>").arg(QT_VERSION_STR);
         m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(Qz::COPYRIGHT, Qz::AUTHOR);
-        m_aboutHtml += tr("<small>Build time: %1 </small></p>").arg(Qz::BUILDTIME);
         m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
         m_aboutHtml += "<p>" + mApp->userAgentManager()->defaultUserAgent() + "</p>";
         m_aboutHtml += "</div></center>";
