@@ -7,9 +7,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleGetInfoString</key>
-    <string>1.8.7</string>
+    <string>1.8.8</string>
     <key>CFBundleVersion</key>
-    <string>1.8.7</string>
+    <string>1.8.8</string>
     <key>CFBundleSignature</key>
     <string>@TYPEINFO@</string>
     <key>CFBundleExecutable</key>

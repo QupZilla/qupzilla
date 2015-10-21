@@ -1,3 +1,19 @@
+Version 1.8.8
+    * released 21 October 2015
+    * added interface for extensions to show action in Tools menu
+    * add option to use TabManager as main tabbar replacement
+    * fix build with Qt 5.5.1
+    * fix crash when unloading plugin with visible sidebar
+    * fix possible crash when accessing last active window
+    * fix sometimes incorrectly loading background non-restored tab
+    * fix showing speed dials in bookmarks icon
+    * fix showing messages in statusbar in RTL mode
+    * fix crash when application style is externally changed
+    * fix labels color in access keys navigation with dark style
+    * fix position of autoscroll indicator with site notification visible
+    * Windows: fix setting as default browser
+    * Windows: better toolbar background for Windows 10
+
 Version 1.8.7
     * released 8 October 2015
     * save pinned tabs per-window when set to restore session
