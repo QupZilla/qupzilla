@@ -43,7 +43,7 @@ NetworkManager::NetworkManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
     // Create scheme handlers
-    mApp->webProfile()->installUrlSchemeHandler(QByteArrayLiteral("qupzilla"), new QupZillaSchemeHandler(this));
+    mApp->webProfile()->installUrlSchemeHandler(QByteArrayLiteral("qupzilla"), new QupZillaSchemeHandler());
 
     // Create url interceptor
     m_urlInterceptor = new NetworkUrlInterceptor(this);
