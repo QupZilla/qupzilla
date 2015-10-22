@@ -26,7 +26,7 @@
 
 class AutoSaver;
 
-class QUPZILLA_EXPORT CookieJar : public QWebEngineCookieStoreClient
+class QUPZILLA_EXPORT CookieJar : public QObject
 {
     Q_OBJECT
 
@@ -36,13 +36,20 @@ public:
     void loadSettings();
 
     void setAllowCookies(bool allow);
-    bool acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) Q_DECL_OVERRIDE;
+
+    void getAllCookies(const QWebEngineCallback<const QByteArray&> callback);
+    void deleteAllCookies();
+
+signals:
+    void cookieAdded(const QNetworkCookie &cookie);
+    void cookieRemoved(const QNetworkCookie &cookie);
 
 protected:
     bool matchDomain(QString cookieDomain, QString siteDomain) const;
     bool listMatchesDomain(const QStringList &list, const QString &cookieDomain) const;
 
 private:
+    bool acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) const;
     bool rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const;
 
     bool m_allowCookies;
@@ -51,6 +58,7 @@ private:
 
     QStringList m_whitelist;
     QStringList m_blacklist;
+    QWebEngineCookieStoreClient *m_client;
 };
 
 #endif // COOKIEJAR_H

@@ -23,15 +23,25 @@
 #include "qztools.h"
 
 #include <QNetworkCookie>
+#include <QWebEngineProfile>
 #include <QWebEngineSettings>
 #include <QDateTime>
 
 //#define COOKIE_DEBUG
 
 CookieJar::CookieJar(QObject* parent)
-    : QWebEngineCookieStoreClient(parent)
+    : QObject(parent)
+    , m_client(mApp->webProfile()->cookieStoreClient())
 {
     loadSettings();
+
+    connect(m_client, &QWebEngineCookieStoreClient::cookieAdded, this, &CookieJar::cookieAdded);
+    connect(m_client, &QWebEngineCookieStoreClient::cookieRemoved, this, &CookieJar::cookieRemoved);
+
+    m_client->setCookieFilter([this](const QWebEngineCookieStoreClient::FilterRequest &req) {
+        QWebEngineCookieStoreClient::FilterRequest &r = const_cast<QWebEngineCookieStoreClient::FilterRequest&>(req);
+        r.accepted = acceptCookie(r.firstPartyUrl, r.cookieLine, r.cookieSource);
+    });
 }
 
 void CookieJar::loadSettings()
@@ -51,7 +61,44 @@ void CookieJar::setAllowCookies(bool allow)
     m_allowCookies = allow;
 }
 
-bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource)
+void CookieJar::getAllCookies(const QWebEngineCallback<const QByteArray &> callback)
+{
+    m_client->getAllCookies(callback);
+}
+
+void CookieJar::deleteAllCookies()
+{
+    m_client->deleteAllCookies();
+}
+
+bool CookieJar::matchDomain(QString cookieDomain, QString siteDomain) const
+{
+    // According to RFC 6265
+
+    // Remove leading dot
+    if (cookieDomain.startsWith(QLatin1Char('.'))) {
+        cookieDomain = cookieDomain.mid(1);
+    }
+
+    if (siteDomain.startsWith(QLatin1Char('.'))) {
+        siteDomain = siteDomain.mid(1);
+    }
+
+    return QzTools::matchDomain(cookieDomain, siteDomain);
+}
+
+bool CookieJar::listMatchesDomain(const QStringList &list, const QString &cookieDomain) const
+{
+    foreach (const QString &d, list) {
+        if (matchDomain(d, cookieDomain)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) const
 {
     const QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies(cookieLine);
     Q_ASSERT(cookies.size() == 1);
@@ -97,33 +144,6 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
         qDebug() << "purged as tracking " << cookie;
 #endif
         return true;
-    }
-
-    return false;
-}
-
-bool CookieJar::matchDomain(QString cookieDomain, QString siteDomain) const
-{
-    // According to RFC 6265
-
-    // Remove leading dot
-    if (cookieDomain.startsWith(QLatin1Char('.'))) {
-        cookieDomain = cookieDomain.mid(1);
-    }
-
-    if (siteDomain.startsWith(QLatin1Char('.'))) {
-        siteDomain = siteDomain.mid(1);
-    }
-
-    return QzTools::matchDomain(cookieDomain, siteDomain);
-}
-
-bool CookieJar::listMatchesDomain(const QStringList &list, const QString &cookieDomain) const
-{
-    foreach (const QString &d, list) {
-        if (matchDomain(d, cookieDomain)) {
-            return true;
-        }
     }
 
     return false;

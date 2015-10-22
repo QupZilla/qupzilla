@@ -39,7 +39,7 @@ static QString authorString(const char* name, const QString &mail)
 }
 
 QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
-    : QWebEngineUrlSchemeHandler(QByteArrayLiteral("qupzilla"), parent)
+    : QWebEngineUrlSchemeHandler(parent)
 {
 }
 

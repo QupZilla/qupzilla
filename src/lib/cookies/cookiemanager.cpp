@@ -84,8 +84,8 @@ CookieManager::CookieManager()
     connect(removeShortcut, SIGNAL(activated()), this, SLOT(deletePressed()));
 
     connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(filterString(QString)));
-    connect (mApp->cookieJar(), &CookieJar::cookieAdded, this, &CookieManager::addCookie);
-    connect (mApp->cookieJar(), &CookieJar::cookieRemoved, this, &CookieManager::removeCookie);
+    connect(mApp->cookieJar(), &CookieJar::cookieAdded, this, &CookieManager::addCookie);
+    connect(mApp->cookieJar(), &CookieJar::cookieRemoved, this, &CookieManager::removeCookie);
 
     // Load cookies
     mApp->cookieJar()->getAllCookies([this](const QByteArray &res) {

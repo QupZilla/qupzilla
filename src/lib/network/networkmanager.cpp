@@ -43,14 +43,14 @@ NetworkManager::NetworkManager(QObject *parent)
     : QNetworkAccessManager(parent)
 {
     // Create scheme handlers
-    mApp->webProfile()->installUrlSchemeHandler(new QupZillaSchemeHandler(this));
+    mApp->webProfile()->installUrlSchemeHandler(QByteArrayLiteral("qupzilla"), new QupZillaSchemeHandler(this));
 
     // Create url interceptor
     m_urlInterceptor = new NetworkUrlInterceptor(this);
     mApp->webProfile()->setRequestInterceptor(m_urlInterceptor);
 
     // Create cookie jar
-    mApp->webProfile()->setCookieStoreClient(mApp->cookieJar());
+    mApp->cookieJar();
 
     connect(this, &QNetworkAccessManager::authenticationRequired, this, [this](QNetworkReply *reply, QAuthenticator *auth) {
         authentication(reply->url(), auth);

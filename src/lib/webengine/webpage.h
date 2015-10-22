@@ -74,12 +74,11 @@ private slots:
     void urlChanged(const QUrl &url);
     void watchedFileChanged(const QString &file);
     void windowCloseRequested();
-    void fullScreenRequested(bool fullScreen);
+    void fullScreenRequested(const QWebEngineFullScreenRequest &fullScreenRequest);
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
     void renderProcessTerminated(RenderProcessTerminationStatus terminationStatus, int exitCode);
 
 private:
-    bool isFullScreen() Q_DECL_OVERRIDE;
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;
     bool certificateError(const QWebEngineCertificateError &error) Q_DECL_OVERRIDE;
     QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;

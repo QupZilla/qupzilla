@@ -54,6 +54,7 @@
 #include <QWebChannel>
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
+#include <QWebEngineFullScreenRequest>
 #include <QTimer>
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -316,9 +317,16 @@ void WebPage::windowCloseRequested()
     view()->closeView();
 }
 
-void WebPage::fullScreenRequested(bool fullScreen)
+void WebPage::fullScreenRequested(const QWebEngineFullScreenRequest &fullScreenRequest)
 {
-    view()->requestFullScreen(fullScreen);
+    view()->requestFullScreen(fullScreenRequest.toggleOn());
+
+    const bool accepted = fullScreenRequest.toggleOn() == view()->isFullScreen();
+
+    if (accepted)
+        fullScreenRequest.accept();
+    else
+        fullScreenRequest.reject();
 }
 
 void WebPage::featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature)
@@ -349,11 +357,6 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         page = QzTools::applyDirectionToPage(page);
         setHtml(page.toUtf8(), url());
     });
-}
-
-bool WebPage::isFullScreen()
-{
-    return view()->isFullScreen();
 }
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
