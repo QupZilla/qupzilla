@@ -99,7 +99,6 @@ TabWidget* TabBar::tabWidget() const
 void TabBar::setVisible(bool visible)
 {
     if (m_forceHidden) {
-        hideTabPreview(false);
         ComboTabBar::setVisible(false);
         return;
     }
