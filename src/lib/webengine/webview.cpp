@@ -394,12 +394,8 @@ void WebView::slotIconUrlChanged(const QUrl &url)
     m_siteIconLoader = new IconLoader(url, this);
 
     connect(m_siteIconLoader, &IconLoader::iconLoaded, [this, url](const QIcon &icon) {
-        if (icon.isNull())
-            return;
-
         m_siteIcon = icon;
         emit iconChanged();
-
         IconProvider::instance()->saveIcon(this);
     });
 }

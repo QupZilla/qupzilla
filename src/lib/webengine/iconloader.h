@@ -35,7 +35,6 @@ public:
 
 signals:
     void iconLoaded(const QIcon &icon);
-    void error();
 
 private slots:
     void finished();

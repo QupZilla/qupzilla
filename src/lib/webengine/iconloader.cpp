@@ -33,13 +33,9 @@ IconLoader::IconLoader(const QUrl &url, QObject *parent)
 
 void IconLoader::finished()
 {
-    if (m_reply->error() != QNetworkReply::NoError) {
-        emit error();
-    }
-    else {
-        const QByteArray data = m_reply->readAll();
-        emit iconLoaded(QIcon(QPixmap::fromImage(QImage::fromData(data))));
-    }
+    // Ignore error and always emit iconLoaded, even when icon is null
+    const QByteArray data = m_reply->readAll();
+    emit iconLoaded(QIcon(QPixmap::fromImage(QImage::fromData(data))));
 
     delete m_reply;
     m_reply = Q_NULLPTR;
