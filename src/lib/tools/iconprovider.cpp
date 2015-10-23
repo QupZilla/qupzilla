@@ -42,8 +42,10 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
-    if (view->url().scheme() == QL1S("qupzilla"))
-        return;
+    static const char *ignoredSchemes[] = { "qupzilla", "ftp", "file", "view-source" };
+    for (unsigned i = 0; i < sizeof(ignoredSchemes) / sizeof(ignoredSchemes[0]); ++i)
+        if (view->url().scheme() == ignoredSchemes[i])
+            return;
 
     BufferedIcon item;
     item.first = view->url();
