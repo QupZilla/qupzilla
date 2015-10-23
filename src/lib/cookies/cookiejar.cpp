@@ -103,7 +103,7 @@ bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookie
     const QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies(cookieLine);
     Q_ASSERT(cookies.size() == 1);
 
-    QNetworkCookie cookie = cookies.first();
+    const QNetworkCookie cookie = cookies.at(0);
     return !rejectCookie(firstPartyUrl.host(), cookie, cookieSource.host());
 }
 

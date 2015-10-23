@@ -636,7 +636,7 @@ QStringList QzTools::getOpenFileNames(const QString &name, QWidget* parent, cons
     QStringList paths = QFileDialog::getOpenFileNames(parent, caption, lastDir, filter, selectedFilter, options);
 
     if (!paths.isEmpty()) {
-        settings.setValue(name, QFileInfo(paths.first()).absolutePath());
+        settings.setValue(name, QFileInfo(paths.at(0)).absolutePath());
     }
 
     settings.endGroup();

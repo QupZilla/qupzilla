@@ -177,7 +177,7 @@ void SiteInfo::saveImage()
     if (!ui->mediaPreview->scene() || ui->mediaPreview->scene()->items().isEmpty())
         return;
 
-    QGraphicsItem *graphicsItem = ui->mediaPreview->scene()->items().first();
+    QGraphicsItem *graphicsItem = ui->mediaPreview->scene()->items().at(0);
     QGraphicsPixmapItem *pixmapItem = static_cast<QGraphicsPixmapItem*>(graphicsItem);
     if (graphicsItem->type() != QGraphicsPixmapItem::Type || !pixmapItem)
         return;

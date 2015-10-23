@@ -135,8 +135,8 @@ void NetworkManager::authentication(const QUrl &url, QAuthenticator *auth, QWidg
         if (!data.isEmpty()) {
             save->setChecked(true);
             shouldUpdateEntry = true;
-            storedUser = data.first().username;
-            storedPassword = data.first().password;
+            storedUser = data.at(0).username;
+            storedPassword = data.at(0).password;
             user->setText(storedUser);
             pass->setText(storedPassword);
         }

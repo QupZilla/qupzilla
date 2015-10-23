@@ -190,7 +190,7 @@ LoadRequest LocationBar::createLoadRequest() const
     // Check for Bookmark keyword
     QList<BookmarkItem*> items = mApp->bookmarks()->searchKeyword(t);
     if (!items.isEmpty()) {
-        BookmarkItem* item = items.first();
+        BookmarkItem* item = items.at(0);
         item->updateVisitCount();
         req.setUrl(item->url());
     }

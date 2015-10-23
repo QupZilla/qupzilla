@@ -383,7 +383,7 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
     QStringList files;
     QString suggestedFileName = s_lastUploadLocation;
     if (!oldFiles.isEmpty())
-        suggestedFileName = oldFiles.first();
+        suggestedFileName = oldFiles.at(0);
 
     switch (mode) {
     case FileSelectOpen:
@@ -400,7 +400,7 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
     }
 
     if (!files.isEmpty())
-        s_lastUploadLocation = files.first();
+        s_lastUploadLocation = files.at(0);
 
     return files;
 }

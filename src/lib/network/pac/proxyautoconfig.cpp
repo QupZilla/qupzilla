@@ -194,7 +194,7 @@ QScriptValue ProxyAutoConfig::isInNet(QScriptContext* context, QScriptEngine* en
 
     if (host.isNull()) {
         QList<QHostAddress> addresses = hostResolve(context->argument(0).toString());
-        host = addresses.isEmpty() ? QHostAddress() : addresses.first();
+        host = addresses.isEmpty() ? QHostAddress() : addresses.at(0);
     }
 
     if ((pattern.toIPv4Address() & mask.toIPv4Address()) == (host.toIPv4Address() & mask.toIPv4Address())) {
@@ -217,7 +217,7 @@ QScriptValue ProxyAutoConfig::dnsResolve(QScriptContext* context, QScriptEngine*
         return engine->nullValue();
     }
 
-    return QScriptValue(engine, addresses.first().toString());
+    return QScriptValue(engine, addresses.at(0).toString());
 }
 
 // string myIpAddress

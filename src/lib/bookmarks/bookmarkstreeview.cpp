@@ -77,7 +77,7 @@ void BookmarksTreeView::setViewType(BookmarksTreeView::ViewType type)
 BookmarkItem* BookmarksTreeView::selectedBookmark() const
 {
     QList<BookmarkItem*> items = selectedBookmarks();
-    return items.count() == 1 ? items.first() : 0;
+    return items.count() == 1 ? items.at(0) : 0;
 }
 
 QList<BookmarkItem*> BookmarksTreeView::selectedBookmarks() const
@@ -262,7 +262,7 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
     QTreeView::keyPressEvent(event);
 
     if (selectionModel()->selectedRows().count() == 1) {
-        QModelIndex index = selectionModel()->selectedRows().first();
+        QModelIndex index = selectionModel()->selectedRows().at(0);
         BookmarkItem* item = m_model->item(m_filter->mapToSource(index));
 
         switch (event->key()) {

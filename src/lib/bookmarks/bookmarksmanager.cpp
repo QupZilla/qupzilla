@@ -94,7 +94,7 @@ void BookmarksManager::bookmarksSelected(const QList<BookmarkItem*> &items)
         updateEditBox(0);
     }
     else {
-        m_selectedBookmark = items.first();
+        m_selectedBookmark = items.at(0);
         updateEditBox(m_selectedBookmark);
     }
 }
@@ -201,7 +201,7 @@ void BookmarksManager::bookmarkEdited()
 {
     Q_ASSERT(ui->tree->selectedBookmarks().count() == 1);
 
-    BookmarkItem* item = ui->tree->selectedBookmarks().first();
+    BookmarkItem* item = ui->tree->selectedBookmarks().at(0);
     item->setTitle(ui->title->text());
     item->setUrl(QUrl::fromEncoded(ui->address->text().toUtf8()));
     item->setKeyword(ui->keyword->text());

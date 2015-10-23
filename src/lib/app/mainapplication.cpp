@@ -128,7 +128,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     if (fontId != -1) {
         const QStringList families = QFontDatabase::applicationFontFamilies(fontId);
         if (!families.empty())
-            setFont(QFont(families.first()));
+            setFont(QFont(families.at(0)));
     }
 #endif
 
@@ -372,7 +372,7 @@ BrowserWindow* MainApplication::getWindow() const
         return m_lastActiveWindow.data();
     }
 
-    return m_windows.isEmpty() ? 0 : m_windows.first();
+    return m_windows.isEmpty() ? 0 : m_windows.at(0);
 }
 
 BrowserWindow* MainApplication::createWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
@@ -413,7 +413,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         // Instead create new one and restore pinned tabs there
         BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
         newWin->setUpdatesEnabled(false);
-        newWin->restoreWindowState(restoreData.first());
+        newWin->restoreWindowState(restoreData.at(0));
         newWin->setUpdatesEnabled(true);
         restoreData.remove(0);
     }
@@ -423,7 +423,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         // update: it seems with ComboTabBar QTabWidget::count() is updated,
         // we add pinnedTabCounts to currentTab!
         int tabCount = window->tabWidget()->pinnedTabsCount();
-        RestoreManager::WindowData data = restoreData.first();
+        RestoreManager::WindowData data = restoreData.at(0);
         data.currentTab += tabCount;
         restoreData.remove(0);
         window->restoreWindowState(data);
@@ -980,7 +980,7 @@ void MainApplication::translateApp()
                 const QStringList translations = dir.entryList(QStringList(lang));
 
                 // If no translation can be found, default English will be used
-                file = translations.isEmpty() ? QString() : translations.first();
+                file = translations.isEmpty() ? QString() : translations.at(0);
             }
 
             if (!file.isEmpty() && QFile(QString("%1/%2").arg(path, file)).exists()) {

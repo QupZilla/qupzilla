@@ -85,7 +85,7 @@ QUrl HistoryTreeView::selectedUrl() const
         return QUrl();
 
     // TopLevelItems have invalid (empty) UrlRole data
-    return indexes.first().data(HistoryModel::UrlRole).toUrl();
+    return indexes.at(0).data(HistoryModel::UrlRole).toUrl();
 }
 
 HeaderView* HistoryTreeView::header() const
@@ -220,7 +220,7 @@ void HistoryTreeView::keyPressEvent(QKeyEvent* event)
     QTreeView::keyPressEvent(event);
 
     if (selectionModel()->selectedRows().count() == 1) {
-        QModelIndex index = selectionModel()->selectedRows().first();
+        QModelIndex index = selectionModel()->selectedRows().at(0);
         const QUrl url = index.data(HistoryModel::UrlRole).toUrl();
         const bool isTopLevel = index.data(HistoryModel::IsTopLevelRole).toBool();
 

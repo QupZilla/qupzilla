@@ -76,5 +76,5 @@ void BookmarksExportDialog::init()
         ui->format->addItem(exporter->name());
     }
 
-    m_currentExporter = m_exporters.first();
+    m_currentExporter = m_exporters.at(0);
 }
