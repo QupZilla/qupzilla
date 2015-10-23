@@ -36,10 +36,6 @@
 #include "webhittestresult.h"
 #include "iconloader.h"
 
-#ifdef USE_HUNSPELL
-#include "qtwebkit/spellcheck/speller.h"
-#endif
-
 #include <iostream>
 
 #include <QDir>
@@ -609,14 +605,6 @@ void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
 
-#ifdef USE_HUNSPELL
-    // Show spellcheck menu as the first
-    if (hitTest.isContentEditable() && !hitTest.isContentSelected()) {
-        Speller::instance()->populateContextMenu(menu, hitTest);
-        spellCheckActionCount = menu->actions().count();
-    }
-#endif
-
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QL1S("javascript")) {
         createLinkContextMenu(menu, hitTest);
     }
@@ -645,10 +633,6 @@ void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
             act->setVisible(false);
             checkForForm(act, hitTest.pos());
         }
-
-#ifdef USE_HUNSPELL
-        Speller::instance()->createContextMenu(menu);
-#endif
     }
 
     if (!selectedText().isEmpty()) {
