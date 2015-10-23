@@ -13,13 +13,11 @@ function GM_getValue(aKey, aDefault) {
 }
 
 function GM_listValues() {
-    var prefixLen = "%1".length;
     var values = [];
-    var i = 0;
     for (var i = 0; i < localStorage.length; i++) {
         var k = localStorage.key(i);
-        if (k.substr(0, prefixLen) === "%1") {
-            values.push(k.substr(prefixLen));
+        if (k.indexOf("%1") === 0) {
+            values.push(k.replace("%1", ""));
         }
     }
     return values;
