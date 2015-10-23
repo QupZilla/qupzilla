@@ -48,6 +48,7 @@
 #include <QWebEngineHistory>
 #include <QClipboard>
 #include <QHostInfo>
+#include <QMimeData>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -67,6 +68,7 @@ WebView::WebView(QWidget* parent)
 
     m_currentZoomLevel = zoomLevels().indexOf(100);
 
+    setAcceptDrops(true);
     installEventFilter(this);
 
     WebInspector::registerView(this);
@@ -576,6 +578,30 @@ void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
     }
 
     userDefinedOpenUrlInNewTab(actionUrl, true);
+}
+
+void WebView::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls()) {
+        event->accept();
+        return;
+    }
+
+    QWebEngineView::dragEnterEvent(event);
+}
+
+void WebView::dropEvent(QDropEvent *event)
+{
+    if (event->mimeData()->hasUrls()) {
+        const QList<QUrl> &urls = event->mimeData()->urls();
+        load(urls.at(0));
+        for (int i = 1; i < urls.size(); ++i) {
+            openUrlInNewTab(urls.at(i), Qz::NT_CleanSelectedTab);
+        }
+        return;
+    }
+
+    QWebEngineView::dropEvent(event);
 }
 
 void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
