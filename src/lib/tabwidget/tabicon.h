@@ -50,8 +50,8 @@ private:
     WebTab* m_tab;
     QTimer* m_updateTimer;
 
-    QImage m_siteImage;
-    QImage m_animationImage;
+    QPixmap m_sitePixmap;
+    QPixmap m_animationPixmap;
     int m_currentFrame;
     int m_framesCount;
     bool m_animationRunning;

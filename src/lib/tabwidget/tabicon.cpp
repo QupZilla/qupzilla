@@ -32,8 +32,8 @@ TabIcon::TabIcon(QWidget* parent)
 {
     setObjectName(QSL("tab-icon"));
 
-    m_animationImage = QImage(QSL(":icons/other/loading.png"));
-    m_framesCount = m_animationImage.width() / 16;
+    m_animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
+    m_framesCount = m_animationPixmap.width() / m_animationPixmap.height();
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
@@ -57,7 +57,7 @@ void TabIcon::setWebTab(WebTab* tab)
 
 void TabIcon::setIcon(const QIcon &icon)
 {
-    m_siteImage = icon.pixmap(16).toImage();
+    m_sitePixmap = icon.pixmap(16);
     update();
 }
 
@@ -80,7 +80,7 @@ void TabIcon::hideLoadingAnimation()
 
 void TabIcon::showIcon()
 {
-    m_siteImage = m_tab->icon().pixmap(16).toImage();
+    m_sitePixmap = m_tab->icon().pixmap(16);
     update();
 }
 
@@ -101,10 +101,10 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     QPainter p(this);
 
-    if (m_animationRunning) {
-        p.drawImage(0, 0, m_animationImage, m_currentFrame * 16, 0, 16, 16);
-    }
-    else {
-        p.drawImage(0, 0, m_siteImage);
-    }
+    const int width = 16 * m_animationPixmap.devicePixelRatio();
+
+    if (m_animationRunning)
+        p.drawPixmap(rect(), m_animationPixmap, QRect(m_currentFrame * width, 0, width, width));
+    else
+        p.drawPixmap(rect(), m_sitePixmap);
 }
