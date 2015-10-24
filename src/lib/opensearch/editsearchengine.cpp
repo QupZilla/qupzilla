@@ -86,7 +86,7 @@ QIcon EditSearchEngine::icon()
 
 void EditSearchEngine::setIcon(const QIcon &icon)
 {
-    ui->icon->setPixmap(icon.pixmap(16, 16));
+    ui->icon->setPixmap(icon.pixmap(16));
 }
 
 void EditSearchEngine::hideIconLabels()

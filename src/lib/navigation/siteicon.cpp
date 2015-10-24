@@ -142,7 +142,7 @@ void SiteIcon::mouseMoveEvent(QMouseEvent* e)
     QMimeData* mime = new QMimeData;
     mime->setUrls(QList<QUrl>() << url);
     mime->setText(title);
-    mime->setImageData(icon().pixmap(16, 16).toImage());
+    mime->setImageData(icon().pixmap(16).toImage());
 
     drag->setMimeData(mime);
     drag->setPixmap(QzTools::createPixmapForSite(icon(), title, url.toString()));

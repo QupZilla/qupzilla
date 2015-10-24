@@ -49,7 +49,7 @@ void IconProvider::saveIcon(WebView* view)
 
     BufferedIcon item;
     item.first = view->url();
-    item.second = view->icon().pixmap(16, 16).toImage();
+    item.second = view->icon().pixmap(32).toImage();
 
     if (item.second == IconProvider::emptyWebImage()) {
         return;

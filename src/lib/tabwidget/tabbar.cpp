@@ -69,7 +69,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     if (mApp->isPrivate()) {
         QLabel* privateBrowsing = new QLabel(this);
         privateBrowsing->setObjectName(QSL("private-browsing-icon"));
-        privateBrowsing->setPixmap(IconProvider::privateBrowsingIcon().pixmap(16, 16));
+        privateBrowsing->setPixmap(IconProvider::privateBrowsingIcon().pixmap(16));
         privateBrowsing->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
         privateBrowsing->setFixedWidth(30);
         addCornerWidget(privateBrowsing, Qt::TopLeftCorner);

@@ -38,7 +38,7 @@ public:
         }
 
         bool operator==(const Item &a) {
-            return (a.text == text) && (a.icon.pixmap(16, 16).toImage() == icon.pixmap(16, 16).toImage());
+            return (a.text == text) && (a.icon.pixmap(16).toImage() == icon.pixmap(16).toImage());
         }
 
         bool isEmpty() {

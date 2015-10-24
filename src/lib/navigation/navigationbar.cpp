@@ -382,8 +382,8 @@ QString NavigationBar::titleForUrl(QString title, const QUrl &url)
 QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
 {
     QIcon icon;
-    icon.addPixmap(url.scheme() == QL1S("qupzilla") ? QIcon(QSL(":icons/qupzilla.png")).pixmap(16, 16) : IconProvider::iconForUrl(url).pixmap(16, 16));
-    icon.addPixmap(sIcon.pixmap(16, 16), QIcon::Active);
+    icon.addPixmap(url.scheme() == QL1S("qupzilla") ? QIcon(QSL(":icons/qupzilla.png")).pixmap(16) : IconProvider::iconForUrl(url).pixmap(16));
+    icon.addPixmap(sIcon.pixmap(16), QIcon::Active);
     return icon;
 }
 

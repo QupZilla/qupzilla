@@ -341,7 +341,7 @@ void LocationBar::showUrl(const QUrl &url)
 void LocationBar::updateSiteIcon()
 {
     const QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
-    m_siteIcon->setIcon(QIcon(icon.pixmap(16, 16)));
+    m_siteIcon->setIcon(QIcon(icon.pixmap(16)));
 }
 
 void LocationBar::setPrivacyState(bool state)
