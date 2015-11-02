@@ -259,7 +259,7 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="439"/>
         <source>!default</source>
-        <translation>!pré-definido</translation>
+        <translation>!pré-definido</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="451"/>
