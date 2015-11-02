@@ -177,7 +177,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="77"/>
         <source>Search</source>
-        <translation>Procura</translation>
+        <translation>Pesquisa</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="91"/>
@@ -259,7 +259,7 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="439"/>
         <source>!default</source>
-        <translation>!pré-definido</translation>
+        <translation>!pré-definido</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="451"/>

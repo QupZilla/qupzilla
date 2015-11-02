@@ -589,7 +589,7 @@ Prašome įsidiegti naujausią programos QupZilla versiją.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillicon.cpp" line="29"/>
         <source>Choose username to login</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkite naudotojo vardą, norėdami prisijungti</translation>
     </message>
 </context>
 <context>

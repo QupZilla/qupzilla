@@ -139,7 +139,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="32"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
@@ -315,7 +315,7 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation>Escolha o idioma preferencial para as páginas web</translation>
+        <translation>Escolha o idioma preferencial para os sítios web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="32"/>
@@ -353,22 +353,22 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation>Esta infraestrutura requer uma senha mestre definida! O QupZilla ativou a infraestrutura pré-definida.</translation>
+        <translation>Esta infraestrutura requer uma palavra-passe mestra definida! O QupZilla ativou a infraestrutura pré-definida.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="659"/>
         <source>Enter Master Password</source>
-        <translation>Introduza a senha mestre</translation>
+        <translation>Introduza a palavra-passe mestra</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="663"/>
         <source>Permission is required, please enter Master Password:</source>
-        <translation>Requer permissões. Introduza a senha mestre:</translation>
+        <translation>Requer permissões. Introduza a palavra-passe mestra:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="669"/>
         <source>Entered password is wrong!</source>
-        <translation>A senha introduzida não está correta!</translation>
+        <translation>A palavra-passe está errada!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="32"/>
@@ -381,7 +381,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="25"/>
         <source>Passwords are stored in:</source>
-        <translation>Guardar senhas em:</translation>
+        <translation>Guardar palavras-passe em:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="35"/>
@@ -396,7 +396,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="71"/>
         <source>Passwords</source>
-        <translation>Senhas</translation>
+        <translation>Palavras-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="87"/>
@@ -412,7 +412,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="97"/>
         <source>Password</source>
-        <translation>Senha</translation>
+        <translation>Palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
@@ -425,7 +425,7 @@ Instale a versão mais recente da aplicação.</translation>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="167"/>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
         <source>Show Passwords</source>
-        <translation>Mostrar senhas</translation>
+        <translation>Mostrar palavras-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="154"/>
@@ -452,17 +452,17 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="63"/>
         <source>Import Passwords from File...</source>
-        <translation>Importar senhas do ficheiro...</translation>
+        <translation>Importar palavras-passe do ficheiro...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="64"/>
         <source>Export Passwords to File...</source>
-        <translation>Exportar senhas para o ficheiro...</translation>
+        <translation>Exportar palavras-passe para o ficheiro...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="66"/>
         <source>Search</source>
-        <translation>Procurar</translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="126"/>
@@ -477,12 +477,12 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="175"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation>Tem a certeza que pretende mostrar todas as senhas?</translation>
+        <translation>Tem a certeza que pretende mostrar todas as palavras-passe?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="190"/>
         <source>Hide Passwords</source>
-        <translation>Ocultar senhas</translation>
+        <translation>Ocultar palavras-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="208"/>
@@ -492,17 +492,17 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="209"/>
         <source>Are you sure to delete all passwords on your computer?</source>
-        <translation>Tem a certeza que pretende eliminar todas as senhas?</translation>
+        <translation>Tem a certeza que pretende eliminar todas as palavras-passe?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
         <source>Edit password</source>
-        <translation>Editar senha</translation>
+        <translation>Editar palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="228"/>
         <source>Change password:</source>
-        <translation>Alterar senha:</translation>
+        <translation>Alterar palavra-passe:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="277"/>
@@ -571,12 +571,12 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
         <source>Do you want QupZilla to update saved password %1?</source>
-        <translation>Pretende que o Qupzilla atualize a senha %1?</translation>
+        <translation>Pretende que o Qupzilla atualize a palavra-passe %1?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
         <source>Do you want QupZilla to remember the password %1 %2?</source>
-        <translation>Pretende que o QupZilla memorize a senha %1 %2?</translation>
+        <translation>Pretende que o QupZilla memorize a palavra-passe %1 %2?</translation>
     </message>
 </context>
 <context>
@@ -963,7 +963,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation>Organizar &amp;marcadores</translation>
+        <translation>Orga&amp;nizar marcadores</translation>
     </message>
 </context>
 <context>
@@ -984,7 +984,7 @@ Instale a versão mais recente da aplicação.</translation>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.ui" line="41"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
 </context>
 <context>
@@ -1179,7 +1179,7 @@ Tem a certeza que quer fechar esta janela?</numerusform></translation>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="86"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="50"/>
@@ -1298,7 +1298,7 @@ Tem a certeza que quer fechar esta janela?</numerusform></translation>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="79"/>
         <source>All</source>
-        <translation>Tudo</translation>
+        <translation>Sempre</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
@@ -1615,7 +1615,7 @@ Tem a certeza que quer fechar esta janela?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="85"/>
         <source>Search</source>
-        <translation>Procurar</translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
@@ -1625,7 +1625,7 @@ Tem a certeza que quer fechar esta janela?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="102"/>
         <source>Are you sure to delete all cookies on your computer?</source>
-        <translation>Tem a certeza que pretende remover todos os cookies?</translation>
+        <translation>Tem a certeza de que pretende remover todos os cookies?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="184"/>
@@ -1684,7 +1684,7 @@ Tem a certeza que quer fechar esta janela?</numerusform></translation>
         <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="221"/>
         <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="226"/>
         <source>Save file as...</source>
-        <translation>Gravar ficheiro como...</translation>
+        <translation>Guardar ficheiro como...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadfilehelper.cpp" line="321"/>
@@ -1912,7 +1912,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="88"/>
         <source>Save File</source>
-        <translation>Gravar ficheiro</translation>
+        <translation>Guardar ficheiro</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="98"/>
@@ -1975,7 +1975,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation>&lt;b&gt;Nota: &lt;/b&gt;%s no URL ou nos dados enviados representa o texto procurado</translation>
+        <translation>&lt;b&gt;Nota: &lt;/b&gt;%s no URL ou nos dados representa o texto a pesquisar</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
@@ -2254,7 +2254,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure to delete all history?</source>
-        <translation>Tem a certeza que pretende eliminar o histórico?</translation>
+        <translation>Tem a certeza de que pretende remover o histórico?</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="134"/>
@@ -2323,7 +2323,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="227"/>
         <source>Show &amp;All History</source>
-        <translation>Mostr&amp;ar todo o histórico</translation>
+        <translation>Mostrar todo o &amp;histórico</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="235"/>
@@ -2380,7 +2380,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.ui" line="32"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="85"/>
@@ -2554,7 +2554,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="149"/>
         <source>Enter URL address or search on %1</source>
-        <translation>Introduza o URL ou procure em %1</translation>
+        <translation>Introduza o URL ou pesquise em %1</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="372"/>
@@ -2609,7 +2609,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="502"/>
         <source>&amp;About QupZilla</source>
-        <translation>Sobre o QupZill&amp;a</translation>
+        <translation>Sobre o Q&amp;upZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="507"/>
@@ -2639,7 +2639,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>New &amp;Private Window</source>
-        <translation>Nova janela &amp;privada</translation>
+        <translation>Nova janela priva&amp;da</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
@@ -2659,12 +2659,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>&amp;Save Page As...</source>
-        <translation>Gra&amp;var página como...</translation>
+        <translation>Guar&amp;dar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>Save Page Screen</source>
-        <translation>Gravar ecrã da página</translation>
+        <translation>Guardar ecrã da página</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
@@ -2779,7 +2779,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="586"/>
         <source>&amp;Page Source</source>
-        <translation>Código fonte da &amp;página</translation>
+        <translation>Có&amp;digo fonte da página</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
@@ -2794,12 +2794,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Web Search</source>
-        <translation>Procura &amp;web</translation>
+        <translation>Pesquisa &amp;web</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>Site &amp;Info</source>
-        <translation>&amp;Informações da página</translation>
+        <translation>&amp;Informações do sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
@@ -2872,47 +2872,47 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="33"/>
         <source>Set/Change Master Password...</source>
-        <translation>Definir/mudar senha mestre...</translation>
+        <translation>Definir/mudar palavra-passe mestra...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
         <source>This backend does not work without a master password.</source>
-        <translation>Esta infraestrutura não funciona sem uma senha mestre.</translation>
+        <translation>Esta infraestrutura não funciona sem uma palavra-passe mestra.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
         <source>Clear Master Password...</source>
-        <translation>Eliminar senha mestre...</translation>
+        <translation>Eliminar palavra-passe mestra...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
         <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation>Esta opção elimina a senha mestre, move todos os dados cifrados para uma base de dados em texto simples e ativa a opção.</translation>
+        <translation>Esta opção elimina a palavra-passe mestra, move todos os dados cifrados para uma base de dados em texto simples e ativa a opção.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
         <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation>A senha mestre é utilizada para proteger as senhas de formulários e páginas web. Se definir uma senha mestre, esta será solicitada uma vez por sessão.</translation>
+        <translation>A palavra-passe mestra é utilizada para proteger as palavras-passe de formulários e sítios web. Se definir uma palavra-passe mestra, esta será solicitada uma vez por sessão.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
         <source>Current Password:</source>
-        <translation>Senha atual:</translation>
+        <translation>Palavra-passe atual:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="83"/>
         <source>New Password:</source>
-        <translation>Nova senha:</translation>
+        <translation>Nova palavra-passe:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="90"/>
         <source>Confirm Password:</source>
-        <translation>Confirmação de senha:</translation>
+        <translation>Confirmação de palavra-passe:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation>&lt;b&gt;Nota:&lt;/b&gt; não pode redefinir a senha mestre. Não se esqueça da senha.</translation>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt; não pode redefinir a palavra-passe mestra. Não se esqueça da palavra-passe.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
@@ -2925,22 +2925,22 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
         <source>You entered a wrong password!</source>
-        <translation>Introduziu um senha inválida!</translation>
+        <translation>Introduziu um palavra-passe inválida!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation>A nova senha e a sua confirmação não são iguais!</translation>
+        <translation>A nova palavra-passe e a sua confirmação não são iguais!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure to clear master password and decrypt data?</source>
-        <translation>Tem a certeza que deseja eliminar a senha mestre e decifrar os dados?</translation>
+        <translation>Tem a certeza que deseja eliminar a palavra-passe mestra e decifrar os dados?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation>Existem alguns dados que não foram decifrados. A senha mestre não foi eliminada!</translation>
+        <translation>Existem alguns dados que não foram decifrados. A palavra-passe mestra não foi eliminada!</translation>
     </message>
 </context>
 <context>
@@ -2997,7 +2997,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="221"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation>A página que está a tentar aceder apresenta os seguintes erros no certificado SSL:</translation>
+        <translation>A página a que está a tentar aceder possui os seguintes erros no certificado SSL:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="236"/>
@@ -3041,17 +3041,17 @@ não foi encontrado!</translation>
         <location filename="../src/lib/network/networkmanager.cpp" line="409"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="481"/>
         <source>Password: </source>
-        <translation>Senha: </translation>
+        <translation>Palavra-passe:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="307"/>
         <source>Save username and password on this site</source>
-        <translation>Gravar utilizador e senha desta página</translation>
+        <translation>Guardar utilizador e palavra-passe deste sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="316"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation>%1 está a solicitar um utilizador e uma senha. A página reporta: &quot;%2&quot;</translation>
+        <translation>%1 está a solicitar um utilizador e uma palavra-passe. O sítio web reporta: &quot;%2&quot;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="401"/>
@@ -3066,7 +3066,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="431"/>
         <source>A username and password are being requested by %1:%2.</source>
-        <translation>Estão a ser solicitados o nome de utilizador e a senha para %1:%2.</translation>
+        <translation>Estão a ser solicitados o nome de utilizador e a palavra-passe para %1:%2.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="473"/>
@@ -3076,12 +3076,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="493"/>
         <source>Remember username and password for this proxy.</source>
-        <translation>Memorizar utilizador e senha para este proxy.</translation>
+        <translation>Memorizar utilizador e palavra-passe para este proxy.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="495"/>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation>O proxy %1 está a solicitar um utilizador e uma senha. </translation>
+        <translation>O proxy %1 está a solicitar um utilizador e uma palavra-passe. </translation>
     </message>
 </context>
 <context>
@@ -3109,7 +3109,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="60"/>
         <source>Save as %1</source>
-        <translation>Gravar como %1</translation>
+        <translation>Guardar como %1</translation>
     </message>
     <message>
         <location filename="../src/lib/other/pagescreen.cpp" line="102"/>
@@ -3177,7 +3177,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="166"/>
         <source>Allow Click To Flash</source>
-        <translation>Permitir ClickToFlash</translation>
+        <translation>Utilizar ClickToFlash</translation>
     </message>
 </context>
 <context>
@@ -3221,12 +3221,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="61"/>
         <source>&amp;Save Page As...</source>
-        <translation>Gra&amp;var página como...</translation>
+        <translation>Guar&amp;dar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="62"/>
         <source>Save Page Screen</source>
-        <translation>Gravar ecrã da página</translation>
+        <translation>Guardar ecrã da página</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
@@ -3286,7 +3286,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="91"/>
         <source>&amp;Page Source</source>
-        <translation>Código fonte da &amp;página</translation>
+        <translation>Có&amp;digo fonte da página</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="232"/>
@@ -3339,7 +3339,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="95"/>
         <source>Password Manager</source>
-        <translation>Gestor de senhas</translation>
+        <translation>Gestor de palavras-passe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="100"/>
@@ -3543,7 +3543,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="620"/>
         <source>Show web search bar</source>
-        <translation>Mostrar barra de procura web</translation>
+        <translation>Mostrar barra de pesquisa web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="627"/>
@@ -3698,7 +3698,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="930"/>
         <source>Search with Default Engine</source>
-        <translation>Procurar com o motor pré-definido</translation>
+        <translation>Pesquisar com o motor pré-definido</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="953"/>
@@ -3870,7 +3870,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1395"/>
         <source>Allow saving history</source>
-        <translation>Permitir gravação do histórico</translation>
+        <translation>Permitir gravar histórico</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1402"/>
@@ -3885,12 +3885,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1432"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation>Eliminar conteúdo HTML5 ao fechar o navegador</translation>
+        <translation>Remover conteúdo HTML5 ao fechar o navegador</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
         <source>Delete now</source>
-        <translation>Eliminar agora</translation>
+        <translation>Remover agora</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1497"/>
@@ -3953,7 +3953,7 @@ não foi encontrado!</translation>
         <location filename="../src/lib/preferences/preferences.ui" line="1651"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1726"/>
         <source>Password:</source>
-        <translation>Senha:</translation>
+        <translation>Palavra-passe:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1676"/>
@@ -4145,7 +4145,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
         <source>Allow saving passwords from sites</source>
-        <translation>Permitir gravação de senhas das páginas</translation>
+        <translation>Permitir gravar palavras-passe dos sítios web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2258"/>
@@ -4270,12 +4270,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2602"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation>Folha de estilo carregada automaticamente em todas as páginas web: </translation>
+        <translation>Folha de estilo carregada automaticamente em todos os sítios web: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2632"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Idioma preferencial para páginas web&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Idioma preferencial para sítios web&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2652"/>
@@ -4395,7 +4395,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/fileschemehandler.cpp" line="96"/>
         <source>Save file as...</source>
-        <translation>Gravar ficheiro como...</translation>
+        <translation>Guardar ficheiro como...</translation>
     </message>
     <message>
         <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="113"/>
@@ -4557,7 +4557,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
         <source>Search on Web</source>
-        <translation>Procurar na web</translation>
+        <translation>Pesquisar na web</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
@@ -4752,12 +4752,12 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation>Pedimos desculpa pelo sucedido. Pretende restaurar o último estado gravado?</translation>
+        <translation>Pedimos desculpa pelo sucedido. Pretende restaurar o último estado guardado?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation>Tente remover um ou mais separadores (aqueles que acha que estão a originar o erro)</translation>
+        <translation>Tente fechar um ou mais separadores (aqueles que acha que estão a originar o erro)</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
@@ -4858,7 +4858,7 @@ não foi encontrado!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Saved session</source>
-        <translation>Sessão gravada</translation>
+        <translation>Sessão guardada</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="409"/>
@@ -4964,7 +4964,7 @@ não foi encontrado!</translation>
         <source>You don't have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
         <translation>Ainda não possui quaisquer fontes RSS.&lt;br/&gt;
-Adicione as fontes com o ícone RSS existente na barra de navegação, nas páginas que disponham deste serviço.</translation>
+Nos sítios web que disponibilizem fontes, pode-as adicionar através do ícone RSS da barra de navegação.</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssmanager.cpp" line="162"/>
@@ -5085,7 +5085,7 @@ Adicione as fontes com o ícone RSS existente na barra de navegação, nas pági
     <message>
         <location filename="../src/lib/rss/rsswidget.ui" line="14"/>
         <source>Add RSS Feeds from this site</source>
-        <translation>Adicionar fontes RSS desta página</translation>
+        <translation>Adicionar fontes RSS deste sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rsswidget.cpp" line="55"/>
@@ -5259,7 +5259,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="14"/>
         <source>Manage Search Engines</source>
-        <translation>Gestão dos motores de procura</translation>
+        <translation>Gestão dos motores de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="22"/>
@@ -5294,7 +5294,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="86"/>
         <source>Search Engine</source>
-        <translation>Motor de procura</translation>
+        <translation>Motor de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -5310,7 +5310,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="49"/>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="344"/>
         <source>Add Search Engine</source>
-        <translation>Adicionar motor de procura</translation>
+        <translation>Adicionar motor de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="86"/>
@@ -5320,12 +5320,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="87"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation>Não pode remover o motor de procura pré-definido.&lt;br&gt;Antes de remover %1 tem que definir um motor diferente.</translation>
+        <translation>Não pode remover o motor de pesquisa pré-definido.&lt;br&gt;Antes de remover %1, tem que definir um motor diferente.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="104"/>
         <source>Edit Search Engine</source>
-        <translation>Editar motor de procura</translation>
+        <translation>Editar motor de pesquisa</translation>
     </message>
 </context>
 <context>
@@ -5333,17 +5333,17 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
         <source>Search Engine Added</source>
-        <translation>Motor de procura adicionado</translation>
+        <translation>Motor de pesquisa adicionado</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="430"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation>O motor de procura &quot;%1&quot; foi adicionado com sucesso.</translation>
+        <translation>O motor de pesquisa &quot;%1&quot; foi adicionado com sucesso.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="437"/>
         <source>Search Engine is not valid!</source>
-        <translation>O motor de procura é inválido!</translation>
+        <translation>O motor de pesquisa é inválido!</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
@@ -5353,7 +5353,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="438"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation>Ocorreu um erro ao adicionar o motor de procura. &lt;br&gt;&lt;b&gt;Mensagem de erro: &lt;/b&gt; %1</translation>
+        <translation>Ocorreu um erro ao adicionar o motor de pesquisa. &lt;br&gt;&lt;b&gt;Mensagem de erro: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -5369,12 +5369,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation>Procurar: </translation>
+        <translation>Pesquisar: </translation>
     </message>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="55"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="88"/>
@@ -5407,7 +5407,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation>Informações da página</translation>
+        <translation>Informações do sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="24"/>
@@ -5448,7 +5448,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="162"/>
         <source>Meta tags of site:</source>
-        <translation>Meta tags da página:</translation>
+        <translation>Meta tags do sítio:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="176"/>
@@ -5550,7 +5550,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="193"/>
         <source>Save Image to Disk</source>
-        <translation>Gravar imagem no disco</translation>
+        <translation>Guardar imagem no disco</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="232"/>
@@ -5566,7 +5566,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="238"/>
         <source>Save image...</source>
-        <translation>Gravar imagem...</translation>
+        <translation>Guardar imagem...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="244"/>
@@ -5589,23 +5589,23 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="44"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation>A ligação a esta página é &lt;b&gt;segura&lt;/b&gt;.</translation>
+        <translation>A ligação a este sítio web é &lt;b&gt;segura&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="48"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation>A ligação a esta página &lt;b&gt;não é segura&lt;/b&gt;.</translation>
+        <translation>A ligação a este sítio web &lt;b&gt;não é segura&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="63"/>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="82"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation>Esta é a sua &lt;b&gt;%1&lt;/b&gt; visita a esta página.</translation>
+        <translation>Esta é a sua &lt;b&gt;%1&lt;/b&gt; visita a este sítio.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="67"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation>Você &lt;b&gt;nunca&lt;/b&gt; acedeu a esta página.</translation>
+        <translation>Você &lt;b&gt;nunca&lt;/b&gt; acedeu a este sítio.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="74"/>
@@ -5643,7 +5643,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="71"/>
         <source>Save as...</source>
-        <translation>Gravar como...</translation>
+        <translation>Guardar como...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="73"/>
@@ -5729,7 +5729,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="167"/>
         <source>Save file...</source>
-        <translation>Gravar ficheiro...</translation>
+        <translation>Guardar ficheiro...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="174"/>
@@ -5749,7 +5749,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="181"/>
         <source>Source successfully saved</source>
-        <translation>Código fonte gravado com sucesso</translation>
+        <translation>Código fonte guardado com sucesso</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewer.cpp" line="203"/>
@@ -5782,12 +5782,12 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="42"/>
         <source>Search: </source>
-        <translation>Procurar: </translation>
+        <translation>Pesquisar:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="49"/>
         <source>Search...</source>
-        <translation>Procurar...</translation>
+        <translation>Pesquisar...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/sourceviewersearch.ui" line="88"/>
@@ -6015,7 +6015,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message numerus="yes">
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
         <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>Atualmente tem %n separador aberto</numerusform><numerusform>Atualmente tem %n separadores abertos</numerusform></translation>
+        <translation><numerusform>Atualmente, tem %n separador aberto</numerusform><numerusform>Atualmente, tem %n separadores abertos</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="300"/>
@@ -6035,7 +6035,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
     <message numerus="yes">
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tabs</source>
-        <translation><numerusform>Atualmente, tem %1 separador aberto</numerusform><numerusform>Atualmente, tem %1 separadores abertos</numerusform></translation>
+        <translation><numerusform>Atualmente, tem %n separador aberto</numerusform><numerusform>Atualmente, tem %n separadores abertos</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="819"/>
@@ -6178,7 +6178,7 @@ Após adicionar ou remover os caminhos dos certificados, tem que reiniciar o Qup
         <source>To display this page, QupZilla must resend the request 
 (such as a search or order confirmation) that was performed earlier.</source>
         <translation>Para mostrar esta página, o QupZilla tem que reenviar um pedido
-já feito anteriormente (ex.: uma procura ou confirmação de compra).</translation>
+já feito anteriormente (ex.: uma pesquisa ou uma confirmação de compra).</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="584"/>
@@ -6303,7 +6303,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="915"/>
         <source>Try Again</source>
-        <translation>Tente novamente</translation>
+        <translation>Tentar novamente</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webpage.cpp" line="1015"/>
@@ -6336,7 +6336,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="110"/>
         <source>Manage Search Engines</source>
-        <translation>Gestão dos motores de procura</translation>
+        <translation>Gestão dos motores de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="236"/>
@@ -6346,7 +6346,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="259"/>
         <source>Paste And &amp;Search</source>
-        <translation>Colar e pr&amp;ocurar</translation>
+        <translation>Colar e pe&amp;squisar</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="268"/>
@@ -6356,7 +6356,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="273"/>
         <source>Search when engine changed</source>
-        <translation>Procurar ao alterar o motor</translation>
+        <translation>Pesquisar ao alterar o motor</translation>
     </message>
 </context>
 <context>
@@ -6382,7 +6382,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="851"/>
         <source>Create Search Engine</source>
-        <translation>Criar motor de procura</translation>
+        <translation>Criar motor de pesquisa</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="917"/>
@@ -6468,7 +6468,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1004"/>
         <source>&amp;Save page as...</source>
-        <translation>&amp;Gravar página como...</translation>
+        <translation>Guar&amp;dar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1005"/>
@@ -6508,7 +6508,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1023"/>
         <source>Show info ab&amp;out site</source>
-        <translation>Mostrar inf&amp;ormações da página</translation>
+        <translation>Mostrar inf&amp;ormações do sítio</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1029"/>
@@ -6533,7 +6533,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1042"/>
         <source>&amp;Save link as...</source>
-        <translation>&amp;Gravar ligação como...</translation>
+        <translation>Guar&amp;dar ligação como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1043"/>
@@ -6563,7 +6563,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1064"/>
         <source>&amp;Save image as...</source>
-        <translation>&amp;Gravar imagem como...</translation>
+        <translation>Guar&amp;dar imagem como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1065"/>
@@ -6593,12 +6593,12 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1124"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation>Procurar &quot;%1&quot; no %2</translation>
+        <translation>Pesquisar por &quot;%1&quot; com %2</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1130"/>
         <source>Search with...</source>
-        <translation>Procurar com...</translation>
+        <translation>Pesquisar com...</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1158"/>
@@ -6633,7 +6633,7 @@ já feito anteriormente (ex.: uma procura ou confirmação de compra).</translat
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1163"/>
         <source>Save Media To &amp;Disk</source>
-        <translation>Gravar multimédia no &amp;disco</translation>
+        <translation>Guardar multimédia no &amp;disco</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1208"/>

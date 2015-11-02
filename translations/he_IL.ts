@@ -1067,7 +1067,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="132"/>
         <source>QupZilla</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="347"/>
@@ -1514,7 +1514,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="231"/>
         <source>Remove and block domain</source>
-        <translation type="unfinished"/>
+        <translation>הסר וחסום מתחם</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="255"/>
@@ -1586,7 +1586,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="470"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Allow 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation>&lt;b&gt;אזהרה:&lt;/b&gt; אפשרויות שמתירות עוגיות צד שלישי ועוגיות מעקב עלולות לאסור עוגיות מסוימות מתוך אתרים. אם אתה חווה בעיות עם עוגיות, נסה לנטרל את אפשרויות אלה תחילה!</translation>
+        <translation>&lt;b&gt;אזהרה:&lt;/b&gt; אפשרויות אשר מתירות עוגיות צד שלישי ועוגיות מעקב עלולות לאסור עוגיות מסוימות מתוך אתרים. אם אתה חווה בעיות עם עוגיות, נסה לנטרל את אפשרויות אלה תחילה!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="487"/>
@@ -1655,12 +1655,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>Already blacklisted!</source>
-        <translation type="unfinished"/>
+        <translation>כבר ברשימה שחורה!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="277"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>השרת &quot;%1&quot; הינו מצוי כבר בתוך רשימה שחורה, אנא הסר אותו תחילה.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="293"/>
@@ -1670,12 +1670,12 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>כבר ברשימה לבנה!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="304"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>השרת &quot;%1&quot; הינו מצוי כבר בתוך רשימה לבנה, אנא הסר אותו תחילה.</translation>
     </message>
 </context>
 <context>
@@ -3643,7 +3643,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="837"/>
         <source>Suggest when typing into address bar:</source>
-        <translation>הצע כאשר מקלידים אל תוך שורת כתובת:</translation>
+        <translation>הצע כאשר מקלידים לתוך שורת כתובת:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="851"/>
@@ -4300,7 +4300,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2794"/>
         <source>QupZilla</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="156"/>
@@ -4517,7 +4517,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>באם הינך חווה בעיות עם QupZilla, אנא נסה לנטרל את כל ההרחבות תחילה. &lt;br/&gt;אם זה לא פותר זאת, אז אנא מלא את טופס זה: </translation>
+        <translation>כאשר הינך חווה בעיות עם QupZilla, עליך לנסות לנטרל את כל ההרחבות תחילה. &lt;br/&gt;אם זה לא פותר זאת, עומד לרשותך טופס זה:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="159"/>
@@ -4542,7 +4542,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>דוא״ל אינו מחייב&lt;br/&gt;&lt;b&gt;הערה: &lt;/b&gt;אנא לקרוא תחילה כיצד להכין דיווח באג &lt;a href=%1&gt;כאן&lt;/a&gt;.</translation>
+        <translation>דוא״ל אינו מחייב&lt;br/&gt;&lt;b&gt;הערה: &lt;/b&gt;עליך לקרוא תחילה כיצד להכין דיווח באג &lt;a href=%1&gt;כאן&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="165"/>
@@ -4773,7 +4773,7 @@ Are you sure to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation>עמוד זה מכיל מידע אודות תצורה נוכחית של QupZilla - רלוונטי עבור איתור תקלות. אנא כלול את מידע זה בעת שליחת דיווחי באגים.</translation>
+        <translation>עמוד זה מכיל מידע אודות תצורה נוכחית של QupZilla - רלוונטי לצורך איתור תקלות. עליך לכלול את מידע זה בעת שליחת דיווחי באגים.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
@@ -4963,7 +4963,7 @@ Are you sure to close this window?</source>
         <location filename="../src/lib/rss/rssmanager.cpp" line="139"/>
         <source>You don't have any RSS Feeds.&lt;br/&gt;
 Please add some with RSS icon in navigation bar on site which offers feeds.</source>
-        <translation>אין לך שום ערוצים RSS.&lt;br/&gt;
+        <translation>אין לך שום ערוצי RSS.&lt;br/&gt;
 אנא הוסף כמה בעזרת צלמית RSS בשורת ניווט באתר אשר מציע ערוצים.</translation>
     </message>
     <message>
@@ -5037,7 +5037,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="52"/>
         <source>Add this feed into</source>
-        <translation>הוסף את ערוץ זה אל תוך</translation>
+        <translation>הוסף את ערוץ זה לתוך</translation>
     </message>
     <message>
         <location filename="../src/lib/rss/rssnotification.ui" line="81"/>
@@ -5072,7 +5072,7 @@ Please add some with RSS icon in navigation bar on site which offers feeds.</sou
     <message>
         <location filename="../src/lib/rss/rssnotification.cpp" line="155"/>
         <source>To add this RSS feed into other application, please use this information:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Title: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;Url address of this feed has been copied into your clipboard.</source>
-        <translation>כדי להוסיף את ערוץ RSS זה אל תוך יישום אחר, אנא תשתמש במידע זה:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;
+        <translation>כדי להוסיף את ערוץ RSS זה לתוך יישום אחר, אנא תשתמש במידע זה:&lt;br/&gt;&lt;br/&gt;&lt;b&gt;
 כותרת: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Url‏: &lt;/b&gt;%2&lt;br/&gt;&lt;br/&gt;כתובת Url של ערוץ זה הועתקה אל לוח גזירה.</translation>
     </message>
     <message>

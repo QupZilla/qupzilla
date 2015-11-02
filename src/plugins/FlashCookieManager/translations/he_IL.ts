@@ -127,7 +127,7 @@
     <message>
         <location filename="../fcm_dialog.ui" line="381"/>
         <source>Flash cookies from these origins will be deleted without any notification.</source>
-        <translation type="unfinished"/>
+        <translation>עוגיות Flash מתוך מקורות אלו יימחקו בלי כל התראה.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="442"/>
@@ -147,7 +147,7 @@
     <message>
         <location filename="../fcm_dialog.ui" line="510"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; This settings are just applied to flash cookies, to manage HTTP cookies use &lt;span style=&quot; font-weight:600;&quot;&gt;Cookies Manager&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;הערה:&lt;/span&gt; הגדרות אלה חלות על עוגיות פלאש, כדי לנהל עוגיות HTTP השתמש בדו שיח &lt;span style=&quot; font-weight:600;&quot;&gt;מנהל עוגיות&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="538"/>
@@ -162,7 +162,7 @@
     <message>
         <location filename="../fcm_dialog.ui" line="579"/>
         <source>Flash data path*:</source>
-        <translation type="unfinished"/>
+        <translation>נתיב נתוני Flash*:</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="595"/>

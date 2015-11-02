@@ -1515,7 +1515,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="231"/>
         <source>Remove and block domain</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi e blocca il dominio</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="255"/>
@@ -6036,7 +6036,7 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message numerus="yes">
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="487"/>
         <source>Currently you have %n opened tabs</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Attualmente hai %n scheda aperta</numerusform><numerusform>Attualmente hai %n schede aperte</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="819"/>
@@ -6639,27 +6639,27 @@ Dopo l&apos;aggiunta o la rimozione dei percorsi di certificazione, è necessari
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1208"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1214"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ripeti</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1220"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Taglia</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1226"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Copia</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1232"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Incolla</translation>
     </message>
     <message>
         <location filename="../src/lib/webkit/webview.cpp" line="1238"/>

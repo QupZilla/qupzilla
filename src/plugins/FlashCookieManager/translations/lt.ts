@@ -208,7 +208,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="239"/>
         <source> [new]</source>
-        <translation type="unfinished"/>
+        <translation>[naujas]</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="275"/>
