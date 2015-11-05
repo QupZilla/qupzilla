@@ -1139,40 +1139,40 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
 
     // Forward events to WebView
     if (obj == m_rwhvqt) {
+        bool ret = false;
+        bool wasAccepted = event->isAccepted();
+
+#define HANDLE_EVENT(x) \
+        event->setAccepted(false); \
+        (x); \
+        ret = event->isAccepted(); \
+        event->setAccepted(wasAccepted); \
+        return ret
+
         switch (event->type()) {
         case QEvent::KeyPress:
-            event->setAccepted(false);
-            _keyPressEvent(static_cast<QKeyEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_keyPressEvent(static_cast<QKeyEvent*>(event)));
 
         case QEvent::KeyRelease:
-            event->setAccepted(false);
-            _keyReleaseEvent(static_cast<QKeyEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_keyReleaseEvent(static_cast<QKeyEvent*>(event)));
 
         case QEvent::MouseButtonPress:
-            event->setAccepted(false);
-            _mousePressEvent(static_cast<QMouseEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_mousePressEvent(static_cast<QMouseEvent*>(event)));
 
         case QEvent::MouseButtonRelease:
-            event->setAccepted(false);
-            _mouseReleaseEvent(static_cast<QMouseEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_mouseReleaseEvent(static_cast<QMouseEvent*>(event)));
 
         case QEvent::MouseMove:
-            event->setAccepted(false);
-            _mouseMoveEvent(static_cast<QMouseEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_mouseMoveEvent(static_cast<QMouseEvent*>(event)));
 
         case QEvent::Wheel:
-            event->setAccepted(false);
-            _wheelEvent(static_cast<QWheelEvent*>(event));
-            return event->isAccepted();
+            HANDLE_EVENT(_wheelEvent(static_cast<QWheelEvent*>(event)));
 
         default:
             break;
         }
+
+#undef HANDLE_EVENT
     }
 
     // Block already handled events
