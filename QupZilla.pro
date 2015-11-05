@@ -6,8 +6,8 @@
 #
 #-------------------------------------------------
 
-lessThan(QT_VERSION, 5.5) {
-    error("QupZilla requires at least Qt 5.5!")
+lessThan(QT_VERSION, 5.6) {
+    error("QupZilla requires at least Qt 5.6!")
 }
 
 lessThan(QT.webengine.VERSION, 5.6) {

@@ -320,7 +320,6 @@ HEADERS  += \
     network/pac/proxyautoconfig.h \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
-    network/schemehandlers/schemehandler.h \
     network/urlinterceptor.h \
     network/sslerrordialog.h \
     notifications/desktopnotification.h \
