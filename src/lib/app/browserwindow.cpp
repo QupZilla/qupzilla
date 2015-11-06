@@ -775,12 +775,15 @@ void BrowserWindow::toggleTabsOnTop(bool enable)
 
 void BrowserWindow::toggleFullScreen()
 {
-    if (isFullScreen()) {
+    if (m_isHtmlFullScreen) {
+        weView()->triggerPageAction(QWebEnginePage::ExitFullScreen);
+        return;
+    }
+
+    if (isFullScreen())
         showNormal();
-    }
-    else {
+    else
         showFullScreen();
-    }
 }
 
 void BrowserWindow::enterHtmlFullScreen()
