@@ -480,7 +480,8 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
     case Qt::Key_Enter:
         switch (event->modifiers()) {
         case Qt::ControlModifier:
-            setText(text().append(QLatin1String(".com")));
+            if (!text().endsWith(QL1S(".com")))
+                setText(text().append(QL1S(".com")));
             requestLoadUrl();
             m_holdingAlt = false;
             break;
