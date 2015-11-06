@@ -327,25 +327,12 @@ DesktopNotification #heading
 /*BrowsingLibrary*/
 BrowsingLibrary #tabs
 {
-    qproperty-bgPixmap: url(images/library-bg-left.png);
+    qproperty-bgPixmap: url(images/library-bg.png);
 }
 
 BrowsingLibrary #frame
 {
-    background: url(images/library-bg-top.png) no-repeat;
-}
-
-BrowsingLibrary #frame_2
-{
-    background: url(images/library-bg-top-right.png);
-}
-
-BrowsingLibrary #searchLine
-{
-    background: transparent;
-    border-image: url(images/library-search-bg.png);
-    border-width:4;
-    color:black;
+    background: url(images/library-bg.png);
 }
 
 /*Downloads*/
