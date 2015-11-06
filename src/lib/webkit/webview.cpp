@@ -201,8 +201,10 @@ void WebView::load(const LoadRequest &request)
        ) {
         LoadRequest req = request;
         req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
-        loadRequest(req);
-        return;
+        if (req.url().isValid()) {
+            loadRequest(req);
+            return;
+        }
     }
 
     const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
