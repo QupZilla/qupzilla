@@ -30,7 +30,6 @@ void QzSettings::loadSettings()
     settings.beginGroup("AddressBar");
     selectAllOnDoubleClick = settings.value("SelectAllTextOnDoubleClick", true).toBool();
     selectAllOnClick = settings.value("SelectAllTextOnClick", false).toBool();
-    addCountryWithAlt = settings.value("AddCountryDomainWithAltKey", true).toBool();
     showLoadingProgress = settings.value("ShowLoadingProgress", false).toBool();
     showLocationSuggestions = settings.value("showSuggestions", 0).toInt();
     showSwitchTab = settings.value("showSwitchTab", true).toBool();

@@ -140,8 +140,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>596</width>
-        <height>470</height>
+        <width>582</width>
+        <height>489</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1698,13 +1698,6 @@
             </widget>
            </item>
            <item row="3" column="0" colspan="2">
-            <widget class="QCheckBox" name="addCountryWithAlt">
-             <property name="text">
-              <string>Add .co.uk domain by pressing ALT key in address bar</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0" colspan="2">
             <widget class="QCheckBox" name="singleKeyShortcuts">
              <property name="toolTip">
               <string>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</string>
@@ -1714,7 +1707,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0" colspan="2">
+           <item row="4" column="0" colspan="2">
             <widget class="QCheckBox" name="closeAppWithCtrlQ">
              <property name="toolTip">
               <string>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</string>
@@ -1724,7 +1717,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
+           <item row="5" column="1">
             <spacer name="verticalSpacer_13">
              <property name="orientation">
               <enum>Qt::Vertical</enum>

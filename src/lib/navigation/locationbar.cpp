@@ -523,19 +523,6 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
     LineEdit::keyPressEvent(event);
 }
 
-void LocationBar::keyReleaseEvent(QKeyEvent* event)
-{
-    QString localDomain = tr(".co.uk", "Append domain name on ALT + Enter = Should be different for every country");
-
-    if (event->key() == Qt::Key_Alt && m_holdingAlt && qzSettings->addCountryWithAlt &&
-        !text().endsWith(localDomain) && !text().endsWith(QLatin1Char('/'))
-       ) {
-        LineEdit::setText(text().append(localDomain));
-    }
-
-    LineEdit::keyReleaseEvent(event);
-}
-
 void LocationBar::loadStarted()
 {
     m_progressVisible = true;

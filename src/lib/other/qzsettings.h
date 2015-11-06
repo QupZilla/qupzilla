@@ -34,7 +34,6 @@ public:
     // AddressBar
     bool selectAllOnDoubleClick;
     bool selectAllOnClick;
-    bool addCountryWithAlt;
     bool showLoadingProgress;
     int showLocationSuggestions;
     bool showSwitchTab;

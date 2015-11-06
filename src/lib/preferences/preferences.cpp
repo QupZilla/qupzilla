@@ -246,7 +246,6 @@ Preferences::Preferences(BrowserWindow* window)
     ui->alwaysShowGoIcon->setChecked(settings.value("alwaysShowGoIcon", false).toBool());
     ui->selectAllOnFocus->setChecked(settings.value("SelectAllTextOnDoubleClick", true).toBool());
     ui->selectAllOnClick->setChecked(settings.value("SelectAllTextOnClick", false).toBool());
-    ui->addCountryWithAlt->setChecked(settings.value("AddCountryDomainWithAltKey", true).toBool());
     bool showPBinAB = settings.value("ShowLoadingProgress", false).toBool();
     ui->showLoadingInAddressBar->setChecked(showPBinAB);
     ui->adressProgressSettings->setEnabled(showPBinAB);
@@ -943,7 +942,6 @@ void Preferences::saveSettings()
     settings.setValue("showSwitchTab", ui->completionShowSwitchTab->isChecked());
     settings.setValue("SelectAllTextOnDoubleClick", ui->selectAllOnFocus->isChecked());
     settings.setValue("SelectAllTextOnClick", ui->selectAllOnClick->isChecked());
-    settings.setValue("AddCountryDomainWithAltKey", ui->addCountryWithAlt->isChecked());
     settings.setValue("ShowLoadingProgress", ui->showLoadingInAddressBar->isChecked());
     settings.setValue("ProgressStyle", ui->progressStyleSelector->currentIndex());
     settings.setValue("UseCustomProgressColor", ui->checkBoxCustomProgressColor->isChecked());
