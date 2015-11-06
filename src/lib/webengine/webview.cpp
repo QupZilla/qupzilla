@@ -176,13 +176,16 @@ void WebView::load(const LoadRequest &request)
         !reqUrl.path().contains(QL1C(' ')) &&
         !reqUrl.path().contains(QL1C('.'))
        ) {
-        // FIXME: This is blocking...
-        QHostInfo info = QHostInfo::fromName(reqUrl.path());
-        if (info.error() == QHostInfo::NoError) {
-            LoadRequest req = request;
-            req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
-            loadRequest(req);
-            return;
+        QUrl u(QSL("http://") + reqUrl.path());
+        if (u.isValid()) {
+            // This is blocking...
+            QHostInfo info = QHostInfo::fromName(u.path());
+            if (info.error() == QHostInfo::NoError) {
+                LoadRequest req = request;
+                req.setUrl(u);
+                loadRequest(req);
+                return;
+            }
         }
     }
 
