@@ -167,9 +167,6 @@ protected:
 
     bool event(QEvent *event);
     void wheelEvent(QWheelEvent* event);
-    void showEvent(QShowEvent* event);
-    void enterEvent(QEvent* event);
-    void leaveEvent(QEvent* event);
     bool eventFilter(QObject* obj, QEvent* ev);
     void paintEvent(QPaintEvent* ev);
 

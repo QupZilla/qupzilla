@@ -588,6 +588,17 @@ bool ComboTabBar::event(QEvent *event)
         ensureVisible();
         break;
 
+    case QEvent::Show:
+        if (!event->spontaneous())
+            QTimer::singleShot(0, this, &ComboTabBar::setUpLayout);
+        break;
+
+    case QEvent::Enter:
+    case QEvent::Leave:
+        // Make sure tabs are painted with correct mouseover state
+        QTimer::singleShot(100, this, &ComboTabBar::updateTabBars);
+        break;
+
     default:
         break;
     }
@@ -904,31 +915,6 @@ void ComboTabBar::setMinimumWidths()
         m_mainTabBar->useFastTabSizeHint(true);
         m_mainTabBar->setMinimumWidth(m_mainTabBar->count() * comboTabBarPixelMetric(OverflowedTabWidth));
     }
-}
-
-void ComboTabBar::showEvent(QShowEvent* event)
-{
-    if (!event->spontaneous()) {
-        QTimer::singleShot(0, this, SLOT(setUpLayout()));
-    }
-
-    QWidget::showEvent(event);
-}
-
-void ComboTabBar::enterEvent(QEvent* event)
-{
-    QWidget::enterEvent(event);
-
-    // Make sure tabs are painted with correct mouseover state
-    QTimer::singleShot(100, this, SLOT(updateTabBars()));
-}
-
-void ComboTabBar::leaveEvent(QEvent* event)
-{
-    QWidget::leaveEvent(event);
-
-    // Make sure tabs are painted with correct mouseover state
-    QTimer::singleShot(100, this, SLOT(updateTabBars()));
 }
 
 
