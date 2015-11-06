@@ -50,6 +50,7 @@
 #include <QClipboard>
 #include <QTouchEvent>
 #include <QPrintPreviewDialog>
+#include <QHostInfo>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -199,11 +200,16 @@ void WebView::load(const LoadRequest &request)
         !QzTools::containsSpace(reqUrl.path()) && // See #1622
         !reqUrl.path().contains(QL1C('.'))
        ) {
-        LoadRequest req = request;
-        req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
-        if (req.url().isValid()) {
-            loadRequest(req);
-            return;
+        QUrl u(QSL("http://") + reqUrl.path());
+        if (u.isValid()) {
+            // This is blocking...
+            QHostInfo info = QHostInfo::fromName(u.path());
+            if (info.error() == QHostInfo::NoError) {
+                LoadRequest req = request;
+                req.setUrl(u);
+                loadRequest(req);
+                return;
+            }
         }
     }
 

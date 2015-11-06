@@ -484,16 +484,6 @@ void WebPage::dbQuotaExceeded(QWebFrame* frame)
     frame->securityOrigin().setDatabaseQuota(oldQuota * 2);
 }
 
-void WebPage::doWebSearch(const QString &text)
-{
-    WebView* webView = qobject_cast<WebView*>(view());
-
-    if (webView) {
-        const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(text);
-        webView->load(searchRequest);
-    }
-}
-
 #ifdef USE_QTWEBKIT_2_2
 void WebPage::appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota)
 {
@@ -785,13 +775,6 @@ bool WebPage::extension(Extension extension, const ExtensionOption* option, Exte
             errorString = tr("Server closed the connection");
             break;
         case QNetworkReply::HostNotFoundError:
-            // If a one-word host was not find, search for the text instead
-            // It needs to be async to correctly refresh loading state
-            if (!exOption->url.host().isEmpty() && !exOption->url.host().contains(QL1C('.'))) {
-                const QString text = QzTools::fromPunycode(exOption->url.host().toUtf8());
-                QMetaObject::invokeMethod(this, "doWebSearch", Qt::QueuedConnection, Q_ARG(QString, text));
-                return false;
-            }
             errorString = tr("Server not found");
             break;
         case QNetworkReply::TimeoutError:

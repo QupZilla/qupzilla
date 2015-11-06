@@ -108,7 +108,6 @@ private slots:
     void frameInitialLayoutCompleted();
 
     void dbQuotaExceeded(QWebFrame* frame);
-    void doWebSearch(const QString &text);
 
 #ifdef USE_QTWEBKIT_2_2
     void appCacheQuotaExceeded(QWebSecurityOrigin* origin, quint64 originalQuota);
