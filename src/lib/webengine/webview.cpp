@@ -178,7 +178,7 @@ void WebView::load(const LoadRequest &request)
        ) {
         // FIXME: This is blocking...
         QHostInfo info = QHostInfo::fromName(reqUrl.path());
-        if (info.error() != QHostInfo::HostNotFound) {
+        if (info.error() == QHostInfo::NoError) {
             LoadRequest req = request;
             req.setUrl(QUrl(QSL("http://") + reqUrl.path()));
             loadRequest(req);
