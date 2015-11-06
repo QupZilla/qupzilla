@@ -584,6 +584,10 @@ bool ComboTabBar::event(QEvent *event)
         }
         break;
 
+    case QEvent::Resize:
+        ensureVisible();
+        break;
+
     default:
         break;
     }
