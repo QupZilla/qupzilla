@@ -1139,34 +1139,34 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
 
     // Forward events to WebView
     if (obj == m_rwhvqt) {
-        bool ret = false;
-        bool wasAccepted = event->isAccepted();
-
-#define HANDLE_EVENT(x) \
+#define HANDLE_EVENT(f, t) \
+        { \
+        bool wasAccepted = event->isAccepted(); \
         event->setAccepted(false); \
-        (x); \
-        ret = event->isAccepted(); \
+        f(static_cast<t*>(event)); \
+        bool ret = event->isAccepted(); \
         event->setAccepted(wasAccepted); \
-        return ret
+        return ret; \
+        }
 
         switch (event->type()) {
         case QEvent::KeyPress:
-            HANDLE_EVENT(_keyPressEvent(static_cast<QKeyEvent*>(event)));
+            HANDLE_EVENT(_keyPressEvent, QKeyEvent);
 
         case QEvent::KeyRelease:
-            HANDLE_EVENT(_keyReleaseEvent(static_cast<QKeyEvent*>(event)));
+            HANDLE_EVENT(_keyReleaseEvent, QKeyEvent);
 
         case QEvent::MouseButtonPress:
-            HANDLE_EVENT(_mousePressEvent(static_cast<QMouseEvent*>(event)));
+            HANDLE_EVENT(_mousePressEvent, QMouseEvent);
 
         case QEvent::MouseButtonRelease:
-            HANDLE_EVENT(_mouseReleaseEvent(static_cast<QMouseEvent*>(event)));
+            HANDLE_EVENT(_mouseReleaseEvent, QMouseEvent);
 
         case QEvent::MouseMove:
-            HANDLE_EVENT(_mouseMoveEvent(static_cast<QMouseEvent*>(event)));
+            HANDLE_EVENT(_mouseMoveEvent, QMouseEvent);
 
         case QEvent::Wheel:
-            HANDLE_EVENT(_wheelEvent(static_cast<QWheelEvent*>(event)));
+            HANDLE_EVENT(_wheelEvent, QWheelEvent);
 
         default:
             break;
