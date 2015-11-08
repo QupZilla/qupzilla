@@ -65,7 +65,7 @@ void AboutDialog::showAbout()
     m_showingAuthors = false;
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
-        m_aboutHtml += "<center><div style='margin:10px;'>";
+        m_aboutHtml += "<center><div style='margin:20px;'>";
         m_aboutHtml += tr("<p><b>Application version %1</b><br/>").arg(
 #ifdef GIT_REVISION
                            QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
@@ -91,12 +91,13 @@ void AboutDialog::showAuthors()
         m_authorsHtml += tr("<p><b>Main developer:</b><br/>%1 &lt;%2&gt;</p>").arg(Qz::AUTHOR, "<a href=mailto:nowrep@gmail.com>nowrep@gmail.com</a>");
         m_authorsHtml += tr("<p><b>Contributors:</b><br/>%1</p>").arg(
                              QString::fromUtf8("Mladen Pejaković<br/>"
-                                               "Alexander Samilov<br/>"
                                                "Seyyed Razi Alavizadeh<br/>"
+                                               "Adrien Vigneron<br/>"
+                                               "Elio Qoshi<br/>"
+                                               "Alexander Samilov<br/>"
                                                "Franz Fellner<br/>"
                                                "Bryan M Dunsmore<br/>"
                                                "Mariusz Fik<br/>"
-                                               "Jan Rajnoha<br/>"
                                                "Daniele Cocca")
                          );
 

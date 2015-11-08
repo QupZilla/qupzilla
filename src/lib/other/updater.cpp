@@ -148,7 +148,7 @@ void Updater::downCompleted()
         Version updated(html);
 
         if (current.isValid && updated.isValid && current < updated) {
-            mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzillaupdate.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
+            mApp->desktopNotifications()->showNotification(QPixmap(":icons/qupzilla.png"), tr("Update available"), tr("New version of QupZilla is ready to download."));
         }
     }
 

@@ -12,7 +12,8 @@ Bryan M Dunsmore       <dunsmoreb@gmail.com>             (opening background tab
 Mariusz Fik            <fisiu@opensuse.org>              (fixed tab order in preferences dialog)
 Daniele Cocca          <jmc@chakra-project.org>          (close tabs with middle click, initial work on speed dial)
 Giuseppe Calà          <jiveaxe@gmail.com>               (fixed loading of bookmarklets)
-Jan Rajnoha            <honza.rajny@hotmail.com>         (QupZilla icon)
+Adrien Vigneron        <adrienvigneron@ml1.net>          (new QupZilla logo)
+Elio Qoshi             <ping@elioqoshi.me>               (new QupZilla logo)
 
 Translators:
 
@@ -56,5 +57,5 @@ Special thanks:
 
 Jonathan Hooverman    <jonathan.hooverman@gmail.com>    (english language correction)
 Peter Vacula          <pvacula1989@gmail.com>           (for a big support in the beginnings)
-Sergio Cipolla        <secipolla@gmail.com>             (modifications to QupZilla icon)
+Sergio Cipolla        <secipolla@gmail.com>             (modifications to old QupZilla icon)
 Radomir Orkac                                           (qupzilla.com domain)
