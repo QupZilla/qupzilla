@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/qupzilla.png</file>
-        <file>icons/qupzillaupdate.png</file>
         <file>icons/preferences/applications-internet.png</file>
         <file>icons/preferences/applications-system.png</file>
         <file>icons/preferences/applications-webbrowsers.png</file>
@@ -63,5 +62,6 @@
         <file>icons/other/empty-page.png</file>
         <file>icons/menu/privatebrowsing.png</file>
         <file>icons/menu/settings.png</file>
+        <file>icons/other/startpage.png</file>
     </qresource>
 </RCC>

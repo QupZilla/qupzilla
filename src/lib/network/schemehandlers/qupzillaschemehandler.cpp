@@ -190,7 +190,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.append(QzTools::readAllFileContents(":html/start.html"));
     sPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
     sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-    sPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
+    sPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/startpage.png"));
 
     sPage.replace(QLatin1String("%TITLE%"), tr("Start Page"));
     sPage.replace(QLatin1String("%BUTTON-LABEL%"), tr("Search on Web"));
@@ -233,12 +233,13 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.replace(QLatin1String("%CONTRIBUTORS%"), tr("Contributors"));
         aPage.replace(QLatin1String("%CONTRIBUTORS-TEXT%"),
                       authorString("Mladen Pejaković", "pejakm@autistici.org") + "<br/>" +
-                      authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
+                      authorString("Adrien Vigneron", "adrienvigneron@ml1.net") + "<br/>" +
+                      authorString("Elio Qoshi", "ping@elioqoshi.me") + "<br/>" +
                       authorString("Seyyed Razi Alavizadeh", "s.r.alavizadeh@gmail.com") + "<br/>" +
+                      authorString("Alexander Samilov", "alexsamilovskih@gmail.com") + "<br/>" +
                       authorString("Franz Fellner", "alpine.art.de@googlemail.com") + "<br/>" +
                       authorString("Bryan M Dunsmore", "dunsmoreb@gmail.com") + "<br/>" +
                       authorString("Mariusz Fik", "fisiu@opensuse.org") + "<br/>" +
-                      authorString("Jan Rajnoha", "honza.rajny@hotmail.com")  + "<br/>" +
                       authorString("Daniele Cocca", "jmc@chakra-project.org")
                      );
         aPage.replace(QLatin1String("%TRANSLATORS%"), tr("Translators"));
