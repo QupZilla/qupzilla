@@ -45,6 +45,7 @@ private:
 
     QString m_aboutHtml;
     QString m_authorsHtml;
+    bool m_showingAuthors;
 };
 
 #endif // ABOUTDIALOG_H

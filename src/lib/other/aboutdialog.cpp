@@ -30,8 +30,9 @@
 #endif
 
 AboutDialog::AboutDialog(QWidget* parent)
-    : QDialog(parent),
-      ui(new Ui::AboutDialog)
+    : QDialog(parent)
+    , ui(new Ui::AboutDialog)
+    , m_showingAuthors(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -55,16 +56,15 @@ AboutDialog::AboutDialog(QWidget* parent)
 
 void AboutDialog::buttonClicked()
 {
-    if (ui->authorsButton->text() == tr("Authors and Contributors")) {
-        showAuthors();
-    }
-    else if (ui->authorsButton->text() == tr("< About QupZilla")) {
+    if (m_showingAuthors)
         showAbout();
-    }
+    else
+        showAuthors();
 }
 
 void AboutDialog::showAbout()
 {
+    m_showingAuthors = false;
     ui->authorsButton->setText(tr("Authors and Contributors"));
     if (m_aboutHtml.isEmpty()) {
         m_aboutHtml += "<center><div style='margin:10px;'>";
@@ -77,7 +77,7 @@ void AboutDialog::showAbout()
                        );
         m_aboutHtml += tr("<b>WebKit version %1</b></p>").arg(qWebKitVersion());
         m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(Qz::COPYRIGHT, Qz::AUTHOR);
-        m_aboutHtml += QString("<p><a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
+        m_aboutHtml += QString("<a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
         m_aboutHtml += "<p>" + (mApp->windowCount() > 0 ? mApp->getWindow()->weView()->page()->userAgentForUrl(QUrl()) : QString()) + "</p>";
         m_aboutHtml += "</div></center>";
     }
@@ -86,6 +86,7 @@ void AboutDialog::showAbout()
 
 void AboutDialog::showAuthors()
 {
+    m_showingAuthors = true;
     ui->authorsButton->setText(tr("< About QupZilla"));
     if (m_authorsHtml.isEmpty()) {
         m_authorsHtml += "<center><div style='margin:10px;'>";
