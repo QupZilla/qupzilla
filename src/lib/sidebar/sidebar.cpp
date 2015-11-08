@@ -56,7 +56,8 @@ void SideBar::setWidget(QWidget* widget)
         delete m_layout->itemAt(1)->widget();
     }
 
-    m_layout->addWidget(widget);
+    if (widget)
+        m_layout->addWidget(widget);
 }
 
 void SideBar::showBookmarks()
