@@ -195,7 +195,6 @@ SOURCES += \
     tools/frame.cpp \
     tools/headerview.cpp \
     tools/horizontallistwidget.cpp \
-    tools/htmlhighlighter.cpp \
     tools/html5permissions/html5permissionsdialog.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
@@ -206,7 +205,6 @@ SOURCES += \
     tools/mactoolbutton.cpp \
     tools/menubar.cpp \
     tools/pagethumbnailer.cpp \
-    tools/plaineditwithlines.cpp \
     tools/progressbar.cpp \
     tools/qzregexp.cpp \
     tools/qztools.cpp \
@@ -386,7 +384,6 @@ HEADERS  += \
     tools/frame.h \
     tools/headerview.h \
     tools/horizontallistwidget.h \
-    tools/htmlhighlighter.h \
     tools/html5permissions/html5permissionsdialog.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
@@ -397,7 +394,6 @@ HEADERS  += \
     tools/mactoolbutton.h \
     tools/menubar.h \
     tools/pagethumbnailer.h \
-    tools/plaineditwithlines.h \
     tools/progressbar.h \
     tools/qzregexp.h \
     tools/qztools.h \
