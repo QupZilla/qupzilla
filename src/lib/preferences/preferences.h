@@ -65,6 +65,7 @@ private slots:
     void openUserAgentManager();
     void openJsOptions();
     void openSearchEnginesManager();
+    void openSpellCheckSettings();
 
     void saveHistoryChanged(bool state);
     void allowHtml5storageChanged(bool state);

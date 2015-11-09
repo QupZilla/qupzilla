@@ -51,6 +51,10 @@
 #include "pac/pacmanager.h"
 #include "searchenginesdialog.h"
 
+#ifdef USE_HUNSPELL
+#include "qtwebkit/spellcheck/speller.h"
+#endif
+
 #include <QSettings>
 #include <QInputDialog>
 #include <QFileDialog>
@@ -491,6 +495,7 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
     connect(ui->uaManager, SIGNAL(clicked()), this, SLOT(openUserAgentManager()));
     connect(ui->jsOptionsButton, SIGNAL(clicked()), this, SLOT(openJsOptions()));
     connect(ui->searchEngines, SIGNAL(clicked()), this, SLOT(openSearchEnginesManager()));
+    connect(ui->spellCheckButton, SIGNAL(clicked()), this, SLOT(openSpellCheckSettings()));
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
@@ -515,6 +520,12 @@ Preferences::Preferences(BrowserWindow* window, QWidget* parent)
 
 #if QTWEBKIT_TO_2_2
     ui->html5permissions->setDisabled(true);
+#endif
+
+#ifndef USE_HUNSPELL
+    delete ui->spellCheckLabel;
+    delete ui->spellCheckButton;
+    delete ui->spellCheckLayout;
 #endif
 
     settings.beginGroup(QSL("Preferences"));
@@ -720,6 +731,13 @@ void Preferences::openSearchEnginesManager()
 {
     SearchEnginesDialog* dialog = new SearchEnginesDialog(this);
     dialog->open();
+}
+
+void Preferences::openSpellCheckSettings()
+{
+#ifdef USE_HUNSPELL
+    Speller::instance()->showSettings();
+#endif
 }
 
 void Preferences::showAcceptLanguage()

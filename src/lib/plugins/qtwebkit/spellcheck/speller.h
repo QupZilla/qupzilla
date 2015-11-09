@@ -69,6 +69,7 @@ public:
     static Speller* instance();
 
 public slots:
+    void showSettings();
     void populateLanguagesMenu();
     void toggleEnableSpellChecking();
 
@@ -76,7 +77,6 @@ private slots:
     void addToDictionary();
     void replaceWord();
 
-    void showSettings();
     void changeLanguage();
 
 private:
