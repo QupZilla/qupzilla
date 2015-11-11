@@ -241,12 +241,10 @@ void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
     if (window->isActiveWindow() || tabWidget->currentIndex() != tab) {
         tabWidget->setCurrentIndex(tab);
         window->show();
-        window->activateWindow();
-        window->raise();
     }
-    else {
-        window->weView()->setFocus();
-    }
+
+    window->activateWindow();
+    window->raise();
 }
 
 void LocationCompleter::loadUrl(const QUrl &url)
