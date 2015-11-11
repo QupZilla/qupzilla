@@ -389,12 +389,18 @@ void MainMenu::aboutToShowFileMenu()
 #ifndef Q_OS_MAC
     m_actions[QSL("File/CloseWindow")]->setEnabled(mApp->windowCount() > 1);
 #endif
+    QUrl url = m_window->weView()->url();
+    bool enable = !url.isEmpty() &&
+        (url.scheme() != QLatin1String("about")) &&
+        (url.scheme() != QLatin1String("qupzilla"));
+    m_actions[QSL("File/SavePageAs")]->setEnabled(enable);
     m_actions[QSL("File/WorkOffline")]->setChecked(qzSettings->workOffline);
 }
 
 void MainMenu::aboutToHideFileMenu()
 {
     m_actions[QSL("File/CloseWindow")]->setEnabled(true);
+    m_actions[QSL("File/SavePageAs")]->setEnabled(true);
 }
 
 void MainMenu::aboutToShowViewMenu()
