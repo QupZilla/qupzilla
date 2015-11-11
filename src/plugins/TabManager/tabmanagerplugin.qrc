@@ -7,6 +7,7 @@
         <file>data/tab-loading.png</file>
         <file>data/tab-pinned.png</file>
         <file>data/side-by-side.png</file>
+        <file>locale/bg_BG.qm</file>
         <file>locale/cs_CZ.qm</file>
         <file>locale/da_DK.qm</file>
         <file>locale/de_DE.qm</file>

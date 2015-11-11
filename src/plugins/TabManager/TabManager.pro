@@ -19,6 +19,7 @@ FORMS += \
     tabmanagersettings.ui
 
 TRANSLATIONS += \
+    translations/bg_BG.ts \
     translations/cs_CZ.ts \
     translations/da_DK.ts \
     translations/de_DE.ts \
