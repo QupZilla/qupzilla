@@ -22,6 +22,7 @@ span.close { %RIGHT_STR%: 1px; bottom: 1px; background: url(%IMG_CLOSE%) no-repe
 span.reload { %RIGHT_STR%: 1px; top: 1px; background: url(%IMG_RELOAD%) no-repeat; }
 span.edit:hover, span.close:hover, span.reload:hover { border-color: grey; border-radius: 5px; }
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload { display: inline; }
+div.entry:only-child .close { display: none; }
 #overlay-edit { width: 380px; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; background-color: #ffffff; border-radius: 7px; border: 1px solid rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.6); padding: 15px; padding-bottom: 0; }
 #overlay-edit img { display: block; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; max-width: 100%; max-height: auto; }
 #overlay-edit img[src*=".gif"] { width: 54px; height: 55px; }
