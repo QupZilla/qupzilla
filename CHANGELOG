@@ -1,3 +1,13 @@
+Version 1.8.9
+    * released 11 November 2015
+    * new QupZilla logo
+    * add button to open spellcheck settings in preferences
+    * remove gradient in toolbar of browsing library
+    * fix showing authors page in about dialog
+    * fix showing current tab in tabbar after restoring session
+    * fix searching for invalid one-word url strings from locationbar
+    * fix switch to tab from locationbar completer when it is the only tab in window
+
 Version 1.8.8
     * released 21 October 2015
     * added interface for extensions to show action in Tools menu
