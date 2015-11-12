@@ -55,6 +55,7 @@ DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downlo
     , m_validIcon(false)
     , m_downloading(false)
     , m_downloadStopped(false)
+    , m_currSpeed(0)
     , m_received(downloadItem->receivedBytes())
     , m_total(downloadItem->totalBytes())
 {
