@@ -115,8 +115,10 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     , m_isHtmlFullScreen(false)
     , m_hideNavigationTimer(0)
 {
-    setObjectName("mainwindow");
     setAttribute(Qt::WA_DeleteOnClose);
+    setAttribute(Qt::WA_DontCreateNativeAncestors);
+
+    setObjectName("mainwindow");
     setWindowTitle(tr("QupZilla"));
     setProperty("private", mApp->isPrivate());
 
