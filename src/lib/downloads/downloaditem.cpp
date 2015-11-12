@@ -55,6 +55,7 @@ DownloadItem::DownloadItem(QListWidgetItem* item, QNetworkReply* reply, const QS
     , m_downloading(false)
     , m_openAfterFinish(openAfterFinishedDownload)
     , m_downloadStopped(false)
+    , m_currSpeed(0)
     , m_received(0)
     , m_total(0)
 {
