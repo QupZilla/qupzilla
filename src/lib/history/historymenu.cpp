@@ -30,15 +30,6 @@
 #include <QWebEngineHistory>
 #include <QSqlQuery>
 
-static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallback, QKeySequence shortcutRTL, QKeySequence fallbackRTL)
-{
-    if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
-        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
-    }
-
-    return (shortcut.isEmpty() ? fallback : shortcut);
-}
-
 HistoryMenu::HistoryMenu(QWidget* parent)
     : Menu(parent)
 {
@@ -216,10 +207,10 @@ void HistoryMenu::init()
     setTitle(tr("Hi&story"));
 
     QAction* act = addAction(IconProvider::standardIcon(QStyle::SP_ArrowBack), tr("&Back"), this, SLOT(goBack()));
-    act->setShortcut(actionShortcut(QKeySequence::Back, Qt::ALT + Qt::Key_Left, QKeySequence::Forward, Qt::ALT + Qt::Key_Right));
+    act->setShortcut(QzTools::actionShortcut(QKeySequence::Back, Qt::ALT + Qt::Key_Left, QKeySequence::Forward, Qt::ALT + Qt::Key_Right));
 
     act = addAction(IconProvider::standardIcon(QStyle::SP_ArrowForward), tr("&Forward"), this, SLOT(goForward()));
-    act->setShortcut(actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
+    act->setShortcut(QzTools::actionShortcut(QKeySequence::Forward, Qt::ALT + Qt::Key_Right, QKeySequence::Back, Qt::ALT + Qt::Key_Left));
 
     act = addAction(QIcon::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()));
     act->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Home));

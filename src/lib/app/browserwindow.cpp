@@ -88,23 +88,6 @@
 #include <xcb/xcb_atom.h>
 #endif
 
-#ifdef Q_OS_WIN
-#include <windows.h>
-#ifndef WM_DWMCOMPOSITIONCHANGED
-#define WM_DWMCOMPOSITIONCHANGED 0x031E
-#endif
-#endif /* Q_OS_WIN */
-
-static QKeySequence actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRTL = QKeySequence(), QKeySequence fallbackRTL = QKeySequence())
-{
-    if (QApplication::isRightToLeft() && (!shortcutRTL.isEmpty() || !fallbackRTL.isEmpty())) {
-        return (shortcutRTL.isEmpty() ? fallbackRTL : shortcutRTL);
-    }
-    else {
-        return (shortcut.isEmpty() ? fallBack : shortcut);
-    }
-}
-
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     : QMainWindow(0)
     , m_startUrl(startUrl)
@@ -463,7 +446,7 @@ void BrowserWindow::loadSettings()
     settings.beginGroup("Web-Browser-Settings");
     QAction *quitAction = m_mainMenu->action(QSL("Standard/Quit"));
     if (settings.value("closeAppWithCtrlQ", true).toBool()) {
-        quitAction->setShortcut(actionShortcut(QKeySequence::Quit, QKeySequence(QSL("Ctrl+Q"))));
+        quitAction->setShortcut(QzTools::actionShortcut(QKeySequence::Quit, QKeySequence(QSL("Ctrl+Q"))));
     } else {
         quitAction->setShortcut(QKeySequence());
     }

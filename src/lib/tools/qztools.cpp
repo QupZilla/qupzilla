@@ -695,6 +695,14 @@ bool QzTools::matchDomain(const QString &pattern, const QString &domain)
     return index > 0 && domain[index - 1] == QLatin1Char('.');
 }
 
+QKeySequence QzTools::actionShortcut(QKeySequence shortcut, QKeySequence fallBack, QKeySequence shortcutRtl, QKeySequence fallbackRtl)
+{
+    if (QApplication::isRightToLeft() && (!shortcutRtl.isEmpty() || !fallbackRtl.isEmpty()))
+        return shortcutRtl.isEmpty() ? fallbackRtl : shortcutRtl;
+
+    return shortcut.isEmpty() ? fallBack : shortcut;
+}
+
 static inline bool isQuote(const QChar &c)
 {
     return (c == QLatin1Char('"') || c == QLatin1Char('\''));
