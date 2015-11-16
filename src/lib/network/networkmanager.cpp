@@ -358,6 +358,7 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
     }
 
     if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
         return;
     }
 
@@ -374,6 +375,8 @@ void NetworkManager::authentication(QNetworkReply* reply, QAuthenticator* auth)
             fill->addEntry(reply->url(), user->text(), pass->text());
         }
     }
+
+    delete dialog;
 }
 
 void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
@@ -449,6 +452,7 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
             ftp->abort();
             ftp->close();
         }
+        delete dialog;
         return;
     }
 
@@ -460,6 +464,8 @@ void NetworkManager::ftpAuthentication(const QUrl &url, QAuthenticator* auth)
         auth->setUser(QString());
         auth->setPassword(QString());
     }
+
+    delete dialog;
 }
 
 void NetworkManager::proxyAuthentication(const QNetworkProxy &proxy, QAuthenticator* auth)
