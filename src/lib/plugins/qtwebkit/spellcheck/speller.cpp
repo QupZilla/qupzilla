@@ -254,9 +254,9 @@ void Speller::replaceWord()
     }
 }
 
-void Speller::showSettings()
+void Speller::showSettings(QWidget *parent)
 {
-    SpellCheckDialog dialog;
+    SpellCheckDialog dialog(parent);
 
     if (dialog.exec() == QDialog::Accepted) {
         loadSettings();

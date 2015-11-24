@@ -736,7 +736,7 @@ void Preferences::openSearchEnginesManager()
 void Preferences::openSpellCheckSettings()
 {
 #ifdef USE_HUNSPELL
-    Speller::instance()->showSettings();
+    Speller::instance()->showSettings(this);
 #endif
 }
 

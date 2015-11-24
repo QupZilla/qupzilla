@@ -69,7 +69,7 @@ public:
     static Speller* instance();
 
 public slots:
-    void showSettings();
+    void showSettings(QWidget *parent = 0);
     void populateLanguagesMenu();
     void toggleEnableSpellChecking();
 
