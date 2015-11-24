@@ -131,10 +131,12 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
     Q_ASSERT(index.isValid());
 
     const QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
-    const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
+
+    bool ok;
+    const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt(&ok);
 
     // Switch to tab with simple index activation
-    if (tabPos > -1) {
+    if (ok && tabPos > -1) {
         BrowserWindow* window = static_cast<BrowserWindow*>(index.data(LocationCompleterModel::TabPositionWindowRole).value<void*>());
         Q_ASSERT(window);
         switchToTab(window, tabPos);
