@@ -20,7 +20,6 @@
 
 #include <QDebug>
 #include <QFlags>
-#include <QString>
 
 #ifdef QUPZILLA_SHAREDLIBRARY
 #define QUPZILLA_EXPORT Q_DECL_EXPORT
