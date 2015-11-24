@@ -38,10 +38,10 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
     ui->table->setLayoutDirection(Qt::LeftToRight);
 
     const QString os = QzTools::operatingSystem();
-    m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.14").arg(os)
-                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36").arg(os)
-                      << QString("Mozilla/5.0 (%1) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0.6 Safari/536.26").arg(os)
-                      << QString("Mozilla/5.0 (%1; rv:24.0) Gecko/20131101 Firefox/24.1.0").arg(os);
+    m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.16").arg(os)
+                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36").arg(os)
+                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.51.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A").arg(os)
+                      << QString("Mozilla/5.0 (%1; rv:42.0) Gecko/20100101 Firefox/42.0").arg(os);
 
     ui->globalComboBox->addItems(m_knownUserAgents);
 
