@@ -128,16 +128,16 @@ void PacManager::reloadScript()
 
 QList<QNetworkProxy> PacManager::parseProxies(const QString &string)
 {
+    QString str = string.trimmed();
     QList<QNetworkProxy> proxies;
-    string.trimmed();
 
-    if (string.isEmpty()) {
+    if (str.isEmpty()) {
         return proxies;
     }
 
-    QStringList parts = string.split(QLatin1Char(';'), QString::SkipEmptyParts);
+    QStringList parts = str.split(QLatin1Char(';'), QString::SkipEmptyParts);
     if (parts.isEmpty()) {
-        parts.append(string);
+        parts.append(str);
     }
 
     foreach (const QString &s, parts) {
