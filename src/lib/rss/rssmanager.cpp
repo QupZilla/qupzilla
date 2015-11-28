@@ -165,7 +165,7 @@ void RSSManager::addFeed()
         return;
     }
 
-    addRssFeed(url, tr("New feed"), IconProvider::iconForUrl(url));
+    addRssFeed(this, url, tr("New feed"), IconProvider::iconForUrl(url));
     refreshTable();
 }
 
@@ -386,7 +386,7 @@ void RSSManager::finished()
     }
 }
 
-bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &icon)
+bool RSSManager::addRssFeed(QWidget* parent, const QUrl &url, const QString &title, const QIcon &icon)
 {
     if (url.isEmpty()) {
         return false;
@@ -415,7 +415,7 @@ bool RSSManager::addRssFeed(const QUrl &url, const QString &title, const QIcon &
         return true;
     }
 
-    QMessageBox::warning(getQupZilla(), tr("RSS feed duplicated"), tr("You already have this feed."));
+    QMessageBox::warning(parent, tr("RSS feed duplicated"), tr("You already have this feed."));
     return false;
 }
 

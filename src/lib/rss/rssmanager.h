@@ -47,7 +47,7 @@ public:
     explicit RSSManager(BrowserWindow* window, QWidget* parent = 0);
     ~RSSManager();
 
-    bool addRssFeed(const QUrl &url, const QString &title, const QIcon &icon);
+    bool addRssFeed(QWidget* parent, const QUrl &url, const QString &title, const QIcon &icon);
     void setMainWindow(BrowserWindow* window);
 
 public slots:
