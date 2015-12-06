@@ -112,7 +112,7 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, int timeout)
 {
     QPointer<QEventLoop> loop = new QEventLoop;
     QVariant result;
-    QTimer::singleShot(timeout, loop, &QEventLoop::quit);
+    QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
 
     runJavaScript(scriptSource, [loop, &result](const QVariant &res) {
         if (loop && loop->isRunning()) {
