@@ -583,8 +583,10 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     case QWebEnginePage::WebBrowserWindow:
         // WebBrowserWindow is only called after Shift+LeftClick on link, but we handle
         // this case ourselves, so it should never be called.
+        // There is currently one case where it will be called, and that is when Shift+LeftClick
+        // on a link in a frame because WebHitTestResult doesn't work with frames yet.
         qWarning() << "Asked to created WebBrowserWindow!";
-        Q_UNREACHABLE();
+        break;
 
     case QWebEnginePage::WebBrowserTab: {
         int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
@@ -603,6 +605,8 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     }
 
     default:
-        return 0;
+        break;
     }
+
+    return Q_NULLPTR;
 }
