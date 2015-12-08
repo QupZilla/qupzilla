@@ -54,7 +54,6 @@
 #include <QWebChannel>
 #include <QWebEngineHistory>
 #include <QWebEngineSettings>
-#include <QWebEngineFullScreenRequest>
 #include <QTimer>
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -317,7 +316,7 @@ void WebPage::windowCloseRequested()
     view()->closeView();
 }
 
-void WebPage::fullScreenRequested(const QWebEngineFullScreenRequest &fullScreenRequest)
+void WebPage::fullScreenRequested(QWebEngineFullScreenRequest fullScreenRequest)
 {
     view()->requestFullScreen(fullScreenRequest.toggleOn());
 

@@ -19,6 +19,7 @@
 #define WEBPAGE_H
 
 #include <QWebEnginePage>
+#include <QWebEngineFullScreenRequest>
 #include <QVector>
 
 #include "qzcommon.h"
@@ -74,7 +75,7 @@ private slots:
     void urlChanged(const QUrl &url);
     void watchedFileChanged(const QString &file);
     void windowCloseRequested();
-    void fullScreenRequested(const QWebEngineFullScreenRequest &fullScreenRequest);
+    void fullScreenRequested(QWebEngineFullScreenRequest fullScreenRequest);
     void featurePermissionRequested(const QUrl &origin, const QWebEnginePage::Feature &feature);
     void renderProcessTerminated(RenderProcessTerminationStatus terminationStatus, int exitCode);
 
