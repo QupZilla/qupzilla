@@ -842,7 +842,7 @@ void WebView::checkForForm(QAction *action, const QPoint &pos)
             act->setVisible(true);
             act->setIcon(QIcon(QSL(":icons/menu/search-icon.png")));
             act->setText(tr("Create Search Engine"));
-            connect(act, &QAction::triggered, this, &WebView::createSearchEngine);
+            connect(act.data(), &QAction::triggered, this, &WebView::createSearchEngine);
         }
     });
 }
