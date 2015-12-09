@@ -1,6 +1,6 @@
 include(../defines.pri)
 
-QT += webenginewidgets network widgets sql script
+QT += webenginecore webenginewidgets network widgets sql script
 
 TARGET = qupzilla
 mac: TARGET = QupZilla

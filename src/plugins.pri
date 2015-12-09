@@ -33,7 +33,7 @@ TEMPLATE = lib
 CONFIG += plugin
 DESTDIR = $$QZ_DESTDIR/plugins/
 
-QT *= webenginewidgets network
+QT *= webenginecore webenginewidgets network
 
 CONFIG += c++11
 
