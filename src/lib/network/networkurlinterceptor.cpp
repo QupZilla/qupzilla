@@ -26,21 +26,14 @@ NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
 {
 }
 
-bool NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
+void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-    bool result = false;
-
-    if (m_sendDNT) {
-        result = true;
-        info.setExtraHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
-    }
+    if (m_sendDNT)
+        info.setHttpHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
 
     foreach (UrlInterceptor *interceptor, m_interceptors) {
-        if (interceptor->interceptRequest(info))
-            result = true;
+        interceptor->interceptRequest(info);
     }
-
-    return result;
 }
 
 void NetworkUrlInterceptor::installUrlInterceptor(UrlInterceptor *interceptor)

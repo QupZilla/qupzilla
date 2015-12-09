@@ -20,7 +20,7 @@
 
 #include <QFile>
 #include <QStringList>
-#include <QWebEngineCookieStoreClient>
+#include <QWebEngineCookieStore>
 
 #include "qzcommon.h"
 
@@ -58,7 +58,7 @@ private:
 
     QStringList m_whitelist;
     QStringList m_blacklist;
-    QWebEngineCookieStoreClient *m_client;
+    QWebEngineCookieStore *m_client;
 };
 
 #endif // COOKIEJAR_H

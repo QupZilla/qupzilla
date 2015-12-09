@@ -28,7 +28,7 @@ class GM_UrlInterceptor : public UrlInterceptor
 public:
     explicit GM_UrlInterceptor(GM_Manager* manager);
 
-    bool interceptRequest(QWebEngineUrlRequestInfo &info);
+    void interceptRequest(QWebEngineUrlRequestInfo &info);
 
 private:
     GM_Manager *m_manager;

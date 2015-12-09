@@ -31,16 +31,15 @@
 
 CookieJar::CookieJar(QObject* parent)
     : QObject(parent)
-    , m_client(mApp->webProfile()->cookieStoreClient())
+    , m_client(mApp->webProfile()->cookieStore())
 {
     loadSettings();
 
-    connect(m_client, &QWebEngineCookieStoreClient::cookieAdded, this, &CookieJar::cookieAdded);
-    connect(m_client, &QWebEngineCookieStoreClient::cookieRemoved, this, &CookieJar::cookieRemoved);
+    connect(m_client, &QWebEngineCookieStore::cookieAdded, this, &CookieJar::cookieAdded);
+    connect(m_client, &QWebEngineCookieStore::cookieRemoved, this, &CookieJar::cookieRemoved);
 
-    m_client->setCookieFilter([this](const QWebEngineCookieStoreClient::FilterRequest &req) {
-        QWebEngineCookieStoreClient::FilterRequest &r = const_cast<QWebEngineCookieStoreClient::FilterRequest&>(req);
-        r.accepted = acceptCookie(r.firstPartyUrl, r.cookieLine, r.cookieSource);
+    m_client->setCookieFilter([this](QWebEngineCookieStore::FilterRequest &req) {
+        req.accepted = acceptCookie(req.firstPartyUrl, req.cookieLine, req.cookieSource);
     });
 }
 

@@ -29,7 +29,7 @@ class QUPZILLA_EXPORT AdBlockUrlInterceptor : public UrlInterceptor
 public:
     explicit AdBlockUrlInterceptor(AdBlockManager* manager);
 
-    bool interceptRequest(QWebEngineUrlRequestInfo &info);
+    void interceptRequest(QWebEngineUrlRequestInfo &info);
 
 private:
     AdBlockManager *m_manager;

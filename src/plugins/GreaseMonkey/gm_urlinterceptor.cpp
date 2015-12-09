@@ -24,14 +24,11 @@ GM_UrlInterceptor::GM_UrlInterceptor(GM_Manager *manager)
 {
 }
 
-bool GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
+void GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
     if (info.requestUrl().toString().endsWith(QLatin1String(".user.js"))) {
         m_manager->downloadScript(info.requestUrl());
         info.block(true);
-        return true;
     }
-
-    return false;
 }
 

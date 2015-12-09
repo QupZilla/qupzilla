@@ -26,7 +26,7 @@ class UrlInterceptor : public QObject
 {
 public:
     explicit UrlInterceptor(QObject *parent = Q_NULLPTR) : QObject(parent) { }
-    virtual bool interceptRequest(QWebEngineUrlRequestInfo &info) = 0;
+    virtual void interceptRequest(QWebEngineUrlRequestInfo &info) = 0;
 };
 
 #endif // URLINTERCEPTOR_H

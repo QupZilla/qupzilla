@@ -30,7 +30,7 @@ class QUPZILLA_EXPORT NetworkUrlInterceptor : public QWebEngineUrlRequestInterce
 public:
     explicit NetworkUrlInterceptor(QObject* parent = Q_NULLPTR);
 
-    bool interceptRequest(QWebEngineUrlRequestInfo &info);
+    void interceptRequest(QWebEngineUrlRequestInfo &info) Q_DECL_OVERRIDE;
 
     void installUrlInterceptor(UrlInterceptor *interceptor);
     void removeUrlInterceptor(UrlInterceptor *interceptor);
