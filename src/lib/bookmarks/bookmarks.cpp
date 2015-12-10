@@ -49,12 +49,18 @@ void Bookmarks::loadSettings()
     Settings settings;
     settings.beginGroup("Bookmarks");
     m_showOnlyIconsInToolbar = settings.value("showOnlyIconsInToolbar", false).toBool();
+    m_showOnlyTextInToolbar = settings.value("showOnlyTextInToolbar", false).toBool();
     settings.endGroup();
 }
 
 bool Bookmarks::showOnlyIconsInToolbar() const
 {
     return m_showOnlyIconsInToolbar;
+}
+
+bool Bookmarks::showOnlyTextInToolbar() const
+{
+    return m_showOnlyTextInToolbar;
 }
 
 BookmarkItem* Bookmarks::rootItem() const
@@ -174,11 +180,18 @@ void Bookmarks::setShowOnlyIconsInToolbar(bool state)
     emit showOnlyIconsInToolbarChanged(state);
 }
 
+void Bookmarks::setShowOnlyTextInToolbar(bool state)
+{
+    m_showOnlyTextInToolbar = state;
+    emit showOnlyTextInToolbarChanged(state);
+}
+
 void Bookmarks::saveSettings()
 {
     Settings settings;
     settings.beginGroup("Bookmarks");
     settings.setValue("showOnlyIconsInToolbar", m_showOnlyIconsInToolbar);
+    settings.setValue("showOnlyTextInToolbar", m_showOnlyTextInToolbar);
     settings.endGroup();
 
     saveBookmarks();

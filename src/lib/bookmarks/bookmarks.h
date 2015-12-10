@@ -39,6 +39,7 @@ public:
     void loadSettings();
 
     bool showOnlyIconsInToolbar() const;
+    bool showOnlyTextInToolbar() const;
 
     BookmarkItem* rootItem() const;
     BookmarkItem* toolbarFolder() const;
@@ -65,6 +66,7 @@ public:
 
 public slots:
     void setShowOnlyIconsInToolbar(bool state);
+    void setShowOnlyTextInToolbar(bool state);
 
 signals:
     // Item was added to bookmarks
@@ -75,6 +77,7 @@ signals:
     void bookmarkChanged(BookmarkItem* item);
 
     void showOnlyIconsInToolbarChanged(bool show);
+    void showOnlyTextInToolbarChanged(bool show);
 
 private slots:
     void saveSettings();
@@ -102,6 +105,7 @@ private:
     AutoSaver* m_autoSaver;
 
     bool m_showOnlyIconsInToolbar;
+    bool m_showOnlyTextInToolbar;
 };
 
 #endif // BOOKMARKS_H
