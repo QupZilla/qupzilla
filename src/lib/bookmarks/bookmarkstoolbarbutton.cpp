@@ -61,9 +61,24 @@ void BookmarksToolbarButton::setShowOnlyIcon(bool show)
     updateGeometry();
 }
 
+bool BookmarksToolbarButton::showOnlyText() const
+{
+    return m_showOnlyText;
+}
+
+void BookmarksToolbarButton::setShowOnlyText(bool show)
+{
+    m_showOnlyText = show;
+    updateGeometry();
+    update();
+}
+
 QSize BookmarksToolbarButton::sizeHint() const
 {
-    int width = PADDING * 2 + 16;
+    int width = PADDING * 2;
+    if (!m_showOnlyText) {
+        width += 16;
+    }
 
     if (m_bookmark->isSeparator()) {
         width = SEPARATOR_WIDTH;
@@ -81,7 +96,10 @@ QSize BookmarksToolbarButton::sizeHint() const
 
 QSize BookmarksToolbarButton::minimumSizeHint() const
 {
-    int width = PADDING * 2 + 16;
+    int width = PADDING * 2;
+    if (!m_showOnlyText) {
+        width += 16;
+    }
 
     if (m_bookmark->isSeparator()) {
         width = SEPARATOR_WIDTH;
@@ -310,9 +328,11 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     int rightPosition = option.rect.right() - PADDING;
 
     // Draw icon
-    QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    p.drawPixmap(iconRect, m_bookmark->icon().pixmap(iconSize));
-    leftPosition = iconRect.right() + PADDING;
+    if (!m_showOnlyText) {
+        QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
+        p.drawPixmap(iconRect, m_bookmark->icon().pixmap(iconSize));
+        leftPosition = iconRect.right() + PADDING;
+    }
 
     // Draw menu arrow
     if (!m_showOnlyIcon && menu()) {
