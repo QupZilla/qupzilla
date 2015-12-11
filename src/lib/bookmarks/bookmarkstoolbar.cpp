@@ -56,6 +56,7 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
     connect(m_bookmarks, SIGNAL(bookmarkRemoved(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(m_bookmarks, SIGNAL(bookmarkChanged(BookmarkItem*)), this, SLOT(bookmarksChanged()));
     connect(m_bookmarks, SIGNAL(showOnlyIconsInToolbarChanged(bool)), this, SLOT(showOnlyIconsChanged(bool)));
+    connect(m_bookmarks, SIGNAL(showOnlyTextInToolbarChanged(bool)), this, SLOT(showOnlyTextChanged(bool)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
     refresh();
@@ -72,10 +73,14 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     menu.addSeparator();
     QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
     menu.addSeparator();
-    QAction* act = menu.addAction(tr("Show Only Icons"));
-    act->setCheckable(true);
-    act->setChecked(m_bookmarks->showOnlyIconsInToolbar());
-    connect(act, SIGNAL(toggled(bool)), m_bookmarks, SLOT(setShowOnlyIconsInToolbar(bool)));
+    m_actShowOnlyIcons = menu.addAction(tr("Show Only Icons"));
+    m_actShowOnlyIcons->setCheckable(true);
+    m_actShowOnlyIcons->setChecked(m_bookmarks->showOnlyIconsInToolbar());
+    connect(m_actShowOnlyIcons, SIGNAL(toggled(bool)), m_bookmarks, SLOT(setShowOnlyIconsInToolbar(bool)));
+    m_actShowOnlyText = menu.addAction(tr("Show Only Text"));
+    m_actShowOnlyText->setCheckable(true);
+    m_actShowOnlyText->setChecked(m_bookmarks->showOnlyTextInToolbar());
+    connect(m_actShowOnlyText, SIGNAL(toggled(bool)), m_bookmarks, SLOT(setShowOnlyTextInToolbar(bool)));
 
     connect(actNewTab, SIGNAL(triggered()), this, SLOT(openBookmarkInNewTab()));
     connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
@@ -93,6 +98,8 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     }
 
     m_clickedBookmark = 0;
+    m_actShowOnlyIcons = 0;
+    m_actShowOnlyText = 0;
 }
 
 void BookmarksToolbar::refresh()
@@ -115,10 +122,28 @@ void BookmarksToolbar::bookmarksChanged()
 
 void BookmarksToolbar::showOnlyIconsChanged(bool state)
 {
+    if (state && m_actShowOnlyText) {
+        m_actShowOnlyText->setChecked(false);
+    }
+
     for (int i = 0; i < m_layout->count(); ++i) {
         BookmarksToolbarButton* b = qobject_cast<BookmarksToolbarButton*>(m_layout->itemAt(i)->widget());
         if (b) {
             b->setShowOnlyIcon(state);
+        }
+    }
+}
+
+void BookmarksToolbar::showOnlyTextChanged(bool state)
+{
+    if (state && m_actShowOnlyIcons) {
+        m_actShowOnlyIcons->setChecked(false);
+    }
+
+    for (int i = 0; i < m_layout->count(); ++i) {
+        BookmarksToolbarButton* b = qobject_cast<BookmarksToolbarButton*>(m_layout->itemAt(i)->widget());
+        if (b) {
+            b->setShowOnlyText(state);
         }
     }
 }
@@ -164,6 +189,7 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
     BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
     button->setMainWindow(m_window);
     button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
+    button->setShowOnlyIcon(m_bookmarks->showOnlyTextInToolbar());
     m_layout->addWidget(button);
 
     setFixedHeight(m_layout->spacing() * 2 + button->preferredHeight());

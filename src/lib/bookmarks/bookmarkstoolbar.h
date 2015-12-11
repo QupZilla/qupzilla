@@ -42,6 +42,7 @@ private slots:
     void refresh();
     void bookmarksChanged();
     void showOnlyIconsChanged(bool state);
+    void showOnlyTextChanged(bool state);
 
     void openBookmarkInNewTab();
     void openBookmarkInNewWindow();
@@ -60,6 +61,8 @@ private:
     BookmarkItem* m_clickedBookmark;
     QHBoxLayout* m_layout;
     QTimer* m_updateTimer;
+    QAction* m_actShowOnlyIcons;
+    QAction* m_actShowOnlyText;
 };
 
 #endif // BOOKMARKSTOOLBAR_H
