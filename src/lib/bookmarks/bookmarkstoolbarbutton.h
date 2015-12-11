@@ -39,6 +39,9 @@ public:
     bool showOnlyIcon() const;
     void setShowOnlyIcon(bool show);
 
+    bool showOnlyText() const;
+    void setShowOnlyText(bool show);
+
     QSize sizeHint() const;
     QSize minimumSizeHint() const;
     int preferredHeight() const;
@@ -70,6 +73,7 @@ private:
     BrowserWindow* m_window;
 
     bool m_showOnlyIcon;
+    bool m_showOnlyText;
 };
 
 #endif // BOOKMARKSTOOLBARBUTTON_H
