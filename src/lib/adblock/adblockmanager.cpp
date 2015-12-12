@@ -147,7 +147,7 @@ void AdBlockManager::removeDisabledRule(const QString &filter)
 
 bool AdBlockManager::addSubscriptionFromUrl(const QUrl &url)
 {
-    const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems();
+    const QList<QPair<QString, QString> > queryItems = QUrlQuery(url).queryItems(QUrl::FullyDecoded);
 
     QString subscriptionTitle;
     QString subscriptionUrl;
