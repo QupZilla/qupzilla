@@ -682,6 +682,7 @@ void TabWidget::restoreClosedTab(QObject* obj)
 
     int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
     WebTab* webTab = weTab(index);
+    webTab->setZoomLevel(tab.zoomLevel);
     webTab->p_restoreTab(tab.url, tab.history);
 
     updateClosedTabsButton();
