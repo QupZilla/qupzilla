@@ -45,6 +45,7 @@ public:
         QIcon icon;
         QByteArray history;
         bool isPinned;
+        int zoomLevel;
 
         SavedTab();
         SavedTab(WebTab* webTab);
@@ -66,6 +67,8 @@ public:
     QString title() const;
     QIcon icon() const;
     QWebEngineHistory* history() const;
+    int zoomLevel() const;
+    void setZoomLevel(int level);
 
     void detach();
     void attach(BrowserWindow* window);
