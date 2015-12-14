@@ -35,6 +35,7 @@ public:
         QIcon icon;
         QByteArray history;
         int position;
+        int zoomLevel;
 
         bool operator==(const Tab &a) const {
             return (a.url == url &&

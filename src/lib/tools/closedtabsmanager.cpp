@@ -44,6 +44,7 @@ void ClosedTabsManager::saveTab(WebTab* tab, int position)
     closedTab.icon = tab->icon();
     closedTab.position = position;
     closedTab.history = tab->historyData();
+    closedTab.zoomLevel = tab->zoomLevel();
 
     m_closedTabs.prepend(closedTab);
 }
