@@ -214,6 +214,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     bool openFile = false;
 
     QString fileName = QFileInfo(downloadItem->path()).fileName();
+    fileName = QUrl::fromPercentEncoding(fileName.toUtf8());
 
     if (m_downloadPath.isEmpty()) {
         // Ask what to do
