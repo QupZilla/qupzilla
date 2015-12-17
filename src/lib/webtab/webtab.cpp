@@ -36,10 +36,11 @@
 #include <QSplitter>
 
 bool WebTab::s_pinningTab = false;
-static const int savedTabVersion = 2;
+static const int savedTabVersion = 3;
 
 WebTab::SavedTab::SavedTab()
     : isPinned(false)
+    , zoomLevel(qzSettings->defaultZoomLevel)
 {
 }
 
@@ -48,9 +49,9 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
     title = webTab->title();
     url = webTab->url();
     icon = webTab->icon();
-    zoomLevel = webTab->zoomLevel();
     history = webTab->historyData();
     isPinned = webTab->isPinned();
+    zoomLevel = webTab->zoomLevel();
 }
 
 bool WebTab::SavedTab::isValid() const
@@ -65,6 +66,7 @@ void WebTab::SavedTab::clear()
     icon = QIcon();
     history.clear();
     isPinned = false;
+    zoomLevel = qzSettings->defaultZoomLevel;
 }
 
 QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
@@ -74,8 +76,8 @@ QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
     stream << tab.url;
     stream << tab.icon.pixmap(16);
     stream << tab.history;
-    stream << tab.zoomLevel;
     stream << tab.isPinned;
+    stream << tab.zoomLevel;
 
     return stream;
 }
@@ -93,10 +95,12 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     stream >> tab.url;
     stream >> pixmap;
     stream >> tab.history;
-    stream >> tab.zoomLevel;
 
     if (version >= 2)
         stream >> tab.isPinned;
+
+    if (version >= 3)
+        stream >> tab.zoomLevel;
 
     tab.icon = QIcon(pixmap);
 
