@@ -256,7 +256,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 
     // Create download item
     QListWidgetItem* listItem = new QListWidgetItem(ui->list);
-    DownloadItem* downItem = new DownloadItem(listItem, downloadItem, QFileInfo(downloadPath).absolutePath(), fileName, openFile, this);
+    DownloadItem* downItem = new DownloadItem(listItem, downloadItem, QFileInfo(downloadPath).absolutePath(), QFileInfo(downloadPath).fileName(), openFile, this);
     connect(downItem, SIGNAL(deleteItem(DownloadItem*)), this, SLOT(deleteItem(DownloadItem*)));
     connect(downItem, SIGNAL(downloadFinished(bool)), this, SLOT(downloadFinished(bool)));
     ui->list->setItemWidget(listItem, downItem);
