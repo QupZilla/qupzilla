@@ -728,6 +728,12 @@ void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTes
     connect(act, SIGNAL(ctrlTriggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
+    QUrl imageSearchUrl("https://www.google.com/searchbyimage?site=search&image_url=" + act->data().toString());
+    Action* gsact = new Action(tr("Search &Google for image"));
+    gsact->setData(imageSearchUrl);
+    connect(gsact, SIGNAL(triggered()), this, SLOT(openUrlInSelectedTab()));
+    connect(gsact, SIGNAL(ctrlTriggered()), this, SLOT(openUrlInBackgroundTab()));
+    menu->addAction(gsact);
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()));
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
