@@ -37,7 +37,6 @@
 #include "opensearchengine.h"
 #include "qzregexp.h"
 #include "opensearchenginedelegate.h"
-#include "json.h"
 
 #include <qbuffer.h>
 #include <qcoreapplication.h>
@@ -48,6 +47,7 @@
 #include <qstringlist.h>
 
 #include <QUrlQuery>
+#include <QJsonDocument>
 
 
 /*!
@@ -617,17 +617,17 @@ void OpenSearchEngine::requestSearchResults(const QString &searchTerm)
 
 void OpenSearchEngine::suggestionsObtained()
 {
-    QString response(QString::fromUtf8(m_suggestionsReply->readAll()));
-    response = response.trimmed();
+    const QByteArray response = m_suggestionsReply->readAll();
 
     m_suggestionsReply->close();
     m_suggestionsReply->deleteLater();
     m_suggestionsReply = 0;
 
-    Json json;
-    const QVariant res = json.parse(response);
+    QJsonParseError err;
+    QJsonDocument json = QJsonDocument::fromJson(response);
+    const QVariant res = json.toVariant();
 
-    if (!json.ok() || res.type() != QVariant::Map)
+    if (err.error != QJsonParseError::NoError || res.type() != QVariant::Map)
         return;
 
     const QVariantList list = res.toMap().value(QSL("1")).toList();

@@ -18,7 +18,6 @@
 #include "networkproxyfactory.h"
 #include "mainapplication.h"
 #include "settings.h"
-#include "pac/pacmanager.h"
 
 WildcardMatcher::WildcardMatcher(const QString &pattern)
     : m_regExp(0)
@@ -62,7 +61,6 @@ bool WildcardMatcher::match(const QString &str) const
 
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
-    , m_pacManager(new PacManager)
     , m_proxyPreference(SystemProxy)
     , m_proxyType(QNetworkProxy::HttpProxy)
     , m_port(0)
@@ -98,13 +96,6 @@ void NetworkProxyFactory::loadSettings()
     foreach (const QString &exception, exceptions) {
         m_proxyExceptions.append(new WildcardMatcher(exception.trimmed()));
     }
-
-    m_pacManager->loadSettings();
-}
-
-PacManager* NetworkProxyFactory::pacManager() const
-{
-    return m_pacManager;
 }
 
 NetworkProxyFactory::ProxyPreference NetworkProxyFactory::proxyPreference() const
@@ -135,7 +126,7 @@ QList<QNetworkProxy> NetworkProxyFactory::queryProxy(const QNetworkProxyQuery &q
         break;
 
     case ProxyAutoConfig:
-        proxyList.append(m_pacManager->queryProxy(query.url()));
+        qWarning() << "PAC Not Implemented!";
         break;
 
     case DefinedProxy: {

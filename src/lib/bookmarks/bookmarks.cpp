@@ -23,9 +23,9 @@
 #include "datapaths.h"
 #include "settings.h"
 #include "qztools.h"
-#include "json.h"
 
 #include <QFile>
+#include <QJsonDocument>
 
 Bookmarks::Bookmarks(QObject* parent)
     : QObject(parent)
@@ -231,15 +231,11 @@ void Bookmarks::loadBookmarks()
     const QString bookmarksFile = DataPaths::currentProfilePath() + QLatin1String("/bookmarks.json");
     const QString backupFile = bookmarksFile + QLatin1String(".old");
 
-    QFile file(bookmarksFile);
-    file.open(QFile::ReadOnly);
-    QByteArray data = file.readAll();
-    file.close();
+    QJsonParseError err;
+    QJsonDocument json = QJsonDocument::fromJson(QzTools::readAllFileByteContents(bookmarksFile), &err);
+    const QVariant res = json.toVariant();
 
-    Json json;
-    const QVariant res = json.parse(QString::fromUtf8(data));
-
-    if (!json.ok() || res.type() != QVariant::Map) {
+    if (err.error != QJsonParseError::NoError || res.type() != QVariant::Map) {
         qWarning() << "Bookmarks::init() Error parsing bookmarks! Using default bookmarks!";
         qWarning() << "Bookmarks::init() Your bookmarks have been backed up in" << backupFile;
 
@@ -248,9 +244,10 @@ void Bookmarks::loadBookmarks()
         QFile::copy(bookmarksFile, backupFile);
 
         // Load default bookmarks
-        const QVariant data = json.parse(QzTools::readAllFileContents(":data/bookmarks.json"));
+        json = QJsonDocument::fromJson(QzTools::readAllFileByteContents(QSL(":data/bookmarks.json")), &err);
+        const QVariant data = json.toVariant();
 
-        Q_ASSERT(json.ok());
+        Q_ASSERT(err.error == QJsonParseError::NoError);
         Q_ASSERT(data.type() == QVariant::Map);
 
         loadBookmarksFromMap(data.toMap().value("roots").toMap());
@@ -286,10 +283,10 @@ void Bookmarks::saveBookmarks()
     map.insert("version", Qz::bookmarksVersion);
     map.insert("roots", bookmarksMap);
 
-    Json json;
-    const QString data = json.serialize(map);
+    const QJsonDocument json = QJsonDocument::fromVariant(map);
+    const QByteArray data = json.toJson();
 
-    if (!json.ok() || data.isEmpty()) {
+    if (data.isEmpty()) {
         qWarning() << "Bookmarks::saveBookmarks() Error serializing bookmarks!";
         return;
     }
@@ -300,7 +297,7 @@ void Bookmarks::saveBookmarks()
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";
     }
 
-    file.write(data.toUtf8());
+    file.write(data);
     file.close();
 }
 

@@ -1,4 +1,4 @@
-QT += webenginecore webenginewidgets webchannel network widgets sql script quickwidgets
+QT += webenginecore webenginewidgets webchannel network widgets sql quickwidgets
 
 TARGET = QupZilla
 TEMPLATE = lib
@@ -128,8 +128,6 @@ SOURCES += \
     network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
     network/networkurlinterceptor.cpp \
-    network/pac/pacmanager.cpp \
-    network/pac/proxyautoconfig.cpp \
     #network/schemehandlers/fileschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
@@ -200,7 +198,6 @@ SOURCES += \
     tools/html5permissions/html5permissionsnotification.cpp \
     tools/iconfetcher.cpp \
     tools/iconprovider.cpp \
-    tools/json.cpp \
     tools/listitemdelegate.cpp \
     tools/mactoolbutton.cpp \
     tools/menubar.cpp \
@@ -313,9 +310,6 @@ HEADERS  += \
     network/networkmanager.h \
     network/networkproxyfactory.h \
     network/networkurlinterceptor.h \
-    network/pac/pacdatetime.h \
-    network/pac/pacmanager.h \
-    network/pac/proxyautoconfig.h \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/urlinterceptor.h \
@@ -389,7 +383,6 @@ HEADERS  += \
     tools/html5permissions/html5permissionsnotification.h \
     tools/iconfetcher.h \
     tools/iconprovider.h \
-    tools/json.h \
     tools/listitemdelegate.h \
     tools/mactoolbutton.h \
     tools/menubar.h \

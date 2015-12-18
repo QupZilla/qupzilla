@@ -24,8 +24,6 @@
 #include "qzcommon.h"
 #include "qzregexp.h"
 
-class PacManager;
-
 class WildcardMatcher
 {
 public:
@@ -52,14 +50,11 @@ public:
 
     void loadSettings();
 
-    PacManager* pacManager() const;
     ProxyPreference proxyPreference() const;
 
     QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery &query = QNetworkProxyQuery());
 
 private:
-    PacManager* m_pacManager;
-
     ProxyPreference m_proxyPreference;
     QNetworkProxy::ProxyType m_proxyType;
 
