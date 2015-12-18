@@ -22,7 +22,6 @@
 
 #include <QMessageBox> // For QT_REQUIRE_VERSION
 #include <iostream>
-#include <qtwebengineglobal.h>
 
 #if defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__) || defined(__HAIKU__)
 #include <signal.h>
@@ -157,8 +156,6 @@ int main(int argc, char* argv[])
     qputenv("QTWEBENGINE_REMOTE_DEBUGGING", WEBINSPECTOR_PORT);
 
     MainApplication app(argc, argv);
-
-    QtWebEngine::initialize();
 
     if (app.isClosing())
         return 0;
