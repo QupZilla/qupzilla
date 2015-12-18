@@ -627,17 +627,17 @@ void OpenSearchEngine::suggestionsObtained()
     QJsonDocument json = QJsonDocument::fromJson(response);
     const QVariant res = json.toVariant();
 
-    if (err.error != QJsonParseError::NoError || res.type() != QVariant::Map)
+    if (err.error != QJsonParseError::NoError || res.type() != QVariant::List)
         return;
 
-    const QVariantList list = res.toMap().value(QSL("1")).toList();
+    const QVariantList list = res.toList();
 
-    if (list.isEmpty())
+    if (list.size() < 2)
         return;
 
     QStringList out;
 
-    foreach (const QVariant &v, list)
+    foreach (const QVariant &v, list.at(1).toList())
         out.append(v.toString());
 
     emit suggestions(out);
