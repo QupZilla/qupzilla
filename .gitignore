@@ -36,4 +36,4 @@ bin/qupzilla.app
 hunspell
 callgrind.out.*
 tests/autotests/autotests
-.ycm_extra_conf.py
+.ycm_extra_conf.py*
