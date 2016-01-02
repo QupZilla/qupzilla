@@ -227,13 +227,13 @@ void HistoryTreeView::keyPressEvent(QKeyEvent* event)
         switch (event->key()) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            if (isTopLevel && event->modifiers() == Qt::NoModifier) {
+            if (isTopLevel && (event->modifiers() == Qt::NoModifier || event->modifiers() == Qt::KeypadModifier)) {
                 setExpanded(index, !isExpanded(index));
             }
             else {
                 Qt::KeyboardModifiers modifiers = event->modifiers();
 
-                if (modifiers == Qt::NoModifier) {
+                if (modifiers == Qt::NoModifier || modifiers == Qt::KeypadModifier) {
                     emit urlActivated(url);
                 }
                 else if (modifiers == Qt::ControlModifier) {
