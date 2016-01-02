@@ -17,13 +17,13 @@
   </p>
  </description>
  <screenshots>
-  <screenshot type="default" width="864" height="567">http://www.qupzilla.com/screens/gnome.png</screenshot>
-  <screenshot width="948" height="638">http://www.qupzilla.com/screens/kde_window.png</screenshot>
-  <screenshot width="864" height="567">http://www.qupzilla.com/screens/dial_gnome.png</screenshot>
-  <screenshot width="944" height="633">http://www.qupzilla.com/screens/kde_speeddial.png</screenshot>
-  <screenshot width="809" height="528">http://www.qupzilla.com/screens/preferences_gnome.png</screenshot>
-  <screenshot width="760" height="518">http://www.qupzilla.com/screens/kde_preferences.png</screenshot>
+  <screenshot type="default" width="864" height="567">https://www.qupzilla.com/screens/gnome.png</screenshot>
+  <screenshot width="948" height="638">https://www.qupzilla.com/screens/kde_window.png</screenshot>
+  <screenshot width="864" height="567">https://www.qupzilla.com/screens/dial_gnome.png</screenshot>
+  <screenshot width="944" height="633">https://www.qupzilla.com/screens/kde_speeddial.png</screenshot>
+  <screenshot width="809" height="528">https://www.qupzilla.com/screens/preferences_gnome.png</screenshot>
+  <screenshot width="760" height="518">https://www.qupzilla.com/screens/kde_preferences.png</screenshot>
  </screenshots>
- <url type="homepage">http://www.qupzilla.com/</url>
+ <url type="homepage">https://www.qupzilla.com/</url>
  <updatecontact>nowrep_at_gmail.com</updatecontact>
 </application>
