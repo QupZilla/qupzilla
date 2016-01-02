@@ -168,6 +168,8 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
     subscription->loadSubscription(m_disabledRules);
 
     m_subscriptions.insert(m_subscriptions.count() - 1, subscription);
+    connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
+    connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
 
     return subscription;
 }
@@ -181,7 +183,9 @@ bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
     QFile(subscription->filePath()).remove();
     m_subscriptions.removeOne(subscription);
 
+    m_matcher->update();
     delete subscription;
+
     return true;
 }
 
