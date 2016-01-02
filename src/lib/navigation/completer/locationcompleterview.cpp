@@ -71,7 +71,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 break;
             }
 
-            if (modifiers == Qt::NoModifier) {
+            if (modifiers == Qt::NoModifier || modifiers == Qt::KeypadModifier) {
                 emit indexActivated(idx);
                 return true;
             }

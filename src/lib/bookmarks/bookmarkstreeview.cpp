@@ -266,13 +266,13 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
         switch (event->key()) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
-            if (item->isFolder() && event->modifiers() == Qt::NoModifier) {
+            if (item->isFolder() && (event->modifiers() == Qt::NoModifier || event->modifiers() == Qt::KeypadModifier)) {
                 setExpanded(index, !isExpanded(index));
             }
             else {
                 Qt::KeyboardModifiers modifiers = event->modifiers();
 
-                if (modifiers == Qt::NoModifier) {
+                if (modifiers == Qt::NoModifier || modifiers == Qt::KeypadModifier) {
                     emit bookmarkActivated(item);
                 }
                 else if (modifiers == Qt::ControlModifier) {

@@ -99,7 +99,7 @@ void Menu::keyPressEvent(QKeyEvent* e)
         return;
     }
 
-    if (e->modifiers() == Qt::NoModifier) {
+    if (e->modifiers() == Qt::NoModifier || e->modifiers() == Qt::KeypadModifier) {
         closeAllMenus();
         act->trigger();
         e->accept();
