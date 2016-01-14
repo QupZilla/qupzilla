@@ -139,10 +139,13 @@ void LocationBar::setText(const QString &text)
 
 void LocationBar::updatePlaceHolderText()
 {
-    QString engineName = qzSettings->searchWithDefaultEngine ?
-                         mApp->searchEnginesManager()->defaultEngine().name :
-                         mApp->searchEnginesManager()->activeEngine().name;
-    setPlaceholderText(tr("Enter URL address or search on %1").arg(engineName));
+    if (qzSettings->searchFromAddressBar) {
+        QString engineName = qzSettings->searchWithDefaultEngine ?
+                             mApp->searchEnginesManager()->defaultEngine().name :
+                             mApp->searchEnginesManager()->activeEngine().name;
+        setPlaceholderText(tr("Enter URL address or search on %1").arg(engineName));
+    } else
+        setPlaceholderText(tr("Enter URL address"));
 }
 
 void LocationBar::showCompletion(const QString &completion)

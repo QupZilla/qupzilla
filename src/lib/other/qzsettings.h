@@ -43,6 +43,7 @@ public:
     // SearchEngines
     bool showSearchSuggestions;
     bool searchOnEngineChange;
+    bool searchFromAddressBar;
     bool searchWithDefaultEngine;
 
     // Web-Browser-Settings
