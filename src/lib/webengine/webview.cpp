@@ -192,11 +192,7 @@ void WebView::load(const LoadRequest &request)
     if (qzSettings->searchFromAddressBar) {
         const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
         loadRequest(searchRequest);
-        return;
     }
-
-    // This will produce an error, but the user requested so by disabling "search from address bar"
-    loadRequest(request);
 }
 
 bool WebView::isLoading() const
