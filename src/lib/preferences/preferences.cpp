@@ -420,7 +420,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     // Proxy Configuration
     settings.beginGroup("Web-Proxy");
-    QNetworkProxy::ProxyType proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
+    QNetworkProxy::ProxyType proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt());
 
     ui->systemProxy->setChecked(proxyType == QNetworkProxy::NoProxy);
     ui->manualProxy->setChecked(proxyType != QNetworkProxy::NoProxy);

@@ -62,7 +62,7 @@ bool WildcardMatcher::match(const QString &str) const
 NetworkProxyFactory::NetworkProxyFactory()
     : QNetworkProxyFactory()
     , m_proxyPreference(SystemProxy)
-    , m_proxyType(QNetworkProxy::HttpProxy)
+    , m_proxyType(QNetworkProxy::NoProxy)
     , m_port(0)
     , m_httpsPort(0)
     , m_useDifferentProxyForHttps(false)
@@ -74,7 +74,7 @@ void NetworkProxyFactory::loadSettings()
     Settings settings;
     settings.beginGroup("Web-Proxy");
     m_proxyPreference = ProxyPreference(settings.value("UseProxy", SystemProxy).toInt());
-    m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
+    m_proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt());
     m_useDifferentProxyForHttps = settings.value("UseDifferentProxyForHttps", false).toBool();
 
     m_hostName = settings.value("HostName", QString()).toString();
