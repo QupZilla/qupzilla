@@ -89,7 +89,7 @@ void SBI_NetworkProxy::loadFromSettings(const QSettings &settings)
     m_username = settings.value("Username", QString()).toString();
     m_password = settings.value("Password", QString()).toString();
 
-    m_type = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::HttpProxy).toInt());
+    m_type = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt());
 }
 
 void SBI_NetworkProxy::saveToSettings(QSettings &settings) const
