@@ -140,8 +140,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>582</width>
-        <height>489</height>
+        <width>596</width>
+        <height>468</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -887,6 +887,13 @@
                 <widget class="QCheckBox" name="selectAllOnClick">
                  <property name="text">
                   <string>Select all text by clicking in address bar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="searchFromAddressBar">
+                 <property name="text">
+                  <string>Enable automatic searching from the address bar</string>
                  </property>
                 </widget>
                </item>

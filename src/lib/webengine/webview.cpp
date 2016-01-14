@@ -189,8 +189,10 @@ void WebView::load(const LoadRequest &request)
         }
     }
 
-    const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
-    loadRequest(searchRequest);
+    if (qzSettings->searchFromAddressBar) {
+        const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
+        loadRequest(searchRequest);
+    }
 }
 
 bool WebView::isLoading() const

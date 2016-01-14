@@ -65,6 +65,7 @@ private slots:
     void openJsOptions();
     void openSearchEnginesManager();
 
+    void searchFromAddressBarChanged(bool state);
     void saveHistoryChanged(bool state);
     void allowHtml5storageChanged(bool state);
     void downLocChanged(bool state);
