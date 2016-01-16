@@ -1,3 +1,5 @@
+sudo: required
+dist: trusty
 language: cpp
 cache: apt
 
@@ -15,7 +17,7 @@ before_install:
 install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev
-  - if [[ "$QT" == "qt56" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt55; sudo apt-get update -qq; sudo apt-get install -qq qt55tools qt55script qt55webengine qt55webchannel; fi
+  - if [[ "$QT" == "qt56" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt56; sudo apt-get update -qq; sudo apt-get install -qq qt55tools qt55script qt55webengine qt55webchannel qt56declarative; fi
 
 script:
   - QMAKE="qmake"
