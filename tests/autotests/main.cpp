@@ -19,7 +19,6 @@
 #include "cookiestest.h"
 #include "adblocktest.h"
 #include "updatertest.h"
-#include "pactest.h"
 #include "passwordbackendtest.h"
 #include "networktest.h"
 
@@ -38,10 +37,9 @@ int main(int argc, char *argv[])
     QTEST_DISABLE_KEYPAD_NAVIGATION;
 
     RUN_TEST(QzToolsTest)
-    RUN_TEST(CookiesTest)
+//    RUN_TEST(CookiesTest)
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
-    RUN_TEST(PacTest)
     RUN_TEST(NetworkTest)
 
     RUN_TEST(DatabasePasswordBackendTest)
