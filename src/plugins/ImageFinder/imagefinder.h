@@ -27,6 +27,7 @@ class ImageFinder : public QObject
     Q_OBJECT
 public:
     enum SearchEngine {
+        None = -1,
         Google = 0,
         Yandex,
         TinEye
@@ -37,9 +38,9 @@ public:
     SearchEngine searchEngine() const;
     void setSearchEngine(SearchEngine searchEngine);
 
-    QString searchEngineName() const;
+    QString searchEngineName(SearchEngine engine = SearchEngine::None) const;
 
-    QUrl getSearchQuery(const QUrl &imageUrl);
+    QUrl getSearchQuery(const QUrl &imageUrl, SearchEngine engine = SearchEngine::None);
 
 private:
     QString m_settingsFile;
