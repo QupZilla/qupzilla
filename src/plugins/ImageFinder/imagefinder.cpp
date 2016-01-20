@@ -51,17 +51,21 @@ void ImageFinder::setSearchEngine(ImageFinder::SearchEngine searchEngine)
     settings.endGroup();
 }
 
-QString ImageFinder::searchEngineName() const
+QString ImageFinder::searchEngineName(SearchEngine engine) const
 {
+    if (engine == SearchEngine::None)
+        engine = m_searchEngine;
     QStringList searchEngines;
     searchEngines << QSL("Google") << QSL("Yandex") << QSL("TinEye");
 
-    return searchEngines.at(m_searchEngine);
+    return searchEngines.at(engine);
 }
 
-QUrl ImageFinder::getSearchQuery(const QUrl &imageUrl)
+QUrl ImageFinder::getSearchQuery(const QUrl &imageUrl, SearchEngine engine)
 {
-    switch (m_searchEngine)
+    if (engine == SearchEngine::None)
+        engine = m_searchEngine;
+    switch (engine)
     {
     case SearchEngine::Google:
         return QUrl(QSL("https://www.google.com/searchbyimage?site=search&image_url=%1").arg(imageUrl.toString()));

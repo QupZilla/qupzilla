@@ -95,5 +95,21 @@ void ImageFinderPlugin::populateWebViewMenu(QMenu *menu, WebView *view, const We
         connect(action, SIGNAL(triggered()), view, SLOT(openUrlInSelectedTab()));
         connect(action, SIGNAL(ctrlTriggered()), view, SLOT(openUrlInBackgroundTab()));
         menu->addAction(action);
+
+        Menu* swMenu = new Menu(tr("Search image with..."), menu);
+        swMenu->setCloseOnMiddleClick(true);
+        for (int i = 0; i < 3; ++i)
+        {
+            ImageFinder::SearchEngine e = static_cast<ImageFinder::SearchEngine>(i);
+            QString engineName = m_finder->searchEngineName(e);
+            Action* act = new Action(engineName);
+            act->setIcon(QIcon(QSL(":/imgfinder/data/%1.png").arg(engineName.toLower())));
+            act->setData(m_finder->getSearchQuery(r.imageUrl(), e));
+            connect(act, SIGNAL(triggered()), view, SLOT(openUrlInSelectedTab()));
+            connect(act, SIGNAL(ctrlTriggered()), view, SLOT(openUrlInBackgroundTab()));
+            swMenu->addAction(act);
+        }
+
+        menu->addMenu(swMenu);
     }
 }
