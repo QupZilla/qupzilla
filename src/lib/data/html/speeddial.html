@@ -62,6 +62,7 @@ var DIAL_WIDTH = %SD-SIZE%;
 var SD_CENTER = %SD-CENTER%;
 
 var editingId = -1;
+var ignoreNextChanged = false;
 
 $(document).keyup(function(e) {
     if (editingId == -1)
@@ -71,6 +72,12 @@ $(document).keyup(function(e) {
     else if (e.keyCode == 27)
         $('#fadeOverlay').click();
 });
+
+function emitChanged(pages)
+{
+    ignoreNextChanged = true;
+    external.speedDial.changed(pages);
+}
 
 function addSpeedDial()
 {
@@ -194,7 +201,7 @@ function boxEdited() {
         } else {
             hideEditBox();
         }
-        external.speedDial.changed(pages);
+        emitChanged(pages);
     });
 }
 
@@ -291,7 +298,7 @@ function setTitleToUrl(url, title) {
     }
 
     if (changed)
-        external.speedDial.changed(allPages());
+        emitChanged(allPages());
 }
 
 function setImageToUrl(url, img_source) {
@@ -335,7 +342,7 @@ function removeBox(id) {
     alignPage();
 
     external.speedDial.removeImageForUrl(url);
-    external.speedDial.changed(allPages());
+    emitChanged(allPages());
 }
 
 function alignPage() {
@@ -458,6 +465,10 @@ function init()
     %INITIAL-SCRIPT%
 
     external.speedDial.pagesChanged.connect(function() {
+        if (ignoreNextChanged) {
+            ignoreNextChanged = false;
+            return;
+        }
         window.location.reload();
     });
 
@@ -480,7 +491,7 @@ function init()
                 enableCentering();
         },
         update: function(event, ui) {
-            external.speedDial.changed(allPages());
+            emitChanged(allPages());
         }
     });
 
