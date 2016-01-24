@@ -63,6 +63,17 @@ void ToolButton::setThemeIcon(const QString &icon)
     setIcon(QIcon::fromTheme(m_themeIcon));
 }
 
+QIcon ToolButton::fallbackIcon() const
+{
+    return icon();
+}
+
+void ToolButton::setFallbackIcon(const QIcon &fallbackIcon)
+{
+    if (icon().isNull())
+        setIcon(fallbackIcon);
+}
+
 QIcon ToolButton::icon() const
 {
     return QToolButton::icon();
