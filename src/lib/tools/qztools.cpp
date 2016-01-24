@@ -77,7 +77,8 @@ QPixmap QzTools::pixmapFromByteArray(const QByteArray &data)
 
 QUrl QzTools::pixmapToDataUrl(const QPixmap &pix)
 {
-    return QUrl(QSL("data:image/png;base64,") + QString(pixmapToByteArray(pix)));
+    const QString data(pixmapToByteArray(pix));
+    return data.isEmpty() ? QUrl() : QUrl(QSL("data:image/png;base64,") + data);
 }
 
 QString QzTools::readAllFileContents(const QString &filename)
