@@ -135,7 +135,8 @@ IconProvider
 
 #locationbar-rss-icon
 {
-    qproperty-pixmap: url(images/rss.png);
+    qproperty-themeIcon: "feed-subscribe";
+    qproperty-fallbackIcon: url(images/rss.png);
     qproperty-fixedsize: 16px 16px;
 }
 
