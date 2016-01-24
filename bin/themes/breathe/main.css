@@ -156,11 +156,6 @@ IconProvider
     border-image: url(images/siteicon-secure-bg-a.png);
 }
 
-#locationbar-rss-icon
-{
-    qproperty-pixmap: url(images/rss.png);
-}
-
 #locationbar-goicon
 {
     qproperty-pixmap: url(images/goto.png);
@@ -259,18 +254,6 @@ SearchToolBar #lineEdit[notfound="true"]
     background: url(images/flashstart.png) no-repeat;
     background-position: center;
     border:none;
-}
-
-/*RSSManager*/
-#rssmanager-frame
-{
-    background: white;
-}
-
-RSSManager QTabBar::tab
-{
-    max-width:100px;
-    max-height:22px;
 }
 
 /*AboutDialog*/
