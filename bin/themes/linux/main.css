@@ -138,7 +138,9 @@ IconProvider
 
 #locationbar-goicon
 {
-    qproperty-pixmap: url(images/goto.png);
+    qproperty-themeIcon: "go-jump-locationbar";
+    qproperty-fallbackIcon: url(images/goto.png);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-down-icon
@@ -149,7 +151,9 @@ IconProvider
 
 #locationbar-autofillicon
 {
-    qproperty-pixmap: url(images/key.png);
+    qproperty-themeIcon: "user-identity";
+    qproperty-fallbackIcon: url(images/key.png);
+    qproperty-fixedsize: 16px 16px;
 }
 
 /*WebSearchBar*/
