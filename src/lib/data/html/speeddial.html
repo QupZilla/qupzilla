@@ -63,6 +63,15 @@ var SD_CENTER = %SD-CENTER%;
 
 var editingId = -1;
 
+$(document).keyup(function(e) {
+    if (editingId == -1)
+        return;
+    if (e.keyCode == 13)
+        boxEdited();
+    else if (e.keyCode == 27)
+        $('#fadeOverlay').click();
+});
+
 function addSpeedDial()
 {
     onEditClick(addBox('', NEW_PAGE, ''));
@@ -112,18 +121,6 @@ function onRemoveClick(box) {
     removeBox($(box).index());
 }
 
-function onEditKeyPress(e) {
-    if (e.keyCode == 13) {
-        boxEdited();
-        return false;
-    }
-    else if (e.keyCode == 27) {
-        $('#fadeOverlay').click();
-        return false;
-    }
-    return true;
-}
-
 function onFetchTitleClick(checkbox) {
     var displayStyle;
     checkbox.checked ? displayStyle = 'hidden' : displayStyle = 'visible';
@@ -142,7 +139,7 @@ function onEditClick(box) {
         boxUrl = 'http://';
 
     $('body').append('<div id="fadeOverlay" class="overlay" style="display:none;">' +
-        '<div id="overlay-edit" onkeypress="return onEditKeyPress(event)">' +
+        '<div id="overlay-edit">' +
         '<img src="' + $(box).children('img').first().attr('src') + '"> ' +
         '<table><tr><td>' + URL + ': </td><td>' +
         '<input type="text" id="formUrl" value="' + boxUrl + '"></td></tr>' +
@@ -157,7 +154,7 @@ function onEditClick(box) {
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
     $('#fadeOverlay').click(function() {hideEditBox()});
     $('#overlay-edit').click(function(event) { event.stopPropagation(); });
-    $('#formUrl').focus();
+    $('#formUrl').focus().val($('#formUrl').val()); // focus and move cursor to end
 }
 
 function onReloadClick(box) {
