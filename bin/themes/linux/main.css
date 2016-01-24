@@ -49,7 +49,8 @@
 
 #navigation-button-supermenu
 {
-    qproperty-icon: url(images/menu.png);
+    qproperty-themeIcon: "application-menu";
+    qproperty-fallbackIcon: url(images/menu.png);
 }
 
 #navigation-button-exitfullscreen
