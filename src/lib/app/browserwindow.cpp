@@ -415,7 +415,7 @@ void BrowserWindow::loadSettings()
 
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
-    bool showStatusBar = settings.value("showStatusBar", true).toBool();
+    bool showStatusBar = settings.value("showStatusBar", false).toBool();
     bool showReloadButton = settings.value("showReloadButton", true).toBool();
     bool showHomeButton = settings.value("showHomeButton", true).toBool();
     bool showBackForwardButtons = settings.value("showBackForwardButtons", true).toBool();
@@ -423,7 +423,7 @@ void BrowserWindow::loadSettings()
     bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
-    bool showMenuBar = settings.value("showMenubar", true).toBool();
+    bool showMenuBar = settings.value("showMenubar", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
     m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     const QString activeSideBar = settings.value("SideBar", "None").toString();

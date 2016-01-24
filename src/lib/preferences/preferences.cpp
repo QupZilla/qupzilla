@@ -213,7 +213,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
-    ui->showStatusbar->setChecked(settings.value("showStatusBar", true).toBool());
+    ui->showStatusbar->setChecked(settings.value("showStatusBar", false).toBool());
     ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
     ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
