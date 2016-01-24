@@ -236,12 +236,14 @@ void Bookmarks::loadBookmarks()
     const QVariant res = json.toVariant();
 
     if (err.error != QJsonParseError::NoError || res.type() != QVariant::Map) {
-        qWarning() << "Bookmarks::init() Error parsing bookmarks! Using default bookmarks!";
-        qWarning() << "Bookmarks::init() Your bookmarks have been backed up in" << backupFile;
+        if (QFile(bookmarksFile).exists()) {
+            qWarning() << "Bookmarks::init() Error parsing bookmarks! Using default bookmarks!";
+            qWarning() << "Bookmarks::init() Your bookmarks have been backed up in" << backupFile;
 
-        // Backup the user bookmarks
-        QFile::remove(backupFile);
-        QFile::copy(bookmarksFile, backupFile);
+            // Backup the user bookmarks
+            QFile::remove(backupFile);
+            QFile::copy(bookmarksFile, backupFile);
+        }
 
         // Load default bookmarks
         json = QJsonDocument::fromJson(QzTools::readAllFileByteContents(QSL(":data/bookmarks.json")), &err);

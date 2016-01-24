@@ -764,7 +764,9 @@ void TabWidget::restorePinnedTabs()
     }
 
     QFile file(DataPaths::currentProfilePath() + "/pinnedtabs.dat");
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+
     QByteArray sd = file.readAll();
     file.close();
 
