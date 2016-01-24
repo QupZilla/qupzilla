@@ -33,6 +33,7 @@ class QUPZILLA_EXPORT ToolButton : public QToolButton
     Q_PROPERTY(QImage multiIcon READ multiIcon WRITE setMultiIcon)
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon)
     Q_PROPERTY(QString themeIcon READ themeIcon WRITE setThemeIcon)
+    Q_PROPERTY(QIcon fallbackIcon READ fallbackIcon WRITE setFallbackIcon)
 
 public:
     explicit ToolButton(QWidget* parent = 0);
@@ -44,6 +45,10 @@ public:
     // ThemeIcon - Standard QToolButton with theme icon
     QString themeIcon() const;
     void setThemeIcon(const QString &icon);
+
+    // FallbackIcon - In case theme doesn't contain ThemeIcon
+    QIcon fallbackIcon() const;
+    void setFallbackIcon(const QIcon &fallbackIcon);
 
     // Icon - Standard QToolButton with icon
     QIcon icon() const;
