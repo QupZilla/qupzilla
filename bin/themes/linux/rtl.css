@@ -12,10 +12,12 @@
 
 #tabbar-button-right
 {
-    qproperty-icon: url(images/tab-left-arrow.png);
+    qproperty-themeIcon: "arrow-left";
+    qproperty-fallbackIcon: url(images/tab-left-arrow.png);
 }
 
 #tabbar-button-left
 {
-    qproperty-icon: url(images/tab-right-arrow.png);
+    qproperty-themeIcon: "arrow-right";
+    qproperty-fallbackIcon: url(images/tab-right-arrow.png);
 }

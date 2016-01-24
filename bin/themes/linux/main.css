@@ -66,19 +66,22 @@
 
 #tabbar-button-right
 {
-    qproperty-icon: url(images/tab-right-arrow.png);
+    qproperty-themeIcon: "arrow-right";
+    qproperty-fallbackIcon: url(images/tab-right-arrow.png);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabbar-button-left
 {
-    qproperty-icon: url(images/tab-left-arrow.png);
+    qproperty-themeIcon: "arrow-left";
+    qproperty-fallbackIcon: url(images/tab-left-arrow.png);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabwidget-button-opentabs
 {
-    qproperty-icon: url(images/tabs-list-button.png);
+    qproperty-themeIcon: "arrow-down";
+    qproperty-fallbackIcon: url(images/tabs-list-button.png);
     qproperty-fixedsize: 20px 25px;
 }
 
