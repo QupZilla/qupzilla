@@ -15,6 +15,7 @@ body * { -webkit-user-select: none; font-size: 100%; line-height: 1.6; margin: 0
 #quickdial div.entry:hover { box-shadow: 0 0 0 4px rgba(255,255,255, 0.6); }
 #quickdial img { display: block; margin: auto; border-radius: 7px 7px 0 0; }
 #quickdial img[src="%LOADING-IMG%"]{height:60px;width:60px}
+#quickdial img[src=""] { visibility: hidden; }
 #quickdial a { position: absolute; %LEFT_STR%: 0; top: 0; width: 100%; height: 87%; }
 span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 1px; max-height: 20px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; cursor: default; }
 span.edit, span.close, span.reload { width: 16px; height: 16px; position: absolute; background-position: center; border: 1px solid transparent; display: none; }
@@ -25,7 +26,7 @@ span.edit:hover, span.close:hover, span.reload:hover { border-color: grey; borde
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload { display: inline; }
 #overlay-edit { width: 380px; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; margin-top: 5%; background-color: #ffffff; border-radius: 7px; border: 1px solid rgba(0,0,0, 0.3); box-shadow: 0 0 0 5px rgba(255,255,255, 0.6); padding: 15px; padding-bottom: 0; }
 #overlay-edit img { display: block; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; max-width: 100%; max-height: auto; }
-#overlay-edit img[src*=".gif"] { width: 54px; height: 55px; }
+#overlay-edit img[src="%LOADING-IMG%"] { width: 54px; height: 55px; }
 #overlay-edit .buttonbox input { margin-%RIGHT_STR%: 0; margin-%LEFT_STR%: 3px; }
 #overlay-edit table { width: 100%; margin-%LEFT_STR%: auto; margin-%RIGHT_STR%: auto; }
 #overlay-edit table input[type="text"] { width: 100%; -webkit-user-select: auto; background-color: #eeeeee; border-radius: 5px; }
@@ -273,6 +274,7 @@ function setBoxImage(id, img_source) {
 }
 
 function setTitleToUrl(url, title) {
+    var changed = false;
     var boxes = document.getElementById('quickdial').getElementsByTagName('div');
     for (i = 0; i < boxes.length; ++i) {
         var box = boxes[i];
@@ -280,15 +282,19 @@ function setTitleToUrl(url, title) {
         if (box === undefined)
             continue;
 
-                var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
-                if (url != boxUrl)
-                    continue;
+        var boxUrl = box.getElementsByTagName('a')[0].getAttribute('href');
+        if (url != boxUrl)
+            continue;
 
         var span = box.getElementsByTagName('span')[0];
-        span.innerText = title;
+        if (span.innerText != title) {
+            changed = true;
+            span.innerText = title;
+        }
     }
 
-    external.speedDial.changed(allPages());
+    if (changed)
+        external.speedDial.changed(allPages());
 }
 
 function setImageToUrl(url, img_source) {
