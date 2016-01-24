@@ -41,16 +41,20 @@ public:
     void setThemeIcon(const QString &name);
 
     QIcon fallbackIcon() const;
-    void setFallbackIcon(const QIcon &image);
+    void setFallbackIcon(const QIcon &fallbackIcon);
 
 signals:
     void clicked(QPoint);
     void middleClicked(QPoint);
 
 private:
+    void updateIcon();
+
+    void resizeEvent(QResizeEvent *ev);
     void mouseReleaseEvent(QMouseEvent* ev);
 
     QString m_themeIcon;
+    QIcon m_fallbackIcon;
 
 };
 

@@ -24,32 +24,46 @@ ClickableLabel::ClickableLabel(QWidget* parent)
 {
 }
 
+QString ClickableLabel::themeIcon() const
+{
+    return m_themeIcon;
+}
+
 void ClickableLabel::setThemeIcon(const QString &name)
 {
-    QIcon icon = QIcon::fromTheme(name);
-
-    if (!icon.isNull()) {
-        adjustSize();
-        setPixmap(icon.pixmap(size()));
-    }
+    m_themeIcon = name;
+    updateIcon();
 }
 
 QIcon ClickableLabel::fallbackIcon() const
 {
-    return pixmap() ? QIcon(*pixmap()) : QIcon();
+    return m_fallbackIcon;
 }
 
-void ClickableLabel::setFallbackIcon(const QIcon &image)
+void ClickableLabel::setFallbackIcon(const QIcon &fallbackIcon)
 {
-    if (!pixmap() || pixmap()->isNull()) {
-        adjustSize();
-        setPixmap(image.pixmap(size()));
+    m_fallbackIcon = fallbackIcon;
+    updateIcon();
+}
+
+void ClickableLabel::updateIcon()
+{
+    if (!m_themeIcon.isEmpty()) {
+        const QIcon icon = QIcon::fromTheme(m_themeIcon);
+        if (!icon.isNull()) {
+            setPixmap(icon.pixmap(size()));
+            return;
+        }
     }
+
+    if (!m_fallbackIcon.isNull())
+        setPixmap(m_fallbackIcon.pixmap(size()));
 }
 
-QString ClickableLabel::themeIcon() const
+void ClickableLabel::resizeEvent(QResizeEvent *ev)
 {
-    return m_themeIcon;
+    QLabel::resizeEvent(ev);
+    updateIcon();
 }
 
 void ClickableLabel::mouseReleaseEvent(QMouseEvent* ev)
