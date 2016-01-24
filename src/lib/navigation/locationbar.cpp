@@ -343,7 +343,9 @@ void LocationBar::showUrl(const QUrl &url)
 
 void LocationBar::updateSiteIcon()
 {
-    const QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
+    QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
+    if (m_webView && m_webView->url().scheme() == QL1S("https"))
+        icon = QIcon::fromTheme(QSL("document-encrypted"), icon);
     m_siteIcon->setIcon(QIcon(icon.pixmap(16)));
 }
 
