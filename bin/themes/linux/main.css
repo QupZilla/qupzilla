@@ -110,12 +110,6 @@ IconProvider
     qproperty-leftMargin: 22;
 }
 
-#locationbar[secured="true"]
-{
-    color: black;
-    background-color: #ffffbc;
-}
-
 #locationbar-bookmarkicon
 {
     qproperty-pixmap: url(images/star.png);
@@ -128,7 +122,7 @@ IconProvider
 
 #locationbar-siteicon
 {
-    padding-left: 6px;
+    margin-left: 5px;
     border-image: url(images/transp.png);
     qproperty-fixedsize: 22px 16px;
 }
