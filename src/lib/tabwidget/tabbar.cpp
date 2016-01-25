@@ -258,7 +258,7 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
-        return 16 + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+        return iconButtonSize().width() + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
 
     case ComboTabBar::ActiveTabMinimumWidth:
     case ComboTabBar::NormalTabMinimumWidth:

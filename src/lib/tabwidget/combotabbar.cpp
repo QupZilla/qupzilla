@@ -429,6 +429,8 @@ void ComboTabBar::setTabsClosable(bool closable)
 
 void ComboTabBar::setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget)
 {
+    if (widget)
+        widget->setMinimumSize(closeButtonSize());
     localTabBar(index)->setTabButton(toLocalIndex(index), position, widget);
 }
 
@@ -553,6 +555,7 @@ void ComboTabBar::insertCloseButton(int index)
     }
 
     QAbstractButton* closeButton = new CloseButton(this);
+    closeButton->setFixedSize(closeButtonSize());
     closeButton->setToolTip(m_closeButtonsToolTip);
     connect(closeButton, SIGNAL(clicked()), this, SLOT(closeTabFromButton()));
     m_mainTabBar->setTabButton(index, closeButtonPosition(), closeButton);
@@ -727,14 +730,29 @@ int ComboTabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
     return -1;
 }
 
-QTabBar::ButtonPosition ComboTabBar::iconButtonPosition()
+QTabBar::ButtonPosition ComboTabBar::iconButtonPosition() const
 {
     return (closeButtonPosition() == QTabBar::RightSide ? QTabBar::LeftSide : QTabBar::RightSide);
 }
 
-QTabBar::ButtonPosition ComboTabBar::closeButtonPosition()
+QTabBar::ButtonPosition ComboTabBar::closeButtonPosition() const
 {
     return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this);
+}
+
+QSize ComboTabBar::iconButtonSize() const
+{
+    QSize s = closeButtonSize();
+    s.setWidth(std::max(16, s.width()));
+    s.setHeight(std::max(16, s.height()));
+    return s;
+}
+
+QSize ComboTabBar::closeButtonSize() const
+{
+    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
+    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
+    return QSize(width, height);
 }
 
 bool ComboTabBar::validIndex(int index) const
@@ -1563,21 +1581,6 @@ CloseButton::CloseButton(QWidget* parent)
     setObjectName("combotabbar_tabs_close_button");
     setFocusPolicy(Qt::NoFocus);
     setCursor(Qt::ArrowCursor);
-
-    resize(sizeHint());
-}
-
-QSize CloseButton::sizeHint() const
-{
-    ensurePolished();
-    static int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
-    static int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
-    return QSize(width, height);
-}
-
-QSize CloseButton::minimumSizeHint() const
-{
-    return sizeHint();
 }
 
 void CloseButton::enterEvent(QEvent* event)

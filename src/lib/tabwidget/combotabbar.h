@@ -122,8 +122,11 @@ public:
     void insertCloseButton(int index);
     void setCloseButtonsToolTip(const QString &tip);
 
-    QTabBar::ButtonPosition iconButtonPosition();
-    QTabBar::ButtonPosition closeButtonPosition();
+    QTabBar::ButtonPosition iconButtonPosition() const;
+    QTabBar::ButtonPosition closeButtonPosition() const;
+
+    QSize iconButtonSize() const;
+    QSize closeButtonSize() const;
 
     bool validIndex(int index) const;
     void setCurrentNextEnabledIndex(int offset);
@@ -327,9 +330,6 @@ class CloseButton : public QAbstractButton
 
 public:
     CloseButton(QWidget* parent = 0);
-
-    QSize sizeHint() const;
-    QSize minimumSizeHint() const;
 
     void enterEvent(QEvent* event);
     void leaveEvent(QEvent* event);

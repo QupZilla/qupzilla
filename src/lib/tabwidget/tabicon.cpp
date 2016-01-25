@@ -39,9 +39,7 @@ TabIcon::TabIcon(QWidget* parent)
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateAnimationFrame()));
 
-    static int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
-    static int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
-    resize(width, height);
+    resize(16, 16);
 
     setIcon(IconProvider::emptyWebIcon());
 }
