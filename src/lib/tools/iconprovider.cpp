@@ -140,7 +140,7 @@ QIcon IconProvider::privateBrowsingIcon()
 
 QIcon IconProvider::settingsIcon()
 {
-    return QIcon(QSL(":/icons/menu/settings.png"));
+    return QIcon::fromTheme(QSL("configure"), QIcon(QSL(":/icons/menu/settings.png")));
 }
 
 QIcon IconProvider::emptyWebIcon()
