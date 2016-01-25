@@ -104,11 +104,7 @@ void DataPaths::init()
 #elif defined(Q_OS_MAC)
     m_paths[Config].append(QDir::homePath() + QLatin1String("/Library/Application Support/QupZilla"));
 #else // Unix
-    QString configHome = QFile::decodeName(qgetenv("XDG_CONFIG_HOME"));
-    if (configHome.isEmpty())
-        configHome = QDir::homePath() + QLatin1String("/.config");
-    configHome.append(QLatin1String("/qupzilla"));
-    m_paths[Config].append(configHome);
+    m_paths[Config].append(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QL1S("/qupzilla"));
 #endif
 
     // Profiles
@@ -117,10 +113,17 @@ void DataPaths::init()
     // Temp
 #ifdef Q_OS_UNIX
     const QByteArray &user = qgetenv("USER");
-    const QString &tempPath = QString(QSL("%1/qupzilla-%2/tmp")).arg(QDir::tempPath(), user.constData());
+    const QString &tempPath = QString(QSL("%1/qupzilla-%2")).arg(QDir::tempPath(), user.constData());
     m_paths[Temp].append(tempPath);
 #else
     m_paths[Temp].append(m_paths[Config].at(0) + QLatin1String("/tmp"));
+#endif
+
+    // Cache
+#ifdef Q_OS_UNIX
+    const QString &cachePath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation);
+    if (!cachePath.isEmpty())
+        m_paths[Cache].append(cachePath + QLatin1String("/qupzilla"));
 #endif
 
     // Make sure the Config and Temp paths exists
@@ -141,13 +144,6 @@ void DataPaths::init()
 void DataPaths::initCurrentProfile(const QString &profilePath)
 {
     m_paths[CurrentProfile].append(profilePath);
-
-    // Cache
-#ifdef Q_OS_UNIX
-    QString cacheHome = QFile::decodeName(qgetenv("XDG_CACHE_HOME"));
-    if (!cacheHome.isEmpty())
-        m_paths[Cache].append(cacheHome + QLatin1String("/qupzilla"));
-#endif
 
     if (m_paths[Cache].isEmpty())
         m_paths[Cache].append(m_paths[CurrentProfile].at(0) + QLatin1String("/cache"));
