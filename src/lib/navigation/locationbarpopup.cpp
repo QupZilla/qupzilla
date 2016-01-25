@@ -32,9 +32,10 @@ LocationBarPopup::LocationBarPopup(QWidget* parent)
 
 void LocationBarPopup::showAt(QWidget* parent)
 {
-    if (!parent) {
+    if (!parent || !parent->parentWidget())
         return;
-    }
+
+    parent = parent->parentWidget();
 
     // Calculate sizes before showing
     layout()->invalidate();
