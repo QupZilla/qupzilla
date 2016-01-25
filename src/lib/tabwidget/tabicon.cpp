@@ -39,7 +39,9 @@ TabIcon::TabIcon(QWidget* parent)
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateAnimationFrame()));
 
-    resize(16, 16);
+    static int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, 0, this);
+    static int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, 0, this);
+    resize(width, height);
 
     setIcon(IconProvider::emptyWebIcon());
 }
@@ -101,10 +103,17 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     QPainter p(this);
 
-    const int width = 16 * m_animationPixmap.devicePixelRatio();
+    const int size = 16 * m_animationPixmap.devicePixelRatio();
+
+    // Center the pixmap in rect
+    QRect r = rect();
+    r.setX((r.width() - size) / 2);
+    r.setY((r.height() - size) / 2);
+    r.setWidth(size);
+    r.setHeight(size);
 
     if (m_animationRunning)
-        p.drawPixmap(rect(), m_animationPixmap, QRect(m_currentFrame * width, 0, width, width));
+        p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * size, 0, size, size));
     else
-        p.drawPixmap(rect(), m_sitePixmap);
+        p.drawPixmap(r, m_sitePixmap);
 }
