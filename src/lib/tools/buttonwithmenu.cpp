@@ -24,10 +24,8 @@ ButtonWithMenu::ButtonWithMenu(QWidget* parent)
     : ToolButton(parent)
     , m_menu(new QMenu(this))
 {
-    setPopupMode(QToolButton::InstantPopup);
     setCursor(Qt::ArrowCursor);
     setFocusPolicy(Qt::ClickFocus);
-    setMenu(m_menu);
 
     connect(this, SIGNAL(aboutToShowMenu()), this, SLOT(generateMenu()));
 }
@@ -153,6 +151,17 @@ void ButtonWithMenu::generateMenu()
         variant.setValue<Item>(item);
         m_menu->addAction(item.icon, item.text, this, SLOT(setCurrentItem()))->setData(variant);
     }
+}
+
+void ButtonWithMenu::mousePressEvent(QMouseEvent *event)
+{
+    if (parentWidget() && parentWidget()->parentWidget()) {
+        emit aboutToShowMenu();
+        QWidget *w = parentWidget()->parentWidget();
+        m_menu->popup(w->mapToGlobal(w->rect().bottomLeft()));
+    }
+
+    ToolButton::mousePressEvent(event);
 }
 
 ButtonWithMenu::~ButtonWithMenu()
