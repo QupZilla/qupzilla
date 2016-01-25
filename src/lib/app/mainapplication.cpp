@@ -610,7 +610,7 @@ void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
 
     QStringList args;
     args.append(QSL("--private-browsing"));
-    args.append(QSL("--profile=") + ProfileManager::currentProfile());
+    args.append(QSL("--profile=") + ProfileManager().currentProfile());
 
     if (!url.isEmpty()) {
         args << url.toEncoded();
