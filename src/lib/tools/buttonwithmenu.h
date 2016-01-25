@@ -23,7 +23,8 @@
 #include "toolbutton.h"
 #include "qzcommon.h"
 
-class QUPZILLA_EXPORT ButtonWithMenu : public ToolButton
+// Only to be used in WebSearchBar
+class ButtonWithMenu : public ToolButton
 {
     Q_OBJECT
 public:
@@ -81,6 +82,7 @@ private slots:
     void generateMenu();
 
 private:
+    void mousePressEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent* event);
 
     QMenu* m_menu;
