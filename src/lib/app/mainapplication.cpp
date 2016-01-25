@@ -604,13 +604,8 @@ void MainApplication::startPrivateBrowsing(const QUrl &startUrl)
     }
 
     QStringList args;
-    foreach (const QString &arg, arguments()) {
-        if (arg.startsWith(QLatin1Char('-')) && arg != QLatin1String("--private-browsing") && arg != QLatin1String("-pb")) {
-            args.append(arg);
-        }
-    }
-
-    args.append(QLatin1String("--private-browsing"));
+    args.append(QSL("--private-browsing"));
+    args.append(QSL("--profile=") + ProfileManager::currentProfile());
 
     if (!url.isEmpty()) {
         args << url.toEncoded();
