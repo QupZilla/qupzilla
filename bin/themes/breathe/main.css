@@ -58,11 +58,6 @@
 }
 
 /*TabWidget*/
-#tabbar::tab
-{
-    max-height: 22px;
-}
-
 #tabbar::scroller
 {
     width: 0px;

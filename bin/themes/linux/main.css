@@ -59,11 +59,6 @@
 }
 
 /*TabWidget*/
-#tabbar::tab
-{
-    max-height: 26px;
-}
-
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-right";

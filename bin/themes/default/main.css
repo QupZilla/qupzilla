@@ -106,11 +106,6 @@
 }
 
 /*TabWidget*/
-#tabbar::tab
-{
-    max-height: 28px;
-}
-
 #tabwidget-button-opentabs
 {
     qproperty-icon: url(images/tabs-list-button.png);
