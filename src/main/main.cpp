@@ -155,6 +155,9 @@ int main(int argc, char* argv[])
 
     qputenv("QTWEBENGINE_REMOTE_DEBUGGING", WEBINSPECTOR_PORT);
 
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
     MainApplication app(argc, argv);
 
     if (app.isClosing())

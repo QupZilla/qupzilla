@@ -97,7 +97,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 {
-    setAttribute(Qt::AA_UseHighDpiPixmaps);
     setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
 
     setApplicationName(QLatin1String("QupZilla"));
