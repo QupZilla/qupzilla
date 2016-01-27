@@ -99,12 +99,6 @@ IconProvider
 }
 
 /*LocationBar*/
-#locationbar
-{
-    qproperty-minHeight: 28;
-    qproperty-leftMargin: 22;
-}
-
 #locationbar-bookmarkicon
 {
     qproperty-pixmap: url(images/star.png);
@@ -143,12 +137,6 @@ IconProvider
 }
 
 /*WebSearchBar*/
-#websearchbar
-{
-    qproperty-minHeight: 28;
-    qproperty-leftMargin: 30;
-}
-
 #websearchbar-searchbutton
 {
     qproperty-fixedsize: 22px 16px;
