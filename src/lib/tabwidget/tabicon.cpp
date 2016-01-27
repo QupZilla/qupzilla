@@ -101,7 +101,8 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     QPainter p(this);
 
-    const int size = 16 * m_animationPixmap.devicePixelRatio();
+    const int size = 16;
+    const int pixmapSize = size * m_animationPixmap.devicePixelRatioF();
 
     // Center the pixmap in rect
     QRect r = rect();
@@ -111,7 +112,7 @@ void TabIcon::paintEvent(QPaintEvent* event)
     r.setHeight(size);
 
     if (m_animationRunning)
-        p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * size, 0, size, size));
+        p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
     else
         p.drawPixmap(r, m_sitePixmap);
 }
