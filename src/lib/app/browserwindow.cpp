@@ -226,7 +226,16 @@ void BrowserWindow::postLaunch()
     raise();
     activateWindow();
 
-    QTimer::singleShot(0, tabWidget()->tabBar(), SLOT(ensureVisible()));
+    QTimer::singleShot(0, this, [this]() {
+        // Scroll to current tab
+        tabWidget()->tabBar()->ensureVisible();
+
+        // Update focus
+        if (locationBar()->text().isEmpty())
+            locationBar()->setFocus();
+        else
+            weView()->setFocus();
+    });
 }
 
 void BrowserWindow::setupUi()
