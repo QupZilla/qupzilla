@@ -101,12 +101,16 @@ IconProvider
 /*LocationBar*/
 #locationbar-bookmarkicon
 {
-    qproperty-pixmap: url(images/star.png);
+    qproperty-themeIcon: "rating-unrated";
+    qproperty-fallbackIcon: url(images/star.png);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-bookmarkicon[bookmarked="true"]
 {
-    qproperty-pixmap: url(images/star-a.png);
+    qproperty-themeIcon: "rating";
+    qproperty-fallbackIcon: url(images/star-a.png);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-siteicon
