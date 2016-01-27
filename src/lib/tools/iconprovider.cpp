@@ -63,14 +63,14 @@ void IconProvider::saveIcon(WebView* view)
     m_iconBuffer.append(item);
 }
 
-QPixmap IconProvider::bookmarkIcon() const
+QIcon IconProvider::bookmarkIcon() const
 {
-    return m_bookmarkIcon;
+    return QIcon::fromTheme(QSL("bookmarks"), m_bookmarkIcon);
 }
 
-void IconProvider::setBookmarkIcon(const QPixmap &pixmap)
+void IconProvider::setBookmarkIcon(const QIcon &icon)
 {
-    m_bookmarkIcon = pixmap;
+    m_bookmarkIcon = icon;
 }
 
 QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)

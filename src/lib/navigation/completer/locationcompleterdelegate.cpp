@@ -88,12 +88,12 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw star to bookmark items
     int starPixmapWidth = 0;
     if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        const QPixmap starPixmap = IconProvider::instance()->bookmarkIcon();
-        QSize starSize = starPixmap.size();
+        const QIcon icon = IconProvider::instance()->bookmarkIcon();
+        const QSize starSize(16, 16);
         starPixmapWidth = starSize.width();
-        QPoint pos(rightPosition - starPixmapWidth, opt.rect.top() + m_padding);
+        QPoint pos(rightPosition - starPixmapWidth, center - starSize.height() / 2);
         QRect starRect(pos, starSize);
-        painter->drawPixmap(starRect, starPixmap);
+        painter->drawPixmap(starRect, icon.pixmap(starSize));
     }
 
     const QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();

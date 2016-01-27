@@ -34,15 +34,15 @@ class AutoSaver;
 class QUPZILLA_EXPORT IconProvider : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(QPixmap bookmarkIcon READ bookmarkIcon WRITE setBookmarkIcon)
+    Q_PROPERTY(QIcon bookmarkIcon READ bookmarkIcon WRITE setBookmarkIcon)
 
 public:
     explicit IconProvider();
 
     void saveIcon(WebView* view);
 
-    QPixmap bookmarkIcon() const;
-    void setBookmarkIcon(const QPixmap &pixmap);
+    QIcon bookmarkIcon() const;
+    void setBookmarkIcon(const QIcon &icon);
 
     // QStyle equivalent
     static QIcon standardIcon(QStyle::StandardPixmap icon);
@@ -76,7 +76,7 @@ private:
     QIcon iconFromImage(const QImage &image);
 
     QImage m_emptyWebImage;
-    QPixmap m_bookmarkIcon;
+    QIcon m_bookmarkIcon;
     QVector<BufferedIcon> m_iconBuffer;
 
     AutoSaver* m_autoSaver;
