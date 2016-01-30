@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 #ifndef COOKIEJAR_H
 #define COOKIEJAR_H
 
-#include <QFile>
+#include <QVector>
 #include <QStringList>
 #include <QWebEngineCookieStore>
 
@@ -37,7 +37,7 @@ public:
 
     void setAllowCookies(bool allow);
 
-    void getAllCookies(const QWebEngineCallback<const QByteArray&> callback);
+    QVector<QNetworkCookie> getAllCookies() const;
     void deleteAllCookies();
 
 signals:
@@ -49,6 +49,9 @@ protected:
     bool listMatchesDomain(const QStringList &list, const QString &cookieDomain) const;
 
 private:
+    void slotCookieAdded(const QNetworkCookie &cookie);
+    void slotCookieRemoved(const QNetworkCookie &cookie);
+
     bool acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) const;
     bool rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const;
 
@@ -58,7 +61,9 @@ private:
 
     QStringList m_whitelist;
     QStringList m_blacklist;
+
     QWebEngineCookieStore *m_client;
+    QVector<QNetworkCookie> m_cookies;
 };
 
 #endif // COOKIEJAR_H

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -88,12 +88,8 @@ CookieManager::CookieManager()
     connect(mApp->cookieJar(), &CookieJar::cookieRemoved, this, &CookieManager::removeCookie);
 
     // Load cookies
-    mApp->cookieJar()->getAllCookies([this](const QByteArray &res) {
-        const QList<QNetworkCookie> &allCookies = QNetworkCookie::parseCookies(res);
-        foreach (const QNetworkCookie &cookie, allCookies) {
-            addCookie(cookie);
-        }
-    });
+    foreach (const QNetworkCookie &cookie, mApp->cookieJar()->getAllCookies())
+        addCookie(cookie);
 
     QzTools::setWmClass("Cookies", this);
 }

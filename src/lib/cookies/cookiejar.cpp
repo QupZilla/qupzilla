@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,13 +34,10 @@ CookieJar::CookieJar(QObject* parent)
     , m_client(mApp->webProfile()->cookieStore())
 {
     loadSettings();
+    m_client->loadAllCookies();
 
-    connect(m_client, &QWebEngineCookieStore::cookieAdded, this, &CookieJar::cookieAdded);
-    connect(m_client, &QWebEngineCookieStore::cookieRemoved, this, &CookieJar::cookieRemoved);
-
-    m_client->setCookieFilter([this](QWebEngineCookieStore::FilterRequest &req) {
-        req.accepted = acceptCookie(req.firstPartyUrl, req.cookieLine, req.cookieSource);
-    });
+    connect(m_client, &QWebEngineCookieStore::cookieAdded, this, &CookieJar::slotCookieAdded);
+    connect(m_client, &QWebEngineCookieStore::cookieRemoved, this, &CookieJar::slotCookieRemoved);
 }
 
 void CookieJar::loadSettings()
@@ -60,9 +57,9 @@ void CookieJar::setAllowCookies(bool allow)
     m_allowCookies = allow;
 }
 
-void CookieJar::getAllCookies(const QWebEngineCallback<const QByteArray &> callback)
+QVector<QNetworkCookie> CookieJar::getAllCookies() const
 {
-    m_client->getAllCookies(callback);
+    return m_cookies;
 }
 
 void CookieJar::deleteAllCookies()
@@ -95,6 +92,23 @@ bool CookieJar::listMatchesDomain(const QStringList &list, const QString &cookie
     }
 
     return false;
+}
+
+void CookieJar::slotCookieAdded(const QNetworkCookie &cookie)
+{
+    if (rejectCookie(QString(), cookie, cookie.domain())) {
+        m_client->deleteCookie(cookie);
+        return;
+    }
+
+    m_cookies.append(cookie);
+    emit cookieAdded(cookie);
+}
+
+void CookieJar::slotCookieRemoved(const QNetworkCookie &cookie)
+{
+    if (m_cookies.removeOne(cookie))
+        emit cookieRemoved(cookie);
 }
 
 bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) const
