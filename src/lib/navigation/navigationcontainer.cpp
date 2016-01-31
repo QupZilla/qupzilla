@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -53,6 +53,7 @@ void NavigationContainer::toggleTabsOnTop(bool enable)
 
     m_layout->removeWidget(m_tabBar);
     m_layout->insertWidget(enable ? 0 : m_layout->count(), m_tabBar);
+    m_layout->setContentsMargins(0, enable ? 2 : 0, 0, 0);
 
     setUpdatesEnabled(true);
 }
