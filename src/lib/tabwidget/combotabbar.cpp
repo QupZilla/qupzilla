@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
 * Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -899,9 +899,10 @@ void ComboTabBar::setMinimumWidths()
         return;
     }
 
+    const int tabBarsSpacing = 3; // To distinguish tabbars
     int pinnedTabBarWidth = pinnedTabsCount() * comboTabBarPixelMetric(PinnedTabWidth);
     m_pinnedTabBar->setMinimumWidth(pinnedTabBarWidth);
-    m_pinnedTabBarWidget->setFixedWidth(pinnedTabBarWidth);
+    m_pinnedTabBarWidget->setFixedWidth(pinnedTabBarWidth + tabBarsSpacing);
 
     // Width that is needed by main tabbar
     int mainTabBarWidth = comboTabBarPixelMetric(NormalTabMinimumWidth) * (m_mainTabBar->count() - 1) +
