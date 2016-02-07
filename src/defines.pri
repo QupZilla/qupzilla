@@ -60,29 +60,23 @@ haiku-* {
     library_folder = /usr/lib
     arch_lib_path = /usr/lib/$${QT_ARCH}-linux-gnu
     exists($$arch_lib_path): library_folder = $$arch_lib_path
-    data_folder = /usr/share/qupzilla
-    launcher_folder = /usr/share/applications
-    icon_folder = /usr/share/pixmaps
-    hicolor_folder = /usr/share/icons/hicolor
+    # Define a reasonable default for share_folder
     share_folder = /usr/share
 
     !equals(d_prefix, "") {
         binary_folder = "$$d_prefix"/bin
         library_folder = "$$d_prefix"/lib
-        data_folder = "$$d_prefix"/share/qupzilla
-        launcher_folder = "$$d_prefix"/share/applications
-        icon_folder = "$$d_prefix"/share/pixmaps
-        hicolor_folder = "$$d_prefix"/share/icons/hicolor
         share_folder = "$$d_prefix"/share
     }
 
     !equals(d_share, "") {
-        data_folder = "$$d_share"/qupzilla
-        launcher_folder = "$$d_share"/applications
-        icon_folder = "$$d_share"/pixmaps
-        hicolor_folder = "$$d_share"/icons/hicolor
         share_folder = "$$d_share"
     }
+
+    data_folder = $$share_folder/qupzilla
+    launcher_folder = $$share_folder/applications
+    icon_folder = $$share_folder/pixmaps
+    hicolor_folder = $$share_folder/icons/hicolor
 
     !equals(d_use_lib_path, ""):library_folder = $$d_use_lib_path
 
