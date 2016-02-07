@@ -44,10 +44,10 @@ mac {
     ico256.path = $$hicolor_folder/256x256/apps
 
     bashcompletion.files = $$PWD/../linux/completion/qupzilla
-    bashcompletion.path = /usr/share/bash-completion/completions
+    bashcompletion.path = $$share_folder/usr/share/bash-completion/completions
 
     appdata.files = $$PWD/../linux/appdata/qupzilla.appdata.xml
-    appdata.path = /usr/share/appdata
+    appdata.path = $$share_folder/appdata
 
 
     INSTALLS += target target1 target2 target3
