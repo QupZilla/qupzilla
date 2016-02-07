@@ -23,6 +23,7 @@ d_disable_dbus = $$(DISABLE_DBUS)
 d_disable_updates_check = $$(DISABLE_UPDATES_CHECK)
 d_debug_build = $$(DEBUG_BUILD)
 d_prefix = $$(QUPZILLA_PREFIX)
+d_share = $$(SHARE_FOLDER)
 
 equals(d_no_system_datapath, "true") { DEFINES *= NO_SYSTEM_DATAPATH }
 equals(d_kde_integration, "true") { DEFINES *= KDE_INTEGRATION }
@@ -63,6 +64,7 @@ haiku-* {
     launcher_folder = /usr/share/applications
     icon_folder = /usr/share/pixmaps
     hicolor_folder = /usr/share/icons/hicolor
+    share_folder = /usr/share
 
     !equals(d_prefix, "") {
         binary_folder = "$$d_prefix"/bin
@@ -71,6 +73,15 @@ haiku-* {
         launcher_folder = "$$d_prefix"/share/applications
         icon_folder = "$$d_prefix"/share/pixmaps
         hicolor_folder = "$$d_prefix"/share/icons/hicolor
+        share_folder = "$$d_prefix"/share
+    }
+
+    !equals(d_share, "") {
+        data_folder = "$$d_share"/qupzilla
+        launcher_folder = "$$d_share"/applications
+        icon_folder = "$$d_share"/pixmaps
+        hicolor_folder = "$$d_share"/icons/hicolor
+        share_folder = "$$d_share"
     }
 
     !equals(d_use_lib_path, ""):library_folder = $$d_use_lib_path
