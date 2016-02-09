@@ -29,8 +29,10 @@
 #include <QSqlQuery>
 #include <QDialogButtonBox>
 #include <QBoxLayout>
+#include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QStyle>
 #include <QDialog>
 
@@ -210,6 +212,55 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
             mApp->bookmarks()->addBookmark(folderButton->selectedFolder(), bookmark);
         }
     }
+
+    delete dialog;
+    return true;
+}
+
+bool BookmarksTools::editBookmarkDialog(QWidget* parent, BookmarkItem *item)
+{
+    QDialog* dialog = new QDialog(parent);
+    QFormLayout* layout = new QFormLayout(dialog);
+
+    QLineEdit* title = new QLineEdit;
+    QLineEdit* address = new QLineEdit;
+    QLineEdit* keyword = new QLineEdit;
+    QPlainTextEdit* description = new QPlainTextEdit;
+
+    QDialogButtonBox* box = new QDialogButtonBox(dialog);
+    box->addButton(QDialogButtonBox::Ok);
+    box->addButton(QDialogButtonBox::Cancel);
+    QObject::connect(box, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
+    QObject::connect(box, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
+
+    layout->addRow(Bookmarks::tr("Title:"), title);
+    title->setText(item->title());
+    if (!item->isFolder()) {
+        layout->addRow(Bookmarks::tr("Address:"), address);
+        address->setText(item->urlString());
+        layout->addRow(Bookmarks::tr("Keyword:"), keyword);
+        keyword->setText(item->keyword());
+    }
+    layout->addRow(Bookmarks::tr("Description:"), description);
+    description->document()->setPlainText(item->description());
+    layout->addWidget(box);
+
+    dialog->setWindowIcon(item->icon());
+    dialog->setWindowTitle(Bookmarks::tr("Edit Bookmark"));
+
+    dialog->exec();
+
+    if (dialog->result() == QDialog::Rejected) {
+        delete dialog;
+        return false;
+    }
+
+    item->setTitle(title->text());
+    if (!item->isFolder()) {
+        item->setUrl(QUrl::fromEncoded(address->text().toUtf8()));
+        item->setKeyword(keyword->text());
+    }
+    item->setDescription(description->toPlainText());
 
     delete dialog;
     return true;
