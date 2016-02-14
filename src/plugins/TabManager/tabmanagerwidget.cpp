@@ -371,7 +371,7 @@ void TabManagerWidget::detachSelectedTabs(const QHash<BrowserWindow*, WebTab*> &
         return;
     }
 
-    BrowserWindow* newWindow = mApp->createWindow(Qz::BW_OtherRestoredWindow);;
+    BrowserWindow* newWindow = mApp->createWindow(Qz::BW_OtherRestoredWindow);
     newWindow->move(mApp->desktop()->availableGeometry(this).topLeft() + QPoint(30, 30));
 
     const QList<BrowserWindow*> &windows = tabsHash.uniqueKeys();
