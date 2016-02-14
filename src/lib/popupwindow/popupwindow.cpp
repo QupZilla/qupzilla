@@ -39,7 +39,7 @@ PopupWindow::PopupWindow(PopupWebView* view)
 {
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->setSpacing(0);
+    m_layout->setSpacing(2);
 
     m_locationBar = new PopupLocationBar(this);
     m_locationBar->setView(m_view);
