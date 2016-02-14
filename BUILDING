@@ -192,7 +192,7 @@ Available Defines
                           QupZilla binary will then be moved to PREFIX/bin/, use
                           PREFIX/share/qupzilla/ as datadir, PREFIX/share/applications for
                           desktop launcher and PREFIX/share/pixmaps for icon.
-                          (default prefix is "/usr/")
+                          (default prefix is "/usr")
 
                           example:
                           $ export QUPZILLA_PREFIX="/usr"
@@ -200,8 +200,12 @@ Available Defines
      SHARE_FOLDER         You can define the path of the share folder, i.e. /usr/share
                           QupZilla will then use SHARE_FOLDER/qupzilla as datadir,
                           SHARE_FOLDER/applications for desktop launcher and
-                          SHARE_FOLDER/pixmaps for the icon. By default it is not defined and
-                          files will be installed as described above.
+                          SHARE_FOLDER/pixmaps for the icon. By default it is not defined
+                          and files will be installed as described above.
+                          (default share folder is "/usr/share")
+
+                          example:
+                          $ export SHARE_FOLDER="/usr/share"
 
      DISABLE_DBUS         Build without QtDBus module. Native desktop notifications
                           will be disabled.
