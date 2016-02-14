@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,8 @@
 #include "qzsettings.h"
 #include "popuplocationbar.h"
 #include "qztools.h"
+#include "mainapplication.h"
+#include "browserwindow.h"
 
 #include <QVBoxLayout>
 #include <QStatusBar>
@@ -105,7 +107,6 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
     connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
     connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
-    //connect(m_view, SIGNAL(statusBarMessage(QString)), this, SLOT(showStatusBarMessage(QString)));
     connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
     connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
@@ -122,6 +123,14 @@ PopupWindow::PopupWindow(PopupWebView* view)
     }
 
     m_locationBar->showUrl(urlToShow);
+
+    if (mApp->getWindow()) {
+        m_statusBar->setVisible(mApp->getWindow()->statusBar()->isVisible());
+        m_menuBar->setVisible(mApp->getWindow()->menuBar()->isVisible());
+
+        if (m_menuBar->isHidden())
+            m_layout->setContentsMargins(0, 2, 0, 0);
+    }
 
     // Ensuring correct sizes for widgets in layout are calculated even
     // before calling QWidget::show()
