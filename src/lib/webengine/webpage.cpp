@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -587,19 +587,21 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
         qWarning() << "Asked to created WebBrowserWindow!";
         break;
 
+    case QWebEnginePage::WebDialog:
+        if (!qzSettings->openPopupsInTabs) {
+            PopupWebView* view = new PopupWebView;
+            view->setPage(new WebPage);
+            PopupWindow* popup = new PopupWindow(view);
+            popup->show();
+            window->addDeleteOnCloseWidget(popup);
+            return view->page();
+        }
+        // else fallthrough
+
     case QWebEnginePage::WebBrowserTab: {
         int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
         TabbedWebView* view = window->weView(index);
         view->setPage(new WebPage);
-        return view->page();
-    }
-
-    case QWebEnginePage::WebDialog: {
-        PopupWebView* view = new PopupWebView;
-        view->setPage(new WebPage);
-        PopupWindow* popup = new PopupWindow(view);
-        popup->show();
-        window->addDeleteOnCloseWidget(popup);
         return view->page();
     }
 

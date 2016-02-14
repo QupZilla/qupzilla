@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,6 +54,7 @@ void QzSettings::loadSettings()
     settings.beginGroup("Browser-Tabs-Settings");
     newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_CleanSelectedTab : Qz::NT_CleanNotSelectedTab;
     tabsOnTop = settings.value("TabsOnTop", true).toBool();
+    openPopupsInTabs = settings.value("OpenPopupsInTabs", false).toBool();
     alwaysSwitchTabsWithWheel = settings.value("AlwaysSwitchTabsWithWheel", false).toBool();
     settings.endGroup();
 }

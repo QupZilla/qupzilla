@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -230,6 +230,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->activateLastTab->setChecked(settings.value("ActivateLastTabWhenClosingActual", false).toBool());
     ui->openNewTabAfterActive->setChecked(settings.value("newTabAfterActive", true).toBool());
     ui->openNewEmptyTabAfterActive->setChecked(settings.value("newEmptyTabAfterActive", false).toBool());
+    ui->openPopupsInTabs->setChecked(settings.value("OpenPopupsInTabs", false).toBool());
     ui->alwaysSwitchTabsWithWheel->setChecked(settings.value("AlwaysSwitchTabsWithWheel", false).toBool());
     ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
     ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", false).toBool());
@@ -854,6 +855,7 @@ void Preferences::saveSettings()
     settings.setValue("ActivateLastTabWhenClosingActual", ui->activateLastTab->isChecked());
     settings.setValue("newTabAfterActive", ui->openNewTabAfterActive->isChecked());
     settings.setValue("newEmptyTabAfterActive", ui->openNewEmptyTabAfterActive->isChecked());
+    settings.setValue("OpenPopupsInTabs", ui->openPopupsInTabs->isChecked());
     settings.setValue("AlwaysSwitchTabsWithWheel", ui->alwaysSwitchTabsWithWheel->isChecked());
     settings.setValue("OpenNewTabsSelected", ui->switchToNewTabs->isChecked());
     settings.setValue("dontCloseWithOneTab", ui->dontCloseOnLastTab->isChecked());

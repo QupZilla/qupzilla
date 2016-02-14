@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>840</width>
-    <height>554</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -140,8 +140,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>596</width>
-        <height>468</height>
+        <width>582</width>
+        <height>489</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -691,6 +691,13 @@
                 <widget class="QCheckBox" name="openNewEmptyTabAfterActive">
                  <property name="text">
                   <string>Open new empty tabs after active tab</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="openPopupsInTabs">
+                 <property name="text">
+                  <string>Open popup windows in tabs</string>
                  </property>
                 </widget>
                </item>
