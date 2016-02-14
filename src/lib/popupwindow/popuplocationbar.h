@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,6 @@
 #include "lineedit.h"
 
 class QUrl;
-class QLabel;
 
 class PopupSiteIcon;
 class PopupWebView;
@@ -50,7 +49,6 @@ public slots:
 
 private:
     PopupWebView* m_view;
-    QLabel* m_loadingAnimation;
 
     PopupSiteIcon* m_siteIcon;
     AutoFillIcon* m_autofillIcon;

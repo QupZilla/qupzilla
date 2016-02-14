@@ -24,9 +24,6 @@
 #include "autofillicon.h"
 #include "webpage.h"
 
-#include <QMovie>
-#include <QLabel>
-
 class QUPZILLA_EXPORT PopupSiteIcon : public QWidget
 {
 public:
@@ -56,18 +53,12 @@ PopupLocationBar::PopupLocationBar(QWidget* parent)
     m_bookmarkIcon = new BookmarksIcon(this);
     m_autofillIcon = new AutoFillIcon(this);
 
-    m_loadingAnimation = new QLabel(this);
-    QMovie* movie = new QMovie(":icons/other/progress.gif", QByteArray(), m_loadingAnimation);
-    m_loadingAnimation->setMovie(movie);
-    m_loadingAnimation->setFixedSize(16, 26);
-
     QWidget* rightSpacer = new QWidget(this);
     rightSpacer->setFixedWidth(3);
 
     addWidget(m_siteIcon, LineEdit::LeftSide);
     addWidget(m_autofillIcon, LineEdit::RightSide);
     addWidget(m_bookmarkIcon, LineEdit::RightSide);
-    addWidget(m_loadingAnimation, LineEdit::RightSide);
     addWidget(rightSpacer, LineEdit::RightSide);
     setLeftMargin(24);
 
@@ -88,9 +79,6 @@ void PopupLocationBar::setView(PopupWebView* view)
 
 void PopupLocationBar::startLoading()
 {
-    m_loadingAnimation->show();
-    m_loadingAnimation->movie()->start();
-
     m_autofillIcon->hide();
 
     updateTextMargins();
@@ -98,9 +86,6 @@ void PopupLocationBar::startLoading()
 
 void PopupLocationBar::stopLoading()
 {
-    m_loadingAnimation->hide();
-    m_loadingAnimation->movie()->stop();
-
     m_bookmarkIcon->checkBookmark(m_view->url());
 
     WebPage* page = qobject_cast<WebPage*>(m_view->page());
