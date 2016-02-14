@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -65,9 +65,7 @@ void TabIcon::showLoadingAnimation()
 {
     m_currentFrame = 0;
 
-    // Start animation delayed with 100 ms
-    m_updateTimer->setInterval(100);
-    m_updateTimer->start();
+    updateAnimationFrame();
 }
 
 void TabIcon::hideLoadingAnimation()
@@ -87,8 +85,8 @@ void TabIcon::showIcon()
 void TabIcon::updateAnimationFrame()
 {
     if (!m_animationRunning) {
+        m_updateTimer->start();
         m_animationRunning = true;
-        m_updateTimer->setInterval(ANIMATION_INTERVAL);
     }
 
     update();
