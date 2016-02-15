@@ -97,7 +97,7 @@ CookieManager::CookieManager()
 void CookieManager::removeAll()
 {
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                                         tr("Are you sure to delete all cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
+                                         tr("Are you sure you want to delete all cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
     if (button != QMessageBox::Yes) {
         return;
     }

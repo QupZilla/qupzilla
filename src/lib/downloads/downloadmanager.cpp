@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -340,7 +340,7 @@ void DownloadManager::closeEvent(QCloseEvent* e)
     if (mApp->windowCount() == 0) { // No main windows -> we are going to quit
         if (!canClose()) {
             QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Warning"),
-                                                 tr("Are you sure to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);
+                                                 tr("Are you sure you want to quit? All uncompleted downloads will be cancelled!"), QMessageBox::Yes | QMessageBox::No);
             if (button != QMessageBox::Yes) {
                 e->ignore();
                 return;

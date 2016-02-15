@@ -1,7 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
 * Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * some codes and ideas are taken from cookiemanager.cpp and cookiemanager.ui
 *
@@ -93,7 +93,7 @@ FCM_Dialog::FCM_Dialog(FCM_Plugin* manager, QWidget* parent)
 void FCM_Dialog::removeAll()
 {
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                                         tr("Are you sure to delete all flash cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
+                                         tr("Are you sure you want to delete all flash cookies on your computer?"), QMessageBox::Yes | QMessageBox::No);
     if (button != QMessageBox::Yes) {
         return;
     }

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -1317,7 +1317,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
     if (askOnClose && m_tabWidget->normalTabsCount() > 1) {
         CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, this);
-        dialog.setText(tr("There are still %n open tabs and your session won't be stored. \nAre you sure to close this window?", "", m_tabWidget->count()));
+        dialog.setText(tr("There are still %n open tabs and your session won't be stored. \nAre you sure you want to close this window?", "", m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
         dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning));

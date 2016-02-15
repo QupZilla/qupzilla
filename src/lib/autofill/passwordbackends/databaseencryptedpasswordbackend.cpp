@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
 * Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -587,7 +587,7 @@ void MasterPasswordDialog::showSetMasterPasswordPage()
 
 void MasterPasswordDialog::clearMasterPasswordAndConvert(bool forcedAskPass)
 {
-    if (QMessageBox::information(this, tr("Warning!"), tr("Are you sure to clear master password and decrypt data?"), QMessageBox::Yes | QMessageBox::No)
+    if (QMessageBox::information(this, tr("Warning!"), tr("Are you sure you want to clear master password and decrypt data?"), QMessageBox::Yes | QMessageBox::No)
         == QMessageBox::No) {
         reject();
         return;

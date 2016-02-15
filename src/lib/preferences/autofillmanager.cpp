@@ -230,7 +230,7 @@ void AutoFillManager::removePass()
 void AutoFillManager::removeAllPass()
 {
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                                         tr("Are you sure to delete all passwords on your computer?"), QMessageBox::Yes | QMessageBox::No);
+                                         tr("Are you sure you want to delete all passwords on your computer?"), QMessageBox::Yes | QMessageBox::No);
     if (button != QMessageBox::Yes) {
         return;
     }

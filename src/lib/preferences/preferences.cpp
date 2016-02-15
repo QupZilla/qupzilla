@@ -764,7 +764,7 @@ void Preferences::deleteProfile()
 {
     QString name = ui->startProfile->currentText();
     QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Confirmation"),
-                                         tr("Are you sure to permanently delete \"%1\" profile? This action cannot be undone!").arg(name), QMessageBox::Yes | QMessageBox::No);
+                                         tr("Are you sure you want to permanently delete \"%1\" profile? This action cannot be undone!").arg(name), QMessageBox::Yes | QMessageBox::No);
     if (button != QMessageBox::Yes) {
         return;
     }

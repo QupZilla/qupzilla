@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ void SBI_NetworkIconDialog::addProxy()
 
 void SBI_NetworkIconDialog::removeProxy()
 {
-    QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Remove current proxy"), tr("Are you sure to remove current proxy?"),
+    QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Remove current proxy"), tr("Are you sure you want to remove current proxy?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
     if (button != QMessageBox::Yes) {
