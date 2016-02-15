@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,6 +49,9 @@ private slots:
     void editPass();
     void showPasswords();
 
+    void copyPassword();
+    void copyUsername();
+
     void removeExcept();
     void removeAllExcept();
 
@@ -59,6 +62,7 @@ private slots:
     void slotExportPasswords();
 
     void currentPasswordBackendChanged();
+    void passwordContextMenu(const QPoint &pos);
 
 private:
     Ui::AutoFillManager* ui;

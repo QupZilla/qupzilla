@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -31,6 +31,7 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QClipboard>
 
 AutoFillManager::AutoFillManager(QWidget* parent)
     : QWidget(parent)
@@ -58,6 +59,9 @@ AutoFillManager::AutoFillManager(QWidget* parent)
 
     connect(ui->removeExcept, SIGNAL(clicked()), this, SLOT(removeExcept()));
     connect(ui->removeAllExcept, SIGNAL(clicked()), this, SLOT(removeAllExcept()));
+
+    ui->treePass->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->treePass, &TreeWidget::customContextMenuRequested, this, &AutoFillManager::passwordContextMenu);
 
     QMenu* menu = new QMenu(this);
     menu->addAction(tr("Import Passwords from File..."), this, SLOT(importPasswords()));
@@ -188,6 +192,26 @@ void AutoFillManager::showPasswords()
     }
 
     ui->showPasswords->setText(tr("Hide Passwords"));
+}
+
+void AutoFillManager::copyPassword()
+{
+    QTreeWidgetItem* curItem = ui->treePass->currentItem();
+    if (!curItem)
+        return;
+
+    PasswordEntry entry = curItem->data(0, Qt::UserRole + 10).value<PasswordEntry>();
+    QApplication::clipboard()->setText(entry.password);
+}
+
+void AutoFillManager::copyUsername()
+{
+    QTreeWidgetItem* curItem = ui->treePass->currentItem();
+    if (!curItem)
+        return;
+
+    PasswordEntry entry = curItem->data(0, Qt::UserRole + 10).value<PasswordEntry>();
+    QApplication::clipboard()->setText(entry.username);
 }
 
 void AutoFillManager::removePass()
@@ -339,6 +363,17 @@ void AutoFillManager::currentPasswordBackendChanged()
     ui->backendOptions->setVisible(m_passwordManager->activeBackend()->hasSettings());
 
     QTimer::singleShot(0, this, SLOT(loadPasswords()));
+}
+
+void AutoFillManager::passwordContextMenu(const QPoint &pos)
+{
+    QMenu *menu = new QMenu;
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+    menu->addAction(tr("Copy Username"), this, &AutoFillManager::copyUsername);
+    menu->addAction(tr("Copy Password"), this, &AutoFillManager::copyPassword);
+    menu->addSeparator();
+    menu->addAction(tr("Edit Password"), this, &AutoFillManager::editPass);
+    menu->popup(ui->treePass->viewport()->mapToGlobal(pos));
 }
 
 AutoFillManager::~AutoFillManager()
