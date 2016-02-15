@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -94,7 +94,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="323"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="313"/>
+        <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="337"/>
         <source>License</source>
         <translation type="unfinished"></translation>
     </message>

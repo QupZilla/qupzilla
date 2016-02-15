@@ -21,7 +21,7 @@ FORMS += \
 TRANSLATIONS = \
     translations/fa_IR.ts
 
-include(tldextractor/tldextractor.pri)
+include(..dextractor/tldextractor.pri)
 
 PLUGIN_DIR = $$PWD
 srcdir = $$(QUPZILLA_SRCDIR)
@@ -29,5 +29,5 @@ equals(srcdir, "") {
     include(../../plugins.pri)
 }
 else {
-    include($$srcdir/src/plugins.pri)
+    include(..srcdir/src/plugins.pri)
 }

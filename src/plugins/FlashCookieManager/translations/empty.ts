@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>FCM_Dialog</name>
     <message>
@@ -24,10 +24,10 @@
         <location filename="../fcm_dialog.ui" line="130"/>
         <location filename="../fcm_dialog.ui" line="140"/>
         <location filename="../fcm_dialog.ui" line="256"/>
-        <location filename="../fcm_dialog.cpp" line="149"/>
-        <location filename="../fcm_dialog.cpp" line="150"/>
-        <location filename="../fcm_dialog.cpp" line="151"/>
-        <location filename="../fcm_dialog.cpp" line="152"/>
+        <location filename="../fcm_dialog.cpp" line="153"/>
+        <location filename="../fcm_dialog.cpp" line="154"/>
+        <location filename="../fcm_dialog.cpp" line="155"/>
+        <location filename="../fcm_dialog.cpp" line="156"/>
         <source>&lt;flash cookie not selected&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="113"/>
-        <location filename="../fcm_dialog.cpp" line="275"/>
-        <location filename="../fcm_dialog.cpp" line="290"/>
+        <location filename="../fcm_dialog.cpp" line="279"/>
+        <location filename="../fcm_dialog.cpp" line="307"/>
         <source>Origin:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="283"/>
-        <location filename="../fcm_dialog.cpp" line="154"/>
+        <location filename="../fcm_dialog.cpp" line="158"/>
         <source>Remove flash cookies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -177,53 +177,71 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="77"/>
+        <location filename="../fcm_dialog.cpp" line="78"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="91"/>
+        <location filename="../fcm_dialog.cpp" line="95"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="92"/>
-        <source>Are you sure to delete all flash cookies on your computer?</source>
+        <location filename="../fcm_dialog.cpp" line="96"/>
+        <source>Are you sure you want to delete all flash cookies on your computer?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="164"/>
-        <location filename="../fcm_dialog.cpp" line="235"/>
+        <location filename="../fcm_dialog.cpp" line="168"/>
+        <location filename="../fcm_dialog.cpp" line="239"/>
         <source> (settings)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="167"/>
+        <location filename="../fcm_dialog.cpp" line="171"/>
         <source> Byte</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="173"/>
+        <location filename="../fcm_dialog.cpp" line="177"/>
         <source>Remove flash cookie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="239"/>
+        <location filename="../fcm_dialog.cpp" line="243"/>
         <source> [new]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="275"/>
+        <location filename="../fcm_dialog.cpp" line="279"/>
+        <location filename="../fcm_dialog.cpp" line="385"/>
         <source>Add to whitelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="290"/>
+        <location filename="../fcm_dialog.cpp" line="291"/>
+        <location filename="../fcm_dialog.cpp" line="319"/>
+        <source>Already whitelisted!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../fcm_dialog.cpp" line="291"/>
+        <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../fcm_dialog.cpp" line="307"/>
+        <location filename="../fcm_dialog.cpp" line="384"/>
         <source>Add to blacklist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_dialog.cpp" line="345"/>
+        <location filename="../fcm_dialog.cpp" line="319"/>
+        <source>The origin &quot;%1&quot; is already in whitelist, please remove it first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../fcm_dialog.cpp" line="375"/>
         <source>Select Flash Data Path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -254,17 +272,22 @@
 <context>
     <name>FCM_Plugin</name>
     <message>
-        <location filename="../fcm_plugin.cpp" line="353"/>
-        <source>Show/Hide Flash Cookie Manager</source>
+        <location filename="../fcm_plugin.cpp" line="127"/>
+        <source>Flash Cookie Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_plugin.cpp" line="439"/>
+        <location filename="../fcm_plugin.cpp" line="394"/>
+        <source>Show Flash Cookie Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../fcm_plugin.cpp" line="476"/>
         <source>!default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_plugin.cpp" line="451"/>
+        <location filename="../fcm_plugin.cpp" line="488"/>
         <source>!other</source>
         <translation type="unfinished"></translation>
     </message>
