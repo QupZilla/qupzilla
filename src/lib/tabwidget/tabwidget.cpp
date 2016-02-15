@@ -397,7 +397,7 @@ int TabWidget::addView(WebTab* tab)
     tab->attach(m_window);
 
     connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
-    connect(tab->webView(), SIGNAL(changed()), this, SIGNAL(changed()));
+    connect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     return index;
