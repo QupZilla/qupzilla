@@ -189,7 +189,7 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
     BookmarksToolbarButton* button = new BookmarksToolbarButton(item, this);
     button->setMainWindow(m_window);
     button->setShowOnlyIcon(m_bookmarks->showOnlyIconsInToolbar());
-    button->setShowOnlyIcon(m_bookmarks->showOnlyTextInToolbar());
+    button->setShowOnlyText(m_bookmarks->showOnlyTextInToolbar());
     m_layout->addWidget(button);
 
     setFixedHeight(m_layout->spacing() * 2 + button->preferredHeight());
