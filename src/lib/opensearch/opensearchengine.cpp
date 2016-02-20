@@ -18,7 +18,7 @@
  */
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -183,6 +183,10 @@ QString OpenSearchEngine::searchUrlTemplate() const
 
 void OpenSearchEngine::setSearchUrlTemplate(const QString &searchUrlTemplate)
 {
+    if (!searchUrlTemplate.startsWith(QL1S("http://")) && !searchUrlTemplate.startsWith(QL1S("https://"))) {
+        return;
+    }
+
     m_searchUrlTemplate = searchUrlTemplate;
 }
 
@@ -279,6 +283,10 @@ QString OpenSearchEngine::suggestionsUrlTemplate() const
 
 void OpenSearchEngine::setSuggestionsUrlTemplate(const QString &suggestionsUrlTemplate)
 {
+    if (!suggestionsUrlTemplate.startsWith(QL1S("http://")) && !suggestionsUrlTemplate.startsWith(QL1S("https://"))) {
+        return;
+    }
+
     m_suggestionsUrlTemplate = suggestionsUrlTemplate;
 }
 
