@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -74,6 +74,9 @@ void PopupWebView::requestFullScreen(bool enable)
 
 void PopupWebView::inspectElement()
 {
+    if (!WebInspector::isEnabled())
+        return;
+
     if (m_inspector) {
         triggerPageAction(QWebEnginePage::InspectElement);
         return;

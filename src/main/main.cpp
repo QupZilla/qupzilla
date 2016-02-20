@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "mainapplication.h"
-#include "webinspector.h"
 #include "proxystyle.h"
 #include "datapaths.h"
 
@@ -152,8 +151,6 @@ int main(int argc, char* argv[])
         args[argc++] = qstrdup(stylecmd.toUtf8().constData());
         argv = args;
     }
-
-    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", WEBINSPECTOR_PORT);
 
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);

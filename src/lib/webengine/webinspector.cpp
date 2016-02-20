@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -48,8 +48,10 @@ WebInspector::~WebInspector()
 void WebInspector::setView(QWebEngineView *view)
 {
     m_view = view;
+    Q_ASSERT(isEnabled());
 
-    QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(WEBINSPECTOR_PORT));
+    int port = qEnvironmentVariableIntValue("QTWEBENGINE_REMOTE_DEBUGGING");
+    QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(port));
     int index = s_views.indexOf(m_view);
 
     QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(inspectorUrl.resolved(QUrl("json/list"))));
@@ -69,6 +71,11 @@ void WebInspector::setView(QWebEngineView *view)
 void WebInspector::inspectElement()
 {
     m_inspectElement = true;
+}
+
+bool WebInspector::isEnabled()
+{
+    return qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING");
 }
 
 void WebInspector::pushView(QWebEngineView *view)

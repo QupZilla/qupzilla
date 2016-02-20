@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,8 +17,6 @@
 * ============================================================ */
 #ifndef WEBINSPECTORDOCKWIDGET_H
 #define WEBINSPECTORDOCKWIDGET_H
-
-#define WEBINSPECTOR_PORT "33417"
 
 #include <QWebEngineView>
 
@@ -37,6 +35,7 @@ public:
     void setView(QWebEngineView *view);
     void inspectElement();
 
+    static bool isEnabled();
     static void pushView(QWebEngineView *view);
     static void registerView(QWebEngineView *view);
     static void unregisterView(QWebEngineView *view);
