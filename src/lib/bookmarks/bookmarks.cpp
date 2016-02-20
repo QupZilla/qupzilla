@@ -178,12 +178,14 @@ void Bookmarks::setShowOnlyIconsInToolbar(bool state)
 {
     m_showOnlyIconsInToolbar = state;
     emit showOnlyIconsInToolbarChanged(state);
+    m_autoSaver->changeOcurred();
 }
 
 void Bookmarks::setShowOnlyTextInToolbar(bool state)
 {
     m_showOnlyTextInToolbar = state;
     emit showOnlyTextInToolbarChanged(state);
+    m_autoSaver->changeOcurred();
 }
 
 void Bookmarks::saveSettings()
