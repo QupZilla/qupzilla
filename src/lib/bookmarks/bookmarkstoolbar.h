@@ -46,6 +46,7 @@ private slots:
 
     void openBookmarkInNewTab();
     void openBookmarkInNewWindow();
+    void editBookmark();
     void deleteBookmark();
 
 private:

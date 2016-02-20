@@ -82,6 +82,9 @@ public:
     static bool addBookmarkDialog(QWidget* parent, const QUrl &url, const QString &title, BookmarkItem* folder = 0);
     static bool bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget, BookmarkItem* folder = 0);
 
+    // Edit Bookmark Dialog
+    static bool editBookmarkDialog(QWidget* parent, BookmarkItem* item);
+
     // Open Bookmarks
     static void openBookmark(BrowserWindow* window, BookmarkItem* item);
     static void openBookmarkInNewTab(BrowserWindow* window, BookmarkItem* item);
