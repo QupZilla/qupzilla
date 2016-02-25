@@ -70,6 +70,7 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     QMenu menu;
     QAction* actNewTab = menu.addAction(IconProvider::newTabIcon(), tr("Open in new tab"));
     QAction* actNewWindow = menu.addAction(IconProvider::newWindowIcon(), tr("Open in new window"));
+    QAction* actNewPrivateWindow = menu.addAction(IconProvider::privateBrowsingIcon(), tr("Open in new private window"));
     menu.addSeparator();
     QAction* actEdit = menu.addAction(tr("Edit"));
     QAction* actDelete = menu.addAction(QIcon::fromTheme("edit-delete"), tr("Delete"));
@@ -85,6 +86,7 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
 
     connect(actNewTab, SIGNAL(triggered()), this, SLOT(openBookmarkInNewTab()));
     connect(actNewWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewWindow()));
+    connect(actNewPrivateWindow, SIGNAL(triggered()), this, SLOT(openBookmarkInNewPrivateWindow()));
     connect(actEdit, SIGNAL(triggered()), this, SLOT(editBookmark()));
     connect(actDelete, SIGNAL(triggered()), this, SLOT(deleteBookmark()));
 
@@ -92,6 +94,7 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
     actDelete->setEnabled(m_clickedBookmark && m_bookmarks->canBeModified(m_clickedBookmark));
     actNewTab->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
     actNewWindow->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
+    actNewPrivateWindow->setEnabled(m_clickedBookmark && m_clickedBookmark->isUrl());
 
     menu.exec(mapToGlobal(pos));
 
@@ -162,6 +165,13 @@ void BookmarksToolbar::openBookmarkInNewWindow()
 {
     if (m_clickedBookmark) {
         BookmarksTools::openBookmarkInNewWindow(m_clickedBookmark);
+    }
+}
+
+void BookmarksToolbar::openBookmarkInNewPrivateWindow()
+{
+    if (m_clickedBookmark) {
+        BookmarksTools::openBookmarkInNewPrivateWindow(m_clickedBookmark);
     }
 }
 
