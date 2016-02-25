@@ -231,7 +231,7 @@ void BrowserWindow::postLaunch()
         tabWidget()->tabBar()->ensureVisible();
 
         // Update focus
-        if (locationBar()->text().isEmpty())
+        if (LocationBar::convertUrlToText(weView()->webTab()->url()).isEmpty())
             locationBar()->setFocus();
         else
             weView()->setFocus();
