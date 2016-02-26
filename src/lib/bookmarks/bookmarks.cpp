@@ -136,8 +136,6 @@ void Bookmarks::addBookmark(BookmarkItem* parent, BookmarkItem* item)
     Q_ASSERT(item);
 
     insertBookmark(parent, parent->children().count(), item);
-
-    m_autoSaver->changeOcurred();
 }
 
 void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item)
