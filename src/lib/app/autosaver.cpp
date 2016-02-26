@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ void AutoSaver::saveIfNecessary()
     }
 }
 
-void AutoSaver::changeOcurred()
+void AutoSaver::changeOccurred()
 {
     if (!m_timer.isActive()) {
         m_timer.start(SAVE_DELAY, this);

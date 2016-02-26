@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -122,7 +122,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     setTabBar(m_tabBar);
 
     connect(this, SIGNAL(currentChanged(int)), m_window, SLOT(refreshHistory()));
-    connect(this, SIGNAL(changed()), mApp, SLOT(changeOcurred()));
+    connect(this, SIGNAL(changed()), mApp, SLOT(changeOccurred()));
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(requestCloseTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));

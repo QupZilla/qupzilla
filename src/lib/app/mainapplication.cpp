@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -626,9 +626,9 @@ void MainApplication::restoreOverrideCursor()
     QApplication::restoreOverrideCursor();
 }
 
-void MainApplication::changeOcurred()
+void MainApplication::changeOccurred()
 {
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 void MainApplication::quitApplication()

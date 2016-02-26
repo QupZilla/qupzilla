@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -148,7 +148,7 @@ void Bookmarks::insertBookmark(BookmarkItem* parent, int row, BookmarkItem* item
     m_model->addBookmark(parent, row, item);
     emit bookmarkAdded(item);
 
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 bool Bookmarks::removeBookmark(BookmarkItem* item)
@@ -160,7 +160,7 @@ bool Bookmarks::removeBookmark(BookmarkItem* item)
     m_model->removeBookmark(item);
     emit bookmarkRemoved(item);
 
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
     return true;
 }
 
@@ -169,21 +169,21 @@ void Bookmarks::changeBookmark(BookmarkItem* item)
     Q_ASSERT(item);
     emit bookmarkChanged(item);
 
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 void Bookmarks::setShowOnlyIconsInToolbar(bool state)
 {
     m_showOnlyIconsInToolbar = state;
     emit showOnlyIconsInToolbarChanged(state);
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 void Bookmarks::setShowOnlyTextInToolbar(bool state)
 {
     m_showOnlyTextInToolbar = state;
     emit showOnlyTextInToolbarChanged(state);
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 void Bookmarks::saveSettings()
@@ -255,7 +255,7 @@ void Bookmarks::loadBookmarks()
         loadBookmarksFromMap(data.toMap().value("roots").toMap());
 
         // Don't forget to save the bookmarks
-        m_autoSaver->changeOcurred();
+        m_autoSaver->changeOccurred();
     }
     else {
         loadBookmarksFromMap(res.toMap().value("roots").toMap());

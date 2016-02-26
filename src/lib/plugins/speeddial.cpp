@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ SpeedDial::SpeedDial(QObject* parent)
 {
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSettings()));
-    connect(this, SIGNAL(pagesChanged()), m_autoSaver, SLOT(changeOcurred()));
+    connect(this, SIGNAL(pagesChanged()), m_autoSaver, SLOT(changeOccurred()));
 }
 
 SpeedDial::~SpeedDial()
@@ -326,7 +326,7 @@ void SpeedDial::setSdCentered(bool centered)
 {
     m_sdcentered = centered;
 
-    m_autoSaver->changeOcurred();
+    m_autoSaver->changeOccurred();
 }
 
 void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
