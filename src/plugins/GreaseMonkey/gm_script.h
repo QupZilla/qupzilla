@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ class GM_Script : public QObject
 public:
     explicit GM_Script(GM_Manager* manager, const QString &filePath);
 
-    enum StartAt { DocumentStart, DocumentEnd };
+    enum StartAt { DocumentStart, DocumentEnd, DocumentIdle };
 
     bool isValid() const;
     QString name() const;

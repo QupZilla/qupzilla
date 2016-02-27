@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -141,10 +141,25 @@ QString GM_Script::fileName() const
 
 QWebEngineScript GM_Script::webScript() const
 {
+    QWebEngineScript::InjectionPoint injectionPoint;
+    switch (startAt()) {
+    case DocumentStart:
+        injectionPoint = QWebEngineScript::DocumentCreation;
+        break;
+    case DocumentEnd:
+        injectionPoint = QWebEngineScript::DocumentReady;
+        break;
+    case DocumentIdle:
+        injectionPoint = QWebEngineScript::Deferred;
+        break;
+    default:
+        Q_UNREACHABLE();
+    }
+
     QWebEngineScript script;
     script.setName(fullName());
-    script.setInjectionPoint(startAt() == DocumentStart ? QWebEngineScript::DocumentCreation : QWebEngineScript::DocumentReady);
     script.setWorldId(QWebEngineScript::MainWorld);
+    script.setInjectionPoint(injectionPoint);
     script.setRunsOnSubFrames(!m_noframes);
     script.setSourceCode(QSL("%1\n%2\n%3").arg(m_metadata, m_manager->bootstrapScript(), m_script));
     return script;
@@ -273,6 +288,9 @@ void GM_Script::parseScript()
             }
             else if (value == QLatin1String("document-start")) {
                 m_startAt = DocumentStart;
+            }
+            else if (value == QLatin1String("document-idle")) {
+                m_startAt = DocumentIdle;
             }
         }
         else if (key == QLatin1String("@downloadURL") && m_downloadUrl.isEmpty()) {
