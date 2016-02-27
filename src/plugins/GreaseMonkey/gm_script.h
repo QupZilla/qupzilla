@@ -93,7 +93,6 @@ private:
     bool m_noframes;
 
     QString m_script;
-    QString m_metadata;
     QString m_fileName;
     bool m_enabled;
     bool m_valid;

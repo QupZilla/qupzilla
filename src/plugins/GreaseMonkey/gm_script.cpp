@@ -129,11 +129,6 @@ QString GM_Script::script() const
     return m_script;
 }
 
-QString GM_Script::metaData() const
-{
-    return m_metadata;
-}
-
 QString GM_Script::fileName() const
 {
     return m_fileName;
@@ -161,7 +156,7 @@ QWebEngineScript GM_Script::webScript() const
     script.setWorldId(QWebEngineScript::MainWorld);
     script.setInjectionPoint(injectionPoint);
     script.setRunsOnSubFrames(!m_noframes);
-    script.setSourceCode(QSL("%1\n%2\n%3").arg(m_metadata, m_manager->bootstrapScript(), m_script));
+    script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     return script;
 }
 
@@ -211,7 +206,6 @@ void GM_Script::parseScript()
     m_startAt = DocumentEnd;
     m_noframes = false;
     m_script.clear();
-    m_metadata.clear();
     m_enabled = true;
     m_valid = false;
 
@@ -225,7 +219,7 @@ void GM_Script::parseScript()
         m_fileWatcher->addPath(m_fileName);
     }
 
-    QString fileData = QString::fromUtf8(file.readAll());
+    const QString fileData = QString::fromUtf8(file.readAll());
 
     QzRegExp rx(QSL("// ==UserScript==(.*)// ==/UserScript=="));
     rx.indexIn(fileData);
@@ -305,14 +299,9 @@ void GM_Script::parseScript()
         m_include.append(GM_UrlMatcher("*"));
     }
 
-    int index = fileData.indexOf(QLatin1String("// ==/UserScript==")) + 18;
-    m_metadata = fileData.mid(0, index);
-
-    const QString script = fileData.mid(index).trimmed();
-
     const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
     const QString gmValues = m_manager->valuesScript().arg(nspace);
 
-    m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(requireList), script);
+    m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(requireList), fileData);
     m_valid = true;
 }
