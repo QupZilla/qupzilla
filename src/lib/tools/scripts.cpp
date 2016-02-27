@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -151,7 +151,9 @@ QString Scripts::sendPostData(const QUrl &url, const QByteArray &data)
     QString values;
     QUrlQuery query(data);
 
-    for (const QPair<QString, QString> &pair : query.queryItems(QUrl::FullyDecoded)) {
+    const auto &queryItems = query.queryItems(QUrl::FullyDecoded);
+    for (int i = 0; i < queryItems.size(); ++i) {
+        const auto &pair = queryItems[i];
         QString value = pair.first;
         QString key = pair.second;
         value.replace(QL1S("'"), QL1S("\\'"));
