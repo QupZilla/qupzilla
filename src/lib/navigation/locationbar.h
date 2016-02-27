@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -108,6 +108,7 @@ private:
     bool m_progressVisible;
     ProgressStyle m_progressStyle;
     QColor m_progressColor;
+    QTimer *m_progressTimer;
 };
 
 #endif // LOCATIONBAR_H

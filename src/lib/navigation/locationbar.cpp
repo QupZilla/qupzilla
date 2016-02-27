@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -83,6 +83,11 @@ LocationBar::LocationBar(BrowserWindow* window)
     domainCompleter->setCompletionMode(QCompleter::InlineCompletion);
     domainCompleter->setModel(m_domainCompleterModel);
     setCompleter(domainCompleter);
+
+    m_progressTimer = new QTimer(this);
+    m_progressTimer->setInterval(700);
+    m_progressTimer->setSingleShot(true);
+    connect(m_progressTimer, &QTimer::timeout, this, &LocationBar::hideProgress);
 
     editAction(PasteAndGo)->setText(tr("Paste And &Go"));
     editAction(PasteAndGo)->setIcon(QIcon::fromTheme(QSL("edit-paste")));
@@ -531,6 +536,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 void LocationBar::loadStarted()
 {
     m_progressVisible = true;
+    m_progressTimer->stop();
     m_autofillIcon->hide();
     m_siteIcon->setIcon(IconProvider::emptyWebIcon());
 }
@@ -546,7 +552,7 @@ void LocationBar::loadProgress(int progress)
 void LocationBar::loadFinished()
 {
     if (qzSettings->showLoadingProgress) {
-        QTimer::singleShot(700, this, SLOT(hideProgress()));
+        m_progressTimer->start();
     }
 
     WebPage* page = qobject_cast<WebPage*>(m_webView->page());
@@ -571,7 +577,7 @@ void LocationBar::loadSettings()
 
 void LocationBar::hideProgress()
 {
-    if (qzSettings->showLoadingProgress && m_loadProgress == 100) {
+    if (qzSettings->showLoadingProgress) {
         m_progressVisible = false;
         update();
     }
