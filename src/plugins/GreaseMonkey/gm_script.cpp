@@ -104,24 +104,12 @@ void GM_Script::setEnabled(bool enable)
 
 QStringList GM_Script::include() const
 {
-    QStringList list;
-
-    foreach (const GM_UrlMatcher &matcher, m_include) {
-        list.append(matcher.pattern());
-    }
-
-    return list;
+    return m_include;
 }
 
 QStringList GM_Script::exclude() const
 {
-    QStringList list;
-
-    foreach (const GM_UrlMatcher &matcher, m_exclude) {
-        list.append(matcher.pattern());
-    }
-
-    return list;
+    return m_exclude;
 }
 
 QString GM_Script::script() const
@@ -158,27 +146,6 @@ QWebEngineScript GM_Script::webScript() const
     script.setRunsOnSubFrames(!m_noframes);
     script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     return script;
-}
-
-bool GM_Script::match(const QString &urlString)
-{
-    if (!isEnabled()) {
-        return false;
-    }
-
-    foreach (const GM_UrlMatcher &matcher, m_exclude) {
-        if (matcher.match(urlString)) {
-            return false;
-        }
-    }
-
-    foreach (const GM_UrlMatcher &matcher, m_include) {
-        if (matcher.match(urlString)) {
-            return true;
-        }
-    }
-
-    return false;
 }
 
 void GM_Script::watchedFileChanged(const QString &file)
@@ -268,10 +235,10 @@ void GM_Script::parseScript()
             m_downloadUrl = QUrl(value);
         }
         else if (key == QLatin1String("@include") || key == QLatin1String("@match")) {
-            m_include.append(GM_UrlMatcher(value));
+            m_include.append(value);
         }
         else if (key == QLatin1String("@exclude") || key == QLatin1String("@exclude_match")) {
-            m_exclude.append(GM_UrlMatcher(value));
+            m_exclude.append(value);
         }
         else if (key == QLatin1String("@require")) {
             requireList.append(value);
@@ -296,7 +263,7 @@ void GM_Script::parseScript()
     }
 
     if (m_include.isEmpty()) {
-        m_include.append(GM_UrlMatcher("*"));
+        m_include.append(QSL("*"));
     }
 
     const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();

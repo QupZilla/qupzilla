@@ -7,7 +7,6 @@ DEPENDPATH += settings\
 SOURCES += gm_plugin.cpp \
     gm_manager.cpp \
     gm_script.cpp \
-    gm_urlmatcher.cpp \
     gm_downloader.cpp \
     gm_addscriptdialog.cpp \
     gm_notification.cpp \
@@ -22,7 +21,6 @@ SOURCES += gm_plugin.cpp \
 HEADERS += gm_plugin.h \
     gm_manager.h \
     gm_script.h \
-    gm_urlmatcher.h \
     gm_downloader.h \
     gm_addscriptdialog.h \
     gm_notification.h \

@@ -18,8 +18,6 @@
 #ifndef GM_SCRIPT_H
 #define GM_SCRIPT_H
 
-#include "gm_urlmatcher.h"
-
 #include <QObject>
 #include <QVector>
 #include <QUrl>
@@ -27,7 +25,6 @@
 class QWebEngineScript;
 
 class GM_Manager;
-class GM_UrlMatcher;
 
 class DelayedFileWatcher;
 
@@ -65,8 +62,6 @@ public:
 
     QWebEngineScript webScript() const;
 
-    bool match(const QString &urlString);
-
 signals:
     void scriptChanged();
 
@@ -84,8 +79,8 @@ private:
     QString m_description;
     QString m_version;
 
-    QVector<GM_UrlMatcher> m_include;
-    QVector<GM_UrlMatcher> m_exclude;
+    QStringList m_include;
+    QStringList m_exclude;
 
     QUrl m_downloadUrl;
     QUrl m_updateUrl;
