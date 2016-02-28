@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -873,12 +873,12 @@ void WebView::reloadAllSpeedDials()
 
 void WebView::toggleMediaPause()
 {
-    page()->runJavaScript(Scripts::toggleMediaPause(m_clickedPos));
+    triggerPageAction(QWebEnginePage::ToggleMediaPlayPause);
 }
 
 void WebView::toggleMediaMute()
 {
-    page()->runJavaScript(Scripts::toggleMediaMute(m_clickedPos));
+    triggerPageAction(QWebEnginePage::ToggleMediaMute);
 }
 
 void WebView::initializeActions()

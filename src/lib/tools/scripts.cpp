@@ -279,30 +279,3 @@ QString Scripts::getFormData(const QPoint &pos)
 
     return source.arg(pos.x()).arg(pos.y());
 }
-
-QString Scripts::toggleMediaPause(const QPoint &pos)
-{
-    QString source = QL1S("(function() {"
-                          "var e = document.elementFromPoint(%1, %2);"
-                          "if (!e)"
-                          "    return;"
-                          "if (e.paused)"
-                          "    e.play();"
-                          "else"
-                          "    e.pause();"
-                          "})()");
-
-    return source.arg(pos.x()).arg(pos.y());
-}
-
-QString Scripts::toggleMediaMute(const QPoint &pos)
-{
-    QString source = QL1S("(function() {"
-                          "var e = document.elementFromPoint(%1, %2);"
-                          "if (!e)"
-                          "    return;"
-                          "e.muted = !e.muted;"
-                          "})()");
-
-    return source.arg(pos.x()).arg(pos.y());
-}
