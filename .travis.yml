@@ -16,13 +16,12 @@ before_install:
 
 install:
   - sudo apt-get -qq update
-  - sudo apt-get -qq install libssl-dev pkg-config libhunspell-dev libxcb-util0-dev
+  - sudo apt-get -qq install libssl-dev pkg-config libxcb-util0-dev
   - if [[ "$QT" == "qt56" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt56-trusty; sudo apt-get update -qq; sudo apt-get install -qq qt56tools qt56script qt56webengine qt56webchannel qt56declarative qt56x11extras; fi
 
 script:
   - QMAKE="qmake"
   - if [[ "$QT" == "qt56" ]]; then QMAKE="/opt/qt56/bin/qmake"; fi
-  - $QMAKE
   - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
   - make || exit 1
   - cd scripts && ./run_tests.sh $QMAKE
