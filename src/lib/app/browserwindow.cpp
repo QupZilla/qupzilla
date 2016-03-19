@@ -349,6 +349,7 @@ void BrowserWindow::setupMenu()
     }
 
     m_mainMenu = macMainMenu;
+    m_mainMenu->initSuperMenu(m_superMenu);
 #else
     setMenuBar(new MenuBar(this));
 
