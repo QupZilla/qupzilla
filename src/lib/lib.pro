@@ -483,8 +483,9 @@ os2 {
 }
 
 mac {
-    HEADERS += other/macmenureceiver.h \
-    SOURCES += other/macmenureceiver.cpp \
+    # homebrew openssl
+    INCLUDEPATH += /opt/local/include
+    LIBS += -L/opt/local/lib
 
     LIBS += -lcrypto -framework CoreServices
 }
