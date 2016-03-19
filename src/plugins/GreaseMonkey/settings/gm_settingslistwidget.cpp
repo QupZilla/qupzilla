@@ -36,15 +36,18 @@ void GM_SettingsListWidget::mousePressEvent(QMouseEvent* event)
         return;
     }
 
+    if (containsUpdateIcon(event->pos())) {
+        emit updateItemRequested(itemAt(event->pos()));
+        return;
+    }
+
     QListWidget::mousePressEvent(event);
 }
 
 void GM_SettingsListWidget::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (containsRemoveIcon(event->pos())) {
-        emit removeItemRequested(itemAt(event->pos()));
+    if (containsRemoveIcon(event->pos()) || containsUpdateIcon(event->pos()))
         return;
-    }
 
     QListWidget::mouseDoubleClickEvent(event);
 }
@@ -64,4 +67,20 @@ bool GM_SettingsListWidget::containsRemoveIcon(const QPoint &pos) const
     QRect removeIconRect(removeIconPosition, removeIconYPos, 16, 16);
 
     return removeIconRect.contains(pos);
+}
+
+bool GM_SettingsListWidget::containsUpdateIcon(const QPoint &pos) const
+{
+    QListWidgetItem *item = itemAt(pos);
+    if (!item || !item->data(Qt::UserRole + 2).toBool())
+        return false;
+
+    const QRect rect = visualItemRect(item);
+    const int updateIconPosition = rect.right() - m_delegate->padding() * 2 - 16 * 2;
+    const int center = rect.height() / 2 + rect.top();
+    const int updateIconYPos = center - (16 / 2);
+
+    QRect updateIconRect(updateIconPosition, updateIconYPos, 16, 16);
+
+    return updateIconRect.contains(pos);
 }

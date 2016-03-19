@@ -20,6 +20,7 @@
 #include "gm_downloader.h"
 #include "gm_icon.h"
 #include "gm_urlinterceptor.h"
+#include "gm_addscriptdialog.h"
 #include "settings/gm_settings.h"
 
 #include "browserwindow.h"
@@ -256,7 +257,25 @@ void GM_Manager::scriptChanged()
 
 void GM_Manager::doDownloadScript(const QUrl &url)
 {
-    new GM_Downloader(url, this);
+    GM_Downloader *downloader = new GM_Downloader(url, this);
+    connect(downloader, &GM_Downloader::finished, this, [=](const QString &fileName) {
+        bool deleteScript = true;
+        GM_Script *script = new GM_Script(this, fileName);
+        if (script->isValid()) {
+            if (!containsScript(script->fullName())) {
+                GM_AddScriptDialog dialog(this, script);
+                deleteScript = dialog.exec() != QDialog::Accepted;
+            }
+            else {
+                showNotification(tr("'%1' is already installed").arg(script->name()));
+            }
+        }
+
+        if (deleteScript) {
+            delete script;
+            QFile(fileName).remove();
+        }
+    });
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

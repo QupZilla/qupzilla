@@ -38,6 +38,8 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
 
     connect(ui->listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(showItemInfo(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(updateItemRequested(QListWidgetItem*)),
+            this, SLOT(updateItem(QListWidgetItem*)));
     connect(ui->listWidget, SIGNAL(removeItemRequested(QListWidgetItem*)),
             this, SLOT(removeItem(QListWidgetItem*)));
     connect(ui->openDirectory, SIGNAL(clicked()),
@@ -67,6 +69,15 @@ void GM_Settings::showItemInfo(QListWidgetItem* item)
 
     GM_SettingsScriptInfo* dialog = new GM_SettingsScriptInfo(script, this);
     dialog->open();
+}
+
+void GM_Settings::updateItem(QListWidgetItem* item)
+{
+    GM_Script *script = getScript(item);
+    if (!script) {
+        return;
+    }
+    script->updateScript();
 }
 
 void GM_Settings::removeItem(QListWidgetItem* item)
@@ -148,6 +159,8 @@ void GM_Settings::loadScripts()
         item->setText(script->name());
         item->setData(Qt::UserRole, script->version());
         item->setData(Qt::UserRole + 1, script->description());
+        item->setData(Qt::UserRole + 2, !script->downloadUrl().isEmpty());
+        item->setData(Qt::UserRole + 3, script->isUpdating());
 
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(script->isEnabled() ? Qt::Checked : Qt::Unchecked);

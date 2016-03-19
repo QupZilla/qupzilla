@@ -29,6 +29,7 @@ GM_SettingsListDelegate::GM_SettingsListDelegate(QObject* parent)
     , m_padding(0)
 {
     m_removePixmap = IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(16);
+    m_updateIcon = IconProvider::standardIcon(QStyle::SP_BrowserReload);
 }
 
 int GM_SettingsListDelegate::padding() const
@@ -63,6 +64,8 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
 
     int leftPosition = m_padding;
     int rightPosition = opt.rect.right() - m_padding - 16; // 16 for remove button
+    if (index.data(Qt::UserRole + 2).toBool())
+        rightPosition -= m_padding + 16; // 16 for update button
 
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
@@ -108,6 +111,16 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     const QString info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
     painter->setFont(opt.font);
     style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);
+
+    // Draw update button
+    if (index.data(Qt::UserRole + 2).toBool()) {
+        const int updateIconSize = 16;
+        const int updateIconYPos = center - (updateIconSize / 2);
+        const QPixmap updatePixmap = m_updateIcon.pixmap(16, index.data(Qt::UserRole + 3).toBool() ? QIcon::Disabled : QIcon::Normal);
+        QRect updateIconRect(rightPosition, updateIconYPos, updateIconSize, updateIconSize);
+        painter->drawPixmap(updateIconRect, updatePixmap);
+        rightPosition += m_padding + 16;
+    }
 
     // Draw remove button
     const int removeIconSize = 16;
