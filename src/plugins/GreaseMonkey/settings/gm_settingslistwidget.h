@@ -30,11 +30,13 @@ public:
 
 signals:
     void removeItemRequested(QListWidgetItem* item);
+    void updateItemRequested(QListWidgetItem* item);
 
 public slots:
 
 private:
     bool containsRemoveIcon(const QPoint &pos) const;
+    bool containsUpdateIcon(const QPoint &pos) const;
 
     void mousePressEvent(QMouseEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);

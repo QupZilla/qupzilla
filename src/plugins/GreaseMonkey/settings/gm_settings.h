@@ -40,6 +40,7 @@ public:
 
 private slots:
     void showItemInfo(QListWidgetItem* item);
+    void updateItem(QListWidgetItem* item);
     void removeItem(QListWidgetItem* item);
 
     void itemChanged(QListWidgetItem* item);

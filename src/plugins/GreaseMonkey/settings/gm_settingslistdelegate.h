@@ -32,6 +32,7 @@ public:
 
 private:
     QPixmap m_removePixmap;
+    QIcon m_updateIcon;
 
     mutable int m_rowHeight;
     mutable int m_padding;

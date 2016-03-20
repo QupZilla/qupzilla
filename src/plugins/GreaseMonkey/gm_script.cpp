@@ -17,9 +17,12 @@
 * ============================================================ */
 #include "gm_script.h"
 #include "gm_manager.h"
+#include "gm_downloader.h"
 
 #include "qzregexp.h"
 #include "delayedfilewatcher.h"
+#include "followredirectreply.h"
+#include "mainapplication.h"
 
 #include <QFile>
 #include <QStringList>
@@ -36,6 +39,7 @@ GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     , m_fileName(filePath)
     , m_enabled(true)
     , m_valid(false)
+    , m_updating(false)
 {
     parseScript();
 
@@ -148,6 +152,31 @@ QWebEngineScript GM_Script::webScript() const
     return script;
 }
 
+bool GM_Script::isUpdating()
+{
+    return m_updating;
+}
+
+void GM_Script::updateScript()
+{
+    if (!m_downloadUrl.isValid() || m_updating)
+        return;
+
+    m_updating = true;
+    emit updatingChanged(m_updating);
+
+    GM_Downloader *downloader = new GM_Downloader(m_downloadUrl, m_manager);
+    downloader->updateScript(m_fileName);
+    connect(downloader, &GM_Downloader::finished, this, [this]() {
+        m_updating = false;
+        emit updatingChanged(m_updating);
+    });
+    connect(downloader, &GM_Downloader::error, this, [this]() {
+        m_updating = false;
+        emit updatingChanged(m_updating);
+    });
+}
+
 void GM_Script::watchedFileChanged(const QString &file)
 {
     if (m_fileName == file) {
@@ -254,6 +283,9 @@ void GM_Script::parseScript()
             m_version = value;
         }
         else if (key == QLatin1String("@updateURL")) {
+            m_updateUrl = QUrl(value);
+        }
+        else if (key == QLatin1String("@downloadURL")) {
             m_downloadUrl = QUrl(value);
         }
         else if (key == QLatin1String("@include") || key == QLatin1String("@match")) {
@@ -275,12 +307,6 @@ void GM_Script::parseScript()
             else if (value == QLatin1String("document-idle")) {
                 m_startAt = DocumentIdle;
             }
-        }
-        else if (key == QLatin1String("@downloadURL") && m_downloadUrl.isEmpty()) {
-            m_downloadUrl = QUrl(value);
-        }
-        else if (key == QLatin1String("@updateURL") && m_updateUrl.isEmpty()) {
-            m_updateUrl = QUrl(value);
         }
     }
 

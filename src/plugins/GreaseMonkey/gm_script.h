@@ -62,8 +62,12 @@ public:
 
     QWebEngineScript webScript() const;
 
+    bool isUpdating();
+    void updateScript();
+
 signals:
     void scriptChanged();
+    void updatingChanged(bool updating);
 
 private slots:
     void watchedFileChanged(const QString &file);
@@ -91,6 +95,7 @@ private:
     QString m_fileName;
     bool m_enabled;
     bool m_valid;
+    bool m_updating;
 };
 
 #endif // GM_SCRIPT_H

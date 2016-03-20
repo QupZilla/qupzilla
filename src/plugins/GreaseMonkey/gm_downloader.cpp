@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "gm_downloader.h"
-#include "gm_addscriptdialog.h"
 #include "gm_manager.h"
 #include "gm_script.h"
 
@@ -38,6 +37,11 @@ GM_Downloader::GM_Downloader(const QUrl &url, GM_Manager* manager)
     connect(m_reply, SIGNAL(finished()), this, SLOT(scriptDownloaded()));
 }
 
+void GM_Downloader::updateScript(const QString &fileName)
+{
+    m_fileName = fileName;
+}
+
 void GM_Downloader::scriptDownloaded()
 {
     if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
@@ -52,13 +56,15 @@ void GM_Downloader::scriptDownloaded()
         const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
         if (response.contains(QByteArray("// ==UserScript=="))) {
-            const QString filePath = QString("%1/%2").arg(m_manager->scriptsDirectory(), QzTools::getFileNameFromUrl(m_reply->url()));
-            m_fileName = QzTools::ensureUniqueFilename(filePath);
-
+            if (m_fileName.isEmpty()) {
+                const QString filePath = QString("%1/%2").arg(m_manager->scriptsDirectory(), QzTools::getFileNameFromUrl(m_reply->url()));
+                m_fileName = QzTools::ensureUniqueFilename(filePath);
+            }
             QFile file(m_fileName);
 
             if (!file.open(QFile::WriteOnly)) {
                 qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
+                emit error();
                 deleteLater();
                 return;
             }
@@ -91,6 +97,7 @@ void GM_Downloader::scriptDownloaded()
 void GM_Downloader::requireDownloaded()
 {
     if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
+        emit error();
         deleteLater();
         return;
     }
@@ -109,6 +116,7 @@ void GM_Downloader::requireDownloaded()
 
             if (!file.open(QFile::WriteOnly)) {
                 qWarning() << "GreaseMonkey: Cannot open file for writing" << fileName;
+                emit error();
                 deleteLater();
                 return;
             }
@@ -135,24 +143,7 @@ void GM_Downloader::downloadRequires()
         connect(m_reply, SIGNAL(finished()), this, SLOT(requireDownloaded()));
     }
     else {
-        bool deleteScript = true;
-        GM_Script* script = new GM_Script(m_manager, m_fileName);
-
-        if (script->isValid()) {
-            if (!m_manager->containsScript(script->fullName())) {
-                GM_AddScriptDialog dialog(m_manager, script);
-                deleteScript = dialog.exec() != QDialog::Accepted;
-            }
-            else {
-                m_manager->showNotification(tr("'%1' is already installed").arg(script->name()));
-            }
-        }
-
-        if (deleteScript) {
-            delete script;
-            QFile(m_fileName).remove();
-        }
-
+        emit finished(m_fileName);
         deleteLater();
     }
 }

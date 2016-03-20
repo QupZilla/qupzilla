@@ -32,6 +32,12 @@ class GM_Downloader : public QObject
 public:
     explicit GM_Downloader(const QUrl &url, GM_Manager* manager);
 
+    void updateScript(const QString& fileName);
+
+signals:
+    void finished(const QString& fileName);
+    void error();
+
 private slots:
     void scriptDownloaded();
     void requireDownloaded();
