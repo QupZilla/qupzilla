@@ -189,7 +189,6 @@ SOURCES += \
     tools/emptynetworkreply.cpp \
     tools/enhancedmenu.cpp \
     tools/focusselectlineedit.cpp \
-    tools/followredirectreply.cpp \
     tools/frame.cpp \
     tools/headerview.cpp \
     tools/horizontallistwidget.cpp \
@@ -373,7 +372,6 @@ HEADERS  += \
     tools/emptynetworkreply.h \
     tools/enhancedmenu.h \
     tools/focusselectlineedit.h \
-    tools/followredirectreply.h \
     tools/frame.h \
     tools/headerview.h \
     tools/horizontallistwidget.h \

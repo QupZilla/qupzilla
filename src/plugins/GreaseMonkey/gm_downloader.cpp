@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,21 +20,21 @@
 #include "gm_script.h"
 
 #include "webpage.h"
-#include "followredirectreply.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "qztools.h"
+#include "qzregexp.h"
 
 #include <QFile>
 #include <QSettings>
-#include "qzregexp.h"
+#include <QNetworkReply>
 
 GM_Downloader::GM_Downloader(const QUrl &url, GM_Manager* manager)
     : QObject()
     , m_manager(manager)
 {
-    m_reply = new FollowRedirectReply(url, mApp->networkManager());
-    connect(m_reply, SIGNAL(finished()), this, SLOT(scriptDownloaded()));
+    m_reply = mApp->networkManager()->get(QNetworkRequest(url));
+    connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::scriptDownloaded);
 }
 
 void GM_Downloader::updateScript(const QString &fileName)
@@ -44,7 +44,7 @@ void GM_Downloader::updateScript(const QString &fileName)
 
 void GM_Downloader::scriptDownloaded()
 {
-    if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
+    if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
         deleteLater();
         return;
     }
@@ -96,7 +96,7 @@ void GM_Downloader::scriptDownloaded()
 
 void GM_Downloader::requireDownloaded()
 {
-    if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
+    if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
         emit error();
         deleteLater();
         return;
@@ -126,7 +126,7 @@ void GM_Downloader::requireDownloaded()
 
             QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
             settings.beginGroup("Files");
-            settings.setValue(m_reply->originalUrl().toString(), fileName);
+            settings.setValue(m_reply->request().url().toString(), fileName);
         }
     }
 
@@ -139,8 +139,8 @@ void GM_Downloader::requireDownloaded()
 void GM_Downloader::downloadRequires()
 {
     if (!m_requireUrls.isEmpty()) {
-        m_reply = new FollowRedirectReply(m_requireUrls.takeFirst(), mApp->networkManager());
-        connect(m_reply, SIGNAL(finished()), this, SLOT(requireDownloaded()));
+        m_reply = mApp->networkManager()->get(QNetworkRequest(m_requireUrls.takeFirst()));
+        connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::requireDownloaded);
     }
     else {
         emit finished(m_fileName);

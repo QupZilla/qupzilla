@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,9 +22,9 @@
 #include <QList>
 #include <QUrl>
 
-class GM_Manager;
+class QNetworkReply;
 
-class FollowRedirectReply;
+class GM_Manager;
 
 class GM_Downloader : public QObject
 {
@@ -46,7 +46,7 @@ private:
     void downloadRequires();
 
     GM_Manager* m_manager;
-    FollowRedirectReply* m_reply;
+    QNetworkReply *m_reply;
 
     QString m_fileName;
     QList<QUrl> m_requireUrls;

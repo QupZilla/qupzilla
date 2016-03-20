@@ -21,7 +21,6 @@
 
 #include "qzregexp.h"
 #include "delayedfilewatcher.h"
-#include "followredirectreply.h"
 #include "mainapplication.h"
 
 #include <QFile>

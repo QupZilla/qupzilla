@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - QtWebEngine based browser
-* Copyright (C) 2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "qzcommon.h"
 
 class QIcon;
+class QNetworkReply;
 
 class FollowRedirectReply;
 
@@ -40,7 +41,7 @@ private slots:
     void finished();
 
 private:
-    FollowRedirectReply* m_reply;
+    QNetworkReply* m_reply;
 };
 
 #endif // ICONLOADER_H

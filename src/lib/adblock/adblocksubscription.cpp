@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,6 @@
 #include "networkmanager.h"
 #include "datapaths.h"
 #include "qztools.h"
-#include "followredirectreply.h"
 
 #include <QFile>
 #include <QTimer>
@@ -144,14 +143,13 @@ void AdBlockSubscription::updateSubscription()
         return;
     }
 
-    m_reply = new FollowRedirectReply(m_url, mApp->networkManager());
-
-    connect(m_reply, SIGNAL(finished()), this, SLOT(subscriptionDownloaded()));
+    m_reply = mApp->networkManager()->get(QNetworkRequest(m_url));
+    connect(m_reply, &QNetworkReply::finished, this, &AdBlockSubscription::subscriptionDownloaded);
 }
 
 void AdBlockSubscription::subscriptionDownloaded()
 {
-    if (m_reply != qobject_cast<FollowRedirectReply*>(sender())) {
+    if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
         return;
     }
 

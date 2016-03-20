@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,8 +54,7 @@
 #include "adblocksearchtree.h"
 
 class QUrl;
-
-class FollowRedirectReply;
+class QNetworkReply;
 
 class QUPZILLA_EXPORT AdBlockSubscription : public QObject
 {
@@ -102,7 +101,7 @@ protected slots:
 protected:
     virtual bool saveDownloadedData(const QByteArray &data);
 
-    FollowRedirectReply* m_reply;
+    QNetworkReply *m_reply;
     QVector<AdBlockRule*> m_rules;
 
 private:

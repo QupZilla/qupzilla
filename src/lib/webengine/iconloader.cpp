@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - QtWebEngine based browser
-* Copyright (C) 2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,17 +18,17 @@
 #include "iconloader.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
-#include "followredirectreply.h"
 #include "qztools.h"
 
 #include <QTimer>
+#include <QNetworkReply>
 
 IconLoader::IconLoader(const QUrl &url, QObject *parent)
     : QObject(parent)
     , m_reply(Q_NULLPTR)
 {
-    m_reply = new FollowRedirectReply(url, mApp->networkManager());
-    connect(m_reply, &FollowRedirectReply::finished, this, &IconLoader::finished);
+    m_reply = mApp->networkManager()->get(QNetworkRequest(url));
+    connect(m_reply, &QNetworkReply::finished, this, &IconLoader::finished);
 }
 
 void IconLoader::finished()
@@ -37,6 +37,5 @@ void IconLoader::finished()
     const QByteArray data = m_reply->readAll();
     emit iconLoaded(QIcon(QPixmap::fromImage(QImage::fromData(data))));
 
-    delete m_reply;
-    m_reply = Q_NULLPTR;
+    m_reply->deleteLater();
 }
