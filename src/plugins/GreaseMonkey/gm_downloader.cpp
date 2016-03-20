@@ -45,6 +45,7 @@ void GM_Downloader::updateScript(const QString &fileName)
 void GM_Downloader::scriptDownloaded()
 {
     if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
+        emit error();
         deleteLater();
         return;
     }
