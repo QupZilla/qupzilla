@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -245,4 +245,13 @@ void NetworkManager::loadSettings()
     QNetworkProxy::setApplicationProxy(proxy);
 
     m_urlInterceptor->loadSettings();
+}
+
+QNetworkReply *NetworkManager::createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &request, QIODevice *outgoingData)
+{
+    QNetworkRequest req = request;
+    req.setAttribute(QNetworkRequest::SpdyAllowedAttribute, true);
+    req.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
+
+    return QNetworkAccessManager::createRequest(op, req, outgoingData);
 }
