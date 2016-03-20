@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "gm_settingslistwidget.h"
 #include "gm_settingslistdelegate.h"
+#include "gm_script.h"
 
 #include <QMouseEvent>
 
@@ -72,7 +73,11 @@ bool GM_SettingsListWidget::containsRemoveIcon(const QPoint &pos) const
 bool GM_SettingsListWidget::containsUpdateIcon(const QPoint &pos) const
 {
     QListWidgetItem *item = itemAt(pos);
-    if (!item || !item->data(Qt::UserRole + 2).toBool())
+    if (!item)
+        return false;
+
+    GM_Script *script = static_cast<GM_Script*>(item->data(Qt::UserRole + 10).value<void*>());
+    if (!script || script->downloadUrl().isEmpty())
         return false;
 
     const QRect rect = visualItemRect(item);
