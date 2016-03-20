@@ -196,7 +196,6 @@ SOURCES += \
     tools/html5permissions/html5permissionsdialog.cpp \
     tools/html5permissions/html5permissionsmanager.cpp \
     tools/html5permissions/html5permissionsnotification.cpp \
-    tools/iconfetcher.cpp \
     tools/iconprovider.cpp \
     tools/listitemdelegate.cpp \
     tools/mactoolbutton.cpp \
@@ -381,7 +380,6 @@ HEADERS  += \
     tools/html5permissions/html5permissionsdialog.h \
     tools/html5permissions/html5permissionsmanager.h \
     tools/html5permissions/html5permissionsnotification.h \
-    tools/iconfetcher.h \
     tools/iconprovider.h \
     tools/listitemdelegate.h \
     tools/mactoolbutton.h \
