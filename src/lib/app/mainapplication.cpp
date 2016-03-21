@@ -1127,7 +1127,7 @@ bool MainApplication::event(QEvent* e)
         return true;
 
     case QEvent::ApplicationActivate:
-        if (m_windows.isEmpty())
+        if (!activeWindow() && m_windows.isEmpty())
             createWindow(Qz::BW_NewWindow);
         break;
 
