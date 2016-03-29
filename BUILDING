@@ -16,33 +16,23 @@ General
 
                CONFIG += debug
 
-  QupZilla requires Qt (>=4.7.0) and QtWebKit (at least version included in Qt 4.7)
+  QupZilla requires Qt (>= 5.6) and QtWebEngine (at least version included in Qt 5.6)
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler 2010 or higher, Qt Libraries 4.8.0
-  or higher, QtWebKit 2.3 or higher and Hunspell library in order to build QupZilla.
-  It is possible, with small changes, to build also with older Microsoft compilers
-  or without Hunspell spellchecking.
-  However, it is not expected from Windows users to build their software, so only
-  one configuration is supported by default.
+  You need Microsoft Visual C++ Compiler, Qt Libraries 5.6.0 or higher and openssl
+  libraries. in order to build QupZilla.
 
 Linux / Unix
 ----------------------------------------------------------------------------------
 
-  You need to have Qt 4 (>= 4.7) or Qt 5 development libraries, pkg-config is
-  highly recommended to correctly detect QtWebKit version.
+  You need to have Qt 5 (>= 5.6) with QtWebEngine.
   Next compulsory requirement is OpenSSL (libcrypto). xcb libraries are also
   required unless you specify NO_X11 build option.
 
-  To build spellcheck plugin, you need:
-     - QtWebKit 2.3 or higher
-     - pkg-config installed
-     - libhunspell-dev installed
-
   To build KWallet plugin, you need:
-     - kdelibs-dev installed
+     - KF5 KWallet
      - set KDE_INTEGRATION build flag
 
   To build Gnome-Keyring plugin, you need
@@ -96,15 +86,6 @@ Available Defines
                           $ export PORTABLE_BUILD="true"
 
 
-   USE_WEBGL              Enable WebGL. You need to build QupZilla with WebKit built
-                          with WebGL support, otherwise you won't be able to compile
-                          without errors.
-                          Only for QtWebKit lower than 2.3
-                          (disabled by default)
-
-                          example:
-                          $ export USE_WEBGL="true"
-
    NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
                           and confirm() functions. They are shown inside page and are not
                           blocking application window.
@@ -117,16 +98,6 @@ Available Defines
 
                           example:
                           $ export NONBLOCK_JS_DIALOGS="true"
-
-   ENABLE_OPACITY_EFFECT  Enable opacity effect on animated tab previews. Tab previews
-                          will then fade-in on show.
-                          However, this feature may result in wrong scrolling into
-                          anchor (#) links. Rendering of opacity effect may also be
-                          garbled due to Flash.
-                          (disabled by default)
-
-                          example:
-                          $ export ENABLE_OPACITY_EFFECT="true"
 
    DISABLE_UPDATES_CHECK  Disables option to check for updates at startup.
                           (disabled by default)
