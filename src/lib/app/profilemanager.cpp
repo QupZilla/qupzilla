@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -206,13 +206,19 @@ void ProfileManager::copyDataToProfile()
     if (browseData.exists()) {
         const QString browseDataBackup = QzTools::ensureUniqueFilename(profileDir.filePath(QLatin1String("browsedata-backup.db")));
         browseData.copy(browseDataBackup);
+        browseData.remove();
+
+        QFile settings(profileDir.filePath(QSL("settings.ini")));
+        if (settings.exists()) {
+            const QString settingsBackup = QzTools::ensureUniqueFilename(profileDir.filePath(QSL("settings-backup.ini")));
+            settings.copy(settingsBackup);
+            settings.remove();
+        }
 
         const QString text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
                              "backed up in following file:<br/><br/><b>" + browseDataBackup + "<br/></b>";
         QMessageBox::warning(0, "QupZilla: Incompatible profile version", text);
     }
-
-    browseData.remove();
 
     QFile(QLatin1String(":data/browsedata.db")).copy(profileDir.filePath(QLatin1String("browsedata.db")));
     QFile(profileDir.filePath(QLatin1String("browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
