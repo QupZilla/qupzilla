@@ -216,7 +216,6 @@ void BrowserWindow::postLaunch()
     if (m_startPage) {
         addTab = false;
         m_tabWidget->addView(QUrl());
-        weView()->page()->deleteLater();
         weView()->setPage(m_startPage);
     }
 

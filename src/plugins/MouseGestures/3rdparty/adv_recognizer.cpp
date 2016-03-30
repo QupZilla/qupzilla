@@ -160,7 +160,7 @@ void RealTimeMouseGestureRecognizer::recognizeGesture()
                 directions.setReadPointerTo(readIndex);
             }
         }
-        catch (const std::exception &e) {
+        catch (const std::exception &) {
             directions.setReadPointerTo(readIndex);
         }
     }

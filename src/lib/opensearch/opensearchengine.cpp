@@ -632,7 +632,7 @@ void OpenSearchEngine::suggestionsObtained()
     m_suggestionsReply = 0;
 
     QJsonParseError err;
-    QJsonDocument json = QJsonDocument::fromJson(response);
+    QJsonDocument json = QJsonDocument::fromJson(response, &err);
     const QVariant res = json.toVariant();
 
     if (err.error != QJsonParseError::NoError || res.type() != QVariant::List)

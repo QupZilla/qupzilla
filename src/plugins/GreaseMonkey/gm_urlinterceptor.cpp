@@ -34,4 +34,3 @@ void GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         info.block(true);
     }
 }
-
