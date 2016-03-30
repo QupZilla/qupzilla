@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include <QWebEnginePage>
 
 #include "qzcommon.h"
+#include "webhittestresult.h"
 
 struct PluginSpec {
     QString name;
@@ -54,7 +55,6 @@ class QWheelEvent;
 
 class WebView;
 class WebPage;
-class WebHitTestResult;
 
 class PluginInterface
 {
