@@ -71,9 +71,9 @@ GenericName[fi]=WWW-selain
 Exec=qupzilla %u
 MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;application/x-mimearchive;
 Terminal=false
-X-Ayatana-Desktop-Shortcuts=NewTab;NewWindow;PrivateBrowsing;
+Actions=NewTab;NewWindow;PrivateBrowsing;
 
-[X-NewTab Shortcut Group]
+[Desktop Action NewTab]
 Name=Open new tab
 Name[ca]=Obre una nova pestanya
 Name[cs]=Otevřít nový panel
@@ -105,9 +105,8 @@ Name[fa]=بازکردن برگه تازه
 Name[ar]=افتح لسانًا جديدًا
 Name[fi]=Avaa uusi välilehti
 Exec=qupzilla --new-tab
-TargetEnvironment=Unity
 
-[X-NewWindow Shortcut Group]
+[Desktop Action NewWindow]
 Name=Open new window
 Name[ca]=Obre una nova finestra
 Name[cs]=Otevřít nové okno
@@ -139,9 +138,8 @@ Name[fa]=بازکردن پنجره تازه
 Name[ar]=افتح نافذة جديدة
 Name[fi]=Avaa uusi ikkuna
 Exec=qupzilla --new-window
-TargetEnvironment=Unity
 
-[X-PrivateBrowsing Shortcut Group]
+[Desktop Action PrivateBrowsing]
 Name=Start private browsing
 Name[ca]=Inicia la navegació privada
 Name[cs]=Spustit soukromé prohlížení
@@ -173,4 +171,3 @@ Name[fa]=مرور خصوصی وب
 Name[ar]=ابدأ التصفح خِفيةً
 Name[fi]=Aloita yksityinen selaus
 Exec=qupzilla --private-browsing
-TargetEnvironment=Unity
