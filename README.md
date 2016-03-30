@@ -1,4 +1,4 @@
-QupZilla Web Browser - QtWebEngine
+QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
 [![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=master)](https://travis-ci.org/QupZilla/qupzilla)  
@@ -6,14 +6,6 @@ Homepage: [http://www.qupzilla.com](http://www.qupzilla.com)
 Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)  
 IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
-
-THIS IS QTWEBENGINE BRANCH
-----------------------------------------------------------------------------------------
-
-Master branch is now for QtWebEngine (>= 5.6).
-  
-For QtWebEngine (= 5.5), please use [qt5.5](https://github.com/QupZilla/qupzilla/tree/qt5.5)  
-For QtWebKit, please use [v1.8](https://github.com/QupZilla/qupzilla/tree/v1.8)
 
 About QupZilla
 ----------------------------------------------------------------------------------------
@@ -73,18 +65,12 @@ You need to specify path to `macdeployqt` only if it is not in PATH.
 Current version
 ----------------------------------------------------------------------------------------
 
-The current stable version of QupZilla is 1.8.9. You can download precompiled packages
+The current stable version of QupZilla is 2.0.0. You can download precompiled packages
 and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 
     $ git clone git://github.com/QupZilla/qupzilla.git
-
-If you are using Ubuntu, you can download QupZilla from PPA:
-
-    $ sudo add-apt-repository ppa:nowrep/qupzilla
-    $ sudo apt-get update
-    $ sudo apt-get install qupzilla
 
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
