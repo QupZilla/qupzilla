@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,9 @@ GM_UrlInterceptor::GM_UrlInterceptor(GM_Manager *manager)
 
 void GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
+    if (info.navigationType() != QWebEngineUrlRequestInfo::NavigationTypeLink)
+        return;
+
     if (info.requestUrl().toString().endsWith(QLatin1String(".user.js"))) {
         m_manager->downloadScript(info.requestUrl());
         info.block(true);
