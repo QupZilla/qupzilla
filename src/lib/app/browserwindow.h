@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -63,6 +63,7 @@ public:
     ~BrowserWindow();
 
     void setStartTab(WebTab* tab);
+    void setStartPage(WebPage* page);
 
     void restoreWindowState(const RestoreManager::WindowData &d);
     void saveSideBarWidth();
@@ -178,6 +179,7 @@ private:
     QUrl m_homepage;
     Qz::BrowserWindowType m_windowType;
     WebTab* m_startTab;
+    WebPage* m_startPage;
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;

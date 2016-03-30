@@ -93,6 +93,7 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     , m_startUrl(startUrl)
     , m_windowType(type)
     , m_startTab(0)
+    , m_startPage(0)
     , m_sideBarManager(new SideBarManager(this))
     , m_statusBarMessage(new StatusBarMessage(this))
     , m_isHtmlFullScreen(false)
@@ -139,6 +140,11 @@ BrowserWindow::~BrowserWindow()
 void BrowserWindow::setStartTab(WebTab* tab)
 {
     m_startTab = tab;
+}
+
+void BrowserWindow::setStartPage(WebPage *page)
+{
+    m_startPage = page;
 }
 
 void BrowserWindow::postLaunch()
@@ -207,6 +213,13 @@ void BrowserWindow::postLaunch()
         m_tabWidget->addView(m_startTab);
     }
 
+    if (m_startPage) {
+        addTab = false;
+        m_tabWidget->addView(QUrl());
+        weView()->page()->deleteLater();
+        weView()->setPage(m_startPage);
+    }
+
     if (addTab) {
         m_tabWidget->addView(startUrl, Qz::NT_CleanSelectedTabAtTheEnd);
 
@@ -231,7 +244,7 @@ void BrowserWindow::postLaunch()
         tabWidget()->tabBar()->ensureVisible();
 
         // Update focus
-        if (LocationBar::convertUrlToText(weView()->webTab()->url()).isEmpty())
+        if (LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
             locationBar()->setFocus();
         else
             weView()->setFocus();

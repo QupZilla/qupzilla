@@ -579,13 +579,12 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     BrowserWindow *window = tView ? tView->browserWindow() : mApp->getWindow();
 
     switch (type) {
-    case QWebEnginePage::WebBrowserWindow:
-        // WebBrowserWindow is only called after Shift+LeftClick on link, but we handle
-        // this case ourselves, so it should never be called.
-        // There is currently one case where it will be called, and that is when Shift+LeftClick
-        // on a link in a frame because WebHitTestResult doesn't work with frames yet.
-        qWarning() << "Asked to created WebBrowserWindow!";
-        break;
+    case QWebEnginePage::WebBrowserWindow: {
+        BrowserWindow *window = mApp->createWindow(Qz::BW_NewWindow);
+        WebPage *page = new WebPage;
+        window->setStartPage(page);
+        return page;
+    }
 
     case QWebEnginePage::WebDialog:
         if (!qzSettings->openPopupsInTabs) {

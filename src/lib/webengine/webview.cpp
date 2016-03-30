@@ -1011,10 +1011,6 @@ void WebView::_mouseReleaseEvent(QMouseEvent *event)
                     userDefinedOpenUrlInNewTab(link, event->modifiers() & Qt::ShiftModifier);
                     event->accept();
                 }
-                else if (event->modifiers() & Qt::ShiftModifier) {
-                    mApp->createWindow(Qz::BW_NewWindow, link);
-                    event->accept();
-                }
             }
         }
         break;
