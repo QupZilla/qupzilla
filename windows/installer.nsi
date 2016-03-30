@@ -24,7 +24,7 @@ RequestExecutionLevel admin
 SetCompressor /SOLID /FINAL lzma
 
 !define PRODUCT_NAME "QupZilla"
-!define /date PRODUCT_VERSION "1.9.0"
+!define /date PRODUCT_VERSION "1.9.9"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\qupzilla.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -118,27 +118,26 @@ notRunning:
   File "icudt54.dll"
   File "icuin54.dll"
   File "icuuc54.dll"
+  File "libEGL.dll"
+  File "libGLESv2.dll"
+  File "opengl32sw.dll"
   File "Qt5Core.dll"
   File "Qt5Gui.dll"
-  File "Qt5Multimedia.dll"
-  File "Qt5MultimediaWidgets.dll"
   File "Qt5Network.dll"
-  File "Qt5OpenGL.dll"
   File "Qt5Positioning.dll"
   File "Qt5PrintSupport.dll"
   File "Qt5Qml.dll"
   File "Qt5Quick.dll"
-  File "Qt5Script.dll"
-  File "Qt5Sensors.dll"
+  File "Qt5QuickWidgets.dll"
   File "Qt5Sql.dll"
+  File "Qt5Svg.dll"
+  File "Qt5WebEngine.dll"
+  File "Qt5WebEngineCore.dll"
+  File "Qt5WebEngineWidgets.dll"
   File "Qt5WebChannel.dll"
-  File "Qt5WebKit.dll"
-  File "Qt5WebKitWidgets.dll"
   File "Qt5Widgets.dll"
   File "Qt5XmlPatterns.dll"
-
-  SetOutPath "$INSTDIR\audio"
-  File "audio\qtaudio_windows.dll"
+  File "QtWebEngineProcess.exe"
   
   SetOutPath "$INSTDIR\iconengines"
   File "iconengines\qsvgicon.dll"
@@ -146,17 +145,20 @@ notRunning:
   SetOutPath "$INSTDIR\imageformats"
   File "imageformats\*.dll"
   
-  SetOutPath "$INSTDIR\mediaservice"
-  File "mediaservice\wmfengine.dll"
-  
   SetOutPath "$INSTDIR\platforms"
   File "platforms\qwindows.dll"
 
   SetOutPath "$INSTDIR\printsupport"
   File "printsupport\windowsprintersupport.dll"
+  
+  SetOutPath "$INSTDIR\resources"
+  File "resources\*"
 
   SetOutPath "$INSTDIR\sqldrivers"
   File "sqldrivers\qsqlite.dll"
+  
+  SetOutPath "$INSTDIR\translations\qtwebengine_locales"
+  File "translations\qtwebengine_locales\*"
 
   SetOutPath "$INSTDIR\hunspell\doc"
   File "wininstall\hunspell\doc\*"
