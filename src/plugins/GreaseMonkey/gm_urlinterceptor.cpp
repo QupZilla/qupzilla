@@ -26,7 +26,10 @@ GM_UrlInterceptor::GM_UrlInterceptor(GM_Manager *manager)
 
 void GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-    if (info.navigationType() != QWebEngineUrlRequestInfo::NavigationTypeLink)
+    bool xhr = info.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeXhr;
+    bool clickedLink = info.navigationType() == QWebEngineUrlRequestInfo::NavigationTypeLink;
+
+    if (xhr || !clickedLink)
         return;
 
     if (info.requestUrl().toString().endsWith(QLatin1String(".user.js"))) {
@@ -34,3 +37,4 @@ void GM_UrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         info.block(true);
     }
 }
+
