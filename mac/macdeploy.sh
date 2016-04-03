@@ -6,7 +6,7 @@
 # If path to macdeployqt is not specified, using it from PATH
 
 MACDEPLOYQT="macdeployqt"
-LIBRARY_NAME="libQupZilla.1.dylib"
+LIBRARY_NAME="libQupZilla.2.dylib"
 
 if [ -n "$1" ]; then
  MACDEPLOYQT=$1
