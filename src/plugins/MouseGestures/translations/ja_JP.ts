@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.1">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -92,7 +92,12 @@
         <translation>&lt;b&gt;次のタブ&lt;/b&gt;&lt;br/&gt;次のタブへ切り替えます</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="323"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="313"/>
+        <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="337"/>
         <source>License</source>
         <translation>ライセンス</translation>
     </message>

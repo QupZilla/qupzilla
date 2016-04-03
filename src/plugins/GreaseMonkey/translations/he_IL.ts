@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="he_IL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="he_IL" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="147"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; כבר מותקן</translation>
     </message>
@@ -71,7 +71,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="205"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"/>
     </message>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation>תסריט זה ניתן להתקנה בעזרת התוספת GreaseMonkey.</translation>
+        <translation>תסריט זה ניתן להתקנה בעזרת התוסף GreaseMonkey.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -127,14 +127,29 @@
         <translation>פתח ספריית תסריטים</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
-        <source>Remove script</source>
-        <translation>הסר תסריט</translation>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation>תסריט משתמש חדש</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="79"/>
+        <source>Remove script</source>
+        <translation>הסרת תסריט</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="80"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>האם אתה בטוח כי ברצונך להסיר את &apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Add script</source>
+        <translation>הוספת תסריט</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Choose name for script:</source>
+        <translation>בחר שם עבור תסריט:</translation>
     </message>
 </context>
 <context>
@@ -185,7 +200,7 @@
         <translation>לא רץ אצל:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>תיאור תסריט של %1</translation>
     </message>

@@ -1,83 +1,83 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.1">
 <context>
     <name>PIM_Handler</name>
     <message>
-        <location filename="../PIM_handler.cpp" line="60"/>
+        <location filename="../PIM_handler.cpp" line="59"/>
         <source>Last Name</source>
         <translation>Презиме</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="61"/>
+        <location filename="../PIM_handler.cpp" line="60"/>
         <source>First Name</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="62"/>
+        <location filename="../PIM_handler.cpp" line="61"/>
         <source>E-mail</source>
         <translation>Е-адресу</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="63"/>
+        <location filename="../PIM_handler.cpp" line="62"/>
         <source>Mobile</source>
         <translation>Бр. мобилног</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="64"/>
+        <location filename="../PIM_handler.cpp" line="63"/>
         <source>Phone</source>
         <translation>Бр. телефона</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="65"/>
+        <location filename="../PIM_handler.cpp" line="64"/>
         <source>Address</source>
         <translation>Адресу</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="66"/>
+        <location filename="../PIM_handler.cpp" line="65"/>
         <source>City</source>
         <translation>Град</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="67"/>
+        <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
         <translation>Пошт. број</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="68"/>
+        <location filename="../PIM_handler.cpp" line="67"/>
         <source>State/Region</source>
         <translation>Сав. држ./регију</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="69"/>
+        <location filename="../PIM_handler.cpp" line="68"/>
         <source>Country</source>
         <translation>Државу</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="70"/>
+        <location filename="../PIM_handler.cpp" line="69"/>
         <source>Home Page</source>
         <translation>Домаћу страницу</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="71"/>
+        <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
         <translation>Посебно 1</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="72"/>
+        <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
         <translation>Посебно 2</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="73"/>
+        <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
         <translation>Посебно 3</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="115"/>
+        <location filename="../PIM_handler.cpp" line="114"/>
         <source>Insert Personal Information</source>
         <translation>Уметни лични податак</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="136"/>
+        <location filename="../PIM_handler.cpp" line="135"/>
         <source>Edit</source>
         <translation>Уреди</translation>
     </message>

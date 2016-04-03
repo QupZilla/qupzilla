@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv_LV" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv_LV" version="2.1">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
@@ -68,57 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <location filename="../sbi_networkicon.cpp" line="64"/>
         <source>Proxy Configuration</source>
         <translation>Starpniekservera konfigurācija</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Select proxy</source>
         <translation>Izvēlēties starpniekserveri</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="82"/>
+        <location filename="../sbi_networkicon.cpp" line="80"/>
         <source>Empty</source>
         <translation>Tukšs</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="86"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Manage proxies</source>
         <translation>Pārvaldīt starpniekserverus</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="99"/>
+        <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Parādīt tīkla statusu un pārvaldīt starpniekserveri&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Tīkls:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Starpniekserveris:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="102"/>
+        <location filename="../sbi_networkicon.cpp" line="100"/>
         <source>Connected</source>
         <translation>Savienots</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="105"/>
+        <location filename="../sbi_networkicon.cpp" line="103"/>
         <source>Offline</source>
         <translation>Nesaistē</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="108"/>
         <source>System proxy</source>
         <translation>Sistēmas starpniekserveris</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>No proxy</source>
         <translation>Nav starpniekservera</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>PAC (Proxy Auto-Config)</source>
-        <translation>PAC (Starpniekservera automātiskā konfigurācija)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="122"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>User defined</source>
         <translation>Lietotāja definēts</translation>
     </message>
@@ -137,7 +132,7 @@
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Add proxy</source>
         <translation>Pievienot starpniekserveri</translation>
     </message>
@@ -157,19 +152,19 @@
         <translation>Visas izmaiņas ir jāsaglabā, izmantojot &lt;b&gt;Saglabāt&lt;/b&gt; pogu.</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
         <translation>Starpniekservera nosaukums:</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
         <translation>Noņemt pašreizējo starpniekserveri</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
-        <source>Are you sure to remove current proxy?</source>
-        <translation>Vai Tu tiešām vēlies noņemt pašreizējo starpniekserveri?</translation>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
+        <source>Are you sure you want to remove current proxy?</source>
+        <translation>Vai tiešām vēlaties noņemt pašreizējo starpniekserveri?</translation>
     </message>
 </context>
 <context>
@@ -180,77 +175,39 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="20"/>
-        <source>Do not use proxy</source>
-        <translation>Neizmantot starpniekserveri</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="27"/>
-        <source>Use different proxy for https connection</source>
-        <translation>Izmantot atšķirīgu starpniekserveri priekš „https“ savienojuma</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="34"/>
-        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Izņēmumi&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="43"/>
-        <source>Don&apos;t use on:</source>
-        <translation>Neizmantot ar:</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="58"/>
+        <location filename="../sbi_proxywidget.ui" line="23"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="63"/>
+        <location filename="../sbi_proxywidget.ui" line="28"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="74"/>
-        <location filename="../sbi_proxywidget.ui" line="220"/>
+        <location filename="../sbi_proxywidget.ui" line="39"/>
         <source>Port:</source>
         <translation>Ports:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="111"/>
-        <location filename="../sbi_proxywidget.ui" line="243"/>
+        <location filename="../sbi_proxywidget.ui" line="76"/>
         <source>Username:</source>
         <translation>Lietotājvārds:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="121"/>
-        <location filename="../sbi_proxywidget.ui" line="253"/>
+        <location filename="../sbi_proxywidget.ui" line="86"/>
         <source>Password:</source>
         <translation>Parole:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="146"/>
-        <source>Use script for automatic configuration:</source>
-        <translation>Izmantot skriptu automātiskajai konfigurācijai:</translation>
+        <location filename="../sbi_proxywidget.ui" line="111"/>
+        <source>S&amp;ystem proxy configuration</source>
+        <translation>Sistēmas starpniekservera iestatījumi</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="153"/>
-        <source>System proxy configuration</source>
-        <translation>Sistēmas starpniekservera konfigurācija</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="162"/>
-        <source>Proxy Auto-Config (.pac) file</source>
-        <translation>Starpniekservera automātiskās konfigurācijas (.pac) datne</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="187"/>
-        <source>Manual configuration</source>
-        <translation>Manuālā konfigurācija</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="210"/>
-        <source>Server:</source>
-        <translation>Serveris:</translation>
+        <location filename="../sbi_proxywidget.ui" line="118"/>
+        <source>&amp;Manual configuration</source>
+        <translation>&amp;Manuāla konfigurācija</translation>
     </message>
 </context>
 <context>

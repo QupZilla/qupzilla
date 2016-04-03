@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da_DK" version="2.1">
 <context>
     <name>KWalletPlugin</name>
     <message>
         <location filename="../kwalletpasswordbackend.cpp" line="53"/>
         <source>KWallet</source>
-        <translation>К-новчаник</translation>
+        <translation>KWallet</translation>
     </message>
 </context>
 </TS>

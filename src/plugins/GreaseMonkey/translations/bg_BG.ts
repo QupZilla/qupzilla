@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg_BG" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg_BG" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="147"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; вече е инсталиран</translation>
     </message>
@@ -71,7 +71,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="205"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -127,14 +127,29 @@
         <translation>Отваряне на папката със скриптове</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation>Нов потребителски скрипт</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="79"/>
         <source>Remove script</source>
         <translation>Премахване на скрипта</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="80"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Сигурни ли сте, че искате да премахнете &apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Add script</source>
+        <translation>Добавяне на скрипт</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Choose name for script:</source>
+        <translation>Избор на име за скрипта:</translation>
     </message>
 </context>
 <context>
@@ -185,7 +200,7 @@
         <translation>Не работи на:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>Подробна информация за скрипт %1</translation>
     </message>

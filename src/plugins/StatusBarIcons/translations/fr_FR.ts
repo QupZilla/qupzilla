@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr_FR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr_FR" version="2.1">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
@@ -8,7 +8,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation>Paramètres de la page actuelle</translation>
     </message>
     <message>
@@ -23,7 +23,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation>Paramètres généraux</translation>
     </message>
     <message>
@@ -40,27 +40,27 @@
         <translation>Modifier les paramètres de JavaScript globaux et par sites.</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
         <translation>Paramètres de la page actuelle</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Désactiver JavaScript (temporairement) </translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Activer JavaScript (temporairement)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
         <translation>Paramètres généraux</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Gérer les paramètres JavaScript</translation>
     </message>
@@ -68,57 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
+        <location filename="../sbi_networkicon.cpp" line="64"/>
+        <source>Proxy Configuration</source>
         <translation>Configuration du proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Select proxy</source>
         <translation>Sélectionner le proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="82"/>
+        <location filename="../sbi_networkicon.cpp" line="80"/>
         <source>Empty</source>
         <translation>Vide</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="86"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Manage proxies</source>
         <translation>Gérer les proxys</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="99"/>
+        <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Montrer l&apos;état du réseau et gérer le proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Réseau : &lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy :&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="102"/>
+        <location filename="../sbi_networkicon.cpp" line="100"/>
         <source>Connected</source>
         <translation>Connecté</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="105"/>
+        <location filename="../sbi_networkicon.cpp" line="103"/>
         <source>Offline</source>
         <translation>Non connecté</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="108"/>
         <source>System proxy</source>
         <translation>Proxy système</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>No proxy</source>
         <translation>Pas de proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>PAC (Proxy Auto-Config)</source>
-        <translation>PAC (Proxy Auto-Config)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="122"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>User defined</source>
         <translation>Défini par l&apos;utilisateur </translation>
     </message>
@@ -137,7 +132,7 @@
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Add proxy</source>
         <translation>Ajouter un proxy</translation>
     </message>
@@ -157,19 +152,19 @@
         <translation>Toutes modifications doivent être enregistrées en cliquant sur le bouton &lt;b&gt;Enregistrer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
         <translation>Nom du proxy :</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
         <translation>Supprimer le proxy actuel</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
-        <source>Are you sure to remove current proxy?</source>
-        <translation>Etes vous sûr de vouloir supprimer le proxy actuel ?</translation>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
+        <source>Are you sure you want to remove current proxy?</source>
+        <translation>Êtes-vous sûr de vouloir supprimer le proxy actuel ?</translation>
     </message>
 </context>
 <context>
@@ -180,77 +175,39 @@
         <translation>Forme</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="20"/>
-        <source>Do not use proxy</source>
-        <translation>Ne pas utiliser de proxy</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="27"/>
-        <source>Use different proxy for https connection</source>
-        <translation>Utiliser un autre proxy pour les connexions HTTPS</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="34"/>
-        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Exceptions&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="43"/>
-        <source>Don&apos;t use on:</source>
-        <translation>Ne pas utiliser pour :</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="58"/>
+        <location filename="../sbi_proxywidget.ui" line="23"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="63"/>
+        <location filename="../sbi_proxywidget.ui" line="28"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="74"/>
-        <location filename="../sbi_proxywidget.ui" line="220"/>
+        <location filename="../sbi_proxywidget.ui" line="39"/>
         <source>Port:</source>
         <translation>Port :</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="111"/>
-        <location filename="../sbi_proxywidget.ui" line="243"/>
+        <location filename="../sbi_proxywidget.ui" line="76"/>
         <source>Username:</source>
         <translation>Nom d&apos;utilisateur :</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="121"/>
-        <location filename="../sbi_proxywidget.ui" line="253"/>
+        <location filename="../sbi_proxywidget.ui" line="86"/>
         <source>Password:</source>
         <translation>Mot de passe :</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="146"/>
-        <source>Use script for automatic configuration:</source>
-        <translation>Utiliser le script pour une configuration automatique :</translation>
+        <location filename="../sbi_proxywidget.ui" line="111"/>
+        <source>S&amp;ystem proxy configuration</source>
+        <translation>Configuration s&amp;ystème du proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="153"/>
-        <source>System proxy configuration</source>
-        <translation>Utiliser les paramètres proxy du système</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="162"/>
-        <source>Proxy Auto-Config (.pac) file</source>
-        <translation>Fichier de configuration automatique du Proxy (.pac)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="187"/>
-        <source>Manual configuration</source>
-        <translation>Configuration manuelle</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="210"/>
-        <source>Server:</source>
-        <translation>Serveur :</translation>
+        <location filename="../sbi_proxywidget.ui" line="118"/>
+        <source>&amp;Manual configuration</source>
+        <translation>&amp;Configuration manuelle</translation>
     </message>
 </context>
 <context>

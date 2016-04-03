@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavianlatin" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavianlatin" version="2.1">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
@@ -8,7 +8,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
-        <source>Current page settings</source>
+        <source>Current Page Settings</source>
         <translation>Postavke tekuće stranice</translation>
     </message>
     <message>
@@ -23,7 +23,7 @@
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
-        <source>Global settings</source>
+        <source>Global Settings</source>
         <translation>Opšte postavke</translation>
     </message>
     <message>
@@ -40,27 +40,27 @@
         <translation>Izmjena postavki učitavanja javaskripti</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="48"/>
-        <source>Current page settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <source>Current Page Settings</source>
         <translation>Postavke tekuće stranice</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="51"/>
+        <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Privremeno onemogući javaskripte</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="54"/>
+        <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Privremeno omogući javaskripte</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="63"/>
-        <source>Global settings</source>
+        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <source>Global Settings</source>
         <translation>Opšte postavke</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="64"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
         <translation>Upravljaj postavkama javaskripti</translation>
     </message>
@@ -68,57 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
-        <source>Proxy configuration</source>
+        <location filename="../sbi_networkicon.cpp" line="64"/>
+        <source>Proxy Configuration</source>
         <translation>Postavke proksija</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Select proxy</source>
         <translation>Izaberi proksi</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="82"/>
+        <location filename="../sbi_networkicon.cpp" line="80"/>
         <source>Empty</source>
         <translation>Prazno</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="86"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Manage proxies</source>
         <translation>Upravljaj proksijima</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="99"/>
+        <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Prikaz stanja mreže i menadžer proksija&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Mreža:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proksi:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="102"/>
+        <location filename="../sbi_networkicon.cpp" line="100"/>
         <source>Connected</source>
         <translation>Povezan</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="105"/>
+        <location filename="../sbi_networkicon.cpp" line="103"/>
         <source>Offline</source>
         <translation>Nepovezan</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="108"/>
         <source>System proxy</source>
         <translation>Sistemski proksi</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>No proxy</source>
         <translation>Bez proksija</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>PAC (Proxy Auto-Config)</source>
-        <translation>Automatska postavka (PAC)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="122"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>User defined</source>
         <translation>Korisnički definisan</translation>
     </message>
@@ -137,7 +132,7 @@
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Add proxy</source>
         <translation>Dodaj proksi</translation>
     </message>
@@ -157,18 +152,18 @@
         <translation>Sve izmjene sačuvajte klikom na &lt;b&gt;Sačuvaj&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
         <translation>Naziv proksija:</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
         <translation>Uklanjanje tekućeg proksija</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
-        <source>Are you sure to remove current proxy?</source>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
+        <source>Are you sure you want to remove current proxy?</source>
         <translation>Želite li zaista da uklonite ovaj proksi?</translation>
     </message>
 </context>
@@ -180,77 +175,39 @@
         <translation>Formular</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="20"/>
-        <source>Do not use proxy</source>
-        <translation>Ne koristi proksi</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="27"/>
-        <source>Use different proxy for https connection</source>
-        <translation>Koristi drugi proksi za HTTPS vezu</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="34"/>
-        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Izuzeci&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="43"/>
-        <source>Don&apos;t use on:</source>
-        <translation>Ne koristi na:</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="58"/>
+        <location filename="../sbi_proxywidget.ui" line="23"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="63"/>
+        <location filename="../sbi_proxywidget.ui" line="28"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="74"/>
-        <location filename="../sbi_proxywidget.ui" line="220"/>
+        <location filename="../sbi_proxywidget.ui" line="39"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="111"/>
-        <location filename="../sbi_proxywidget.ui" line="243"/>
+        <location filename="../sbi_proxywidget.ui" line="76"/>
         <source>Username:</source>
         <translation>Korisničko ime:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="121"/>
-        <location filename="../sbi_proxywidget.ui" line="253"/>
+        <location filename="../sbi_proxywidget.ui" line="86"/>
         <source>Password:</source>
         <translation>Lozinka:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="146"/>
-        <source>Use script for automatic configuration:</source>
-        <translation>Koristi skriptu za automatsku postavu:</translation>
+        <location filename="../sbi_proxywidget.ui" line="111"/>
+        <source>S&amp;ystem proxy configuration</source>
+        <translation>Sis&amp;temske postavke proksija</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="153"/>
-        <source>System proxy configuration</source>
-        <translation>Sistemske postavke</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="162"/>
-        <source>Proxy Auto-Config (.pac) file</source>
-        <translation>Fajl auto-postavki proksija (.pac)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="187"/>
-        <source>Manual configuration</source>
-        <translation>Ručne postavke</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="210"/>
-        <source>Server:</source>
-        <translation>Server:</translation>
+        <location filename="../sbi_proxywidget.ui" line="118"/>
+        <source>&amp;Manual configuration</source>
+        <translation>&amp;Ručne postavke</translation>
     </message>
 </context>
 <context>

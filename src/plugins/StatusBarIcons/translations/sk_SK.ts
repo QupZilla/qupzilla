@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk_SK" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk_SK" version="2.1">
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
@@ -68,57 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <location filename="../sbi_networkicon.cpp" line="64"/>
         <source>Proxy Configuration</source>
         <translation>Konfigurácia proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="68"/>
+        <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Select proxy</source>
         <translation>Vybrať proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="82"/>
+        <location filename="../sbi_networkicon.cpp" line="80"/>
         <source>Empty</source>
         <translation>Prázdne</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="86"/>
+        <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Manage proxies</source>
         <translation>Spravovať proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="99"/>
+        <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Zobrazuje stav siete a spravuje proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sieť:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="102"/>
+        <location filename="../sbi_networkicon.cpp" line="100"/>
         <source>Connected</source>
         <translation>Pripojené</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="105"/>
+        <location filename="../sbi_networkicon.cpp" line="103"/>
         <source>Offline</source>
         <translation>Odpojené</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="110"/>
+        <location filename="../sbi_networkicon.cpp" line="108"/>
         <source>System proxy</source>
         <translation>Systémové proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="114"/>
+        <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>No proxy</source>
         <translation>Žiadne proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="118"/>
-        <source>PAC (Proxy Auto-Config)</source>
-        <translation>PAC (Proxy Auto-Config)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_networkicon.cpp" line="122"/>
+        <location filename="../sbi_networkicon.cpp" line="116"/>
         <source>User defined</source>
         <translation>Určené používateľom</translation>
     </message>
@@ -137,7 +132,7 @@
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Add proxy</source>
         <translation>Pridať proxy</translation>
     </message>
@@ -157,19 +152,19 @@
         <translation>Všetky zmeny musia byť uložené pomocou tlačidla &lt;b&gt;Uložiť&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="55"/>
+        <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
         <translation>Názov proxy:</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
         <translation>Odstrániť aktuálne proxy</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicondialog.cpp" line="68"/>
-        <source>Are you sure to remove current proxy?</source>
-        <translation>Ste si istý, že chcete odstrániť aktuálne proxy?</translation>
+        <location filename="../sbi_networkicondialog.cpp" line="70"/>
+        <source>Are you sure you want to remove current proxy?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -180,77 +175,39 @@
         <translation>Formulár</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="20"/>
-        <source>Do not use proxy</source>
-        <translation>Nepoužívať proxy</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="27"/>
-        <source>Use different proxy for https connection</source>
-        <translation>Použiť inú proxy pre https pripojenia</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="34"/>
-        <source>&lt;b&gt;Exceptions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Výnimky&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="43"/>
-        <source>Don&apos;t use on:</source>
-        <translation>Nepužívať na:</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="58"/>
+        <location filename="../sbi_proxywidget.ui" line="23"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="63"/>
+        <location filename="../sbi_proxywidget.ui" line="28"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="74"/>
-        <location filename="../sbi_proxywidget.ui" line="220"/>
+        <location filename="../sbi_proxywidget.ui" line="39"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="111"/>
-        <location filename="../sbi_proxywidget.ui" line="243"/>
+        <location filename="../sbi_proxywidget.ui" line="76"/>
         <source>Username:</source>
         <translation>Meno používateľa:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="121"/>
-        <location filename="../sbi_proxywidget.ui" line="253"/>
+        <location filename="../sbi_proxywidget.ui" line="86"/>
         <source>Password:</source>
         <translation>Heslo:</translation>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="146"/>
-        <source>Use script for automatic configuration:</source>
-        <translation>Použiť skript pre automatickú konfiguráciu:</translation>
+        <location filename="../sbi_proxywidget.ui" line="111"/>
+        <source>S&amp;ystem proxy configuration</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_proxywidget.ui" line="153"/>
-        <source>System proxy configuration</source>
-        <translation>Nastavenie systémového proxy</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="162"/>
-        <source>Proxy Auto-Config (.pac) file</source>
-        <translation>súbor Proxy Auto-Config (.pac)</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="187"/>
-        <source>Manual configuration</source>
-        <translation>Manuálne nastavenie</translation>
-    </message>
-    <message>
-        <location filename="../sbi_proxywidget.ui" line="210"/>
-        <source>Server:</source>
-        <translation>Server:</translation>
+        <location filename="../sbi_proxywidget.ui" line="118"/>
+        <source>&amp;Manual configuration</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

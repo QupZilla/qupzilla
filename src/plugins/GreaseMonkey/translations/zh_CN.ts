@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -55,9 +55,9 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="147"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation>脚本“%1”已被安装</translation>
+        <translation>脚本“%1”已经安装</translation>
     </message>
 </context>
 <context>
@@ -71,7 +71,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="205"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -127,14 +127,29 @@
         <translation>打开脚本文件夹</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation>新建用户脚本</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="79"/>
         <source>Remove script</source>
         <translation>移除脚本</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="80"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>您确定要移除脚本“%1”吗？</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Add script</source>
+        <translation>添加脚本</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Choose name for script:</source>
+        <translation>请输入脚本名称：</translation>
     </message>
 </context>
 <context>
@@ -185,7 +200,7 @@
         <translation>不生效于：</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>%1 脚本详情</translation>
     </message>

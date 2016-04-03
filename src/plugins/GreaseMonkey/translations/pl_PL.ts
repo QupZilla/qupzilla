@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -55,7 +55,7 @@
 <context>
     <name>GM_Downloader</name>
     <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
+        <location filename="../gm_downloader.cpp" line="147"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; jest już zainstalowany</translation>
     </message>
@@ -71,7 +71,7 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="205"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
@@ -127,14 +127,29 @@
         <translation>Otwórz katalog skryptów</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="79"/>
         <source>Remove script</source>
         <translation>Usuń skrypt</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="80"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Czy na pewno chcesz usunąć &apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Add script</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <source>Choose name for script:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -185,7 +200,7 @@
         <translation>Nie działa jako:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>Szczegóły skryptu %1</translation>
     </message>

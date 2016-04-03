@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@Ijekavian" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da_DK" version="2.1">
 <context>
     <name>GnomeKeyringPlugin</name>
     <message>
         <location filename="../gnomekeyringpasswordbackend.cpp" line="84"/>
         <source>Gnome Keyring</source>
-        <translation>Гномов привезак</translation>
+        <translation>Gnome Nøglering</translation>
     </message>
 </context>
 </TS>

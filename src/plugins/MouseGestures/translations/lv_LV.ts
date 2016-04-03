@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv_LV" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lv_LV" version="2.1">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
@@ -92,7 +92,12 @@
         <translation>&lt;b&gt;Nākošā cilne&lt;/b&gt;&lt;br/&gt;Pārslēgties uz nākošo cilni</translation>
     </message>
     <message>
-        <location filename="../mousegesturessettingsdialog.ui" line="323"/>
+        <location filename="../mousegesturessettingsdialog.ui" line="313"/>
+        <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
+        <translation>&lt;b&gt;Dublēt&lt;/b&gt;&lt;br/&gt;Dublēt pašreizējo cilni</translation>
+    </message>
+    <message>
+        <location filename="../mousegesturessettingsdialog.ui" line="337"/>
         <source>License</source>
         <translation>Licence</translation>
     </message>
