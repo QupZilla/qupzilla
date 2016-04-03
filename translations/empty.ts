@@ -114,7 +114,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="300"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="298"/>
         <source>Custom Rules</source>
         <translation type="unfinished"></translation>
     </message>
@@ -251,7 +251,7 @@
 <context>
     <name>AdBlockSubscription</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="170"/>
         <source>Cannot load subscription!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -624,28 +624,53 @@ Please install latest version of QupZilla.</source>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="134"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="328"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="379"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="149"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="153"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="155"/>
         <source>Add New Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="193"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="195"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="194"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="196"/>
         <source>Bookmark All Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
+        <source>Keyword:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
+        <source>Description:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
+        <source>Edit Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -713,7 +738,7 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksFoldersMenu</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="73"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="75"/>
         <source>Choose %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1021,17 +1046,27 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
-        <source>Delete</source>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
+        <source>Open in new private window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
+        <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="76"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
         <source>Show Only Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="80"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="82"/>
         <source>Show Only Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1068,77 +1103,77 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="105"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="106"/>
         <source>QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="321"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="333"/>
         <source>IP Address of current page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="585"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="598"/>
         <source> (Private Browsing)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="815"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="828"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="876"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="889"/>
         <source>&amp;Menu Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="881"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="894"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="885"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="898"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="891"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="904"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="989"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1002"/>
         <source>Open file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1320"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1333"/>
         <source>There are still %n open tabs and your session won&apos;t be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished">
@@ -1147,12 +1182,12 @@ Are you sure you want to close this window?</source>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1321"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1334"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1322"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1335"/>
         <source>There are still open tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2356,17 +2391,17 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="87"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="92"/>
         <source>Paste And &amp;Go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="146"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="151"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="148"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="153"/>
         <source>Enter URL address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2854,7 +2889,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="100"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4766,7 +4801,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="346"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="348"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>
