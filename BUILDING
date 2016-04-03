@@ -48,7 +48,7 @@ MAC OS X
   After successful compilation, you need to run macdeploy.sh script to correctly
   build the application bundle. You will do it with following command:
 
-    $ ./mac/macdeploy.sh <path-to-macdeployqt>
+    $ sh ./mac/macdeploy.sh <path-to-macdeployqt>
 
   You need to specify path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
   if it is not in PATH.
