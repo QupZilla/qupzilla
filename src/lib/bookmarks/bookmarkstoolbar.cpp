@@ -41,7 +41,6 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
 
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(1);
-    m_layout->setSpacing(0);
     setLayout(m_layout);
 
     // Set some sane value, will be updated to correct value on first added button
