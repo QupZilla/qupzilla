@@ -1324,10 +1324,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     Settings settings;
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-    settings.beginGroup("Browser-View-Settings");
-    settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
-    if (!isFullScreen()) settings.setValue("WindowGeometry", saveGeometry());
-    settings.endGroup();
 
     if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->windowCount() == 1) {
         askOnClose = false;
@@ -1350,18 +1346,11 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
         }
     }
 
-#ifndef Q_OS_MAC
-    if (mApp->windowCount() == 1) {
-        if (quitApp()) {
-            event->accept();
-        }
-        else {
-            event->ignore();
-        }
+    saveSettings();
 
-        return;
-    }
-#endif
+    #ifndef Q_OS_MAC
+        if (mApp->windowCount() == 1) mApp->quitApplication();
+    #endif
 
     event->accept();
 }
@@ -1390,7 +1379,7 @@ void BrowserWindow::closeWindow()
     }
 }
 
-bool BrowserWindow::quitApp()
+void BrowserWindow::saveSettings()
 {
     if (m_sideBar) {
         saveSideBarWidth();
@@ -1399,15 +1388,14 @@ bool BrowserWindow::quitApp()
     if (!mApp->isPrivate()) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
+        settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
         settings.setValue("LocationBarWidth", m_navigationToolbar->splitter()->sizes().at(0));
         settings.setValue("WebSearchBarWidth", m_navigationToolbar->splitter()->sizes().at(1));
         settings.setValue("SideBarWidth", m_sideBarWidth);
         settings.setValue("WebViewWidth", m_webViewWidth);
+        if (!isFullScreen()) settings.setValue("WindowGeometry", saveGeometry());
         settings.endGroup();
     }
-
-    mApp->quitApplication();
-    return true;
 }
 
 void BrowserWindow::closeTab()

@@ -156,7 +156,7 @@ private slots:
     void searchOnPage();
     void changeEncoding();
 
-    bool quitApp();
+    void saveSettings();
     void hideNavigationSlot();
 
 private:
