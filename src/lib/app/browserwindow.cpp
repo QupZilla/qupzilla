@@ -1324,7 +1324,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     Settings settings;
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-
     if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->windowCount() == 1) {
         askOnClose = false;
     }
@@ -1349,7 +1348,8 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     saveSettings();
 
     #ifndef Q_OS_MAC
-        if (mApp->windowCount() == 1) mApp->quitApplication();
+        if (mApp->windowCount() == 1)
+            mApp->quitApplication();
     #endif
 
     event->accept();
@@ -1393,7 +1393,8 @@ void BrowserWindow::saveSettings()
         settings.setValue("WebSearchBarWidth", m_navigationToolbar->splitter()->sizes().at(1));
         settings.setValue("SideBarWidth", m_sideBarWidth);
         settings.setValue("WebViewWidth", m_webViewWidth);
-        if (!isFullScreen()) settings.setValue("WindowGeometry", saveGeometry());
+        if (!isFullScreen())
+            settings.setValue("WindowGeometry", saveGeometry());
         settings.endGroup();
     }
 }
