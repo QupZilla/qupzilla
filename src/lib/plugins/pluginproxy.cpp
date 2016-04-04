@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -84,6 +84,7 @@ void PluginProxy::pluginUnloaded(PluginInterface* plugin)
     m_mousePressHandlers.removeOne(plugin);
     m_mouseReleaseHandlers.removeOne(plugin);
     m_mouseMoveHandlers.removeOne(plugin);
+    m_wheelEventHandlers.removeOne(plugin);
 
     m_keyPressHandlers.removeOne(plugin);
     m_keyReleaseHandlers.removeOne(plugin);
