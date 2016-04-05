@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,9 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
 
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(1);
+#ifndef Q_OS_MAC
+    m_layout->setSpacing(0);
+#endif
     setLayout(m_layout);
 
     // Set some sane value, will be updated to correct value on first added button
