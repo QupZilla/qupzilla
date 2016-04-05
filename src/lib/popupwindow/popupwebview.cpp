@@ -96,8 +96,10 @@ void PopupWebView::_contextMenuEvent(QContextMenuEvent *event)
 
     createContextMenu(m_menu, hitTest);
 
-    m_menu->addSeparator();
-    m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
+    if (WebInspector::isEnabled()) {
+        m_menu->addSeparator();
+        m_menu->addAction(tr("Inspect Element"), this, SLOT(inspectElement()));
+    }
 
     if (!m_menu->isEmpty()) {
         // Prevent choosing first option with double rightclick

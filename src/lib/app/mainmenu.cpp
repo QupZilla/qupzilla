@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@
 #include "clearprivatedata.h"
 #include "qzsettings.h"
 #include "pluginproxy.h"
+#include "webinspector.h"
 
 #include <QApplication>
 #include <QMetaObject>
@@ -586,6 +587,9 @@ void MainMenu::init()
     ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(toggleWebInspector()), "Ctrl+Shift+I");
     ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
+
+    if (!WebInspector::isEnabled())
+        m_actions.value(QSL("Tools/WebInspector"))->setVisible(false);
 
     m_submenuExtensions = new QMenu(tr("&Extensions"));
     m_submenuExtensions->menuAction()->setVisible(false);
