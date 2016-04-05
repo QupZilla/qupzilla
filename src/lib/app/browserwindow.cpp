@@ -1345,18 +1345,12 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
         }
     }
 
-#ifndef Q_OS_MAC
-    if (mApp->windowCount() == 1) {
-        if (quitApp()) {
-            event->accept();
-        }
-        else {
-            event->ignore();
-        }
+    saveSettings();
 
-        return;
-    }
-#endif
+    #ifndef Q_OS_MAC
+        if (mApp->windowCount() == 1)
+            mApp->quitApplication();
+    #endif
 
     event->accept();
 }
@@ -1385,7 +1379,7 @@ void BrowserWindow::closeWindow()
     }
 }
 
-bool BrowserWindow::quitApp()
+void BrowserWindow::saveSettings()
 {
     if (m_sideBar) {
         saveSideBarWidth();
@@ -1399,15 +1393,10 @@ bool BrowserWindow::quitApp()
         settings.setValue("WebSearchBarWidth", m_navigationToolbar->splitter()->sizes().at(1));
         settings.setValue("SideBarWidth", m_sideBarWidth);
         settings.setValue("WebViewWidth", m_webViewWidth);
-
-        if (!isFullScreen()) {
+        if (!isFullScreen())
             settings.setValue("WindowGeometry", saveGeometry());
-        }
         settings.endGroup();
     }
-
-    mApp->quitApplication();
-    return true;
 }
 
 void BrowserWindow::closeTab()
