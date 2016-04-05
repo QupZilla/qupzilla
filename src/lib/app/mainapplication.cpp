@@ -288,8 +288,8 @@ MainApplication::MainApplication(int &argc, char** argv)
         m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
         settings.setValue("SessionRestore/isRunning", true);
 
-#ifndef DISABLE_UPDATES_CHECK
-        bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", DEFAULT_CHECK_UPDATES).toBool();
+#ifndef DISABLE_CHECK_UPDATES
+        bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", true).toBool();
 
         if (checkUpdates) {
             new Updater(window);

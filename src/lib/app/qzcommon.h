@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -127,9 +127,9 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #endif
 
 #ifdef Q_OS_WIN
-#define DEFAULT_CHECK_UPDATES true
+#define DISABLE_CHECK_UPDATES false
 #else
-#define DEFAULT_CHECK_UPDATES false
+#define DISABLE_CHECK_UPDATES true
 #endif
 
 #define DEFAULT_CHECK_DEFAULTBROWSER false

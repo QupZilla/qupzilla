@@ -99,12 +99,6 @@ Available Defines
                           example:
                           $ export NONBLOCK_JS_DIALOGS="true"
 
-   DISABLE_UPDATES_CHECK  Disables option to check for updates at startup.
-                          (disabled by default)
-
-                          example:
-                          $ export DISABLE_UPDATES_CHECK="true"
-
 
  Windows specific defines:
 
