@@ -222,6 +222,11 @@ void WebView::setZoomLevel(int level)
     applyZoom();
 }
 
+QPoint WebView::mapToViewport(const QPoint &pos) const
+{
+    return page()->mapToViewport(pos);
+}
+
 void WebView::restoreHistory(const QByteArray &data)
 {
     QDataStream stream(data);
@@ -814,7 +819,6 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
 
 void WebView::createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
 {
-    m_clickedPos = hitTest.pos();
     bool paused = hitTest.mediaPaused();
     bool muted = hitTest.mediaMuted();
 
@@ -829,10 +833,10 @@ void WebView::createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTes
 
 void WebView::checkForForm(QAction *action, const QPoint &pos)
 {
-    m_clickedPos = pos;
+    m_clickedPos = mapToViewport(pos);
     QPointer<QAction> act = action;
 
-    page()->runJavaScript(Scripts::getFormData(pos), [this, act](const QVariant &res) {
+    page()->runJavaScript(Scripts::getFormData(m_clickedPos), [this, act](const QVariant &res) {
         const QVariantMap &map = res.toMap();
         if (!act || map.isEmpty())
             return;

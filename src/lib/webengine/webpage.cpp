@@ -126,6 +126,11 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, int timeout)
     return result;
 }
 
+QPoint WebPage::mapToViewport(const QPoint &pos) const
+{
+    return QPoint(pos.x() / zoomFactor(), pos.y() / zoomFactor());
+}
+
 WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
 {
     return WebHitTestResult(this, pos);

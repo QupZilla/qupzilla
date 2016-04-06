@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,6 +43,7 @@ public:
 
     QVariant execJavaScript(const QString &scriptSource, int timeout = 500);
 
+    QPoint mapToViewport(const QPoint &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
     void scroll(int x, int y);

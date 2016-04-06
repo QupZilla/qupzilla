@@ -44,6 +44,7 @@ public:
     bool mediaPaused() const;
     bool mediaMuted() const;
     QPoint pos() const;
+    QPoint viewportPos() const;
     QString tagName() const;
 
 private:
@@ -61,6 +62,7 @@ private:
     bool m_mediaPaused;
     bool m_mediaMuted;
     QPoint m_pos;
+    QPoint m_viewportPos;
     QString m_tagName;
 };
 

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,6 +54,8 @@ public:
     // Set zoom level (0 - 17)
     int zoomLevel() const;
     void setZoomLevel(int level);
+
+    QPoint mapToViewport(const QPoint &pos) const;
 
     void restoreHistory(const QByteArray &data);
 

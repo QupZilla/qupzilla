@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -81,7 +81,8 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "})()");
 
     WebPage *p = const_cast<WebPage*>(page);
-    const QString &js = source.arg(pos.x()).arg(pos.y());
+    m_viewportPos = p->mapToViewport(m_pos);
+    const QString &js = source.arg(m_viewportPos.x()).arg(m_viewportPos.y());
     init(page->url(), p->execJavaScript(js).toMap());
 }
 
@@ -143,6 +144,11 @@ bool WebHitTestResult::mediaMuted() const
 QPoint WebHitTestResult::pos() const
 {
     return m_pos;
+}
+
+QPoint WebHitTestResult::viewportPos() const
+{
+    return m_viewportPos;
 }
 
 QString WebHitTestResult::tagName() const
