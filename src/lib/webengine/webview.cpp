@@ -123,8 +123,8 @@ void WebView::setPage(WebPage *page)
         return;
     }
 
-    QWebEngineView::setPage(page);
-    m_page = qobject_cast<WebPage*>(page);
+    m_page = page;
+    QWebEngineView::setPage(m_page);
 
     connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
 
@@ -233,7 +233,7 @@ void WebView::restoreHistory(const QByteArray &data)
     stream >> *history();
 
     // Workaround clearing QWebChannel after restoring history
-    m_page->setupWebChannel();
+    page()->setupWebChannel();
 }
 
 QWidget *WebView::inputWidget() const
@@ -1128,7 +1128,7 @@ void WebView::loadRequest(const LoadRequest &req)
     if (req.operation() == LoadRequest::GetOperation)
         load(req.url());
     else
-        m_page->runJavaScript(Scripts::sendPostData(req.url(), req.data()));
+        page()->runJavaScript(Scripts::sendPostData(req.url(), req.data()));
 }
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)
