@@ -187,9 +187,8 @@ void DownloadManager::timerEvent(QTimerEvent* e)
         }
 #endif
     }
-    else {
-        QWidget::timerEvent(e);
-    }
+
+    QWidget::timerEvent(e);
 }
 
 void DownloadManager::clearList()
