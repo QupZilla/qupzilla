@@ -121,6 +121,7 @@ notRunning:
   File "libEGL.dll"
   File "libGLESv2.dll"
   File "opengl32sw.dll"
+  File "D3Dcompiler_47.dll"
   File "Qt5Core.dll"
   File "Qt5Gui.dll"
   File "Qt5Network.dll"
