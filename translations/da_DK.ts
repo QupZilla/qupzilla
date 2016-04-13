@@ -112,7 +112,7 @@
 <context>
     <name>AdBlockCustomList</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="300"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="298"/>
         <source>Custom Rules</source>
         <translation>Brugerdefinerede Regler</translation>
     </message>
@@ -249,7 +249,7 @@
 <context>
     <name>AdBlockSubscription</name>
     <message>
-        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="172"/>
+        <location filename="../src/lib/adblock/adblocksubscription.cpp" line="170"/>
         <source>Cannot load subscription!</source>
         <translation type="unfinished"/>
     </message>
@@ -623,29 +623,54 @@ Installer den nyeste version af QupZilla.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="134"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="328"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="379"/>
         <source>Empty</source>
         <translation>Tom</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="149"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="153"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="155"/>
         <source>Add New Bookmark</source>
         <translation>Tilføj Nyt Bogmærke</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="193"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="195"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="194"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="196"/>
         <source>Bookmark All Tabs</source>
         <translation>Bogmærk Alle Faneblade</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
+        <source>Title:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
+        <source>Address:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
+        <source>Keyword:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
+        <source>Description:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -712,7 +737,7 @@ Installer den nyeste version af QupZilla.</translation>
 <context>
     <name>BookmarksFoldersMenu</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="73"/>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="75"/>
         <source>Choose %1</source>
         <translation>Vælg %1</translation>
     </message>
@@ -1010,27 +1035,37 @@ Installer den nyeste version af QupZilla.</translation>
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="71"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Open in new tab</source>
         <translation>Åben i nyt faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="72"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
         <source>Open in new window</source>
         <translation>Åben i nyt vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
+        <source>Open in new private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
         <source>Delete</source>
         <translation>Slet</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="76"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Show Only Icons</source>
         <translation>Vis Kun Ikoner</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="80"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Show Only Text</source>
         <translation type="unfinished"/>
     </message>
@@ -1067,88 +1102,88 @@ Installer den nyeste version af QupZilla.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="105"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="106"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="321"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="333"/>
         <source>IP Address of current page</source>
         <translation>IP-adresse på nuværende side</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="585"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="598"/>
         <source> (Private Browsing)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="815"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="828"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="876"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="889"/>
         <source>&amp;Menu Bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="881"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="894"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="885"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="898"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="891"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="904"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>Other</source>
         <translation>Andre</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>HTML files</source>
         <translation>HTML filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>Image files</source>
         <translation>Billed filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>Text files</source>
         <translation>Tekst filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="987"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1000"/>
         <source>All files</source>
         <translation>Alle filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="989"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1002"/>
         <source>Open file...</source>
         <translation>Åben filer...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1320"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1333"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1321"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1334"/>
         <source>Don&apos;t ask again</source>
         <translation>Spørg ikke igen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1322"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1335"/>
         <source>There are still open tabs</source>
         <translation>Der er stadig åbne faneblade</translation>
     </message>
@@ -2343,17 +2378,17 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="87"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="92"/>
         <source>Paste And &amp;Go</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="146"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="151"/>
         <source>Enter URL address or search on %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="148"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="153"/>
         <source>Enter URL address</source>
         <translation type="unfinished"/>
     </message>
@@ -2397,237 +2432,237 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="494"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="495"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp; Om QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="499"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="500"/>
         <source>Pr&amp;eferences</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="505"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
         <source>Quit</source>
         <translation>Afslut</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="512"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="513"/>
         <source>&amp;File</source>
         <translation>&amp;Fil</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>New Tab</source>
         <translation>Nyt Faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="518"/>
         <source>&amp;New Window</source>
         <translation>&amp;Nyt Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="518"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
         <source>New &amp;Private Window</source>
         <translation>Nyt &amp;Privat Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
         <source>Open Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>Open &amp;File...</source>
         <translation>Åben &amp;Fil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
         <source>Close Window</source>
         <translation>Luk Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>Send Link...</source>
         <translation>Send Link...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>&amp;Print...</source>
         <translation>&amp;Udskriv</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>&amp;Edit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
         <source>&amp;Cut</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
         <source>C&amp;opy</source>
         <translation>K&amp;opiér</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
         <source>Select &amp;All</source>
         <translation>Vælg &amp;Alle</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
         <source>&amp;Find</source>
         <translation>&amp;Find</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>&amp;View</source>
         <translation>&amp;Vis</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>Toolbars</source>
         <translation>Værktøjslinier</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
         <source>Sidebar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>Character &amp;Encoding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="562"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Sta&amp;tusbar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="564"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
         <source>&amp;Stop</source>
         <translation>&amp;Stop</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="566"/>
         <source>&amp;Reload</source>
         <translation>&amp;Genindlæs</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
         <source>Zoom &amp;In</source>
         <translation>Zoom &amp;Ind</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
         <source>Zoom &amp;Out</source>
         <translation>Zoom &amp;Ud</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="570"/>
         <source>Reset</source>
         <translation>Nulstil</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="573"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Sidekilde</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;FullScreen</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>&amp;Tools</source>
         <translation>Værk&amp;tøj</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="582"/>
         <source>&amp;Web Search</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="582"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>Site &amp;Info</source>
         <translation>Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
         <source>&amp;Download Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="586"/>
         <source>&amp;Cookies Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="586"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
         <source>Web In&amp;spector</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
         <source>Clear Recent &amp;History</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Extensions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
         <source>&amp;Help</source>
         <translation>&amp;Hjælp</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>About &amp;Qt</source>
         <translation>Om &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="608"/>
         <source>Information about application</source>
         <translation>Information om ansøgning</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="605"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
         <source>Configuration Information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
         <source>Report &amp;Issue</source>
         <translation>Rapporter Problem</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
         <source>Restore &amp;Closed Tab</source>
         <translation type="unfinished"/>
     </message>
@@ -2841,7 +2876,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="97"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="101"/>
         <source>Inspect Element</source>
         <translation>Inspicér Element</translation>
     </message>
@@ -3361,7 +3396,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1069"/>
-        <source>Allow Netscape Plugins (Flash plugin)</source>
+        <source>Allow Pepper Plugins (Flash plugin)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4753,7 +4788,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Vælg billede...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="346"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="348"/>
         <source>Unable to load</source>
         <translation>Kan ikke indlæse</translation>
     </message>
@@ -4901,7 +4936,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="210"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="212"/>
         <source>Inspect Element</source>
         <translation>Inspicér Element</translation>
     </message>
@@ -5013,58 +5048,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="250"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="255"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="255"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="260"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="256"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="261"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="351"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="352"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
         <source>Failed loading page</source>
         <translation>Fejl ved indlæsning af side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="353"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
         <source>Something went wrong while loading this page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="360"/>
         <source>Reload page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="389"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="394"/>
         <source>Choose file...</source>
         <translation>Vælg fil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="393"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
         <source>Choose files...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="528"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="533"/>
         <source>JavaScript alert</source>
         <translation>JavaScript alarm</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="536"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="541"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"/>
     </message>
@@ -5118,232 +5153,232 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Tom Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="653"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="658"/>
         <source>&amp;Back</source>
         <translation>&amp;Tilbage</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="657"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="662"/>
         <source>&amp;Forward</source>
         <translation>&amp;Frem</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="664"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="669"/>
         <source>&amp;Add New Page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="665"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="670"/>
         <source>&amp;Configure Speed Dial</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="667"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="672"/>
         <source>Reload All Dials</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="674"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="679"/>
         <source>Book&amp;mark page</source>
         <translation>Bog&amp;mærkeside</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="680"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="676"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="681"/>
         <source>Send page link...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="678"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
         <source>Select &amp;all</source>
         <translation>Vælg &amp;alt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="688"/>
         <source>Validate page</source>
         <translation>Validér side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="687"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="692"/>
         <source>Translate page</source>
         <translation>Oversæt side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="691"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="696"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="699"/>
         <source>Show info ab&amp;out site</source>
         <translation>Vis info &amp;om siden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="705"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="705"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
         <source>Open link in new &amp;window</source>
         <translation>Åben link i nyt &amp;vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="706"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
         <source>Open link in &amp;private window</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="716"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="718"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="714"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="719"/>
         <source>Send link...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
         <source>Show i&amp;mage</source>
         <translation>Vis bi&amp;llede</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="739"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Gem billede som...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="735"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="740"/>
         <source>Send image...</source>
         <translation>Send billede...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="759"/>
         <source>Send text...</source>
         <translation>Send text...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="759"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
         <source>Google Translate</source>
         <translation>Google Translate</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="765"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
         <source>Dictionary</source>
         <translation>Ordbog</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="794"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="799"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="800"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="805"/>
         <source>Search with...</source>
         <translation>Søg med...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="826"/>
         <source>&amp;Play</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="826"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pause</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="823"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="827"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="823"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="827"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="825"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="829"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="826"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="827"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="831"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="846"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="850"/>
         <source>Create Search Engine</source>
         <translation>Opret Søgemaskine</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="887"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="891"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="893"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="903"/>
         <source>&amp;Cut</source>
         <translation>&amp;Klip</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="905"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="909"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiér</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="911"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="915"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="917"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Select All</source>
         <translation>Vælg Alle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="923"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="927"/>
         <source>&amp;Reload</source>
         <translation>&amp;Genindlæs</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="927"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="931"/>
         <source>S&amp;top</source>
         <translation>S&amp;top</translation>
     </message>

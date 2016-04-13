@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>
         <source>Are you sure you want to install it?</source>
-        <translation>Weet u zeker dat u het wilt installeren?</translation>
+        <translation>Weet u zeker dat u het script wilt installeren?</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="114"/>
@@ -34,30 +34,22 @@
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="49"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;wordt uitgevoerd op&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;wordt toegepast op&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="53"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
-        <translation>&lt;b&gt;wordt niet uitgevoerd op&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
+        <translation>&lt;b&gt;wordt niet toegepast op&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="83"/>
         <source>Cannot install script</source>
-        <translation>Kan script niet installeren</translation>
+        <translation>Het script kan niet worden geïnstalleerd</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.cpp" line="86"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>&apos;%1&apos; succesvol geïnstalleerd</translation>
-    </message>
-</context>
-<context>
-    <name>GM_Downloader</name>
-    <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
-        <source>&apos;%1&apos; is already installed</source>
-        <translation>&apos;%1&apos; is al geïnstalleerd</translation>
+        <translation>&apos;%1&apos; is succesvol geïnstalleerd</translation>
     </message>
 </context>
 <context>
@@ -71,9 +63,14 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="206"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_manager.cpp" line="270"/>
+        <source>&apos;%1&apos; is already installed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -91,12 +88,12 @@
     <message>
         <location filename="../gm_notification.cpp" line="50"/>
         <source>Cannot install script</source>
-        <translation>Kan script niet installeren</translation>
+        <translation>Het script kan niet worden geïnstalleerd</translation>
     </message>
     <message>
         <location filename="../gm_notification.cpp" line="58"/>
         <source>&apos;%1&apos; installed successfully</source>
-        <translation>&apos;%1&apos; succesvol geïnstalleerd</translation>
+        <translation>&apos;%1&apos; is succesvol geïnstalleerd</translation>
     </message>
 </context>
 <context>
@@ -114,27 +111,42 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Dubbelklikken op script zal extra informatie weergeven</translation>
+        <translation>Door te dubbelklikken op een script zal extra informatie worden weergegeven</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="153"/>
         <source>More scripts can be downloaded from</source>
-        <translation>Meer scripts kunnen worden gedownload van</translation>
+        <translation>U kunt nog meer scripts verkrijgen op</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="196"/>
         <source>Open scripts directory</source>
-        <translation>Open scripts-map</translation>
+        <translation>Scripts-map openen</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation>Nieuw gebruikersscript</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="90"/>
         <source>Remove script</source>
         <translation>Script verwijderen</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="91"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Weet u zeker dat u &apos;%1&apos; wilt verwijderen?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Add script</source>
+        <translation>Script toevoegen</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Choose name for script:</source>
+        <translation>Geef een naam op voor het script:</translation>
     </message>
 </context>
 <context>
@@ -177,15 +189,15 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
-        <translation>Wordt uitgevoerd op:</translation>
+        <translation>Wordt toegepast op:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
-        <translation>Wordt niet uitgevoerd op:</translation>
+        <translation>Wordt niet toegepast op:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>Script-details van %1</translation>
     </message>

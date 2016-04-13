@@ -149,7 +149,7 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
         <source>All changes must be saved with &lt;b&gt;Save&lt;/b&gt; button.</source>
-        <translation>Todos los cambios deben ser guardados con el botón &lt;b&gt;Guardar&lt;/b&gt;</translation>
+        <translation>Todos los cambios deben ser guardados con el botón &lt;b&gt;Guardar&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="57"/>

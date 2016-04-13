@@ -35,6 +35,7 @@ TRANSLATIONS += \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
     translations/ko_KR.ts \
+    translations/lt.ts \
     translations/lv_LV.ts \
     translations/nb_NO.ts \
     translations/nl_NL.ts \

@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_MX" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_MX" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
@@ -53,14 +53,6 @@
     </message>
 </context>
 <context>
-    <name>GM_Downloader</name>
-    <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
-        <source>&apos;%1&apos; is already installed</source>
-        <translation>&apos;%1&apos; ya está instalado</translation>
-    </message>
-</context>
-<context>
     <name>GM_Icon</name>
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
@@ -71,9 +63,14 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="206"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_manager.cpp" line="270"/>
+        <source>&apos;%1&apos; is already installed</source>
+        <translation>&apos;%1&apos; ya está instalado</translation>
     </message>
 </context>
 <context>
@@ -81,7 +78,7 @@
     <message>
         <location filename="../gm_notification.ui" line="45"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
-        <translation>Este script puede ser instalado con el complemento de GreaseMonkey</translation>
+        <translation>Este script puede ser instalado con el complemento de GreaseMonkey.</translation>
     </message>
     <message>
         <location filename="../gm_notification.ui" line="65"/>
@@ -127,14 +124,29 @@
         <translation>Abrir directorio de scripts</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation>Nuevo script de usuario</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="90"/>
         <source>Remove script</source>
         <translation>Eliminar script</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="91"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>¿Esta seguro que quiere eliminar &apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Add script</source>
+        <translation>Agregar script</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Choose name for script:</source>
+        <translation>Elegir nombre para el script:</translation>
     </message>
 </context>
 <context>
@@ -185,7 +197,7 @@
         <translation>No se ejecuta en:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>Detalles de Script %1</translation>
     </message>

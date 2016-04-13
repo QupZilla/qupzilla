@@ -53,14 +53,6 @@
     </message>
 </context>
 <context>
-    <name>GM_Downloader</name>
-    <message>
-        <location filename="../gm_downloader.cpp" line="147"/>
-        <source>&apos;%1&apos; is already installed</source>
-        <translation>„%1“ је већ инсталирана</translation>
-    </message>
-</context>
-<context>
     <name>GM_Icon</name>
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
@@ -71,9 +63,14 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="205"/>
+        <location filename="../gm_manager.cpp" line="206"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_manager.cpp" line="270"/>
+        <source>&apos;%1&apos; is already installed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -132,22 +129,22 @@
         <translation>Нова скрипта</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="79"/>
+        <location filename="../settings/gm_settings.cpp" line="90"/>
         <source>Remove script</source>
         <translation>Уклони скрипту</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="80"/>
+        <location filename="../settings/gm_settings.cpp" line="91"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Желите ли заиста да уклоните „%1“?</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
         <source>Add script</source>
         <translation>Додавање скрипте</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="110"/>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
         <source>Choose name for script:</source>
         <translation>Име за скрипту:</translation>
     </message>

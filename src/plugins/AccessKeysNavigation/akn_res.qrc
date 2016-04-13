@@ -21,12 +21,14 @@
         <file>locale/fr_FR.qm</file>
         <file>locale/gl_ES.qm</file>
         <file>locale/he_IL.qm</file>
+        <file>locale/hi_IN.qm</file>
         <file>locale/hr_HR.qm</file>
         <file>locale/hu_HU.qm</file>
         <file>locale/id_ID.qm</file>
         <file>locale/it_IT.qm</file>
         <file>locale/ja_JP.qm</file>
         <file>locale/ka_GE.qm</file>
+        <file>locale/lt.qm</file>
         <file>locale/lv_LV.qm</file>
         <file>locale/my_MM.qm</file>
         <file>locale/nb_NO.qm</file>
@@ -48,6 +50,7 @@
         <file>locale/uz@Cyrl.qm</file>
         <file>locale/uz@Latn.qm</file>
         <file>locale/zh_CN.qm</file>
+        <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

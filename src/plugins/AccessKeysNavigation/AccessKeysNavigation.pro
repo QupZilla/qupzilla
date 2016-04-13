@@ -36,12 +36,14 @@ TRANSLATIONS += \
     translations/fr_FR.ts \
     translations/gl_ES.ts \
     translations/he_IL.ts \
+    translations/hi_IN.ts \
     translations/hr_HR.ts \
     translations/hu_HU.ts \
     translations/id_ID.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
+    translations/lt.ts \
     translations/lv_LV.ts \
     translations/my_MM.ts \
     translations/nb_NO.ts \
@@ -63,6 +65,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 PLUGIN_DIR = $$PWD

@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.1">
 <context>
     <name>GM_AddScriptDialog</name>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="14"/>
         <source>GreaseMonkey Installation</source>
-        <translation>Instal·lació de GreaseMonkey</translation>
+        <translation>Instal·lació del GreaseMonkey</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Installation&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Instal·lació de GreaseMonkey&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Instal·lació del GreaseMonkey&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="73"/>
         <source>You are about to install this userscript into GreaseMonkey:</source>
-        <translation>Esteu a punt d&apos;instal·lar aquest script d&apos;usuari a GreaseMonkey:</translation>
+        <translation>Esteu a punt d&apos;instal·lar aquest script d&apos;usuari al GreaseMonkey:</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
@@ -53,27 +53,24 @@
     </message>
 </context>
 <context>
-    <name>GM_Downloader</name>
-    <message>
-        <location filename="../gm_downloader.cpp" line="145"/>
-        <source>&apos;%1&apos; is already installed</source>
-        <translation>&apos;%1&apos; ja està instal·lat</translation>
-    </message>
-</context>
-<context>
     <name>GM_Icon</name>
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation>Preferències de GreaseMonkey</translation>
+        <translation>Preferències del GreaseMonkey</translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="194"/>
+        <location filename="../gm_manager.cpp" line="206"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_manager.cpp" line="270"/>
+        <source>&apos;%1&apos; is already installed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -104,12 +101,12 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="14"/>
         <source>GreaseMonkey Scripts</source>
-        <translation>Scripts de GreaseMonkey</translation>
+        <translation>Scripts del GreaseMonkey</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="51"/>
         <source>&lt;h3&gt;GreaseMonkey Scripts&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Scripts de GreaseMonkey&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Scripts del GreaseMonkey&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="73"/>
@@ -127,14 +124,29 @@
         <translation>Obre el directori dels scripts</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="75"/>
+        <location filename="../settings/gm_settings.ui" line="203"/>
+        <source>New user script</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="90"/>
         <source>Remove script</source>
         <translation>Suprimeix l&apos;script</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="76"/>
+        <location filename="../settings/gm_settings.cpp" line="91"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>Segur que voleu suprimir &apos;%1&apos;?</translation>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Add script</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <source>Choose name for script:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -185,7 +197,7 @@
         <translation>No s&apos;executa a:</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settingsscriptinfo.cpp" line="43"/>
+        <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
         <translation>Detalls d&apos;script de %1</translation>
     </message>
