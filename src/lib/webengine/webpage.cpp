@@ -318,6 +318,8 @@ void WebPage::setupWebChannel()
 
 void WebPage::windowCloseRequested()
 {
+    if (!view())
+        return;
     view()->closeView();
 }
 
