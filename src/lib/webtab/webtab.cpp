@@ -119,7 +119,7 @@ WebTab::WebTab(BrowserWindow* window)
 
     m_webView = new TabbedWebView(this);
     m_webView->setBrowserWindow(m_window);
-    m_webView->setWebPage(new WebPage(this));
+    m_webView->setWebPage(new WebPage);
     m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
 
     m_locationBar = new LocationBar(m_window);
