@@ -152,6 +152,12 @@ notRunning:
   SetOutPath "$INSTDIR\printsupport"
   File "printsupport\windowsprintersupport.dll"
   
+  SetOutPath "$INSTDIR\qml\QtQuick.2"
+  File "qml\QtQuick.2\*"
+  
+  SetOutPath "$INSTDIR\qml\QtWebEngine"
+  File "qml\QtWebEngine\*"
+  
   SetOutPath "$INSTDIR\resources"
   File "resources\*"
 
