@@ -21,6 +21,7 @@
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
+#include "locationbar.h"
 #include "mousegesturessettingsdialog.h"
 
 #include "QjtMouseGestureFilter.h"
@@ -184,6 +185,9 @@ void MouseGestures::downGestured()
 
     TabWidget* tabWidget = window->tabWidget();
     tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab);
+    
+    LocationBar* locationBar = window->locationBar();
+    locationBar->setFocus();
 }
 
 void MouseGestures::leftGestured()
