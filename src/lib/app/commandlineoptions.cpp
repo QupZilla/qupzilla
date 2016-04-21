@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - QtWebEngine based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -93,7 +93,9 @@ void CommandLineOptions::parseActions()
     parser.addOption(openWindowOption);
     parser.addOption(fullscreenOption);
     parser.addPositionalArgument(QSL("URL"), QSL("URLs to open"), QSL("[URL...]"));
-    parser.process(QCoreApplication::arguments());
+
+    // parse() and not process() so we can pass arbitrary options to Chromium
+    parser.parse(QCoreApplication::arguments());
 
     if (parser.isSet(authorsOption)) {
         std::cout << "David Rosca <nowrep@gmail.com>" << std::endl;
