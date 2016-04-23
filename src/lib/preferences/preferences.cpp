@@ -348,12 +348,25 @@ Preferences::Preferences(BrowserWindow* window)
     //FONTS
     settings.beginGroup("Browser-Fonts");
     QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
-    ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", webSettings->fontFamily(QWebEngineSettings::StandardFont)).toString()));
-    ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", webSettings->fontFamily(QWebEngineSettings::CursiveFont)).toString()));
-    ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", webSettings->fontFamily(QWebEngineSettings::FantasyFont)).toString()));
-    ui->fontFixed->setCurrentFont(QFont(settings.value("FixedFont", webSettings->fontFamily(QWebEngineSettings::FixedFont)).toString()));
-    ui->fontSansSerif->setCurrentFont(QFont(settings.value("SansSerifFont", webSettings->fontFamily(QWebEngineSettings::SansSerifFont)).toString()));
-    ui->fontSerif->setCurrentFont(QFont(settings.value("SerifFont", webSettings->fontFamily(QWebEngineSettings::SerifFont)).toString()));
+    auto defaultFont = [&](QWebEngineSettings::FontFamily font) {
+        const QString family = webSettings->fontFamily(font);
+        if (!family.isEmpty())
+            return family;
+        switch (font) {
+        case QWebEngineSettings::FixedFont:
+            return QFontDatabase::systemFont(QFontDatabase::FixedFont).family();
+        case QWebEngineSettings::SerifFont:
+            // TODO
+        default:
+            return QFontDatabase::systemFont(QFontDatabase::GeneralFont).family();
+        }
+    };
+    ui->fontStandard->setCurrentFont(QFont(settings.value("StandardFont", defaultFont(QWebEngineSettings::StandardFont)).toString()));
+    ui->fontCursive->setCurrentFont(QFont(settings.value("CursiveFont", defaultFont(QWebEngineSettings::CursiveFont)).toString()));
+    ui->fontFantasy->setCurrentFont(QFont(settings.value("FantasyFont", defaultFont(QWebEngineSettings::FantasyFont)).toString()));
+    ui->fontFixed->setCurrentFont(QFont(settings.value("FixedFont", defaultFont(QWebEngineSettings::FixedFont)).toString()));
+    ui->fontSansSerif->setCurrentFont(QFont(settings.value("SansSerifFont", defaultFont(QWebEngineSettings::SansSerifFont)).toString()));
+    ui->fontSerif->setCurrentFont(QFont(settings.value("SerifFont", defaultFont(QWebEngineSettings::SerifFont)).toString()));
     ui->sizeDefault->setValue(settings.value("DefaultFontSize", webSettings->fontSize(QWebEngineSettings::DefaultFontSize)).toInt());
     ui->sizeFixed->setValue(settings.value("FixedFontSize", webSettings->fontSize(QWebEngineSettings::DefaultFixedFontSize)).toInt());
     ui->sizeMinimum->setValue(settings.value("MinimumFontSize", webSettings->fontSize(QWebEngineSettings::MinimumFontSize)).toInt());

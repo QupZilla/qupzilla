@@ -78,8 +78,8 @@ void CommandLineOptions::parseActions()
     // Parser
     QCommandLineParser parser;
     parser.setApplicationDescription(QSL("QtWebEngine based browser"));
-    parser.addHelpOption();
-    parser.addVersionOption();
+    QCommandLineOption helpOption = parser.addHelpOption();
+    QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOption(authorsOption);
     parser.addOption(profileOption);
     parser.addOption(noExtensionsOption);
@@ -96,6 +96,14 @@ void CommandLineOptions::parseActions()
 
     // parse() and not process() so we can pass arbitrary options to Chromium
     parser.parse(QCoreApplication::arguments());
+
+    if (parser.isSet(helpOption)) {
+        parser.showHelp();
+    }
+
+    if (parser.isSet(versionOption)) {
+        parser.showVersion();
+    }
 
     if (parser.isSet(authorsOption)) {
         std::cout << "David Rosca <nowrep@gmail.com>" << std::endl;
