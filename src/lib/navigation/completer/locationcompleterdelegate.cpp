@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* pare
 
 void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QStyleOptionViewItemV4 opt = option;
+    QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
     const QWidget* w = opt.widget;
@@ -156,7 +156,7 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
     Q_UNUSED(index)
 
     if (!m_rowHeight) {
-        QStyleOptionViewItemV4 opt(option);
+        QStyleOptionViewItem opt(option);
         initStyleOption(&opt, index);
 
         const QWidget* w = opt.widget;
@@ -211,7 +211,7 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
-void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItemV4 *option, const QRect &rect,
+void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
                                                  const QString &text, const QPalette::ColorRole &role, const QString &searchText) const
 {
     if (text.isEmpty()) {

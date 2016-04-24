@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ int ListItemDelegate::itemHeight() const
 
 void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QStyleOptionViewItemV4 opt = option;
+    QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
     const QWidget* w = opt.widget;
@@ -92,7 +92,7 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
 QSize ListItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (!m_itemHeight) {
-        QStyleOptionViewItemV4 opt(option);
+        QStyleOptionViewItem opt(option);
         initStyleOption(&opt, index);
 
         const QWidget* w = opt.widget;
