@@ -589,7 +589,7 @@ void LocationBar::paintEvent(QPaintEvent* event)
 
     // Show loading progress
     if (qzSettings->showLoadingProgress && m_progressVisible) {
-        QStyleOptionFrameV3 option;
+        QStyleOptionFrame option;
         initStyleOption(&option);
 
         int lm, tm, rm, bm;

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ PluginListDelegate::PluginListDelegate(QListWidget* parent)
 
 void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QStyleOptionViewItemV4 opt = option;
+    QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
     const QWidget* w = opt.widget;
@@ -61,7 +61,7 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     // Draw checkbox
     const int checkboxSize = 18;
     const int checkboxYPos = center - (checkboxSize / 2);
-    QStyleOptionViewItemV4 opt2 = opt;
+    QStyleOptionViewItem opt2 = opt;
     opt2.checkState == Qt::Checked ? opt2.state |= QStyle::State_On : opt2.state |= QStyle::State_Off;
     QRect styleCheckBoxRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt2, w);
     opt2.rect = QRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
@@ -112,7 +112,7 @@ QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QMo
     Q_UNUSED(index)
 
     if (!m_rowHeight) {
-        QStyleOptionViewItemV4 opt(option);
+        QStyleOptionViewItem opt(option);
         initStyleOption(&opt, index);
 
         const QWidget* w = opt.widget;

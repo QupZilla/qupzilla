@@ -44,7 +44,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     if (!script)
         return;
 
-    QStyleOptionViewItemV4 opt = option;
+    QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
     const QWidget* w = opt.widget;
@@ -78,7 +78,7 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     // Draw checkbox
     const int checkboxSize = 18;
     const int checkboxYPos = center - (checkboxSize / 2);
-    QStyleOptionViewItemV4 opt2 = opt;
+    QStyleOptionViewItem opt2 = opt;
     opt2.checkState == Qt::Checked ? opt2.state |= QStyle::State_On : opt2.state |= QStyle::State_Off;
     QRect styleCheckBoxRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt2, w);
     opt2.rect = QRect(leftPosition, checkboxYPos, styleCheckBoxRect.width(), styleCheckBoxRect.height());
@@ -138,7 +138,7 @@ QSize GM_SettingsListDelegate::sizeHint(const QStyleOptionViewItem &option, cons
     Q_UNUSED(index)
 
     if (!m_rowHeight) {
-        QStyleOptionViewItemV4 opt(option);
+        QStyleOptionViewItem opt(option);
         initStyleOption(&opt, index);
 
         const QWidget* w = opt.widget;

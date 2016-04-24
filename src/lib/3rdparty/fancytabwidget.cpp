@@ -56,7 +56,7 @@ void FancyTabProxyStyle::drawControl(
     QPainter* p, const QWidget* widget) const
 {
 
-    const QStyleOptionTabV3* v_opt = qstyleoption_cast<const QStyleOptionTabV3*>(option);
+    const QStyleOptionTab* v_opt = qstyleoption_cast<const QStyleOptionTab*>(option);
 
     if (element != CE_TabBarTab || !v_opt) {
         QProxyStyle::drawControl(element, option, p, widget);

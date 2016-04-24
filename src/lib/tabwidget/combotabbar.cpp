@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -670,7 +670,7 @@ void ComboTabBar::paintEvent(QPaintEvent* ev)
 
 #ifndef Q_OS_MAC
     // Draw tabbar base even on parts of ComboTabBar that are not directly QTabBar
-    QStyleOptionTabBarBaseV2 opt;
+    QStyleOptionTabBarBase opt;
     TabBarHelper::initStyleBaseOption(&opt, m_mainTabBar, size());
 
     // Left container
@@ -1061,7 +1061,7 @@ bool TabBarHelper::event(QEvent* ev)
 }
 
 // Taken from qtabbar.cpp
-void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size)
+void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBase *optTabBase, QTabBar* tabbar, QSize size)
 {
     QStyleOptionTab tabOverlap;
     tabOverlap.shape = tabbar->shape();
@@ -1103,7 +1103,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         return;
     }
 
-    QStyleOptionTabBarBaseV2 optTabBase;
+    QStyleOptionTabBarBase optTabBase;
     initStyleBaseOption(&optTabBase, this, size());
 
     QStylePainter p(this);
@@ -1123,7 +1123,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
     int indexUnderMouse = isDisplayedOnViewPort(cursorPos.x(), cursorPos.x()) ? tabAt(mapFromGlobal(cursorPos)) : -1;
 
     for (int i = 0; i < count(); ++i) {
-        QStyleOptionTabV3 tab;
+        QStyleOptionTab tab;
         initStyleOption(&tab, i);
 
         if (i == selected) {
@@ -1152,7 +1152,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
 
     // Draw the selected tab last to get it "on top"
     if (selected >= 0) {
-        QStyleOptionTabV3 tab;
+        QStyleOptionTab tab;
         initStyleOption(&tab, selected);
 
         // Update mouseover state when scrolling
@@ -1167,7 +1167,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             // If this is inactive tab, we still need to draw selected tab outside the tabbar
             // Some themes (eg. Oxygen) draws line under tabs with selected tab
             // Let's just move it outside rect(), it appears to work
-            QStyleOptionTabV3 tb = tab;
+            QStyleOptionTab tb = tab;
             tb.rect.moveRight((rect().x() + rect().width()) * 2);
             p.drawControl(QStyle::CE_TabBarTab, tb);
 

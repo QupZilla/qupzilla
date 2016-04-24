@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -230,7 +230,7 @@ public:
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
     bool isDragInProgress() const;
 
-    static void initStyleBaseOption(QStyleOptionTabBarBaseV2* optTabBase, QTabBar* tabbar, QSize size);
+    static void initStyleBaseOption(QStyleOptionTabBarBase* optTabBase, QTabBar* tabbar, QSize size);
 
 public slots:
     void setCurrentIndex(int index);
