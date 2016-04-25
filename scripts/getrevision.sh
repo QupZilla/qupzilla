@@ -3,7 +3,7 @@
 REV=""
 
 if [ -e "/usr/bin/git" ] && ([ -e ".git" ] || [ -e "../.git" ]); then
-    REV=`git rev-parse HEAD | cut -d " " -f 1`
+    REV=`git rev-parse HEAD`
 elif [ -e "git_revision" ]; then
     REV=`cat git_revision`
 fi
