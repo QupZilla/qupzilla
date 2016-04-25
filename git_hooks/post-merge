@@ -2,4 +2,4 @@
 #
 # Writes git revision into git_revision file
 #
-git show-ref refs/heads/master | cut -d " " -f 1  > git_revision
+git rev-parse HEAD | cut -d " " -f 1  > git_revision
