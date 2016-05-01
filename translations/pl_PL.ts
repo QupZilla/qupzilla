@@ -3116,7 +3116,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="408"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Aby zmienić język należy uruchomić ponownie przeglądarke.</translation>
+        <translation>Zmiana będzie widoczna po ponownym uruchomieniu przeglądarki.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="415"/>
@@ -3221,12 +3221,12 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="686"/>
         <source>Open new tabs after active tab</source>
-        <translation>Otwieraj nowe karty tuż za kartą aktywną</translation>
+        <translation>Otwieraj nowe karty tuż za bieżącą kartą</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="693"/>
         <source>Open new empty tabs after active tab</source>
-        <translation>Otwieraj nowe puste karty tuż za kartą aktywną</translation>
+        <translation>Otwieraj nowe puste karty tuż za bieżącą kartą</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="700"/>
@@ -3546,7 +3546,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
         <source>Fixed</source>
-        <translation>Proporcjonalna</translation>
+        <translation>Maszynowa</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
@@ -3576,7 +3576,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1622"/>
         <source>Fixed Font Size</source>
-        <translation>Rozmiar czcionki proporcjonalnej</translation>
+        <translation>Rozmiar czcionki maszynowej</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
@@ -3616,17 +3616,17 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1720"/>
         <source>Use single key shortcuts</source>
-        <translation>Użyj pojedynczego skrótu klawiaturowego</translation>
+        <translation>Włącz jednoklawiszowe skróty klawiaturowe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation>Jeśli odznaczone, zapobiega przypadkowemu wyjściu z aplikacji, jeśli skrót Ctrl-W został przeznaczony.</translation>
+        <translation>Gdy nie jest zaznaczone, zapobiega przypadkowemu wyjściu z aplikacji przy wciśnięciu Ctrl-W.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1730"/>
         <source>Close application with Ctrl-Q</source>
-        <translation>Zamknij aplikację skrótem Ctrl-Q</translation>
+        <translation>Zamykaj aplikację skrótem Ctrl-Q</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1754"/>
@@ -3636,7 +3636,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
         <source>Ask everytime for download location</source>
-        <translation>Zawsze pytaj gdzie zapisać pobierane</translation>
+        <translation>Pytaj za każdym razem</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
@@ -3676,7 +3676,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
         <source>Leave blank if unsure</source>
-        <translation>Jeśli nie masz pewności to zostaw puste</translation>
+        <translation>Jeśli nie masz pewności, to zostaw puste</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1886"/>
@@ -3821,7 +3821,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2445"/>
         <source>Search Engines Manager</source>
-        <translation>Menedżerz Wyszukiwarek</translation>
+        <translation>Menedżer Wyszukiwarek</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2482"/>
