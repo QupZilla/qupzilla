@@ -238,7 +238,7 @@ void GM_Script::parseScript()
 
     const QString fileData = QString::fromUtf8(file.readAll());
 
-    QzRegExp rx(QSL("// ==UserScript==(.*)// ==/UserScript=="));
+    QzRegExp rx(QSL("(?:^|\\n)// ==UserScript==(.*)\\n// ==/UserScript==(?:\\n|$)"));
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 
