@@ -39,37 +39,37 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="90"/>
         <source>Mouse button:</source>
-        <translation type="unfinished"/>
+        <translation>Кнопка миші:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="98"/>
         <source>Middle button</source>
-        <translation type="unfinished"/>
+        <translation>Середня кнопка</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="103"/>
         <source>Right button</source>
-        <translation type="unfinished"/>
+        <translation>Права кнопка</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="108"/>
         <source>Disabled</source>
-        <translation type="unfinished"/>
+        <translation>Вимкнено</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="116"/>
         <source>Rocker Navigation:</source>
-        <translation type="unfinished"/>
+        <translation>Навігація Rocker:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="123"/>
         <source>Enable Rocker Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути навігацію в стилі Rocker</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>
         <source>Press and hold the mouse button and move your mouse in the indicated directions.</source>
-        <translation type="unfinished"/>
+        <translation>Затисніть кнопку миші и пересувайте мишу у зазначених напрямах.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="250"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Дублювати&lt;/b&gt;&lt;br/&gt;Дублювати поточну вкладку</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

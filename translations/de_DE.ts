@@ -650,27 +650,27 @@ Bitte installieren Sie die aktuellste Version von QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Titel:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>Schlüsselwort:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Beschreibung:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Lesezeichen bearbeiten</translation>
     </message>
 </context>
 <context>
@@ -1047,12 +1047,12 @@ Bitte installieren Sie die aktuellste Version von QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>In neuem privaten Fenster öffnen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
@@ -2466,7 +2466,7 @@ konnte nicht gefunden werden!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
         <source>New &amp;Private Window</source>
-        <translation>Neues &amp;Fenster</translation>
+        <translation>Neues &amp;privates Fenster</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
@@ -3399,7 +3399,7 @@ konnte nicht gefunden werden!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1069"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation type="unfinished"/>
+        <translation>Pepper Plugins (Flash Plugin) erlauben</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1076"/>

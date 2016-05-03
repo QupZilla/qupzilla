@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Çoğalt&lt;/b&gt;&lt;br/&gt;Aktif sekmeyi çoğalt</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

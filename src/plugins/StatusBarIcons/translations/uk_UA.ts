@@ -9,7 +9,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current Page Settings</source>
-        <translation type="unfinished"/>
+        <translation>Налаштування поточної сторінки</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
         <source>Global Settings</source>
-        <translation type="unfinished"/>
+        <translation>Загальні налаштування</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="68"/>
@@ -42,7 +42,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="50"/>
         <source>Current Page Settings</source>
-        <translation type="unfinished"/>
+        <translation>Налаштування поточної сторінки</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="53"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="65"/>
         <source>Global Settings</source>
-        <translation type="unfinished"/>
+        <translation>Загальні налаштування</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="66"/>
@@ -70,12 +70,12 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="64"/>
         <source>Proxy Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Налауштування проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="66"/>
         <source>Select proxy</source>
-        <translation>Оберіть proxy</translation>
+        <translation>Оберіть проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="80"/>
@@ -85,12 +85,12 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="84"/>
         <source>Manage proxies</source>
-        <translation>Керувати proxy</translation>
+        <translation>Керувати проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>Показує стан мережі і керує proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Мережа:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</translation>
+        <translation>Показує стан мережі і керує проксі&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Мережа:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Проксі:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="100"/>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="108"/>
         <source>System proxy</source>
-        <translation>Системне proxy</translation>
+        <translation>Системний проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="112"/>
         <source>No proxy</source>
-        <translation>Без proxy</translation>
+        <translation>Без проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="116"/>
@@ -128,23 +128,23 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="28"/>
         <source>Select proxy: </source>
-        <translation>Оберіть proxy: </translation>
+        <translation>Оберіть проксі: </translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
         <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Add proxy</source>
-        <translation>Додати proxy</translation>
+        <translation>Додати проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="45"/>
         <source>Remove proxy</source>
-        <translation>Видалити proxy</translation>
+        <translation>Видалити проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>Нема proxy. Ви можете додати proxy натиснувши кнопку &lt;b&gt;Додати&lt;/b&gt;.</translation>
+        <translation>Немає проксі. Ви можете додати проксі натиснувши кнопку &lt;b&gt;Додати&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
@@ -154,17 +154,17 @@
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
-        <translation>Назва proxy:</translation>
+        <translation>Назва проксі:</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
-        <translation>Видалити поточне proxy</translation>
+        <translation>Видалити поточний проксі</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Are you sure you want to remove current proxy?</source>
-        <translation type="unfinished"/>
+        <translation>Ви дійсно хочете видалити поточний проксі-сервер?</translation>
     </message>
 </context>
 <context>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <source>S&amp;ystem proxy configuration</source>
-        <translation type="unfinished"/>
+        <translation>Системні налаштування проксі</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation type="unfinished"/>
+        <translation>Ручні налаштування</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>Наступні цконки будуть відображатись на панелі статусу:</translation>
+        <translation>Наступні іконки будуть відображатись на панелі статусу:</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="118"/>
         <source>Zoom widget</source>
-        <translation type="unfinished"/>
+        <translation>Віджет масштабу</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../sbi_zoomwidget.cpp" line="47"/>
         <source>Zoom: %1%</source>
-        <translation type="unfinished"/>
+        <translation>Масштаб: %1%</translation>
     </message>
 </context>
 </TS>

@@ -1602,12 +1602,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>Already blacklisted!</source>
-        <translation type="unfinished"/>
+        <translation>Już jest na czarnej liście!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Serwer &quot;%1&quot; jest już na czarnej liście, najpierw musisz go stamtąd wykreślić.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
@@ -1617,12 +1617,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Już jest na białej liście!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Serwer &quot;%1&quot; jest już na białej liście, najpierw musisz go stamtąd wykreślić.</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1640,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="137"/>
         <source>Error - %1</source>
-        <translation type="unfinished"/>
+        <translation>Błąd – %1</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="141"/>
@@ -1935,7 +1935,7 @@ nie został znaleziony!!</translation>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="97"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Mikrofon</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="102"/>
@@ -1998,17 +1998,17 @@ nie został znaleziony!!</translation>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="54"/>
         <source>Allow %1 to use your microphone?</source>
-        <translation type="unfinished"/>
+        <translation>Czy zezwalasz %1 na użycie mikrofonu Twojego komputera?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your camera?</source>
-        <translation type="unfinished"/>
+        <translation>Czy zezwalasz %1 na użycie kamerki Twojego komputera?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="64"/>
         <source>Allow %1 to use your microphone and camera?</source>
-        <translation type="unfinished"/>
+        <translation>Czy zezwalasz %1 na użycie mikrofonu oraz kamerki Twojego komputera?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="69"/>
@@ -2110,7 +2110,7 @@ nie został znaleziony!!</translation>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure you want to delete all history?</source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz usunąć całą historię przeglądania?</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="133"/>
@@ -3116,7 +3116,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="408"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>Aby zmienić język należy uruchomić ponownie przeglądarke.</translation>
+        <translation>Zmiana będzie widoczna po ponownym uruchomieniu przeglądarki.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="415"/>
@@ -3231,7 +3231,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="700"/>
         <source>Open popup windows in tabs</source>
-        <translation type="unfinished"/>
+        <translation>Otwieraj wyskakujące okienka w kartach</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="707"/>
@@ -3341,7 +3341,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="903"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation type="unfinished"/>
+        <translation>Włącz automatyczne wyszukiwanie w pasku adresu</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="910"/>
@@ -3546,7 +3546,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
         <source>Fixed</source>
-        <translation>Proporcjonalna</translation>
+        <translation>Maszynowa</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
@@ -3576,7 +3576,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1622"/>
         <source>Fixed Font Size</source>
-        <translation>Rozmiar czcionki proporcjonalnej</translation>
+        <translation>Rozmiar czcionki maszynowej</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
@@ -3616,7 +3616,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1720"/>
         <source>Use single key shortcuts</source>
-        <translation>Użyj pojedynczego skrótu klawiaturowego</translation>
+        <translation>Włącz jednoklawiszowe skróty klawiaturowe</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
@@ -3626,7 +3626,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1730"/>
         <source>Close application with Ctrl-Q</source>
-        <translation>Zamknij aplikację skrótem Ctrl-Q</translation>
+        <translation>Zamykaj aplikację skrótem Ctrl-Q</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1754"/>
@@ -3636,7 +3636,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
         <source>Ask everytime for download location</source>
-        <translation>Zawsze pytaj gdzie zapisać pobierane</translation>
+        <translation>Pytaj za każdym razem</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
@@ -3821,7 +3821,7 @@ Qupzilla podlega licencji GPL w wersji 3 lub późniejszej. Przeglądarka bazuje
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2445"/>
         <source>Search Engines Manager</source>
-        <translation>Menedżerz Wyszukiwarek</translation>
+        <translation>Menedżer wyszukiwarek</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2482"/>
@@ -5074,12 +5074,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
         <source>Something went wrong while loading this page.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się załadować strony.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj odświeżyć tę stronę albo zwolnić trochę pamięci zamykając kilka kart.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="360"/>

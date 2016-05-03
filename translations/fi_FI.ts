@@ -399,7 +399,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
         <source>Import and Export</source>
-        <translation type="unfinished"/>
+        <translation>Tuo ja vie</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
@@ -520,17 +520,17 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="372"/>
         <source>Copy Username</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi käyttäjänimi</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="373"/>
         <source>Copy Password</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi salasana</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="375"/>
         <source>Edit Password</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa salasanaa</translation>
     </message>
 </context>
 <context>
@@ -650,12 +650,12 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Osoite:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
@@ -781,7 +781,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
         <source>Choose from which you want to import bookmarks:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse mistä haluat tuoda kirjanmerkkejä:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="125"/>
@@ -867,7 +867,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="32"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation type="unfinished"/>
+        <translation>Voit tuoda kirjanmerkkejä mistä tahansa selaimesta joka tukee HTML vientiä. Tällä tiedostolla on yleensä nämä päätteet</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="43"/>
@@ -993,12 +993,12 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Osoite</translation>
     </message>
 </context>
 <context>
@@ -1047,7 +1047,7 @@ Lataa QupZillan uusin versio, kiitos.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa yksityisessä ikkunassa</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
@@ -1203,7 +1203,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="64"/>
         <source>Import and Export</source>
-        <translation type="unfinished"/>
+        <translation>Tuo ja vie</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="84"/>
@@ -1537,7 +1537,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="404"/>
         <source>Filter 3rd party cookies</source>
-        <translation type="unfinished"/>
+        <translation>Suodata 3. osapuolen evästeet</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
@@ -1557,7 +1557,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="445"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Varoitus:&lt;/b&gt; 3. osapuolen ja jäljittävien evästeiden suodatus asetukset voivat johtaa joidenkin evästeiden kieltämiseen sivustoilta. Jos sinulla on ongelmia evästeiden kanssa, kokeile ottaa nämä asetukset pois käytöstä ensin!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="77"/>
@@ -1781,7 +1781,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="233"/>
         <source>Save file as...</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna tiedosto nimellä…</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="285"/>
@@ -2115,17 +2115,17 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="133"/>
         <source>Open in new tab</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa välilehdessä</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="134"/>
         <source>Open in new window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa ikkunassa</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="135"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa yksityisessä ikkunassa</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="138"/>
@@ -2135,7 +2135,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="139"/>
         <source>Copy title</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi otsikko</translation>
     </message>
 </context>
 <context>
@@ -2189,7 +2189,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="229"/>
         <source>Closed Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Suljetut välilehdet</translation>
     </message>
 </context>
 <context>
@@ -2241,17 +2241,17 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="85"/>
         <source>Open in new tab</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa välilehdessä</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="86"/>
         <source>Open in new window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa ikkunassa</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="87"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Avaa uudessa yksityisessä ikkunassa</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="90"/>
@@ -2392,7 +2392,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="153"/>
         <source>Enter URL address</source>
-        <translation type="unfinished"/>
+        <translation>Syötä URL-osoite</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2451,42 +2451,42 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="513"/>
         <source>&amp;File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Tiedosto</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>New Tab</source>
-        <translation type="unfinished"/>
+        <translation>Uusi välilehti</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="518"/>
         <source>&amp;New Window</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Uusi ikkuna</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
         <source>New &amp;Private Window</source>
-        <translation type="unfinished"/>
+        <translation>Uusi &amp;yksityinen ikkuna</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
         <source>Open Location</source>
-        <translation type="unfinished"/>
+        <translation>Avaa sijainti</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>Open &amp;File...</source>
-        <translation type="unfinished"/>
+        <translation>Avaa &amp;Tiedosto...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
         <source>Close Window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje ikkuna</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>Send Link...</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä linkki…</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
@@ -2666,7 +2666,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Palauta suljettu välilehti</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2831,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna käyttäjänimi ja salasana tälle sivustolle</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
@@ -3310,7 +3310,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="865"/>
         <source>Enable inline suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ota ehdotukset rivillä käyttöön</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="872"/>
@@ -3340,7 +3340,7 @@ ei löytynyt!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="903"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation type="unfinished"/>
+        <translation>Ota automaattinen etsintä osoiteriviltä käyttöön</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="910"/>

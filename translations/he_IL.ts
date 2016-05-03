@@ -2806,7 +2806,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="72"/>
         <source>The page you are trying to access has the following errors in the SSL certificate:</source>
-        <translation>לעמוד אליו הינך מנסה לגשת יש את השגיאות הבאות בתעודת SSL:</translation>
+        <translation>העמוד אליו הינך מנסה לגשת מכיל את השגיאות הבאות בתעודת SSL:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="73"/>

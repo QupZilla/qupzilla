@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Версія QtWebEngine %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
@@ -334,7 +334,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation type="unfinished"/>
+        <translation>Цей backend потребує встановлений майстер-пароль! QupZilla повернеться до звичайного backend&apos;у</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="659"/>
@@ -473,7 +473,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="233"/>
         <source>Are you sure you want to delete all passwords on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що хочете видалити усі паролі з комп’ютера?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
@@ -519,17 +519,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="372"/>
         <source>Copy Username</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати ім&apos;я користувача</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="373"/>
         <source>Copy Password</source>
-        <translation type="unfinished"/>
+        <translation>Копіювати пароль</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="375"/>
         <source>Edit Password</source>
-        <translation type="unfinished"/>
+        <translation>Редагувати пароль</translation>
     </message>
 </context>
 <context>
@@ -649,27 +649,27 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Заголовок:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Адреса:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>Ключове слово:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Опис:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Редагувати закладку</translation>
     </message>
 </context>
 <context>
@@ -896,7 +896,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="71"/>
         <source>Only UTF-8 encoded Opera bookmarks file is supported!</source>
-        <translation type="unfinished"/>
+        <translation>Підтримується лише файл закладок Opera з кодуванням UTF-8!</translation>
     </message>
 </context>
 <context>
@@ -956,7 +956,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="112"/>
         <source>New Separator</source>
-        <translation type="unfinished"/>
+        <translation>Новий розділювач</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="114"/>
@@ -1046,12 +1046,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити в новому анонімному вікні</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
@@ -1066,7 +1066,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Show Only Text</source>
-        <translation type="unfinished"/>
+        <translation>Показувати лише текст</translation>
     </message>
 </context>
 <context>
@@ -1174,7 +1174,10 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1333"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Все ще маємо %n відкриту вкладку і вашу сесію не буде збережено. 
+Ви впевнені, що хочете закрити це вікно?</numerusform><numerusform>Все ще маємо %n відкриті вкладки і вашу сесію не буде збережено. 
+Ви впевнені, що хочете закрити це вікно?</numerusform><numerusform>Все ще маємо %n відкритих вкладок і вашу сесію не буде збережено. 
+Ви впевнені, що хочете закрити це вікно?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1334"/>
@@ -1296,7 +1299,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Позначені елементи буде очищено при натисканні кнопки Очистити.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
@@ -1536,7 +1539,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="404"/>
         <source>Filter 3rd party cookies</source>
-        <translation type="unfinished"/>
+        <translation>Фільтрувати куки 3-х сторін</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
@@ -1556,7 +1559,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="445"/>
         <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Попередження:&lt;/b&gt; Фільтрування куків 3-х сторін та шпигунських куків може призвести до заборони деяких куків з сайтів. Якщо у Вас виникли проблеми з куками, спробуйте спочатку відключити ці опції!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="77"/>
@@ -1571,7 +1574,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що хочете видалити усі cookies з Вашого комп’ютера?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
@@ -1601,12 +1604,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>Already blacklisted!</source>
-        <translation type="unfinished"/>
+        <translation>Вже в чорному списку!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер &quot;%1&quot; вже в чорному списку, спочатку видаліть його, будь ласка.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
@@ -1616,12 +1619,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Вже в білому списку!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер &quot;%1&quot; вже в білому списку, спочатку видаліть його, будь ласка.</translation>
     </message>
 </context>
 <context>
@@ -1639,7 +1642,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="137"/>
         <source>Error - %1</source>
-        <translation type="unfinished"/>
+        <translation>Помилка — %1</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="141"/>
@@ -1780,7 +1783,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="233"/>
         <source>Save file as...</source>
-        <translation type="unfinished"/>
+        <translation>Зберегти файл як...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="285"/>
@@ -1800,7 +1803,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="343"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що хочете вийти? Всі незавершені завантаження буде скасовано!</translation>
     </message>
 </context>
 <context>
@@ -1886,7 +1889,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Примітка: &lt;/b&gt;%s в url-адресі або post-даних означає шуканий рядок</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
@@ -1919,7 +1922,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="79"/>
         <source>Permission for:</source>
-        <translation type="unfinished"/>
+        <translation>Дозвіл на:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="87"/>
@@ -1934,22 +1937,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="97"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Мікрофон</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="102"/>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Камера</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="107"/>
         <source>Microphone and Camera</source>
-        <translation type="unfinished"/>
+        <translation>Мікрофон і камера</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="112"/>
         <source>Hide Pointer</source>
-        <translation type="unfinished"/>
+        <translation>Приховати вказівник</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="59"/>
@@ -1997,22 +2000,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="54"/>
         <source>Allow %1 to use your microphone?</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити %1 використовувати ваш мікрофон?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your camera?</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити %1 використовувати вашу камеру?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="64"/>
         <source>Allow %1 to use your microphone and camera?</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити %1 використовувати ваші мікрофон і камеру?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="69"/>
         <source>Allow %1 to hide your pointer?</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити %1 приховати вказівник миші?</translation>
     </message>
 </context>
 <context>
@@ -2109,7 +2112,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure you want to delete all history?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що хочете видалити усю історію?</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="133"/>
@@ -2391,7 +2394,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="153"/>
         <source>Enter URL address</source>
-        <translation type="unfinished"/>
+        <translation>Введіть URL-адресу</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2635,7 +2638,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Extensions</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Розширення</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
@@ -2693,12 +2696,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
         <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation type="unfinished"/>
+        <translation>Ця опція очищує майстер-пароль, переносить усі зашифровані дані до beckend&apos;у &quot;База даних (відкритий текст)&quot; і перемикається на нього.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
         <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation type="unfinished"/>
+        <translation>Майстер-пароль використовується для захисту паролів сайту і даних форм. Якщо Ви встановите майстер-пароль, його запитають один раз за сесію.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
@@ -2718,7 +2721,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Примітка:&lt;/b&gt; майстер-пароль не можна скинути. Не забувайте його, будь ласка.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
@@ -2736,12 +2739,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation type="unfinished"/>
+        <translation>Новий пароль та підтвердження не збігаються!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що бажаєте очистити майстер-пароль і дешифрувати дані?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
@@ -2830,7 +2833,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation type="unfinished"/>
+        <translation>Зберегти ім’я користувача і пароль для цього сайту</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
@@ -3229,7 +3232,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="700"/>
         <source>Open popup windows in tabs</source>
-        <translation type="unfinished"/>
+        <translation>Відкривати виринаючі вікна у вкладках</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="707"/>
@@ -3339,7 +3342,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="903"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути автоматичний пошук з рядка адреси</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="910"/>
@@ -3398,7 +3401,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1069"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити плаґіни Pepper (Flash-плаґін)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1076"/>
@@ -3609,7 +3612,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1717"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Існуюче скорочення:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; — попередня вкладка&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; — наступна вкадка&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; — пошук на сторінці</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1720"/>
@@ -3619,7 +3622,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо не позначено, запобігає випадковому виходу із програми при навмисному натисненні скорочення Ctrl-W.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1730"/>
@@ -3906,7 +3909,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="767"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"/>
+        <translation>Ви дійсно хочете остаточно видалити профіль &quot;%1&quot;? Цю дію не можна скасувати!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1029"/>
@@ -4145,12 +4148,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
         <source>Are you sure you want to remove this speed dial?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що бажаєте видалити цю сторінку зі Speed Dial?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
         <source>Are you sure you want to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Ви впевнені, що бажаєте перезавантажити весь Speed Dial?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
@@ -4270,22 +4273,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Вікно</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
         <source>Windows and Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Вікна та вкладки</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
         <source>Start New Session</source>
-        <translation type="unfinished"/>
+        <translation>Розпочати нову сесію</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Відновити</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
@@ -4435,12 +4438,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="495"/>
         <source>Blocked content</source>
-        <translation type="unfinished"/>
+        <translation>Блокований зміст</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="504"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Заблоковано &lt;i&gt;%1 (%2)&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -4596,7 +4599,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
         <source>&amp;Match Case</source>
-        <translation type="unfinished"/>
+        <translation>Враховувати &amp;регістр</translation>
     </message>
 </context>
 <context>
@@ -4725,7 +4728,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="215"/>
         <source>Loading...</source>
-        <translation type="unfinished"/>
+        <translation>Завантажується...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="226"/>
@@ -5073,17 +5076,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
         <source>Something went wrong while loading this page.</source>
-        <translation type="unfinished"/>
+        <translation>Під час завантаженя цієї сторінки щось пішло не так.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
-        <translation type="unfinished"/>
+        <translation>Спробуйте перезавантажити сторінку або закрити деякі вкладки, щоб звільнити пам&apos;ять.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="360"/>
         <source>Reload page</source>
-        <translation type="unfinished"/>
+        <translation>Перезавантажити сторінку</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="394"/>
@@ -5093,7 +5096,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
         <source>Choose files...</source>
-        <translation type="unfinished"/>
+        <translation>Оберіть файли...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="533"/>

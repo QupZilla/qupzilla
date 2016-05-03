@@ -48,6 +48,7 @@ TRANSLATIONS += \
     translations/sr@latin.ts \
     translations/sr.ts \
     translations/tr_TR.ts \
+    translations/uk_UA.ts \
     translations/zh_CN.ts \
     translations/zh_TW.ts \
 

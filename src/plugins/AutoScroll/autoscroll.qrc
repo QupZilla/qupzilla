@@ -33,6 +33,7 @@
         <file>locale/sr@latin.qm</file>
         <file>locale/sr.qm</file>
         <file>locale/tr_TR.qm</file>
+        <file>locale/uk_UA.qm</file>
         <file>locale/zh_CN.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>

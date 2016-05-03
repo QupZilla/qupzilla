@@ -3402,7 +3402,7 @@ Ar tikrai norite užverti šį langą?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1069"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation type="unfinished"/>
+        <translation>Leisti Pepper papildinius (Flash papildinį)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1076"/>

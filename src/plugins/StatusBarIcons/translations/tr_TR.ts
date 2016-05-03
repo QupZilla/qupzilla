@@ -164,7 +164,7 @@
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Are you sure you want to remove current proxy?</source>
-        <translation type="unfinished"/>
+        <translation>Aktif proksiyi silmek istediğinizden emin misiniz?</translation>
     </message>
 </context>
 <context>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <source>S&amp;ystem proxy configuration</source>
-        <translation type="unfinished"/>
+        <translation>S&amp;istem Vekil Sunucu Ayarı</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation type="unfinished"/>
+        <translation>&amp;El İle Yapılandırma</translation>
     </message>
 </context>
 <context>
