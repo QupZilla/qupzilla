@@ -99,7 +99,6 @@ int ProfileManager::createProfile(const QString &profileName)
         return -2;
     }
 
-    dir.mkdir(profileName);
     dir.cd(profileName);
     QFile(QLatin1String(":data/browsedata.db")).copy(dir.filePath(QLatin1String("browsedata.db")));
     QFile(dir.filePath(QLatin1String("browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
