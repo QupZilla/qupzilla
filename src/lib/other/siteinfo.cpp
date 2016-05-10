@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -68,12 +68,12 @@ SiteInfo::SiteInfo(WebView* view)
     else
         ui->securityLabel->setText(tr("<b>Connection Not Encrypted.</b>"));
 
-    m_view->page()->runJavaScript(QSL("document.charset"), [this](const QVariant &res) {
+    m_view->page()->runJavaScript(QSL("document.charset"), WebPage::SafeJsWorld, [this](const QVariant &res) {
         ui->encodingLabel->setText(res.toString());
     });
 
     // Meta
-    m_view->page()->runJavaScript(Scripts::getAllMetaAttributes(), [this](const QVariant &res) {
+    m_view->page()->runJavaScript(Scripts::getAllMetaAttributes(), WebPage::SafeJsWorld, [this](const QVariant &res) {
         const QVariantList &list = res.toList();
         Q_FOREACH (const QVariant &val, list) {
             const QVariantMap &meta = val.toMap();
@@ -94,7 +94,7 @@ SiteInfo::SiteInfo(WebView* view)
     });
 
     // Images
-    m_view->page()->runJavaScript(Scripts::getAllImages(), [this](const QVariant &res) {
+    m_view->page()->runJavaScript(Scripts::getAllImages(), WebPage::SafeJsWorld, [this](const QVariant &res) {
         const QVariantList &list = res.toList();
         Q_FOREACH (const QVariant &val, list) {
             const QVariantMap &img = val.toMap();

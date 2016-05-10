@@ -83,7 +83,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     WebPage *p = const_cast<WebPage*>(page);
     m_viewportPos = p->mapToViewport(m_pos);
     const QString &js = source.arg(m_viewportPos.x()).arg(m_viewportPos.y());
-    init(page->url(), p->execJavaScript(js).toMap());
+    init(page->url(), p->execJavaScript(js, WebPage::SafeJsWorld).toMap());
 }
 
 QString WebHitTestResult::alternateText() const

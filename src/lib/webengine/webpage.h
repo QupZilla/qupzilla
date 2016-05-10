@@ -19,6 +19,7 @@
 #define WEBPAGE_H
 
 #include <QWebEnginePage>
+#include <QWebEngineScript>
 #include <QWebEngineFullScreenRequest>
 #include <QVector>
 
@@ -36,12 +37,26 @@ class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 {
     Q_OBJECT
 public:
+    enum JsWorld {
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+        SafeJsWorld = QWebEngineScript::ApplicationWorld
+#else
+        SafeJsWorld = QWebEngineScript::MainWorld
+#endif
+    };
+
     explicit WebPage(QObject* parent = 0);
     ~WebPage();
 
     WebView *view() const;
 
-    QVariant execJavaScript(const QString &scriptSource, int timeout = 500);
+    QVariant execJavaScript(const QString &scriptSource, quint32 worldId = QWebEngineScript::MainWorld, int timeout = 500);
+
+    // TODO: Remove when depending on Qt 5.7
+    void runJavaScript(const QString &scriptSource);
+    void runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback);
+    void runJavaScript(const QString &scriptSource, quint32 worldId);
+    void runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback);
 
     QPoint mapToViewport(const QPoint &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;

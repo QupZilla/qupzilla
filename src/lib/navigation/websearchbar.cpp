@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -108,7 +108,7 @@ void WebSearchBar::aboutToShowMenu()
 
     menu->addSeparator();
 
-    m_window->weView()->page()->runJavaScript(Scripts::getOpenSearchLinks(), [this, menu](const QVariant &res) {
+    m_window->weView()->page()->runJavaScript(Scripts::getOpenSearchLinks(), WebPage::SafeJsWorld, [this, menu](const QVariant &res) {
         const QVariantList &list = res.toList();
         Q_FOREACH (const QVariant &val, list) {
             const QVariantMap &link = val.toMap();

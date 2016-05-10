@@ -107,13 +107,18 @@ WebView *WebPage::view() const
     return static_cast<WebView*>(QWebEnginePage::view());
 }
 
-QVariant WebPage::execJavaScript(const QString &scriptSource, int timeout)
+QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, int timeout)
 {
     QPointer<QEventLoop> loop = new QEventLoop;
     QVariant result;
     QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    runJavaScript(scriptSource, worldId, [loop, &result](const QVariant &res) {
+#else
+    Q_UNUSED(worldId);
     runJavaScript(scriptSource, [loop, &result](const QVariant &res) {
+#endif
         if (loop && loop->isRunning()) {
             result = res;
             loop->quit();
@@ -124,6 +129,36 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, int timeout)
     delete loop;
 
     return result;
+}
+
+void WebPage::runJavaScript(const QString &scriptSource)
+{
+    return QWebEnginePage::runJavaScript(scriptSource);
+}
+
+void WebPage::runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback)
+{
+    return QWebEnginePage::runJavaScript(scriptSource, resultCallback);
+}
+
+void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    QWebEnginePage::runJavaScript(scriptSource, worldId);
+#else
+    Q_UNUSED(worldId);
+    QWebEnginePage::runJavaScript(scriptSource);
+#endif
+}
+
+void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    QWebEnginePage::runJavaScript(scriptSource, worldId, resultCallback);
+#else
+    Q_UNUSED(worldId);
+    QWebEnginePage::runJavaScript(scriptSource, resultCallback);
+#endif
 }
 
 QPoint WebPage::mapToViewport(const QPoint &pos) const
@@ -138,7 +173,7 @@ WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
 
 void WebPage::scroll(int x, int y)
 {
-    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y));
+    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y), WebPage::SafeJsWorld);
 }
 
 void WebPage::scheduleAdjustPage()
@@ -308,7 +343,11 @@ void WebPage::setupWebChannel()
 
     QWebChannel *channel = new QWebChannel(this);
     channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    setWebChannel(channel, SafeJsWorld);
+#else
     setWebChannel(channel);
+#endif
 
     if (old) {
         delete old->registeredObjects().value(objectName);
@@ -434,7 +473,7 @@ void WebPage::cleanBlockedObjects()
         return;
     }
 
-    runJavaScript(Scripts::setCss(elementHiding));
+    runJavaScript(Scripts::setCss(elementHiding), WebPage::SafeJsWorld);
 }
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)

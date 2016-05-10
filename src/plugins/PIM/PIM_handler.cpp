@@ -1,7 +1,7 @@
 /* ============================================================
 * Personal Information Manager plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
-* Copyright (C) 2012-2014  Mladen Pejaković <pejakm@autistici.org>
+* Copyright (C) 2012-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2014 Mladen Pejaković <pejakm@autistici.org>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -167,7 +167,7 @@ bool PIM_Handler::keyPress(WebView* view, QKeyEvent* event)
                           "    }"
                           "}");
 
-    view->page()->runJavaScript(source.arg(matchingJsTable()));
+    view->page()->runJavaScript(source.arg(matchingJsTable()), WebPage::SafeJsWorld);
 
     return true;
 }
@@ -201,7 +201,7 @@ void PIM_Handler::pimInsert()
                           "    e.value = v;"
                           "}");
     source = source.arg(m_clickedPos.x()).arg(m_clickedPos.y()).arg(info);
-    m_view->page()->runJavaScript(source);
+    m_view->page()->runJavaScript(source, WebPage::SafeJsWorld);
 }
 
 void PIM_Handler::pageLoadFinished()
@@ -232,7 +232,7 @@ void PIM_Handler::pageLoadFinished()
                           "    }"
                           "}");
 
-    page->runJavaScript(source.arg(matchingJsTable()));
+    page->runJavaScript(source.arg(matchingJsTable()), WebPage::SafeJsWorld);
 }
 
 QString PIM_Handler::matchingJsTable() const

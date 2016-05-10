@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -179,7 +179,7 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
                           "};"
                           "out;");
 
-    const QVariantMap &map = view->page()->execJavaScript(source).toMap();
+    const QVariantMap &map = view->page()->execJavaScript(source, WebPage::SafeJsWorld).toMap();
 
     bool vertical = map.value(QSL("vertical")).toBool();
     bool horizontal = map.value(QSL("horizontal")).toBool();

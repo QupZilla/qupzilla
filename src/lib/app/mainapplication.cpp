@@ -260,7 +260,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_webchannel"));
     script.setInjectionPoint(QWebEngineScript::DocumentCreation);
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupWebChannel());
     m_webProfile->scripts()->insert(script);
@@ -1092,7 +1092,7 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     QWebEngineScript script;
     script.setName(name);
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
-    script.setWorldId(QWebEngineScript::ApplicationWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setCss(userCss));
     m_webProfile->scripts()->insert(script);

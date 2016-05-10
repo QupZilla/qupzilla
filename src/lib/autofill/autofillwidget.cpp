@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -67,7 +67,7 @@ void AutoFillWidget::loginToPage()
 
     if (ok && QzTools::containsIndex(m_data, index)) {
         const PasswordEntry entry = m_data.at(index);
-        m_view->page()->runJavaScript(Scripts::completeFormData(entry.data));
+        m_view->page()->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
     }
 
     close();

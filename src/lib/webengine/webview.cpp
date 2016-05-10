@@ -837,7 +837,7 @@ void WebView::checkForForm(QAction *action, const QPoint &pos)
     m_clickedPos = mapToViewport(pos);
     QPointer<QAction> act = action;
 
-    page()->runJavaScript(Scripts::getFormData(m_clickedPos), [this, act](const QVariant &res) {
+    page()->runJavaScript(Scripts::getFormData(m_clickedPos), WebPage::SafeJsWorld, [this, act](const QVariant &res) {
         const QVariantMap &map = res.toMap();
         if (!act || map.isEmpty())
             return;
@@ -856,7 +856,7 @@ void WebView::checkForForm(QAction *action, const QPoint &pos)
 
 void WebView::createSearchEngine()
 {
-    page()->runJavaScript(Scripts::getFormData(m_clickedPos), [this](const QVariant &res) {
+    page()->runJavaScript(Scripts::getFormData(m_clickedPos), WebPage::SafeJsWorld, [this](const QVariant &res) {
         mApp->searchEnginesManager()->addEngineFromForm(res.toMap(), this);
     });
 }
@@ -1129,7 +1129,7 @@ void WebView::loadRequest(const LoadRequest &req)
     if (req.operation() == LoadRequest::GetOperation)
         load(req.url());
     else
-        page()->runJavaScript(Scripts::sendPostData(req.url(), req.data()));
+        page()->runJavaScript(Scripts::sendPostData(req.url(), req.data()), WebPage::SafeJsWorld);
 }
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)
