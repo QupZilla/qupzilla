@@ -213,7 +213,7 @@ void AutoFill::saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData 
 }
 
 // Returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completePage(QWebEnginePage *page, const QUrl &frameUrl)
+QVector<PasswordEntry> AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
 {
     QVector<PasswordEntry> list;
 

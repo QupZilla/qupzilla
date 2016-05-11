@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -70,7 +70,7 @@ public:
     void removeAllEntries();
 
     void saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData &formData);
-    QVector<PasswordEntry> completePage(QWebEnginePage *page, const QUrl &frameUrl);
+    QVector<PasswordEntry> completePage(WebPage *page, const QUrl &frameUrl);
 
     QByteArray exportPasswords();
     bool importPasswords(const QByteArray &data);
