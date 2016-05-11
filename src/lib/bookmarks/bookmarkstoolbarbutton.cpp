@@ -331,7 +331,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     // Draw icon
     if (!m_showOnlyText) {
         QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-        p.drawPixmap(iconRect, m_bookmark->icon().pixmap(iconSize));
+        p.drawPixmap(QStyle::visualRect(option.direction, option.rect, iconRect), m_bookmark->icon().pixmap(iconSize));
         leftPosition = iconRect.right() + PADDING;
     }
 
@@ -340,10 +340,11 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         const int arrowSize = 8;
         QStyleOption opt;
         opt.initFrom(this);
-        opt.rect = QRect(rightPosition - 8, center - arrowSize / 2, arrowSize, arrowSize);
+        const QRect rect = QRect(rightPosition - 8, center - arrowSize / 2, arrowSize, arrowSize);
+        opt.rect = QStyle::visualRect(option.direction, option.rect, rect);
         opt.state &= ~QStyle::State_MouseOver;
         style()->drawPrimitive(QStyle::PE_IndicatorArrowDown, &opt, &p, this);
-        rightPosition = opt.rect.left() - PADDING;
+        rightPosition = rect.left() - PADDING;
     }
 
     // Draw text
@@ -352,6 +353,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
         const int textYPos = center - fontMetrics().height() / 2;
         const QString txt = fontMetrics().elidedText(m_bookmark->title(), Qt::ElideRight, textWidth);
         QRect textRect(leftPosition, textYPos, textWidth, fontMetrics().height());
-        style()->drawItemText(&p, textRect, Qt::TextSingleLine | Qt::AlignCenter, option.palette, true, txt);
+        style()->drawItemText(&p, QStyle::visualRect(option.direction, option.rect, textRect),
+                              Qt::TextSingleLine | Qt::AlignCenter, option.palette, true, txt);
     }
 }
