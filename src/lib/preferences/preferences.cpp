@@ -348,7 +348,7 @@ Preferences::Preferences(BrowserWindow* window)
     //FONTS
     settings.beginGroup("Browser-Fonts");
     QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
-    auto defaultFont = [&](QWebEngineSettings::FontFamily font) {
+    auto defaultFont = [&](QWebEngineSettings::FontFamily font) -> const QString {
         const QString family = webSettings->fontFamily(font);
         if (!family.isEmpty())
             return family;
