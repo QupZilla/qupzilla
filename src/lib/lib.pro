@@ -480,8 +480,8 @@ os2 {
 
 mac {
     # homebrew openssl
-    INCLUDEPATH += /opt/local/include
-    LIBS += -L/opt/local/lib
+    INCLUDEPATH += /usr/local/Cellar/openssl/1.0.2h/include
+    LIBS += -L/usr/local/Cellar/openssl/1.0.2h/lib
 
     LIBS += -lcrypto -framework CoreServices
 }
