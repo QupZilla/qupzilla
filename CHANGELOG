@@ -344,7 +344,7 @@ Version 1.4.0
     * use .qupzilla/tmp instead of /tmp for temporary data
     * saving passwords should now work for much more sites
     * don't steal Ctrl+B/U/I shortcuts from page
-    * disabled by default opacity effect on tab previews - see BUILDING
+    * disabled by default opacity effect on tab previews - see BUILDING.md
     * improved showing navigation toolbar in fullscreen
     * moved config directory into ~/.config/qupzilla
     * certificates bundle is now only used on windows
