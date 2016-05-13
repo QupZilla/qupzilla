@@ -45,7 +45,7 @@ MAC OS X
 ----------------------------------------------------------------------------------
 
   You need to have Xcode from the Apple App Store installed in Applications, [Command Line Tools for the same Xcode version](https://developer.apple.com/),
-  [brew](http://brew.sh/), and `$ brew install openssl` for openssl.
+  [Homebrew](http://brew.sh/), and `$ brew install openssl` for openssl.
   Next compulsory requirement is Qt 5 (>= 5.6) with QtWebEngine.
   After successful compilation, you need to run macdeploy.sh script to correctly
   build the application bundle. You will do it with following command:
