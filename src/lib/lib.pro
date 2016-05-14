@@ -480,8 +480,9 @@ os2 {
 
 mac {
     # homebrew openssl
-    INCLUDEPATH += /opt/local/include
-    LIBS += -L/opt/local/lib
+    BREW_OPENSSL = $$system("brew --prefix openssl")
+    INCLUDEPATH += $$BREW_OPENSSL/include
+    LIBS += -L$$BREW_OPENSSL/lib
 
     LIBS += -lcrypto -framework CoreServices
 }
