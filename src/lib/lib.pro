@@ -480,7 +480,7 @@ os2 {
 
 mac {
     # homebrew openssl
-    BREW_OPENSSL = $$system("brew info openssl | head -n4 | tail -n1 | cut -f1 -d' '")
+    BREW_OPENSSL = $$system("brew --prefix openssl")
     INCLUDEPATH += $$BREW_OPENSSL/include
     LIBS += -L$$BREW_OPENSSL/lib
 
