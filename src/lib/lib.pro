@@ -479,9 +479,6 @@ os2 {
 }
 
 mac {
-    INCLUDEPATH += /opt/local/include
-    LIBS += -L/opt/local/lib
-
     # homebrew openssl
     BREW_OPENSSL = $$system("brew --prefix openssl")
     INCLUDEPATH += $$BREW_OPENSSL/include
