@@ -479,10 +479,36 @@ os2 {
 }
 
 mac {
-    # homebrew openssl
-    BREW_OPENSSL = $$system("brew --prefix openssl")
-    INCLUDEPATH += $$BREW_OPENSSL/include
-    LIBS += -L$$BREW_OPENSSL/lib
+    # openssl
+    HAS_OPENSSL = FALSE
+
+    # production openssl via homebrew
+    system(brew -v):HAS_BREW=TRUE
+    equals(HAS_BREW, TRUE) {
+      OPENSSL = $$system(brew --prefix openssl)
+      exists($$OPENSSL) {
+        HAS_OPENSSL = TRUE
+      } else {
+        warning(production openssl not found)
+      }
+    }
+
+    # developer openssl
+    equals(HAS_OPENSSL, FALSE) {
+      OPENSSL = /usr/local/ssl
+      exists($$OPENSSL) {
+        HAS_OPENSSL = TRUE
+      } else {
+        warning(developer openssl not found)
+      }
+    }
+
+    equals(HAS_OPENSSL, TRUE) {
+      INCLUDEPATH += $$OPENSSL/include
+      LIBS += -L$$OPENSSL/lib
+    } else {
+      error(openssl not found)
+    }
 
     LIBS += -lcrypto -framework CoreServices
 }
