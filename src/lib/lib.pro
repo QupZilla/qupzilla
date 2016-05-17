@@ -507,7 +507,7 @@ mac {
       INCLUDEPATH += $$OPENSSL/include
       LIBS += -L$$OPENSSL/lib
     } else {
-      error(openssl not found)
+      warning(openssl not found)
     }
 
     LIBS += -lcrypto -framework CoreServices
