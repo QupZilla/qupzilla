@@ -1079,7 +1079,6 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     userCss += QString("::selection {background: %1; color: %2;} ").arg(highlightColor, highlightedTextColor);
 #endif
 
-    userCss += AdBlockManager::instance()->elementHidingRules().replace(QL1S("\""), QL1S("\\\""));
     userCss += QzTools::readAllFileContents(filePath).remove(QLatin1Char('\n'));
 
     const QString name = QStringLiteral("_qupzilla_userstylesheet");

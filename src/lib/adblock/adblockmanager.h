@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@ public:
     bool useLimitedEasyList() const;
     void setUseLimitedEasyList(bool useLimited);
 
-    QString elementHidingRules() const;
+    QString elementHidingRules(const QUrl &url) const;
     QString elementHidingRulesForDomain(const QUrl &url) const;
 
     AdBlockSubscription* subscriptionByName(const QString &name) const;
