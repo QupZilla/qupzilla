@@ -1089,6 +1089,9 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
         m_webProfile->scripts()->remove(oldScript);
     }
 
+    if (userCss.isEmpty())
+        return;
+
     QWebEngineScript script;
     script.setName(name);
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
