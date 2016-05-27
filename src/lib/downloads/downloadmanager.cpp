@@ -230,6 +230,8 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 
         case 2: // Save
             downloadPath = QFileDialog::getSaveFileName(mApp->activeWindow(), tr("Save file as..."), m_lastDownloadPath + fileName);
+            m_lastDownloadPath = QFileInfo(downloadPath).absolutePath();
+            Settings().setValue(QSL("lastDownloadPath"), m_lastDownloadPath);
             m_lastDownloadOption = SaveFile;
             break;
 
