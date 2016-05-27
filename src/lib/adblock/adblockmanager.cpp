@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -390,18 +390,17 @@ bool AdBlockManager::canBeBlocked(const QUrl &url) const
     return !m_matcher->adBlockDisabledForUrl(url);
 }
 
-QString AdBlockManager::elementHidingRules() const
+QString AdBlockManager::elementHidingRules(const QUrl &url) const
 {
+    if (!isEnabled() || !canRunOnScheme(url.scheme()) || !canBeBlocked(url))
+        return QString();
+
     return m_matcher->elementHidingRules();
 }
 
 QString AdBlockManager::elementHidingRulesForDomain(const QUrl &url) const
 {
     if (!isEnabled() || !canRunOnScheme(url.scheme()) || !canBeBlocked(url))
-        return QString();
-
-    // Acid3 doesn't like the way element hiding rules are embedded into page
-    if (url.host() == QLatin1String("acid3.acidtests.org"))
         return QString();
 
     return m_matcher->elementHidingRulesForDomain(url.host());

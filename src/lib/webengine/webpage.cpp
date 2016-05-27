@@ -467,13 +467,15 @@ void WebPage::cleanBlockedObjects()
         return;
     }
 
-    // Apply domain-specific element hiding rules
-    const QString elementHiding = manager->elementHidingRulesForDomain(url());
-    if (elementHiding.isEmpty()) {
-        return;
-    }
+    // Apply global element hiding rules
+    const QString elementHiding = manager->elementHidingRules(url());
+    if (!elementHiding.isEmpty())
+        runJavaScript(Scripts::setCss(elementHiding), WebPage::SafeJsWorld);
 
-    runJavaScript(Scripts::setCss(elementHiding), WebPage::SafeJsWorld);
+    // Apply domain-specific element hiding rules
+    const QString siteElementHiding = manager->elementHidingRulesForDomain(url());
+    if (!siteElementHiding.isEmpty())
+        runJavaScript(Scripts::setCss(siteElementHiding), WebPage::SafeJsWorld);
 }
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)
