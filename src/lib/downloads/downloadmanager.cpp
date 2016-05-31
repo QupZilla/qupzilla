@@ -215,7 +215,9 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     QString fileName = QFileInfo(downloadItem->path()).fileName();
     fileName = QUrl::fromPercentEncoding(fileName.toUtf8());
 
-    if (m_downloadPath.isEmpty()) {
+    if (m_useExternalManager) {
+        startExternalManager(downloadItem->url());
+    } else if (m_downloadPath.isEmpty()) {
         // Ask what to do
         DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
         optionsDialog.showExternalManagerOption(m_useExternalManager);
@@ -245,8 +247,6 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
             downloadItem->cancel();
             return;
         }
-    } else if (m_useExternalManager) {
-        startExternalManager(downloadItem->url());
     } else {
         downloadPath = QzTools::ensureUniqueFilename(m_downloadPath + QL1C('/') + fileName);
     }
