@@ -245,6 +245,8 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
             downloadItem->cancel();
             return;
         }
+    } else if (m_useExternalManager) {
+        startExternalManager(downloadItem->url());
     } else {
         downloadPath = QzTools::ensureUniqueFilename(m_downloadPath + QL1C('/') + fileName);
     }
