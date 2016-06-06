@@ -148,6 +148,7 @@ void NetworkManager::authentication(const QUrl &url, QAuthenticator *auth, QWidg
     }
 
     if (dialog->exec() != QDialog::Accepted) {
+        *auth = QAuthenticator();
         delete dialog;
         return;
     }
@@ -206,6 +207,7 @@ void NetworkManager::proxyAuthentication(const QString &proxyHost, QAuthenticato
     formLa->addWidget(box);
 
     if (dialog->exec() != QDialog::Accepted) {
+        *auth = QAuthenticator();
         delete dialog;
         return;
     }
