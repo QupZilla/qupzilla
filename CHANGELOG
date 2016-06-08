@@ -1,3 +1,15 @@
+Version 2.0.1
+    * released 8 June 2016
+    * don't force enabling HighDPI scaling by default
+    * fix crash when unloading AutoScroll plugin
+    * fix showing Inspect Element action when web inspector is disabled
+    * fix showing context menu when page zoom is not 100%
+    * fix destroying WebPage when opened as popup
+    * fix setting default font families
+    * fix saving last download path in download manager
+    * fix using external download manager
+    * fix canceliing http and proxy authentication dialogs
+
 Version 2.0.0
     * released 30 March 2016
     * switch to QtWebEngine - much better compatibility and stability
