@@ -107,7 +107,6 @@ notRunning:
   File "COPYRIGHT.txt"
   File "qupzilla.exe"
   File "qupzilla.dll"
-  File "libhunspell.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
   File "Microsoft.VC120.CRT.manifest"
