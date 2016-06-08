@@ -8,7 +8,7 @@ Version 2.0.1
     * fix setting default font families
     * fix saving last download path in download manager
     * fix using external download manager
-    * fix canceliing http and proxy authentication dialogs
+    * fix cancelling http and proxy authentication dialogs
 
 Version 2.0.0
     * released 30 March 2016
