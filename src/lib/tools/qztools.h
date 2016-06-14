@@ -85,6 +85,7 @@ public:
 
     static QString operatingSystem();
     static QString cpuArchitecture();
+    static QString operatingSystemLong();
 
     static void setWmClass(const QString &name, const QWidget* widget);
 

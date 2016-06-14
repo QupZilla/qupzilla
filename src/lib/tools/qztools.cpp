@@ -965,3 +965,11 @@ QString QzTools::cpuArchitecture()
     return QString();
 }
 
+QString QzTools::operatingSystemLong()
+{
+    const QString arch = cpuArchitecture();
+    if (arch.isEmpty())
+        return QzTools::operatingSystem();
+    return QzTools::operatingSystem() + QSL(" ") + arch;
+}
+
