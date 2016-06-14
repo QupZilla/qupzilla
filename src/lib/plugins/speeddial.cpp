@@ -346,7 +346,6 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     if (pixmap.isNull()) {
         fileName = "qrc:/html/broken-page.png";
         title = tr("Unable to load");
-        loadTitle = true;
     }
     else {
         if (!pixmap.save(fileName, "PNG")) {
