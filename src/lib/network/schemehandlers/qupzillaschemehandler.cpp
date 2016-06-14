@@ -144,7 +144,7 @@ QString QupZillaSchemeReply::reportbugPage()
                   "bug report <a href=%1>here</a> first.").arg("https://github.com/QupZilla/qupzilla/wiki/Bug-Reports target=_blank"));
     bPage.replace(QLatin1String("%FIELDS-ARE-REQUIRED%"), tr("Please fill out all required fields!"));
 
-    bPage.replace(QLatin1String("%INFO_OS%"), QzTools::operatingSystem());
+    bPage.replace(QLatin1String("%INFO_OS%"), QzTools::operatingSystemLong());
     bPage.replace(QLatin1String("%INFO_APP%"),
 #ifdef GIT_REVISION
                   QString("%1 (%2)").arg(Qz::VERSION, GIT_REVISION)
@@ -383,7 +383,7 @@ QString QupZillaSchemeReply::configPage()
 #endif
                                                           ) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystem()));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystemLong()));
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), DataPaths::currentProfilePath()) +

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -934,5 +934,42 @@ QString QzTools::operatingSystem()
 
     return str;
 #endif
+}
+
+QString QzTools::cpuArchitecture()
+{
+#if defined(__x86_64__) || defined(_M_X64)
+    return QSL("x86_64");
+#endif
+#if defined(_M_IX86)
+    return QSL("x86");
+#endif
+#if defined(__i686__)
+    return QSL("i686");
+#endif
+#if defined(__i586__)
+    return QSL("i586");
+#endif
+#if defined(__i486__)
+    return QSL("i486");
+#endif
+#if defined(__i386__)
+    return QSL("i386");
+#endif
+#if defined(__aarch64__)
+    return QSL("arm64");
+#endif
+#if defined(__arm__) || defined(_M_ARM)
+    return QSL("arm");
+#endif
+    return QString();
+}
+
+QString QzTools::operatingSystemLong()
+{
+    const QString arch = cpuArchitecture();
+    if (arch.isEmpty())
+        return QzTools::operatingSystem();
+    return QzTools::operatingSystem() + QSL(" ") + arch;
 }
 
