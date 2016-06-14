@@ -37,7 +37,13 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
     ui->globalComboBox->setLayoutDirection(Qt::LeftToRight);
     ui->table->setLayoutDirection(Qt::LeftToRight);
 
-    const QString os = QzTools::operatingSystemLong();
+    QString os = QzTools::operatingSystemLong();
+#ifdef Q_OS_UNIX
+    if (QGuiApplication::platformName() == QL1S("xcb"))
+        os.prepend(QL1S("X11; "));
+    else if (QGuiApplication::platformName().startsWith(QL1S("wayland")))
+        os.prepend(QL1S("Wayland; "));
+#endif
 
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.16").arg(os)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36").arg(os)
