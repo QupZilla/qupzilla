@@ -920,15 +920,19 @@ QString QzTools::operatingSystem()
         str.append(" 7");
         break;
 
-    default:
-        OSVERSIONINFO osvi;
-        ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
-        osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        GetVersionEx(&osvi);
+    case QSysInfo::WV_WINDOWS8:
+        str.append(" 8");
+        break;
 
-        if (osvi.dwMajorVersion == 6 &&  osvi.dwMinorVersion == 2) {
-            str.append(" 8");
-        }
+    case QSysInfo::WV_WINDOWS8_1:
+        str.append(" 8.1");
+        break;
+
+    case QSysInfo::WV_WINDOWS10:
+        str.append(" 10");
+        break;
+
+    default:
         break;
     }
 
