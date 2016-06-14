@@ -920,15 +920,19 @@ QString QzTools::operatingSystem()
         str.append(" 7");
         break;
 
-    default:
-        OSVERSIONINFO osvi;
-        ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
-        osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        GetVersionEx(&osvi);
+    case QSysInfo::WV_WINDOWS8:
+        str.append(" 8");
+        break;
 
-        if (osvi.dwMajorVersion == 6 &&  osvi.dwMinorVersion == 2) {
-            str.append(" 8");
-        }
+    case QSysInfo::WV_WINDOWS8_1:
+        str.append(" 8.1");
+        break;
+
+    case QSysInfo::WV_WINDOWS10:
+        str.append(" 10");
+        break;
+
+    default:
         break;
     }
 
@@ -938,31 +942,7 @@ QString QzTools::operatingSystem()
 
 QString QzTools::cpuArchitecture()
 {
-#if defined(__x86_64__) || defined(_M_X64)
-    return QSL("x86_64");
-#endif
-#if defined(_M_IX86)
-    return QSL("x86");
-#endif
-#if defined(__i686__)
-    return QSL("i686");
-#endif
-#if defined(__i586__)
-    return QSL("i586");
-#endif
-#if defined(__i486__)
-    return QSL("i486");
-#endif
-#if defined(__i386__)
-    return QSL("i386");
-#endif
-#if defined(__aarch64__)
-    return QSL("arm64");
-#endif
-#if defined(__arm__) || defined(_M_ARM)
-    return QSL("arm");
-#endif
-    return QString();
+    return QSysInfo::currentCpuArchitecture();
 }
 
 QString QzTools::operatingSystemLong()
