@@ -1443,7 +1443,7 @@ bool BrowserWindow::restoreState(const QByteArray &state, int version)
 #ifdef QZ_WS_X11
 int BrowserWindow::getCurrentVirtualDesktop() const
 {
-    if (!QX11Info::isPlatformX11())
+    if (QGuiApplication::platformName() != QL1S("xcb"))
         return 0;
 
     xcb_intern_atom_cookie_t intern_atom;
@@ -1481,7 +1481,7 @@ error:
 
 void BrowserWindow::moveToVirtualDesktop(int desktopId)
 {
-    if (!QX11Info::isPlatformX11())
+    if (QGuiApplication::platformName() != QL1S("xcb"))
         return;
 
     // Don't move when window is already visible or it is first app window

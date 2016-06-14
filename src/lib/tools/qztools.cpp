@@ -811,7 +811,7 @@ bool QzTools::startExternalProcess(const QString &executable, const QString &arg
 void QzTools::setWmClass(const QString &name, const QWidget* widget)
 {
 #ifdef QZ_WS_X11
-    if (!QX11Info::isPlatformX11())
+    if (QGuiApplication::platformName() != QL1S("xcb"))
         return;
 
     const QByteArray &nameData = name.toUtf8();
