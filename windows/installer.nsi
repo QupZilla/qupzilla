@@ -136,7 +136,6 @@ notRunning:
   File "Qt5WebEngineWidgets.dll"
   File "Qt5WebChannel.dll"
   File "Qt5Widgets.dll"
-  File "Qt5XmlPatterns.dll"
   File "QtWebEngineProcess.exe"
   
   SetOutPath "$INSTDIR\iconengines"
