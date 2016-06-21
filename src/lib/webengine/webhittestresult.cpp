@@ -47,6 +47,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
                           "    return window.getSelection().containsNode(e, true);"
                           "}"
                           "var res = {"
+                          "    baseUrl: document.baseURI,"
                           "    alternateText: e.getAttribute('alt'),"
                           "    boundingRect: '',"
                           "    imageUrl: '',"
@@ -83,7 +84,12 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     WebPage *p = const_cast<WebPage*>(page);
     m_viewportPos = p->mapToViewport(m_pos);
     const QString &js = source.arg(m_viewportPos.x()).arg(m_viewportPos.y());
-    init(page->url(), p->execJavaScript(js).toMap());
+    init(p->url(), p->execJavaScript(js).toMap());
+}
+
+QUrl WebHitTestResult::baseUrl() const
+{
+    return m_baseUrl;
 }
 
 QString WebHitTestResult::alternateText() const
@@ -161,6 +167,7 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     if (map.isEmpty())
         return;
 
+    m_baseUrl = map.value(QSL("baseUrl")).toUrl();
     m_alternateText = map.value(QSL("alternateText")).toString();
     m_imageUrl = map.value(QSL("imageUrl")).toUrl();
     m_isContentEditable = map.value(QSL("contentEditable")).toBool();
@@ -179,8 +186,7 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     if (!m_imageUrl.isEmpty())
         m_imageUrl = url.resolved(m_imageUrl);
     if (!m_linkUrl.isEmpty())
-        m_linkUrl = url.resolved(m_linkUrl);
+        m_linkUrl = m_baseUrl.resolved(m_linkUrl);
     if (!m_mediaUrl.isEmpty())
         m_mediaUrl = url.resolved(m_mediaUrl);
 }
-
