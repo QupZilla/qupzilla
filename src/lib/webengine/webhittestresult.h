@@ -32,6 +32,7 @@ class QUPZILLA_EXPORT WebHitTestResult
 public:
     explicit WebHitTestResult(const WebPage *page, const QPoint &pos);
 
+    QUrl baseUrl() const;
     QString alternateText() const;
     QRect boundingRect() const;
     QUrl imageUrl() const;
@@ -51,6 +52,7 @@ private:
     void init(const QUrl &url, const QVariantMap &map);
 
     bool m_isNull;
+    QUrl m_baseUrl;
     QString m_alternateText;
     QRect m_boundingRect;
     QUrl m_imageUrl;
