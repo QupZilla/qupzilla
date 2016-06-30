@@ -21,6 +21,7 @@
 #include "tabbedwebview.h"
 
 #include <QTimer>
+#include <QMouseEvent>
 
 #define ANIMATION_INTERVAL 70
 
@@ -29,11 +30,15 @@ TabIcon::TabIcon(QWidget* parent)
     , m_tab(0)
     , m_currentFrame(0)
     , m_animationRunning(false)
+    , m_audioIconDisplayed(false)
 {
     setObjectName(QSL("tab-icon"));
 
     m_animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
     m_framesCount = m_animationPixmap.width() / m_animationPixmap.height();
+
+    m_audioPlayingPixmap = QIcon(QSL(":icons/other/audioplaying.png")).pixmap(15, 15);
+    m_audioMutedPixmap = QIcon(QSL(":icons/other/audiomuted.png")).pixmap(15, 15);
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
@@ -93,6 +98,16 @@ void TabIcon::updateAnimationFrame()
     m_currentFrame = (m_currentFrame + 1) % m_framesCount;
 }
 
+void TabIcon::updateAudioIcon(bool recentlyAudible)
+{
+    if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible))
+        m_audioIconDisplayed = true;
+    else
+        m_audioIconDisplayed = false;
+
+    update();
+}
+
 void TabIcon::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event);
@@ -113,4 +128,26 @@ void TabIcon::paintEvent(QPaintEvent* event)
         p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
     else
         p.drawPixmap(r, m_sitePixmap);
+
+    if (m_audioIconDisplayed) {
+        if (m_tab->isMuted())
+            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioMutedPixmap);
+        else
+            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioPlayingPixmap);
+    }
+}
+
+void TabIcon::mousePressEvent(QMouseEvent *event)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    qreal x = event->localPos().x();
+    qreal y = event->localPos().y();
+    // if audio icon is clicked - we don't propagate mouse press to the tab
+    if (m_audioIconDisplayed && x >= width() * 0.25 && y < height() * 0.75)
+        m_tab->toggleMuted();
+    else
+        QWidget::mousePressEvent(event);
+#else
+    QWidget::mousePressEvent(event);
+#endif
 }

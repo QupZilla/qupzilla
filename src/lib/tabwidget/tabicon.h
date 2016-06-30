@@ -36,6 +36,7 @@ public:
 
     void setWebTab(WebTab* tab);
     void setIcon(const QIcon &icon);
+    void updateAudioIcon(bool recentlyAudible);
 
 private slots:
     void showIcon();
@@ -46,15 +47,19 @@ private slots:
 
 private:
     void paintEvent(QPaintEvent* event);
+    void mousePressEvent(QMouseEvent* event);
 
     WebTab* m_tab;
     QTimer* m_updateTimer;
 
     QPixmap m_sitePixmap;
     QPixmap m_animationPixmap;
+    QPixmap m_audioPlayingPixmap;
+    QPixmap m_audioMutedPixmap;
     int m_currentFrame;
     int m_framesCount;
     bool m_animationRunning;
+    bool m_audioIconDisplayed;
 };
 
 #endif // TABICON_H
