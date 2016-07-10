@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -139,8 +139,8 @@ void TabBar::closeAllButCurrent()
 
 QSize TabBar::tabSizeHint(int index, bool fast) const
 {
-    if (!isVisible()) {
-        // Don't calculate it when tabbar is not visible
+    if (!m_window->isVisible()) {
+        // Don't calculate it when window is not visible
         // It produces invalid size anyway
         return QSize(-1, -1);
     }
