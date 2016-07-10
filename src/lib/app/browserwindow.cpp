@@ -788,9 +788,9 @@ void BrowserWindow::toggleFullScreen()
     }
 
     if (isFullScreen())
-        showNormal();
+        setWindowState(windowState() & ~Qt::WindowFullScreen);
     else
-        showFullScreen();
+        setWindowState(windowState() | Qt::WindowFullScreen);
 }
 
 void BrowserWindow::enterHtmlFullScreen()
