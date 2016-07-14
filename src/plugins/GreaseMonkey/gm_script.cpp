@@ -238,7 +238,7 @@ void GM_Script::parseScript()
 
     const QString fileData = QString::fromUtf8(file.readAll());
 
-    QzRegExp rx(QSL("(?:^|[\\r\\n])// ==UserScript==(.*)(?:[\\r\\n]|\\r\\n)// ==/UserScript==(?:[\\r\\n]|$)"));
+    QzRegExp rx(QSL("(?:^|[\\r\\n])// ==UserScript==(.*)(?:\\r\\n|[\\r\\n])// ==/UserScript==(?:[\\r\\n]|$)"));
     rx.indexIn(fileData);
     QString metadataBlock = rx.cap(1).trimmed();
 
@@ -248,7 +248,7 @@ void GM_Script::parseScript()
     }
 
     QStringList requireList;
-    QzRegExp rxNL(QSL("(?:[\\r\\n]|\\r\\n)"));
+    QzRegExp rxNL(QSL("(?:\\r\\n|[\\r\\n])"));
 
     const QStringList lines = metadataBlock.split(rxNL, QString::SkipEmptyParts);
     foreach (QString line, lines) {
