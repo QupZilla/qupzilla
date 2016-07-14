@@ -670,7 +670,7 @@ Por favor, instale a última versão do QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Editar favorito</translation>
     </message>
 </context>
 <context>
