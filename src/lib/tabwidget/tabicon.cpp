@@ -100,7 +100,7 @@ void TabIcon::paintEvent(QPaintEvent* event)
     QPainter p(this);
 
     const int size = 16;
-    const int pixmapSize = size * m_animationPixmap.devicePixelRatioF();
+    const int pixmapSize = qRound(size * m_animationPixmap.devicePixelRatioF());
 
     // Center the pixmap in rect
     QRect r = rect();
