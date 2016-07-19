@@ -43,36 +43,36 @@ void CommandLineOptions::parseActions()
     profileOption.setValueName(QSL("profileName"));
     profileOption.setDescription(QSL("Starts with specified profile."));
 
-    QCommandLineOption noExtensionsOption(QSL("no-extensions"));
+    QCommandLineOption noExtensionsOption(QStringList({QSL("e"), QSL("no-extensions")}));
     noExtensionsOption.setDescription(QSL("Starts without extensions."));
 
-    QCommandLineOption privateBrowsingOption(QSL("private-browsing"));
+    QCommandLineOption privateBrowsingOption(QStringList({QSL("i"), QSL("private-browsing")}));
     privateBrowsingOption.setDescription(QSL("Starts private browsing."));
 
-    QCommandLineOption portableOption(QSL("portable"));
+    QCommandLineOption portableOption(QStringList({QSL("o"), QSL("portable")}));
     portableOption.setDescription(QSL("Starts in portable mode."));
 
-    QCommandLineOption noRemoteOption(QSL("no-remote"));
+    QCommandLineOption noRemoteOption(QStringList({QSL("r"), QSL("no-remote")}));
     noRemoteOption.setDescription(QSL("Starts new browser instance."));
 
-    QCommandLineOption newTabOption(QSL("new-tab"));
+    QCommandLineOption newTabOption(QStringList({QSL("t"), QSL("new-tab")}));
     newTabOption.setDescription(QSL("Opens new tab."));
 
-    QCommandLineOption newWindowOption(QSL("new-window"));
+    QCommandLineOption newWindowOption(QStringList({QSL("w"), QSL("new-window")}));
     newWindowOption.setDescription(QSL("Opens new window."));
 
-    QCommandLineOption downloadManagerOption(QSL("download-manager"));
+    QCommandLineOption downloadManagerOption(QStringList({QSL("d"), QSL("download-manager")}));
     downloadManagerOption.setDescription(QSL("Opens download manager."));
 
-    QCommandLineOption currentTabOption(QSL("current-tab"));
+    QCommandLineOption currentTabOption(QStringList({QSL("c"), QSL("current-tab")}));
     currentTabOption.setValueName(QSL("URL"));
     currentTabOption.setDescription(QSL("Opens URL in current tab."));
 
-    QCommandLineOption openWindowOption(QSL("open-window"));
+    QCommandLineOption openWindowOption(QStringList({QSL("u"), QSL("open-window")}));
     openWindowOption.setValueName(QSL("URL"));
     openWindowOption.setDescription(QSL("Opens URL in new window."));
 
-    QCommandLineOption fullscreenOption(QSL("fullscreen"));
+    QCommandLineOption fullscreenOption(QStringList({QSL("f"), QSL("fullscreen")}));
     fullscreenOption.setDescription(QSL("Toggles fullscreen."));
 
     // Parser
