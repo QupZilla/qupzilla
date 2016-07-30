@@ -7,11 +7,11 @@ _qupzilla()
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts="-h --help -a --authors -v --version -p= --profile=
-          -ne --no-extensions -po --portable -nt --new-tab
-          -nw --new-window -pb --private-browsing -dm --download-manager
-          -fs --fullscreen -nr --no-remote -ct= --current-tab=
-          -ow= --open-window="
+    opts="-h --help -a --authors -v --version -p --profile=
+          -e --no-extensions -o --portable -t --new-tab
+          -w --new-window -i --private-browsing -d --download-manager
+          -f --fullscreen -r --no-remote -c --current-tab=
+          -u --open-window="
 
     if [[ ${cur} == -* ]] ; then
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
