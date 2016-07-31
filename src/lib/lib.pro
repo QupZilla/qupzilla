@@ -1,4 +1,4 @@
-QT += webenginecore webenginewidgets webchannel network widgets sql quickwidgets
+QT += webenginecore webenginewidgets webchannel network widgets sql quickwidgets printsupport
 
 TARGET = QupZilla
 TEMPLATE = lib

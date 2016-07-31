@@ -155,6 +155,7 @@ private slots:
     void webSearch();
     void searchOnPage();
     void changeEncoding();
+    void printPage();
 
     void saveSettings();
     void hideNavigationSlot();

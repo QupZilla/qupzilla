@@ -81,6 +81,15 @@
 #include <QToolTip>
 #include <QScrollArea>
 #include <QCollator>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QTemporaryFile>
+
+#ifdef Q_OS_WIN
+#include <qt_windows.h>
+#else
+#include <QProcess>
+#endif
 
 #ifdef QZ_WS_X11
 #include <QX11Info>
@@ -612,6 +621,39 @@ void BrowserWindow::changeEncoding()
 
         weView()->reload();
     }
+}
+
+void BrowserWindow::printPage()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    QPrintDialog* dialog = new QPrintDialog(this);
+    dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
+    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
+    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
+
+    if (dialog->exec() == QDialog::Accepted) {
+        if (dialog->printer()->outputFormat() == QPrinter::PdfFormat) {
+            weView()->page()->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
+        } else {
+            QTemporaryFile tempFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
+            if (tempFile.open()) { // create the file name, and the file to reserve it
+                tempFile.close(); // close, but don't delete the file
+                weView()->page()->printToPdf(tempFile.fileName(), dialog->printer()->pageLayout());
+#ifdef Q_OS_WIN
+                // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
+                // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
+                ShellExecuteW(winId(), L"printto", tempFile.fileName().constData(), ('"' + dialog->printer()->printerName() + '"').constData(), NULL, SW_HIDE);
+#else
+                // TODO: We should probably pass some additional options such as media size. See, e.g., Okular's fileprinter.cpp.
+                QProcess::execute(QSL("lpr"), QStringList() << QSL("-P") << dialog->printer()->printerName() << tempFile.fileName());
+#endif
+            }
+            // The temporary file is automatically deleted here.
+        }
+    }
+
+    delete dialog;
+#endif
 }
 
 void BrowserWindow::bookmarkPage()
