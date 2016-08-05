@@ -330,6 +330,9 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         }
 
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+        menu.addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));
+#endif
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
@@ -457,6 +460,15 @@ void TabBar::pinTab()
 
     if (webTab) {
         webTab->togglePinned();
+    }
+}
+
+void TabBar::muteTab()
+{
+    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
+
+    if (webTab) {
+        webTab->toggleMuted();
     }
 }
 

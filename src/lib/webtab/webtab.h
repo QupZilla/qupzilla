@@ -84,6 +84,10 @@ public:
     void setPinned(bool state);
     void togglePinned();
 
+    bool isMuted() const;
+    void setMuted(bool muted);
+    void toggleMuted();
+
     int tabIndex() const;
 
     bool isCurrentTab() const;

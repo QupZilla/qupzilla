@@ -69,6 +69,7 @@ private slots:
 
     void bookmarkTab();
     void pinTab();
+    void muteTab();
 
     void closeCurrentTab();
     void closeAllButCurrent();
