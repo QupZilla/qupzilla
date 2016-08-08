@@ -403,6 +403,8 @@ void LocationBar::focusInEvent(QFocusEvent* event)
 
     clearTextFormat();
     LineEdit::focusInEvent(event);
+
+    m_window->showBookmarksToolbar(true);
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* event)
@@ -422,6 +424,8 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
     }
 
     refreshTextFormat();
+
+    m_window->showBookmarksToolbar(false);
 }
 
 void LocationBar::dropEvent(QDropEvent* event)
