@@ -217,7 +217,7 @@ Preferences::Preferences(BrowserWindow* window)
     // NOTE: instantBookmarksToolbar and showBookmarksToolbar cannot be both enabled at the same time
     ui->instantBookmarksToolbar->setChecked(settings.value("instantBookmarksToolbar", false).toBool());
     ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
-    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar").toBool());
+    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar", true).toBool());
     ui->showBookmarksToolbar->setDisabled(settings.value("instantBookmarksToolbar").toBool());
     connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
     connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
