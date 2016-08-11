@@ -970,6 +970,10 @@ void BrowserWindow::removeActions(const QList<QAction *> &actions)
 void BrowserWindow::addTab()
 {
     m_tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab, true);
+    m_tabWidget->setCurrentTabFresh(true);
+
+    if (isFullScreen())
+        showNavigationWithFullScreen();
 }
 
 void BrowserWindow::webSearch()
@@ -1035,6 +1039,9 @@ void BrowserWindow::showNavigationWithFullScreen()
 
 void BrowserWindow::hideNavigationWithFullScreen()
 {
+    if (m_tabWidget->isCurrentTabFresh())
+        return;
+
     if (!m_hideNavigationTimer->isActive()) {
         m_hideNavigationTimer->start();
     }

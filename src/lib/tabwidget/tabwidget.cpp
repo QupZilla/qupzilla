@@ -230,6 +230,16 @@ void TabWidget::updateClosedTabsButton()
     m_buttonClosedTabs->setEnabled(canRestoreTab());
 }
 
+bool TabWidget::isCurrentTabFresh() const
+{
+    return m_currentTabFresh;
+}
+
+void TabWidget::setCurrentTabFresh(bool currentTabFresh)
+{
+    m_currentTabFresh = currentTabFresh;
+}
+
 void TabWidget::tabBarOverFlowChanged(bool overflowed)
 {
     // Show buttons inside tabbar
@@ -324,6 +334,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
 {
     QUrl url = req.url();
     m_lastTabIndex = currentIndex();
+    m_currentTabFresh = false;
 
     if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
         url = m_urlOnNewTab;
@@ -367,6 +378,10 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webTab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(webTab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
+    connect(webTab->webView(), &WebView::urlChanged, this, [this](const QUrl &url) {
+        if (url != m_urlOnNewTab)
+            m_currentTabFresh = false;
+    });
 
     if (url.isValid() && url != req.url()) {
         LoadRequest r(req);
@@ -489,6 +504,7 @@ void TabWidget::currentTabChanged(int index)
 
     m_lastBackgroundTabIndex = -1;
     m_lastTabIndex = index;
+    m_currentTabFresh = false;
 
     WebTab* webTab = weTab(index);
     LocationBar* locBar = webTab->locationBar();
