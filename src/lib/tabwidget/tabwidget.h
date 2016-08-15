@@ -93,6 +93,8 @@ public:
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
     bool canRestoreTab() const;
+    bool isCurrentTabFresh() const;
+    void setCurrentTabFresh(bool currentTabFresh);
 
     QStackedWidget* locationBars() const;
     ToolButton* buttonClosedTabs() const;
@@ -164,6 +166,8 @@ private:
     bool m_newTabAfterActive;
     bool m_newEmptyTabAfterActive;
     QUrl m_urlOnNewTab;
+
+    bool m_currentTabFresh;
 };
 
 #endif // TABWIDGET_H
