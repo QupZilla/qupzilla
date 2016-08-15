@@ -1075,7 +1075,6 @@ bool BrowserWindow::event(QEvent* event)
             statusBar()->hide();
 
             m_navigationContainer->hide();
-            m_navigationToolbar->setSuperMenuVisible(false);
             m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
         }
         else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
