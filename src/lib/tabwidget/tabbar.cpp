@@ -436,7 +436,9 @@ void TabBar::currentTabChanged(int index)
         showCloseButton(index);
         hideCloseButton(m_tabWidget->lastTabIndex());
 
-        ensureVisible(index);
+        QTimer::singleShot(0, this, [=]() {
+            ensureVisible(index);
+        });
     }
 
     m_tabWidget->currentTabChanged(index);

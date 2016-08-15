@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -133,8 +133,8 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_layout->addWidget(m_buttonHome);
     m_layout->addWidget(m_buttonAddTab);
     m_layout->addWidget(m_navigationSplitter);
-    m_layout->addWidget(m_supMenu);
     m_layout->addWidget(m_exitFullscreen);
+    m_layout->addWidget(m_supMenu);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
