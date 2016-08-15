@@ -578,6 +578,8 @@ int ComboTabBar::pinTabBarWidth() const
 
 bool ComboTabBar::event(QEvent *event)
 {
+    const bool res = QWidget::event(event);
+
     switch (event->type()) {
     case QEvent::ToolTip:
         if (!isDragInProgress() && !isScrollInProgress()) {
@@ -606,7 +608,7 @@ bool ComboTabBar::event(QEvent *event)
         break;
     }
 
-    return QWidget::event(event);
+    return res;
 }
 
 void ComboTabBar::wheelEvent(QWheelEvent* event)
@@ -1394,7 +1396,6 @@ void TabBarScrollWidget::ensureVisible(int index, int xmargin)
     if (index < 0 || index >= m_tabBar->count()) {
         return;
     }
-
     xmargin = qMin(xmargin, m_scrollArea->viewport()->width() / 2);
 
     // Qt Bug? the following lines were taken from QScrollArea::ensureVisible() and
