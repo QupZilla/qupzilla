@@ -439,6 +439,11 @@ void WebView::copyLinkToClipboard()
     }
 }
 
+void WebView::copyImageToClipboard()
+{
+    triggerPageAction(QWebEnginePage::CopyImageToClipboard);
+}
+
 void WebView::downloadLinkToDisk()
 {
     triggerPageAction(QWebEnginePage::DownloadLinkToDisk);
@@ -735,6 +740,7 @@ void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTes
     connect(act, SIGNAL(triggered()), this, SLOT(openActionUrl()));
     connect(act, SIGNAL(ctrlTriggered()), this, SLOT(userDefinedOpenUrlInNewTab()));
     menu->addAction(act);
+    menu->addAction(tr("Copy image"), this, SLOT(copyImageToClipboard()));
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()));
