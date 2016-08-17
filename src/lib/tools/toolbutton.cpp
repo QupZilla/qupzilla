@@ -172,8 +172,6 @@ void ToolButton::showMenu()
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
-    QToolButton::mousePressEvent(e);
-
     if (popupMode() == QToolButton::DelayedPopup)
         m_pressTimer.start();
 
@@ -184,13 +182,13 @@ void ToolButton::mousePressEvent(QMouseEvent* e)
     else if (e->buttons() == Qt::RightButton && menu()) {
         setDown(true);
         showMenu();
+    } else {
+        QToolButton::mousePressEvent(e);
     }
 }
 
 void ToolButton::mouseReleaseEvent(QMouseEvent* e)
 {
-    QToolButton::mouseReleaseEvent(e);
-
     m_pressTimer.stop();
 
     if (e->button() == Qt::MiddleButton && rect().contains(e->pos())) {
@@ -200,6 +198,8 @@ void ToolButton::mouseReleaseEvent(QMouseEvent* e)
     else if (e->button() == Qt::LeftButton && rect().contains(e->pos()) && e->modifiers() == Qt::ControlModifier) {
         emit controlClicked();
         setDown(false);
+    } else {
+        QToolButton::mouseReleaseEvent(e);
     }
 }
 
