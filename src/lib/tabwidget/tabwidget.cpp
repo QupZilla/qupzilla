@@ -128,6 +128,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
     connect(m_tabBar, SIGNAL(stopTab(int)), this, SLOT(stopTab(int)));
     connect(m_tabBar, SIGNAL(closeAllButCurrent(int)), this, SLOT(closeAllButCurrent(int)));
+    connect(m_tabBar, SIGNAL(closeToRight(int)), this, SLOT(closeToRight(int)));
     connect(m_tabBar, SIGNAL(duplicateTab(int)), this, SLOT(duplicateTab(int)));
     connect(m_tabBar, SIGNAL(detachTab(int)), this, SLOT(detachTab(int)));
     connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
@@ -612,6 +613,22 @@ void TabWidget::closeAllButCurrent(int index)
     foreach (WebTab* tab, allTabs(false)) {
         int tabIndex = tab->tabIndex();
         if (akt == widget(tabIndex)) {
+            continue;
+        }
+        requestCloseTab(tabIndex);
+    }
+}
+
+void TabWidget::closeToRight(int index){
+    if (!validIndex(index)) {
+        return;
+    }
+
+    WebTab* akt = weTab(index);
+
+    foreach (WebTab* tab, allTabs(false)) {
+        int tabIndex = tab->tabIndex();
+        if (index >= tabIndex) {
             continue;
         }
         requestCloseTab(tabIndex);

@@ -137,6 +137,15 @@ void TabBar::closeAllButCurrent()
     }
 }
 
+void TabBar::closeToRight(){
+    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the right?"),
+                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (button == QMessageBox::Yes) {
+        emit closeToRight(m_clickedTab);
+    }
+}
+
 QSize TabBar::tabSizeHint(int index, bool fast) const
 {
     if (!m_window->isVisible()) {
@@ -341,6 +350,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
+        menu.addAction(tr("Close Tabs To The Right"), this, SLOT(closeToRight()));
         menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
     }
