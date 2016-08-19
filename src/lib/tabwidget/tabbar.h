@@ -53,6 +53,7 @@ signals:
     void stopTab(int index);
     void closeAllButCurrent(int index);
     void closeToRight(int index);
+    void closeToLeft(int index);
     void duplicateTab(int index);
     void detachTab(int index);
 
@@ -75,6 +76,7 @@ private slots:
     void closeCurrentTab();
     void closeAllButCurrent();
     void closeToRight();
+    void closeToLeft();
     void closeTabFromButton();
 
 private:

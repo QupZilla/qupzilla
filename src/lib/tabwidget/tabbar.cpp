@@ -127,6 +127,7 @@ void TabBar::overflowChanged(bool overflowed)
     }
 }
 
+//TODO: replace these 3 w/ preferencable mbox
 void TabBar::closeAllButCurrent()
 {
     QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close other tabs?"),
@@ -143,6 +144,15 @@ void TabBar::closeToRight(){
 
     if (button == QMessageBox::Yes) {
         emit closeToRight(m_clickedTab);
+    }
+}
+
+void TabBar::closeToLeft(){
+    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the left?"),
+                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+    if (button == QMessageBox::Yes) {
+        emit closeToLeft(m_clickedTab);
     }
 }
 
@@ -351,6 +361,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(tr("Close Tabs To The Right"), this, SLOT(closeToRight()));
+        menu.addAction(tr("Close Tabs To The Left"), this, SLOT(closeToLeft()));
         menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
     }
