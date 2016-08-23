@@ -19,7 +19,7 @@
     <message>
         <location filename="../gm_addscriptdialog.ui" line="86"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Só deve instalar scripts de fontes em que confia!&lt;b/&gt;</translation>
+        <translation>&lt;b&gt;Apenas deve instalar scripts de fontes em que confia!&lt;b/&gt;</translation>
     </message>
     <message>
         <location filename="../gm_addscriptdialog.ui" line="96"/>

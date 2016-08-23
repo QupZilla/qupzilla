@@ -70,7 +70,7 @@
     <message>
         <location filename="../gm_manager.cpp" line="270"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; již je nainstalován</translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="203"/>
         <source>New user script</source>
-        <translation type="unfinished"/>
+        <translation>Nový skript</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="90"/>
@@ -141,12 +141,12 @@
     <message>
         <location filename="../settings/gm_settings.cpp" line="121"/>
         <source>Add script</source>
-        <translation type="unfinished"/>
+        <translation>Přidat skript</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="121"/>
         <source>Choose name for script:</source>
-        <translation type="unfinished"/>
+        <translation>Zvolte jméno pro skript:</translation>
     </message>
 </context>
 <context>

@@ -70,7 +70,7 @@
     <message>
         <location filename="../gm_manager.cpp" line="270"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; est déjà installé</translation>
     </message>
 </context>
 <context>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../settings/gm_settings.cpp" line="121"/>
         <source>Choose name for script:</source>
-        <translation>Choisir un nom pour le script:</translation>
+        <translation>Choisir un nom pour le script :</translation>
     </message>
 </context>
 <context>

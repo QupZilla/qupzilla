@@ -1,83 +1,83 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_PT" version="2.1">
 <context>
     <name>PIM_Handler</name>
     <message>
-        <location filename="../PIM_handler.cpp" line="60"/>
+        <location filename="../PIM_handler.cpp" line="59"/>
         <source>Last Name</source>
         <translation>Apelido</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="61"/>
+        <location filename="../PIM_handler.cpp" line="60"/>
         <source>First Name</source>
         <translation>Nome próprio</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="62"/>
+        <location filename="../PIM_handler.cpp" line="61"/>
         <source>E-mail</source>
         <translation>Endereço eletrónico</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="63"/>
+        <location filename="../PIM_handler.cpp" line="62"/>
         <source>Mobile</source>
         <translation>Telemóvel</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="64"/>
+        <location filename="../PIM_handler.cpp" line="63"/>
         <source>Phone</source>
         <translation>Telefone</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="65"/>
+        <location filename="../PIM_handler.cpp" line="64"/>
         <source>Address</source>
         <translation>Morada</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="66"/>
+        <location filename="../PIM_handler.cpp" line="65"/>
         <source>City</source>
         <translation>Cidade</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="67"/>
+        <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
         <translation>Código postal</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="68"/>
+        <location filename="../PIM_handler.cpp" line="67"/>
         <source>State/Region</source>
         <translation>Distrito/Região</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="69"/>
+        <location filename="../PIM_handler.cpp" line="68"/>
         <source>Country</source>
         <translation>País</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="70"/>
+        <location filename="../PIM_handler.cpp" line="69"/>
         <source>Home Page</source>
-        <translation>Página web</translation>
+        <translation>Página inicial</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="71"/>
+        <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
         <translation>Personalizado 1</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="72"/>
+        <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
         <translation>Personalizado 2</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="73"/>
+        <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
         <translation>Personalizado 3</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="115"/>
+        <location filename="../PIM_handler.cpp" line="114"/>
         <source>Insert Personal Information</source>
         <translation>Indique as informações pessoais</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="136"/>
+        <location filename="../PIM_handler.cpp" line="135"/>
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="64"/>
         <source>Your personal information that will be used on webpages.</source>
-        <translation>As suas informações serão utilizadas nas páginas web.</translation>
+        <translation>As suas informações pessoais serão utilizadas nas páginas web.</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="76"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="206"/>
         <source>Home Page:</source>
-        <translation>Página web:</translation>
+        <translation>Página inicial:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
