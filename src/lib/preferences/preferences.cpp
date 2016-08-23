@@ -214,7 +214,13 @@ Preferences::Preferences(BrowserWindow* window)
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", false).toBool());
+    // NOTE: instantBookmarksToolbar and showBookmarksToolbar cannot be both enabled at the same time
+    ui->instantBookmarksToolbar->setChecked(settings.value("instantBookmarksToolbar", false).toBool());
     ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
+    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar", true).toBool());
+    ui->showBookmarksToolbar->setDisabled(settings.value("instantBookmarksToolbar").toBool());
+    connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
+    connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
     ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
@@ -853,6 +859,7 @@ void Preferences::saveSettings()
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
     settings.setValue("showStatusBar", ui->showStatusbar->isChecked());
+    settings.setValue("instantBookmarksToolbar", ui->instantBookmarksToolbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
     settings.setValue("showHomeButton", ui->showHome->isChecked());

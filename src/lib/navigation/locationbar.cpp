@@ -24,6 +24,7 @@
 #include "bookmarksicon.h"
 #include "bookmarks.h"
 #include "bookmarkitem.h"
+#include "bookmarkstoolbar.h"
 #include "siteicon.h"
 #include "goicon.h"
 #include "downicon.h"
@@ -403,6 +404,10 @@ void LocationBar::focusInEvent(QFocusEvent* event)
 
     clearTextFormat();
     LineEdit::focusInEvent(event);
+
+    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+        m_window->bookmarksToolbar()->show();
+    }
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* event)
@@ -422,6 +427,10 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
     }
 
     refreshTextFormat();
+
+    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+        m_window->bookmarksToolbar()->hide();
+    }
 }
 
 void LocationBar::dropEvent(QDropEvent* event)

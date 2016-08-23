@@ -754,6 +754,7 @@ void BrowserWindow::toggleShowBookmarksToolbar()
     setUpdatesEnabled(true);
 
     Settings().setValue("Browser-View-Settings/showBookmarksToolbar", m_bookmarksToolbar->isVisible());
+    Settings().setValue("Browser-View-Settings/instantBookmarksToolbar", false);
 }
 
 void BrowserWindow::toggleShowNavigationToolbar()
@@ -897,7 +898,7 @@ void BrowserWindow::createToolbarsMenu(QMenu* menu)
 
     action = menu->addAction(tr("&Bookmarks Toolbar"), this, SLOT(toggleShowBookmarksToolbar()));
     action->setCheckable(true);
-    action->setChecked(m_bookmarksToolbar->isVisible());
+    action->setChecked(Settings().value("Browser-View-Settings/showBookmarksToolbar").toBool());
 
     menu->addSeparator();
 
