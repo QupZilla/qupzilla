@@ -138,7 +138,8 @@ void TabBar::closeAllButCurrent()
     }
 }
 
-void TabBar::closeToRight(){
+void TabBar::closeToRight()
+{
     QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the right?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
@@ -147,7 +148,8 @@ void TabBar::closeToRight(){
     }
 }
 
-void TabBar::closeToLeft(){
+void TabBar::closeToLeft()
+{
     QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the left?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
