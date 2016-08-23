@@ -389,6 +389,7 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
     if (terminationStatus == NormalTerminationStatus)
         return;
 
+#if QT_VERSION != QT_VERSION_CHECK(5, 7, 0) // Crashes with QtWebEngine 5.7.0
     QTimer::singleShot(0, this, [this]() {
         QString page = QzTools::readAllFileContents(":html/tabcrash.html");
         page.replace(QL1S("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
@@ -402,6 +403,7 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         page = QzTools::applyDirectionToPage(page);
         setHtml(page.toUtf8(), url());
     });
+#endif
 }
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
