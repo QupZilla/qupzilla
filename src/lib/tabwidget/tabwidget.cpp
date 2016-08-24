@@ -636,7 +636,8 @@ void TabWidget::closeToRight(int index)
 }
 
 
-void TabWidget::closeToLeft(int index){
+void TabWidget::closeToLeft(int index)
+{
     if (!validIndex(index)) {
         return;
     }
