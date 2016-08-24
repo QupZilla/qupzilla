@@ -620,7 +620,8 @@ void TabWidget::closeAllButCurrent(int index)
     }
 }
 
-void TabWidget::closeToRight(int index){
+void TabWidget::closeToRight(int index)
+{
     if (!validIndex(index)) {
         return;
     }
