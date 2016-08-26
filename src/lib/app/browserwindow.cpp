@@ -636,6 +636,7 @@ void BrowserWindow::printPage()
             weView()->page()->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
         } else {
             QTemporaryFile tempFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
+            tempFile.setAutoRemove(false);
             if (tempFile.open()) { // create the file name, and the file to reserve it
                 tempFile.close(); // close, but don't delete the file
                 weView()->page()->printToPdf(tempFile.fileName(), dialog->printer()->pageLayout());
@@ -643,12 +644,16 @@ void BrowserWindow::printPage()
                 // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
                 // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
                 ShellExecuteW(winId(), L"printto", tempFile.fileName().constData(), ('"' + dialog->printer()->printerName() + '"').constData(), NULL, SW_HIDE);
+                // TODO: When can we delete the file?
 #else
+                // -r automatically deletes the file after printing it.
                 // TODO: We should probably pass some additional options such as media size. See, e.g., Okular's fileprinter.cpp.
-                QProcess::execute(QSL("lpr"), QStringList() << QSL("-P") << dialog->printer()->printerName() << tempFile.fileName());
+                if (QProcess::execute(QSL("lpr"), QStringList() << QSL("-P") << dialog->printer()->printerName() << QSL("-r") << tempFile.fileName()) != 0) {
+                    // lpr failed, so remove the temporary file in case it still exists.
+                    tempFile.remove();
+                }
 #endif
             }
-            // The temporary file is automatically deleted here.
         }
     }
 
