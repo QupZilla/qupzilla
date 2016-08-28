@@ -117,6 +117,8 @@ public slots:
     void reloadAllTabs();
     void stopTab(int index);
     void closeAllButCurrent(int index);
+    void closeToRight(int index);
+    void closeToLeft(int index);
     void detachTab(int index);
     void restoreClosedTab(QObject* obj = 0);
     void restoreAllClosedTabs();
