@@ -14,6 +14,24 @@
    <string>Tab Manager</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>2</number>
+   </property>
+   <property name="topMargin">
+    <number>2</number>
+   </property>
+   <property name="rightMargin">
+    <number>2</number>
+   </property>
+   <property name="bottomMargin">
+    <number>2</number>
+   </property>
+   <item>
+    <widget class="LineEdit" name="filterBar"/>
+   </item>
    <item>
     <widget class="QTreeWidget" name="treeWidget">
      <attribute name="headerVisible">
@@ -28,6 +46,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>lineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>treeWidget</tabstop>
  </tabstops>

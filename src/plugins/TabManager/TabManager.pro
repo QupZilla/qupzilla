@@ -5,12 +5,14 @@ os2: TARGET = TabManPl
 SOURCES += tabmanagerplugin.cpp \
     tabmanagerwidget.cpp \
     tabmanagerwidgetcontroller.cpp \
-    tabmanagersettings.cpp
+    tabmanagersettings.cpp \
+    tabfilterdelegate.cpp
 
 HEADERS += tabmanagerplugin.h \
     tabmanagerwidget.h \
     tabmanagerwidgetcontroller.h \
-    tabmanagersettings.h
+    tabmanagersettings.h \
+    tabfilterdelegate.h
 
 RESOURCES += tabmanagerplugin.qrc
 
