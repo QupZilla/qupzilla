@@ -518,7 +518,7 @@ Version 1.1.8
     * improved History menu -> added Most visited menu here
     * don't saving icons in private mode
     * improved and refactored context menu on page
-    * little improvements in speed dial
+    * little improvements in sp0eed dial
     * using global QSettings object, should save some writed to disk
     * remember last folder when saving new bookmarks
     * disabling adblock on local schemes
