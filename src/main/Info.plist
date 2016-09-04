@@ -17,6 +17,21 @@
     <key>CFBundleIdentifier</key>
     <string>com.qupzilla.QupZilla</string>
 
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLIconFile</key>
+        <string>@ICON@</string>
+        <key>CFBundleURLName</key>
+        <string>http URL</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>http</string>
+          <string>https</string>
+        </array>
+      </dict>
+    </array>
+
     <key>CFBundleDocumentTypes</key>
     <array>
       <dict>
