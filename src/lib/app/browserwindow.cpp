@@ -638,27 +638,42 @@ void BrowserWindow::printPage()
             QString printerName = dialog->printer()->printerName();
             weView()->page()->printToPdf([=](const QByteArray &data) {
                 if (!data.isEmpty()) {
-                    QTemporaryFile tempFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
-                    tempFile.setAutoRemove(false);
-                    if (tempFile.open()) {
-                        qint64 bytesWritten = tempFile.write(data);
-                        tempFile.close();
+                    QTemporaryFile *tempFile = new QTemporaryFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
+                    tempFile->setAutoRemove(false);
+                    if (tempFile->open()) {
+                        qint64 bytesWritten = tempFile->write(data);
+                        tempFile->close();
                         if (bytesWritten == data.size()) {
 #ifdef Q_OS_WIN
                             // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
                             // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
-                            ShellExecuteW(winId(), L"printto", tempFile.fileName().constData(), ('"' + printerName + '"').constData(), NULL, SW_HIDE);
-                            // TODO: When can we delete the file?
+                            ShellExecuteW(winId(), L"printto", tempFile->fileName().constData(), ('"' + printerName + '"').constData(), NULL, SW_HIDE);
+                            // TODO: When can we delete the actual file (not just the object)?
+                            delete tempFile;
 #else
+                            QProcess *process = new QProcess(this);
+                            connect(process, static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::error), [=](QProcess::ProcessError) {
+                                tempFile->remove();
+                                tempFile->deleteLater();
+                                process->deleteLater();
+                            });
+                            connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [=](int exitCode, QProcess::ExitStatus exitStatus) {
+                                if (exitStatus != QProcess::NormalExit || exitCode != 0) {
+                                    // lpr failed, so delete the temporary file in case it still exists.
+                                    // In case of success, we let lpr delete it, it knows best when it is safe to do so.
+                                    // (lpr queues jobs asynchronously.)
+                                    tempFile->remove();
+                                }
+                                tempFile->deleteLater();
+                                process->deleteLater();
+                            });
                             // -r automatically deletes the file after printing it.
                             // TODO: We should probably pass some additional options such as media size. See, e.g., Okular's fileprinter.cpp.
-                            if (QProcess::execute(QSL("lpr"), QStringList() << QSL("-P") << printerName << QSL("-r") << tempFile.fileName()) != 0) {
-                                // lpr failed, so remove the temporary file in case it still exists.
-                                tempFile.remove();
-                            }
+                            process->start(QSL("lpr"), QStringList() << QSL("-P") << printerName << QSL("-r") << tempFile->fileName());
 #endif
                         } else {
-                            tempFile.remove();
+                            tempFile->remove();
+                            delete tempFile;
                         }
                     }
                 }
