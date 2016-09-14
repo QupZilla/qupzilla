@@ -1,4 +1,4 @@
-QT += webenginecore webenginewidgets webchannel network widgets sql quickwidgets
+QT += webenginecore webenginewidgets webchannel network widgets sql quickwidgets printsupport
 
 TARGET = QupZilla
 TEMPLATE = lib
@@ -472,6 +472,9 @@ win32 {
     SOURCES += other/registerqappassociation.cpp
 
     LIBS += -llibeay32
+} else {
+    HEADERS += app/fileprinter.h
+    SOURCES += app/fileprinter.cpp
 }
 
 os2 {
