@@ -120,6 +120,7 @@ protected slots:
     void openUrlInNewWindow();
     void sendLinkByMail();
     void copyLinkToClipboard();
+    void savePageAs();
     void copyImageToClipboard();
     void downloadLinkToDisk();
     void downloadImageToDisk();

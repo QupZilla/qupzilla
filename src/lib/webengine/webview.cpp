@@ -439,6 +439,13 @@ void WebView::copyLinkToClipboard()
     }
 }
 
+void WebView::savePageAs()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    triggerPageAction(QWebEnginePage::SavePage);
+#endif
+}
+
 void WebView::copyImageToClipboard()
 {
     triggerPageAction(QWebEnginePage::CopyImageToClipboard);
@@ -683,6 +690,9 @@ void WebView::createPageContextMenu(QMenu* menu)
     menu->addAction(pageAction(QWebEnginePage::Stop));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
+#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
+    menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
+#endif
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy page link"), this, SLOT(copyLinkToClipboard()))->setData(url());
     menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send page link..."), this, SLOT(sendPageByMail()));
     menu->addSeparator();

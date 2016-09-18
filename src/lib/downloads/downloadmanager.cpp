@@ -218,19 +218,28 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
     } else if (m_downloadPath.isEmpty()) {
-        // Ask what to do
-        DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
-        optionsDialog.showExternalManagerOption(m_useExternalManager);
-        optionsDialog.setLastDownloadOption(m_lastDownloadOption);
+        enum Result { Open = 1, Save = 2, ExternalManager = 3, Unknown = 0 };
+        Result result = Unknown;
 
-        switch (optionsDialog.exec()) {
-        case 1: // Open
+        if (fileName.endsWith(QL1S(".mhtml"))) {
+            // Save Page action
+            result = Save;
+        } else {
+            // Ask what to do
+            DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
+            optionsDialog.showExternalManagerOption(m_useExternalManager);
+            optionsDialog.setLastDownloadOption(m_lastDownloadOption);
+            result = Result(optionsDialog.exec());
+        }
+
+        switch (result) {
+        case Open:
             openFile = true;
             downloadPath = QzTools::ensureUniqueFilename(DataPaths::path(DataPaths::Temp) + QLatin1Char('/') + fileName);
             m_lastDownloadOption = OpenFile;
             break;
 
-        case 2: // Save
+        case Save:
             downloadPath = QFileDialog::getSaveFileName(mApp->activeWindow(), tr("Save file as..."), m_lastDownloadPath + QLatin1Char('/') + fileName);
             if (!downloadPath.isEmpty()) {
                 m_lastDownloadPath = QFileInfo(downloadPath).absolutePath();
@@ -239,7 +248,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
             }
             break;
 
-        case 3: // External manager
+        case ExternalManager:
             startExternalManager(downloadItem->url());
             // fallthrough
 
