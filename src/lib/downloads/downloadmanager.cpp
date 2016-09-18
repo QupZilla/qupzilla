@@ -147,7 +147,7 @@ void DownloadManager::timerEvent(QTimerEvent* e)
         }
         for (int i = 0; i < ui->list->count(); i++) {
             DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-            if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading()) {
+            if (!downItem || downItem->isCancelled() || !downItem->isDownloading()) {
                 continue;
             }
             progresses.append(downItem->progress());
@@ -288,7 +288,7 @@ void DownloadManager::downloadFinished(bool success)
     bool downloadingAllFilesFinished = true;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem || (downItem && downItem->isCancelled()) || !downItem->isDownloading()) {
+        if (!downItem || downItem->isCancelled() || !downItem->isDownloading()) {
             continue;
         }
         downloadingAllFilesFinished = false;
