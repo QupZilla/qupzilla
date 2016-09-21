@@ -1,105 +1,105 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr_HR" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="is" version="2.1">
 <context>
     <name>MouseGesturesSettingsDialog</name>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="14"/>
         <source>Mouse Gestures</source>
-        <translation>Gestikulacije miša</translation>
+        <translation>Músarbendingar</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="42"/>
         <source>&lt;h1&gt;Mouse Gestures&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Mouse Gestures&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Músarbendingar&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="181"/>
         <source>&lt;b&gt;Stop&lt;/b&gt;&lt;br/&gt;Stop loading page</source>
-        <translation>&lt;b&gt;Zaustavi&lt;/b&gt;&lt;br/&gt;Zaustavi učitavanje stranice</translation>
+        <translation>&lt;b&gt;Stopp&lt;/b&gt;&lt;br/&gt;Hætta að hlaða síðu</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="195"/>
         <source>&lt;b&gt;New tab&lt;/b&gt;&lt;br/&gt;Open new tab</source>
-        <translation>&lt;b&gt;Nova kartica&lt;/b&gt;&lt;br/&gt;Otvori novu karticu</translation>
+        <translation>&lt;b&gt;Nýr flipi&lt;/b&gt;&lt;br/&gt;Opna nýjan flipa</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="209"/>
         <source>&lt;b&gt;Back&lt;/b&gt;&lt;br/&gt;Go back in history</source>
-        <translation>&lt;b&gt;Natrag&lt;/b&gt;&lt;br/&gt;Idi natrag u povijesti</translation>
+        <translation>&lt;b&gt;Til baka&lt;/b&gt;&lt;br/&gt;Fara afturábak í ferli</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="299"/>
         <source>&lt;b&gt;Reload&lt;/b&gt;&lt;br/&gt;Reload page</source>
-        <translation>&lt;b&gt;Osvježi&lt;/b&gt;&lt;br/&gt;Osvježi stranicu</translation>
+        <translation>&lt;b&gt;Endurlesa&lt;/b&gt;&lt;br/&gt;Endurlesa síðu</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="236"/>
         <source>&lt;b&gt;Close tab&lt;/b&gt;&lt;br/&gt;Close current tab</source>
-        <translation>&lt;b&gt;Zatvori karticu&lt;/b&gt;&lt;br/&gt;Zatvori trenutnu karticu</translation>
+        <translation>&lt;b&gt;Loka flipa&lt;/b&gt;&lt;br/&gt;Loka núverandi flipa</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="90"/>
         <source>Mouse button:</source>
-        <translation>Tipka miša:</translation>
+        <translation>Músarhnappur:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="98"/>
         <source>Middle button</source>
-        <translation>Srednja tipka:</translation>
+        <translation>Miðhnappur</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="103"/>
         <source>Right button</source>
-        <translation>Desna tipka</translation>
+        <translation>Hægrihnappur</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="108"/>
         <source>Disabled</source>
-        <translation>Onemogućeno</translation>
+        <translation>Óvirkt</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="116"/>
         <source>Rocker Navigation:</source>
-        <translation>Roker navigacija:</translation>
+        <translation>Tveggja-fingra-flakk (Rocker navigation):</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="123"/>
         <source>Enable Rocker Navigation</source>
-        <translation>Omogući roker navigaciju</translation>
+        <translation>Virkja tveggja-fingra-flakk</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>
         <source>Press and hold the mouse button and move your mouse in the indicated directions.</source>
-        <translation>Pritisnite i držite tipku miša i pomičite miš u naznačenim smjerovima.</translation>
+        <translation>Ýttu á og haltu niðri músarhnappnum og færðu síðan músina í tilteknar áttir.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="250"/>
         <source>&lt;b&gt;Forward&lt;/b&gt;&lt;br/&gt;Go forward in history</source>
-        <translation>&lt;b&gt;Naprijed&lt;/b&gt;&lt;br/&gt;Idi naprijed u povijesti</translation>
+        <translation>&lt;b&gt;Áfram&lt;/b&gt;&lt;br/&gt;Fara áfram í ferli</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="257"/>
         <source>&lt;b&gt;Previous tab&lt;/b&gt;&lt;br/&gt;Switch to previous tab</source>
-        <translation>&lt;b&gt;Prijašnja kartica&lt;/b&gt;&lt;br/&gt;Prebaci na prijašnju karticu</translation>
+        <translation>&lt;b&gt;Fyrri flipi&lt;/b&gt;&lt;br/&gt;Skipta á fyrri flipa</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="271"/>
         <source>&lt;b&gt;Home&lt;/b&gt;&lt;br/&gt;Go to homepage</source>
-        <translation>&lt;b&gt;Početna stranica&lt;/b&gt;&lt;br/&gt;Idi na početnu stranicu</translation>
+        <translation>&lt;b&gt;Heim&lt;/b&gt;&lt;br/&gt;Fara á heimasíðuna</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="285"/>
         <source>&lt;b&gt;Next tab&lt;/b&gt;&lt;br/&gt;Switch to next tab</source>
-        <translation>&lt;b&gt;Sljedeća kartica&lt;/b&gt;&lt;br/&gt;Prebaci na sljedeću karticu</translation>
+        <translation>&lt;b&gt;Næsti flipi&lt;/b&gt;&lt;br/&gt;Skipta á næsta flipa</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation>&lt;b&gt;Dupliciraj&lt;/b&gt;&lt;br/&gt;Dupliciraj trenutnu karticu</translation>
+        <translation>&lt;b&gt;Tvítaka&lt;/b&gt;&lt;br/&gt;Afrita núverandi flipa</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>
         <source>License</source>
-        <translation>Licenca</translation>
+        <translation>Notkunarleyfi</translation>
     </message>
 </context>
 </TS>

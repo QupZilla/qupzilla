@@ -1102,77 +1102,82 @@ Instalirajte najnovije izdanje.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="106"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="115"/>
         <source>QupZilla</source>
         <translation>Kapzila</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="333"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="342"/>
         <source>IP Address of current page</source>
         <translation>IP adresa tekuće stranice</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="598"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="607"/>
         <source> (Private Browsing)</source>
         <translation> (privatno pregledanje)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="840"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="637"/>
+        <source>QupZilla %1 (%2)</source>
+        <translation>Kapzila %1 (%2)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/browserwindow.cpp" line="886"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - Kapzila</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="901"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
         <source>&amp;Menu Bar</source>
         <translation>Traka &amp;menija</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="906"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="952"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Traka &amp;navigacije</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="910"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="956"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Traka &amp;obeleživača</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="916"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="962"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Jezičci na vrhu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="972"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1018"/>
         <source>Other</source>
         <translation>Ostalo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>HTML files</source>
         <translation>HTML fajlovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>Image files</source>
         <translation>Fajlovi slika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>Text files</source>
         <translation>Fajlovi teksta</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>All files</source>
         <translation>Svi fajlovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1018"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1064"/>
         <source>Open file...</source>
         <translation>Otvori fajl...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1351"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>I dalje imate %n otvoren jezičak a vaša sesija neće biti sačuvana.
@@ -1181,12 +1186,12 @@ Are you sure you want to close this window?</source>
 Želite li zaista da zatvorite ovaj prozor?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1352"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1398"/>
         <source>Don&apos;t ask again</source>
         <translation>Ne pitaj ponovo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1353"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1399"/>
         <source>There are still open tabs</source>
         <translation>I dalje imate otvorenih jezičaka</translation>
     </message>
@@ -1762,7 +1767,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="297"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="306"/>
         <source>Download Manager</source>
         <translation>Menadžer preuzimanja</translation>
     </message>
@@ -1782,27 +1787,27 @@ Are you sure you want to close this window?</source>
         <translation>%1% - menadžer preuzimanja</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="234"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="243"/>
         <source>Save file as...</source>
         <translation>Sačuvaj fajl kao...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="290"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
         <source>Download Finished</source>
         <translation>Preuzimanje je završeno</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="290"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Svi fajlovi su uspešno preuzeti.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="347"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="356"/>
         <source>Warning</source>
         <translation>Upozorenje</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="348"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="357"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Želite li zaista da napustite? Sva nezavršena preuzimanja će biti otkazana!</translation>
     </message>
@@ -2383,17 +2388,17 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="92"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
         <source>Paste And &amp;Go</source>
         <translation>Nalepi i i&amp;di</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="151"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="152"/>
         <source>Enter URL address or search on %1</source>
         <translation>Unesite URL adresu ili tražite na %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="153"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="154"/>
         <source>Enter URL address</source>
         <translation>Unesite URL adresu</translation>
     </message>
@@ -2437,237 +2442,242 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="495"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="505"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp;O Kapzili</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="500"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
         <source>Pr&amp;eferences</source>
         <translation>Po&amp;dešavanje</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
         <source>Quit</source>
         <translation>Napusti</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="513"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
         <source>&amp;File</source>
         <translation>&amp;Fajl</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
         <source>New Tab</source>
         <translation>Novi jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="518"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>&amp;New Window</source>
         <translation>&amp;Novi prozor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>New &amp;Private Window</source>
         <translation>Novi p&amp;rivatni prozor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="520"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Open Location</source>
         <translation>Otvori lokaciju</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>Open &amp;File...</source>
         <translation>Otvori &amp;fajl...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>Close Window</source>
         <translation>Zatvori prozor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <source>&amp;Save Page As...</source>
+        <translation>&amp;Sačuvaj stranicu kao...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
         <source>Send Link...</source>
         <translation>Pošalji vezu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Print...</source>
         <translation>&amp;Štampaj...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
         <source>&amp;Edit</source>
         <translation>&amp;Uređivanje</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
         <source>&amp;Undo</source>
         <translation>&amp;Opozovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>&amp;Redo</source>
         <translation>&amp;Ponovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
         <source>&amp;Cut</source>
         <translation>&amp;Iseci</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="538"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
         <source>C&amp;opy</source>
         <translation>&amp;Kopiraj</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>&amp;Paste</source>
         <translation>&amp;Nalepi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
         <source>Select &amp;All</source>
         <translation>Izaberi &amp;sve</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="542"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
         <source>&amp;Find</source>
         <translation>N&amp;ađi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>&amp;View</source>
         <translation>&amp;Prikaz</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
         <source>Toolbars</source>
         <translation>Trake alatki</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
         <source>Sidebar</source>
         <translation>Bočna traka</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Kodiranje znakova</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Traka &amp;stanja</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
         <source>&amp;Stop</source>
         <translation>&amp;Zaustavi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="566"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
         <source>&amp;Reload</source>
         <translation>&amp;Učitaj ponovo</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>Zoom &amp;In</source>
         <translation>U&amp;veličaj</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>Zoom &amp;Out</source>
         <translation>U&amp;manji</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="570"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
         <source>Reset</source>
         <translation>Stvarna veličina</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Izvor stranice</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;Ceo ekran</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
         <source>&amp;Tools</source>
         <translation>Ala&amp;tke</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="582"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>&amp;Web Search</source>
         <translation>Pretraga &amp;veba</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Site &amp;Info</source>
         <translation>Podaci o &amp;sajtu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
         <source>&amp;Download Manager</source>
         <translation>Menadžer &amp;preuzimanja</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="586"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
         <source>&amp;Cookies Manager</source>
         <translation>Menadžer &amp;kolačića</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;Adblok</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="588"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>Web In&amp;spector</source>
         <translation>Veb i&amp;nspektor</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
         <source>Clear Recent &amp;History</source>
         <translation>&amp;Obriši privatne podatke</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
         <source>&amp;Extensions</source>
         <translation>Pro&amp;širenja</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="615"/>
         <source>&amp;Help</source>
         <translation>Po&amp;moć</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Kutu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="608"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
         <source>Information about application</source>
         <translation>Podaci o programu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
         <source>Configuration Information</source>
         <translation>Postavke programa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="625"/>
         <source>Report &amp;Issue</source>
         <translation>&amp;Prijavi problem</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="638"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>&amp;Obnovi zatvoreni jezičak</translation>
     </message>
@@ -4823,88 +4833,110 @@ ili je pokušajte pokrenuti sa administrativnim privilegijama.</translation>
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="133"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
         <source>Close Tabs</source>
         <translation>Zatvaranje jezičaka</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="133"/>
         <source>Do you really want to close other tabs?</source>
         <translation>Želite li zaista da zatvorite ostale jezičke?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="311"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
+        <source>Do you really want to close all tabs to the right?</source>
+        <translation>Želite li zaista da zatvorite sve jezičke s desna?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
+        <source>Do you really want to close all tabs to the left?</source>
+        <translation>Želite li zaista da zatvorite sve jezičke s leva?</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
         <source>&amp;New tab</source>
         <translation>&amp;Novi jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="320"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="341"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Zaustavi učitavanje</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="323"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="344"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Učitaj ponovo</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="326"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="347"/>
         <source>&amp;Duplicate Tab</source>
         <translation>U&amp;dvostruči jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="329"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
         <source>D&amp;etach Tab</source>
         <translation>&amp;Odvoji jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
         <source>Un&amp;pin Tab</source>
         <translation>Otk&amp;ači jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
         <source>&amp;Pin Tab</source>
         <translation>Za&amp;kači jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="334"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Un&amp;mute Tab</source>
         <translation>U&amp;ključi zvuk</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="334"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>&amp;Mute Tab</source>
         <translation>&amp;Utišaj jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="337"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Učitaj ponovo &amp;sve jezičke</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="338"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>&amp;Bookmark This Tab</source>
         <translation>&amp;Obeleži ovaj jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="372"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Obeleži s&amp;ve jezičke</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="343"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Zatvori os&amp;tale jezičke</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="344"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="365"/>
+        <source>Close Tabs To The Right</source>
+        <translation>Zatvori jezičke s desna</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <source>Close Tabs To The Left</source>
+        <translation>Zatvori jezičke s leva</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
         <source>Cl&amp;ose</source>
         <translation>Z&amp;atvori</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="371"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>&amp;Učitaj ponovo sve jezičke</translation>
     </message>
@@ -4917,38 +4949,38 @@ ili je pokušajte pokrenuti sa administrativnim privilegijama.</translation>
         <translation>Novi jezičak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="159"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="161"/>
         <source>Closed tabs</source>
         <translation>Zatvoreni jezičci</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="170"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="172"/>
         <source>List of tabs</source>
         <translation>Spisak jezičaka</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="291"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="455"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="293"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="457"/>
         <source>Currently you have %n opened tab(s)</source>
         <translation><numerusform>Imate %n otvoren jezičak</numerusform><numerusform>Imate %n otvorena jezička</numerusform><numerusform>Imate %n otvorenih jezičaka</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="308"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="310"/>
         <source>Empty</source>
         <translation>Prazno</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="312"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="314"/>
         <source>Restore All Closed Tabs</source>
         <translation>Vrati sve zatvorene jezičke</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="313"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="315"/>
         <source>Clear list</source>
         <translation>Očisti spisak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="817"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="850"/>
         <location filename="../src/lib/tabwidget/tabwidget.h" line="105"/>
         <source>New tab</source>
         <translation>Novi jezičak</translation>
@@ -5084,43 +5116,43 @@ ili je pokušajte pokrenuti sa administrativnim privilegijama.</translation>
         <translation>Zahtev za spoljašnji protokol</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="397"/>
         <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
         <source>Failed loading page</source>
         <translation>Neuspeh učitavanja stranice</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Nešto je pošlo kako ne treba prilikom učitavanja ove stranice.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Pokušajte ponovo da učitate stranicu ili da zatvorite neke jezičke da oslobodite memoriju.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="402"/>
         <source>Reload page</source>
         <translation>Ponovo učitaj stranicu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="435"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="437"/>
         <source>Choose file...</source>
         <translation>Izaberi fajl...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="439"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="441"/>
         <source>Choose files...</source>
         <translation>Izaberi fajlove...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="576"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="578"/>
         <source>JavaScript alert</source>
         <translation>Javaskript upozorenje</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="584"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="586"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Ne dozvoli ovoj stranici da pravi još dijaloga</translation>
     </message>
@@ -5174,237 +5206,242 @@ ili je pokušajte pokrenuti sa administrativnim privilegijama.</translation>
         <translation>Prazna stranica</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="664"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="671"/>
         <source>&amp;Back</source>
         <translation>Na&amp;zad</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="668"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
         <source>&amp;Forward</source>
         <translation>Na&amp;pred</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="682"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Dodaj novu stranicu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="676"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Podesi brzo biranje</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="678"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="685"/>
         <source>Reload All Dials</source>
         <translation>Ponovo učitaj sva brza biranja</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="685"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="692"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Obeleži stranicu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="686"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <source>&amp;Save page as...</source>
+        <translation>&amp;Sačuvaj stranicu kao...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webengine/webview.cpp" line="696"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Kopiraj vezu stranice</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="687"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="697"/>
         <source>Send page link...</source>
         <translation>Pošalji vezu stranice...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="699"/>
         <source>Select &amp;all</source>
         <translation>Iz&amp;aberi sve</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="704"/>
         <source>Validate page</source>
         <translation>Provera kôda</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="698"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="708"/>
         <source>Translate page</source>
         <translation>Prevedi stranicu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="702"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
         <source>Show so&amp;urce code</source>
         <translation>Prikaži &amp;izvorni kôd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="705"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>Show info ab&amp;out site</source>
         <translation>Po&amp;daci o sajtu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="721"/>
         <source>Open link in new &amp;tab</source>
         <translation>Otvori vezu u novom &amp;jezičku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="716"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
         <source>Open link in new &amp;window</source>
         <translation>Otvori vezu u &amp;novom prozoru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="717"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
         <source>Open link in &amp;private window</source>
         <translation>Otvori vezu u &amp;privatnom prozoru</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="722"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
         <source>B&amp;ookmark link</source>
         <translation>&amp;Obeleži vezu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Sačuvaj vezu kao...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="725"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="735"/>
         <source>Send link...</source>
         <translation>Pošalji vezu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="736"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopiraj vezu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="738"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>Show i&amp;mage</source>
         <translation>P&amp;rikaži sliku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
         <source>Copy image</source>
         <translation>Kopiraj sliku</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="744"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopiraj &amp;adresu slike</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="746"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
         <source>&amp;Save image as...</source>
         <translation>Sačuvaj s&amp;liku kao...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="747"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="757"/>
         <source>Send image...</source>
         <translation>Pošalji sliku...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="766"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>Send text...</source>
         <translation>Pošalji tekst...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="771"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Google Translate</source>
         <translation>Guglov prevodilac</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="777"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="787"/>
         <source>Dictionary</source>
         <translation>Rečnik</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
         <source>Go to &amp;web address</source>
         <translation>Idi na &amp;veb adresu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="806"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Traži „%1“ na %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
         <source>Search with...</source>
         <translation>Traži na...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
         <source>&amp;Play</source>
         <translation>&amp;Pusti</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pauziraj</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
         <source>Un&amp;mute</source>
         <translation>Vra&amp;ti zvuk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
         <source>&amp;Mute</source>
         <translation>U&amp;tišaj</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="836"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="846"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopiraj adresu medija</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="837"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="847"/>
         <source>&amp;Send Media Address</source>
         <translation>P&amp;ošalji adresu medija</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="848"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Sačuvaj medij na disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="857"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="867"/>
         <source>Create Search Engine</source>
         <translation>Napravi motor pretrage</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="908"/>
         <source>&amp;Undo</source>
         <translation>&amp;Opozovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="904"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="914"/>
         <source>&amp;Redo</source>
         <translation>&amp;Ponovi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="910"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
         <source>&amp;Cut</source>
         <translation>&amp;Iseci</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="916"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="926"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiraj</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="922"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="932"/>
         <source>&amp;Paste</source>
         <translation>&amp;Nalepi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="928"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="938"/>
         <source>Select All</source>
         <translation>Izaberi sve</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="934"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
         <source>&amp;Reload</source>
         <translation>&amp;Učitaj ponovo</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="938"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
         <source>S&amp;top</source>
         <translation>Zaus&amp;tavi</translation>
     </message>

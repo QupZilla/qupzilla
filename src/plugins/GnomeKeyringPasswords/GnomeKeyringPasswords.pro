@@ -28,6 +28,7 @@ TRANSLATIONS += \
     translations/he_IL.ts \
     translations/hr_HR.ts \
     translations/id_ID.ts \
+    translations/is.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ko_KR.ts \

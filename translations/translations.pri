@@ -18,6 +18,7 @@ TRANSLATIONS += \
     $$PWD/hr_HR.ts \
     $$PWD/hu_HU.ts \
     $$PWD/id_ID.ts \
+    $$PWD/is.ts \
     $$PWD/it_IT.ts \
     $$PWD/ja_JP.ts \
     $$PWD/ka_GE.ts \
