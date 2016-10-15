@@ -41,3 +41,14 @@ openbsd-*|freebsd-*|haiku-* {
 include(../install.pri)
 
 unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
+
+DISTFILES += \
+    manifest.xml
+
+win32 {
+    WINSDK_DIR = C:/Program Files (x86)/Microsoft SDKs/Windows/v7.1A
+    WIN_PWD = $$replace(PWD, /, \\)
+    OUT_PWD_WIN = $$replace(DESTDIR, /, \\)
+    QMAKE_POST_LINK += \
+        "$$WINSDK_DIR/bin/x64/mt.exe -manifest $$quote($$WIN_PWD\\manifest.xml) -outputresource:$$quote($$OUT_PWD_WIN\\$$basename(TARGET).exe;1)"
+}

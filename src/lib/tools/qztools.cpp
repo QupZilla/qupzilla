@@ -18,6 +18,7 @@
 #include "qztools.h"
 #include "datapaths.h"
 #include "settings.h"
+#include "qzsysinfo.h"
 
 #include <QTextDocument>
 #include <QDateTime>
@@ -894,47 +895,50 @@ QString QzTools::operatingSystem()
     return "Haiku";
 #endif
 #ifdef Q_OS_WIN32
-    QString str = "Windows";
+//    QString str = "Windows";
 
-    switch (QSysInfo::windowsVersion()) {
-    case QSysInfo::WV_NT:
-        str.append(" NT");
-        break;
+//    switch (QSysInfo::windowsVersion()) {
+//    case QSysInfo::WV_NT:
+//        str.append(" NT");
+//        break;
 
-    case QSysInfo::WV_2000:
-        str.append(" 2000");
-        break;
+//    case QSysInfo::WV_2000:
+//        str.append(" 2000");
+//        break;
 
-    case QSysInfo::WV_XP:
-        str.append(" XP");
-        break;
-    case QSysInfo::WV_2003:
-        str.append(" XP Pro x64");
-        break;
+//    case QSysInfo::WV_XP:
+//        str.append(" XP");
+//        break;
+//    case QSysInfo::WV_2003:
+//        str.append(" XP Pro x64");
+//        break;
 
-    case QSysInfo::WV_VISTA:
-        str.append(" Vista");
-        break;
+//    case QSysInfo::WV_VISTA:
+//        str.append(" Vista");
+//        break;
 
-    case QSysInfo::WV_WINDOWS7:
-        str.append(" 7");
-        break;
+//    case QSysInfo::WV_WINDOWS7:
+//        str.append(" 7");
+//        break;
 
-    case QSysInfo::WV_WINDOWS8:
-        str.append(" 8");
-        break;
+//    case QSysInfo::WV_WINDOWS8:
+//        str.append(" 8");
+//        break;
 
-    case QSysInfo::WV_WINDOWS8_1:
-        str.append(" 8.1");
-        break;
+//    case QSysInfo::WV_WINDOWS8_1:
+//        str.append(" 8.1");
+//        break;
 
-    case QSysInfo::WV_WINDOWS10:
-        str.append(" 10");
-        break;
+//    case QSysInfo::WV_WINDOWS10:
+//        str.append(" 10");
+//        break;
 
-    default:
-        break;
-    }
+//    default:
+//        break;
+//    }
+
+    QzSysInfo *sysInfo = new QzSysInfo();
+    QString str = sysInfo->osVersionToString();
 
     return str;
 #endif
