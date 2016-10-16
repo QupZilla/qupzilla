@@ -8,8 +8,6 @@
 #include <tchar.h>
 #include <QSettings>
 
-#define BUFSIZE 80
-
 // Preventing redefinition warnings on Windows using MinGW toolchain.
 // The QT_VERSION check is used as a substitute for checking against MinGW >= v4.7, as the Qt4.8 SDK
 // is delivered bundled with MinGW4.4 by default. This is a result of __MINGW32_MAJOR_VERSION and
@@ -643,34 +641,35 @@ QString QzSysInfo::osVersionToString()
     //TODO: Detect Unix, Linux etc. distro as described on http://www.novell.com/coolsolutions/feature/11251.html
     operatingSystemString = "Linux";
     QProcess process;
+
     process.start("uname -s");
-    bool result = process.waitForFinished(1000);
+    process.waitForFinished(1000);
     QString os = process.readAllStandardOutput().trimmed();
 
     process.start("uname -r");
-    result = process.waitForFinished(1000);
+    process.waitForFinished(1000);
     QString rev = process.readAllStandardOutput().trimmed();
 
     process.start("uname -m");
-    result = process.waitForFinished(1000);
+    process.waitForFinished(1000);
     QString mach = process.readAllStandardOutput().trimmed();
 
     if (os == "SunOS") {
         os = "Solaris";
 
         process.start("uname -p");
-        result = process.waitForFinished(1000);
+        process.waitForFinished(1000);
         QString arch = process.readAllStandardOutput().trimmed();
 
         process.start("uname -v");
-        result = process.waitForFinished(1000);
+        process.waitForFinished(1000);
         QString timestamp = process.readAllStandardOutput().trimmed();
 
         operatingSystemString = os + " " + rev + " (" + arch + " " + timestamp + ")";
     }
     else if (os == "AIX") {
         process.start("oslevel -r");
-        result = process.waitForFinished(1000);
+        process.waitForFinished(1000);
         QString oslevel = process.readAllStandardOutput().trimmed();
 
         operatingSystemString = os + "oslevel " + oslevel;
@@ -682,30 +681,29 @@ QString QzSysInfo::osVersionToString()
 
         if (QFile::exists("/etc/SUSE-release")) {
             process.start("sh -c \"cat /etc/SUSE-release | tr '\\n' ' '| sed s/VERSION.*//\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             dist = process.readAllStandardOutput().trimmed();
 
             process.start("sh -c \"cat /etc/SUSE-release | tr '\\n' ' ' | sed s/.*=\\ //\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             rev = process.readAllStandardOutput().trimmed();
         }
         else if (QFile::exists("/etc/mandrake-release")) {
             dist = "Mandrake";
 
             process.start("sh -c \"cat /etc/mandrake-release | sed s/.*\\(// | sed s/\\)//\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             pseudoname = process.readAllStandardOutput().trimmed();
 
             process.start("sh -c \"cat /etc/mandrake-release | sed s/.*release\\ // | sed s/\\ .*//\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             rev = process.readAllStandardOutput().trimmed();
         }
         else if (QFile::exists("/etc/lsb-release")) {
             dist = "Ubuntu";
 
-            QString processCall = "sh -c \"cat /etc/lsb-release | grep --max-count=1 DISTRIB_RELEASE=\"";
-            process.start( processCall );
-            result = process.waitForFinished(1000);
+            process.start("sh -c \"cat /etc/lsb-release | grep --max-count=1 DISTRIB_RELEASE=\"");
+            process.waitForFinished(1000);
             rev = process.readAllStandardOutput().trimmed();
             qDebug() << "revision:" << rev;
             if (!rev.isEmpty())
@@ -713,10 +711,9 @@ QString QzSysInfo::osVersionToString()
                 rev.remove("DISTRIB_RELEASE=");
                 rev.remove("\"");
             }
-            QString errorStr = process.readAllStandardError();
 
             process.start("sh -c \"cat /etc/lsb-release | grep --max-count=1 DISTRIB_CODENAME=\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             pseudoname = process.readAllStandardOutput().trimmed();
             qDebug() << "pseudoname:" << pseudoname;
             if (!pseudoname.isEmpty())
@@ -729,7 +726,7 @@ QString QzSysInfo::osVersionToString()
             dist = "Debian";
 
             process.start("cat /etc/debian_version");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             dist += process.readAllStandardOutput().trimmed();
 
             rev = "";
@@ -737,7 +734,7 @@ QString QzSysInfo::osVersionToString()
 
         if (QFile::exists("/etc/UnitedLinux-release")) {
             process.start("sh -c \"cat /etc/UnitedLinux-release | grep --max-count=1 \"VERSION = \"\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             dist += process.readAllStandardOutput().trimmed();
             if (!dist.isEmpty())
             {
@@ -748,7 +745,7 @@ QString QzSysInfo::osVersionToString()
 
         if (QFile::exists("/etc/os-release")) { //This file makes distribution identification much easier.
             process.start("sh -c \"cat /etc/os-release | grep --max-count=1 PRETTY_NAME=\"");
-            result = process.waitForFinished(1000);
+            process.waitForFinished(1000);
             QString distname = process.readAllStandardOutput().trimmed();
             if (!distname.isEmpty())
             {

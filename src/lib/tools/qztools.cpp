@@ -850,7 +850,10 @@ QString QzTools::operatingSystem()
     return str;
 #endif
 #ifdef Q_OS_LINUX
-    return "Linux";
+//    return "Linux";
+    QzSysInfo *sysInfo = new QzSysInfo();
+    QString str = sysInfo->osVersionToString();
+    return str;
 #endif
 #ifdef Q_OS_BSD4
     return "BSD 4.4";
