@@ -1,6 +1,6 @@
 /* ============================================================
 * Mouse Gestures plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -183,7 +183,11 @@ void MouseGestures::downGestured()
         return;
 
     TabWidget* tabWidget = window->tabWidget();
-    tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab);
+    tabWidget->addView(QUrl(), Qz::NT_SelectedNewEmptyTab, true);
+    tabWidget->setCurrentTabFresh(true);
+
+    if (window->isFullScreen())
+        window->showNavigationWithFullScreen();
 }
 
 void MouseGestures::leftGestured()
