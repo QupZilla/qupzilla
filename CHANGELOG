@@ -1,3 +1,15 @@
+Version 2.0.2
+    * released 24 October 2016
+    * update default user-agent strings
+    * add short command line variant for all options
+    * show navigation bar when adding new tab in fullscreen
+    * supermenu button is no longer hidden in fullscreen
+    * fix overwriting speed dial title when loading fails
+    * fix positions of speed dials in rtl
+    * fix context menu actions when site specifies base href
+    * fix issue with tabbar sometimes being invisible when leaving fullscreen
+    * Windows: fix background radient in browsing library
+
 Version 2.0.1
     * released 8 June 2016
     * don't force enabling HighDPI scaling by default
