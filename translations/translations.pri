@@ -42,6 +42,7 @@ TRANSLATIONS += \
     $$PWD/uk_UA.ts \
     $$PWD/uz@Latn.ts \
     $$PWD/zh_CN.ts \
+    $$PWD/zh_HK.ts \
     $$PWD/zh_TW.ts \
 
 updateqm.input = TRANSLATIONS

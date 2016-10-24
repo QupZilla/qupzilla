@@ -43,6 +43,7 @@
         <file>locale/uz@Cyrl.qm</file>
         <file>locale/uz@Latn.qm</file>
         <file>locale/zh_CN.qm</file>
+        <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

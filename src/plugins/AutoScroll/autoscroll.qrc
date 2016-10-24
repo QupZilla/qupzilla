@@ -36,6 +36,7 @@
         <file>locale/tr_TR.qm</file>
         <file>locale/uk_UA.qm</file>
         <file>locale/zh_CN.qm</file>
+        <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

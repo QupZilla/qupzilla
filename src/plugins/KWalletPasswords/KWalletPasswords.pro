@@ -50,6 +50,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 isEqual(QT_MAJOR_VERSION, 5) {

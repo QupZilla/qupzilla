@@ -66,6 +66,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 FORMS += \

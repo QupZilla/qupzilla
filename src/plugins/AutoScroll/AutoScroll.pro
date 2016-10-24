@@ -51,6 +51,7 @@ TRANSLATIONS += \
     translations/tr_TR.ts \
     translations/uk_UA.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 PLUGIN_DIR = $$PWD
