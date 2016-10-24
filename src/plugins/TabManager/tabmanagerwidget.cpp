@@ -705,6 +705,8 @@ void TabManagerWidget::makeWebViewConnections(WebView* view)
         connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(delayedRefreshTree()));
         connect(view->page(), SIGNAL(loadStarted()), this, SLOT(delayedRefreshTree()));
         connect(view, SIGNAL(titleChanged(QString)), this, SLOT(delayedRefreshTree()));
-        connect(view, SIGNAL(iconChanged()), this, SLOT(delayedRefreshTree()));
+        connect(view, &WebView::iconChanged, this, [this]() {
+            delayedRefreshTree();
+        });
     }
 }

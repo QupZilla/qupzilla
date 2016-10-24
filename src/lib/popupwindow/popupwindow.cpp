@@ -103,13 +103,13 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
 
-    connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
-    connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
-    connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
-    connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
-    connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
+    connect(m_view, &WebView::showNotification, this, &PopupWindow::showNotification);
+    connect(m_view, &WebView::titleChanged, this, &PopupWindow::titleChanged);
+    connect(m_view, &WebView::urlChanged, m_locationBar, &PopupLocationBar::showUrl);
+    connect(m_view, &WebView::iconChanged, m_locationBar, &PopupLocationBar::showSiteIcon);
+    connect(m_view, &WebView::loadStarted, this, &PopupWindow::loadStarted);
+    connect(m_view, &WebView::loadProgress, this, &PopupWindow::loadProgress);
+    connect(m_view, &WebView::loadFinished, this, &PopupWindow::loadFinished);
 
     connect(m_view->page(), &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
     connect(m_view->page(), &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
