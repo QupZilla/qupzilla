@@ -55,7 +55,7 @@ void TabIcon::setWebTab(WebTab* tab)
 
     connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
-    connect(m_tab->webView(), SIGNAL(iconChanged()), this, SLOT(showIcon()));
+    connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::showIcon);
 
     showIcon();
 }

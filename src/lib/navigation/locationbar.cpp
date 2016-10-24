@@ -130,7 +130,7 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
-    connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
+    connect(m_webView, &TabbedWebView::iconChanged, this, &LocationBar::updateSiteIcon);
 }
 
 void LocationBar::setText(const QString &text)

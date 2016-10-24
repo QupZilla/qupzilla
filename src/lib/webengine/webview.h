@@ -26,12 +26,12 @@
 
 class WebPage;
 class LoadRequest;
-class IconLoader;
 class WebHitTestResult;
 
 class QUPZILLA_EXPORT WebView : public QWebEngineView
 {
     Q_OBJECT
+
 public:
     explicit WebView(QWidget* parent = 0);
     ~WebView();
@@ -74,7 +74,6 @@ public:
     static void setForceContextMenuOnMouseRelease(bool force);
 
 signals:
-    void iconChanged();
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
@@ -114,7 +113,6 @@ protected slots:
     void slotLoadProgress(int progress);
     void slotLoadFinished(bool ok);
     void slotUrlChanged(const QUrl &url);
-    void slotIconUrlChanged(const QUrl &url);
 
     // Context menu slots
     void openUrlInNewWindow();
@@ -176,9 +174,6 @@ private:
     void initializeActions();
 
     int m_currentZoomLevel;
-
-    QIcon m_siteIcon;
-    IconLoader* m_siteIconLoader;
 
     int m_progress;
 

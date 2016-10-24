@@ -208,7 +208,6 @@ SOURCES += \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
-    webengine/iconloader.cpp \
     webengine/javascript/autofilljsobject.cpp \
     webengine/javascript/externaljsobject.cpp \
     webengine/loadrequest.cpp \
@@ -391,7 +390,6 @@ HEADERS  += \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
-    webengine/iconloader.h \
     webengine/javascript/autofilljsobject.h \
     webengine/javascript/externaljsobject.h \
     webengine/loadrequest.h \

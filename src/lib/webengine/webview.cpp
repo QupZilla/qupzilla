@@ -34,7 +34,6 @@
 #include "webinspector.h"
 #include "scripts.h"
 #include "webhittestresult.h"
-#include "iconloader.h"
 
 #include <iostream>
 
@@ -50,7 +49,6 @@ bool WebView::s_forceContextMenuOnMouseRelease = false;
 
 WebView::WebView(QWidget* parent)
     : QWebEngineView(parent)
-    , m_siteIconLoader(0)
     , m_progress(100)
     , m_page(0)
     , m_firstLoad(false)
@@ -60,7 +58,6 @@ WebView::WebView(QWidget* parent)
     connect(this, &QWebEngineView::loadProgress, this, &WebView::slotLoadProgress);
     connect(this, &QWebEngineView::loadFinished, this, &WebView::slotLoadFinished);
     connect(this, &QWebEngineView::urlChanged, this, &WebView::slotUrlChanged);
-    connect(this, &QWebEngineView::iconUrlChanged, this, &WebView::slotIconUrlChanged);
 
     m_currentZoomLevel = zoomLevels().indexOf(100);
 
@@ -77,8 +74,8 @@ WebView::~WebView()
 
 QIcon WebView::icon() const
 {
-    if (!m_siteIcon.isNull()) {
-        return m_siteIcon;
+    if (!QWebEngineView::icon().isNull()) {
+        return QWebEngineView::icon();
     }
 
     if (url().scheme() == QLatin1String("ftp")) {
@@ -396,19 +393,6 @@ void WebView::slotUrlChanged(const QUrl &url)
         if (s.isEmpty())
             history()->clear();
     }
-}
-
-void WebView::slotIconUrlChanged(const QUrl &url)
-{
-    m_siteIcon = QIcon();
-    delete m_siteIconLoader;
-    m_siteIconLoader = new IconLoader(url, this);
-
-    connect(m_siteIconLoader, &IconLoader::iconLoaded, [this, url](const QIcon &icon) {
-        m_siteIcon = icon;
-        emit iconChanged();
-        IconProvider::instance()->saveIcon(this);
-    });
 }
 
 void WebView::openUrlInNewWindow()
