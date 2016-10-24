@@ -462,6 +462,9 @@ void WebView::openActionUrl()
 
 void WebView::showSource()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    triggerPageAction(QWebEnginePage::ViewSource);
+#else
     // view-source: doesn't work on itself and custom schemes
     if (url().scheme() == QL1S("view-source") || url().scheme() == QL1S("qupzilla") || url().scheme() == QL1S("qrc")) {
         page()->toHtml([](const QString &html) {
@@ -474,6 +477,7 @@ void WebView::showSource()
     u.setScheme(QSL("view-source"));
     u.setPath(url().toString());
     openUrlInNewTab(u, Qz::NT_SelectedTab);
+#endif
 }
 
 void WebView::showSiteInfo()
