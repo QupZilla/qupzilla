@@ -382,7 +382,7 @@ QString QupZillaSchemeReply::configPage()
                               Qz::VERSION
 #endif
                                                           ) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), QT_VERSION_STR) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Qt version"), qVersion()) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Platform"), QzTools::operatingSystemLong()));
 
         cPage.replace(QLatin1String("%PATHS-TEXT%"),

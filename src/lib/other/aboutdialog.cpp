@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ void AboutDialog::showAbout()
                            Qz::VERSION
 #endif
                        );
-        m_aboutHtml += tr("<b>QtWebEngine version %1</b></p>").arg(QT_VERSION_STR);
+        m_aboutHtml += tr("<b>QtWebEngine version %1</b></p>").arg(qVersion());
         m_aboutHtml += QString("<p>&copy; %1 %2<br/>").arg(Qz::COPYRIGHT, Qz::AUTHOR);
         m_aboutHtml += QString("<a href=%1>%1</a></p>").arg(Qz::WWWADDRESS);
         m_aboutHtml += "<p>" + mApp->userAgentManager()->defaultUserAgent() + "</p>";
