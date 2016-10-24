@@ -612,6 +612,13 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
     TabbedWebView *tView = qobject_cast<TabbedWebView*>(view());
     BrowserWindow *window = tView ? tView->browserWindow() : mApp->getWindow();
 
+    auto createTab = [=](Qz::NewTabPositionFlags pos) {
+        int index = window->tabWidget()->addView(QUrl(), pos);
+        TabbedWebView* view = window->weView(index);
+        view->setPage(new WebPage);
+        return view->page();
+    };
+
     switch (type) {
     case QWebEnginePage::WebBrowserWindow: {
         BrowserWindow *window = mApp->createWindow(Qz::BW_NewWindow);
@@ -631,12 +638,11 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
         }
         // else fallthrough
 
-    case QWebEnginePage::WebBrowserTab: {
-        int index = window->tabWidget()->addView(QUrl(), Qz::NT_CleanSelectedTab);
-        TabbedWebView* view = window->weView(index);
-        view->setPage(new WebPage);
-        return view->page();
-    }
+    case QWebEnginePage::WebBrowserTab:
+        return createTab(Qz::NT_CleanSelectedTab);
+
+    case QWebEnginePage::WebBrowserBackgroundTab:
+        return createTab(Qz::NT_CleanNotSelectedTab);
 
     default:
         break;
