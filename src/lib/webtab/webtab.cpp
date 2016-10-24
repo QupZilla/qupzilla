@@ -142,9 +142,7 @@ WebTab::WebTab(BrowserWindow* window)
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
     connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     connect(m_webView->page(), &QWebEnginePage::recentlyAudibleChanged, tabIcon(), &TabIcon::updateAudioIcon);
-#endif
 }
 
 TabbedWebView* WebTab::webView() const
@@ -297,20 +295,12 @@ void WebTab::setPinned(bool state)
 
 bool WebTab::isMuted() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     return m_webView->page()->isAudioMuted();
-#else
-    return false;
-#endif
 }
 
 void WebTab::setMuted(bool muted)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     m_webView->page()->setAudioMuted(muted);
-#else
-    Q_UNUSED(muted)
-#endif
 }
 
 void WebTab::toggleMuted()

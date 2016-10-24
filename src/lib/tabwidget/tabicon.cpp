@@ -139,7 +139,6 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
 void TabIcon::mousePressEvent(QMouseEvent *event)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     qreal x = event->localPos().x();
     qreal y = event->localPos().y();
     // if audio icon is clicked - we don't propagate mouse press to the tab
@@ -147,7 +146,4 @@ void TabIcon::mousePressEvent(QMouseEvent *event)
         m_tab->toggleMuted();
     else
         QWidget::mousePressEvent(event);
-#else
-    QWidget::mousePressEvent(event);
-#endif
 }

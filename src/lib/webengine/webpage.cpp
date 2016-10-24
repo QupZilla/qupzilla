@@ -113,12 +113,7 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, i
     QVariant result;
     QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     runJavaScript(scriptSource, worldId, [loop, &result](const QVariant &res) {
-#else
-    Q_UNUSED(worldId);
-    runJavaScript(scriptSource, [loop, &result](const QVariant &res) {
-#endif
         if (loop && loop->isRunning()) {
             result = res;
             loop->quit();
@@ -143,22 +138,12 @@ void WebPage::runJavaScript(const QString &scriptSource, const QWebEngineCallbac
 
 void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     QWebEnginePage::runJavaScript(scriptSource, worldId);
-#else
-    Q_UNUSED(worldId);
-    QWebEnginePage::runJavaScript(scriptSource);
-#endif
 }
 
 void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     QWebEnginePage::runJavaScript(scriptSource, worldId, resultCallback);
-#else
-    Q_UNUSED(worldId);
-    QWebEnginePage::runJavaScript(scriptSource, resultCallback);
-#endif
 }
 
 QPoint WebPage::mapToViewport(const QPoint &pos) const
@@ -343,11 +328,7 @@ void WebPage::setupWebChannel()
 
     QWebChannel *channel = new QWebChannel(this);
     channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     setWebChannel(channel, SafeJsWorld);
-#else
-    setWebChannel(channel);
-#endif
 
     if (old) {
         delete old->registeredObjects().value(objectName);

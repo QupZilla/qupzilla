@@ -625,7 +625,6 @@ void BrowserWindow::changeEncoding()
 
 void BrowserWindow::printPage()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     QPrintDialog* dialog = new QPrintDialog(this);
     dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
 #ifndef Q_OS_WIN
@@ -668,7 +667,6 @@ void BrowserWindow::printPage()
             }, dialog->printer()->pageLayout());
         }
     }
-#endif
 }
 
 void BrowserWindow::bookmarkPage()

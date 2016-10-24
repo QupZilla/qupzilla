@@ -38,12 +38,8 @@ class QUPZILLA_EXPORT WebPage : public QWebEnginePage
     Q_OBJECT
 public:
     enum JsWorld {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
 //        SafeJsWorld = QWebEngineScript::ApplicationWorld
         SafeJsWorld = QWebEngineScript::MainWorld
-#else
-        SafeJsWorld = QWebEngineScript::MainWorld
-#endif
     };
 
     explicit WebPage(QObject* parent = 0);

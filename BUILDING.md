@@ -16,18 +16,18 @@ General
 
                CONFIG += debug
 
-  QupZilla requires Qt (>= 5.6) and QtWebEngine (at least version included in Qt 5.6)
+  QupZilla requires Qt (>= 5.7) and QtWebEngine (at least version included in Qt 5.7)
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler, Qt Libraries 5.6.0 or higher and openssl
+  You need Microsoft Visual C++ Compiler, Qt Libraries 5.7.0 or higher and openssl
   libraries. in order to build QupZilla.
 
 Linux / Unix
 ----------------------------------------------------------------------------------
 
-  You need to have Qt 5 (>= 5.6) with QtWebEngine.
+  You need to have Qt 5 (>= 5.7) with QtWebEngine.
   Next compulsory requirement is OpenSSL (libcrypto). xcb libraries are also
   required unless you specify NO_X11 build option.
 
@@ -46,7 +46,7 @@ MAC OS X
 
   You need to have Xcode from the Apple App Store installed in Applications, [Command Line Tools for the same Xcode version](https://developer.apple.com/),
   [Homebrew](http://brew.sh/), and `$ brew install openssl` for openssl.
-  Next compulsory requirement is Qt 5 (>= 5.6) with QtWebEngine.
+  Next compulsory requirement is Qt 5 (>= 5.7) with QtWebEngine.
   After successful compilation, you need to run macdeploy.sh script to correctly
   build the application bundle. You will do it with following command:
 

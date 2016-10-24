@@ -81,9 +81,7 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("File/SendLink")]);
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     superMenu->addAction(m_actions[QSL("File/Print")]);
-#endif
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Edit/SelectAll")]);
     superMenu->addAction(m_actions[QSL("Edit/Find")]);
@@ -531,13 +529,9 @@ void MainMenu::init()
     ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
-#endif
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
-#endif
     m_menuFile->addSeparator();
     m_menuFile->addAction(m_actions[QSL("Standard/Quit")]);
 
