@@ -44,6 +44,7 @@
 #include <QClipboard>
 #include <QHostInfo>
 #include <QMimeData>
+#include <QWebEngineContextMenuData>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -609,6 +610,31 @@ void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
 {
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
+
+    if (!contextMenuData.misspelledWord().isEmpty()) {
+        QFont boldFont = menu->font();
+        boldFont.setBold(true);
+
+        for (const QString &suggestion : contextMenuData.spellCheckerSuggestions()) {
+            QAction *action = menu->addAction(suggestion);
+            action->setFont(boldFont);
+
+            connect(action, &QAction::triggered, this, [=]() {
+                page()->replaceMisspelledWord(suggestion);
+            });
+        }
+
+        if (menu->actions().isEmpty()) {
+            menu->addAction(tr("No suggestions"))->setEnabled(false);
+        }
+
+        menu->addSeparator();
+        spellCheckActionCount = menu->actions().count();
+    }
+#endif
 
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QL1S("javascript")) {
         createLinkContextMenu(menu, hitTest);
