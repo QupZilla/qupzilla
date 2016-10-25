@@ -1079,6 +1079,13 @@ void WebView::_keyPressEvent(QKeyEvent *event)
         }
         break;
 
+    case Qt::Key_M:
+        if (event->modifiers() & Qt::ControlModifier) {
+            page()->setAudioMuted(!page()->isAudioMuted());
+            event->accept();
+        }
+        break;
+
     default:
         break;
     }
