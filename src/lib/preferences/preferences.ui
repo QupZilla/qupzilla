@@ -112,6 +112,11 @@
      </item>
      <item>
       <property name="text">
+       <string>Spell Check</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Other</string>
       </property>
      </item>
@@ -2271,6 +2276,66 @@
                <number>0</number>
               </property>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="spellcheckPage">
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="2" column="3">
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Language:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QComboBox" name="spellcheckLanguage"/>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>&lt;b&gt;Spell Check&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QCheckBox" name="spellcheckEnabled">
+             <property name="text">
+              <string>Enable Spell Check</string>
+             </property>
             </widget>
            </item>
           </layout>

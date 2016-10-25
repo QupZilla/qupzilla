@@ -894,6 +894,13 @@ void MainApplication::loadSettings()
     const bool allowCache = settings.value(QSL("Web-Browser-Settings/AllowLocalCache"), true).toBool();
     profile->setHttpCacheType(allowCache ? QWebEngineProfile::DiskHttpCache : QWebEngineProfile::MemoryHttpCache);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    settings.beginGroup(QSL("SpellCheck"));
+    profile->setSpellCheckEnabled(settings.value(QSL("Enabled"), false).toBool());
+    profile->setSpellCheckLanguage(settings.value(QSL("Language"), QString()).toString());
+    settings.endGroup();
+#endif
+
     if (isPrivate()) {
         webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
         history()->setSaving(false);

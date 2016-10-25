@@ -58,10 +58,15 @@
 #include <QDesktopWidget>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
+#include <QLibraryInfo>
 
 static QString createLanguageItem(const QString &lang)
 {
     QLocale locale(lang);
+
+    if (locale.language() == QLocale::C) {
+        return lang;
+    }
 
     QString country = QLocale::countryToString(locale.country());
     QString language = QLocale::languageToString(locale.language());
@@ -119,7 +124,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
     ui->listWidget->item(9)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
     ui->listWidget->item(10)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-    ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+    ui->listWidget->item(11)->setIcon(QIcon::fromTheme("tools-check-spelling", QIcon(":/icons/preferences/tools-check-spelling.png")));
+    ui->listWidget->item(12)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
 
     Settings settings;
     //GENERAL URLs
@@ -394,6 +400,34 @@ Preferences::Preferences(BrowserWindow* window)
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    //SPELLCHECK
+    settings.beginGroup(QSL("SpellCheck"));
+    ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
+    const QString spellcheckLanguage = settings.value(QSL("Language")).toString();
+    settings.endGroup();
+
+    const QStringList dictionariesDirs = {
+        QCoreApplication::applicationDirPath() + QL1S("/qtwebengine_dictionaries"),
+        QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries")
+    };
+
+    for (const QString &path : dictionariesDirs) {
+        QDir dir(path);
+        const QStringList files = dir.entryList({QSL("*.bdic")});
+        for (const QString &file : files) {
+            const QString lang = file.left(file.size() - 5);
+            ui->spellcheckLanguage->addItem(createLanguageItem(lang), lang);
+            if (lang == spellcheckLanguage) {
+                ui->spellcheckLanguage->setCurrentIndex(ui->spellcheckLanguage->count() - 1);
+            }
+        }
+    }
+#else
+    delete ui->listWidget->item(11);
+    delete ui->stackedWidget->widget(11);
+#endif
 
     //OTHER
     //Languages
@@ -947,6 +981,14 @@ void Preferences::saveSettings()
     settings.setValue("UseNativeDesktop", ui->useNativeSystemNotifications->isChecked());
     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
     settings.endGroup();
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    //SPELLCHECK
+    settings.beginGroup(QSL("SpellCheck"));
+    settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
+    settings.setValue("Language", ui->spellcheckLanguage->currentData().toString());
+    settings.endGroup();
+#endif
 
     //OTHER
     //AddressBar
