@@ -218,12 +218,12 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
     } else if (m_downloadPath.isEmpty()) {
-        enum Result { Open = 1, Save = 2, ExternalManager = 3, Unknown = 0 };
+        enum Result { Open = 1, Save = 2, ExternalManager = 3, SavePage = 4, Unknown = 0 };
         Result result = Unknown;
 
-        if (fileName.endsWith(QL1S(".mhtml"))) {
-            // Save Page action
-            result = Save;
+        if (downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat) {
+            // Save Page requested
+            result = SavePage;
         } else {
             // Ask what to do
             DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
@@ -241,12 +241,46 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 
         case Save:
             downloadPath = QFileDialog::getSaveFileName(mApp->activeWindow(), tr("Save file as..."), m_lastDownloadPath + QLatin1Char('/') + fileName);
+
             if (!downloadPath.isEmpty()) {
                 m_lastDownloadPath = QFileInfo(downloadPath).absolutePath();
                 Settings().setValue(QSL("DownloadManager/lastDownloadPath"), m_lastDownloadPath);
                 m_lastDownloadOption = SaveFile;
             }
             break;
+
+        case SavePage: {
+            const QString mhtml = tr("MIME HTML Archive (*.mhtml)");
+            const QString htmlSingle = tr("HTML Page, single (*.html)");
+            const QString htmlComplete = tr("HTML Page, complete (*.html)");
+            const QString filter = QStringLiteral("%1;;%2;;%3").arg(mhtml, htmlSingle, htmlComplete);
+
+            QString selectedFilter;
+            downloadPath = QFileDialog::getSaveFileName(mApp->activeWindow(), tr("Save page as..."),
+                                                        m_lastDownloadPath + QLatin1Char('/') + fileName,
+                                                        filter, &selectedFilter);
+
+            if (!downloadPath.isEmpty()) {
+                m_lastDownloadPath = QFileInfo(downloadPath).absolutePath();
+                Settings().setValue(QSL("DownloadManager/lastDownloadPath"), m_lastDownloadPath);
+                m_lastDownloadOption = SaveFile;
+
+                QWebEngineDownloadItem::SavePageFormat format = QWebEngineDownloadItem::UnknownSaveFormat;
+
+                if (selectedFilter == mhtml) {
+                    format = QWebEngineDownloadItem::MimeHtmlSaveFormat;
+                } else if (selectedFilter == htmlSingle) {
+                    format = QWebEngineDownloadItem::SingleHtmlSaveFormat;
+                } else if (selectedFilter == htmlComplete) {
+                    format = QWebEngineDownloadItem::CompleteHtmlSaveFormat;
+                }
+
+                if (format != QWebEngineDownloadItem::UnknownSaveFormat) {
+                    downloadItem->setSavePageFormat(format);
+                }
+            }
+            break;
+        }
 
         case ExternalManager:
             startExternalManager(downloadItem->url());
