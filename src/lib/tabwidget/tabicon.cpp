@@ -37,8 +37,8 @@ TabIcon::TabIcon(QWidget* parent)
     m_animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
     m_framesCount = m_animationPixmap.width() / m_animationPixmap.height();
 
-    m_audioPlayingPixmap = QIcon(QSL(":icons/other/audioplaying.png")).pixmap(15, 15);
-    m_audioMutedPixmap = QIcon(QSL(":icons/other/audiomuted.png")).pixmap(15, 15);
+    m_audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.png"))).pixmap(16);
+    m_audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.png"))).pixmap(16);
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
@@ -100,10 +100,13 @@ void TabIcon::updateAnimationFrame()
 
 void TabIcon::updateAudioIcon(bool recentlyAudible)
 {
-    if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible))
+    if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible)) {
+        setToolTip(m_tab->isMuted() ? tr("Unmute Tab") : tr("Mute Tab"));
         m_audioIconDisplayed = true;
-    else
+    } else {
+        setToolTip(QString());
         m_audioIconDisplayed = false;
+    }
 
     update();
 }
@@ -124,25 +127,23 @@ void TabIcon::paintEvent(QPaintEvent* event)
     r.setWidth(size);
     r.setHeight(size);
 
-    if (m_animationRunning)
-        p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
-    else
-        p.drawPixmap(r, m_sitePixmap);
-
     if (m_audioIconDisplayed) {
         if (m_tab->isMuted())
-            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioMutedPixmap);
+            p.drawPixmap(r, m_audioMutedPixmap);
         else
-            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioPlayingPixmap);
+            p.drawPixmap(r, m_audioPlayingPixmap);
+    } else {
+        if (m_animationRunning)
+            p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
+        else
+            p.drawPixmap(r, m_sitePixmap);
     }
 }
 
 void TabIcon::mousePressEvent(QMouseEvent *event)
 {
-    qreal x = event->localPos().x();
-    qreal y = event->localPos().y();
-    // if audio icon is clicked - we don't propagate mouse press to the tab
-    if (m_audioIconDisplayed && x >= width() * 0.25 && y < height() * 0.75)
+    // If audio icon is clicked - we don't propagate mouse press to the tab
+    if (m_audioIconDisplayed && event->button() == Qt::LeftButton)
         m_tab->toggleMuted();
     else
         QWidget::mousePressEvent(event);
