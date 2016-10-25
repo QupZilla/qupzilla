@@ -329,8 +329,6 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
-    menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
         if (!webTab) {
@@ -354,18 +352,17 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         menu.addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
-        menu.addSeparator();
-        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(tr("Close Tabs To The Right"), this, SLOT(closeToRight()));
         menu.addAction(tr("Close Tabs To The Left"), this, SLOT(closeToLeft()));
-        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
-    }
-    else {
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
+        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
+    } else {
+        menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
+        menu.addSeparator();
         menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
@@ -463,18 +460,6 @@ void TabBar::currentTabChanged(int index)
     }
 
     m_tabWidget->currentTabChanged(index);
-}
-
-void TabBar::bookmarkTab()
-{
-    TabbedWebView* view = m_window->weView(m_clickedTab);
-    if (!view) {
-        return;
-    }
-
-    WebTab* tab = view->webTab();
-
-    m_window->addBookmark(tab->url(), tab->title());
 }
 
 void TabBar::pinTab()
