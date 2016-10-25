@@ -1079,13 +1079,6 @@ void WebView::_keyPressEvent(QKeyEvent *event)
         }
         break;
 
-    case Qt::Key_Escape:
-        if (isFullScreen()) {
-            triggerPageAction(QWebEnginePage::ExitFullScreen);
-            event->accept();
-        }
-        break;
-
     default:
         break;
     }
@@ -1095,6 +1088,18 @@ void WebView::_keyReleaseEvent(QKeyEvent *event)
 {
     if (mApp->plugins()->processKeyRelease(Qz::ON_WebView, this, event)) {
         event->accept();
+    }
+
+    switch (event->key()) {
+    case Qt::Key_Escape:
+        if (isFullScreen()) {
+            triggerPageAction(QWebEnginePage::ExitFullScreen);
+            event->accept();
+        }
+        break;
+
+    default:
+        break;
     }
 }
 
@@ -1143,25 +1148,24 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
         }
     }
 
+    // Keyboard events are sent to parent widget
+    if (obj == this && event->type() == QEvent::ParentChange && parent()) {
+        parent()->installEventFilter(this);
+    }
+
     // Forward events to WebView
-    if (obj == m_rwhvqt) {
 #define HANDLE_EVENT(f, t) \
-        { \
-        bool wasAccepted = event->isAccepted(); \
-        event->setAccepted(false); \
-        f(static_cast<t*>(event)); \
-        bool ret = event->isAccepted(); \
-        event->setAccepted(wasAccepted); \
-        return ret; \
-        }
+    { \
+    bool wasAccepted = event->isAccepted(); \
+    event->setAccepted(false); \
+    f(static_cast<t*>(event)); \
+    bool ret = event->isAccepted(); \
+    event->setAccepted(wasAccepted); \
+    return ret; \
+    }
 
+    if (obj == m_rwhvqt) {
         switch (event->type()) {
-        case QEvent::KeyPress:
-            HANDLE_EVENT(_keyPressEvent, QKeyEvent);
-
-        case QEvent::KeyRelease:
-            HANDLE_EVENT(_keyReleaseEvent, QKeyEvent);
-
         case QEvent::MouseButtonPress:
             HANDLE_EVENT(_mousePressEvent, QMouseEvent);
 
@@ -1177,9 +1181,21 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
         default:
             break;
         }
-
-#undef HANDLE_EVENT
     }
+
+    if (obj == parentWidget()) {
+        switch (event->type()) {
+        case QEvent::KeyPress:
+            HANDLE_EVENT(_keyPressEvent, QKeyEvent);
+
+        case QEvent::KeyRelease:
+            HANDLE_EVENT(_keyReleaseEvent, QKeyEvent);
+
+        default:
+            break;
+        }
+    }
+#undef HANDLE_EVENT
 
     // Block already handled events
     if (obj == this) {
