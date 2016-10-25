@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,15 +51,18 @@ private:
 
     WebTab* m_tab;
     QTimer* m_updateTimer;
-
     QPixmap m_sitePixmap;
-    QPixmap m_animationPixmap;
-    QPixmap m_audioPlayingPixmap;
-    QPixmap m_audioMutedPixmap;
     int m_currentFrame;
-    int m_framesCount;
     bool m_animationRunning;
     bool m_audioIconDisplayed;
+
+    struct Data {
+        int framesCount;
+        QPixmap animationPixmap;
+        QPixmap audioPlayingPixmap;
+        QPixmap audioMutedPixmap;
+    };
+    static Data *s_data;
 };
 
 #endif // TABICON_H

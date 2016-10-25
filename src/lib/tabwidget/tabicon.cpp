@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2014-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@
 
 #define ANIMATION_INTERVAL 70
 
+TabIcon::Data *TabIcon::s_data = Q_NULLPTR;
+
 TabIcon::TabIcon(QWidget* parent)
     : QWidget(parent)
     , m_tab(0)
@@ -34,11 +36,13 @@ TabIcon::TabIcon(QWidget* parent)
 {
     setObjectName(QSL("tab-icon"));
 
-    m_animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
-    m_framesCount = m_animationPixmap.width() / m_animationPixmap.height();
-
-    m_audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.png"))).pixmap(16);
-    m_audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.png"))).pixmap(16);
+    if (!s_data) {
+        s_data = new TabIcon::Data;
+        s_data->animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
+        s_data->framesCount = s_data->animationPixmap.width() / s_data->animationPixmap.height();
+        s_data->audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.png"))).pixmap(16);
+        s_data->audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.png"))).pixmap(16);
+    }
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
@@ -95,7 +99,7 @@ void TabIcon::updateAnimationFrame()
     }
 
     update();
-    m_currentFrame = (m_currentFrame + 1) % m_framesCount;
+    m_currentFrame = (m_currentFrame + 1) % s_data->framesCount;
 }
 
 void TabIcon::updateAudioIcon(bool recentlyAudible)
@@ -118,7 +122,7 @@ void TabIcon::paintEvent(QPaintEvent* event)
     QPainter p(this);
 
     const int size = 16;
-    const int pixmapSize = qRound(size * m_animationPixmap.devicePixelRatioF());
+    const int pixmapSize = qRound(size * s_data->animationPixmap.devicePixelRatioF());
 
     // Center the pixmap in rect
     QRect r = rect();
@@ -129,12 +133,12 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     if (m_audioIconDisplayed) {
         if (m_tab->isMuted())
-            p.drawPixmap(r, m_audioMutedPixmap);
+            p.drawPixmap(r, s_data->audioMutedPixmap);
         else
-            p.drawPixmap(r, m_audioPlayingPixmap);
+            p.drawPixmap(r, s_data->audioPlayingPixmap);
     } else {
         if (m_animationRunning)
-            p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
+            p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
         else
             p.drawPixmap(r, m_sitePixmap);
     }
