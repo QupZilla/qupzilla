@@ -409,7 +409,7 @@ Preferences::Preferences(BrowserWindow* window)
     settings.endGroup();
 
     const QStringList dictionariesDirs = {
-#if Q_OS_OSX
+#ifdef Q_OS_OSX
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
 #else
