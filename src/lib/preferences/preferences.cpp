@@ -409,8 +409,13 @@ Preferences::Preferences(BrowserWindow* window)
     settings.endGroup();
 
     const QStringList dictionariesDirs = {
-        QCoreApplication::applicationDirPath() + QL1S("/qtwebengine_dictionaries"),
-        QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries")
+#if Q_OS_OSX
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
+#else
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/qtwebengine_dictionaries")),
+        QDir::cleanPath(QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries"))
+#endif
     };
 
     ui->spellcheckDirectories->setText(dictionariesDirs.join(QL1C('\n')));
