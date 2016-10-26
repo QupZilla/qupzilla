@@ -424,6 +424,12 @@ Preferences::Preferences(BrowserWindow* window)
             }
         }
     }
+
+    if (ui->spellcheckLanguage->count() == 0) {
+        ui->spellcheckLanguage->hide();
+    } else {
+        ui->spellcheckNoLanguages->hide();
+    }
 #else
     delete ui->listWidget->item(11);
     delete ui->stackedWidget->widget(11);
