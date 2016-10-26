@@ -413,6 +413,8 @@ Preferences::Preferences(BrowserWindow* window)
         QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries")
     };
 
+    ui->spellcheckDirectories->setText(dictionariesDirs.join(QL1C('\n')));
+
     for (const QString &path : dictionariesDirs) {
         QDir dir(path);
         const QStringList files = dir.entryList({QSL("*.bdic")});
