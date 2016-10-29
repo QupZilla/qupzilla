@@ -36,8 +36,10 @@ QString ChromeImporter::description() const
 
 QString ChromeImporter::standardPath() const
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
     return QString("%APPDATA%/Chrome/");
+#elif defined(Q_OS_OSX)
+    return QDir::homePath() + QLatin1String("/Library/Application Support/Google/Chrome/");
 #else
     return QDir::homePath() + QLatin1String("/.config/chrome/");
 #endif
