@@ -331,7 +331,7 @@ LangString MSG_RunningInstance ${LANG_HONGKONG} "QupZilla啟用中。是否要�
 LangString MSG_InstallationCanceled ${LANG_HONGKONG} "用戶主動終止安裝。"
 
 ;;;;Traditional Chinese
-LangString PRODUCT_DESC  ${LANG_TRADCHINESE} "QupZilla 是一個新穎、快速、安全且開放原始碼的 WWW 瀏覽器。QupZilla 以 GPLv3 或是 (在您的選擇下) 更新的版本釋出。 QupZilla 是基於 WebKit 內核及 Qt 框架。"
+LangString PRODUCT_DESC  ${LANG_TRADCHINESE} "QupZilla 是一個新穎、快速、安全且開放原始碼的 WWW 瀏覽器。QupZilla 以 GPLv3 或是 (在您的選擇下) 更新的版本釋出。QupZilla 是基於 WebKit 內核及 Qt 框架。"
 ;
 LangString TITLE_SecMain ${LANG_TRADCHINESE} "主要組件"
 LangString TITLE_SecTranslations ${LANG_TRADCHINESE} "語言版本"
