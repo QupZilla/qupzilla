@@ -1,0 +1,43 @@
+{
+    "id": "org.qt.qupzilla",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "master",
+    "sdk": "org.kde.Sdk",
+    "rename-desktop-file": "qupzilla.desktop",
+    "rename-appdata-file": "qupzilla.appdata.xml",
+    "rename-icon": "qupzilla",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "command": "qupzilla",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--filesystem=host"
+    ],
+
+    "modules": [
+        {
+            "name": "qupzilla",
+            "build-options": {
+                "env": {
+                    "QUPZILLA_PREFIX": "/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/QupZilla/qupzilla.git",
+                    "branch": "v1.8"
+                },
+                {
+                    "type": "script",
+                    "commands": [ "qmake" ],
+                    "dest-filename": "configure"
+                }
+            ]
+        }
+    ]
+}
