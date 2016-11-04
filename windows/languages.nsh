@@ -382,7 +382,7 @@ LangString DESC_SecSetASDefault ${LANG_SIMPCHINESE} "将 QupZilla 做为默认�
 LangString DESC_SecProtocols ${LANG_SIMPCHINESE} "关联 http、https 与 ftp 协议至 QupZilla。"
 ;
 LangString MSG_RunningInstance ${LANG_SIMPCHINESE} "正在使用 QupZilla。您希望安装程序试着结束它吗？"
-LangString MSG_InstallationCanceled ${LANG_SIMPCHINESE} "用户取消程序。"
+LangString MSG_InstallationCanceled ${LANG_SIMPCHINESE} "用户撤销程序。"
 
 ;;;;Bahasa Indonesia
 LangString TITLE_SecMain ${LANG_INDONESIAN} "Komponen Utama"
