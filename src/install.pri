@@ -44,7 +44,7 @@ mac {
     ico256.path = $$hicolor_folder/256x256/apps
 
     bashcompletion.files = $$PWD/../linux/completion/qupzilla
-    bashcompletion.path = $$share_folder/usr/share/bash-completion/completions
+    bashcompletion.path = $$share_folder/bash-completion/completions
 
     appdata.files = $$PWD/../linux/appdata/qupzilla.appdata.xml
     appdata.path = $$share_folder/appdata
