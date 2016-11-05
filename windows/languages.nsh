@@ -312,7 +312,7 @@ LangString DESC_SecDesktop ${LANG_ROMANIAN} "Adaugă scurtătură pe Desktop."
 LangString DESC_SecExtensions ${LANG_ROMANIAN} "Asociază QupZilla cu .htm și fișiere .html"
 LangString DESC_SecThemes ${LANG_ROMANIAN} "Teme adiționale pentru QupZilla"
 
-;;;;Hong Kong Cantonese
+;;;;Hongkongese
 LangString PRODUCT_DESC  ${LANG_HONGKONG} "QupZilla是一個嶄新、快速、安全和開放原始碼的網頁瀏覽器。QupZilla基於GPL的3或（你意願下的）較新版本釋出授權。QupZilla使用WebKit核心和Qt框架。"
 ;
 LangString TITLE_SecMain ${LANG_HONGKONG} "主要組件"
