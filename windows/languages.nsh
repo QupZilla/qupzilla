@@ -358,7 +358,7 @@ LangString MSG_RunningInstance ${LANG_TRADCHINESE} "正在執行 QupZilla。要�
 LangString MSG_InstallationCanceled ${LANG_TRADCHINESE} "使用者取消安裝。"
 
 ;;;;Simplified Chinese
-LangString PRODUCT_DESC  ${LANG_SIMPCHINESE} "QupZilla 是新出、高速、安全的开源 WWW 浏览器。QupZilla 基于 GPL 协议第3版或（如果您需要）任何之后的版本。它使用 WebKit 排版引擎。"
+LangString PRODUCT_DESC  ${LANG_SIMPCHINESE} "QupZilla 是新出、高速、安全的开源 WWW 浏览器。QupZilla 基于 GPL 协议第 3 版或（如果您需要）任何之后的版本。它使用 WebKit 排版引擎。"
 ;
 LangString TITLE_SecMain ${LANG_SIMPCHINESE} "核心部件"
 LangString TITLE_SecTranslations ${LANG_SIMPCHINESE} "翻译"
