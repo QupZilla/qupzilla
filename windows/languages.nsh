@@ -133,12 +133,16 @@ LangString MSG_RunningInstance ${LANG_CATALAN} "El QupZilla ja està actiu. Vole
 LangString MSG_InstallationCanceled ${LANG_CATALAN} "L'usuari ha cancel·lat el procés."
 
 ;;;;Slovak
+LangString PRODUCT_DESC ${LANG_SLOVAK} "QupZilla je nový, rýchly a bezpečný open-source internetový prehliadač. QupZilla je licencovaná pod licenciou GPL verzie 3 alebo (podľa vášho uváženia) hocijakej novšej verzie. Je založená na jadre WebKit a frameworku Qt."
+;
 LangString TITLE_SecMain ${LANG_SLOVAK} "Hlavné komponenty"
 LangString TITLE_SecTranslations ${LANG_SLOVAK} "Preklady"
 LangString TITLE_SecPlugins ${LANG_SLOVAK} "Doplnky"
 LangString TITLE_SecDesktop ${LANG_SLOVAK} "Odkaz na ploche"
 LangString TITLE_SecExtensions ${LANG_SLOVAK} "Asociácia súborov"
 LangString TITLE_SecThemes ${LANG_SLOVAK} "Témy"
+LangString TITLE_SecSetASDefault ${LANG_SLOVAK} "Predvolený prehliadač"
+LangString TITLE_SecProtocols ${LANG_SLOVAK} "Asociácie protokolov"
 
 LangString FILE_Htm ${LANG_SLOVAK} "Súbor HTM"
 LangString FILE_Html ${LANG_SLOVAK} "Súbor HTML"
@@ -149,6 +153,11 @@ LangString DESC_SecPlugins ${LANG_SLOVAK} "Ostatné doplnky dustupné na inštal
 LangString DESC_SecDesktop ${LANG_SLOVAK} "Pridať odkaz na plochu."
 LangString DESC_SecExtensions ${LANG_SLOVAK} "Associovať QupZillu s .htm(l) súbormi"
 LangString DESC_SecThemes ${LANG_SLOVAK} "Ďalšie témy vzhľadu pre QupZillu"
+LangString DESC_SecSetASDefault ${LANG_SLOVAK} "Nastaviť Qupzillu ako predvolený internetový prehliadač"
+LangString DESC_SecProtocols ${LANG_SLOVAK} "Asociovať QupZillu s http(s) a ftp protokolmi"
+;
+LangString MSG_RunningInstance ${LANG_SLOVAK} "QupZilla je už spustená! Chcete, aby sa inštalátor pokúsil ju násilne ukončiť?"
+LangString MSG_InstallationCanceled ${LANG_SLOVAK} "Proces zrušený používateľom."
 
 ;;;;German
 LangString PRODUCT_DESC  ${LANG_GERMAN} "QupZilla ist ein neuer, schneller und sicherer, quelloffener Web Browser. QupZilla ist lizensiert unter GPL Version 3 oder später. Er nutzt Webkit und das Qt Framework."
@@ -648,7 +657,6 @@ LangString MSG_InstallationCanceled ${LANG_BASQUE} "Prozesua erabiltzaileak ezez
 ; Unfinished translations
 ;;;;;;;;;
 ;;;;;;;;;
-LangString PRODUCT_DESC ${LANG_SLOVAK} "QupZilla je nový, rýchly a bezpečný open-source internetový prehliadač. QupZilla je licencovaná pod licenciou GPL verzie 3 alebo (podľa vášho uváženia) hocijakej novšej verzie. Je založená na jadre WebKit a frameworku Qt."
 LangString PRODUCT_DESC ${LANG_DUTCH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_GREEK} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_ITALIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
@@ -658,7 +666,6 @@ LangString PRODUCT_DESC ${LANG_GEORGIAN} "QupZilla is a new, fast and secure ope
 LangString PRODUCT_DESC ${LANG_SWEDISH} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 LangString PRODUCT_DESC ${LANG_UKRAINIAN} "QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework."
 
-LangString TITLE_SecSetASDefault ${LANG_SLOVAK} "Predvolený prehliadač"
 LangString TITLE_SecSetASDefault ${LANG_DUTCH} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_GREEK} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_ITALIAN} "Default Browser"
@@ -668,7 +675,6 @@ LangString TITLE_SecSetASDefault ${LANG_GEORGIAN} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_SWEDISH} "Default Browser"
 LangString TITLE_SecSetASDefault ${LANG_UKRAINIAN} "Default Browser"
 
-LangString TITLE_SecProtocols ${LANG_SLOVAK} "Asociácie protokolov"
 LangString TITLE_SecProtocols ${LANG_DUTCH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_GREEK} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_ITALIAN} "Protocol Associations"
@@ -678,7 +684,6 @@ LangString TITLE_SecProtocols ${LANG_GEORGIAN} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_SWEDISH} "Protocol Associations"
 LangString TITLE_SecProtocols ${LANG_UKRAINIAN} "Protocol Associations"
 
-LangString DESC_SecSetASDefault ${LANG_SLOVAK} "Nastaviť Qupzillu ako predvolený internetový prehliadač"
 LangString DESC_SecSetASDefault ${LANG_DUTCH} "Set QupZilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_GREEK} "Set QupZilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_ITALIAN} "Set QupZilla as default internet browser"
@@ -688,7 +693,6 @@ LangString DESC_SecSetASDefault ${LANG_GEORGIAN} "Set QupZilla as default intern
 LangString DESC_SecSetASDefault ${LANG_SWEDISH} "Set QupZilla as default internet browser"
 LangString DESC_SecSetASDefault ${LANG_UKRAINIAN} "Set QupZilla as default internet browser"
 
-LangString DESC_SecProtocols ${LANG_SLOVAK} "Asociovať QupZillu s http(s) a ftp protokolmi"
 LangString DESC_SecProtocols ${LANG_DUTCH} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_GREEK} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_ITALIAN} "Associate QupZilla with http(s) and ftp protocols"
@@ -698,7 +702,6 @@ LangString DESC_SecProtocols ${LANG_GEORGIAN} "Associate QupZilla with http(s) a
 LangString DESC_SecProtocols ${LANG_SWEDISH} "Associate QupZilla with http(s) and ftp protocols"
 LangString DESC_SecProtocols ${LANG_UKRAINIAN} "Associate QupZilla with http(s) and ftp protocols"
 
-LangString MSG_RunningInstance ${LANG_SLOVAK} "QupZilla je už spustená! Chcete, aby sa inštalátor pokúsil ju násilne ukončiť?"
 LangString MSG_RunningInstance ${LANG_DUTCH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_GREEK} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_ITALIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
@@ -708,7 +711,6 @@ LangString MSG_RunningInstance ${LANG_GEORGIAN} "QupZilla is already running! Do
 LangString MSG_RunningInstance ${LANG_SWEDISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_RunningInstance ${LANG_UKRAINIAN} "QupZilla is already running! Do you want the installer try to terminate it?"
 
-LangString MSG_InstallationCanceled ${LANG_SLOVAK} "Proces zrušený používateľom."
 LangString MSG_InstallationCanceled ${LANG_DUTCH} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_GREEK} "Process cancelled by user."
 LangString MSG_InstallationCanceled ${LANG_ITALIAN} "Process cancelled by user."
