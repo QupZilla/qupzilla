@@ -61,6 +61,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "Romanian"
+!insertmacro MUI_LANGUAGE "Hongkongese"
 !insertmacro MUI_LANGUAGE "Tradchinese"
 !insertmacro MUI_LANGUAGE "Simpchinese"
 !insertmacro MUI_LANGUAGE "Indonesian"
@@ -584,6 +585,8 @@ Function .onInit
         Push Italian
         Push ${LANG_ROMANIAN}
         Push Romanian
+        Push ${LANG_HONGKONG}
+        Push Hongkongese
         Push ${LANG_TRADCHINESE}
         Push TraditionalChinese
         Push ${LANG_SIMPCHINESE}
