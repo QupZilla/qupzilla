@@ -1,5 +1,5 @@
 {
-    "id": "org.qt.qupzilla",
+    "id": "org.qupzilla.QupZilla",
     "runtime": "org.kde.Platform",
     "runtime-version": "master",
     "sdk": "org.kde.Sdk",
@@ -15,7 +15,9 @@
         "--socket=x11",
         "--socket=wayland",
         "--socket=pulseaudio",
-        "--filesystem=host"
+        "--device=dri",
+        "--filesystem=host",
+        "--system-talk-name=org.freedesktop.GeoClue2"
     ],
 
     "modules": [
@@ -29,8 +31,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/QupZilla/qupzilla.git",
-                    "branch": "v1.8"
+                    "url": "https://github.com/QupZilla/qupzilla.git"
                 },
                 {
                     "type": "script",
