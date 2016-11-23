@@ -745,6 +745,17 @@ void BrowserWindow::toggleShowStatusBar()
 
 }
 
+void BrowserWindow::showBookmarksToolbar(bool show)
+{
+    // Method for quick show/hiding of Bookmarks Toolbar
+    // Doesn't need updates and settings to be modified
+    // TODO: animate showing/hiding for better look
+
+    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+        m_bookmarksToolbar->setVisible(show);
+    }
+}
+
 void BrowserWindow::toggleShowBookmarksToolbar()
 {
     setUpdatesEnabled(false);
@@ -754,6 +765,7 @@ void BrowserWindow::toggleShowBookmarksToolbar()
     setUpdatesEnabled(true);
 
     Settings().setValue("Browser-View-Settings/showBookmarksToolbar", m_bookmarksToolbar->isVisible());
+    Settings().setValue("Browser-View-Settings/instantBookmarksToolbar", false);
 }
 
 void BrowserWindow::toggleShowNavigationToolbar()
@@ -897,7 +909,7 @@ void BrowserWindow::createToolbarsMenu(QMenu* menu)
 
     action = menu->addAction(tr("&Bookmarks Toolbar"), this, SLOT(toggleShowBookmarksToolbar()));
     action->setCheckable(true);
-    action->setChecked(m_bookmarksToolbar->isVisible());
+    action->setChecked(Settings().value("Browser-View-Settings/showBookmarksToolbar").toBool());
 
     menu->addSeparator();
 

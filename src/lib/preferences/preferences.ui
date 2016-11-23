@@ -591,6 +591,13 @@
                    </property>
                   </widget>
                  </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="instantBookmarksToolbar">
+                   <property name="text">
+                    <string>Enable instant Bookmarks ToolBar</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </item>
                <item row="2" column="0" colspan="2">

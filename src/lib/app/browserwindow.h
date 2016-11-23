@@ -127,6 +127,7 @@ public slots:
 
     void toggleShowMenubar();
     void toggleShowStatusBar();
+    void showBookmarksToolbar(bool show);
     void toggleShowBookmarksToolbar();
     void toggleShowNavigationToolbar();
     void toggleTabsOnTop(bool enable);
