@@ -29,4 +29,5 @@ QUPZILLA_EXPORT const char* AUTHOR = "David Rosca";
 QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2015";
 QUPZILLA_EXPORT const char* WWWADDRESS = "https://www.qupzilla.com";
 QUPZILLA_EXPORT const char* WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
+QUPZILLA_EXPORT const char* RAWVCS = "https://raw.githubusercontent.com/QupZilla/qupzilla/v1.8";
 }

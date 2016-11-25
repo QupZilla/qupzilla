@@ -529,6 +529,8 @@ isEqual(QT_MAJOR_VERSION, 5) {
 
     LIBS += -lcrypto
 
+    SOURCES -= network/cabundleupdater.cpp
+    HEADERS -= network/cabundleupdater.h
     RESOURCES -= data/certs.qrc
 }
 
