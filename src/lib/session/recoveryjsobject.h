@@ -29,14 +29,16 @@ class RestoreManager;
 class RecoveryJsObject : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QJsonArray restoreData READ restoreData CONSTANT)
+
 public:
     explicit RecoveryJsObject(RestoreManager *manager);
 
     void setPage(WebPage *page);
 
-public slots:
     QJsonArray restoreData() const;
 
+public slots:
     void startNewSession();
     void restoreSession(const QStringList &excludeWin, const QStringList &excludeTab);
 
