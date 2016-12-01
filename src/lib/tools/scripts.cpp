@@ -58,7 +58,7 @@ QString Scripts::setupWebChannel()
                            ""
                            "})()");
 
-    return source.arg(QzTools::readAllFileContents(QSL(":/html/qwebchannel.js")));
+    return source.arg(QzTools::readAllFileContents(QSL(":/qtwebchannel/qwebchannel.js")));
 }
 
 QString Scripts::setupFormObserver()
