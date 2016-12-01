@@ -897,7 +897,7 @@ void MainApplication::loadSettings()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     settings.beginGroup(QSL("SpellCheck"));
     profile->setSpellCheckEnabled(settings.value(QSL("Enabled"), false).toBool());
-    profile->setSpellCheckLanguage(settings.value(QSL("Language"), QString()).toString());
+    profile->setSpellCheckLanguages({settings.value(QSL("Language"), QString()).toString()});
     settings.endGroup();
 #endif
 
