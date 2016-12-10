@@ -23,6 +23,8 @@
 #include <QImage>
 #include <QUrl>
 
+#include <functional>
+
 #include "qzcommon.h"
 
 class QIcon;
@@ -59,6 +61,7 @@ public:
     // Icon for url (only available for urls in history)
     static QIcon iconForUrl(const QUrl &url);
     static QImage imageForUrl(const QUrl &url);
+    static void imageForUrlAsync(const QUrl &url, QObject *receiver, std::function<void(const QImage&)> callback);
 
     // Icon for domain (only available for urls in history)
     static QIcon iconForDomain(const QUrl &url);

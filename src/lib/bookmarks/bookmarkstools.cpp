@@ -389,7 +389,9 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
     Action* act = new Action(menu);
     QString title = QFontMetrics(act->font()).elidedText(bookmark->title(), Qt::ElideRight, 250);
     act->setText(title);
-    act->setIcon(bookmark->icon());
+    IconProvider::imageForUrlAsync(bookmark->url(), act, [=](const QImage &img) {
+        act->setIcon(QIcon(QPixmap::fromImage(img)));
+    });
 
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
     act->setIconVisibleInMenu(true);

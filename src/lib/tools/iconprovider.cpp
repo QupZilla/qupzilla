@@ -25,6 +25,8 @@
 
 #include <QTimer>
 #include <QBuffer>
+#include <QFutureWatcher>
+#include <QtConcurrent/QtConcurrentRun>
 
 Q_GLOBAL_STATIC(IconProvider, qz_icon_provider)
 
@@ -179,13 +181,23 @@ QImage IconProvider::imageForUrl(const QUrl &url)
 
     query.addBindValue(QString("%1%").arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
     query.addBindValue(QL1S("!"));
-    query.exec();
+    query = SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
     }
 
     return IconProvider::emptyWebImage();
+}
+
+void IconProvider::imageForUrlAsync(const QUrl &url, QObject *receiver, std::function<void(const QImage &)> callback)
+{
+    QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>();
+    connect(watcher, &QFutureWatcher<QImage>::finished, receiver, [=]() {
+        watcher->deleteLater();
+        callback(watcher->result());
+    });
+    watcher->setFuture(QtConcurrent::run(imageForUrl, url));
 }
 
 QIcon IconProvider::iconForDomain(const QUrl &url)
