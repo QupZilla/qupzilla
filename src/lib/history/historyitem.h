@@ -46,11 +46,9 @@ public:
     int indexOfChild(HistoryItem* child);
 
     bool isTopLevel() const;
-    bool iconLoaded() const;
 
     QIcon icon() const;
     void setIcon(const QIcon &icon);
-    void refreshIcon();
 
     void setStartTimestamp(qint64 start);
     qint64 startTimestamp() const;
@@ -67,7 +65,6 @@ private:
     QList<HistoryItem*> m_children;
 
     QIcon m_icon;
-    bool m_iconLoaded;
 
     qint64 m_startTimestamp;
     qint64 m_endTimestamp;

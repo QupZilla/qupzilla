@@ -82,6 +82,8 @@ private:
     void mouseDoubleClickEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
 
+    void drawRow(QPainter* painter, const QStyleOptionViewItem &options, const QModelIndex &index) const;
+
     Bookmarks* m_bookmarks;
     BookmarksModel* m_model;
     BookmarksFilterModel* m_filter;

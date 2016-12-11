@@ -38,11 +38,12 @@ public:
         UrlRole = Qt::UserRole + 2,
         UrlStringRole = Qt::UserRole + 3,
         TitleRole = Qt::UserRole + 4,
-        DescriptionRole = Qt::UserRole + 5,
-        KeywordRole = Qt::UserRole + 6,
-        VisitCountRole = Qt::UserRole + 7,
-        ExpandedRole = Qt::UserRole + 8,
-        SidebarExpandedRole = Qt::UserRole + 9,
+        IconRole = Qt::UserRole + 5,
+        DescriptionRole = Qt::UserRole + 6,
+        KeywordRole = Qt::UserRole + 7,
+        VisitCountRole = Qt::UserRole + 8,
+        ExpandedRole = Qt::UserRole + 9,
+        SidebarExpandedRole = Qt::UserRole + 10,
         MaxRole = SidebarExpandedRole
     };
 
@@ -53,6 +54,7 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QVariant data(const QModelIndex &index, int role) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;

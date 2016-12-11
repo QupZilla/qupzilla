@@ -255,11 +255,13 @@ void HistoryTreeView::keyPressEvent(QKeyEvent* event)
 void HistoryTreeView::drawRow(QPainter* painter, const QStyleOptionViewItem &options, const QModelIndex &index) const
 {
     bool itemTopLevel = index.data(HistoryModel::IsTopLevelRole).toBool();
-    bool iconLoaded = index.data(HistoryModel::IconLoadedRole).toBool();
+    bool iconLoaded = !index.data(HistoryModel::IconRole).value<QIcon>().isNull();
 
     if (index.isValid() && !itemTopLevel && !iconLoaded) {
-        const QIcon icon = IconProvider::iconForUrl(index.data(HistoryModel::UrlRole).toUrl());
-        model()->setData(index, icon, HistoryModel::IconRole);
+        const QPersistentModelIndex idx = index;
+        IconProvider::imageForUrlAsync(index.data(HistoryModel::UrlRole).toUrl(), this, [=](const QImage &img) {
+            model()->setData(idx, QIcon(QPixmap::fromImage(img)), HistoryModel::IconRole);
+        });
     }
 
     QTreeView::drawRow(painter, options, index);

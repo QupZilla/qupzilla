@@ -190,7 +190,7 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
     return allowEmpty ? QImage() : IconProvider::emptyWebImage();
 }
 
-void IconProvider::imageForUrlAsync(const QUrl &url, QObject *receiver, std::function<void(const QImage &)> callback)
+void IconProvider::imageForUrlAsync(const QUrl &url, const QObject *receiver, std::function<void(const QImage &)> callback)
 {
     QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>();
     connect(watcher, &QFutureWatcher<QImage>::finished, receiver, [=]() {

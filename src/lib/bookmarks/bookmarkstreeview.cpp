@@ -21,6 +21,7 @@
 #include "bookmarkitem.h"
 #include "bookmarks.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
 
 #include <QHeaderView>
 #include <QMouseEvent>
@@ -287,4 +288,19 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
             break;
         }
     }
+}
+
+void BookmarksTreeView::drawRow(QPainter *painter, const QStyleOptionViewItem &options, const QModelIndex &index) const
+{
+    bool itemIsUrl = BookmarkItem::Type(index.data(BookmarksModel::TypeRole).toInt()) == BookmarkItem::Url;
+    bool iconLoaded = !index.data(BookmarksModel::IconRole).value<QIcon>().isNull();
+
+    if (itemIsUrl && !iconLoaded) {
+        const QPersistentModelIndex idx = index;
+        IconProvider::imageForUrlAsync(index.data(BookmarksModel::UrlRole).toUrl(), this, [=](const QImage &img) {
+            model()->setData(idx, QIcon(QPixmap::fromImage(img)), BookmarksModel::IconRole);
+        });
+    }
+
+    QTreeView::drawRow(painter, options, index);
 }

@@ -21,7 +21,6 @@
 HistoryItem::HistoryItem(HistoryItem* parent)
     : canFetchMore(false)
     , m_parent(parent)
-    , m_iconLoaded(false)
     , m_startTimestamp(0)
     , m_endTimestamp(0)
 {
@@ -121,11 +120,6 @@ bool HistoryItem::isTopLevel() const
     return (m_startTimestamp != 0);
 }
 
-bool HistoryItem::iconLoaded() const
-{
-    return m_iconLoaded;
-}
-
 QIcon HistoryItem::icon() const
 {
     return m_icon;
@@ -134,12 +128,6 @@ QIcon HistoryItem::icon() const
 void HistoryItem::setIcon(const QIcon &icon)
 {
     m_icon = icon;
-    m_iconLoaded = true;
-}
-
-void HistoryItem::refreshIcon()
-{
-    m_iconLoaded = false;
 }
 
 void HistoryItem::setStartTimestamp(qint64 start)

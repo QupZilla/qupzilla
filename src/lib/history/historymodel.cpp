@@ -105,8 +105,6 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         return entry.urlString;
     case IconRole:
         return item->icon();
-    case IconLoadedRole:
-        return item->iconLoaded();
     case IsTopLevelRole:
         return false;
     case TimestampStartRole:
