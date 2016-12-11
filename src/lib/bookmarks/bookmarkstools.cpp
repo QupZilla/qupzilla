@@ -365,6 +365,7 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     QString title = QFontMetrics(m->font()).elidedText(folder->title(), Qt::ElideRight, 250);
     m->setTitle(title);
     m->setIcon(folder->icon());
+    QObject::connect(m, SIGNAL(aboutToShow()), receiver, SLOT(menuAboutToShow()));
     QObject::connect(m, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
 
     QAction* act = menu->addMenu(m);
@@ -389,9 +390,6 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
     Action* act = new Action(menu);
     QString title = QFontMetrics(act->font()).elidedText(bookmark->title(), Qt::ElideRight, 250);
     act->setText(title);
-    IconProvider::imageForUrlAsync(bookmark->url(), act, [=](const QImage &img) {
-        act->setIcon(QIcon(QPixmap::fromImage(img)));
-    });
 
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
     act->setIconVisibleInMenu(true);

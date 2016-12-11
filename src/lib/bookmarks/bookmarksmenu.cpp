@@ -24,6 +24,7 @@
 #include "browserwindow.h"
 #include "qzsettings.h"
 #include "tabwidget.h"
+#include "iconprovider.h"
 
 BookmarksMenu::BookmarksMenu(QWidget* parent)
     : Menu(parent)
@@ -75,6 +76,21 @@ void BookmarksMenu::aboutToShow()
     if (m_changed) {
         refresh();
         m_changed = false;
+    }
+}
+
+void BookmarksMenu::menuAboutToShow()
+{
+    Q_ASSERT(qobject_cast<Menu*>(sender()));
+    Menu *menu = static_cast<Menu*>(sender());
+
+    foreach (QAction *action, menu->actions()) {
+        BookmarkItem *item = static_cast<BookmarkItem*>(action->data().value<void*>());
+        if (item && item->type() == BookmarkItem::Url && action->icon().isNull()) {
+            IconProvider::imageForUrlAsync(item->url(), action, [=](const QImage &img) {
+                action->setIcon(QIcon(QPixmap::fromImage(img)));
+            });
+        }
     }
 }
 
@@ -156,6 +172,7 @@ void BookmarksMenu::init()
     addSeparator();
 
     connect(this, SIGNAL(aboutToShow()), this, SLOT(aboutToShow()));
+    connect(this, SIGNAL(aboutToShow()), this, SLOT(menuAboutToShow()));
     connect(this, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
 }
 
