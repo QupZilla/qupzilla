@@ -159,15 +159,15 @@ QImage IconProvider::emptyWebImage()
     return instance()->m_emptyWebImage;
 }
 
-QIcon IconProvider::iconForUrl(const QUrl &url)
+QIcon IconProvider::iconForUrl(const QUrl &url, bool allowEmpty)
 {
-    return instance()->iconFromImage(imageForUrl(url));
+    return instance()->iconFromImage(imageForUrl(url, allowEmpty));
 }
 
-QImage IconProvider::imageForUrl(const QUrl &url)
+QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
 {
     if (url.path().isEmpty()) {
-        return IconProvider::emptyWebImage();
+        return allowEmpty ? QImage() : IconProvider::emptyWebImage();
     }
 
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
@@ -187,7 +187,7 @@ QImage IconProvider::imageForUrl(const QUrl &url)
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return IconProvider::emptyWebImage();
+    return allowEmpty ? QImage() : IconProvider::emptyWebImage();
 }
 
 void IconProvider::imageForUrlAsync(const QUrl &url, QObject *receiver, std::function<void(const QImage &)> callback)
@@ -197,16 +197,20 @@ void IconProvider::imageForUrlAsync(const QUrl &url, QObject *receiver, std::fun
         watcher->deleteLater();
         callback(watcher->result());
     });
-    watcher->setFuture(QtConcurrent::run(imageForUrl, url));
+    watcher->setFuture(QtConcurrent::run(imageForUrl, url, false));
 }
 
-QIcon IconProvider::iconForDomain(const QUrl &url)
+QIcon IconProvider::iconForDomain(const QUrl &url, bool allowEmpty)
 {
-    return instance()->iconFromImage(imageForDomain(url));
+    return instance()->iconFromImage(imageForDomain(url, allowEmpty));
 }
 
-QImage IconProvider::imageForDomain(const QUrl &url)
+QImage IconProvider::imageForDomain(const QUrl &url, bool allowEmpty)
 {
+    if (url.host().isEmpty()) {
+        return allowEmpty ? QImage() : IconProvider::emptyWebImage();
+    }
+
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
         if (ic.first.host() == url.host()) {
             return ic.second;
@@ -224,7 +228,7 @@ QImage IconProvider::imageForDomain(const QUrl &url)
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QImage();
+    return allowEmpty ? QImage() : IconProvider::emptyWebImage();
 }
 
 IconProvider* IconProvider::instance()

@@ -78,8 +78,11 @@ QIcon BookmarkItem::icon()
     switch (m_type) {
     case Url:
         if (m_iconTime.isNull() || m_iconTime.elapsed() > iconCacheTime) {
-            m_icon = IconProvider::iconForUrl(m_url);
-            m_iconTime.restart();
+            m_icon = IconProvider::iconForUrl(m_url, true);
+            if (m_icon.isNull()) {
+                m_icon = IconProvider::emptyWebIcon();
+                m_iconTime.restart();
+            }
         }
         return m_icon;
     case Folder:
