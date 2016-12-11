@@ -97,12 +97,16 @@ void HistoryMenu::aboutToShow()
         const QUrl url = query.value(1).toUrl();
         const QString title = QzTools::truncatedText(query.value(0).toString(), 40);
 
-        Action* act = new Action(IconProvider::iconForUrl(url), title);
+        Action* act = new Action(title);
         act->setData(url);
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
         addAction(act);
+
+        IconProvider::imageForUrlAsync(url, act, [=](const QImage &img) {
+            act->setIcon(QIcon(QPixmap::fromImage(img)));
+        });
     }
 }
 
@@ -120,12 +124,16 @@ void HistoryMenu::aboutToShowMostVisited()
     const QVector<HistoryEntry> mostVisited = mApp->history()->mostVisited(10);
 
     foreach (const HistoryEntry &entry, mostVisited) {
-        Action* act = new Action(IconProvider::iconForUrl(entry.url), QzTools::truncatedText(entry.title, 40));
+        Action* act = new Action(QzTools::truncatedText(entry.title, 40));
         act->setData(entry.url);
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
         m_menuMostVisited->addAction(act);
+
+        IconProvider::imageForUrlAsync(entry.url, act, [=](const QImage &img) {
+            act->setIcon(QIcon(QPixmap::fromImage(img)));
+        });
     }
 
     if (m_menuMostVisited->isEmpty()) {
