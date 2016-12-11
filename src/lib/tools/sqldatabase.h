@@ -39,7 +39,7 @@ public:
     QSqlDatabase databaseForThread(QThread* thread);
 
     // Executes query using correct database for current thread
-    QSqlQuery exec(const QSqlQuery &query);
+    QSqlQuery exec(QSqlQuery &query);
 
     // Executes query asynchronously on one thread from QThreadPool
     QFuture<QSqlQuery> execAsync(const QSqlQuery &query);
