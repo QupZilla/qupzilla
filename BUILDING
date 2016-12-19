@@ -193,7 +193,7 @@ Available Defines
                           (default prefix is "/usr/")
 
                           example:
-                          $ export QUPZILLA_PREFIX="/usr"
+                          $ export QUPZILLA_PREFIX="/usr/local"
 
      SHARE_FOLDER         You can define the path of the share folder, i.e. /usr/share
                           QupZilla will then use SHARE_FOLDER/qupzilla as datadir,
