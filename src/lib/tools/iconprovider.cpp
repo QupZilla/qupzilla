@@ -185,10 +185,8 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
     }
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
-
-    query.addBindValue(QString("%1%").arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
-    query.addBindValue(QL1S("!"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
+    query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
     SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
@@ -216,10 +214,9 @@ QImage IconProvider::imageForDomain(const QUrl &url, bool allowEmpty)
     }
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
 
-    query.addBindValue(QString("%%1%").arg(QzTools::escapeSqlString(url.host())));
-    query.addBindValue(QL1S("!"));
+    query.addBindValue(QString("*%1*").arg(QzTools::escapeSqlGlobString(url.host())));
     query.exec();
 
     if (query.next()) {

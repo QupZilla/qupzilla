@@ -65,9 +65,8 @@ void IconChooser::searchIcon(const QString &string)
     ui->iconList->clear();
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 20"));
-    query.bindValue(0, QString(QL1S("%%1%")).arg(QzTools::escapeSqlString(string)));
-    query.bindValue(1, QL1S("!"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 20"));
+    query.addBindValue(QString(QL1S("*%1*")).arg(QzTools::escapeSqlGlobString(string)));
     query.exec();
 
     while (query.next()) {

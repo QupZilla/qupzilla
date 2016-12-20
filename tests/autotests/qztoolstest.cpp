@@ -134,6 +134,33 @@ void QzToolsTest::splitCommandArguments()
     QCOMPARE(QzTools::splitCommandArguments(command), result);
 }
 
+void QzToolsTest::escapeSqlGlobString_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("NothingToEscape") << "http://test" << "http://test";
+    QTest::newRow("Escape *") << "http://test*/heh" << "http://test[*]/heh";
+    QTest::newRow("Escape **") << "http://test**/he*h" << "http://test[*][*]/he[*]h";
+    QTest::newRow("Escape ?") << "http://test?/heh" << "http://test[?]/heh";
+    QTest::newRow("Escape ??") << "http://t??est?/heh" << "http://t[?][?]est[?]/heh";
+    QTest::newRow("Escape [") << "http://[test/heh" << "http://[[]test/heh";
+    QTest::newRow("Escape [[") << "http://[[te[st/heh" << "http://[[][[]te[[]st/heh";
+    QTest::newRow("Escape ]") << "http://]test/heh" << "http://[]]test/heh";
+    QTest::newRow("Escape ]]") << "http://]]te]st/heh" << "http://[]][]]te[]]st/heh";
+    QTest::newRow("Escape []") << "http://[]test/heh" << "http://[[][]]test/heh";
+    QTest::newRow("Escape [][[]][]") << "http://t[][[]][]est/heh" << "http://t[[][]][[][[][]][]][[][]]est/heh";
+    QTest::newRow("Escape [?]][[*]") << "http://t[?]][[*]est/heh" << "http://t[[][?][]][]][[][[][*][]]est/heh";
+}
+
+void QzToolsTest::escapeSqlGlobString()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, result);
+
+    QCOMPARE(QzTools::escapeSqlGlobString(input), result);
+}
+
 class TempFile
 {
     QString name;

@@ -198,13 +198,13 @@ QString QzTools::fromPunycode(const QString &str)
     return decoded.left(decoded.size() - 4);
 }
 
-QString QzTools::escapeSqlString(QString urlString)
+QString QzTools::escapeSqlGlobString(QString urlString)
 {
-    const static QString &escapeString = QL1S("!");
-    urlString.replace(escapeString, escapeString + escapeString);
-    urlString.replace(QL1S("_"), escapeString + QL1S("_"));
-    urlString.replace(QL1S("%"), escapeString + QL1S("%"));
-
+    urlString.replace(QL1C('['), QStringLiteral("[["));
+    urlString.replace(QL1C(']'), QStringLiteral("[]]"));
+    urlString.replace(QStringLiteral("[["), QStringLiteral("[[]"));
+    urlString.replace(QL1C('*'), QStringLiteral("[*]"));
+    urlString.replace(QL1C('?'), QStringLiteral("[?]"));
     return urlString;
 }
 
