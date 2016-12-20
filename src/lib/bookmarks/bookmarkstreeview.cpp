@@ -297,9 +297,7 @@ void BookmarksTreeView::drawRow(QPainter *painter, const QStyleOptionViewItem &o
 
     if (itemIsUrl && !iconLoaded) {
         const QPersistentModelIndex idx = index;
-        IconProvider::imageForUrlAsync(index.data(BookmarksModel::UrlRole).toUrl(), this, [=](const QImage &img) {
-            model()->setData(idx, QIcon(QPixmap::fromImage(img)), BookmarksModel::IconRole);
-        });
+        model()->setData(idx, IconProvider::iconForUrl(index.data(BookmarksModel::UrlRole).toUrl()), BookmarksModel::IconRole);
     }
 
     QTreeView::drawRow(painter, options, index);

@@ -259,9 +259,7 @@ void HistoryTreeView::drawRow(QPainter* painter, const QStyleOptionViewItem &opt
 
     if (index.isValid() && !itemTopLevel && !iconLoaded) {
         const QPersistentModelIndex idx = index;
-        IconProvider::imageForUrlAsync(index.data(HistoryModel::UrlRole).toUrl(), this, [=](const QImage &img) {
-            model()->setData(idx, QIcon(QPixmap::fromImage(img)), HistoryModel::IconRole);
-        });
+        model()->setData(idx, IconProvider::iconForUrl(index.data(HistoryModel::UrlRole).toUrl()), HistoryModel::IconRole);
     }
 
     QTreeView::drawRow(painter, options, index);
