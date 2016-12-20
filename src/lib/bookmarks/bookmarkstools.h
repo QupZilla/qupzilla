@@ -97,6 +97,7 @@ public:
     static void addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem* folder);
     static void addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark);
     static void addSeparatorToMenu(Menu* menu, BookmarkItem* separator);
+    static void addFolderContentsToMenu(QObject* receiver, Menu* menu, BookmarkItem* folder);
 
     // Migration from Sql Bookmarks (returns true if bookmarks migrated)
     static bool migrateBookmarksIfNecessary(Bookmarks* bookmarks);

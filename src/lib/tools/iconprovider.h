@@ -61,7 +61,6 @@ public:
     // Icon for url (only available for urls in history)
     static QIcon iconForUrl(const QUrl &url, bool allowEmpty = false);
     static QImage imageForUrl(const QUrl &url, bool allowEmpty = false);
-    static void imageForUrlAsync(const QUrl &url, const QObject *receiver, std::function<void(const QImage&)> callback);
 
     // Icon for domain (only available for urls in history)
     static QIcon iconForDomain(const QUrl &url, bool allowEmpty = false);

@@ -87,9 +87,7 @@ void BookmarksMenu::menuAboutToShow()
     foreach (QAction *action, menu->actions()) {
         BookmarkItem *item = static_cast<BookmarkItem*>(action->data().value<void*>());
         if (item && item->type() == BookmarkItem::Url && action->icon().isNull()) {
-            IconProvider::imageForUrlAsync(item->url(), action, [=](const QImage &img) {
-                action->setIcon(QIcon(QPixmap::fromImage(img)));
-            });
+            action->setIcon(item->icon());
         }
     }
 }

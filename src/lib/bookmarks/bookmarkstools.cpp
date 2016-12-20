@@ -365,20 +365,12 @@ void BookmarksTools::addFolderToMenu(QObject* receiver, Menu* menu, BookmarkItem
     QString title = QFontMetrics(m->font()).elidedText(folder->title(), Qt::ElideRight, 250);
     m->setTitle(title);
     m->setIcon(folder->icon());
-    QObject::connect(m, SIGNAL(aboutToShow()), receiver, SLOT(menuAboutToShow()));
-    QObject::connect(m, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
+
+    addFolderContentsToMenu(receiver, m, folder);
 
     QAction* act = menu->addMenu(m);
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(folder)));
     act->setIconVisibleInMenu(true);
-
-    foreach (BookmarkItem* child, folder->children()) {
-        addActionToMenu(receiver, m, child);
-    }
-
-    if (m->isEmpty()) {
-        m->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
-    }
 }
 
 void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* bookmark)
@@ -390,7 +382,6 @@ void BookmarksTools::addUrlToMenu(QObject* receiver, Menu* menu, BookmarkItem* b
     Action* act = new Action(menu);
     QString title = QFontMetrics(act->font()).elidedText(bookmark->title(), Qt::ElideRight, 250);
     act->setText(title);
-    act->setIcon(bookmark->icon(false));
     act->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)));
     act->setIconVisibleInMenu(true);
 
@@ -409,6 +400,20 @@ void BookmarksTools::addSeparatorToMenu(Menu* menu, BookmarkItem* separator)
     Q_ASSERT(separator->isSeparator());
 
     menu->addSeparator();
+}
+
+void BookmarksTools::addFolderContentsToMenu(QObject *receiver, Menu *menu, BookmarkItem *folder)
+{
+    QObject::connect(menu, SIGNAL(aboutToShow()), receiver, SLOT(menuAboutToShow()));
+    QObject::connect(menu, SIGNAL(menuMiddleClicked(Menu*)), receiver, SLOT(menuMiddleClicked(Menu*)));
+
+    foreach (BookmarkItem* child, folder->children()) {
+        addActionToMenu(receiver, menu, child);
+    }
+
+    if (menu->isEmpty()) {
+        menu->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
+    }
 }
 
 bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)

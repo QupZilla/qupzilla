@@ -99,14 +99,11 @@ void HistoryMenu::aboutToShow()
 
         Action* act = new Action(title);
         act->setData(url);
+        act->setIcon(IconProvider::iconForUrl(url));
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
         addAction(act);
-
-        IconProvider::imageForUrlAsync(url, act, [=](const QImage &img) {
-            act->setIcon(QIcon(QPixmap::fromImage(img)));
-        });
     }
 }
 
@@ -126,14 +123,11 @@ void HistoryMenu::aboutToShowMostVisited()
     foreach (const HistoryEntry &entry, mostVisited) {
         Action* act = new Action(QzTools::truncatedText(entry.title, 40));
         act->setData(entry.url);
+        act->setIcon(IconProvider::iconForUrl(entry.url));
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
         m_menuMostVisited->addAction(act);
-
-        IconProvider::imageForUrlAsync(entry.url, act, [=](const QImage &img) {
-            act->setIcon(QIcon(QPixmap::fromImage(img)));
-        });
     }
 
     if (m_menuMostVisited->isEmpty()) {
