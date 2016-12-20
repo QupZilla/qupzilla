@@ -19,6 +19,7 @@
 #include "locationcompletermodel.h"
 #include "mainapplication.h"
 #include "bookmarkitem.h"
+#include "iconprovider.h"
 #include "sqldatabase.h"
 #include "qzsettings.h"
 #include "bookmarks.h"
@@ -94,23 +95,13 @@ void LocationCompleterRefreshJob::runJob()
     }
 
     // Load all icons into QImage
-    QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
-
     foreach (QStandardItem* item, m_items) {
         if (m_jobCancelled) {
             return;
         }
 
         const QUrl url = item->data(LocationCompleterModel::UrlRole).toUrl();
-
-        query.bindValue(0, QString(QL1S("%1%")).arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
-        query.bindValue(1, QL1S("!"));
-        SqlDatabase::instance()->exec(query);
-
-        if (query.next()) {
-            item->setData(QImage::fromData(query.value(0).toByteArray()), LocationCompleterModel::ImageRole);
-        }
+        item->setData(IconProvider::imageForUrl(url), LocationCompleterModel::ImageRole);
     }
 
     // Get domain completion
