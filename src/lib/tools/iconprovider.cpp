@@ -44,10 +44,18 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
-    static const char *ignoredSchemes[] = { "qupzilla", "ftp", "file", "view-source" };
-    for (unsigned i = 0; i < sizeof(ignoredSchemes) / sizeof(ignoredSchemes[0]); ++i)
-        if (view->url().scheme() == ignoredSchemes[i])
+    const QStringList ignoredSchemes = {
+        QStringLiteral("qupzilla"),
+        QStringLiteral("ftp"),
+        QStringLiteral("file"),
+        QStringLiteral("view-source")
+    };
+
+    for (const QString &scheme : ignoredSchemes) {
+        if (view->url().scheme() == scheme) {
             return;
+        }
+    }
 
     BufferedIcon item;
     item.first = view->url();

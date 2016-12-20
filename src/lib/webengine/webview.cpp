@@ -58,6 +58,7 @@ WebView::WebView(QWidget* parent)
     connect(this, &QWebEngineView::loadStarted, this, &WebView::slotLoadStarted);
     connect(this, &QWebEngineView::loadProgress, this, &WebView::slotLoadProgress);
     connect(this, &QWebEngineView::loadFinished, this, &WebView::slotLoadFinished);
+    connect(this, &QWebEngineView::iconChanged, this, &WebView::slotIconChanged);
     connect(this, &QWebEngineView::urlChanged, this, &WebView::slotUrlChanged);
 
     m_currentZoomLevel = zoomLevels().indexOf(100);
@@ -382,6 +383,11 @@ void WebView::slotLoadFinished(bool ok)
 
     if (ok)
         mApp->history()->addHistoryEntry(this);
+}
+
+void WebView::slotIconChanged()
+{
+    IconProvider::instance()->saveIcon(this);
 }
 
 void WebView::slotUrlChanged(const QUrl &url)

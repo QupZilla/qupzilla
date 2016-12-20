@@ -112,6 +112,7 @@ protected slots:
     void slotLoadStarted();
     void slotLoadProgress(int progress);
     void slotLoadFinished(bool ok);
+    void slotIconChanged();
     void slotUrlChanged(const QUrl &url);
 
     // Context menu slots
