@@ -181,7 +181,7 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
 
     query.addBindValue(QString("%1%").arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
     query.addBindValue(QL1S("!"));
-    query = SqlDatabase::instance()->exec(query);
+    SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());

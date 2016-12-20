@@ -106,10 +106,10 @@ void LocationCompleterRefreshJob::runJob()
 
         query.bindValue(0, QString(QL1S("%1%")).arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
         query.bindValue(1, QL1S("!"));
-        QSqlQuery res = SqlDatabase::instance()->exec(query);
+        SqlDatabase::instance()->exec(query);
 
-        if (res.next()) {
-            item->setData(QImage::fromData(res.value(0).toByteArray()), LocationCompleterModel::ImageRole);
+        if (query.next()) {
+            item->setData(QImage::fromData(query.value(0).toByteArray()), LocationCompleterModel::ImageRole);
         }
     }
 
@@ -120,10 +120,9 @@ void LocationCompleterRefreshJob::runJob()
             return;
         }
 
-        QSqlQuery res = SqlDatabase::instance()->exec(domainQuery);
-        res.exec();
-        if (res.next()) {
-            m_domainCompletion = createDomainCompletion(res.value(0).toUrl().host());
+        SqlDatabase::instance()->exec(domainQuery);
+        if (domainQuery.next()) {
+            m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
         }
     }
 }
@@ -163,10 +162,10 @@ void LocationCompleterRefreshJob::completeFromHistory()
     if (showType == HistoryAndBookmarks || showType == History) {
         const int historyLimit = 20;
         QSqlQuery query = LocationCompleterModel::createHistoryQuery(m_searchString, historyLimit);
-        QSqlQuery res = SqlDatabase::instance()->exec(query);
+        SqlDatabase::instance()->exec(query);
 
-        while (res.next()) {
-            const QUrl url = res.value(1).toUrl();
+        while (query.next()) {
+            const QUrl url = query.value(1).toUrl();
 
             if (urlList.contains(url)) {
                 continue;
@@ -174,10 +173,10 @@ void LocationCompleterRefreshJob::completeFromHistory()
 
             QStandardItem* item = new QStandardItem();
             item->setText(url.toEncoded());
-            item->setData(res.value(0), LocationCompleterModel::IdRole);
-            item->setData(res.value(2), LocationCompleterModel::TitleRole);
+            item->setData(query.value(0), LocationCompleterModel::IdRole);
+            item->setData(query.value(2), LocationCompleterModel::TitleRole);
             item->setData(url, LocationCompleterModel::UrlRole);
-            item->setData(res.value(3), LocationCompleterModel::CountRole);
+            item->setData(query.value(3), LocationCompleterModel::CountRole);
             item->setData(QVariant(false), LocationCompleterModel::BookmarkRole);
             item->setData(m_searchString, LocationCompleterModel::SearchStringRole);
 
@@ -189,15 +188,15 @@ void LocationCompleterRefreshJob::completeFromHistory()
 void LocationCompleterRefreshJob::completeMostVisited()
 {
     QSqlQuery query(QSL("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15"));
-    QSqlQuery res = SqlDatabase::instance()->exec(query);
+    SqlDatabase::instance()->exec(query);
 
-    while (res.next()) {
+    while (query.next()) {
         QStandardItem* item = new QStandardItem();
-        const QUrl url = res.value(1).toUrl();
+        const QUrl url = query.value(1).toUrl();
 
         item->setText(url.toEncoded());
-        item->setData(res.value(0), LocationCompleterModel::IdRole);
-        item->setData(res.value(2), LocationCompleterModel::TitleRole);
+        item->setData(query.value(0), LocationCompleterModel::IdRole);
+        item->setData(query.value(2), LocationCompleterModel::TitleRole);
         item->setData(url, LocationCompleterModel::UrlRole);
         item->setData(QVariant(false), LocationCompleterModel::BookmarkRole);
 

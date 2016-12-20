@@ -72,7 +72,7 @@ QSqlQuery SqlDatabase::exec(QSqlQuery &query)
     }
 
     out.exec();
-    return out;
+    return query = out;
 }
 
 QFuture<QSqlQuery> SqlDatabase::execAsync(const QSqlQuery &query)
