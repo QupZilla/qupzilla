@@ -409,7 +409,7 @@ Preferences::Preferences(BrowserWindow* window)
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
-    const QString spellcheckLanguage = settings.value(QSL("Language")).toString();
+    const QStringList spellcheckLanguages = settings.value(QSL("Languages")).toStringList();
     settings.endGroup();
 
     const QStringList dictionariesDirs = {
@@ -429,15 +429,18 @@ Preferences::Preferences(BrowserWindow* window)
         const QStringList files = dir.entryList({QSL("*.bdic")});
         for (const QString &file : files) {
             const QString lang = file.left(file.size() - 5);
-            ui->spellcheckLanguage->addItem(createLanguageItem(lang), lang);
-            if (lang == spellcheckLanguage) {
-                ui->spellcheckLanguage->setCurrentIndex(ui->spellcheckLanguage->count() - 1);
+            QListWidgetItem *item = new QListWidgetItem;
+            item->setText(createLanguageItem(lang));
+            item->setData(Qt::UserRole, lang);
+            ui->spellcheckLanguages->addItem(item);
+            if (spellcheckLanguages.contains(lang)) {
+                ui->spellcheckLanguages->setCurrentItem(item, QItemSelectionModel::Select);
             }
         }
     }
 
-    if (ui->spellcheckLanguage->count() == 0) {
-        ui->spellcheckLanguage->hide();
+    if (ui->spellcheckLanguages->count() == 0) {
+        ui->spellcheckLanguages->hide();
     } else {
         ui->spellcheckNoLanguages->hide();
     }
@@ -1003,7 +1006,11 @@ void Preferences::saveSettings()
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
-    settings.setValue("Language", ui->spellcheckLanguage->currentData().toString());
+    QStringList languages;
+    for (QListWidgetItem *item : ui->spellcheckLanguages->selectedItems()) {
+        languages.append(item->data(Qt::UserRole).toString());
+    }
+    settings.setValue("Languages", languages);
     settings.endGroup();
 #endif
 
