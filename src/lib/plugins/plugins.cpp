@@ -94,8 +94,11 @@ void Plugins::loadSettings()
     if (mApp->isPortable()) {
 #endif
         QDir dir(DataPaths::path(DataPaths::Plugins));
-        for (int i = 0; i < m_allowedPlugins.count(); ++i)
-            m_allowedPlugins[i] = dir.absoluteFilePath(m_allowedPlugins[i]);
+        for (int i = 0; i < m_allowedPlugins.count(); ++i) {
+            if (QFileInfo(m_allowedPlugins[i]).isRelative()) {
+                m_allowedPlugins[i] = dir.absoluteFilePath(m_allowedPlugins[i]);
+            }
+        }
     }
 
     c2f_loadSettings();
