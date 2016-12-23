@@ -70,7 +70,7 @@ public:
 
 public slots:
     void saveIconsToDatabase();
-    void clearIconsDatabase();
+    void clearOldIconsInDatabase();
 
 private:
     typedef QPair<QUrl, QImage> BufferedIcon;

@@ -36,15 +36,12 @@ public:
     static void clearLocalStorage();
     static void clearWebDatabases();
     static void clearCache();
-    static void clearIcons();
 
 private slots:
     void historyClicked(bool state);
     void dialogAccepted();
     void optimizeDb();
     void showCookieManager();
-    void showNotifsPerms();
-    void showGeolocPerms();
 
 private:
     void closeEvent(QCloseEvent* e);

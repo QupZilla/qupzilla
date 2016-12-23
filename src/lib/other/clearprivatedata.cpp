@@ -29,7 +29,6 @@
 #include "qztools.h"
 #include "cookiemanager.h"
 #include "desktopnotificationsfactory.h"
-#include "html5permissions/html5permissionsdialog.h"
 
 #include <QNetworkCookie>
 #include <QMessageBox>
@@ -39,6 +38,7 @@
 #include <QSqlQuery>
 #include <QCloseEvent>
 #include <QFileInfo>
+#include <QWebEngineProfile>
 
 ClearPrivateData::ClearPrivateData(QWidget* parent)
     : QDialog(parent)
@@ -52,8 +52,6 @@ ClearPrivateData::ClearPrivateData(QWidget* parent)
     connect(ui->clear, SIGNAL(clicked(bool)), this, SLOT(dialogAccepted()));
     connect(ui->optimizeDb, SIGNAL(clicked(bool)), this, SLOT(optimizeDb()));
     connect(ui->editCookies, SIGNAL(clicked()), this, SLOT(showCookieManager()));
-    connect(ui->editNotifs, SIGNAL(clicked()), this, SLOT(showNotifsPerms()));
-    connect(ui->editGeoloc, SIGNAL(clicked()), this, SLOT(showGeolocPerms()));
 
     Settings settings;
     settings.beginGroup("ClearPrivateData");
@@ -77,17 +75,17 @@ void ClearPrivateData::clearWebDatabases()
 {
     const QString profile = DataPaths::currentProfilePath();
 
-    QzTools::removeDir(profile + "/Databases");
+    QzTools::removeDir(profile + "/IndexedDB");
+    QzTools::removeDir(profile + "/databases");
 }
 
 void ClearPrivateData::clearCache()
 {
-    QFile::remove(DataPaths::currentProfilePath() + "/ApplicationCache.db");
-}
+    const QString profile = DataPaths::currentProfilePath();
 
-void ClearPrivateData::clearIcons()
-{
-    IconProvider::instance()->clearIconsDatabase();
+    QzTools::removeDir(profile + "/GPUCache");
+
+    mApp->webProfile()->clearHttpCache();
 }
 
 void ClearPrivateData::closeEvent(QCloseEvent* e)
@@ -151,10 +149,6 @@ void ClearPrivateData::dialogAccepted()
         clearLocalStorage();
     }
 
-    if (ui->icons->isChecked()) {
-        clearIcons();
-    }
-
     QApplication::restoreOverrideCursor();
 
     ui->clear->setEnabled(false);
@@ -170,16 +164,7 @@ void ClearPrivateData::optimizeDb()
     const QString profilePath = DataPaths::currentProfilePath();
     QString sizeBefore = QzTools::fileSizeToString(QFileInfo(profilePath + "/browsedata.db").size());
 
-    // Delete icons for entries older than 6 months
-    const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
-
-    QSqlQuery query;
-    query.prepare(QSL("DELETE FROM icons WHERE id IN (SELECT id FROM history WHERE date < ?)"));
-    query.addBindValue(date.toMSecsSinceEpoch());
-    query.exec();
-
-    query.clear();
-    query.exec(QSL("VACUUM"));
+    IconProvider::instance()->clearOldIconsInDatabase();
 
     QString sizeAfter = QzTools::fileSizeToString(QFileInfo(profilePath + "/browsedata.db").size());
 
@@ -192,20 +177,6 @@ void ClearPrivateData::showCookieManager()
 {
     CookieManager* dialog = new CookieManager();
     dialog->show();
-}
-
-void ClearPrivateData::showNotifsPerms()
-{
-    HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
-    dialog->showFeaturePermissions(QWebEnginePage::Notifications);
-    dialog->open();
-}
-
-void ClearPrivateData::showGeolocPerms()
-{
-    HTML5PermissionsDialog* dialog = new HTML5PermissionsDialog(this);
-    dialog->showFeaturePermissions(QWebEnginePage::Geolocation);
-    dialog->open();
 }
 
 static const int stateDataVersion = 0x0001;
@@ -247,7 +218,6 @@ void ClearPrivateData::restoreState(const QByteArray &state)
     ui->localStorage->setChecked(localStorage);
     ui->cache->setChecked(cache);
     ui->cookies->setChecked(cookies);
-    ui->icons->setChecked(icons);
 }
 
 QByteArray ClearPrivateData::saveState()
@@ -269,7 +239,6 @@ QByteArray ClearPrivateData::saveState()
     stream << ui->localStorage->isChecked();
     stream << ui->cache->isChecked();
     stream << ui->cookies->isChecked();
-    stream << ui->icons->isChecked();
 
     return data;
 }

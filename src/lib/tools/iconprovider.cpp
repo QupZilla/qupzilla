@@ -259,13 +259,18 @@ void IconProvider::saveIconsToDatabase()
     m_iconBuffer.clear();
 }
 
-void IconProvider::clearIconsDatabase()
+void IconProvider::clearOldIconsInDatabase()
 {
-    QSqlQuery query;
-    query.exec("DELETE FROM icons");
-    query.exec("VACUUM");
+    // Delete icons for entries older than 6 months
+    const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
 
-    m_iconBuffer.clear();
+    QSqlQuery query;
+    query.prepare(QSL("DELETE FROM icons WHERE url IN (SELECT url FROM history WHERE date < ?)"));
+    query.addBindValue(date.toMSecsSinceEpoch());
+    query.exec();
+
+    query.clear();
+    query.exec(QSL("VACUUM"));
 }
 
 QIcon IconProvider::iconFromImage(const QImage &image)
