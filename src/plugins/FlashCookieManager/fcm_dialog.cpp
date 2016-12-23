@@ -65,13 +65,11 @@ FCM_Dialog::FCM_Dialog(FCM_Plugin* manager, QWidget* parent)
 
     connect(ui->autoMode, SIGNAL(toggled(bool)), ui->notification, SLOT(setEnabled(bool)));
     connect(ui->autoMode, SIGNAL(toggled(bool)), ui->labelNotification, SLOT(setEnabled(bool)));
-    connect(ui->browseFlashDataPath, SIGNAL(clicked()), this, SLOT(selectFlashDataPath()));
 
     ui->autoMode->setChecked(m_manager->readSettings().value(QL1S("autoMode")).toBool());
     ui->notification->setEnabled(m_manager->readSettings().value(QL1S("autoMode")).toBool());
     ui->notification->setChecked(m_manager->readSettings().value(QL1S("notification")).toBool());
     ui->deleteAllOnStartExit->setChecked(m_manager->readSettings().value(QL1S("deleteAllOnStartExit")).toBool());
-    ui->flashDataPath->setText(m_manager->flashPlayerDataPath());
 
     ui->labelNotification->setEnabled(ui->autoMode->isChecked());
 
@@ -370,14 +368,6 @@ void FCM_Dialog::reloadFromDisk()
     refreshView(true);
 }
 
-void FCM_Dialog::selectFlashDataPath()
-{
-    QString path = QzTools::getExistingDirectory(QL1S("FCM_Plugin_FlashDataPath"), this, tr("Select Flash Data Path"), ui->flashDataPath->text());
-    if (!path.isEmpty()) {
-        ui->flashDataPath->setText(path);
-    }
-}
-
 void FCM_Dialog::cookieTreeContextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
@@ -426,12 +416,6 @@ void FCM_Dialog::closeEvent(QCloseEvent* e)
     settingsHash.insert(QL1S("notification"), QVariant(ui->notification->isChecked()));
     settingsHash.insert(QL1S("flashCookiesWhitelist"), flashWhitelist);
     settingsHash.insert(QL1S("flashCookiesBlacklist"), flashBlacklist);
-
-    QString path = ui->flashDataPath->text();
-    path.replace(QL1C('\\'), QL1C('/'));
-
-    settingsHash.insert(QL1S("flashDataPath"), path);
-
     m_manager->writeSettings(settingsHash);
 
     e->accept();

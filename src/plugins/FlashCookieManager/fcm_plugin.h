@@ -84,7 +84,6 @@ private:
     void loadFlashCookies(QString path);
     void insertFlashCookie(QString path);
     QString extractOriginFrom(const QString &path);
-    QString flashDataPathForOS() const;
     bool isBlacklisted(const FlashCookie &flashCookie);
     bool isWhitelisted(const FlashCookie &flashCookie);
     void removeAllButWhitelisted();
@@ -104,7 +103,6 @@ private:
     QStringList m_blaklist;
     QStringList m_whitelist;
     QStringList m_newCookiesList;
-    mutable QString m_flashDataPathForOS;
 };
 
 Q_DECLARE_METATYPE(FlashCookie);
