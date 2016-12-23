@@ -95,7 +95,7 @@ void Plugins::loadSettings()
 #endif
         QDir dir(DataPaths::path(DataPaths::Plugins));
         for (int i = 0; i < m_allowedPlugins.count(); ++i)
-            m_allowedPlugins[i] = dir.absoluteFilePath(m_allowedPlugins[i]);
+            m_allowedPlugins[i] = dir.absoluteFilePath(QFileInfo(m_allowedPlugins[i]).fileName());
     }
 
     c2f_loadSettings();
@@ -149,6 +149,7 @@ void Plugins::loadPlugins()
         }
 
         Plugin plugin;
+        plugin.fileName = QFileInfo(fullPath).fileName();
         plugin.fullPath = fullPath;
         plugin.pluginLoader = loader;
         plugin.instance = initPlugin(PluginInterface::StartupInitState, iPlugin, loader);
