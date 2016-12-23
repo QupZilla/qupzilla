@@ -88,7 +88,11 @@ void Plugins::loadSettings()
     settings.endGroup();
 
     // Plugins are saved with relative path in portable mode
+#ifdef NO_SYSTEM_DATAPATH
+    if (true) {
+#else
     if (mApp->isPortable()) {
+#endif
         QDir dir(DataPaths::path(DataPaths::Plugins));
         for (int i = 0; i < m_allowedPlugins.count(); ++i)
             m_allowedPlugins[i] = dir.absoluteFilePath(m_allowedPlugins[i]);
@@ -173,7 +177,9 @@ void Plugins::loadAvailablePlugins()
     QStringList dirs = DataPaths::allPaths(DataPaths::Plugins);
 
     // Portable build: Load only plugins from DATADIR/plugins/ directory.
+#ifndef NO_SYSTEM_DATAPATH
     if (mApp->isPortable())
+#endif
         dirs = QStringList(DataPaths::path(DataPaths::Plugins));
 
     foreach (const QString &dir, dirs) {
