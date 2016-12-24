@@ -45,6 +45,7 @@
 #include <QHostInfo>
 #include <QMimeData>
 #include <QWebEngineContextMenuData>
+#include <QStackedLayout>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -65,8 +66,24 @@ WebView::WebView(QWidget* parent)
 
     setAcceptDrops(true);
     installEventFilter(this);
+    if (parentWidget()) {
+        parentWidget()->installEventFilter(this);
+    }
 
     WebInspector::registerView(this);
+
+    // Hack to find widget that receives input events
+    QStackedLayout *l = qobject_cast<QStackedLayout*>(layout());
+    connect(l, &QStackedLayout::currentChanged, this, [this]() {
+        QTimer::singleShot(0, this, [this]() {
+            m_rwhvqt = focusProxy();
+            if (!m_rwhvqt) {
+                qCritical() << "Focus proxy is null!";
+                return;
+            }
+            m_rwhvqt->installEventFilter(this);
+        });
+    });
 }
 
 WebView::~WebView()
@@ -1154,18 +1171,9 @@ void WebView::loadRequest(const LoadRequest &req)
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)
 {
-    // Hack to find widget that receives input events
-    if (obj == this && event->type() == QEvent::ChildAdded) {
-        QWidget *child = qobject_cast<QWidget*>(static_cast<QChildEvent*>(event)->child());
-        if (child && child->inherits("QtWebEngineCore::RenderWidgetHostViewQtDelegateWidget")) {
-            m_rwhvqt = child;
-            m_rwhvqt->installEventFilter(this);
-        }
-    }
-
     // Keyboard events are sent to parent widget
-    if (obj == this && event->type() == QEvent::ParentChange && parent()) {
-        parent()->installEventFilter(this);
+    if (obj == this && event->type() == QEvent::ParentChange && parentWidget()) {
+        parentWidget()->installEventFilter(this);
     }
 
     // Forward events to WebView
