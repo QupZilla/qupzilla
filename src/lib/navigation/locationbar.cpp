@@ -436,7 +436,7 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
 void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
-        QUrl dropUrl = event->mimeData()->urls().at(0);
+        const QUrl dropUrl = event->mimeData()->urls().at(0);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
 
@@ -449,7 +449,8 @@ void LocationBar::dropEvent(QDropEvent* event)
         }
     }
     else if (event->mimeData()->hasText()) {
-        QUrl dropUrl = QUrl(event->mimeData()->text().trimmed());
+        const QString dropText = event->mimeData()->text().trimmed();
+        const QUrl dropUrl = QUrl(dropText);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
 
@@ -459,8 +460,11 @@ void LocationBar::dropEvent(QDropEvent* event)
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
             return;
+        } else {
+            setText(dropText);
+            setFocus();
+            return;
         }
-
     }
 
     LineEdit::dropEvent(event);
