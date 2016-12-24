@@ -677,7 +677,7 @@ void MainApplication::postLaunch()
 
     QtWin::createJumpList();
 
-    QTimer::singleShot(1000, this, SLOT(checkDefaultWebBrowser()));
+    QTimer::singleShot(5000, this, &MainApplication::runDeferredPostLaunchActions);
 }
 
 void MainApplication::saveSession()
@@ -826,6 +826,12 @@ void MainApplication::onFocusChanged()
     if (activeBrowserWindow) {
         m_lastActiveWindow = activeBrowserWindow;
     }
+}
+
+void MainApplication::runDeferredPostLaunchActions()
+{
+    checkDefaultWebBrowser();
+    checkOptimizeDatabase();
 }
 
 void MainApplication::downloadRequested(QWebEngineDownloadItem *download)
@@ -1065,6 +1071,22 @@ void MainApplication::checkDefaultWebBrowser()
 
     settings.setValue("Web-Browser-Settings/CheckDefaultBrowser", checkAgain);
 #endif
+}
+
+void MainApplication::checkOptimizeDatabase()
+{
+    Settings settings;
+    settings.beginGroup(QSL("Browser"));
+    const int numberOfRuns = settings.value(QSL("RunsWithoutOptimizeDb"), 0).toInt();
+    settings.setValue(QSL("RunsWithoutOptimizeDb"), numberOfRuns + 1);
+
+    if (numberOfRuns > 20) {
+        std::cout << "Optimizing database..." << std::endl;
+        IconProvider::instance()->clearOldIconsInDatabase();
+        settings.setValue(QSL("RunsWithoutOptimizeDb"), 0);
+    }
+
+    settings.endGroup();
 }
 
 void MainApplication::setUserStyleSheet(const QString &filePath)

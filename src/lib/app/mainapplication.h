@@ -129,7 +129,7 @@ private slots:
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
     void onFocusChanged();
-    void checkDefaultWebBrowser();
+    void runDeferredPostLaunchActions();
 
     void downloadRequested(QWebEngineDownloadItem *download);
 
@@ -147,6 +147,9 @@ private:
     void backupSavedSessions();
 
     void setUserStyleSheet(const QString &filePath);
+
+    void checkDefaultWebBrowser();
+    void checkOptimizeDatabase();
 
     bool m_isPrivate;
     bool m_isPortable;
