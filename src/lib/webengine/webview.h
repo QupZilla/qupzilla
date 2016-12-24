@@ -137,8 +137,6 @@ protected slots:
     void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dropEvent(QDropEvent *event);
     void resizeEvent(QResizeEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
 
