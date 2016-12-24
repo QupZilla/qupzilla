@@ -235,12 +235,6 @@ QVector<HistoryEntry> History::mostVisited(int count)
     return list;
 }
 
-bool History::optimizeHistory()
-{
-    QSqlQuery query;
-    return query.exec("VACUUM");
-}
-
 void History::clearHistory()
 {
     QSqlQuery query;
