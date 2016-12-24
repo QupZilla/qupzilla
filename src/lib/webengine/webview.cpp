@@ -54,7 +54,6 @@ WebView::WebView(QWidget* parent)
     , m_progress(100)
     , m_page(0)
     , m_firstLoad(false)
-    , m_rwhvqt(0)
 {
     connect(this, &QWebEngineView::loadStarted, this, &WebView::slotLoadStarted);
     connect(this, &QWebEngineView::loadProgress, this, &WebView::slotLoadProgress);
@@ -255,7 +254,7 @@ void WebView::restoreHistory(const QByteArray &data)
 
 QWidget *WebView::inputWidget() const
 {
-    return m_rwhvqt;
+    return m_rwhvqt ? m_rwhvqt : const_cast<WebView*>(this);
 }
 
 // static

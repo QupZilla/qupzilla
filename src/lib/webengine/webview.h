@@ -18,7 +18,7 @@
 #ifndef WEBVIEW_H
 #define WEBVIEW_H
 
-#include <QIcon>
+#include <QPointer>
 #include <QWebEngineView>
 
 #include "qzcommon.h"
@@ -63,7 +63,7 @@ public:
     bool eventFilter(QObject *obj, QEvent *event);
 
     QWidget *inputWidget() const;
-    virtual QWidget* overlayWidget() = 0;
+    virtual QWidget *overlayWidget() = 0;
 
     static bool isUrlValid(const QUrl &url);
     static QList<int> zoomLevels();
@@ -182,7 +182,7 @@ private:
     WebPage* m_page;
     bool m_firstLoad;
 
-    QWidget *m_rwhvqt;
+    QPointer<QWidget> m_rwhvqt;
 
     static bool s_forceContextMenuOnMouseRelease;
 };
