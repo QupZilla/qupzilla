@@ -117,15 +117,11 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     const QStyle* style = w ? w->style() : QApplication::style();
 
     // Draw background
-    if (mApp->styleName() == QLatin1String("fusion")) {
-        style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
-    }
-    else {
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
-    }
+    opt.showDecorationSelected = true;
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
-    QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
+    const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, opt.rect);
 }
 
