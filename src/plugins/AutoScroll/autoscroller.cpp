@@ -169,7 +169,7 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
 {
     const WebHitTestResult res = view->page()->hitTestContent(pos);
 
-    if (res.isContentEditable() || !res.linkUrl().isEmpty()) {
+    if (res.isContentEditable() || !res.linkUrl().isEmpty() || res.tagName().endsWith(QL1S("frame"))) {
         return false;
     }
 
