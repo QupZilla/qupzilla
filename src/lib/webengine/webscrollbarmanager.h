@@ -22,6 +22,8 @@
 #include <QObject>
 #include <QHash>
 
+class QScrollBar;
+
 class WebView;
 
 class WebScrollBarManager : public QObject
@@ -35,6 +37,8 @@ public:
 
     void addWebView(WebView *view);
     void removeWebView(WebView *view);
+
+    QScrollBar *scrollBar(Qt::Orientation orientation, WebView *view) const;
 
     static WebScrollBarManager *instance();
 

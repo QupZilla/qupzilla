@@ -56,6 +56,7 @@ public:
     void setZoomLevel(int level);
 
     QPoint mapToViewport(const QPoint &pos) const;
+    QRect scrollBarGeometry(Qt::Orientation orientation) const;
 
     void restoreHistory(const QByteArray &data);
 

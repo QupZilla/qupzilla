@@ -47,6 +47,7 @@
 #include <QMimeData>
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
+#include <QScrollBar>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -246,6 +247,12 @@ void WebView::setZoomLevel(int level)
 QPoint WebView::mapToViewport(const QPoint &pos) const
 {
     return page()->mapToViewport(pos);
+}
+
+QRect WebView::scrollBarGeometry(Qt::Orientation orientation) const
+{
+    QScrollBar *s = WebScrollBarManager::instance()->scrollBar(orientation, const_cast<WebView*>(this));
+    return s && s->isVisible() ? s->geometry() : QRect();
 }
 
 void WebView::restoreHistory(const QByteArray &data)

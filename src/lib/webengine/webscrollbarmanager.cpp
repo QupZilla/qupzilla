@@ -134,6 +134,15 @@ void WebScrollBarManager::removeWebView(WebView *view)
     delete m_scrollbars.take(view);
 }
 
+QScrollBar *WebScrollBarManager::scrollBar(Qt::Orientation orientation, WebView *view) const
+{
+    ScrollBarData *d = m_scrollbars.value(view);
+    if (!d) {
+        return nullptr;
+    }
+    return orientation == Qt::Vertical ? d->vscrollbar : d->hscrollbar;
+}
+
 WebScrollBarManager *WebScrollBarManager::instance()
 {
     return qz_web_scrollbar_manager();
