@@ -57,6 +57,11 @@ void CookieJar::setAllowCookies(bool allow)
     m_allowCookies = allow;
 }
 
+void CookieJar::deleteCookie(const QNetworkCookie &cookie)
+{
+    m_client->deleteCookie(cookie);
+}
+
 QVector<QNetworkCookie> CookieJar::getAllCookies() const
 {
     return m_cookies;

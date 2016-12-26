@@ -117,7 +117,7 @@ IconProvider
 {
     margin-left: 5px;
     border-image: url(images/transp.png);
-    qproperty-fixedsize: 22px 16px;
+    qproperty-fixedsize: 21px 16px;
 }
 
 #locationbar-goicon

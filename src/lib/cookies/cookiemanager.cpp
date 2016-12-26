@@ -116,16 +116,21 @@ void CookieManager::remove()
         return;
     }
 
+    QList<QNetworkCookie> cookies;
+
     if (current->childCount()) {
         for (int i = 0; i < current->childCount(); ++i) {
             QTreeWidgetItem *item = current->child(i);
-            if (item && m_itemHash.contains(item))
-                removeCookie(m_itemHash.value(item));
+            if (item && m_itemHash.contains(item)) {
+                cookies.append(m_itemHash.value(item));
+            }
         }
+    } else if (m_itemHash.contains(current)) {
+        cookies.append(m_itemHash.value(current));
     }
-    else {
-        if (m_itemHash.contains(current))
-            removeCookie(m_itemHash.value(current));
+
+    foreach (const QNetworkCookie &cookie, cookies) {
+        mApp->cookieJar()->deleteCookie(cookie);
     }
 }
 
