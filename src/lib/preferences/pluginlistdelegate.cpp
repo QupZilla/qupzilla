@@ -46,11 +46,14 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     titleFont.setPointSize(titleFont.pointSize() + 1);
 
     const QFontMetrics titleMetrics(titleFont);
-#ifdef Q_OS_WIN
-    const QPalette::ColorRole colorRole = QPalette::Text;
-#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
-#endif
+
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+    QPalette textPalette = opt.palette;
+    textPalette.setCurrentColorGroup(cg);
 
     int leftPosition = m_padding;
     int rightPosition = opt.rect.right() - m_padding;
@@ -83,7 +86,7 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     const int leftPosForVersion = titleMetrics.width(name) + m_padding;
     QRect nameRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
     painter->setFont(titleFont);
-    style->drawItemText(painter, nameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
+    style->drawItemText(painter, nameRect, Qt::AlignLeft, textPalette, true, name, colorRole);
 
     // Draw version
     const QString version = index.data(Qt::UserRole).toString();
@@ -91,20 +94,20 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     QFont versionFont = titleFont;
     versionFont.setBold(false);
     painter->setFont(versionFont);
-    style->drawItemText(painter, versionRect, Qt::AlignLeft, opt.palette, true, version, colorRole);
+    style->drawItemText(painter, versionRect, Qt::AlignLeft, textPalette, true, version, colorRole);
 
     // Draw info
     const int infoYPos = nameRect.bottom() + opt.fontMetrics.leading();
     QRect infoRect(nameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
     const QString info = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 1).toString(), Qt::ElideRight, infoRect.width());
     painter->setFont(opt.font);
-    style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);
+    style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, textPalette, true, info, colorRole);
 
     // Draw description
     const int descriptionYPos = infoRect.bottom() + opt.fontMetrics.leading();
     QRect descriptionRect(infoRect.x(), descriptionYPos, infoRect.width(), opt.fontMetrics.height());
     const QString description = opt.fontMetrics.elidedText(index.data(Qt::UserRole + 2).toString(), Qt::ElideRight, descriptionRect.width());
-    style->drawItemText(painter, descriptionRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, description, colorRole);
+    style->drawItemText(painter, descriptionRect, Qt::TextSingleLine | Qt::AlignLeft, textPalette, true, description, colorRole);
 }
 
 QSize PluginListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

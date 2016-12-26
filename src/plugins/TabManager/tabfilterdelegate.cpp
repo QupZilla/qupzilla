@@ -36,11 +36,14 @@ void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opt
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
 
-#ifdef Q_OS_WIN
-    const QPalette::ColorRole colorRole = QPalette::Text;
-#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
-#endif
+
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+    QPalette textPalette = opt.palette;
+    textPalette.setCurrentColorGroup(cg);
 
     painter->save();
     painter->setClipRect(opt.rect);
@@ -101,7 +104,7 @@ void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opt
         }
 
         painter->setFont(opt.font);
-        viewItemDrawText(painter, &opt, textRect, opt.text, colorRole, filterText);
+        viewItemDrawText(painter, &opt, textRect, opt.text, textPalette.color(colorRole), filterText);
     }
 
     painter->restore();
@@ -132,13 +135,12 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
 void TabFilterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
-                                                 const QString &text, const QPalette::ColorRole &role, const QString &searchText) const
+                                                 const QString &text, const QColor &color, const QString &searchText) const
 {
     if (text.isEmpty()) {
         return;
     }
 
-    const QColor &color = option->palette.color(role);
     const QWidget* widget = option->widget;
     const bool isRtlLayout = widget ? widget->isRightToLeft() : QApplication::isRightToLeft();
     const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();

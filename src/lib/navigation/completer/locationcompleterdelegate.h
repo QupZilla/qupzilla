@@ -38,7 +38,7 @@ private:
     bool drawSwitchToTab() const;
 
     void viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
-                          const QString &text, const QPalette::ColorRole &role,
+                          const QString &text, const QColor &color,
                           const QString &searchText = QString()) const;
 
     mutable int m_rowHeight;
