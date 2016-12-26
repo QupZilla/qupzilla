@@ -260,7 +260,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_webchannel"));
     script.setInjectionPoint(QWebEngineScript::DocumentCreation);
-    script.setWorldId(WebPage::SafeJsWorld);
+    script.setWorldId(QWebEngineScript::MainWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupWebChannel());
     m_webProfile->scripts()->insert(script);

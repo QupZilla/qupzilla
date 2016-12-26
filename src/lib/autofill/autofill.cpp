@@ -46,7 +46,7 @@ AutoFill::AutoFill(QObject* parent)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_autofill"));
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
-    script.setWorldId(WebPage::SafeJsWorld);
+    script.setWorldId(QWebEngineScript::MainWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupFormObserver());
     mApp->webProfile()->scripts()->insert(script);

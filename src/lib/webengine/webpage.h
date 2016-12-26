@@ -36,10 +36,10 @@ class DelayedFileWatcher;
 class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 {
     Q_OBJECT
+
 public:
     enum JsWorld {
-//        SafeJsWorld = QWebEngineScript::ApplicationWorld
-        SafeJsWorld = QWebEngineScript::MainWorld
+        SafeJsWorld = QWebEngineScript::ApplicationWorld
     };
 
     explicit WebPage(QObject* parent = 0);

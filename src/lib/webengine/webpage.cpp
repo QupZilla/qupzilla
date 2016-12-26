@@ -333,7 +333,7 @@ void WebPage::setupWebChannel()
 
     QWebChannel *channel = new QWebChannel(this);
     channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
-    setWebChannel(channel, SafeJsWorld);
+    setWebChannel(channel);
 
     if (old) {
         delete old->registeredObjects().value(objectName);
