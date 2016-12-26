@@ -1328,6 +1328,7 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     , m_totalDeltas(0)
 {
     m_scrollArea = new QScrollArea(this);
+    m_scrollArea->setFocusPolicy(Qt::NoFocus);
     m_scrollArea->setFrameStyle(QFrame::NoFrame);
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
