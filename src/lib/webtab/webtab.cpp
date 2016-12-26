@@ -361,6 +361,7 @@ void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
 {
     m_webView->load(url);
     m_webView->restoreHistory(history);
+    m_webView->setFocus();
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
