@@ -250,9 +250,8 @@ void BrowserWindow::postLaunch()
     QTimer::singleShot(0, this, [this]() {
         // Scroll to current tab
         tabWidget()->tabBar()->ensureVisible();
-
         // Update focus
-        if (LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
+        if (!m_startPage && LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
             locationBar()->setFocus();
         else
             weView()->setFocus();
