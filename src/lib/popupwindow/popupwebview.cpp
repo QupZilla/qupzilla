@@ -92,8 +92,7 @@ void PopupWebView::_contextMenuEvent(QContextMenuEvent *event)
 {
     m_menu->clear();
 
-    const WebHitTestResult hitTest = page()->hitTestContent(event->pos());
-
+    WebHitTestResult hitTest = page()->hitTestContent(event->pos());
     createContextMenu(m_menu, hitTest);
 
     if (WebInspector::isEnabled()) {

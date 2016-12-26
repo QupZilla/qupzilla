@@ -609,14 +609,15 @@ void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
     userDefinedOpenUrlInNewTab(actionUrl, true);
 }
 
-void WebView::createContextMenu(QMenu *menu, const WebHitTestResult &hitTest)
+void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
 {
     // cppcheck-suppress variableScope
     int spellCheckActionCount = 0;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
+    hitTest.updateWithContextMenuData(contextMenuData);
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     if (!contextMenuData.misspelledWord().isEmpty()) {
         QFont boldFont = menu->font();
         boldFont.setBold(true);

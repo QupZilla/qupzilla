@@ -152,7 +152,7 @@ protected:
     void loadRequest(const LoadRequest &req);
     void applyZoom();
 
-    void createContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createContextMenu(QMenu *menu, WebHitTestResult &hitTest);
     void createPageContextMenu(QMenu *menu);
     void createLinkContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
     void createImageContextMenu(QMenu *menu, const WebHitTestResult &hitTest);

@@ -18,6 +18,8 @@
 #include "webhittestresult.h"
 #include "webpage.h"
 
+#include <QWebEngineContextMenuData>
+
 WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     : m_isNull(true)
     , m_isContentEditable(false)
@@ -85,6 +87,32 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     m_viewportPos = p->mapToViewport(m_pos);
     const QString &js = source.arg(m_viewportPos.x()).arg(m_viewportPos.y());
     init(p->url(), p->execJavaScript(js, WebPage::SafeJsWorld).toMap());
+}
+
+void WebHitTestResult::updateWithContextMenuData(const QWebEngineContextMenuData &data)
+{
+    if (!data.isValid()) {
+        return;
+    }
+
+    m_linkTitle = data.linkText();
+    m_linkUrl = data.linkUrl();
+    m_isContentEditable = data.isContentEditable();
+    m_isContentSelected = !data.selectedText().isEmpty();
+
+    switch (data.mediaType()) {
+    case QWebEngineContextMenuData::MediaTypeImage:
+        m_imageUrl = data.mediaUrl();
+        break;
+
+    case QWebEngineContextMenuData::MediaTypeVideo:
+    case QWebEngineContextMenuData::MediaTypeAudio:
+        m_mediaUrl = data.mediaUrl();
+        break;
+
+    default:
+        break;
+    }
 }
 
 QUrl WebHitTestResult::baseUrl() const
@@ -167,6 +195,7 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     if (map.isEmpty())
         return;
 
+    m_isNull = false;
     m_baseUrl = map.value(QSL("baseUrl")).toUrl();
     m_alternateText = map.value(QSL("alternateText")).toString();
     m_imageUrl = map.value(QSL("imageUrl")).toUrl();

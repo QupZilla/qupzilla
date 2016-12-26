@@ -25,12 +25,16 @@
 
 #include "qzcommon.h"
 
+class QWebEngineContextMenuData;
+
 class WebPage;
 
 class QUPZILLA_EXPORT WebHitTestResult
 {
 public:
     explicit WebHitTestResult(const WebPage *page, const QPoint &pos);
+
+    void updateWithContextMenuData(const QWebEngineContextMenuData &data);
 
     QUrl baseUrl() const;
     QString alternateText() const;
