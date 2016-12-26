@@ -48,6 +48,7 @@
 #include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
 #include "searchenginesdialog.h"
+#include "webscrollbarmanager.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -277,6 +278,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
+    ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", true).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
         ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
@@ -973,6 +975,7 @@ void Preferences::saveSettings()
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
     settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
+    settings.setValue("UseNativeScrollbars", ui->useNativeScrollbars->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif
@@ -1070,6 +1073,8 @@ void Preferences::saveSettings()
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
     mApp->networkManager()->loadSettings();
+
+    WebScrollBarManager::instance()->loadSettings();
 }
 
 Preferences::~Preferences()

@@ -74,6 +74,7 @@ public:
     static void setForceContextMenuOnMouseRelease(bool force);
 
 signals:
+    void focusChanged(bool);
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);

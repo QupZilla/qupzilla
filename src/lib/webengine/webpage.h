@@ -59,6 +59,7 @@ public:
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
     void scroll(int x, int y);
+    void setScrollPosition(const QPointF &pos);
 
     bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result) Q_DECL_OVERRIDE;
     bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;

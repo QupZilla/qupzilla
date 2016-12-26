@@ -161,6 +161,11 @@ void WebPage::scroll(int x, int y)
     runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y), WebPage::SafeJsWorld);
 }
 
+void WebPage::setScrollPosition(const QPointF &pos)
+{
+    runJavaScript(QSL("window.scrollTo(%1, %2)").arg(pos.x()).arg(pos.y()), WebPage::SafeJsWorld);
+}
+
 void WebPage::scheduleAdjustPage()
 {
     if (view()->isLoading()) {

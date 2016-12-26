@@ -34,6 +34,7 @@
 #include "webinspector.h"
 #include "scripts.h"
 #include "webhittestresult.h"
+#include "webscrollbarmanager.h"
 
 #include <iostream>
 
@@ -88,6 +89,7 @@ WebView::WebView(QWidget* parent)
 WebView::~WebView()
 {
     WebInspector::unregisterView(this);
+    WebScrollBarManager::instance()->removeWebView(this);
 }
 
 QIcon WebView::icon() const
@@ -147,8 +149,11 @@ void WebView::setPage(WebPage *page)
     // Set default zoom level
     zoomReset();
 
-    // Actions needs to be initialized for every QWebPage change
+    // Actions needs to be initialized for every QWebEnginePage change
     initializeActions();
+
+    // Scrollbars must be added only after QWebEnginePage is set
+    WebScrollBarManager::instance()->addWebView(this);
 
     mApp->plugins()->emitWebPageCreated(m_page);
 }
@@ -1235,5 +1240,19 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
         }
     }
 
-    return QWebEngineView::eventFilter(obj, event);
+    const bool res = QWebEngineView::eventFilter(obj, event);
+
+    if (obj == m_rwhvqt) {
+        switch (event->type()) {
+        case QEvent::FocusIn:
+        case QEvent::FocusOut:
+            emit focusChanged(hasFocus());
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    return res;
 }

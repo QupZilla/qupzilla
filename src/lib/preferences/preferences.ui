@@ -1117,6 +1117,13 @@
                    </property>
                   </widget>
                  </item>
+                 <item>
+                  <widget class="QCheckBox" name="useNativeScrollbars">
+                   <property name="text">
+                    <string>Use native scrollbars</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </item>
                <item row="2" column="0">
@@ -2374,8 +2381,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>560</width>
-                <height>70</height>
+                <width>96</width>
+                <height>28</height>
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_14">

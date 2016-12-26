@@ -215,6 +215,8 @@ SOURCES += \
     webengine/webinspector.cpp \
     webengine/webpage.cpp \
     webengine/webview.cpp \
+    webengine/webscrollbar.cpp \
+    webengine/webscrollbarmanager.cpp \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
@@ -397,6 +399,8 @@ HEADERS  += \
     webengine/webinspector.h \
     webengine/webpage.h \
     webengine/webview.h \
+    webengine/webscrollbar.h \
+    webengine/webscrollbarmanager.h \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
