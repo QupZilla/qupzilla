@@ -184,6 +184,8 @@ QSize WebScrollBarManager::viewportSize(WebView *view, int thickness) const
     QSize viewport = view->size();
     const QSize content = view->page()->contentsSize().toSize();
 
+    thickness /= view->devicePixelRatioF();
+
     // Check both axis
     if (content.width() - viewport.width() > 0) {
         viewport.setHeight(viewport.height() - thickness);

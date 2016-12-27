@@ -46,13 +46,13 @@ void WebScrollBar::updateValues(const QSize &viewport)
     int newValue;
 
     if (orientation() == Qt::Vertical) {
-        setFixedHeight(viewport.height());
+        setFixedHeight(m_view->height() - (m_view->height() - viewport.height()) * devicePixelRatioF());
         move(m_view->width() - width(), 0);
         setPageStep(viewport.height());
         setMaximum(std::max(0, m_view->page()->contentsSize().toSize().height() - viewport.height()));
         newValue = m_view->page()->scrollPosition().toPoint().y();
     } else {
-        setFixedWidth(viewport.width());
+        setFixedWidth(m_view->width() - (m_view->width() - viewport.width()) * devicePixelRatioF());
         move(0, m_view->height() - height());
         setPageStep(viewport.width());
         setMaximum(std::max(0, m_view->page()->contentsSize().toSize().width() - viewport.width()));
