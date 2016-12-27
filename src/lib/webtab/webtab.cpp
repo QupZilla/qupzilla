@@ -357,16 +357,17 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
     }
 }
 
-void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
+void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel)
 {
     m_webView->load(url);
     m_webView->restoreHistory(history);
+    m_webView->setZoomLevel(zoomLevel);
     m_webView->setFocus();
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 {
-    p_restoreTab(tab.url, tab.history);
+    p_restoreTab(tab.url, tab.history, tab.zoomLevel);
 }
 
 void WebTab::showNotification(QWidget* notif)

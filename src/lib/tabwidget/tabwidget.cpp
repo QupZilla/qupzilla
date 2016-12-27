@@ -679,7 +679,7 @@ int TabWidget::duplicateTab(int index)
     WebTab* webTab = weTab(index);
 
     int id = addView(QUrl(), webTab->title(), Qz::NT_CleanNotSelectedTab);
-    weTab(id)->p_restoreTab(webTab->url(), webTab->historyData());
+    weTab(id)->p_restoreTab(webTab->url(), webTab->historyData(), webTab->zoomLevel());
 
     return id;
 }
@@ -710,8 +710,7 @@ void TabWidget::restoreClosedTab(QObject* obj)
 
     int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
     WebTab* webTab = weTab(index);
-    webTab->setZoomLevel(tab.zoomLevel);
-    webTab->p_restoreTab(tab.url, tab.history);
+    webTab->p_restoreTab(tab.url, tab.history, tab.zoomLevel);
 
     updateClosedTabsButton();
 }
@@ -727,7 +726,7 @@ void TabWidget::restoreAllClosedTabs()
     foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
         int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
         WebTab* webTab = weTab(index);
-        webTab->p_restoreTab(tab.url, tab.history);
+        webTab->p_restoreTab(tab.url, tab.history, tab.zoomLevel);
     }
 
     clearClosedTabsList();
@@ -843,8 +842,7 @@ void TabWidget::restorePinnedTabs()
 
         if (!historyState.isEmpty()) {
             addedIndex = addView(QUrl(), Qz::NT_CleanSelectedTab, false, true);
-
-            weTab(addedIndex)->p_restoreTab(url, historyState);
+            weTab(addedIndex)->p_restoreTab(url, historyState, 6);
         }
         else {
             addedIndex = addView(url, tr("New tab"), Qz::NT_SelectedTab, false, -1, true);

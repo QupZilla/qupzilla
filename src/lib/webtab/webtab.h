@@ -99,7 +99,7 @@ public:
     bool isRestored() const;
     void restoreTab(const SavedTab &tab);
     void p_restoreTab(const SavedTab &tab);
-    void p_restoreTab(const QUrl &url, const QByteArray &history);
+    void p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel);
 
 private slots:
     void showNotification(QWidget* notif);
