@@ -30,6 +30,7 @@ class QPixmap;
 class QUPZILLA_EXPORT PageThumbnailer : public QObject
 {
     Q_OBJECT
+
 public:
     explicit PageThumbnailer(QObject* parent = 0);
     ~PageThumbnailer();
@@ -49,6 +50,7 @@ signals:
     void thumbnailCreated(const QPixmap &);
 
 public slots:
+    QString afterLoadScript() const;
     void createThumbnail(bool status);
 
 private:

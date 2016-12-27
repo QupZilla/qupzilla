@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "pagethumbnailer.h"
+#include "scripts.h"
 
 #include <QTimer>
 #include <QApplication>
@@ -84,6 +85,11 @@ void PageThumbnailer::start()
             emit thumbnailCreated(QPixmap());
         });
     }
+}
+
+QString PageThumbnailer::afterLoadScript() const
+{
+    return Scripts::setCss(QSL("::-webkit-scrollbar{display:none;}"));
 }
 
 void PageThumbnailer::createThumbnail(bool status)
