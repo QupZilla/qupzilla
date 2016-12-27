@@ -702,14 +702,6 @@ void MainApplication::saveSession()
         }
     }
 
-    if (afterLaunch() != RestoreSession) {
-        // Pinned tabs are saved only for last window into pinnedtabs.dat
-        BrowserWindow* qupzilla_ = getWindow();
-        if (qupzilla_ && m_windows.count() == 1) {
-            qupzilla_->tabWidget()->savePinnedTabs();
-        }
-    }
-
     QFile file(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
     file.open(QIODevice::WriteOnly);
     file.write(data);

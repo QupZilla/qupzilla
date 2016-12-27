@@ -75,9 +75,6 @@ public:
     bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
     void closeRecoveryTab();
 
-    void savePinnedTabs();
-    void restorePinnedTabs();
-
     void setCurrentIndex(int index);
 
     void nextTab();

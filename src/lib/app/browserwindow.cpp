@@ -191,17 +191,10 @@ void BrowserWindow::postLaunch()
         else if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->restoreManager()) {
             addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
-        else {
-            // Restore pinned tabs also when not restoring session
-            m_tabWidget->restorePinnedTabs();
-        }
         break;
 
-    case Qz::BW_MacFirstWindow:
-        m_tabWidget->restorePinnedTabs();
-        // fallthrough
-
     case Qz::BW_NewWindow:
+    case Qz::BW_MacFirstWindow:
         addTab = true;
         break;
 
