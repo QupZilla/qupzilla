@@ -188,8 +188,7 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
     Updater::Version prof(profile);
 
     if (prof < Updater::Version("1.9.0")) {
-        std::cout << "QupZilla: Incompatible profile version detected (" << qPrintable(profile) << "), overwriting profile data..." << std::endl;
-        copyDataToProfile();
+        std::cout << "QupZilla: Using profile from QupZilla " << qPrintable(profile) << " is not supported!" << std::endl;
         return;
     }
 
