@@ -639,7 +639,7 @@ void MainApplication::quitApplication()
     }
 
     if (m_windows.count() > 0) {
-        m_autoSaver->saveIfNecessary();
+        saveSession();
     }
 
     m_isClosing = true;
