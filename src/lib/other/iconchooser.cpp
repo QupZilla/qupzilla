@@ -121,8 +121,9 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
+    const int padding = opt.rect.width() / 4;
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
-    icon.paint(painter, opt.rect);
+    icon.paint(painter, opt.rect.adjusted(padding, padding, -padding, -padding));
 }
 
 QSize IconChooserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
