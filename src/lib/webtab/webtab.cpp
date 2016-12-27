@@ -336,7 +336,6 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_tabBar->setTabText(index, tab.title);
         m_locationBar->showUrl(tab.url);
-        m_webView->setZoomLevel(tab.zoomLevel);
         m_tabIcon->setIcon(tab.icon);
 
         if (!tab.url.isEmpty()) {
