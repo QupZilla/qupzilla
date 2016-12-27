@@ -78,13 +78,15 @@ WebScrollBarManager::WebScrollBarManager(QObject *parent)
     : QObject(parent)
 {
     m_scrollbarJs = QL1S("(function() {"
+                         "var head = document.getElementsByTagName('head')[0];"
+                         "if (!head) return;"
                          "var css = document.createElement('style');"
                          "css.setAttribute('type', 'text/css');"
                          "var size = %1 / window.devicePixelRatio + 'px';"
                          "css.appendChild(document.createTextNode('"
                          "   body::-webkit-scrollbar{width:'+size+';height:'+size+';}"
                          "'));"
-                         "document.getElementsByTagName('head')[0].appendChild(css);"
+                         "head.appendChild(css);"
                          "})()");
 
     loadSettings();

@@ -107,6 +107,8 @@ QString Scripts::setupFormObserver()
                           "    }, true);"
                           "}"
                           ""
+                          "if (!document.documentElement) return;"
+                          ""
                           "for (var i = 0; i < document.forms.length; ++i)"
                           "    registerForm(document.forms[i]);"
                           ""
@@ -126,10 +128,12 @@ QString Scripts::setupFormObserver()
 QString Scripts::setCss(const QString &css)
 {
     QString source = QL1S("(function() {"
+                          "var head = document.getElementsByTagName('head')[0];"
+                          "if (!head) return;"
                           "var css = document.createElement('style');"
                           "css.setAttribute('type', 'text/css');"
                           "css.appendChild(document.createTextNode('%1'));"
-                          "document.getElementsByTagName('head')[0].appendChild(css);"
+                          "head.appendChild(css);"
                           "})()");
 
     QString style = css;
