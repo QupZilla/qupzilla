@@ -279,13 +279,6 @@ function init()
     }
 }
 
-// Initialize
-if (window.external) {
-    init();
-} else {
-    document.addEventListener("_qupzilla_external_created", init);
-}
-
 </script>
 </head>
 <body>
@@ -314,4 +307,17 @@ if (window.external) {
       <input class="button" type="button" id="restore-session-button" value="   %BUTTON-RESTORE%   " onclick="restoreSession();">
     </div>
   </div>
-</body></html>
+</body>
+
+<script type="text/javascript">
+
+// Initialize
+if (window.external) {
+    init();
+} else {
+    document.addEventListener("_qupzilla_external_created", init);
+}
+
+</script>
+
+</html>

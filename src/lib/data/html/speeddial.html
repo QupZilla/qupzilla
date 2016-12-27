@@ -498,13 +498,6 @@ function init()
     alignPage();
 }
 
-// Initialize
-if (window.external) {
-    init();
-} else {
-    document.addEventListener('_qupzilla_external_created', init);
-}
-
 </script>
 <div id="fadeOverlay2" class="overlay" style="display:none;">
   <div id="settingsBox">
@@ -550,4 +543,14 @@ if (window.external) {
   </div>
 </div>
 </body>
+
+<script type="text/javascript">
+// Initialize
+if (window.external) {
+    init();
+} else {
+    document.addEventListener('_qupzilla_external_created', init);
+}
+</script>
+
 </html>
