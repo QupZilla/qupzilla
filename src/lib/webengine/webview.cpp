@@ -988,6 +988,19 @@ void WebView::_wheelEvent(QWheelEvent *event)
     if (event->modifiers() & Qt::ControlModifier) {
         event->delta() > 0 ? zoomIn() : zoomOut();
         event->accept();
+        return;
+    }
+
+    // QtWebEngine ignores QApplication::wheelScrollLines() and instead always scrolls 3 lines
+    if (event->spontaneous()) {
+        const qreal multiplier = QApplication::wheelScrollLines() / 3.0;
+        if (multiplier != 1.0) {
+            QWheelEvent e(event->pos(), event->globalPos(), event->pixelDelta(),
+                          event->angleDelta() * multiplier, 0, Qt::Horizontal, event->buttons(),
+                          event->modifiers(), event->phase(), event->source(), event->inverted());
+            QApplication::sendEvent(m_rwhvqt, &e);
+            event->accept();
+        }
     }
 }
 
