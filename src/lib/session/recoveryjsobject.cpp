@@ -52,6 +52,7 @@ QJsonArray RecoveryJsObject::restoreData() const
             tab[QSL("tab")] = j++;
             tab[QSL("icon")] = QzTools::pixmapToDataUrl(t.icon.pixmap(16)).toString();
             tab[QSL("title")] = t.title;
+            tab[QSL("url")] = t.url.toString();
             tabs.append(tab);
         }
 

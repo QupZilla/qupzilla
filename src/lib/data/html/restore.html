@@ -233,10 +233,11 @@ function addWindow(winId)
     document.getElementById("recovery-items").appendChild(tr);
 }
 
-function addTab(winId, tabId, icon, title)
+function addTab(winId, tabId, icon, url, title)
 {
     var tr = document.createElement("tr");
     tr.className = "tab";
+    tr.title = url;
     tr.onclick = function() { selectRow(tr); };
     var td = document.createElement("td");
     var input = document.createElement("input");
@@ -266,7 +267,7 @@ function init()
         addWindow(win.window);
         for (var j = 0; j < win.tabs.length; ++j) {
             var tab = win.tabs[j];
-            addTab(win.window, tab.tab, tab.icon, tab.title);
+            addTab(win.window, tab.tab, tab.icon, tab.url, tab.title);
         }
     }
 }
