@@ -257,7 +257,7 @@ QString Scripts::getAllMetaAttributes()
     return source;
 }
 
-QString Scripts::getFormData(const QPoint &pos)
+QString Scripts::getFormData(const QPointF &pos)
 {
     QString source = QL1S("(function() {"
                           "var e = document.elementFromPoint(%1, %2);"

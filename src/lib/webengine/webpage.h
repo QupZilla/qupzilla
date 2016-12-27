@@ -55,7 +55,7 @@ public:
     void runJavaScript(const QString &scriptSource, quint32 worldId);
     void runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback);
 
-    QPoint mapToViewport(const QPoint &pos) const;
+    QPointF mapToViewport(const QPointF &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
     void scroll(int x, int y);

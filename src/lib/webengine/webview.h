@@ -55,7 +55,7 @@ public:
     int zoomLevel() const;
     void setZoomLevel(int level);
 
-    QPoint mapToViewport(const QPoint &pos) const;
+    QPointF mapToViewport(const QPointF &pos) const;
     QRect scrollBarGeometry(Qt::Orientation orientation) const;
 
     void restoreHistory(const QByteArray &data);
@@ -179,7 +179,7 @@ private:
     int m_progress;
 
     QUrl m_clickedUrl;
-    QPoint m_clickedPos;
+    QPointF m_clickedPos;
 
     WebPage* m_page;
     bool m_firstLoad;

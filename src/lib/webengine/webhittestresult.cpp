@@ -180,7 +180,7 @@ QPoint WebHitTestResult::pos() const
     return m_pos;
 }
 
-QPoint WebHitTestResult::viewportPos() const
+QPointF WebHitTestResult::viewportPos() const
 {
     return m_viewportPos;
 }

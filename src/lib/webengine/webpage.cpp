@@ -146,9 +146,9 @@ void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId, const 
     QWebEnginePage::runJavaScript(scriptSource, worldId, resultCallback);
 }
 
-QPoint WebPage::mapToViewport(const QPoint &pos) const
+QPointF WebPage::mapToViewport(const QPointF &pos) const
 {
-    return QPoint(pos.x() / zoomFactor(), pos.y() / zoomFactor());
+    return QPointF(pos.x() / zoomFactor(), pos.y() / zoomFactor());
 }
 
 WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
@@ -163,7 +163,8 @@ void WebPage::scroll(int x, int y)
 
 void WebPage::setScrollPosition(const QPointF &pos)
 {
-    runJavaScript(QSL("window.scrollTo(%1, %2)").arg(pos.x()).arg(pos.y()), WebPage::SafeJsWorld);
+    const QPointF v = mapToViewport(pos.toPoint());
+    runJavaScript(QSL("window.scrollTo(%1, %2)").arg(v.x()).arg(v.y()), WebPage::SafeJsWorld);
 }
 
 void WebPage::scheduleAdjustPage()

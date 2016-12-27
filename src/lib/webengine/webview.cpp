@@ -244,7 +244,7 @@ void WebView::setZoomLevel(int level)
     applyZoom();
 }
 
-QPoint WebView::mapToViewport(const QPoint &pos) const
+QPointF WebView::mapToViewport(const QPointF &pos) const
 {
     return page()->mapToViewport(pos);
 }
@@ -994,7 +994,7 @@ void WebView::_wheelEvent(QWheelEvent *event)
 void WebView::_mousePressEvent(QMouseEvent *event)
 {
     m_clickedUrl = QUrl();
-    m_clickedPos = QPoint();
+    m_clickedPos = QPointF();
 
     if (mApp->plugins()->processMousePress(Qz::ON_WebView, this, event)) {
         event->accept();
