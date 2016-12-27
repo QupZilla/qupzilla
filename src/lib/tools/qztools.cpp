@@ -352,27 +352,32 @@ QPixmap QzTools::createPixmapForSite(const QIcon &icon, const QString &title, co
     const QFontMetrics fontMetrics = QApplication::fontMetrics();
     const int padding = 4;
     const int maxWidth = fontMetrics.width(title.length() > url.length() ? title : url) + 3 * padding + 16;
-
     const int width = qMin(maxWidth, 150);
     const int height = fontMetrics.height() * 2 + fontMetrics.leading() + 2 * padding;
 
-    QPixmap pixmap(width, height);
+    QPixmap pixmap(width * qApp->devicePixelRatio(), height * qApp->devicePixelRatio());
+    pixmap.setDevicePixelRatio(qApp->devicePixelRatio());
+
     QPainter painter(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
 
     // Draw background
     QPen pen(Qt::black);
     pen.setWidth(1);
     painter.setPen(pen);
 
-    painter.fillRect(QRect(0, 0, width, height), Qt::white);
-    painter.drawRect(0, 0, width - 1, height - 1);
+    QPainterPath path;
+    path.addRect(QRect(0, 0, width, height));
+
+    painter.fillPath(path, Qt::white);
+    painter.drawPath(path);
 
     // Draw icon
-    QRect iconRect(0, 0, 16 + 2 * padding, height);
+    QRect iconRect(padding, 0, 16, height);
     icon.paint(&painter, iconRect);
 
     // Draw title
-    QRect titleRect(iconRect.width(), padding, width - padding - iconRect.width(), fontMetrics.height());
+    QRect titleRect(iconRect.right() + padding, padding, width - padding - iconRect.right(), fontMetrics.height());
     painter.drawText(titleRect, fontMetrics.elidedText(title, Qt::ElideRight, titleRect.width()));
 
     // Draw url
