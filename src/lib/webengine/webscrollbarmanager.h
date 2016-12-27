@@ -43,11 +43,12 @@ public:
     static WebScrollBarManager *instance();
 
 private:
-    void createUserScript();
+    void createUserScript(int thickness);
     void removeUserScript();
     QSize viewportSize(WebView *view, int thickness) const;
 
     bool m_enabled = true;
+    QString m_scrollbarJs;
     QHash<WebView*, struct ScrollBarData*> m_scrollbars;
 };
 

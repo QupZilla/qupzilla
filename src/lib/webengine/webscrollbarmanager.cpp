@@ -77,6 +77,16 @@ struct ScrollBarData {
 WebScrollBarManager::WebScrollBarManager(QObject *parent)
     : QObject(parent)
 {
+    m_scrollbarJs = QL1S("(function() {"
+                         "var css = document.createElement('style');"
+                         "css.setAttribute('type', 'text/css');"
+                         "var size = %1 / window.devicePixelRatio + 'px';"
+                         "css.appendChild(document.createTextNode('"
+                         "   body::-webkit-scrollbar{width:'+size+';height:'+size+';}"
+                         "'));"
+                         "document.getElementsByTagName('head')[0].appendChild(css);"
+                         "})()");
+
     loadSettings();
 }
 
@@ -105,8 +115,9 @@ void WebScrollBarManager::addWebView(WebView *view)
     data->corner = new WebScrollBarCornerWidget(view);
     m_scrollbars[view] = data;
 
+    const int thickness = data->vscrollbar->thickness();
+
     auto updateValues = [=]() {
-        const int thickness = data->vscrollbar->thickness();
         const QSize viewport = viewportSize(view, thickness);
         data->vscrollbar->updateValues(viewport);
         data->hscrollbar->updateValues(viewport);
@@ -117,8 +128,12 @@ void WebScrollBarManager::addWebView(WebView *view)
     connect(view->page(), &WebPage::contentsSizeChanged, this, updateValues);
     connect(view->page(), &WebPage::scrollPositionChanged, this, updateValues);
 
+    connect(view, &WebView::zoomLevelChanged, this, [=]() {
+        view->page()->runJavaScript(m_scrollbarJs.arg(thickness));
+    });
+
     if (m_scrollbars.size() == 1) {
-        createUserScript();
+        createUserScript(thickness);
     }
 }
 
@@ -148,17 +163,13 @@ WebScrollBarManager *WebScrollBarManager::instance()
     return qz_web_scrollbar_manager();
 }
 
-void WebScrollBarManager::createUserScript()
+void WebScrollBarManager::createUserScript(int thickness)
 {
-    Q_ASSERT(!m_scrollbars.isEmpty());
-
-    const int thickness = (*m_scrollbars.begin())->vscrollbar->thickness();
-
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_scrollbar"));
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
     script.setWorldId(WebPage::SafeJsWorld);
-    script.setSourceCode(Scripts::setCss(QSL("body::-webkit-scrollbar{width:%1px;height:%1px;}").arg(thickness)));
+    script.setSourceCode(m_scrollbarJs.arg(thickness));
     mApp->webProfile()->scripts()->insert(script);
 }
 
