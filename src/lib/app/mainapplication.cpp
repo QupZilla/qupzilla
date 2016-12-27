@@ -864,6 +864,7 @@ void MainApplication::loadSettings()
     webSettings->setAttribute(QWebEngineSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::HyperlinkAuditingEnabled, false);
     webSettings->setAttribute(QWebEngineSettings::FullScreenSupportEnabled, true);
+    webSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
 
     webSettings->setDefaultTextEncoding(settings.value("DefaultEncoding", webSettings->defaultTextEncoding()).toString());
 
