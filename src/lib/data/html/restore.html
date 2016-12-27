@@ -205,8 +205,8 @@ function restoreSession()
         if (input.checked || input.indeterminate || !input.hasAttribute("data-tab")) {
             return;
         }
-        excludeWin.push(input.getAttribute("data-window"));
-        excludeTab.push(input.getAttribute("data-tab"));
+        excludeWin.unshift(input.getAttribute("data-window"));
+        excludeTab.unshift(input.getAttribute("data-tab"));
     });
 
     external.recovery.restoreSession(excludeWin, excludeTab);

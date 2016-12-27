@@ -80,6 +80,8 @@ void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStri
 {
     Q_ASSERT(excludeWin.size() == excludeTab.size());
 
+    // This assumes that excludeWin and excludeTab are sorted in descending order
+
     RestoreData data = m_manager->restoreData();
 
     for (int i = 0; i < excludeWin.size(); ++i) {
