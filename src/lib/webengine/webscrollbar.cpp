@@ -43,23 +43,27 @@ void WebScrollBar::updateValues(const QSize &viewport)
     setMinimum(0);
     setParent(m_view->overlayWidget());
 
-    m_blockScrolling = true;
+    int newValue;
 
     if (orientation() == Qt::Vertical) {
         setFixedHeight(viewport.height());
         move(m_view->width() - width(), 0);
         setPageStep(viewport.height());
         setMaximum(std::max(0, m_view->page()->contentsSize().toSize().height() - viewport.height()));
-        setValue(m_view->page()->scrollPosition().toPoint().y());
+        newValue = m_view->page()->scrollPosition().toPoint().y();
     } else {
         setFixedWidth(viewport.width());
         move(0, m_view->height() - height());
         setPageStep(viewport.width());
         setMaximum(std::max(0, m_view->page()->contentsSize().toSize().width() - viewport.width()));
-        setValue(m_view->page()->scrollPosition().toPoint().x());
+        newValue = m_view->page()->scrollPosition().toPoint().x();
     }
 
-    m_blockScrolling = false;
+    if (!isSliderDown()) {
+        m_blockScrolling = true;
+        setValue(newValue);
+        m_blockScrolling = false;
+    }
 
     setVisible(maximum() > minimum());
 }
