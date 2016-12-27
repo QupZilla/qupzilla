@@ -49,7 +49,7 @@ private:
 
     static QList<QWebEngineView*> s_views;
 
-    bool m_inspectElement;
+    bool m_inspectElement = false;
     QWebEngineView *m_view;
 };
 
