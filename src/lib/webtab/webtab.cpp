@@ -352,7 +352,11 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
         }
     }
     else {
-        p_restoreTab(tab);
+        // This is called only on restore session and restoring tabs immediately
+        // crashes QtWebEngine, waiting after initialization is complete fixes it
+        QTimer::singleShot(1000, this, [=]() {
+            p_restoreTab(tab);
+        });
     }
 }
 
