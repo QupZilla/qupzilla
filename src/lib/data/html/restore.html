@@ -233,23 +233,30 @@ function addWindow(winId)
     document.getElementById("recovery-items").appendChild(tr);
 }
 
-function addTab(winId, tabId, icon, url, title)
+function addTab(winId, tab)
 {
     var tr = document.createElement("tr");
     tr.className = "tab";
-    tr.title = url;
+    tr.title = tab.url;
     tr.onclick = function() { selectRow(tr); };
     var td = document.createElement("td");
     var input = document.createElement("input");
     input.type = "checkbox";
     input.checked = true;
     input.setAttribute("data-window", winId);
-    input.setAttribute("data-tab", tabId);
+    input.setAttribute("data-tab", tab.tab);
     input.onclick = function() { toggleTab(input); };
     var img = document.createElement("img");
-    img.src = icon;
+    img.src = tab.icon;
     var span = document.createElement("span");
-    span.innerText = title;
+    span.innerText = tab.title;
+
+    if (tab.pinned) {
+        span.innerText = "🖈 " + span.innerText;
+    }
+    if (tab.current) {
+        span.style.fontStyle = 'italic';
+    }
 
     tr.appendChild(td);
     td.appendChild(input);
@@ -267,7 +274,7 @@ function init()
         addWindow(win.window);
         for (var j = 0; j < win.tabs.length; ++j) {
             var tab = win.tabs[j];
-            addTab(win.window, tab.tab, tab.icon, tab.url, tab.title);
+            addTab(win.window, tab);
         }
     }
 }

@@ -49,11 +49,14 @@ QJsonArray RecoveryJsObject::restoreData() const
         QJsonArray tabs;
         Q_FOREACH (const WebTab::SavedTab &t, w.tabsState) {
             QJsonObject tab;
-            tab[QSL("tab")] = j++;
+            tab[QSL("tab")] = j;
             tab[QSL("icon")] = QzTools::pixmapToDataUrl(t.icon.pixmap(16)).toString();
             tab[QSL("title")] = t.title;
             tab[QSL("url")] = t.url.toString();
+            tab[QSL("pinned")] = t.isPinned;
+            tab[QSL("current")] = w.currentTab == j;
             tabs.append(tab);
+            j++;
         }
 
         QJsonObject window;
