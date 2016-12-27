@@ -122,7 +122,8 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     setTabBar(m_tabBar);
 
     connect(this, SIGNAL(currentChanged(int)), m_window, SLOT(refreshHistory()));
-    connect(this, SIGNAL(changed()), mApp, SLOT(changeOccurred()));
+    connect(this, &TabWidget::changed, mApp, &MainApplication::changeOccurred);
+    connect(this, &TabStackedWidget::pinStateChanged, this, &TabWidget::changed);
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(requestCloseTab(int)));
     connect(m_tabBar, SIGNAL(reloadTab(int)), this, SLOT(reloadTab(int)));
@@ -527,6 +528,8 @@ void TabWidget::tabMoved(int before, int after)
 
     m_lastBackgroundTabIndex = -1;
     m_lastTabIndex = before;
+
+    emit changed();
 }
 
 void TabWidget::setCurrentIndex(int index)
