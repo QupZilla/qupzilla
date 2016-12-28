@@ -46,9 +46,9 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
 #endif
 
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.16").arg(os)
-                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36").arg(os)
-                      << QString("Mozilla/5.0 (%1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7").arg(os)
-                      << QString("Mozilla/5.0 (%1; rv:47.0) Gecko/20100101 Firefox/47.0").arg(os);
+                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36").arg(os)
+                      << QString("Mozilla/5.0 (%1) AppleWebKit/602.3.12 (KHTML, like Gecko) Version/10.0.2 Safari/602.3.12").arg(os)
+                      << QString("Mozilla/5.0 (%1; rv:50.0) Gecko/20100101 Firefox/50.0").arg(os);
 
     ui->globalComboBox->addItems(m_knownUserAgents);
 
