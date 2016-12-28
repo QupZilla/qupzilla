@@ -622,12 +622,6 @@ Please install latest version of QupZilla.</source>
         <translation>ߡߊ߬ߦߋߙߋ߲ ߕߐ߭ ߓߍ߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="134"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="379"/>
-        <source>Empty</source>
-        <translation>ߘߐߞߏߟߏ߲</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>ߌ ߟߊ߫ ߡߊ߬ߦߋߙߋ߲ ߕߐ߮ ߣߴߊ߬ ߦߌߟߊ ߛߎߥߊ߲ߘߌ߫.</translation>
@@ -671,6 +665,11 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
+        <source>Empty</source>
+        <translation>ߘߐߞߏߟߏ߲</translation>
     </message>
 </context>
 <context>
@@ -839,7 +838,7 @@ Please install latest version of QupZilla.</source>
         <translation>ߜ߭ߎߜ߭ߟ ߞߙߏߡ ߟߊ߫ ߡߊ߬ߦߋߙߋ߲ ߠߎ߬ ߓߏ߬ߣߏ߲ ߦߋ߫ ߞߍ߫ ߟߊ߫ &lt;b&gt;ߡߊ߬ߦߋߙߋ߲ ߠߎ߫&lt;/b&gt; ߞߟߏߜߍ߫ ߞߎ߲ߓߍ߲ߣߍ߲ ߠߋ߬ ߘߐ߫. ߞߎ߲ߓߍߣߍ߲ ߏ߬ ߦߋ߫ ߞߍ߫ ߟߊ߫ ߦߊ߲߬ ߠߋ߬ ߛߐ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="48"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="50"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="57"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="44"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="44"/>
@@ -848,14 +847,14 @@ Please install latest version of QupZilla.</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="57"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="59"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="53"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="59"/>
         <source>Unable to open file.</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲߫ ߘߊߦߟߍ ߓߐ߫ ߊ߬ ߟߊ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="76"/>
         <source>Cannot parse JSON file!</source>
         <translation>ߊ߬ ߕߍ߫ ߛߋ߫ JSON ߞߐߕߐ߯ߘߐ ߛߍ߲߬ߛߍ߲߬ ߠߊ߫.</translation>
     </message>
@@ -968,22 +967,22 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksMenu</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="151"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="165"/>
         <source>&amp;Bookmarks</source>
         <translation>ߡߊ߬ߦߋߙߋ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="153"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="167"/>
         <source>Bookmark &amp;This Page</source>
         <translation>ߞߐߜߍ ߣߌ߲߬ ߡߊߦߋߙߋ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="168"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߓߍ߯ ߡߊߦߋߙߋ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="169"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>ߡߊ߬ߦߋߙߋ߲ ߠߎ߬ ߛߌ߲߬ߝߏ߲߬ߧߊ߬</translation>
     </message>
@@ -991,12 +990,12 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="164"/>
         <source>Title</source>
         <translation>ߛߟߊߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="166"/>
         <source>Address</source>
         <translation>ߛߊ߲߬ߓߊ߬ߕߐ߮</translation>
     </message>
@@ -1117,78 +1116,78 @@ Please install latest version of QupZilla.</source>
         <translation>(ߜߎ߲߬ߘߎ߬ ߛߏ߲߯ߓߊߟߌ)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="637"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="636"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="886"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="884"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - ߞߎߖ߭ߌߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Menu Bar</source>
         <translation>ߟߐ߬ߥߟߊ߬ ߡߙߎߝߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="952"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="950"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>ߛߏ߲߯ߓߊߟߌ߫ ߡߙߎߝߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="956"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="954"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>ߡߊߦߋߙߋ߲ ߠߎ߬ ߡߙߎߝߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="962"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>&amp;Tabs on Top</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߝߟߐߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1018"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
         <source>Other</source>
         <translation>ߜߘߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>HTML files</source>
         <translation>ߞߛߡߝ ߞߎ߲ߓߍ߲ߣߍ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Image files</source>
         <translation>ߖߌ߬ߦߊ ߞߎ߲ߓߍ߲ߣߍ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Text files</source>
         <translation>ߞߟߏߜߍ ߞߎ߲ߓߍ߲ߣߍ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>All files</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲ ߓߍ߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1064"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>Open file...</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲ ߘߊߦߟߍ߬...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1395"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1398"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1396"/>
         <source>Don&apos;t ask again</source>
         <translation>ߒ ߞߊ߫ ߢߌ߬ߣߌ߲߬ߞߊ߫ ߏ߬ ߞߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1399"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
         <source>There are still open tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߘߊߦߟߍ߬ߣߍ߲ ߘߏ߫ ߟߎ߫ ߦߋ߲߬ ߝߟߐ߫</translation>
     </message>
@@ -1764,7 +1763,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="306"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="340"/>
         <source>Download Manager</source>
         <translation>ߟߊ߬ߖߌ߰ߟߌ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ</translation>
     </message>
@@ -1789,22 +1788,42 @@ Are you sure you want to close this window?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="253"/>
+        <source>MIME HTML Archive (*.mhtml)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="254"/>
+        <source>HTML Page, single (*.html)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="255"/>
+        <source>HTML Page, complete (*.html)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <source>Save page as...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>Download Finished</source>
         <translation>ߟߊ߬ߖߌ߰ߟߌ ߓߘߊ߫ ߓߊ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>All files have been successfully downloaded.</source>
         <translation>ߞߐߕߐ߯ߘߐ ߓߍ߯ ߓߘߊ߫ ߟߊߖߌ߰ ߞߏߢߊ߬.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="356"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="390"/>
         <source>Warning</source>
         <translation>ߖߊ߲߬ߕߏ߬ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="357"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="391"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation type="unfinished"/>
     </message>
@@ -2146,53 +2165,53 @@ Are you sure you want to close this window?</source>
 <context>
     <name>HistoryMenu</name>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="132"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="156"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="134"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="158"/>
         <source>Empty</source>
         <translation>ߘߐߞߏߟߏ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="160"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="162"/>
         <source>Restore All Closed Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߕߎ߲߯ߣߍ߲ ߓߍ߯ ߟߊߛߊ߬ߦߌ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="161"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
         <source>Clear list</source>
         <translation>ߛߙߍߘߍ ߖߐ߬ߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="207"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
         <source>Hi&amp;story</source>
         <translation>ߞߊ߬ߞߘߐ</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="211"/>
         <source>&amp;Back</source>
         <translation>ߞߐߝߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="212"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
         <source>&amp;Forward</source>
         <translation>ߢߍߝߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="215"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="217"/>
         <source>&amp;Home</source>
         <translation>ߓߏ߬ߟߏ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="218"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="220"/>
         <source>Show &amp;All History</source>
         <translation>ߞߊ߬ߞߘߐ ߓߍ߯ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="226"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="228"/>
         <source>Most Visited</source>
         <translation>ߘߐߖߊ߯ߟߊߣߍ߲ߓߊ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="229"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="231"/>
         <source>Closed Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߕߎ߲߯ߣߍ߲ ߠߎ߬</translation>
     </message>
@@ -2220,18 +2239,18 @@ Are you sure you want to close this window?</source>
         <translation>ߘߐ߬ߜߍ߬ߟߌ ߖߊ߬ߕߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="341"/>
-        <location filename="../src/lib/history/historymodel.cpp" line="472"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="339"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="470"/>
         <source>Today</source>
         <translation>ߓߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="477"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="475"/>
         <source>This Week</source>
         <translation>ߟߐ߯ߕߍ ߣߌ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="482"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="480"/>
         <source>This Month</source>
         <translation>ߛߊ߲߬ߓߏߟߏ߲ ߣߌ߲߬</translation>
     </message>
@@ -2416,22 +2435,22 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1046"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>ߞߎߖ߭ߌߟߊ ߕߴߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߊ߲ ߖߏߣߡߊ ߟߋ߬ ߘߌ߫ ߕߋ߲߬. ߦߴߊ߬ ߝߍ߬ ߞߵߊ߬ ߞߌ߫ ߟߊ߫ ߛߏ߲߯ߓߊߟߊ߲߫ ߖߏߣߡߊ ߘߌ߫ ߓߊ߬؟</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1047"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>ߞߊ߬ ߛߊߞߍߟߌ ߣߌ߲߬ ߞߍ߫ ߞߎߖ߭ߌߟߊ ߟߊߥߟߌ߬ ߕߎߡߊ ߓߍ߯ ߟߊ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1049"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
         <source>Default Browser</source>
         <translation>ߛߏ߲߯ߓߊߟߊ߲߫ ߖߏߣߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1107"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>ߞߎߖ߭ߌߟߊ ߦߋ߫ ߛߎ߲-ߘߊߦߟߍ ߛߏ߲߯ߓߊߟߊ߲ ߞߎߘߊ ߟߋ߬ ߘߌ߫ ߡߍ߲ ߠߊߞߊ߲ߘߊߣߍ߲ ߞߏߛߓߍ߫. ߞߎߖ߭ߌߟߊ ߟߊ߬ߘߌߢߍ ߝߙߊߣߍ߲ ߞߙߎ ߝߘߏ߬ߓߊ߬ ߟߊߘߌߢߍ ߞ.ߝ.ߟ ߟߋ߬ ߟߊ߫ ߊ߬ ߓߐߞߏ ߃ߣߊ߲ ߣߴߏ߬ ߛߊ߲ߘߐߕߊ ߟߎ߬ ߞߊ߬ߣߌ߲߬. ߊ߬ ߓߎ߲ߓߎ߲ߣߍ߲߫ WebKit ߞߟߏ ߣߌ߫ Qt Framework ߟߋ߫ ߡߊ߬.</translation>
     </message>
@@ -2439,242 +2458,242 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="505"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
         <source>&amp;About QupZilla</source>
         <translation>ߞߎߖ߭ߌߟߊ ߞߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
         <source>Pr&amp;eferences</source>
         <translation>ߢߣߊߕߊ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="514"/>
         <source>Quit</source>
         <translation>ߓߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>&amp;File</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>New Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>&amp;New Window</source>
         <translation>ߝߢߐߘߊ߫ ߞߎߘߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
         <source>New &amp;Private Window</source>
         <translation>ߜߎ߲߬ߘߎ߬ ߝߢߐߘߊ߫ ߞߎߘߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>Open Location</source>
         <translation>ߦߌߟߊߟߐ߲ߠߌ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Open &amp;File...</source>
         <translation>ߞߎ߲ߓߍ߲ߣߍ߲ ߘߊߦߟߍ߬...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Close Window</source>
         <translation>ߝߢߐߘߊ ߘߊߕߎ߲߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Send Link...</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߠߊߕߊ߯...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>&amp;Print...</source>
         <translation>ߊ߬ ߜߌ߬ߙߌ߲߬ߘߌ߬...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Edit</source>
         <translation>ߊ߬ ߡߊߦߟߍ߬ߡߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Undo</source>
         <translation>ߊ߬ ߘߐߛߊ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
         <source>&amp;Redo</source>
         <translation>ߘߐ߬ߛߊ ߟߊߛߊ߬ߦߌ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>&amp;Cut</source>
         <translation>ߊ߬ ߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>C&amp;opy</source>
         <translation>ߊ߬ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="548"/>
         <source>&amp;Paste</source>
         <translation>ߊ߬ ߣߙߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>Select &amp;All</source>
         <translation>ߊ߬ ߓߍ߯ ߓߊߕߐߡߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
         <source>&amp;Find</source>
         <translation>ߊ߬ ߢߌߣߌ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
         <source>&amp;View</source>
         <translation>ߦߋߘߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Toolbars</source>
         <translation>ߖߐ߯ߙߊ߲ ߠߎ߬ ߡߙߎߝߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>Sidebar</source>
         <translation>ߟߊ߬ߡߌ߬ߣߌ߲߬ߠߌ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Character &amp;Encoding</source>
         <translation>ߛߓߍߢߌ߲ ߠߎ߬ ߟߊߘߏߦߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>Sta&amp;tus Bar</source>
         <translation>ߛߌ߰ߞߊ߲ ߡߙߎߝߋ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Stop</source>
         <translation>ߊ߬ ߟߊߟߐ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;Reload</source>
         <translation>ߊ߬ ߢߟߊߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;In</source>
         <translation>ߊ߬ ߟߊߓߏ߲߬ߧߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Zoom &amp;Out</source>
         <translation>ߊ߬ ߟߊߘߐ߯ߦߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
         <source>Reset</source>
         <translation>ߊ߬ ߟߊߞߎߘߦߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
         <translation>ߞߐߜߍ߫ ߛߎ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
         <translation>ߥߊ߲߬ߥߊ߲߬ߝߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Tools</source>
         <translation>ߖߐ߯ߙߊ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
         <translation>ߓߟߐߟߐ߫ ߢߌߣߌ߲ߠߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
         <translation>ߞߍߦߙߐ ߞߌ߬ߓߊ߬ߙߏ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
         <translation>ߟߊ߬ߖߌ߰ߟߌ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>&amp;Cookies Manager</source>
         <translation>ߛߊ߲߬ߓߊ ߟߎ߫ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
         <source>&amp;AdBlock</source>
         <translation>ߓߊߟߊ߲ߠߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>Web In&amp;spector</source>
         <translation>ߓߟߐߟߐ߫ ߞߣߐߜߍ߲ߠߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Clear Recent &amp;History</source>
         <translation>ߞߊ߬ߞߘߐ߬ ߞߎߘߊ ߖߐ߬ߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Extensions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="615"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
         <source>&amp;Help</source>
         <translation>ߘߍ߬ߡߍ߲߬ߠߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>About &amp;Qt</source>
         <translation>Qt ߞߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="617"/>
         <source>Information about application</source>
         <translation>ߓߟߏߦߊߟߌ ߞߌ߬ߓߊ߬ߙߏ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>Configuration Information</source>
         <translation>ߢߊߘߐߦߊߟߌ ߞߌ߬ߓߊ߬ߙߏ</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="625"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
         <source>Report &amp;Issue</source>
         <translation>ߘߊ߲߬ߕߍ߰ߟߊ ߡߊߝߊ߬ߟߋ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="638"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="632"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߕߎ߲߯ߣߍ߲ ߠߎ߬ ߟߊߛߊ߬ߦߌ߬</translation>
     </message>
@@ -3025,909 +3044,939 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
+        <source>Spell Check</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="120"/>
         <source>Other</source>
         <translation>ߜߘߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="191"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="333"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="196"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="338"/>
         <source>Use current</source>
         <translation>ߛߋ߲߬ߠߊ߬ ߞߐߜߍ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="222"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="227"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="841"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>ߦߟߌߣߐ: ߌ ߕߍ߫ ߛߋ߫ ߢߊߞߙߍ߫ ߟߊߓߊ߯ߙߊߣߍ߲ ߖߐ߬ߛߌ߬ ߟߊ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="238"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="243"/>
         <source>Create New</source>
         <translation>ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="259"/>
         <source>Delete</source>
         <translation>ߊ߬ ߖߐ߬ߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="280"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="285"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߟߊ߬ߥߟߌ߬ߟߌ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>After launch: </source>
         <translation>ߟߊߥߟߌ߬ߟߌ ߞߐ߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="298"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Open blank page</source>
         <translation>ߞߐߜߍ߫ ߜߍߡߊ߲ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
         <source>Open homepage</source>
         <translation>ߟߊ߬ߛߣߍ߬ߟߌ߬ ߞߐߜߍ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
         <source>Open speed dial</source>
         <translation>ߞߌߟߌ߫ ߞߊߟߌ߲ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="318"/>
         <source>Restore session</source>
         <translation>ߞߎ߲߬ߘߊ ߟߊߛߊ߬ߦߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="321"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="326"/>
         <source>Homepage: </source>
         <translation>ߟߊ߬ߛߣߍ߬ߟߌ߬ ߞߐߜߍ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>On new tab: </source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ ߘߐ߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="350"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
         <source>Open blank tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߜߍ ߘߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="370"/>
         <source>Open other page...</source>
         <translation>ߞߐߜߍ߫ ߜߘߍ߫ ߘߊߦߟߍ߬...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="373"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="378"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߢߊߞߙߍ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="380"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="385"/>
         <source>Startup profile:</source>
         <translation>ߟߊ߬ߥߟߌ߬ߟߌ ߢߊߞߙߍ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="387"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="392"/>
         <source>Check for updates on start</source>
         <translation>ߟߏ߲ߘߐߦߊߟߌ ߟߎ߬ ߛߊߞߍ߫ ߟߊߥߟߌ߬ߟߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="394"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="399"/>
         <source>Active profile:</source>
         <translation>ߢߊߞߙߍ߫ ߟߊߓߊ߯ߙߊߣߍ߲:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="413"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>ߣߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߲ ߦߋ߫ ߡߊߝߊ߬ߟߋ߲߬߸ ߝߴߌ ߦߋ߫ ߛߏ߲߯ߓߊߟߊ߲ ߠߊߥߌ߬ߟߌ ߟߵߏ߬ ߘߐ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="415"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="420"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߞߊ߲&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="441"/>
         <source>Available translations: </source>
         <translation>ߘߟߊߡߌߣߊߟߌ ߡߊߛߐ߬ߘߐ߲߬ߣߍ߲ ߠߎ߬:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="448"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="453"/>
         <source>Don&apos;t load tabs until selected</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߓߊߕߐߡߐ߲ߓߊߟߌ ߝߋ߲߫ ߞߊ߫ ߟߊߦߟߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="470"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="475"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
         <translation>ߊ߬ ߡߊߝߟߍ߫ ߣߌ߫ ߞߎߖ߭ߌߟߊ ߦߴߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߊ߲ ߖߏߣߡߊ ߟߋ߬ ߘߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="485"/>
         <source>Check Now</source>
         <translation>ߊ߬ ߛߊߞߍ߫ ߛߍߣߍ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="515"/>
         <source>Themes</source>
         <translation>ߘߊߞߎ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="532"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="537"/>
         <source>Advanced options</source>
         <translation>ߢߣߊߕߊߟߌ ߢߍߕߊ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="538"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="543"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߏ߲߯ߓߊߟߌ ߝߢߐߘߊ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="576"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="581"/>
         <source>Show StatusBar on start</source>
         <translation>ߛߌ߰ߞߊ߲߬ ߡߙߎߝߋ ߟߊߟߐ߲߫ ߟߊ߬ߟߥߟߌ߬ߟߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="583"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="588"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>ߞߐߜߍ߫ ߡߊߦߋߙߋ߲ ߡߙߎߝߋ ߟߊߟߐ߲߫ ߟߊ߬ߥߟߌ߬ߟߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="590"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="595"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>ߛߏ߲߯ߓߊߟߌ߫ ߡߙߎߝߋ ߟߊߟߐ߲߫ ߟߊ߬ߥߟߌ߬ߟߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="597"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="606"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="611"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߏ߲߯ߓߊߟߌ߫ ߡߙߎߝߋ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="618"/>
         <source>Show Home button</source>
         <translation>ߓߏ߬ߟߏ߲ ߞߎ߬ߘߎ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="625"/>
         <source>Show Back / Forward buttons</source>
         <translation>ߞߐߝߍ߬\ߢߍߝߍ߬ ߞߎ߬ߘߎ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="640"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show Add Tab button</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߝߙߊ߬ ߞߘߎ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="647"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="652"/>
         <source>Show web search bar</source>
         <translation>ߓߟߐߟߐ߫ ߢߌߣߌ߲ߠߌ ߡߙߎߝߋ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="654"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>Show Reload / Stop buttons</source>
         <translation>ߢߟߊߕߍ߯ߟߌ\ߟߊ߬ߟߐ߬ߟߌ߬ ߞߘߎ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="678"/>
         <source>Tabs behaviour</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߖߏ߮</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="679"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="684"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>ߛߏ߲߬ߙߌ߲߬ߘߐ߬ ߡߙߎߝߋ ߢߡߊߕߎ߲߯ ߣߴߊ߬ ߕߏ߫ ߘߊ߫ ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߋߟߋ߲߫ ߔߋ߫ ߡߊ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="686"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="691"/>
         <source>Activate last tab when closing active tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߘߐ ߟߎ߬ ߟߊߓߊ߯ߙߊ߫ ߣߌ߫ ߛߋ߲߬ߠߊ߬ ߛߏߙߌ߲ߘߐ ߕߎ߲߯ ߘߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="698"/>
         <source>Open new tabs after active tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ ߘߊߦߟߍ߬ ߛߋ߲߬ߠߊ߬ߕߊ ߞߕߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="705"/>
         <source>Open new empty tabs after active tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߘߐߞߏߟߏ߲ ߠߎ߬ ߘߊߦߟߍ߬ ߦߊ߬ߣߌ߫ ߛߏ߬ߙߌ߲߬ߘߐ ߟߎ߬ ߦߋ߫ ߘߐߓߍ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="707"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="712"/>
         <source>Open popup windows in tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="714"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Always switch between tabs with mouse wheel</source>
         <translation>ߊ߬ߟߎ߫ ߓߌ߬ߟߊ߬ ߛߏ߬ߙߌ߲߬ߘߐ ߟߎ߬ ߕߍ߫ ߕߎ߬ߡߊ߬ ߓߍ߯ ߌ ߟߊ߫ ߢߌߣߊߣߍ߲ ߞߐ߬ߙߋ߲ ߠߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="721"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="726"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>ߌ ߦߟߍ߬ߡߊ߲߬ ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ ߘߐ߫ ߌߞߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="728"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Don&apos;t close window upon closing last tab</source>
         <translation>ߌ ߞߊ߫ ߓߐ߫ ߝߢߐߘߊ߫ ߟߊߓߊ߲ ߘߊߕߎ߲߮ ߞߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="735"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>ߢߌ߬ߣߌ߲߬ߞߊ߬ߟߌ ߞߍ߫ ߛߏ߬ߙߌ߲߬ߘߐ߬ ߥߙߍ ߟߎ߬ ߘߊߕߎ߲߯ ߡߊ߬ ߞߋߟߋ߲߫ ߘߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="742"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="747"/>
         <source>Show closed tabs button</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߟߎ߬ ߘߊߕߎ߲߯ ߞߘߎ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="751"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="756"/>
         <source>Show close buttons on inactive tabs:</source>
         <translation>ߞߘߎ߬ ߕߎ߲߯ߣߍ߲ ߘߊߦߟߍ߬ ߛߏ߬ߙߌ߬ߘߐ߬ ߓߊ߯ߙߓߊߟߌ ߟߎ߬ ߘߐ߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="759"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
         <source>Automatic</source>
         <translation>ߗߍߒߖߘߍߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
         <source>Always</source>
         <translation>ߕߎ߬ߡߊ߬ ߓߍ߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="774"/>
         <source>Never</source>
         <translation>ߊ߬ ߛߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="814"/>
         <source>Address Bar behaviour</source>
         <translation>ߛߊ߲߬ߓߊ߬ߕߐ߰ ߞߣߍ ߖߏ߮</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="817"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="822"/>
         <source>Suggest when typing into address bar:</source>
         <translation>ߣߌ߫ ߛߓߍߟߌ ߞߍ߫ ߘߊ߫ ߛߊ߲߬ߓߊ߬ߕߐ߰ ߡߙߎߝߋ ߘߐ߫ ߞߊ߬ ߢߍߛߌ ߟߎ߬ ߟߊߟߐ߲߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="831"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
         <source>History and Bookmarks</source>
         <translation>ߞߊ߬ߞߘߐ ߣߌ߫ ߞߐߜߍ߫ ߡߊߦߋߙߋ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>History</source>
         <translation>ߞߊ߬ߞߘߐ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Bookmarks</source>
         <translation>ߞߐߜߍ߫ ߡߊߦߋߙߋ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>Nothing</source>
         <translation>ߝߏߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Enable inline suggestions</source>
         <translation>ߛߌߟߊߞߊ߲߫ ߖߌ߯ߟߌ ߟߎ߬ ߓߌ߬ߟߵߊ߬ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="879"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation>&quot;ߛߌߝߕ&quot; ߘߌ߯ ߞߊ߬ ߛߏ߬ߙߌ߲߬ߘߐ ߟߊߦߟߍ߬ߓߊߟߌ ߕߏ߫ ߒ߬ߞߊ߬ ߞߊ߬ ߛߋ߲߬ߠߊ߬ ߛߘߌ߬ߜߋ߲ ߣߌ߲߬ ߠߊߦߟߍ߬ ߦߊ߲߬ ߌߞߘߐ߫
 
 Appuyez sur &quot;Shift&quot; pour ne pas changer l&apos;onglet mais charger l&apos;URL dans l&apos;onglet courant</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>Propose to switch tab if completed url is already loaded</source>
         <translation>ߊ߬ ߝߐ߫ ߞߏ߫ ߞߊ߬ ߕߊ߬ߡߌ߲߬ ߛߏ߬ߙߌ߲߬ߘߐ ߟߊ߫ ߣߌ߫ ߛߘߌ߬ߜߋ߲ ߓߊ߲߫ ߘߊ߫ ߟߊߦߟߍ߬ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>Always show go icon</source>
         <translation>ߕߊ߯ߟߌ߫ ߞߘߎ ߟߊߟߐ߲߫ ߕߎ߬ߡߊ߬ ߓߍ߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="896"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>ߞߟߏߜߍ ߓߍ߯ ߓߊߕߐߡߐ߲߫ ߛߐ߲߬ߞߌ߲߬ ߝߌ߬ߟߊ߬ߣߍ߲ ߘߐ߫ ߛߊ߲ߓߊ߬ߕߐ߰ ߞߣߍ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="903"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="908"/>
         <source>Select all text by clicking in address bar</source>
         <translation>ߞߟߏߜߍ ߓߍ߯ ߓߊߕߐߡߐ߲߫ ߊ߬ ߛߐ߲߬ߞߌ߲ ߘߐ߫ ߛߊ߲ߓߊ߬ߕߐ߰ ߞߣߍ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Enable automatic searching from the address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="917"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="922"/>
         <source>Search with Default Engine</source>
         <translation>ߊ߬ ߢߌߣߌ߲߫ ߢߌߣߌ߲ߠߌ߫ ߣߌߘߐ ߖߏߣߡߊ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="945"/>
         <source>Show loading progress in address bar</source>
         <translation>ߟߊ߬ߦߟߍ߬ߟߌ ߕߎ߬ߜߍ߬ߕߎ߬ߜߍ߬ߟߌ ߟߊߟߐ߲߫ ߛߊ߬ߓߊ߬ߕߐ߰ ߡߙߎߝߋ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="973"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
         <source>Fill</source>
         <translation>ߊ߬ ߘߐߞߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
         <source>Bottom</source>
         <translation>ߞߎ߬ߘߎ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="988"/>
         <source>Top</source>
         <translation>ߝߟߐߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="996"/>
         <source>Custom color:</source>
         <translation>ߞߎ߬ߙߎ߲߬ߘߎ ߞߐ߬ߟߐ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1012"/>
         <source>Select color</source>
         <translation>ߞߐ߬ߟߐ ߓߊߕߐߡߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1010"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1264"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1787"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1884"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1015"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1792"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2440"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1017"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1022"/>
         <source>Reset</source>
         <translation>ߊ߬ ߟߊߞߎߘߦߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1068"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1073"/>
         <source>Web Configuration</source>
         <translation>ߓߟߐߟߐ߫ ߢߊߘߐߦߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1076"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1083"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
         <source>Allow JavaScript</source>
         <translation>ߖ߭ߝ߭ߊߣߐ߬ߣߐ߬ߟߊ ߟߊߘߌ߬ߢߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1095"/>
         <source>Include links in focus chain</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߠߎ߬ ߟߊߡߌ߬ߣߊߡߌ߬ߣߊ߬ ߛߏ߲߯ߓߊߟߌ ߘߐ߫ ߜߊ߲ߠߌ߫ ߞߘߎ ߛߙߊ߫ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1102"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>ߞߐߜߍ߫ ߕߐߢߍߟߊ ߞߣߐ߬ߜߍ߲߬ߠߌ ߓߌ߬ߟߵߊ߬ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1104"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1109"/>
         <source>Animated scrolling</source>
         <translation>ߘߐ߬ߖߊ߰ߟߊ߬ߟߌ ߡߊ߰ߡߊ߰ߟߌ߬ߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
         <source>Enable spatial navigation</source>
         <translation>ߝߏ߬ߣߊ߲߬ߕߍ߬ ߛߏ߲߯ߓߊߟߌ ߓߌ߬ߟߵߊ߬ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1133"/>
         <source>Mouse wheel scrolls</source>
         <translation>ߢߌߣߊߣߍ߲ ߞߘߎߞߘߎߟߊ߲ ߠߋ߬ ߝߋ߲ ߠߎ߬ ߘߐߖߊ߯ߟߊ߫ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1148"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1153"/>
         <source>lines on page</source>
         <translation>ߛߌ߬ߕߊ߬ߙߌ ߁ ߠߴߊ߬ ߞߐߜߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1159"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1164"/>
         <source>Default zoom on pages: </source>
         <translation>ߞߐߜߍ ߟߎ߬ ߟߊ߬ߓߏ߲߬ߧߊ߬ߟߌ ߖߏߣߡߊ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1203"/>
         <source>Local Storage</source>
         <translation>ߦߌߟߊߟߊ߫ ߟߊߡߊ߲ߘߌߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1214"/>
         <source>Maximum </source>
         <translation>ߛߊ߲ߘߐߕߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1221"/>
         <source>50 MB</source>
         <translation>ߞߋ߲߬ߥߟߎ߬ ߛߋ߬ߓߊ߬ ߅߀</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1247"/>
         <source>Allow storing network cache on disk</source>
         <translation>ߞߙߏ߬ߝߏ ߕߏ߫ ߊ߬ ߦߋ߫ ߜߍߞߟߐ ߟߊߡߊ߲߬ߘߌ߬ ߝߍ߬ߜߍ ߞߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1249"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
         <source>Store cache in:</source>
         <translation>ߜߍߞߟߐ ߟߊߡߊ߲߬ߘߌ߫ ߦߊ߲߬:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1277"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
         <source>Allow saving history</source>
         <translation>ߞߊ߬ߞߘߐ ߟߊߞߎ߲߬ߘߎ ߟߊߘߌ߬ߢߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1284"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1289"/>
         <source>Delete history on close</source>
         <translation>ߞߊ߬ߞߘߐ ߖߐ߬ߛߌ߬ ߕߎ߲߯ߠߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>ߞߟߏߜߍ߫ ߛߘߌ߫ ߡߊߜߍ߲ ߝߐߞߊ߲ ߅ ߟߊ߫ ߦߌߟߊߟߊ߫ ߞߣߐߘߐ ߟߊߡߊ߲ߘߟߌ ߟߊߘߌ߬ߢߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>ߞߟߏߜߍ߫ ߛߘߌ߫ ߡߊߜߍ߲ ߝߐߞߊ߲ ߅ ߟߊ߫ ߦߌߟߊߟߊ߫ ߟߊߡߊ߲ߘߟߌ ߖߐ߬ߛߌ߬ ߘߊߕߎ߲߯ߠߌ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1345"/>
         <source>Delete now</source>
         <translation>ߊ߬ ߖߐ߬ߛߌ߫ ߕߋ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1384"/>
         <source>Proxy Configuration</source>
         <translation>ߕߍߟߐ ߢߊߘߐߦߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1403"/>
         <source>System proxy configuration</source>
         <translation>ߞߊ߲ߞߋ ߟߊ߫ ߕߍߟߐ ߢߊߘߐߦߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>Manual configuration</source>
         <translation>ߓߟߏߟߊ߫ ߢߊߘߐߦߊߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1431"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
         <source>HTTP</source>
         <translation>ߞߟߏߜߍ߫ ߛߘߌߜߋ߲ ߟߊߕߊ߯ ߝߐߞߊ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1441"/>
         <source>SOCKS5</source>
         <translation>ߜߊ߬ߔߐ߬ߍ߬ߘߐ߬ ߅</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1447"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
         <source>Port:</source>
         <translation>ߥߏ߬ߘߊ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
         <source>Username:</source>
         <translation>ߟߐ߲ߕߐ߮:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1478"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1483"/>
         <source>Password:</source>
         <translation>ߕߊ߬ߡߌ߲߬ߞߊ߲:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1511"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1516"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߓߍߢߌ߲߫ ߞߙߎ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1529"/>
         <source>Standard</source>
         <translation>ߖߏߣߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1531"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1536"/>
         <source>Fixed</source>
         <translation>ߞߊ߲߬ߞߊ߲߬ ߓߊߟߊ߲ߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1541"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Serif</source>
         <translation>ߞߙߋߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1551"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1556"/>
         <source>Sans Serif</source>
         <translation>ߞߙߋߒߕߊ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1566"/>
         <source>Cursive</source>
         <translation>ߕߣߍ߬ߣߍ߬ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
         <source>Fantasy</source>
         <translation>ߡߊ߬ߢߍ߰ߙߍ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߓߍߢߌ߲ ߟߐߜߊ߲ ߠߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
         <source>Fixed Font Size</source>
         <translation>ߛߓߍߢߌ߲߫ ߟߐ߬ߜߊ߲߬ ߓߊ߲ߓߊߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1636"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
         <source>Default Font Size</source>
         <translation>ߛߓߍߢߌ߲߫ ߟߐ߲߬ߜߊ߲߬ ߖߏߣߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1663"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1668"/>
         <source>Minimum Font Size</source>
         <translation>ߛߓߍߢߌ߲߫ ߟߐ߲߬ߜߊ߲ ߘߐ߰ߡߊ߲߬ߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1670"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1675"/>
         <source>Minimum Logical Font Size</source>
         <translation>ߛߓߍߢߌ߲ ߟߐ߬ߜߊ߲߬ ߘߐ߰ߡߊ߲߬ߣߍ߲ ߖߌ߰ߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1703"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߌߟߊߛߎߘߎ߲ ߠߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߟߎ߬ ߘߐߖߊ߯ߟߊ߫ Alt ߣߌ߫ ߛߏ߬ߙߌ߲߬ߘߐ ߝߙߍߕߍ ߟߎ߬ ߘߌ߮ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1717"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>ߞߟߌߟߌ߫ ߞߊߟߌ߲ ߠߊߦߟߍ߬ Ctrl ߣߌ߫ ߞߟߌߟߌ߫ ߞߊߟߌ߲ ߝߙߍߕߍ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1724"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
         <source>Use single key shortcuts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1742"/>
         <source>Close application with Ctrl-Q</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1766"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߟߊ߬ߖߌ߰ߟߌ߬ ߞߍߦߙߐ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
         <source>Ask everytime for download location</source>
         <translation>ߢߌ߬ߣߌ߲߬ߞߊ߬ߟߌ ߞߍ߫ ߟߊ߬ߖߌ߰ߟߌ߬ ߦߙߐ߬ ߞߏ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1775"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
         <source>Use defined location: </source>
         <translation>ߦߌߟߊ ߘߊ߲߬ߣߊ߬ߕߍ߰ߣߍ߲ ߠߊߓߊ߯ߙߊ߫:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1825"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1830"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߟߊ߬ߖߌ߰ߟߌ ߢߣߊߕߊߟߌ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1832"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1837"/>
         <source>Close download manager when downloading finishes</source>
         <translation>ߟߊ߬ߖߌ߰ߟߌ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ ߘߊߕߎ߲߯ ߟߊ߬ߖߌ߬ߟߌ ߓߊ߲ ߞߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1839"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1844"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߞߐߞߊ߲߫ ߟߊߖߌ߯ߟߌ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
         <source>Use external download manager</source>
         <translation>ߞߐߞߊ߲߫ ߟߊߖߌ߯ߟߌ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ ߟߊߓߊ߯ߙߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Executable:</source>
         <translation>ߟߥߊ߬ߟߌ߬ߕߊ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Arguments:</source>
         <translation>ߟߐ߬ߦߙߌ ߟߎ߬:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1877"/>
         <source>Leave blank if unsure</source>
         <translation>ߊ߬ ߘߐߞߏߟߏ߲ ߕߏ߫ ߣߴߌ ߜߍߣߍ߲߫ ߕߴߊ߬ ߡߊ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1893"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt;ߘߌ߫ ߡߊߝߊ߬ߟߋ߲߬ ߛߘߌ߬ߜߋ߲ ߠߊߖߌ߰ߕߊ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߖߘߍ߬ߡߊ߬ ߛߓߍߟߌ ߢߣߊߕߊߟߌ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
         <source>Allow saving passwords from sites</source>
         <translation>ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ ߟߊߘߌ߬ߢߍ߬ ߞߍߦߙߐ ߟߎ߬ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1981"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߊ߲߬ߓߊ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1988"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߜߘߍ߫&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2019"/>
         <source>JavaScript options</source>
         <translation>ߖ߭ߝ߭ߊߣߐ߬ߣߐ߬ߟߊ  ߢߣߊߕߊߟߌ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߖ߭ߝ߭ߊߣߐߣߐߟߊ&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
         <source>Cookies Manager</source>
         <translation>ߛߊ߲߬ߓߊ ߟߎ߫ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
         <source>Manage JavaScript privacy options</source>
         <translation>ߖ߭ߝ߭ߊߣߐ߬ߣߐ߬ߟߊ  ߘߎ߲߬ߘߎ߲߬ߡߊ߬ ߢߣߊߕߊߟߌ ߟߎ߬ ߞߎ߲߬ߠߊߛߌ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
         <source>Manage HTML5 permissions</source>
         <translation>ߞߟߏߜߍ߫ ߛߘߌ߫ ߡߊߜߍ߲ ߝߐߞߊ߲ ߅ ߘߌ߬ߢߍ߬ߟߌ ߟߎ߬ ߞߎ߲߬ߠߊߛߌ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
         <source>Manage Cookies</source>
         <translation>ߛߊ߲߬ߓߊ ߟߎ߫ ߞߎ߲߬ߠߊߛߌ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߞߟߏߜߍ߫ ߛߘߌ߫ ߡߊߜߍ߲ ߝߐߞߊ߲ ߅&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2110"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>HTML5 Permissions</source>
         <translation>ߞߟߏߜߍ߫ ߛߘߌ߫ ߡߊߜߍ߲ ߝߐߞߊ߲ ߅ ߘߌ߬ߢߍ߬ߟߌ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
         <source>Send Do Not Track header to servers</source>
         <translation>ߛߌߟߊߒߕߊ߲ ߛߟߊߟߊ ߟߊߕߊ߯ ߛߐߘߊ ߟߎ߫ ߡߊ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2133"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߦߟߌߣߐߦߊ ߟߎ߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2135"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2140"/>
         <source>Use OSD Notifications</source>
         <translation>ߥߊ߲߬ߥߊ߲ ߘߐ߬ߓߍ߲߬ߠߌ߬ ߘߊ ߦߟߌߣߐߦߊ ߟߎ߬ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2145"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>ߞߊ߲ߞߋ ߟߊ߫ ߦߟߌߣߐߦߊߟߌ ߟߎ߬ ߟߊߓߊ߯ߙߊ߫ (ߟߎߣߌߞ ߘߐߙߐ߲߫ ߢߍ߫)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2157"/>
         <source>Do not use Notifications</source>
         <translation>ߦߟߌߣߐߦߊ ߟߎ߬ ߞߊ߫ ߟߊߓߊ߯ߙߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2208"/>
         <source>Expiration timeout:</source>
         <translation>ߓߊ߲ߠߌ ߕߎ߬ߡߊ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
         <source> seconds</source>
         <translation>ߝߌߟߊ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2225"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;ߦߟߌߣߐ: &lt;/b&gt;ߌ ߘߌ߫ ߥߊ߲߬ߥߊ߲ ߘߐ߬ߓߍ߲߬ߠߌ߬ ߘߊ ߦߟߌߣߐߦߊߟߌ ߦߙߐ ߡߊߝߊ߬ߟߋ߲߬ ߠߊ߫ ߕߏ߬ߙߏ߲߬ߘߏ߬ߟߌ ߣߌ߫ ߟߊߟߌ ߘߐ߫ ߥߊ߲߬ߥߊ߲ ߞߊ߬.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2283"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2343"/>
+        <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2350"/>
+        <source>Enable Spell Check</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2357"/>
+        <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <source>No languages found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2416"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2297"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2430"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2327"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߌ ߘߌߦߊߣߊ߲߫ ߞߊ߲ ߞߍߦߙߐ ߣߌ߲߬ ߠߊ߫&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2347"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;ߛߏ߲߯ߓߊߟߊ߲ ߞߋ߬ߟߋ߲߬ߧߊ߬ߟߊ߲ ߡߊߦߟߍ߬ߡߊ߲߬&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2505"/>
         <source>User Agent Manager</source>
         <translation>ߕߣߐ߬ߓߐ߬ߟߊ߫ ߞߣߐ߬ߜߍ߲߬ߓߊ߮ ߞߎ߲߬ߠߊ߬ߛߌ߰ߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2545"/>
         <source>Languages</source>
         <translation>ߞߊ߲ ߠߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>Search Engines Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2489"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
         <source>QupZilla</source>
         <translation>ߞߎߖ߭ߌߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="155"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="567"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
         <source>Default</source>
         <translation>ߖߏߣߡߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="159"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="153"/>
         <source>Set as default</source>
         <translation>ߊ߬ ߞߍ߫ ߖߏߣߡߊ ߘߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="503"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="541"/>
         <source>Choose executable location...</source>
         <translation>ߟߥߊ߬ߟߌ߬ߕߊ ߦߌߟߊ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="551"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="589"/>
         <source>OSD Notification</source>
         <translation>ߥߊ߲߬ߥߊ߲ ߘߐ߬ߓߍ߲߬ߠߌ߬ ߘߊ ߦߟߌߣߐߦߊ ߟߎ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="552"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="590"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>ߊ߬ ߕߏ߬ߙߏ߲߬ߘߏ߬ ߞߵߊ߬ ߟߊ߫ ߥߊ߲߬ߥߊ߲ ߞߊ߲߬ ߌ ߘߌߦߊ߲ߣߊ߲߫ ߝߊ߲ ߘߏ߫ ߘߐ߫.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="637"/>
         <source>Choose download location...</source>
         <translation>ߟߊ߬ߖߌ߰ߟߌ߬ ߘߊ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="613"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="651"/>
         <source>Choose stylesheet location...</source>
         <translation>ߦߙߋߟߋ߲߫ ߞߟߊߘߊ ߦߌߟߊ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="624"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
         <source>Deleted</source>
         <translation>ߖߐ߬ߛߌ߬ߣߍ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="718"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
         <source>Choose cache path...</source>
         <translation>ߜߍߞߟߐ ߛߌߟߊ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>New Profile</source>
         <translation>ߢߊߞߙߍ߫ ߞߎߘߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>ߢߊߞߙߍ ߣߌ߲߬ ߕߐ߯ ߞߎߘߊ ߟߊߘߏ߲߬:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Error!</source>
         <translation>ߝߌ߬ߟߌ߹</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
         <source>This profile already exists!</source>
         <translation>ߢߊߞߙߍ ߣߌ߲߬ ߦߋ߲߬ ߞߊ߬ ߓߊ߲߫߹</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Cannot create profile directory!</source>
         <translation>ߢߊߞߙߍ߫ ߓߏ߲ߘߏ߲ ߕߍ߫ ߛߋ߫ ߛߌ߲ߘߌ߫ ߟߊ߫߹</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
         <source>Confirmation</source>
         <translation>ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="786"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="824"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1099"/>
         <source>Select Color</source>
         <translation>ߞߐ߬ߟߐ ߛߎߥߊ߲ߘߌ߫</translation>
     </message>
@@ -4854,90 +4903,98 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
-        <source>&amp;New tab</source>
-        <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="341"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Stop Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߘߊߕߎ߲߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="344"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Reload Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߢߟߊߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="347"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>&amp;Duplicate Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߓߊߟߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>D&amp;etach Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߓߐ߬ߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Un&amp;pin Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߣߌ߲߬ ߓߐ߬ߛߌ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>&amp;Pin Tab</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߜߊ߲ߜߊ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>Un&amp;mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>&amp;Mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Re&amp;load All Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߓߍ߯ ߢߟߊߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
-        <source>&amp;Bookmark This Tab</source>
-        <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߣߌ߲߬ ߡߊߦߋߙߋ߲߫</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="372"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>ߞߐߜߍ ߓߍ߯ ߡߊߦߋߙߋ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߜߘߍ߫ ߕߎ߲߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="365"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
         <source>Close Tabs To The Right</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Close Tabs To The Left</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
         <source>Cl&amp;ose</source>
         <translation>ߊ߬ ߕߎ߲߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="371"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <source>&amp;New tab</source>
+        <translation>ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>ߛߏ߬ߙߌ߲߬ߘߐ ߓߍ߯ ߢߟߊߕߍ߰</translation>
+    </message>
+</context>
+<context>
+    <name>TabIcon</name>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Unmute Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Mute Tab</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5100,58 +5157,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="290"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>ߞߎߖ߭ߌߟߊ ߕߍ߫ ߛߋ߫ ߛߘߌ߬ߜߋ߲߬ &lt;b&gt;%1:&lt;/b&gt; ߞߎ߲߬ߠߊߛߌ߰ ߟߊ߫. ߛߘߌ߬ߜߋ߲߬ ߠߊߢߌߣߌ߲ߣߍ߲ ߦߋ߫ &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;ߦߴߊ߬ ߝߍ߬ ߞߎߖ߭ߌߟߊ ߦߋ߫ ߛߘߌ߬ߜߋ߲ ߣߌ߲߬ ߘߊߦߟߍ߬ ߓߟߏߦߊߟߌ ߞߊ߲ߞߋ ߘߐ߫ ߟߋ߬ ߢߍ؟</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="295"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="280"/>
         <source>Remember my choice for this protocol</source>
         <translation>ߌ ߖߊ߲߬ߕߏ߫ ߝߐߞߊ߲ ߣߌ߲߬ ߘߐ߫ ߒ ߠߊ߫ ߛߎߥߊ߲ߘߌߣߍ߲ ߣߌ߲߬ ߢߍ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="296"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>External Protocol Request</source>
         <translation>ߞߐߞߊ߲߫ ߝߐߟߌ ߢߌ߬ߣߌ߲߬ߟߊ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="383"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Failed loading page</source>
         <translation>ߞߐߜߍ ߟߊ߬ߦߟߍ߬ߟߌ ߝߌ߬ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Something went wrong while loading this page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="402"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="387"/>
         <source>Reload page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="437"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="421"/>
         <source>Choose file...</source>
         <translation>ߞߐߕߐ߯ߘߐ ߛߎߥߊ߲ߘߌ߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="441"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="425"/>
         <source>Choose files...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>JavaScript alert</source>
         <translation>ߖ߭ߝ߭ߊߣߐ߬ߣߐ߬ߟߊ ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="570"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>ߞߐߜߍ ߣߌ߲߬ ߓߊ߬ߟߌ߬ ߘߊߘߐߝߙߊ߫ ߖߘߌߒߞߊ߲ ߘߏ߫ ߛߌ߲ߘߌ߫ ߟߊ߫</translation>
     </message>
@@ -5187,12 +5244,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="396"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="386"/>
         <source>Loading...</source>
         <translation>ߢߟߊߕߍ߯ߟߌ...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="412"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="402"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - ߞߎߖ߭ߌߟߊ</translation>
     </message>
@@ -5200,247 +5257,252 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="104"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="103"/>
         <source>Empty Page</source>
         <translation>ߞߐߜߍ߫ ߘߐߞߏߟߏ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="671"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="637"/>
+        <source>No suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
         <source>&amp;Back</source>
         <translation>ߞߐߝߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="693"/>
         <source>&amp;Forward</source>
         <translation>ߢߍߝߍ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="682"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
         <source>&amp;Add New Page</source>
         <translation>ߞߐߜߍ߫ ߞߎߘߊ &amp;ߝߙߊ߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="701"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>ߞߟߌߟߌ߫ ߞߊߟߌ߲ ߞ&amp;ߎ߲߬ߠߊߛߌ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="685"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="703"/>
         <source>Reload All Dials</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="692"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
         <source>Book&amp;mark page</source>
         <translation>ߞߐߜߍ ߡߊߦߋߙߋ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="696"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
         <source>&amp;Copy page link</source>
         <translation>ߞߐߜߍ ߛߘߌ߬ߜߋ߲ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="697"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
         <source>Send page link...</source>
         <translation>ߞߐߜߍ ߛߘߌ߬ߜߋ߲ ߠߊߕߊ߯...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="699"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>Select &amp;all</source>
         <translation>ߊ߬ ߓߍ߯ ߓߊߕߐߡߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="704"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
         <source>Validate page</source>
         <translation>ߞߐߜߍ ߕߐ߬ߡߐ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="708"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
         <source>Translate page</source>
         <translation>ߘߟߊߡߌߣߊߟߌ߫ ߞߐߜߍ</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
         <source>Show so&amp;urce code</source>
         <translation>ߓߊߛߎ߲ ߘߏߞߊ߲ ߠߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="731"/>
         <source>Show info ab&amp;out site</source>
         <translation>ߞߍߦߙߐ ߞߌ߬ߓߊ߬ߙߏ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="721"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
         <source>Open link in new &amp;tab</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߘߊߦߟߍ߬ ߛߏ߬ߙߌ߲߬ߘߐ߬ ߞߎߘߊ߫ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>Open link in new &amp;window</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߘߊߦߟߍ߬ ߝߢߐߘߊ߫ ߞߎߘߊ߫ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
         <source>Open link in &amp;private window</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߘߊߦߟߍ߬ ߜߎ߬ߘߎ߬ ߝߢߐ߬ߘߊ߬ ߞߎߘߊ߫ ߘߐ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>B&amp;ookmark link</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߡߊߦߋߙߋ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Save link as...</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߟߊߞߎ߲߬ߘߎ߫ ߕߊ߲߬...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="735"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send link...</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߠߊߕߊ߯...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="736"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>&amp;Copy link address</source>
         <translation>ߛߘߌ߬ߜߋ߲ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
         <source>Show i&amp;mage</source>
         <translation>ߖߌ߬ߦߊ ߟߊߟߐ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Copy image</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
         <source>Copy image ad&amp;dress</source>
         <translation>ߖߌ߬ߦߊ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
         <source>&amp;Save image as...</source>
         <translation>ߖߌ߬ߦߊ ߟߊߞߎ߲߬ߘߎ߫ ߕߊ߲߬...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="757"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
         <source>Send image...</source>
         <translation>ߖߌ߬ߦߊ ߟߊߕߊ߯...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
         <source>Send text...</source>
         <translation>ߞߟߏߜߍ ߟߊߕߊ߯...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
         <source>Google Translate</source>
         <translation>ߜ߭ߎߜߟ ߘߟߊߡߌߣߟߊ</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="787"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Dictionary</source>
         <translation>ߓߏ߲߬ߘߏ߲</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="818"/>
         <source>Go to &amp;web address</source>
         <translation>ߕߊ߯ ߓߟߐߟߐ߫ ߛߊ߲߬ߓߊ߬ߕߐ ߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>&quot;%1 ..&quot; ߣߌ߫ %2 ߢߌߣߌ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
         <source>Search with...</source>
         <translation>ߊ߬ ߣߌ߫ ߣߌ߲߬ ߢߌߣߌ߲߫...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Play</source>
         <translation>ߊ߬ ߘߐߞߊ߬ߙߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Pause</source>
         <translation>ߊ߬ ߟߊߘߎ߲߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>Un&amp;mute</source>
         <translation>ߊ߬ ߟߊߞߎߡߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>&amp;Mute</source>
         <translation>ߊ߬ ߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="846"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
         <source>&amp;Copy Media Address</source>
         <translation>ߞߎ߲߬ߠߊ߬ߝߎߟߋ߲ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="847"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
         <source>&amp;Send Media Address</source>
         <translation>ߞߎ߲߬ߠߊ߬ߝߎߟߋ߲ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊߕߊ߯</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="848"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
         <source>Save Media To &amp;Disk</source>
         <translation>ߞߎ߲߬ߠߊ߬ߝߎߟߋ߲ ߠߊߞߎ߲߬ߘߎ߫ ߝߍ߬ߜߍ ߞߊ߲߬</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="867"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
         <source>Create Search Engine</source>
         <translation>ߢߌߣߌ߲ߠߌ߫ ߣߌߘߐ ߘߏ߫ ߛߌ߲ߘߌ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="908"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="914"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="930"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
         <source>&amp;Cut</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="926"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="942"/>
         <source>&amp;Copy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="932"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="938"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="954"/>
         <source>Select All</source>
         <translation>ߊ߬ ߓߍ߯ ߓߊߓߌߟߊ߫</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="960"/>
         <source>&amp;Reload</source>
         <translation>ߊ߬ ߢߟߊߕߍ߰</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="964"/>
         <source>S&amp;top</source>
         <translation>ߊ߬ ߟߊߟߐ߬</translation>
     </message>

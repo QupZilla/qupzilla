@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko_KR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko_KR" version="2.1">
 <context>
     <name>GnomeKeyringPlugin</name>
     <message>

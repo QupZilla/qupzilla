@@ -9,17 +9,17 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current Page Settings</source>
-        <translation>當前頁面設定</translation>
+        <translation>目前頁面設定</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
         <source>Disable loading images (temporarily)</source>
-        <translation>不允許讀取圖片(暫時)</translation>
+        <translation>不允許讀取圖片 (暫時)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="62"/>
         <source>Enable loading images (temporarily)</source>
-        <translation>允許讀取圖片(暫時)</translation>
+        <translation>允許讀取圖片 (暫時)</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="66"/>
@@ -37,22 +37,22 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation>變更每個網站及全域的JavaScript設定</translation>
+        <translation>變更每個網站及全域的 JavaScript 設定</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="50"/>
         <source>Current Page Settings</source>
-        <translation>當前頁面設定</translation>
+        <translation>目前頁面設定</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="53"/>
         <source>Disable JavaScript (temporarily)</source>
-        <translation>不允許JavaScript(暫時)</translation>
+        <translation>不允許 JavaScript (暫時)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="56"/>
         <source>Enable JavaScript (temporarily)</source>
-        <translation>允許JavaScript(暫時)</translation>
+        <translation>允許 JavaScript (暫時)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="65"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Manage JavaScript settings</source>
-        <translation>管理JavaScript設定</translation>
+        <translation>管理 JavaScript 設定</translation>
     </message>
 </context>
 <context>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="97"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
-        <translation>顯示網路狀態及管理代理伺服器&lt;br/&gt;&lt;br/&gt;&lt;b&gt;網路:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;代理伺服器:&lt;/b&gt;&lt;br/&gt;%2</translation>
+        <translation>顯示網路狀態及管理代理伺服器&lt;br/&gt;&lt;br/&gt;&lt;b&gt;網路：&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;代理伺服器：&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="100"/>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="28"/>
         <source>Select proxy: </source>
-        <translation>選擇代理伺服器</translation>
+        <translation>選擇代理伺服器：</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="38"/>
@@ -144,22 +144,22 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>無代理伺服器。您可以點及 &lt;b&gt;新增&lt;/b&gt; 按鈕來新增代理伺服器。</translation>
+        <translation>無代理伺服器。您可以點擊&lt;b&gt;新增&lt;/b&gt;按鈕來新增代理伺服器。</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>
         <source>All changes must be saved with &lt;b&gt;Save&lt;/b&gt; button.</source>
-        <translation>所以變更必須點擊 &lt;b&gt;儲存&lt;/b&gt; 按鈕儲存。</translation>
+        <translation>所以變更必須點擊&lt;b&gt;儲存&lt;/b&gt;按鈕儲存。</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="57"/>
         <source>Name of proxy:</source>
-        <translation>代理伺服器名稱:</translation>
+        <translation>代理伺服器名稱：</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Remove current proxy</source>
-        <translation>移除當前代理伺服器</translation>
+        <translation>移除目前代理伺服器</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
@@ -187,27 +187,27 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="39"/>
         <source>Port:</source>
-        <translation>端口:</translation>
+        <translation>埠：</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="76"/>
         <source>Username:</source>
-        <translation>使用者名稱:</translation>
+        <translation>使用者名稱：</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="86"/>
         <source>Password:</source>
-        <translation>密碼:</translation>
+        <translation>密碼：</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <source>S&amp;ystem proxy configuration</source>
-        <translation>系統代理伺服器組態(&amp;Y)</translation>
+        <translation>系統代理伺服器組態 (&amp;Y)</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation>手動設定(&amp;M)</translation>
+        <translation>手動設定 (&amp;M)</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="70"/>
         <source>These icons will be displayed in statusbar:</source>
-        <translation>此圖示將會顯示在狀態列:</translation>
+        <translation>此圖示將會顯示在狀態列：</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="97"/>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../sbi_settingsdialog.ui" line="104"/>
         <source>JavaScript Icon</source>
-        <translation>JavaScript圖示</translation>
+        <translation>JavaScript 圖示</translation>
     </message>
     <message>
         <location filename="../sbi_settingsdialog.ui" line="111"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../sbi_zoomwidget.cpp" line="47"/>
         <source>Zoom: %1%</source>
-        <translation>縮放： %1%</translation>
+        <translation>縮放：%1%</translation>
     </message>
 </context>
 </TS>

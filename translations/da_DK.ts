@@ -622,12 +622,6 @@ Installer den nyeste version af QupZilla.</translation>
         <translation>Alle andre bogmærker</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="134"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="379"/>
-        <source>Empty</source>
-        <translation>Tom</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Vælg navn og placering af dette bogmærke</translation>
@@ -671,6 +665,11 @@ Installer den nyeste version af QupZilla.</translation>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
         <translation>Rediger Bogmærke</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
+        <source>Empty</source>
+        <translation>Tom</translation>
     </message>
 </context>
 <context>
@@ -839,7 +838,7 @@ Installer den nyeste version af QupZilla.</translation>
         <translation>Google Chrome gemmer sine bogmærker i en &lt;b&gt;Bookmarks&lt;/b&gt; tekstfil. Denne fil er oftest at finde i</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="48"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="50"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="57"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="44"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="44"/>
@@ -848,14 +847,14 @@ Installer den nyeste version af QupZilla.</translation>
         <translation>Vælg fil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="57"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="59"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="53"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="59"/>
         <source>Unable to open file.</source>
         <translation>Kan ikke åbne fil.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="76"/>
         <source>Cannot parse JSON file!</source>
         <translation>Kan ikke evaluere JSON fil!</translation>
     </message>
@@ -968,22 +967,22 @@ Installer den nyeste version af QupZilla.</translation>
 <context>
     <name>BookmarksMenu</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="151"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="165"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Bogmærker</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="153"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="167"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Bogmærk Denne Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="168"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bogmærk &amp;Alle Faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="169"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>Håndter &amp;Bogmærker</translation>
     </message>
@@ -991,12 +990,12 @@ Installer den nyeste version af QupZilla.</translation>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="164"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="166"/>
         <source>Address</source>
         <translation>Adresse</translation>
     </message>
@@ -1117,78 +1116,78 @@ Installer den nyeste version af QupZilla.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="637"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="636"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="886"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="884"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menulinie</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="952"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="950"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="956"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="954"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Bogmærke Værktøjslinie</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="962"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>&amp;Tabs on Top</source>
         <translation>Faneblade i &amp;Toppen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1018"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
         <source>Other</source>
         <translation>Andre</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>HTML files</source>
         <translation>HTML filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Image files</source>
         <translation>Billed filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Text files</source>
         <translation>Tekst filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>All files</source>
         <translation>Alle filer</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1064"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>Open file...</source>
         <translation>Åben filer...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1395"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1398"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1396"/>
         <source>Don&apos;t ask again</source>
         <translation>Spørg ikke igen</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1399"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
         <source>There are still open tabs</source>
         <translation>Der er stadig åbne faneblade</translation>
     </message>
@@ -1762,7 +1761,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="306"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="340"/>
         <source>Download Manager</source>
         <translation>Overførselshåndtering</translation>
     </message>
@@ -1787,22 +1786,42 @@ Are you sure you want to close this window?</source>
         <translation>Gem fil som...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="253"/>
+        <source>MIME HTML Archive (*.mhtml)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="254"/>
+        <source>HTML Page, single (*.html)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="255"/>
+        <source>HTML Page, complete (*.html)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <source>Save page as...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>Download Finished</source>
         <translation>Overførsel Udført</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Alle filer er blevet succesfuldt overført.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="356"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="390"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="357"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="391"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Er du sikker på at du vil afslutte? Alle uafsluttede overførsler vil blive afbrudt!</translation>
     </message>
@@ -2144,53 +2163,53 @@ Are you sure you want to close this window?</source>
 <context>
     <name>HistoryMenu</name>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="132"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="156"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="134"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="158"/>
         <source>Empty</source>
         <translation>Tom</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="160"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="162"/>
         <source>Restore All Closed Tabs</source>
         <translation>Gendan Alle Lukkede Faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="161"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
         <source>Clear list</source>
         <translation>Nulstil liste</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="207"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
         <source>Hi&amp;story</source>
         <translation>Hi&amp;storik</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="211"/>
         <source>&amp;Back</source>
         <translation>Til&amp;bage</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="212"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
         <source>&amp;Forward</source>
         <translation>&amp;Frem</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="215"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="217"/>
         <source>&amp;Home</source>
         <translation>&amp;Hjem</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="218"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="220"/>
         <source>Show &amp;All History</source>
         <translation>Vis &amp;Al Historik</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="226"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="228"/>
         <source>Most Visited</source>
         <translation>Mest besøgte</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="229"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="231"/>
         <source>Closed Tabs</source>
         <translation>Lukkede Faneblade</translation>
     </message>
@@ -2218,18 +2237,18 @@ Are you sure you want to close this window?</source>
         <translation>Besøgstal</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="341"/>
-        <location filename="../src/lib/history/historymodel.cpp" line="472"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="339"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="470"/>
         <source>Today</source>
         <translation>Idag</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="477"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="475"/>
         <source>This Week</source>
         <translation>Denne uge</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="482"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="480"/>
         <source>This Month</source>
         <translation>Denne måned</translation>
     </message>
@@ -2414,22 +2433,22 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1046"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla er i øjeblikket ikke din standardnetlæser. Vil du gerne gøre den til din standardnetlæser?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1047"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Udfør altid dette tjek ved opstart af QupZilla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1049"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
         <source>Default Browser</source>
         <translation>Standard Netlæser</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1107"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla er en ny, hurtig og sikker webbrowser. QupZilla er udgivet under GPL version 3 eller (hvis ønsket) senere. Den er baseret på WebKit Core og QT-frameworket.</translation>
     </message>
@@ -2437,242 +2456,242 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="505"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
         <source>&amp;About QupZilla</source>
         <translation>&amp; Om QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
         <source>Pr&amp;eferences</source>
         <translation>Indstilling&amp;er</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="514"/>
         <source>Quit</source>
         <translation>Afslut</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>&amp;File</source>
         <translation>&amp;Fil</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>New Tab</source>
         <translation>Nyt Faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>&amp;New Window</source>
         <translation>&amp;Nyt Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
         <source>New &amp;Private Window</source>
         <translation>Nyt &amp;Privat Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>Open Location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Open &amp;File...</source>
         <translation>Åben &amp;Fil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Close Window</source>
         <translation>Luk Vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>Gem &amp;Side Som...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Send Link...</source>
         <translation>Send Link...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>&amp;Print...</source>
         <translation>&amp;Udskriv</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Edit</source>
         <translation>R&amp;ediger</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>&amp;Cut</source>
         <translation>&amp;Klip</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>C&amp;opy</source>
         <translation>K&amp;opiér</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="548"/>
         <source>&amp;Paste</source>
         <translation>&amp;Indsæt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>Select &amp;All</source>
         <translation>Vælg &amp;Alle</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
         <source>&amp;Find</source>
         <translation>&amp;Find</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
         <source>&amp;View</source>
         <translation>&amp;Vis</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Toolbars</source>
         <translation>Værktøjslinier</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>Sidebar</source>
         <translation>Sidepanel</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Character &amp;Encoding</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Sta&amp;tusbar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Stop</source>
         <translation>&amp;Stop</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;Reload</source>
         <translation>&amp;Genindlæs</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;In</source>
         <translation>Zoom &amp;Ind</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Zoom &amp;Out</source>
         <translation>Zoom &amp;Ud</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
         <source>Reset</source>
         <translation>Nulstil</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Sidekilde</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;FuldSkærm</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Tools</source>
         <translation>Værk&amp;tøj</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Netsøgning</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
         <translation>Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
         <translation>Overførselshån&amp;dtering</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;Cookiehåndtering</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>Web In&amp;spector</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Clear Recent &amp;History</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Extensions</source>
         <translation>Udvidels&amp;er</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="615"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
         <source>&amp;Help</source>
         <translation>&amp;Hjælp</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>About &amp;Qt</source>
         <translation>Om &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="617"/>
         <source>Information about application</source>
         <translation>Information om program</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>Configuration Information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="625"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
         <source>Report &amp;Issue</source>
         <translation>Rapporter Problem</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="638"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="632"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Gendan &amp;Lukket Faneblad</translation>
     </message>
@@ -2999,7 +3018,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="90"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Hentninger</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="95"/>
@@ -3023,907 +3042,937 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
+        <source>Spell Check</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="120"/>
         <source>Other</source>
         <translation>Andre</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="191"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="333"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="196"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="338"/>
         <source>Use current</source>
         <translation>Brug nuværende</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="222"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="227"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="841"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Bemærk: Du kan ikke slette den aktive profil.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="238"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="243"/>
         <source>Create New</source>
         <translation>Opret ny</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="259"/>
         <source>Delete</source>
         <translation>Slet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="280"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="285"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;Starter&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>After launch: </source>
         <translation>Efter opstart:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="298"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Open blank page</source>
         <translation>Åben blank side</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
         <source>Open homepage</source>
         <translation>Åben hjemmeside</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
         <source>Open speed dial</source>
         <translation>Åben Kvikknapper</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="318"/>
         <source>Restore session</source>
         <translation>Gendan session</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="321"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="326"/>
         <source>Homepage: </source>
         <translation>Hjemmeside:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>On new tab: </source>
         <translation>I nyt faneblad:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="350"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
         <source>Open blank tab</source>
         <translation>Åben tomt faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="370"/>
         <source>Open other page...</source>
         <translation>Åben anden side...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="373"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="378"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profiler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="380"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="385"/>
         <source>Startup profile:</source>
         <translation>Opstartsprofil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="387"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="392"/>
         <source>Check for updates on start</source>
         <translation>Tjek for opdateringer ved opstart</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="394"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="399"/>
         <source>Active profile:</source>
         <translation>Aktiv profil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="413"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>For at skifte programsprog, skal du genstarte netlæseren.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="415"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="420"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sprog&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="441"/>
         <source>Available translations: </source>
         <translation>Tilgængelige oversættelser:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="448"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="453"/>
         <source>Don&apos;t load tabs until selected</source>
         <translation>Indlæs ikke faneblade for de vælges</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="470"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="475"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
         <translation>Kontrollér om QupZilla er standardnetlæser ved opstart</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="485"/>
         <source>Check Now</source>
         <translation>Tjek Nu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="515"/>
         <source>Themes</source>
         <translation>Temaer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="532"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="537"/>
         <source>Advanced options</source>
         <translation>Avancerede indstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="538"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="543"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Netlæservindue&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="576"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="581"/>
         <source>Show StatusBar on start</source>
         <translation>Vis statuslinie ved opstart</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="583"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="588"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Vis Bogmærker Værktøjslinie ved opstart</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="590"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="595"/>
         <source>Show Navigation ToolBar on start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="597"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="606"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="611"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="618"/>
         <source>Show Home button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="625"/>
         <source>Show Back / Forward buttons</source>
         <translation>Vis Tilbage / Frem knapper</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="640"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show Add Tab button</source>
         <translation>Vis Tilføj Faneblad knap</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="647"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="652"/>
         <source>Show web search bar</source>
         <translation>Vis netsøgelinie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="654"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>Show Reload / Stop buttons</source>
         <translation>Vis Genindlæs / Stop knapper</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="678"/>
         <source>Tabs behaviour</source>
         <translation>Opførsel for faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="679"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="684"/>
         <source>Hide tabs when there is only one tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="686"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="691"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Aktivér forrige faneblad, når det aktive faneblad lukkes</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="698"/>
         <source>Open new tabs after active tab</source>
         <translation>Opret nye faneblade efter det aktive</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="705"/>
         <source>Open new empty tabs after active tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="707"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="712"/>
         <source>Open popup windows in tabs</source>
         <translation>Åben pop op vinduer i faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="714"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Always switch between tabs with mouse wheel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="721"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="726"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>Skift automatisk til nyt faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="728"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Don&apos;t close window upon closing last tab</source>
         <translation>Luk ikke vinduet, når det sidste faneblad lukkes.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="735"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="742"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="747"/>
         <source>Show closed tabs button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="751"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="756"/>
         <source>Show close buttons on inactive tabs:</source>
         <translation>Vis lukkeknapper på inaktive faneblade.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="759"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
         <source>Automatic</source>
         <translation>Automatisk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
         <source>Always</source>
         <translation>Altid</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="774"/>
         <source>Never</source>
         <translation>Aldrig</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="814"/>
         <source>Address Bar behaviour</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="817"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="822"/>
         <source>Suggest when typing into address bar:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="831"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
         <source>History and Bookmarks</source>
         <translation>Historik og Bogmærker</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>History</source>
         <translation>Historik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Bookmarks</source>
         <translation>Bogmærker</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>Nothing</source>
         <translation>Ingenting</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Enable inline suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="879"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>Propose to switch tab if completed url is already loaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>Always show go icon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="896"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>Select all text by double clicking in address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="903"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="908"/>
         <source>Select all text by clicking in address bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Enable automatic searching from the address bar</source>
         <translation>Aktivér automatisk søgning fra adresselinie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="917"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="922"/>
         <source>Search with Default Engine</source>
         <translation>Søg med Standardsøgemaskine</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="945"/>
         <source>Show loading progress in address bar</source>
         <translation>Vis indlæsningsstatus i adresselinie</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="973"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
         <source>Fill</source>
         <translation>Fyld</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
         <source>Bottom</source>
         <translation>Bunden</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="988"/>
         <source>Top</source>
         <translation>Top</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="996"/>
         <source>Custom color:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1012"/>
         <source>Select color</source>
         <translation>Vælg farve</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1010"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1264"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1787"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1884"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1015"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1792"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2440"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1017"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1022"/>
         <source>Reset</source>
         <translation>Nulstil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1068"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1073"/>
         <source>Web Configuration</source>
         <translation>Netindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1076"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
         <translation>Tillad Pepper-moduler (Flash udvidelsesmodul)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1083"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
         <source>Allow JavaScript</source>
         <translation>Tillad JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1095"/>
         <source>Include links in focus chain</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1102"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1104"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1109"/>
         <source>Animated scrolling</source>
         <translation>Animeret rulning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
         <source>Enable spatial navigation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1133"/>
         <source>Mouse wheel scrolls</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1148"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1153"/>
         <source>lines on page</source>
         <translation>linier på side</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1159"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1164"/>
         <source>Default zoom on pages: </source>
         <translation>Standard zoom på siderne:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1203"/>
         <source>Local Storage</source>
         <translation>Lokalt lager</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1214"/>
         <source>Maximum </source>
         <translation>Maximum</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1221"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1247"/>
         <source>Allow storing network cache on disk</source>
         <translation>Tillad lagring af netværkscache på disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1249"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
         <source>Store cache in:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1277"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
         <source>Allow saving history</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1284"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1289"/>
         <source>Delete history on close</source>
         <translation>Slet historik ved afslutning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Tillad lokal lagring af HTML5 netindhold</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Slet lokalt lagret HTML5 netindhold ved lukning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1345"/>
         <source>Delete now</source>
         <translation>Slet nu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1384"/>
         <source>Proxy Configuration</source>
         <translation>Proxyindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1403"/>
         <source>System proxy configuration</source>
         <translation>System proxyindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>Manual configuration</source>
         <translation>Manuelle indstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1431"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1441"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1447"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
         <source>Username:</source>
         <translation>Brugernavn:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1478"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1483"/>
         <source>Password:</source>
         <translation>Adgangskode:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1511"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1516"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Skrifttypefamilier&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1529"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1531"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1536"/>
         <source>Fixed</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1541"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1551"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1556"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1566"/>
         <source>Cursive</source>
         <translation>Kursiv</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
         <source>Fantasy</source>
         <translation>Fantasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Skriftstørrelser&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
         <source>Fixed Font Size</source>
         <translation>Fast Tekststørrelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1636"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
         <source>Default Font Size</source>
         <translation>Standard Tekststørrelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1663"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1668"/>
         <source>Minimum Font Size</source>
         <translation>Minimum Skriftstørrelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1670"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1675"/>
         <source>Minimum Logical Font Size</source>
         <translation>Minimum Tekststørrelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1703"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Genveje&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Skift til faneblade med Alt + fanebladsnummer</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1717"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Indlæs Kvikknapper med Ctrl + nummer på kvikknap</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1724"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
         <source>Use single key shortcuts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1742"/>
         <source>Close application with Ctrl-Q</source>
         <translation>Luk programmet med Ctrl-Q</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1766"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
         <source>Ask everytime for download location</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1775"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
         <source>Use defined location: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1825"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1830"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Overførselsindstillinger&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1832"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1837"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Luk overførselshåndtering, når overførslerne er afsluttet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1839"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1844"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ekstern overførselshåndtering&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
         <source>Use external download manager</source>
         <translation>Brug ekstern overførselshåndtering</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Executable:</source>
         <translation>Eksekverbar:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Arguments:</source>
         <translation>Argumenter:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1877"/>
         <source>Leave blank if unsure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1893"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
         <source>Allow saving passwords from sites</source>
         <translation>Tillad lagring af kodeord fra sider</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1981"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1988"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Anden&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2019"/>
         <source>JavaScript options</source>
         <translation>JavaScript Indstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
         <source>Cookies Manager</source>
         <translation>Cookiehåndtering</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Håndtér JavaScript privatlivsindstillinger</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
         <source>Manage HTML5 permissions</source>
         <translation>Håndter HTML5 rettigheder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
         <source>Manage Cookies</source>
         <translation>Håndter Cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 Rettigheder&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2110"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 Tilladelser</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Send Spor Mig Ikke anmodning til servere</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2133"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Påmindelser&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2135"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2140"/>
         <source>Use OSD Notifications</source>
         <translation>Brug Skærmpåmindelser</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2145"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Brug Systemets Påmindelser (Kun Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2157"/>
         <source>Do not use Notifications</source>
         <translation>Brug ikke påmindelser</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2208"/>
         <source>Expiration timeout:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
         <source> seconds</source>
         <translation>sekunder</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2225"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2283"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2343"/>
+        <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2350"/>
+        <source>Enable Spell Check</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2357"/>
+        <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <source>No languages found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2416"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Håndtér søgemaskiner&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brugerstilark&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2297"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2430"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2327"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt; Foretrukket sprog for hjemmesider&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2347"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Skift netlæseridentifikation&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2505"/>
         <source>User Agent Manager</source>
         <translation>Brugeragenthåndtering</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2545"/>
         <source>Languages</source>
         <translation>Sprog</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>Search Engines Manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2489"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="155"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="567"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
         <source>Default</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="159"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="153"/>
         <source>Set as default</source>
         <translation>Sæt som standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="503"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="541"/>
         <source>Choose executable location...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="551"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="589"/>
         <source>OSD Notification</source>
         <translation>OSD Påmindelser</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="552"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="590"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="637"/>
         <source>Choose download location...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="613"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="651"/>
         <source>Choose stylesheet location...</source>
         <translation>Vælg placering for stilark...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="624"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
         <source>Deleted</source>
         <translation>Slettet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="718"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
         <source>Choose cache path...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>New Profile</source>
         <translation>Ny Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Indtast et navn på den nye profil:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Error!</source>
         <translation>Fejl!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
         <source>This profile already exists!</source>
         <translation>Denne profil eksisterer allerede!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Cannot create profile directory!</source>
         <translation>Kan ikke oprette profil bibliotek!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
         <source>Confirmation</source>
         <translation>Bekræftelse</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="786"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="824"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Er du sikker på du vil slette profilen  &quot;%1&quot; ? Denne handling kan ikke fortrydes!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1099"/>
         <source>Select Color</source>
         <translation>Vælg Farve</translation>
     </message>
@@ -4849,90 +4898,98 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
-        <source>&amp;New tab</source>
-        <translation>&amp;Nyt faneblad</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="341"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Stop faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="344"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Genindlæs faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="347"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Dupliker faneblad</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Un&amp;pin Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>&amp;Pin Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>Un&amp;mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>&amp;Mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Re&amp;load All Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Genind&amp;læs Alle Faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
-        <source>&amp;Bookmark This Tab</source>
-        <translation>Opret &amp;bogmærke fra dette faneblad</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="372"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bogmærk &amp;Alle Faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Luk &amp;andre Faneblade</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="365"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
         <source>Close Tabs To The Right</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Close Tabs To The Left</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
         <source>Cl&amp;ose</source>
         <translation>&amp;Luk</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="371"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <source>&amp;New tab</source>
+        <translation>&amp;Nyt faneblad</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Genind&amp;læs alle faneblade</translation>
+    </message>
+</context>
+<context>
+    <name>TabIcon</name>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Unmute Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Mute Tab</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5095,58 +5152,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="290"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="295"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="280"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="296"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>External Protocol Request</source>
         <translation>Ekstern Protokolforespørgsel</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="383"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Failed loading page</source>
         <translation>Fejl ved indlæsning af side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Noget gik galt under indlæsningen af denne side.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Prøv at genindlæse siden eller lukke nogle faneblade for at frigøre mere hukommelse.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="402"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="387"/>
         <source>Reload page</source>
         <translation>Genindlæs side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="437"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="421"/>
         <source>Choose file...</source>
         <translation>Vælg fil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="441"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="425"/>
         <source>Choose files...</source>
         <translation>Vælg filer...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>JavaScript alert</source>
         <translation>JavaScript alarm</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="570"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"/>
     </message>
@@ -5182,12 +5239,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="396"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="386"/>
         <source>Loading...</source>
         <translation>Henter...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="412"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="402"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -5195,247 +5252,252 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="104"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="103"/>
         <source>Empty Page</source>
         <translation>Tom Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="671"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="637"/>
+        <source>No suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
         <source>&amp;Back</source>
         <translation>&amp;Tilbage</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="693"/>
         <source>&amp;Forward</source>
         <translation>&amp;Frem</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="682"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Tilføj Ny Side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="701"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Indstil Kvikknapper</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="685"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="703"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Genindlæs Alle Kvikknapper</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="692"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
         <source>Book&amp;mark page</source>
         <translation>Bog&amp;mærkeside</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="696"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="697"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
         <source>Send page link...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="699"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>Select &amp;all</source>
         <translation>Vælg &amp;alt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="704"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
         <source>Validate page</source>
         <translation>Validér side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="708"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
         <source>Translate page</source>
         <translation>Oversæt side</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
         <source>Show so&amp;urce code</source>
         <translation>Vis kildek&amp;ode</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="731"/>
         <source>Show info ab&amp;out site</source>
         <translation>Vis info &amp;om siden</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="721"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>Open link in new &amp;window</source>
         <translation>Åben link i nyt &amp;vindue</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
         <source>Open link in &amp;private window</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="735"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send link...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="736"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
         <source>Show i&amp;mage</source>
         <translation>Vis bi&amp;llede</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Copy image</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopiér billeda&amp;dresse</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Gem billede som...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="757"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
         <source>Send image...</source>
         <translation>Send billede...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
         <source>Send text...</source>
         <translation>Send text...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
         <source>Google Translate</source>
         <translation>Google Translate</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="787"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Dictionary</source>
         <translation>Ordbog</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="818"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Søg &quot;%1 ..&quot; med %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
         <source>Search with...</source>
         <translation>Søg med...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Play</source>
         <translation>Afs&amp;pil</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pause</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="846"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="847"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="848"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="867"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
         <source>Create Search Engine</source>
         <translation>Opret Søgemaskine</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="908"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="914"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="930"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
         <source>&amp;Cut</source>
         <translation>&amp;Klip</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="926"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="942"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiér</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="932"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
         <source>&amp;Paste</source>
         <translation>&amp;Indsæt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="938"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="954"/>
         <source>Select All</source>
         <translation>Vælg Alle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="960"/>
         <source>&amp;Reload</source>
         <translation>&amp;Genindlæs</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="964"/>
         <source>S&amp;top</source>
         <translation>S&amp;top</translation>
     </message>

@@ -1,83 +1,83 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>PIM_Handler</name>
     <message>
-        <location filename="../PIM_handler.cpp" line="60"/>
+        <location filename="../PIM_handler.cpp" line="59"/>
         <source>Last Name</source>
         <translation>姓</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="61"/>
+        <location filename="../PIM_handler.cpp" line="60"/>
         <source>First Name</source>
         <translation>名</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="62"/>
+        <location filename="../PIM_handler.cpp" line="61"/>
         <source>E-mail</source>
         <translation>电子邮件</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="63"/>
+        <location filename="../PIM_handler.cpp" line="62"/>
         <source>Mobile</source>
         <translation>移动电话</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="64"/>
+        <location filename="../PIM_handler.cpp" line="63"/>
         <source>Phone</source>
         <translation>电话</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="65"/>
+        <location filename="../PIM_handler.cpp" line="64"/>
         <source>Address</source>
         <translation>地址</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="66"/>
+        <location filename="../PIM_handler.cpp" line="65"/>
         <source>City</source>
         <translation>城市</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="67"/>
+        <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
         <translation>邮政编码</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="68"/>
+        <location filename="../PIM_handler.cpp" line="67"/>
         <source>State/Region</source>
         <translation>省区</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="69"/>
+        <location filename="../PIM_handler.cpp" line="68"/>
         <source>Country</source>
         <translation>国家／地区</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="70"/>
+        <location filename="../PIM_handler.cpp" line="69"/>
         <source>Home Page</source>
         <translation>个人主页</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="71"/>
+        <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
         <translation>自定 1</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="72"/>
+        <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
         <translation>自定 2</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="73"/>
+        <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
         <translation>自定 3</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="115"/>
+        <location filename="../PIM_handler.cpp" line="114"/>
         <source>Insert Personal Information</source>
         <translation>插入个人信息</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="136"/>
+        <location filename="../PIM_handler.cpp" line="135"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>

@@ -1,83 +1,83 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="id_ID" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="id_ID" version="2.1">
 <context>
     <name>PIM_Handler</name>
     <message>
-        <location filename="../PIM_handler.cpp" line="60"/>
+        <location filename="../PIM_handler.cpp" line="59"/>
         <source>Last Name</source>
         <translation>Nama Belakang</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="61"/>
+        <location filename="../PIM_handler.cpp" line="60"/>
         <source>First Name</source>
         <translation>Nama Depan</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="62"/>
+        <location filename="../PIM_handler.cpp" line="61"/>
         <source>E-mail</source>
         <translation>Surel</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="63"/>
+        <location filename="../PIM_handler.cpp" line="62"/>
         <source>Mobile</source>
         <translation>Seluler</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="64"/>
+        <location filename="../PIM_handler.cpp" line="63"/>
         <source>Phone</source>
         <translation>Telepon</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="65"/>
+        <location filename="../PIM_handler.cpp" line="64"/>
         <source>Address</source>
         <translation>Alamat</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="66"/>
+        <location filename="../PIM_handler.cpp" line="65"/>
         <source>City</source>
         <translation>Kota</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="67"/>
+        <location filename="../PIM_handler.cpp" line="66"/>
         <source>ZIP Code</source>
         <translation>Kode Pos</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="68"/>
+        <location filename="../PIM_handler.cpp" line="67"/>
         <source>State/Region</source>
         <translation>Propinsi</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="69"/>
+        <location filename="../PIM_handler.cpp" line="68"/>
         <source>Country</source>
         <translation>Negara</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="70"/>
+        <location filename="../PIM_handler.cpp" line="69"/>
         <source>Home Page</source>
         <translation>Homepage</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="71"/>
+        <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
         <translation>Lain-lain 1</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="72"/>
+        <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
         <translation>Lain-lain 2</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="73"/>
+        <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
         <translation>Lain-lain 3</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="115"/>
+        <location filename="../PIM_handler.cpp" line="114"/>
         <source>Insert Personal Information</source>
         <translation>Sisipkan Informasi Pribadi</translation>
     </message>
     <message>
-        <location filename="../PIM_handler.cpp" line="136"/>
+        <location filename="../PIM_handler.cpp" line="135"/>
         <source>Edit</source>
         <translation>Sunting</translation>
     </message>

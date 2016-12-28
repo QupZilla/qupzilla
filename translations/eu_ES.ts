@@ -622,12 +622,6 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
         <translation>Beste lastermarka guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbarbutton.cpp" line="134"/>
-        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="379"/>
-        <source>Empty</source>
-        <translation>Hutsik</translation>
-    </message>
-    <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
         <translation>Hautatu lastermarka honen izena eta kokalekua.</translation>
@@ -671,6 +665,11 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
         <translation>Editatu Lastermarka</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
+        <source>Empty</source>
+        <translation>Hutsik</translation>
     </message>
 </context>
 <context>
@@ -839,7 +838,7 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
         <translation>Google Chrome-k bere lastermarkak &lt;b&gt;Lastermarkak&lt;/b&gt; idazki agirian biltegiratzen ditu. Agiri hau arrunt hemen dago </translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="48"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="50"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="57"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="44"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="44"/>
@@ -848,14 +847,14 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
         <translation>Hautatu agiria...</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="57"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="59"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="53"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="59"/>
         <source>Unable to open file.</source>
         <translation>Ezinezkoa agiria irekitzea.</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="76"/>
         <source>Cannot parse JSON file!</source>
         <translation>Ezin da JSON agiria aztertu!</translation>
     </message>
@@ -968,22 +967,22 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
 <context>
     <name>BookmarksMenu</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="151"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="165"/>
         <source>&amp;Bookmarks</source>
         <translation>Laster&amp;markak</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="153"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="167"/>
         <source>Bookmark &amp;This Page</source>
         <translation>Lastermarkatu &amp;Orrialde Hau</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="154"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="168"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Lastermarkatu &amp;Hegats Guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="155"/>
+        <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="169"/>
         <source>Organize &amp;Bookmarks</source>
         <translation>Antolatu &amp;Lastermarkak</translation>
     </message>
@@ -991,12 +990,12 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="164"/>
         <source>Title</source>
         <translation>Izenburua</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="166"/>
         <source>Address</source>
         <translation>Helbidea</translation>
     </message>
@@ -1117,67 +1116,67 @@ Mesedez ezarri QupZilla-ren azken bertsioa.</translation>
         <translation>(Nabigazio Pribatua)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="637"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="636"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="886"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="884"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="947"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menu Barra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="952"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="950"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>&amp;Nabigazio Tresnabarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="956"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="954"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Lastermarka Tresnabarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="962"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Hegatsak Gainean</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1018"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
         <source>Other</source>
         <translation>Beste</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>HTML files</source>
         <translation>HTML agiriak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Image files</source>
         <translation>Irudi agiriak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>Text files</source>
         <translation>Idazki agiriak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
         <source>All files</source>
         <translation>Agiri agiriak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1064"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
         <source>Open file...</source>
         <translation>Ireki agiriak...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1395"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Oraindik hegats bat irekita dago edo zure saioa ez da biltegiratu. 
@@ -1185,12 +1184,12 @@ Zihur zaude leiho hau istea nahi duzula?</numerusform><numerusform>Oraindik %n h
 Zihur zaude leiho hau istea nahi duzula?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1398"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1396"/>
         <source>Don&apos;t ask again</source>
         <translation>Ez galdetu berriro</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1399"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
         <source>There are still open tabs</source>
         <translation>Oraindik hegats irekiak daude</translation>
     </message>
@@ -1766,7 +1765,7 @@ ez da aurkitu!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="306"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="340"/>
         <source>Download Manager</source>
         <translation>Jeisketa Kudeatzailea</translation>
     </message>
@@ -1791,22 +1790,42 @@ ez da aurkitu!</translation>
         <translation>Gorde agiria honela...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="253"/>
+        <source>MIME HTML Archive (*.mhtml)</source>
+        <translation>MIME HTML Artxiboa (*.mhtml)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="254"/>
+        <source>HTML Page, single (*.html)</source>
+        <translation>HTML Orrialdea, bakarra (*.html)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="255"/>
+        <source>HTML Page, complete (*.html)</source>
+        <translation>HTML Orrialdea, osoa (*.html)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <source>Save page as...</source>
+        <translation>Gorde orrialdea honela...</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>Download Finished</source>
         <translation>Jeisketa Amaituta</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="299"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Agiri guztiak ongi jeitsi dira.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="356"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="390"/>
         <source>Warning</source>
         <translation>Kontuz</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="357"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="391"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Zihur zaude uztea nahi duzula? Osatugabeko jeitsiera guztiak ezeztatuko dira!</translation>
     </message>
@@ -2148,53 +2167,53 @@ ez da aurkitu!</translation>
 <context>
     <name>HistoryMenu</name>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="132"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="156"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="134"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="158"/>
         <source>Empty</source>
         <translation>Hutsik</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="160"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="162"/>
         <source>Restore All Closed Tabs</source>
         <translation>Leheneratu Itxitako Hegats Guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="161"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
         <source>Clear list</source>
         <translation>Garbitu zerrenda</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="207"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Historia</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="211"/>
         <source>&amp;Back</source>
         <translation>&amp;Atzera</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="212"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
         <source>&amp;Forward</source>
         <translation>A&amp;urrera</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="215"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="217"/>
         <source>&amp;Home</source>
         <translation>&amp;Etxea</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="218"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="220"/>
         <source>Show &amp;All History</source>
         <translation>E&amp;rakutsi Historia Guztia</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="226"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="228"/>
         <source>Most Visited</source>
         <translation>Gehien Ikusiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="229"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="231"/>
         <source>Closed Tabs</source>
         <translation>Itxitako Hegatsak</translation>
     </message>
@@ -2222,18 +2241,18 @@ ez da aurkitu!</translation>
         <translation>Ikusaldi Zenbatekoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="341"/>
-        <location filename="../src/lib/history/historymodel.cpp" line="472"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="339"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="470"/>
         <source>Today</source>
         <translation>Gaur</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="477"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="475"/>
         <source>This Week</source>
         <translation>Aste Honetan</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymodel.cpp" line="482"/>
+        <location filename="../src/lib/history/historymodel.cpp" line="480"/>
         <source>This Month</source>
         <translation>Hilabete Honetan</translation>
     </message>
@@ -2418,22 +2437,22 @@ ez da aurkitu!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1046"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla orain ez da zure berezko nabigatzilea. Zure berezko nabigatzailea egitea nahi duzu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1047"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Betik egin egiaztapen hau QupZilla abiarazterakoan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1049"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
         <source>Default Browser</source>
         <translation>Berezko Nabigatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1107"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla iturburu irekiko WWW nabigatzaile berria, azkarra eta segurua da. QupZilla GPL 3 bertsioa baimenepan dago (eta zure aukeran) edozein bertsio berriagoan. WebKit nukleoan eta Qt Framework-ean ohinarrituta dago.</translation>
     </message>
@@ -2441,242 +2460,242 @@ ez da aurkitu!</translation>
 <context>
     <name>MainMenu</name>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="505"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
         <source>&amp;About QupZilla</source>
         <translation>Q&amp;upZilla-ri buruz</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="510"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
         <source>Pr&amp;eferences</source>
         <translation>&amp;Hobespenak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="516"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="514"/>
         <source>Quit</source>
         <translation>Utzi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="523"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>&amp;File</source>
         <translation>&amp;Agiria</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>New Tab</source>
         <translation>Hegats Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>&amp;New Window</source>
         <translation>Leiho &amp;Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
         <source>New &amp;Private Window</source>
         <translation>Leiho &amp;Pribatu Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>Open Location</source>
         <translation>Ireki Kokalekua</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Open &amp;File...</source>
         <translation>&amp;Ireki Agiria...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Close Window</source>
         <translation>It&amp;xi Leihoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="535"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
         <translation>G&amp;orde Orrialdea Honela...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Send Link...</source>
         <translation>Bidali Lotura...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>&amp;Print...</source>
         <translation>Irar&amp;kitu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="545"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Undo</source>
         <translation>&amp;Desegin</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
         <source>&amp;Redo</source>
         <translation>Ber&amp;regin</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
         <source>&amp;Cut</source>
         <translation>&amp;Ebaki</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="553"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
         <source>C&amp;opy</source>
         <translation>&amp;Kopiatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="548"/>
         <source>&amp;Paste</source>
         <translation>It&amp;satsi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="556"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>Select &amp;All</source>
         <translation>&amp;Hautatu Denak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
         <source>&amp;Find</source>
         <translation>&amp;Bilatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
         <source>&amp;View</source>
         <translation>Ik&amp;usi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Toolbars</source>
         <translation>Tresnabarrak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="567"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
         <source>Sidebar</source>
         <translation>Albobarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="569"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Character &amp;Encoding</source>
         <translation>Hizki &amp;Kodeaketa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>Sta&amp;tus Bar</source>
         <translation>&amp;Egoera Barra</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="580"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
         <source>&amp;Stop</source>
         <translation>&amp;Gelditu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="581"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;Reload</source>
         <translation>&amp;Birgertatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;In</source>
         <translation>Zooma &amp;Handitu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Zoom &amp;Out</source>
         <translation>Zooma G&amp;utxitu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="585"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
         <source>Reset</source>
         <translation>Berrezarri</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
         <translation>&amp;Orrialdearen Iturburua</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;Ikusleiho-osoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
         <source>&amp;Tools</source>
         <translation>&amp;Tresnak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Web Bilaketa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
         <translation>&amp;Gune Argibideak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="600"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
         <translation>&amp;Jeisketa Kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="601"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
         <source>&amp;Cookies Manager</source>
         <translation>&amp;Cookie Kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="596"/>
         <source>&amp;AdBlock</source>
         <translation>&amp;AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>Web In&amp;spector</source>
         <translation>Web &amp;Ikertzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="604"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Clear Recent &amp;History</source>
         <translation>Garbitu &amp;Berrikiko Historia</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Extensions</source>
         <translation>&amp;Luzapenak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="615"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
         <source>&amp;Help</source>
         <translation>&amp;Laguntza</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>About &amp;Qt</source>
         <translation>&amp;Qt-ri buruz</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="623"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="617"/>
         <source>Information about application</source>
         <translation>Aplikazioari buruzko argibideak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>Configuration Information</source>
         <translation>Itxurapen Argibideak</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="625"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
         <source>Report &amp;Issue</source>
         <translation>Jakinarazi &amp;Arazoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="638"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="632"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Leheneratu It&amp;xitako Hegatsa</translation>
     </message>
@@ -3027,907 +3046,937 @@ ez da aurkitu!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
+        <source>Spell Check</source>
+        <translation>Idaz Egiaztapena</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="120"/>
         <source>Other</source>
         <translation>Besteak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="191"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="333"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="196"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="338"/>
         <source>Use current</source>
         <translation>Erabili oraingoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="222"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="227"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="841"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Oharra: Ezin duzu gaituriko profila ezabatu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="238"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="243"/>
         <source>Create New</source>
         <translation>Sortu Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="259"/>
         <source>Delete</source>
         <translation>Ezabatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="280"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="285"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
         <translation>&lt;b&gt;Abiarazpena&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>After launch: </source>
         <translation>Abiarazi ondoren: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="298"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Open blank page</source>
         <translation>Ireki orrialde hutsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="303"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
         <source>Open homepage</source>
         <translation>Ireki etxeko-orrialdea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="308"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="360"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
         <source>Open speed dial</source>
         <translation>Ireki abiarazte azkarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="313"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="318"/>
         <source>Restore session</source>
         <translation>Leheneratu saioa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="321"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="326"/>
         <source>Homepage: </source>
         <translation>Etxeko-orrialdea: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="342"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>On new tab: </source>
         <translation>Hegats berrian: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="350"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="355"/>
         <source>Open blank tab</source>
         <translation>Ireki hegats hutsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="365"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="370"/>
         <source>Open other page...</source>
         <translation>Ireki beste orrialde bat...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="373"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="378"/>
         <source>&lt;b&gt;Profiles&lt;/b&gt;</source>
         <translation>&lt;b&gt;Profilak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="380"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="385"/>
         <source>Startup profile:</source>
         <translation>Hasiera profila:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="387"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="392"/>
         <source>Check for updates on start</source>
         <translation>Egiaztatu eguneraketarik dagoen hastean</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="394"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="399"/>
         <source>Active profile:</source>
         <translation>Gaitu profila:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="408"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="413"/>
         <source>In order to change language, you must restart browser.</source>
         <translation>Hizkuntza aldatzeko, nabigatzailea berrabiarazi behar duzu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="415"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="420"/>
         <source>&lt;b&gt;Language&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hizkuntza&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="441"/>
         <source>Available translations: </source>
         <translation>Itzulpen eskuragarriak: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="448"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="453"/>
         <source>Don&apos;t load tabs until selected</source>
         <translation>Ez gertatu hegatsak hautatu arte</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="470"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="475"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
         <translation>Hasieran egiaztatu QupZilla den berezko nabigatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="485"/>
         <source>Check Now</source>
         <translation>Egiaztatu Orain</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="510"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="515"/>
         <source>Themes</source>
         <translation>Azalgaiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="532"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="537"/>
         <source>Advanced options</source>
         <translation>Aukera aurreratuak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="538"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="543"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nabigatzaile Leihoa&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="576"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="581"/>
         <source>Show StatusBar on start</source>
         <translation>Erakutsi Egoera-Barra hasterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="583"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="588"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Erakutsi Lastermarka Tresna-Barra hasterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="590"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="595"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Erakutsi Nabigazio Tresna-Barra hasterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="597"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
         <translation>Gaitu berehalako Lastermarka Tresnabarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="606"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="611"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nabigazio Tresna-Barra&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="618"/>
         <source>Show Home button</source>
         <translation>Erakutsi Etxea botoia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="625"/>
         <source>Show Back / Forward buttons</source>
         <translation>Erakutsi Atzera / Aurrera botoiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="640"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show Add Tab button</source>
         <translation>Erakutsi Gehitu Hegatsa botoia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="647"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="652"/>
         <source>Show web search bar</source>
         <translation>Erakutsi web bilaketa barra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="654"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>Show Reload / Stop buttons</source>
         <translation>Erakutsi Birgertatu / Gelditu botoiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="673"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="678"/>
         <source>Tabs behaviour</source>
         <translation>Hegats jokabidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="679"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="684"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Ezkutatu hegatsak hegats bakarra dagoenean</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="686"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="691"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Gaitu azken hegatsa gaituriko hegatsa isterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="693"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="698"/>
         <source>Open new tabs after active tab</source>
         <translation>Ireki hegats berriak gaitutako hegatsaren ondoren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="700"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="705"/>
         <source>Open new empty tabs after active tab</source>
         <translation>Ireki hegats huts berria gaitutako hegatsaren ondoren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="707"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="712"/>
         <source>Open popup windows in tabs</source>
         <translation>Ireki ohar-leihoak hegatsetan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="714"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Always switch between tabs with mouse wheel</source>
         <translation>Betik aldatu hegatsez sagu gurpilarekin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="721"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="726"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>Berezgaitasunez aldatu berrikien irekitako hegatsera</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="728"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Don&apos;t close window upon closing last tab</source>
         <translation>Ez itxi leihoa azken hegatsa isterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="735"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Galdetu hegats anitz isterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="742"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="747"/>
         <source>Show closed tabs button</source>
         <translation>Erakutsi itxitako hegatsen botoia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="751"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="756"/>
         <source>Show close buttons on inactive tabs:</source>
         <translation>Erakutsi itxi botoiak gaitutako hegatsetan:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="759"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
         <source>Automatic</source>
         <translation>Berezgaitasunez</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="764"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
         <source>Always</source>
         <translation>Betik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="774"/>
         <source>Never</source>
         <translation>Inoiz ez</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="814"/>
         <source>Address Bar behaviour</source>
         <translation>Helbide Barra jokabidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="817"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="822"/>
         <source>Suggest when typing into address bar:</source>
         <translation>Iradoki helbide barran idazterakoan:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="831"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
         <source>History and Bookmarks</source>
         <translation>Historia eta Lastermarkak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="836"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
         <source>History</source>
         <translation>Historia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
         <source>Bookmarks</source>
         <translation>Lastermarkak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="851"/>
         <source>Nothing</source>
         <translation>Ezer ez</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Enable inline suggestions</source>
         <translation>Gaitu lerroko iradokizunak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="879"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation>Sakatu &quot;Aldatu&quot; hegatsa ez aladatzeko baina url-a oraingo hegatsean gertatzeko</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>Propose to switch tab if completed url is already loaded</source>
         <translation>Eskaini hegatsa aldatzea osatutako url-a jadanik gertaturik badago</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>Always show go icon</source>
         <translation>Betik erakutsi joan ikurra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="896"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Hautatu idazki dena helbide barran klik bikoitza eginez</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="903"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="908"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Hautatu idazki dena helbide barran klik eginez</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="910"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Enable automatic searching from the address bar</source>
         <translation>Gaitu berezgaitasunezko bilaketa helbide barratik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="917"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="922"/>
         <source>Search with Default Engine</source>
         <translation>Bilatu Berezko Gailuarekin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="940"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="945"/>
         <source>Show loading progress in address bar</source>
         <translation>Erakutsi gertaketa garapena helbide barran</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="973"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
         <source>Fill</source>
         <translation>Bete</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="978"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
         <source>Bottom</source>
         <translation>Beheren</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="988"/>
         <source>Top</source>
         <translation>Goien</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="996"/>
         <source>Custom color:</source>
         <translation>Norbere margoa:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1007"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1012"/>
         <source>Select color</source>
         <translation>Hautatu margoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1010"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1264"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1787"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1884"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1015"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1792"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2440"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1017"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1022"/>
         <source>Reset</source>
         <translation>Berrezarri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1068"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1073"/>
         <source>Web Configuration</source>
         <translation>Web Itxurapena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1076"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
         <translation>Ahalbidetu Pepper Pluginak (Flash plugina)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1083"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
         <source>Allow JavaScript</source>
         <translation>Ahalbidetu JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1090"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1095"/>
         <source>Include links in focus chain</source>
         <translation>Barneratu loturak foku katean</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1102"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Gaitu XSS Aditzea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1104"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1109"/>
         <source>Animated scrolling</source>
         <translation>Irristatze animatua</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
         <source>Enable spatial navigation</source>
         <translation>Gaitu nabigazio espaziala</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1133"/>
         <source>Mouse wheel scrolls</source>
         <translation>Sagu gurpil irristatzeak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1148"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1153"/>
         <source>lines on page</source>
         <translation>lerro orrialdean</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1159"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1164"/>
         <source>Default zoom on pages: </source>
         <translation>Berezko zooma orrialdetan: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1198"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1203"/>
         <source>Local Storage</source>
         <translation>Tokiko Biltegia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1209"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1214"/>
         <source>Maximum </source>
         <translation>Gehienez </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1221"/>
         <source>50 MB</source>
         <translation>50 MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1247"/>
         <source>Allow storing network cache on disk</source>
         <translation>Ahalbidetu sare katxea diskan biltegiratzea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1249"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
         <source>Store cache in:</source>
         <translation>Biltegiratu katxea hemen:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1277"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
         <source>Allow saving history</source>
         <translation>Ahalbidetu historia gordetzea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1284"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1289"/>
         <source>Delete history on close</source>
         <translation>Ezabatu historia isterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1307"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Ahalbidetu HTML5 web edukien tokiko biltegiratzea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1314"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Ezabatu tokian biltegiratutako HTML5 web edukiak isterakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1340"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1345"/>
         <source>Delete now</source>
         <translation>Ezabatu orain</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1379"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1384"/>
         <source>Proxy Configuration</source>
         <translation>Proxy Itxurapena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1398"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1403"/>
         <source>System proxy configuration</source>
         <translation>Sistemaren proxy itxurapena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1421"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
         <source>Manual configuration</source>
         <translation>Eskuzko itxurapena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1431"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1441"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1447"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
         <source>Port:</source>
         <translation>Ataka:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1468"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
         <source>Username:</source>
         <translation>Erabiltzaile-izena:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1478"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1483"/>
         <source>Password:</source>
         <translation>Sarhitza:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1511"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1516"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hizki Sendiak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1529"/>
         <source>Standard</source>
         <translation>Estandarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1531"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1536"/>
         <source>Fixed</source>
         <translation>Zuzenduta</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1541"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1551"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1556"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1566"/>
         <source>Cursive</source>
         <translation>Etzana</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
         <source>Fantasy</source>
         <translation>Fantasia</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1620"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hizki Neurriak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1629"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
         <source>Fixed Font Size</source>
         <translation>Zuzendutako Hizki Neurria</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1636"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
         <source>Default Font Size</source>
         <translation>Berezko Hizki Neurria</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1663"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1668"/>
         <source>Minimum Font Size</source>
         <translation>Gutxienezko Hizki Neurria</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1670"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1675"/>
         <source>Minimum Logical Font Size</source>
         <translation>Gutxienezko Hizki Neurri Logikoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1703"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Lasterteklak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1710"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Aldatu hegatsez Alt + hegats zenbakiarekin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1717"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Gertatu abiarazte azkarrak Ktrl + abiarazte azkar zenbakiarekin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1724"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation>Dauden lasterteklak:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - aurreko hegatsa&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - hurrengo hegatsa&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - bilatu orrialdean</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
         <source>Use single key shortcuts</source>
         <translation>Erabili tekla bakarreko lasterteklak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation>Ez dago hautaturik, aplikaziotik istripuz irtetzea saihesten du Ktrl-W lastertekla bazen helburua.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1742"/>
         <source>Close application with Ctrl-Q</source>
         <translation>Itxi aplikazioa Ktrl-Q -rekin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1766"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jeisketa Kokalekua&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
         <source>Ask everytime for download location</source>
         <translation>Galdetu betik jeisketa kokalekua</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1775"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
         <source>Use defined location: </source>
         <translation>Erabili zehaztutako kokalekua:  </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1825"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1830"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jeisketa Aukerak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1832"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1837"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Itxi jeisketa kudeatzailea jeisketak amaitutakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1839"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1844"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kanpoko jeisketa kudeatzailea&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
         <source>Use external download manager</source>
         <translation>Erabili kanpoko jeisketa kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1858"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
         <source>Executable:</source>
         <translation>Exekutagarria:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1865"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
         <source>Arguments:</source>
         <translation>Argumentoak:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1872"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1877"/>
         <source>Leave blank if unsure</source>
         <translation>Utzi hutsik ez bazaude zihur</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1893"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; URL-arekin ordeztuko da jeisteko</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1919"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Berez-Betetze aukerak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1926"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
         <source>Allow saving passwords from sites</source>
         <translation>Ahalbidetu guneen sarhitzak gordetzea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1981"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookiak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1988"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Besterik&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2014"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2019"/>
         <source>JavaScript options</source>
         <translation>JavaScript aukerak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2037"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
         <source>Cookies Manager</source>
         <translation>Cookie Kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Kudeatu JavaScript pribatutasun aukerak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2070"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
         <source>Manage HTML5 permissions</source>
         <translation>Kudeatu HTML5 baimenak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2077"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
         <source>Manage Cookies</source>
         <translation>Kudeatu Cookieak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2097"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 Baimenak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2110"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 Baimenak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2117"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Bidali Ez Aztarnatu idazburuak zerbitzariei</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2133"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Jakinarazpenak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2135"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2140"/>
         <source>Use OSD Notifications</source>
         <translation>Erabili IGE Jakinarazpenak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2145"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Erabili Jatorrizko Sistema Jakinarazpenak (Linux bakarrik)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2157"/>
         <source>Do not use Notifications</source>
         <translation>Ez erabili Jakinarazpenik</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2203"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2208"/>
         <source>Expiration timeout:</source>
         <translation>Epemuga:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2216"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
         <source> seconds</source>
         <translation> segundu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2225"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Oharra: &lt;/b&gt;IGE Jakinarazpenaren kokapena aldatu dezakezu ikusleihoan arrastatuz.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2283"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
+        <translation>Idaz Egiaztapenari buruzko argibide gehiagorako, mesedez ikusi &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2343"/>
+        <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Idaz Egiaztapen aukerak&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2350"/>
+        <source>Enable Spell Check</source>
+        <translation>Gaitu Idaz Egiaztapena</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2357"/>
+        <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Hiztegi zuzenbideak&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <source>No languages found</source>
+        <translation>Ez da hizkuntzarik aurkitu</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2416"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kudeatu bilaketa gailuak&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2290"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Erabiltzaile Estilo Orria&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2297"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2430"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation>Estilo Orria berezgaitasunez gertatuta webgune guztiekin:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2327"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Web gunetarako hizkuntza hobetsia&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2347"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Aldatu nabigatzaile ezagutarazlea&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2372"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2505"/>
         <source>User Agent Manager</source>
         <translation>Erabiltzaile Ordezkari Kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2545"/>
         <source>Languages</source>
         <translation>Hizkuntzak</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
         <source>Search Engines Manager</source>
         <translation>Bilaketa Gailu Kudeatzailea</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2489"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="155"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="567"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
         <source>Default</source>
         <translation>Berezkoa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="159"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="153"/>
         <source>Set as default</source>
         <translation>Ezarri berezko bezala</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="503"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="541"/>
         <source>Choose executable location...</source>
         <translation>Hautatu exekutagarri kokalekua...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="551"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="589"/>
         <source>OSD Notification</source>
         <translation>IGE Jakinarazpena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="552"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="590"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Arrastatu ikusleihoan nahi duzun tokian jartzeko.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="637"/>
         <source>Choose download location...</source>
         <translation>Hautatu jeisketa kokalekua...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="613"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="651"/>
         <source>Choose stylesheet location...</source>
         <translation>Hautatu estilo-orriaren kokalekua...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="624"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
         <source>Deleted</source>
         <translation>Ezabatuta</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="718"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
         <source>Choose cache path...</source>
         <translation>Hautatu katxe helburua...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>New Profile</source>
         <translation>Profil Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="759"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Sartu profil berriaren izena:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Error!</source>
         <translation>Akatsa!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="769"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
         <source>This profile already exists!</source>
         <translation>Profil hau jadanik badago!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="774"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
         <source>Cannot create profile directory!</source>
         <translation>Ezinezkoa profil zuzenbidea sortzea!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="785"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
         <source>Confirmation</source>
         <translation>Baieztapena</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="786"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="824"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Zihur zaude &quot;%1&quot; profila betirako ezabatzea nahi duzula? Ekintza hau ezin da desegin!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1049"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1099"/>
         <source>Select Color</source>
         <translation>Hautatu Margoa</translation>
     </message>
@@ -4854,90 +4903,98 @@ Badaiteke administrari eskubideekin berrabiaraztea magikoa izatea zuretzat! ;)</
         <translation>Egitan nahi duzu ezkerreko hegats guztiak istea?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="332"/>
-        <source>&amp;New tab</source>
-        <translation>&amp;Hegats Berria</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="341"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Gelditu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="344"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Birgertatu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="347"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>&amp;Duplicate Tab</source>
         <translation>Bi&amp;koiztu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="350"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>D&amp;etach Tab</source>
         <translation>&amp;Nabarmendu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Un&amp;pin Tab</source>
         <translation>Ez-&amp;tolestu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="353"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Tolestu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>Un&amp;mute Tab</source>
         <translation>De&amp;smututu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <source>&amp;Mute Tab</source>
         <translation>&amp;Mututu Hegatsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Re&amp;load All Tabs</source>
         <translation>B&amp;irgertatu Hegats Guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
-        <source>&amp;Bookmark This Tab</source>
-        <translation>Laster&amp;markatu Hegats Hau</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="372"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>&amp;Lastermarkatu Hegats Guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Itxi B&amp;este Hegatsak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="365"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
         <source>Close Tabs To The Right</source>
         <translation>Itxi Eskuineko Hegatsak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Close Tabs To The Left</source>
         <translation>Itxi Ezkerreko Hegatsak</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
         <source>Cl&amp;ose</source>
         <translation>It&amp;xi</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="371"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <source>&amp;New tab</source>
+        <translation>&amp;Hegats Berria</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>B&amp;irgertatu Hegats Guztiak</translation>
+    </message>
+</context>
+<context>
+    <name>TabIcon</name>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Unmute Tab</source>
+        <translation>Desmututu Hegatsa</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <source>Mute Tab</source>
+        <translation>Mututu Hegatsa</translation>
     </message>
 </context>
 <context>
@@ -5100,58 +5157,58 @@ Badaiteke administrari eskubideekin berrabiaraztea magikoa izatea zuretzat! ;)</
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="290"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla-k ezin ditu kudeatu &lt;b&gt;%1:&lt;/b&gt; loturak. Eskaturiko lotura da &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Nahi duzu QupZilla lotura hau sistemako aplikazio batekin irekitzen saiatzea?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="295"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="280"/>
         <source>Remember my choice for this protocol</source>
         <translation>Gogoratu nire hautapena protokolo honetarako</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="296"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>External Protocol Request</source>
         <translation>Kanpoko Protokolo Eskabidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="398"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="383"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Failed loading page</source>
         <translation>Hutsegitea orrialdea gertatzerakoan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Zerbait okerra gertatu da orrialde hau gertatzerakoan.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Saiatu orrialdea birgertatzen edo zenbait hegats isten oroimen gehiago izateko eskuragarri.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="402"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="387"/>
         <source>Reload page</source>
         <translation>Birgertatu orrialdea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="437"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="421"/>
         <source>Choose file...</source>
         <translation>Hautatu agiria...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="441"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="425"/>
         <source>Choose files...</source>
         <translation>Hautatu agiriak...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="578"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>JavaScript alert</source>
         <translation>JavaScript alerta</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="586"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="570"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Saihestu orrialde hau elkarrizketa gehigarriak sortzetik</translation>
     </message>
@@ -5187,12 +5244,12 @@ Badaiteke administrari eskubideekin berrabiaraztea magikoa izatea zuretzat! ;)</
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="396"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="386"/>
         <source>Loading...</source>
         <translation>Gertatzen...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="412"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="402"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -5200,247 +5257,252 @@ Badaiteke administrari eskubideekin berrabiaraztea magikoa izatea zuretzat! ;)</
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="104"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="103"/>
         <source>Empty Page</source>
         <translation>Orrialde Hutsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="671"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="637"/>
+        <source>No suggestions</source>
+        <translation>Ez dago iradokizunik</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
         <source>&amp;Back</source>
         <translation>A&amp;tzera</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="675"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="693"/>
         <source>&amp;Forward</source>
         <translation>A&amp;urrera</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="682"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Gehitu Orrialde Berria</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="683"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="701"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Itxuratu Abiarazpen Azkarra</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="685"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="703"/>
         <source>Reload All Dials</source>
         <translation>Birgertatu Abiarazpen Azkar Guztiak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="692"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
         <source>Book&amp;mark page</source>
         <translation>&amp;Lastermarkatu orrialdea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="694"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Gorde orrialdea honela...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="696"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Kopiatu orrialde lotura</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="697"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
         <source>Send page link...</source>
         <translation>Bidali orrialde lotura...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="699"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>Select &amp;all</source>
         <translation>Hautatu &amp;denak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="704"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
         <source>Validate page</source>
         <translation>Balioztatu orrialdea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="708"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
         <source>Translate page</source>
         <translation>Itzuli orrialdea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
         <source>Show so&amp;urce code</source>
         <translation>&amp;Erakutsi iturburu kodea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="731"/>
         <source>Show info ab&amp;out site</source>
         <translation>E&amp;rakutsi gunearen argibideak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="721"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
         <source>Open link in new &amp;tab</source>
         <translation>Ireki lotura &amp;hegats berrian</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>Open link in new &amp;window</source>
         <translation>Ireki lotura &amp;leiho berrian</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
         <source>Open link in &amp;private window</source>
         <translation>Ireki lotura leiho &amp;pribatuan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="732"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>B&amp;ookmark link</source>
         <translation>Laster&amp;markatu lotura</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Gorde lotura honela...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="735"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send link...</source>
         <translation>Bidali lotura...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="736"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>&amp;Copy link address</source>
         <translation>Kopiat&amp;u lotura helbidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
         <source>Show i&amp;mage</source>
         <translation>&amp;Erakutsi irudia</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Copy image</source>
         <translation>Kopiatu irudia</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
         <source>Copy image ad&amp;dress</source>
         <translation>K&amp;opiatu irudiaren helbidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
         <source>&amp;Save image as...</source>
         <translation>Go&amp;rde irudia honela...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="757"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
         <source>Send image...</source>
         <translation>Bidali irudia...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
         <source>Send text...</source>
         <translation>Bidali idazkia...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
         <source>Google Translate</source>
         <translation>Google Itzulpena</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="787"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Dictionary</source>
         <translation>Hiztegia</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="818"/>
         <source>Go to &amp;web address</source>
         <translation>Joan &amp;web helbidera</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Bilatu &quot;%1 ..&quot; honekin %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
         <source>Search with...</source>
         <translation>Bilatu honekin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Play</source>
         <translation>&amp;Irakurri</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="843"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pausatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Desmututu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="844"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
         <source>&amp;Mute</source>
         <translation>&amp;Mututu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="846"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopiatu Multimedia Helbidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="847"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Bidali Multimedia Helbidea</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="848"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
         <source>Save Media To &amp;Disk</source>
         <translation>&amp;Gorde Multimedia Diskan</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="867"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
         <source>Create Search Engine</source>
         <translation>Sortu Bilaketa Gailua</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="908"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Undo</source>
         <translation>&amp;Desegin</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="914"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="930"/>
         <source>&amp;Redo</source>
         <translation>Be&amp;rregin</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
         <source>&amp;Cut</source>
         <translation>&amp;Ebaki</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="926"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="942"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="932"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
         <source>&amp;Paste</source>
         <translation>It&amp;satsi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="938"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="954"/>
         <source>Select All</source>
         <translation>Hautatu Denak</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="960"/>
         <source>&amp;Reload</source>
         <translation>&amp;Birgertatu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="964"/>
         <source>S&amp;top</source>
         <translation>&amp;Gelditu</translation>
     </message>

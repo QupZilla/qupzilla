@@ -199,7 +199,7 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
-        <translation>תיאור תסריט של %1</translation>
+        <translation>תיאור תסריט עבור %1</translation>
     </message>
 </context>
 </TS>

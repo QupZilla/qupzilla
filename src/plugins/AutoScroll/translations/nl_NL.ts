@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.1">
 <context>
     <name>AutoScrollSettings</name>
     <message>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../autoscrollsettings.ui" line="138"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</source>
-        <translation>&lt;b&gt;Let op:&lt;/b&gt; instellen van een hogere verdeler zal scrollen vertragen</translation>
+        <translation>&lt;b&gt;Let op:&lt;/b&gt; hoe hoger u de verdeler instelt, hoe slomer het scrollen zal gaan</translation>
     </message>
 </context>
 </TS>

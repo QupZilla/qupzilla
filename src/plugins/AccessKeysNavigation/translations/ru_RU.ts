@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru_RU" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru_RU" version="2.1">
 <context>
     <name>AKN_Settings</name>
     <message>
