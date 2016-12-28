@@ -12,6 +12,7 @@
         <file>icons/menu/tab-new.png</file>
         <file>icons/menu/qt.png</file>
         <file>icons/other/about.png</file>
+        <file>icons/other/about@2x.png</file>
         <file>icons/other/feed.png</file>
         <file>icons/other/bigstar.png</file>
         <file>icons/locationbar/safe.png</file>
@@ -64,6 +65,7 @@
         <file>icons/menu/privatebrowsing.png</file>
         <file>icons/menu/settings.png</file>
         <file>icons/other/startpage.png</file>
+        <file>icons/other/startpage@2x.png</file>
         <file>icons/other/audioplaying.png</file>
         <file>icons/other/audiomuted.png</file>
         <file>icons/preferences/tools-check-spelling.png</file>

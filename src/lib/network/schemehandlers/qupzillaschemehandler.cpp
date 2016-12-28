@@ -170,7 +170,7 @@ QString QupZillaSchemeReply::startPage()
     sPage.append(QzTools::readAllFileContents(":html/start.html"));
     sPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
     sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-    sPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/startpage.png"));
+    sPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QIcon(":icons/other/startpage.png").pixmap(200, 155)).toString());
 
     sPage.replace(QLatin1String("%TITLE%"), tr("Start Page"));
     sPage.replace(QLatin1String("%BUTTON-LABEL%"), tr("Search on Web"));
@@ -191,7 +191,7 @@ QString QupZillaSchemeReply::aboutPage()
         aPage.append(QzTools::readAllFileContents(":html/about.html"));
         aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        aPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
+        aPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QIcon(QSL(":icons/other/about.png")).pixmap(300, 130)).toString());
         aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), QzTools::readAllFileContents(":html/copyright").toHtmlEscaped());
 
         aPage.replace(QLatin1String("%TITLE%"), tr("About QupZilla"));
@@ -356,7 +356,7 @@ QString QupZillaSchemeReply::configPage()
         cPage.append(QzTools::readAllFileContents(":html/config.html"));
         cPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
         cPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
-        cPage.replace(QLatin1String("%ABOUT-IMG%"), QLatin1String("qrc:icons/other/about.png"));
+        cPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QIcon(QSL(":icons/other/about.png")).pixmap(300, 130)).toString());
 
         cPage.replace(QLatin1String("%TITLE%"), tr("Configuration Information"));
         cPage.replace(QLatin1String("%CONFIG%"), tr("Configuration Information"));

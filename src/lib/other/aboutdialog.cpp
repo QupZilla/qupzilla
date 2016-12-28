@@ -35,6 +35,8 @@ AboutDialog::AboutDialog(QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->setupUi(this);
+    ui->label->setPixmap(QIcon(QSL(":icons/other/about.png")).pixmap(300, 130));
+
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
         QtWin::extendFrameIntoClientArea(this);
