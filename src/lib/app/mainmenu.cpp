@@ -609,7 +609,7 @@ void MainMenu::init()
     m_menuHelp = new QMenu(tr("&Help"));
 
 #ifndef Q_OS_MAC
-    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(QSL(":/icons/menu/qt.png")), tr("About &Qt"), SLOT(aboutQt()), "");
+    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(), tr("About &Qt"), SLOT(aboutQt()), "");
     m_menuHelp->addAction(m_actions[QSL("Standard/About")]);
     m_menuHelp->addSeparator();
 #endif
