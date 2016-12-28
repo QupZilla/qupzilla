@@ -131,29 +131,12 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         }
     case Qt::DecorationRole:
         if (index.column() == 0) {
-            return itm->icon(false);
+            return itm->icon();
         }
         return QVariant();
     default:
         return QVariant();
     }
-}
-
-bool BookmarksModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    BookmarkItem *itm = item(index);
-
-    if (!itm) {
-        return false;
-    }
-
-    if (role == IconRole) {
-        itm->setIcon(value.value<QIcon>());
-        emit dataChanged(index, index);
-        return true;
-    }
-
-    return false;
 }
 
 QVariant BookmarksModel::headerData(int section, Qt::Orientation orientation, int role) const

@@ -50,7 +50,7 @@ public:
     BookmarkItem* parent() const;
     QList<BookmarkItem*> children() const;
 
-    QIcon icon(bool load = true);
+    QIcon icon();
     void setIcon(const QIcon &icon);
 
     QString urlString() const;

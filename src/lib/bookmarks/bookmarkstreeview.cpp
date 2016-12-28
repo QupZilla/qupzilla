@@ -289,16 +289,3 @@ void BookmarksTreeView::keyPressEvent(QKeyEvent* event)
         }
     }
 }
-
-void BookmarksTreeView::drawRow(QPainter *painter, const QStyleOptionViewItem &options, const QModelIndex &index) const
-{
-    bool itemIsUrl = BookmarkItem::Type(index.data(BookmarksModel::TypeRole).toInt()) == BookmarkItem::Url;
-    bool iconLoaded = !index.data(BookmarksModel::IconRole).value<QIcon>().isNull();
-
-    if (itemIsUrl && !iconLoaded) {
-        const QPersistentModelIndex idx = index;
-        model()->setData(idx, IconProvider::iconForUrl(index.data(BookmarksModel::UrlRole).toUrl()), BookmarksModel::IconRole);
-    }
-
-    QTreeView::drawRow(painter, options, index);
-}
