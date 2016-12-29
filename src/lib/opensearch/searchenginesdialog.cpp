@@ -229,6 +229,24 @@ void SearchEnginesDialog::reloadEngines()
     }
 }
 
+void SearchEnginesDialog::showEvent(QShowEvent *e)
+{
+    QDialog::showEvent(e);
+    resizeViewHeader();
+}
+
+void SearchEnginesDialog::resizeEvent(QResizeEvent *e)
+{
+    QDialog::resizeEvent(e);
+    resizeViewHeader();
+}
+
+void SearchEnginesDialog::resizeViewHeader()
+{
+    const int headerWidth = ui->treeWidget->header()->width();
+    ui->treeWidget->header()->resizeSection(0, headerWidth - headerWidth / 4);
+}
+
 void SearchEnginesDialog::accept()
 {
     if (ui->treeWidget->topLevelItemCount() < 1) {
