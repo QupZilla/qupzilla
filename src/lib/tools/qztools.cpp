@@ -81,6 +81,15 @@ QUrl QzTools::pixmapToDataUrl(const QPixmap &pix)
     return data.isEmpty() ? QUrl() : QUrl(QSL("data:image/png;base64,") + data);
 }
 
+QPixmap QzTools::dpiAwarePixmap(const QString &path)
+{
+    const QIcon icon(path);
+    if (icon.availableSizes().isEmpty()) {
+        return QPixmap(path);
+    }
+    return icon.pixmap(icon.availableSizes().at(0));
+}
+
 QString QzTools::readAllFileContents(const QString &filename)
 {
     return QString::fromUtf8(readAllFileByteContents(filename));

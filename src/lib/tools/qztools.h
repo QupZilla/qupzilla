@@ -35,6 +35,7 @@ public:
     static QByteArray pixmapToByteArray(const QPixmap &pix);
     static QPixmap pixmapFromByteArray(const QByteArray &data);
     static QUrl pixmapToDataUrl(const QPixmap &pix);
+    static QPixmap dpiAwarePixmap(const QString &path);
 
     static QString readAllFileContents(const QString &filename);
     static QByteArray readAllFileByteContents(const QString &filename);

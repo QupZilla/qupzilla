@@ -25,6 +25,7 @@
 #include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
+#include "qztools.h"
 
 #include <QMenu>
 #include <QTimer>
@@ -39,7 +40,7 @@ AdBlockIcon::AdBlockIcon(BrowserWindow* window, QWidget* parent)
 {
     setCursor(Qt::PointingHandCursor);
     setToolTip(tr("AdBlock lets you block unwanted content on web pages"));
-    setMinimumSize(16, 16);
+    setFixedSize(16, 16);
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
     connect(AdBlockManager::instance(), SIGNAL(enabledChanged(bool)), this, SLOT(setEnabled(bool)));
@@ -187,7 +188,7 @@ void AdBlockIcon::animateIcon()
     }
 
     if (pixmap()->isNull()) {
-        setPixmap(QPixmap(":icons/other/adblock.png"));
+        setPixmap(QIcon(QSL(":icons/other/adblock.png")).pixmap(16));
     }
     else {
         setPixmap(QPixmap());
@@ -206,10 +207,10 @@ void AdBlockIcon::stopAnimation()
 void AdBlockIcon::setEnabled(bool enabled)
 {
     if (enabled) {
-        setPixmap(QPixmap(":icons/other/adblock.png"));
+        setPixmap(QIcon(QSL(":icons/other/adblock.png")).pixmap(16));
     }
     else {
-        setPixmap(QPixmap(":icons/other/adblock-disabled.png"));
+        setPixmap(QIcon(QSL(":icons/other/adblock-disabled.png")).pixmap(16));
     }
 
     m_enabled = enabled;
