@@ -274,12 +274,18 @@ void TabWidget::aboutToShowTabsMenu()
 
     for (int i = 0; i < count(); i++) {
         WebTab* tab = weTab(i);
-        if (!tab) {
+        if (!tab || tab->isPinned()) {
             continue;
         }
 
         QAction* action = new QAction(this);
-        action->setIcon(i == currentIndex() ? QIcon(QSL(":/icons/menu/dot.png")) : tab->icon());
+        action->setIcon(tab->icon());
+
+        if (i == currentIndex()) {
+            QFont f = action->font();
+            f.setBold(true);
+            action->setFont(f);
+        }
 
         QString title = tab->title();
         title.replace(QLatin1Char('&'), QLatin1String("&&"));
@@ -289,9 +295,6 @@ void TabWidget::aboutToShowTabsMenu()
         connect(action, SIGNAL(triggered()), this, SLOT(actionChangeIndex()));
         m_menuTabs->addAction(action);
     }
-
-    m_menuTabs->addSeparator();
-    m_menuTabs->addAction(tr("Currently you have %n opened tab(s)", "", count()))->setEnabled(false);
 }
 
 void TabWidget::aboutToShowClosedTabsMenu()
