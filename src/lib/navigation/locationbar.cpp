@@ -74,7 +74,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     m_completer = new LocationCompleter(this);
     m_completer->setMainWindow(m_window);
     m_completer->setLocationBar(this);
-    connect(m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(m_completer, SIGNAL(showCompletion(QString,bool)), this, SLOT(showCompletion(QString,bool)));
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
     connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(requestLoadUrl()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
@@ -154,12 +154,16 @@ void LocationBar::updatePlaceHolderText()
         setPlaceholderText(tr("Enter URL address"));
 }
 
-void LocationBar::showCompletion(const QString &completion)
+void LocationBar::showCompletion(const QString &completion, bool isOriginal)
 {
     LineEdit::setText(completion);
 
     // Move cursor to the end
     end(false);
+
+    if (isOriginal) {
+        completer()->complete();
+    }
 }
 
 void LocationBar::clearCompletion()

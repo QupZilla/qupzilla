@@ -60,7 +60,7 @@ private slots:
     void setPrivacyState(bool state);
     void setGoIconVisible(bool state);
 
-    void showCompletion(const QString &completion);
+    void showCompletion(const QString &completion, bool isOriginal);
     void showDomainCompletion(const QString &completion);
     void clearCompletion();
 

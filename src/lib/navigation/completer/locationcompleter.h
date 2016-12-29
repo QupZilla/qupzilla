@@ -46,7 +46,7 @@ public slots:
     void showMostVisited();
 
 signals:
-    void showCompletion(const QString &completion);
+    void showCompletion(const QString &completion, bool isOriginal);
     void showDomainCompletion(const QString &completion);
     void loadCompletion();
     void clearCompletion();
