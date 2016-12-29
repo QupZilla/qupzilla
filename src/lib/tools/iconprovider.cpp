@@ -30,6 +30,11 @@
 
 Q_GLOBAL_STATIC(IconProvider, qz_icon_provider)
 
+static QByteArray encodeUrl(const QUrl &url)
+{
+    return url.toEncoded(QUrl::RemoveFragment | QUrl::StripTrailingSlash);
+}
+
 IconProvider::IconProvider()
     : QWidget()
 {
@@ -178,15 +183,17 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
         return allowEmpty ? QImage() : IconProvider::emptyWebImage();
     }
 
+    const QByteArray encodedUrl = encodeUrl(url);
+
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
-        if (ic.first.toString().startsWith(url.toString())) {
+        if (encodeUrl(ic.first) == encodedUrl) {
             return ic.second;
         }
     }
 
     QSqlQuery query;
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
-    query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
+    query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(encodedUrl))));
     SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
@@ -251,7 +258,7 @@ void IconProvider::saveIconsToDatabase()
         buffer.open(QIODevice::WriteOnly);
         ic.second.save(&buffer, "PNG");
         query.bindValue(0, buffer.data());
-        query.bindValue(1, ic.first.toEncoded(QUrl::RemoveFragment));
+        query.bindValue(1, encodeUrl(ic.first));
 
         SqlDatabase::instance()->execAsync(query);
     }
