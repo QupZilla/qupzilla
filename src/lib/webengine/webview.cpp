@@ -884,7 +884,7 @@ void WebView::checkForForm(QAction *action, const QPoint &pos)
 
         if (!url.isEmpty() && (method == QL1S("get") || method == QL1S("post"))) {
             act->setVisible(true);
-            act->setIcon(QIcon(QSL(":icons/menu/search-icon.png")));
+            act->setIcon(QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))));
             act->setText(tr("Create Search Engine"));
             connect(act.data(), &QAction::triggered, this, &WebView::createSearchEngine);
         }

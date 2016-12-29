@@ -7,9 +7,10 @@
         <file>icons/preferences/preferences-desktop.png</file>
         <file>icons/preferences/extension.png</file>
         <file>qupzilla.png</file>
-        <file>icons/menu/history.png</file>
-        <file>icons/menu/history_entry.png</file>
-        <file>icons/menu/tab-new.png</file>
+        <file>icons/menu/history.svg</file>
+        <file>icons/menu/history_entry.svg</file>
+        <file>icons/menu/tab-new.svg</file>
+        <file>icons/menu/window-new.svg</file>
         <file>icons/other/about.png</file>
         <file>icons/other/about@2x.png</file>
         <file>icons/other/feed.png</file>
@@ -26,10 +27,9 @@
         <file>icons/other/adblock.png</file>
         <file>icons/notifications/download.png</file>
         <file>icons/other/bighistory.png</file>
-        <file>icons/menu/dot.png</file>
         <file>icons/preferences/style-default.png</file>
         <file>icons/other/adblock-disabled.png</file>
-        <file>icons/menu/search-icon.png</file>
+        <file>icons/menu/search-icon.svg</file>
         <file>icons/browsers/firefox.png</file>
         <file>icons/browsers/chrome.png</file>
         <file>icons/browsers/opera.png</file>
@@ -46,7 +46,7 @@
         <file>icons/sites/translate.png</file>
         <file>icons/sites/wikipedia.png</file>
         <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
-        <file>icons/menu/tab.png</file>
+        <file>icons/menu/tab.svg</file>
         <file>icons/other/geolocation.png</file>
         <file>icons/other/notification.png</file>
         <file>icons/browsers/internet-explorer.png</file>
@@ -56,7 +56,7 @@
         <file>icons/other/loading@2x.png</file>
         <file>icons/other/empty-page.png</file>
         <file>icons/menu/privatebrowsing.png</file>
-        <file>icons/menu/settings.png</file>
+        <file>icons/menu/settings.svg</file>
         <file>icons/other/startpage.png</file>
         <file>icons/other/startpage@2x.png</file>
         <file>icons/other/audioplaying.png</file>

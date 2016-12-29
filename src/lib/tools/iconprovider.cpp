@@ -140,12 +140,12 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
 QIcon IconProvider::newTabIcon()
 {
-    return QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png")));
+    return QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.svg")));
 }
 
 QIcon IconProvider::newWindowIcon()
 {
-    return QIcon::fromTheme(QSL("window-new"), QIcon(QSL(":/icons/menu/window-new.png")));
+    return QIcon::fromTheme(QSL("window-new"), QIcon(QSL(":/icons/menu/window-new.svg")));
 }
 
 QIcon IconProvider::privateBrowsingIcon()
@@ -155,7 +155,7 @@ QIcon IconProvider::privateBrowsingIcon()
 
 QIcon IconProvider::settingsIcon()
 {
-    return QIcon::fromTheme(QSL("configure"), QIcon(QSL(":/icons/menu/settings.png")));
+    return QIcon::fromTheme(QSL("configure"), QIcon(QSL(":/icons/menu/settings.svg")));
 }
 
 QIcon IconProvider::emptyWebIcon()
