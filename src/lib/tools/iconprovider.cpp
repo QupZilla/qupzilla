@@ -166,7 +166,7 @@ QIcon IconProvider::emptyWebIcon()
 QImage IconProvider::emptyWebImage()
 {
     if (instance()->m_emptyWebImage.isNull()) {
-        instance()->m_emptyWebImage = QPixmap(":icons/other/empty-page.png").toImage();
+        instance()->m_emptyWebImage = QPixmap(":icons/other/webpage.svg").toImage();
     }
 
     return instance()->m_emptyWebImage;

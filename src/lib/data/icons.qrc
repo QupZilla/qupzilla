@@ -13,7 +13,6 @@
         <file>icons/menu/window-new.svg</file>
         <file>icons/other/about.png</file>
         <file>icons/other/about@2x.png</file>
-        <file>icons/other/feed.png</file>
         <file>icons/other/bigstar.png</file>
         <file>icons/locationbar/safe.png</file>
         <file>icons/locationbar/unsafe.png</file>
@@ -54,13 +53,13 @@
         <file>icons/sites/w3.png</file>
         <file>icons/other/loading.png</file>
         <file>icons/other/loading@2x.png</file>
-        <file>icons/other/empty-page.png</file>
+        <file>icons/other/webpage.svg</file>
         <file>icons/menu/privatebrowsing.png</file>
         <file>icons/menu/settings.svg</file>
         <file>icons/other/startpage.png</file>
         <file>icons/other/startpage@2x.png</file>
-        <file>icons/other/audioplaying.png</file>
-        <file>icons/other/audiomuted.png</file>
+        <file>icons/other/audioplaying.svg</file>
+        <file>icons/other/audiomuted.svg</file>
         <file>icons/preferences/tools-check-spelling.png</file>
     </qresource>
 </RCC>

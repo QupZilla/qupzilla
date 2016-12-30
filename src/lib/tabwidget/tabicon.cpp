@@ -40,8 +40,8 @@ TabIcon::TabIcon(QWidget* parent)
         s_data = new TabIcon::Data;
         s_data->animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
         s_data->framesCount = s_data->animationPixmap.width() / s_data->animationPixmap.height();
-        s_data->audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.png"))).pixmap(16);
-        s_data->audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.png"))).pixmap(16);
+        s_data->audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.svg"))).pixmap(16);
+        s_data->audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.svg"))).pixmap(16);
     }
 
     m_updateTimer = new QTimer(this);
