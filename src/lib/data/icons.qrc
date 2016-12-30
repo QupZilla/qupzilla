@@ -30,14 +30,19 @@
         <file>icons/other/adblock-disabled.png</file>
         <file>icons/menu/search-icon.svg</file>
         <file>icons/browsers/firefox.png</file>
+        <file>icons/browsers/firefox@2x.png</file>
         <file>icons/browsers/chrome.png</file>
+        <file>icons/browsers/chrome@2x.png</file>
         <file>icons/browsers/opera.png</file>
+        <file>icons/browsers/opera@2x.png</file>
+        <file>icons/browsers/ie.png</file>
+        <file>icons/browsers/ie@2x.png</file>
+        <file>icons/browsers/html.svg</file>
         <file>icons/preferences/application-x-theme.png</file>
         <file>icons/preferences/dialog-password.png</file>
         <file>icons/preferences/dialog-question.png</file>
         <file>icons/preferences/mail-inbox.png</file>
         <file>icons/preferences/preferences-system-firewall.png</file>
-        <file>icons/browsers/html.png</file>
         <file>icons/exeicons/qupzilla-window.png</file>
         <file>icons/preferences/text-x-sql.png</file>
         <file>icons/sites/duck.png</file>
@@ -48,7 +53,6 @@
         <file>icons/menu/tab.svg</file>
         <file>icons/other/geolocation.png</file>
         <file>icons/other/notification.png</file>
-        <file>icons/browsers/internet-explorer.png</file>
         <file>icons/sites/startpage.png</file>
         <file>icons/sites/w3.png</file>
         <file>icons/other/loading.png</file>

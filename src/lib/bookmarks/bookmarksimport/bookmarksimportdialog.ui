@@ -75,7 +75,7 @@
           </property>
           <property name="icon">
            <iconset resource="../data/icons.qrc">
-            <normaloff>:/icons/browsers/internet-explorer.png</normaloff>:/icons/browsers/internet-explorer.png</iconset>
+            <normaloff>:/icons/browsers/ie.png</normaloff>:/icons/browsers/ie.png</iconset>
           </property>
          </item>
          <item>
@@ -84,7 +84,7 @@
           </property>
           <property name="icon">
            <iconset resource="../data/icons.qrc">
-            <normaloff>:/icons/browsers/html.png</normaloff>:/icons/browsers/html.png</iconset>
+            <normaloff>:/icons/browsers/html.svg</normaloff>:/icons/browsers/html.svg</iconset>
           </property>
          </item>
         </widget>
