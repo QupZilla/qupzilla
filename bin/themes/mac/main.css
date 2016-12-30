@@ -257,26 +257,6 @@ SearchToolBar #lineEdit[notfound="true"]
     background:#ff6666;
 }
 
-/*Click2Flash*/
-#click2flash-frame
-{
-    border: 1px solid #e8e8e8;
-}
-
-#click2flash-toolbutton
-{
-    background: url(images/flash.png) no-repeat;
-    background-position: center;
-    border: none;
-}
-
-#click2flash-toolbutton:hover
-{
-    background: url(images/flashstart.png) no-repeat;
-    background-position: center;
-    border:none;
-}
-
 /*AboutDialog*/
 AboutDialog #label
 {
