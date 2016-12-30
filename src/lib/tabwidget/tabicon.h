@@ -35,22 +35,29 @@ public:
     explicit TabIcon(QWidget* parent = 0);
 
     void setWebTab(WebTab* tab);
-    void setIcon(const QIcon &icon);
-    void updateAudioIcon(bool recentlyAudible);
+    void updateIcon();
+
+signals:
+    void resized();
 
 private slots:
-    void showIcon();
     void showLoadingAnimation();
     void hideLoadingAnimation();
 
+    void updateAudioIcon(bool recentlyAudible);
     void updateAnimationFrame();
 
 private:
+    void show();
+    void hide();
+    bool shouldBeVisible() const;
+
     void paintEvent(QPaintEvent* event);
     void mousePressEvent(QMouseEvent* event);
 
     WebTab* m_tab;
     QTimer* m_updateTimer;
+    QTimer* m_hideTimer;
     QPixmap m_sitePixmap;
     int m_currentFrame;
     bool m_animationRunning;

@@ -27,6 +27,7 @@
 #include "qztools.h"
 #include "qzsettings.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
 
 #include <QVBoxLayout>
 #include <QWebEngineHistory>
@@ -47,7 +48,7 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
     title = webTab->title();
     url = webTab->url();
-    icon = webTab->icon();
+    icon = webTab->icon(true);
     history = webTab->historyData();
     isPinned = webTab->isPinned();
     zoomLevel = webTab->zoomLevel();
@@ -142,7 +143,13 @@ WebTab::WebTab(BrowserWindow* window)
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
     connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
-    connect(m_webView->page(), &QWebEnginePage::recentlyAudibleChanged, tabIcon(), &TabIcon::updateAudioIcon);
+
+    // Workaround QTabBar not immediately noticing resizing of tab buttons
+    connect(m_tabIcon, &TabIcon::resized, this, [this]() {
+        if (m_tabBar) {
+            m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
+        }
+    });
 }
 
 TabbedWebView* WebTab::webView() const
@@ -196,14 +203,17 @@ QString WebTab::title() const
     }
 }
 
-QIcon WebTab::icon() const
+QIcon WebTab::icon(bool allowNull) const
 {
     if (isRestored()) {
-        return m_webView->icon();
+        return m_webView->icon(allowNull);
     }
-    else {
+
+    if (allowNull || !m_savedTab.icon.isNull()) {
         return m_savedTab.icon;
     }
+
+    return IconProvider::emptyWebIcon();
 }
 
 QWebEngineHistory* WebTab::history() const
@@ -336,7 +346,7 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_tabBar->setTabText(index, tab.title);
         m_locationBar->showUrl(tab.url);
-        m_tabIcon->setIcon(tab.icon);
+        m_tabIcon->updateIcon();
 
         if (!tab.url.isEmpty()) {
             QColor col = m_tabBar->palette().text().color();

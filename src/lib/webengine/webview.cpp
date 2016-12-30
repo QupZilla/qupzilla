@@ -93,7 +93,7 @@ WebView::~WebView()
     WebScrollBarManager::instance()->removeWebView(this);
 }
 
-QIcon WebView::icon() const
+QIcon WebView::icon(bool allowNull) const
 {
     if (!QWebEngineView::icon().isNull()) {
         return QWebEngineView::icon();
@@ -107,7 +107,7 @@ QIcon WebView::icon() const
         return IconProvider::standardIcon(QStyle::SP_DriveHDIcon);
     }
 
-    return IconProvider::iconForUrl(url());
+    return IconProvider::iconForUrl(url(), allowNull);
 }
 
 QString WebView::title() const

@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "tabicon.h"
 #include "webtab.h"
+#include "webpage.h"
 #include "iconprovider.h"
 #include "tabbedwebview.h"
 
@@ -48,9 +49,11 @@ TabIcon::TabIcon(QWidget* parent)
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateAnimationFrame()));
 
-    resize(16, 16);
+    m_hideTimer = new QTimer(this);
+    m_hideTimer->setInterval(250);
+    connect(m_hideTimer, &QTimer::timeout, this, &TabIcon::hide);
 
-    setIcon(IconProvider::emptyWebIcon());
+    resize(16, 16);
 }
 
 void TabIcon::setWebTab(WebTab* tab)
@@ -59,15 +62,10 @@ void TabIcon::setWebTab(WebTab* tab)
 
     connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
-    connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::showIcon);
+    connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::updateIcon);
+    connect(m_tab->webView()->page(), &QWebEnginePage::recentlyAudibleChanged, this, &TabIcon::updateAudioIcon);
 
-    showIcon();
-}
-
-void TabIcon::setIcon(const QIcon &icon)
-{
-    m_sitePixmap = icon.pixmap(16);
-    update();
+    updateIcon();
 }
 
 void TabIcon::showLoadingAnimation()
@@ -75,6 +73,7 @@ void TabIcon::showLoadingAnimation()
     m_currentFrame = 0;
 
     updateAnimationFrame();
+    show();
 }
 
 void TabIcon::hideLoadingAnimation()
@@ -82,12 +81,17 @@ void TabIcon::hideLoadingAnimation()
     m_animationRunning = false;
 
     m_updateTimer->stop();
-    showIcon();
+    updateIcon();
 }
 
-void TabIcon::showIcon()
+void TabIcon::updateIcon()
 {
-    m_sitePixmap = m_tab->icon().pixmap(16);
+    m_sitePixmap = m_tab->icon(/*allowNull*/ true).pixmap(16);
+    if (m_sitePixmap.isNull()) {
+        m_hideTimer->start();
+    } else {
+        show();
+    }
     update();
 }
 
@@ -102,14 +106,49 @@ void TabIcon::updateAnimationFrame()
     m_currentFrame = (m_currentFrame + 1) % s_data->framesCount;
 }
 
+void TabIcon::show()
+{
+    if (!shouldBeVisible()) {
+        return;
+    }
+
+    m_hideTimer->stop();
+
+    if (isVisible()) {
+        return;
+    }
+
+    setFixedSize(16, 16);
+    emit resized();
+    QWidget::show();
+}
+
+void TabIcon::hide()
+{
+    if (shouldBeVisible() || isHidden()) {
+        return;
+    }
+
+    emit resized();
+    setFixedSize(0, 0);
+    QWidget::hide();
+}
+
+bool TabIcon::shouldBeVisible() const
+{
+    return !m_sitePixmap.isNull() || m_animationRunning || m_audioIconDisplayed;
+}
+
 void TabIcon::updateAudioIcon(bool recentlyAudible)
 {
     if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible)) {
         setToolTip(m_tab->isMuted() ? tr("Unmute Tab") : tr("Mute Tab"));
         m_audioIconDisplayed = true;
+        show();
     } else {
         setToolTip(QString());
         m_audioIconDisplayed = false;
+        hide();
     }
 
     update();
@@ -131,16 +170,12 @@ void TabIcon::paintEvent(QPaintEvent* event)
     r.setWidth(size);
     r.setHeight(size);
 
-    if (m_audioIconDisplayed) {
-        if (m_tab->isMuted())
-            p.drawPixmap(r, s_data->audioMutedPixmap);
-        else
-            p.drawPixmap(r, s_data->audioPlayingPixmap);
+    if (m_animationRunning) {
+        p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
+    } else if (m_audioIconDisplayed) {
+        p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
     } else {
-        if (m_animationRunning)
-            p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
-        else
-            p.drawPixmap(r, m_sitePixmap);
+        p.drawPixmap(r, m_sitePixmap);
     }
 }
 

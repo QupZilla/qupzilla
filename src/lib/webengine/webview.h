@@ -36,7 +36,7 @@ public:
     explicit WebView(QWidget* parent = 0);
     ~WebView();
 
-    QIcon icon() const;
+    QIcon icon(bool allowNull = false) const;
 
     QString title() const;
     bool isTitleEmpty() const;

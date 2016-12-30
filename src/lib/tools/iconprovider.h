@@ -59,12 +59,12 @@ public:
     static QImage emptyWebImage();
 
     // Icon for url (only available for urls in history)
-    static QIcon iconForUrl(const QUrl &url, bool allowEmpty = false);
-    static QImage imageForUrl(const QUrl &url, bool allowEmpty = false);
+    static QIcon iconForUrl(const QUrl &url, bool allowNull = false);
+    static QImage imageForUrl(const QUrl &url, bool allowNull = false);
 
     // Icon for domain (only available for urls in history)
-    static QIcon iconForDomain(const QUrl &url, bool allowEmpty = false);
-    static QImage imageForDomain(const QUrl &url, bool allowEmpty = false);
+    static QIcon iconForDomain(const QUrl &url, bool allowNull = false);
+    static QImage imageForDomain(const QUrl &url, bool allowNull = false);
 
     static IconProvider* instance();
 

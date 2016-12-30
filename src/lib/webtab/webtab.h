@@ -65,7 +65,7 @@ public:
 
     QUrl url() const;
     QString title() const;
-    QIcon icon() const;
+    QIcon icon(bool allowNull = false) const;
     QWebEngineHistory* history() const;
     int zoomLevel() const;
     void setZoomLevel(int level);

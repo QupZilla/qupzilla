@@ -49,6 +49,11 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
+    const QIcon icon = view->icon(true);
+    if (icon.isNull()) {
+        return;
+    }
+
     const QStringList ignoredSchemes = {
         QStringLiteral("qupzilla"),
         QStringLiteral("ftp"),
@@ -64,11 +69,7 @@ void IconProvider::saveIcon(WebView* view)
 
     BufferedIcon item;
     item.first = view->url();
-    item.second = view->icon().pixmap(32).toImage();
-
-    if (item.second == IconProvider::emptyWebImage()) {
-        return;
-    }
+    item.second = icon.pixmap(16).toImage();
 
     if (m_iconBuffer.contains(item)) {
         return;
@@ -172,15 +173,15 @@ QImage IconProvider::emptyWebImage()
     return instance()->m_emptyWebImage;
 }
 
-QIcon IconProvider::iconForUrl(const QUrl &url, bool allowEmpty)
+QIcon IconProvider::iconForUrl(const QUrl &url, bool allowNull)
 {
-    return instance()->iconFromImage(imageForUrl(url, allowEmpty));
+    return instance()->iconFromImage(imageForUrl(url, allowNull));
 }
 
-QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
+QImage IconProvider::imageForUrl(const QUrl &url, bool allowNull)
 {
     if (url.path().isEmpty()) {
-        return allowEmpty ? QImage() : IconProvider::emptyWebImage();
+        return allowNull ? QImage() : IconProvider::emptyWebImage();
     }
 
     const QByteArray encodedUrl = encodeUrl(url);
@@ -200,18 +201,18 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowEmpty)
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return allowEmpty ? QImage() : IconProvider::emptyWebImage();
+    return allowNull ? QImage() : IconProvider::emptyWebImage();
 }
 
-QIcon IconProvider::iconForDomain(const QUrl &url, bool allowEmpty)
+QIcon IconProvider::iconForDomain(const QUrl &url, bool allowNull)
 {
-    return instance()->iconFromImage(imageForDomain(url, allowEmpty));
+    return instance()->iconFromImage(imageForDomain(url, allowNull));
 }
 
-QImage IconProvider::imageForDomain(const QUrl &url, bool allowEmpty)
+QImage IconProvider::imageForDomain(const QUrl &url, bool allowNull)
 {
     if (url.host().isEmpty()) {
-        return allowEmpty ? QImage() : IconProvider::emptyWebImage();
+        return allowNull ? QImage() : IconProvider::emptyWebImage();
     }
 
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
@@ -230,7 +231,7 @@ QImage IconProvider::imageForDomain(const QUrl &url, bool allowEmpty)
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return allowEmpty ? QImage() : IconProvider::emptyWebImage();
+    return allowNull ? QImage() : IconProvider::emptyWebImage();
 }
 
 IconProvider* IconProvider::instance()
