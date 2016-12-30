@@ -52,7 +52,7 @@ private slots:
 
 private:
     void showLoadingText();
-    void showPixmap(const QPixmap &pixmap);
+    void showPixmap(QPixmap pixmap);
 
     Ui::SiteInfo* ui;
     CertificateInfoWidget* m_certWidget;
