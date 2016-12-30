@@ -37,6 +37,7 @@
 #include <QTabBar>
 #include <QTimer>
 #include <QWidget>
+#include <QPropertyAnimation>
 
 class QActionGroup;
 class QMenu;
@@ -89,6 +90,7 @@ protected:
     void leaveEvent(QEvent*);
 
 private:
+    QPropertyAnimation animator;
     QWidget* tabbar;
     float m_fader;
 };

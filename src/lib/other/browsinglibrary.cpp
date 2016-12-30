@@ -44,8 +44,16 @@ BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
 
     QzTools::centerWidgetOnScreen(this);
 
-    ui->tabs->AddTab(m_historyManager, QIcon(":/icons/other/bighistory.png"), tr("History"));
-    ui->tabs->AddTab(m_bookmarksManager, QIcon(":/icons/other/bigstar.png"), tr("Bookmarks"));
+    QIcon historyIcon;
+    historyIcon.addFile(QSL(":/icons/other/bighistory.svg"), QSize(), QIcon::Normal);
+    historyIcon.addFile(QSL(":/icons/other/bighistory-selected.svg"), QSize(), QIcon::Selected);
+
+    QIcon bookmarksIcon;
+    bookmarksIcon.addFile(QSL(":/icons/other/bigstar.svg"), QSize(), QIcon::Normal);
+    bookmarksIcon.addFile(QSL(":/icons/other/bigstar-selected.svg"), QSize(), QIcon::Selected);
+
+    ui->tabs->AddTab(m_historyManager, historyIcon, tr("History"));
+    ui->tabs->AddTab(m_bookmarksManager, bookmarksIcon, tr("Bookmarks"));
     ui->tabs->SetMode(FancyTabWidget::Mode_LargeSidebar);
     ui->tabs->setFocus();
 

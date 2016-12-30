@@ -184,27 +184,17 @@ void StyleHelper::drawIconWithShadow(const QIcon &icon, const QRect &rect,
     QString pixmapName = QString("icon %0 %1 %2").arg(icon.cacheKey()).arg(iconMode).arg(rect.height());
 
     if (!QPixmapCache::find(pixmapName, cache)) {
-        QPixmap px = icon.pixmap(rect.size());
+        QPixmap px = icon.pixmap(rect.size(), iconMode);
+        px.setDevicePixelRatio(qApp->devicePixelRatio());
         cache = QPixmap(px.size() + QSize(radius * 2, radius * 2));
+        cache.setDevicePixelRatio(px.devicePixelRatioF());
         cache.fill(Qt::transparent);
 
         QPainter cachePainter(&cache);
-        if (iconMode == QIcon::Disabled) {
-            QImage im = px.toImage().convertToFormat(QImage::Format_ARGB32);
-            for (int y = 0; y < im.height(); ++y) {
-                QRgb* scanLine = (QRgb*)im.scanLine(y);
-                for (int x = 0; x < im.width(); ++x) {
-                    QRgb pixel = *scanLine;
-                    char intensity = qGray(pixel);
-                    *scanLine = qRgba(intensity, intensity, intensity, qAlpha(pixel));
-                    ++scanLine;
-                }
-            }
-            px = QPixmap::fromImage(im);
-        }
 
         // Draw shadow
         QImage tmp(px.size() + QSize(radius * 2, radius * 2 + 1), QImage::Format_ARGB32_Premultiplied);
+        tmp.setDevicePixelRatio(px.devicePixelRatioF());
         tmp.fill(Qt::transparent);
 
         QPainter tmpPainter(&tmp);
@@ -233,7 +223,7 @@ void StyleHelper::drawIconWithShadow(const QIcon &icon, const QRect &rect,
         tmpPainter.end();
 
         // draw the blurred drop shadow...
-        cachePainter.drawImage(QRect(0, 0, cache.rect().width(), cache.rect().height()), tmp);
+        cachePainter.drawImage(QRect(0, 0, cache.rect().width() / cache.devicePixelRatioF(), cache.rect().height() / cache.devicePixelRatioF()), tmp);
 
         // Draw the actual pixmap...
         cachePainter.drawPixmap(QPoint(radius, radius) + offset, px);
@@ -241,6 +231,8 @@ void StyleHelper::drawIconWithShadow(const QIcon &icon, const QRect &rect,
     }
 
     QRect targetRect = cache.rect();
+    targetRect.setWidth(cache.rect().width() / cache.devicePixelRatioF());
+    targetRect.setHeight(cache.rect().height() / cache.devicePixelRatioF());
     targetRect.moveCenter(rect.center());
     p->drawPixmap(targetRect.topLeft() - offset, cache);
 }
