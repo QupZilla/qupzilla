@@ -47,7 +47,6 @@ public:
     BookmarksManager* bookmarksManager() { return m_bookmarksManager; }
 
 private slots:
-    void currentIndexChanged(int index);
     void search();
 
     void importBookmarks();

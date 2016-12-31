@@ -62,28 +62,10 @@ BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
     m->addAction(tr("Export Bookmarks..."), this, SLOT(exportBookmarks()));
     ui->importExport->setMenu(m);
 
-    connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
+    connect(ui->tabs, &FancyTabWidget::CurrentChanged, ui->searchLine, &QLineEdit::clear);
     connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(search()));
 
     QzTools::setWmClass("Browsing Library", this);
-}
-
-void BrowsingLibrary::currentIndexChanged(int index)
-{
-    switch (index) {
-    case 0:
-        ui->searchLine->show();
-        search();
-        break;
-
-    case 1:
-        ui->searchLine->show();
-        search();
-        break;
-
-    default:
-        qWarning("BrowsingLibrary::currentIndexChanged() received index out of range!");
-    }
 }
 
 void BrowsingLibrary::search()
