@@ -58,13 +58,13 @@ void IconProvider::saveIcon(WebView* view)
         QStringLiteral("qupzilla"),
         QStringLiteral("ftp"),
         QStringLiteral("file"),
-        QStringLiteral("view-source")
+        QStringLiteral("view-source"),
+        QStringLiteral("data"),
+        QStringLiteral("about")
     };
 
-    for (const QString &scheme : ignoredSchemes) {
-        if (view->url().scheme() == scheme) {
-            return;
-        }
+    if (ignoredSchemes.contains(view->url().scheme())) {
+        return;
     }
 
     BufferedIcon item;
