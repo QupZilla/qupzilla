@@ -136,7 +136,10 @@ void TabIcon::hide()
 
 bool TabIcon::shouldBeVisible() const
 {
-    return !m_sitePixmap.isNull() || m_animationRunning || m_audioIconDisplayed;
+    if (m_tab && m_tab->isPinned()) {
+        return true;
+    }
+    return !m_sitePixmap.isNull() || m_animationRunning || m_audioIconDisplayed || (m_tab && m_tab->isPinned());
 }
 
 void TabIcon::updateAudioIcon(bool recentlyAudible)
@@ -174,8 +177,10 @@ void TabIcon::paintEvent(QPaintEvent* event)
         p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
     } else if (m_audioIconDisplayed) {
         p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
-    } else {
+    } else if (!m_sitePixmap.isNull()) {
         p.drawPixmap(r, m_sitePixmap);
+    } else if (m_tab && m_tab->isPinned()) {
+        p.drawPixmap(r, IconProvider::emptyWebIcon().pixmap(size));
     }
 }
 
