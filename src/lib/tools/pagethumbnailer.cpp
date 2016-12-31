@@ -28,7 +28,7 @@
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_view(new QQuickWidget())
-    , m_size(QSize(450, 253))
+    , m_size(QSize(450, 253) * qApp->devicePixelRatio())
     , m_loadTitle(false)
 {
     m_view->setAttribute(Qt::WA_DontShowOnScreen);
