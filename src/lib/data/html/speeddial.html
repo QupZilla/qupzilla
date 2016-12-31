@@ -17,7 +17,7 @@ body * { -webkit-user-select: none; font-size: 100%; line-height: 1.6; margin: 0
 #quickdial img[src="%LOADING-IMG%"]{height:60px;width:60px}
 #quickdial img[src=""] { visibility: hidden; }
 #quickdial a { position: absolute; %LEFT_STR%: 0; top: 0; width: 100%; height: 87%; }
-span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 1px; max-height: 20px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; cursor: default; }
+span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 0px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; cursor: default; }
 span.edit, span.close, span.reload { width: 16px; height: 16px; position: absolute; background-position: center; border: 1px solid transparent; display: none; }
 span.edit { %LEFT_STR%: 1px; bottom: 1px; background: url(%IMG_EDIT%) no-repeat; }
 span.close { %RIGHT_STR%: 1px; bottom: 1px; background: url(%IMG_CLOSE%) no-repeat; }
@@ -346,14 +346,15 @@ function removeBox(id) {
 }
 
 function alignPage() {
+    var dialHeight = Math.floor(Math.round(DIAL_WIDTH / 1.54));
     $('head').append('<style>#quickdial img{height:auto;width:'+DIAL_WIDTH+'px}</style>');
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
-                                   'height' : Math.round(DIAL_WIDTH / 1.54) + 'px'});
+                                   'height' : dialHeight  + 'px'});
 
     var width = $(window).width();
     var height = $(window).height();
     var boxWidth = Math.floor(DIAL_WIDTH + 12);
-    var boxHeight = Math.floor(Math.round(DIAL_WIDTH / 1.54) + 22);
+    var boxHeight = dialHeight + 22;
 
     var maxBoxes = Math.floor(width / boxWidth);
     if (maxBoxes > MAX_PAGES_ROW) maxBoxes = MAX_PAGES_ROW;
@@ -369,6 +370,7 @@ function alignPage() {
     if (margintop < 0) margintop = 0;
 
     $("#quickdial").css('margin-top', margintop + 'px');
+    $("span.boxTitle").css('font-size', ((dialHeight - DIAL_WIDTH / 1.77) / 1.5) + 'px');
 
     if (SD_CENTER)
         enableCentering();
