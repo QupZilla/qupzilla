@@ -130,7 +130,6 @@ QString QupZillaSchemeReply::reportbugPage()
 
     bPage.append(QzTools::readAllFileContents(":html/reportbug.html"));
     bPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
-    bPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
 
     bPage.replace(QLatin1String("%TITLE%"), tr("Report Issue"));
     bPage.replace(QLatin1String("%REPORT-ISSUE%"), tr("Report Issue"));
@@ -169,7 +168,6 @@ QString QupZillaSchemeReply::startPage()
 
     sPage.append(QzTools::readAllFileContents(":html/start.html"));
     sPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
-    sPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
     sPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QzTools::dpiAwarePixmap(QSL(":icons/other/startpage.png"))).toString());
 
     sPage.replace(QLatin1String("%TITLE%"), tr("Start Page"));
@@ -190,7 +188,6 @@ QString QupZillaSchemeReply::aboutPage()
     if (aPage.isEmpty()) {
         aPage.append(QzTools::readAllFileContents(":html/about.html"));
         aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
-        aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         aPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QzTools::dpiAwarePixmap(QSL(":icons/other/about.png"))).toString());
         aPage.replace(QLatin1String("%COPYRIGHT-INCLUDE%"), QzTools::readAllFileContents(":html/copyright").toHtmlEscaped());
 
@@ -330,7 +327,6 @@ QString QupZillaSchemeReply::restorePage()
     if (rPage.isEmpty()) {
         rPage.append(QzTools::readAllFileContents(":html/restore.html"));
         rPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
-        rPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         rPage.replace(QLatin1String("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
         rPage.replace(QLatin1String("%TITLE%"), tr("Restore Session"));
         rPage.replace(QLatin1String("%OOPS%"), tr("Oops, QupZilla crashed."));
@@ -354,7 +350,6 @@ QString QupZillaSchemeReply::configPage()
     if (cPage.isEmpty()) {
         cPage.append(QzTools::readAllFileContents(":html/config.html"));
         cPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:icons/qupzilla.png"));
-        cPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         cPage.replace(QLatin1String("%ABOUT-IMG%"), QzTools::pixmapToDataUrl(QzTools::dpiAwarePixmap(QSL(":icons/other/about.png"))).toString());
 
         cPage.replace(QLatin1String("%TITLE%"), tr("Configuration Information"));
@@ -489,7 +484,6 @@ QString QupZillaSchemeReply::adblockPage()
     if (aPage.isEmpty()) {
         aPage.append(QzTools::readAllFileContents(":html/adblock.html"));
         aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
-        aPage.replace(QLatin1String("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         aPage.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
         aPage.replace(QLatin1String("%TITLE%"), tr("Blocked content"));
         aPage = QzTools::applyDirectionToPage(aPage);

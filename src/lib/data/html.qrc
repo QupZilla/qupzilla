@@ -1,10 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>html/errorPage.html</file>
         <file>html/adblock_big.png</file>
         <file>html/adblock.html</file>
         <file>html/about.html</file>
-        <file>html/box-border.png</file>
         <file>html/copyright</file>
         <file>html/reportbug.html</file>
         <file>html/start.html</file>
@@ -20,7 +18,6 @@
         <file>html/configure.png</file>
         <file>html/config.html</file>
         <file>html/restore.html</file>
-        <file>html/dirlist.html</file>
         <file>html/tabcrash.html</file>
     </qresource>
 </RCC>

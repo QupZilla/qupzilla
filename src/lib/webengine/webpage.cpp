@@ -385,7 +385,6 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         QString page = QzTools::readAllFileContents(":html/tabcrash.html");
         page.replace(QL1S("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
         page.replace(QL1S("%FAVICON%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16)).toString());
-        page.replace(QL1S("%BOX-BORDER%"), QLatin1String("qrc:html/box-border.png"));
         page.replace(QL1S("%TITLE%"), tr("Failed loading page"));
         page.replace(QL1S("%HEADING%"), tr("Failed loading page"));
         page.replace(QL1S("%LI-1%"), tr("Something went wrong while loading this page."));
