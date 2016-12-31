@@ -1,23 +1,21 @@
 #navigation-button-next
 {
-	qproperty-themeIcon: "go-previous";
-    qproperty-fallbackIcon: url(images/go-previous.png);
+    qproperty-themeIcon: "go-previous";
 }
 
 #navigation-button-back
 {
-	qproperty-themeIcon: "go-next";
-    qproperty-fallbackIcon: url(images/go-next.png);
+    qproperty-themeIcon: "go-next";
 }
 
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-left";
-    qproperty-fallbackIcon: url(images/tab-left-arrow.png);
+    qproperty-fallbackIcon: url(images/tab-left-arrow.svg);
 }
 
 #tabbar-button-left
 {
     qproperty-themeIcon: "arrow-right";
-    qproperty-fallbackIcon: url(images/tab-right-arrow.png);
+    qproperty-fallbackIcon: url(images/tab-right-arrow.svg);
 }

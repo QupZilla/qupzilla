@@ -1,6 +1,6 @@
 /*************************************
  * Linux Theme                       *
- * Author: nowrep                    *
+ * Author: David Rosca               *
  * Using native widgets and icons    *
  *************************************/
 
@@ -50,7 +50,7 @@
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "application-menu";
-    qproperty-fallbackIcon: url(images/menu.png);
+    qproperty-fallbackIcon: url(images/menu.svg);
 }
 
 #navigation-button-exitfullscreen
@@ -62,21 +62,21 @@
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-right";
-    qproperty-fallbackIcon: url(images/tab-right-arrow.png);
+    qproperty-fallbackIcon: url(images/tab-right-arrow.svg);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabbar-button-left
 {
     qproperty-themeIcon: "arrow-left";
-    qproperty-fallbackIcon: url(images/tab-left-arrow.png);
+    qproperty-fallbackIcon: url(images/tab-left-arrow.svg);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabwidget-button-opentabs
 {
     qproperty-themeIcon: "arrow-down";
-    qproperty-fallbackIcon: url(images/tabs-list-button.png);
+    qproperty-fallbackIcon: url(images/arrow-down.svg);
     qproperty-fixedsize: 20px 25px;
 }
 
@@ -95,21 +95,21 @@
 /*IconProvider*/
 IconProvider
 {
-    qproperty-bookmarkIcon: url(images/star-a.png);
+    qproperty-bookmarkIcon: url(images/star-a.svg);
 }
 
 /*LocationBar*/
 #locationbar-bookmarkicon
 {
     qproperty-themeIcon: "rating-unrated";
-    qproperty-fallbackIcon: url(images/star.png);
+    qproperty-fallbackIcon: url(images/star.svg);
     qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-bookmarkicon[bookmarked="true"]
 {
     qproperty-themeIcon: "rating";
-    qproperty-fallbackIcon: url(images/star-a.png);
+    qproperty-fallbackIcon: url(images/star-a.svg);
     qproperty-fixedsize: 16px 16px;
 }
 
@@ -123,20 +123,21 @@ IconProvider
 #locationbar-goicon
 {
     qproperty-themeIcon: "go-jump-locationbar";
-    qproperty-fallbackIcon: url(images/goto.png);
+    qproperty-fallbackIcon: url(images/goto.svg);
     qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-down-icon
 {
-    padding-right: 2px;
-    qproperty-pixmap: url(images/navigation-dropdown.png);
+    qproperty-themeIcon: "arrow-down";
+    qproperty-fallbackIcon: url(images/arrow-down.svg);
+    qproperty-fixedsize: 12px 16px;
 }
 
 #locationbar-autofillicon
 {
     qproperty-themeIcon: "user-identity";
-    qproperty-fallbackIcon: url(images/key.png);
+    qproperty-fallbackIcon: url(images/user.svg);
     qproperty-fixedsize: 16px 16px;
 }
 
@@ -169,23 +170,10 @@ IconProvider
     background: transparent;
 }
 
-
-/*SourceViewer*/
-#sourceviewer-textedit
-{
-    border:none;
-}
-
-/*SourceViewerSearch*/
-SourceViewerSearch #lineEdit[notfound="true"]
-{
-    background:#ff6666;
-}
-
 /*SearchToolbar*/
 SearchToolBar #lineEdit[notfound="true"]
 {
-    background:#ff6666;
+    background: #ff6666;
 }
 
 /*AboutDialog*/
@@ -196,7 +184,7 @@ AboutDialog #label
 
 AboutDialog #textBrowser
 {
-    border:none;
+    border: none;
     margin-top: -2px; /* Workarounding rounded border on KDE */
 }
 
