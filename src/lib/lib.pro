@@ -454,7 +454,7 @@ RESOURCES += \
     data/data.qrc \
     data/html.qrc \
     data/icons.qrc \
-    data/oxygen-fallback.qrc
+    data/breeze-fallback.qrc
 
 !mac:unix {
     target.path = $$library_folder

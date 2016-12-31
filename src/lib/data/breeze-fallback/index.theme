@@ -1,0 +1,15 @@
+[Icon Theme]
+Name=Breeze
+Comment=Breeze Team
+DisplayDepth=32
+Inherits=default
+Directories=16x16,22x22,32x32
+
+[16x16]
+Size=16
+
+[22x22]
+Size=22
+
+[32x32]
+Size=32

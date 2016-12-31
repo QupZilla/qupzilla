@@ -152,8 +152,6 @@ int main(int argc, char* argv[])
         argv = args;
     }
 
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-
     MainApplication app(argc, argv);
 
     if (app.isClosing())

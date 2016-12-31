@@ -164,8 +164,8 @@ void BookmarksMenu::init()
 {
     setTitle(tr("&Bookmarks"));
 
-    addAction(QIcon::fromTheme("bookmark-new"), tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    addAction(QIcon::fromTheme("bookmark-new-list"), tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
+    addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
+    addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
     addAction(QIcon::fromTheme("bookmarks-organize"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     addSeparator();
 

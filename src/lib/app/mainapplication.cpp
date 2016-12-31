@@ -97,6 +97,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_registerQAppAssociation(0)
 #endif
 {
+    setAttribute(Qt::AA_UseHighDpiPixmaps);
     setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
 
     setApplicationName(QLatin1String("QupZilla"));
@@ -111,8 +112,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     // Set fallback icon theme (eg. on Windows/Mac)
     if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
-        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/oxygen-fallback"));
-        QIcon::setThemeName(QSL("oxygen-fallback"));
+        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/breeze-fallback"));
+        QIcon::setThemeName(QSL("breeze-fallback"));
     }
 
     // QSQLITE database plugin is required
