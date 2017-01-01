@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -175,12 +175,17 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     if (m_animationRunning) {
         p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
-    } else if (m_audioIconDisplayed) {
+    } else if (m_audioIconDisplayed && (!m_tab || !m_tab->isPinned())) {
         p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
     } else if (!m_sitePixmap.isNull()) {
         p.drawPixmap(r, m_sitePixmap);
     } else if (m_tab && m_tab->isPinned()) {
         p.drawPixmap(r, IconProvider::emptyWebIcon().pixmap(size));
+    }
+
+    // Draw audio icon on top of site icon for pinned tabs
+    if (!m_animationRunning && m_audioIconDisplayed && m_tab && m_tab->isPinned()) {
+        p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
     }
 }
 
