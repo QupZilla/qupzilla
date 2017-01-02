@@ -175,7 +175,8 @@ void TabIcon::paintEvent(QPaintEvent* event)
 
     if (m_animationRunning) {
         p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
-    } else if (m_audioIconDisplayed && (!m_tab || !m_tab->isPinned())) {
+    } else if (m_audioIconDisplayed && !m_tab->isPinned()) {
+        m_audioIconRect = r;
         p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
     } else if (!m_sitePixmap.isNull()) {
         p.drawPixmap(r, m_sitePixmap);
@@ -184,7 +185,15 @@ void TabIcon::paintEvent(QPaintEvent* event)
     }
 
     // Draw audio icon on top of site icon for pinned tabs
-    if (!m_animationRunning && m_audioIconDisplayed && m_tab && m_tab->isPinned()) {
+    if (!m_animationRunning && m_audioIconDisplayed && m_tab->isPinned()) {
+        const int s = size - 4;
+        const QRect r(width() - s, 0, s, s);
+        m_audioIconRect = r;
+        QColor c = palette().color(QPalette::Window);
+        c.setAlpha(180);
+        p.setPen(c);
+        p.setBrush(c);
+        p.drawEllipse(r);
         p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
     }
 }
@@ -192,8 +201,10 @@ void TabIcon::paintEvent(QPaintEvent* event)
 void TabIcon::mousePressEvent(QMouseEvent *event)
 {
     // If audio icon is clicked - we don't propagate mouse press to the tab
-    if (m_audioIconDisplayed && event->button() == Qt::LeftButton)
+    if (m_audioIconDisplayed && event->button() == Qt::LeftButton && m_audioIconRect.contains(event->pos())) {
         m_tab->toggleMuted();
-    else
-        QWidget::mousePressEvent(event);
+        return;
+    }
+
+    QWidget::mousePressEvent(event);
 }

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,7 @@ private:
     int m_currentFrame;
     bool m_animationRunning;
     bool m_audioIconDisplayed;
+    QRect m_audioIconRect;
 
     struct Data {
         int framesCount;
