@@ -22,6 +22,7 @@
 #include "tabbedwebview.h"
 
 #include <QTimer>
+#include <QToolTip>
 #include <QMouseEvent>
 
 #define ANIMATION_INTERVAL 70
@@ -142,14 +143,26 @@ bool TabIcon::shouldBeVisible() const
     return !m_sitePixmap.isNull() || m_animationRunning || m_audioIconDisplayed || (m_tab && m_tab->isPinned());
 }
 
+bool TabIcon::event(QEvent *event)
+{
+    if (event->type() == QEvent::ToolTip) {
+        QHelpEvent *e = static_cast<QHelpEvent*>(event);
+        if (m_audioIconDisplayed && m_audioIconRect.contains(e->pos())) {
+            QToolTip::showText(e->globalPos(), m_tab->isMuted() ? tr("Unmute Tab") : tr("Mute Tab"), this);
+            event->accept();
+            return true;
+        }
+    }
+
+    return QWidget::event(event);
+}
+
 void TabIcon::updateAudioIcon(bool recentlyAudible)
 {
     if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible)) {
-        setToolTip(m_tab->isMuted() ? tr("Unmute Tab") : tr("Mute Tab"));
         m_audioIconDisplayed = true;
         show();
     } else {
-        setToolTip(QString());
         m_audioIconDisplayed = false;
         hide();
     }

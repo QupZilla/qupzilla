@@ -52,8 +52,9 @@ private:
     void hide();
     bool shouldBeVisible() const;
 
-    void paintEvent(QPaintEvent* event);
-    void mousePressEvent(QMouseEvent* event);
+    bool event(QEvent *event) override;
+    void paintEvent(QPaintEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
 
     WebTab* m_tab;
     QTimer* m_updateTimer;
