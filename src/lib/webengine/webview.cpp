@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -709,8 +709,20 @@ void WebView::createPageContextMenu(QMenu* menu)
         return;
     }
 
-    menu->addAction(pageAction(QWebEnginePage::Reload));
-    menu->addAction(pageAction(QWebEnginePage::Stop));
+    QAction *reloadAction = pageAction(QWebEnginePage::Reload);
+    action = menu->addAction(reloadAction->icon(), reloadAction->text(), reloadAction, &QAction::trigger);
+    action->setVisible(reloadAction->isEnabled());
+    connect(reloadAction, &QAction::changed, action, [=]() {
+        action->setVisible(reloadAction->isEnabled());
+    });
+
+    QAction *stopAction = pageAction(QWebEnginePage::Stop);
+    action = menu->addAction(stopAction->icon(), stopAction->text(), stopAction, &QAction::trigger);
+    action->setVisible(stopAction->isEnabled());
+    connect(stopAction, &QAction::changed, action, [=]() {
+        action->setVisible(stopAction->isEnabled());
+    });
+
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("Book&mark page"), this, SLOT(bookmarkLink()));
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save page as..."), this, SLOT(savePageAs()));
