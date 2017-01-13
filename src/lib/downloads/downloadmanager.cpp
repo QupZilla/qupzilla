@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -214,6 +214,8 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 
     QString fileName = QFileInfo(downloadItem->path()).fileName();
     fileName = QUrl::fromPercentEncoding(fileName.toUtf8());
+    // Filename may have been percent encoded and actually containing path
+    fileName = QFileInfo(fileName).fileName();
 
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
