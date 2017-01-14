@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -414,7 +414,7 @@ Preferences::Preferences(BrowserWindow* window)
     const QStringList spellcheckLanguages = settings.value(QSL("Languages")).toStringList();
     settings.endGroup();
 
-    const QStringList dictionariesDirs = {
+    QStringList dictionariesDirs = {
 #ifdef Q_OS_OSX
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
@@ -423,6 +423,7 @@ Preferences::Preferences(BrowserWindow* window)
         QDir::cleanPath(QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries"))
 #endif
     };
+    dictionariesDirs.removeDuplicates();
 
     ui->spellcheckDirectories->setText(dictionariesDirs.join(QL1C('\n')));
 
