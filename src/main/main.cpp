@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -98,28 +98,21 @@ void qupzilla_signal_handler(int s)
 #ifndef Q_OS_WIN
 void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSLv2_")))
+    if (msg.startsWith(QL1S("QSslSocket: cannot resolve SSL")))
         return;
     if (msg.startsWith(QL1S("Remote debugging server started successfully.")))
         return;
 
-    const QByteArray localMsg = msg.toLocal8Bit();
-
     switch (type) {
     case QtDebugMsg:
+    case QtInfoMsg:
     case QtWarningMsg:
     case QtCriticalMsg:
-        std::cerr << localMsg.constData();
-        if (context.file && context.line && context.function)
-            std::cerr << " (" <<  context.file << ":" << context.line << ", " << context.function << ")";
-        std::cerr << std::endl;
+        std::cerr << qPrintable(qFormatLogMessage(type, context, msg)) << std::endl;
         break;
 
     case QtFatalMsg:
-        std::cerr << "Fatal: " << localMsg.constData() << std::endl;
-        if (context.file && context.line && context.function)
-            std::cerr << " (" <<  context.file << ":" << context.line << ", " << context.function << ")";
-        std::cerr << std::endl;
+        std::cerr << "Fatal: " << qPrintable(qFormatLogMessage(type, context, msg)) << std::endl;
         abort();
 
     default:
