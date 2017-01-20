@@ -42,11 +42,9 @@ DEPENDPATH += $$INCLUDEPATH \
               data \
 
 SOURCES += \
-    3rdparty/ecwin7.cpp \
     3rdparty/fancytabwidget.cpp \
     3rdparty/lineedit.cpp \
     3rdparty/processinfo.cpp \
-    3rdparty/qtwin.cpp \
     3rdparty/squeezelabelv1.cpp \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/stylehelper.cpp \
@@ -222,12 +220,9 @@ SOURCES += \
     webtab/webtab.cpp \
 
 HEADERS  += \
-    3rdparty/ecwin7.h \
     3rdparty/fancytabwidget.h \
     3rdparty/lineedit.h \
-    3rdparty/msvc2008.h \
     3rdparty/processinfo.h \
-    3rdparty/qtwin.h \
     3rdparty/squeezelabelv1.h \
     3rdparty/squeezelabelv2.h \
     3rdparty/stylehelper.h \
@@ -470,6 +465,7 @@ RESOURCES += \
 }
 
 win32 {
+    QT *= winextras
     HEADERS += other/registerqappassociation.h
     SOURCES += other/registerqappassociation.cpp
 

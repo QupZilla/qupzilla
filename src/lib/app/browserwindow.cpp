@@ -55,7 +55,6 @@
 #include "webtab.h"
 #include "speeddial.h"
 #include "menubar.h"
-#include "qtwin.h"
 #include "bookmarkstools.h"
 #include "bookmarksmenu.h"
 #include "historymenu.h"

@@ -28,7 +28,6 @@
 #include "cookiemanager.h"
 #include "pluginproxy.h"
 #include "pluginsmanager.h"
-#include "qtwin.h"
 #include "jsoptions.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"

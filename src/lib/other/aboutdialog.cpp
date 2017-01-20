@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,11 +21,14 @@
 #include "mainapplication.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
-#include "qtwin.h"
 #include "useragentmanager.h"
 
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
+
+#ifdef Q_OS_WIN
+#include <QtWin>
+#endif
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent)
@@ -39,7 +42,7 @@ AboutDialog::AboutDialog(QWidget* parent)
 
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this);
+        QtWin::extendFrameIntoClientArea(this, -1, -1, -1, -1);
         ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
     }
 #endif

@@ -21,9 +21,7 @@
 #include "mainapplication.h"
 #include "downloadoptionsdialog.h"
 #include "downloaditem.h"
-#include "ecwin7.h"
 #include "networkmanager.h"
-#include "qtwin.h"
 #include "desktopnotificationsfactory.h"
 #include "qztools.h"
 #include "webpage.h"
@@ -39,6 +37,10 @@
 #include <QWebEngineHistory>
 #include <QWebEngineDownloadItem>
 
+#ifdef Q_OS_WIN
+#include <QtWin>
+#endif
+
 DownloadManager::DownloadManager(QWidget* parent)
     : QWidget(parent)
     , ui(new Ui::DownloadManager)
@@ -49,7 +51,7 @@ DownloadManager::DownloadManager(QWidget* parent)
     ui->setupUi(this);
 #ifdef Q_OS_WIN
     if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this);
+        QtWin::extendFrameIntoClientArea(this, -1, -1, -1, -1);
     }
 #endif
     ui->clearButton->setIcon(QIcon::fromTheme("edit-clear"));

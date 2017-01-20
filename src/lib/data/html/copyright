@@ -136,9 +136,6 @@
  */
 
 -----------------------------------------------------------------------------
- QtWin class from
- http://labs.qt.nokia.com/2009/09/15/using-blur-behind-on-windows/
------------------------------------------------------------------------------
  In application are used also some icons from Breeze icon set.
  More info at https://cgit.kde.org/breeze-icons.git
 -----------------------------------------------------------------------------
