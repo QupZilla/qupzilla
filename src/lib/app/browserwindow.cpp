@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -1123,12 +1123,10 @@ bool BrowserWindow::event(QEvent* event)
             statusBar()->hide();
 
             m_navigationContainer->hide();
-            m_navigationToolbar->buttonExitFullscreen()->setVisible(true);
+            m_navigationToolbar->buttonExitFullscreen()->show();
         }
         else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
-            setWindowState(m_windowStates);
-
             statusBar()->setVisible(m_statusBarVisible);
 #ifndef Q_OS_MAC
             menuBar()->setVisible(m_menuBarVisible);
@@ -1136,8 +1134,10 @@ bool BrowserWindow::event(QEvent* event)
 
             m_navigationContainer->show();
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
-            m_navigationToolbar->buttonExitFullscreen()->setVisible(false);
+            m_navigationToolbar->buttonExitFullscreen()->hide();
             m_isHtmlFullScreen = false;
+
+            setWindowState(m_windowStates);
         }
 
         if (m_hideNavigationTimer) {
