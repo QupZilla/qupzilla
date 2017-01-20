@@ -641,10 +641,10 @@ void BrowserWindow::printPage()
                         tempFile.close();
                         if (bytesWritten == data.size()) {
 #ifdef Q_OS_WIN
-                            QString printerName = dialog->printer()->printerName();
+                            QString printerName = '"' + dialog->printer()->printerName() + '"';
                             // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
                             // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
-                            ShellExecuteW(winId(), L"printto", tempFile.fileName().constData(), ('"' + printerName + '"').constData(), NULL, SW_HIDE);
+                            ShellExecuteW((HWND)winId(), L"printto", (LPCWSTR)tempFile.fileName().utf16(), (LPCWSTR)printerName.utf16(), NULL, SW_HIDE);
                             // TODO: When can we delete the file?
 #else
                             Qz::FilePrinter::printFile(dialog->printer(), tempFile.fileName(), Qz::FilePrinter::SystemDeletesFiles, Qz::FilePrinter::SystemSelectsPages);
