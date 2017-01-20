@@ -64,6 +64,7 @@ void TabIcon::setWebTab(WebTab* tab)
     connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
     connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::updateIcon);
+    connect(m_tab->webView(), &WebView::backgroundActivityChanged, this, [this]() { update(); });
     connect(m_tab->webView()->page(), &QWebEnginePage::recentlyAudibleChanged, this, &TabIcon::updateAudioIcon);
 
     updateIcon();
@@ -175,6 +176,7 @@ void TabIcon::paintEvent(QPaintEvent* event)
     Q_UNUSED(event);
 
     QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
 
     const int size = 16;
     const int pixmapSize = qRound(size * s_data->animationPixmap.devicePixelRatioF());
@@ -208,6 +210,24 @@ void TabIcon::paintEvent(QPaintEvent* event)
         p.setBrush(c);
         p.drawEllipse(r);
         p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
+    }
+
+    // Draw background activity indicator
+    if (m_tab && m_tab->isPinned() && m_tab->webView()->backgroundActivity()) {
+        const int s = 5;
+        // Background
+        const QRect r1(width() - s - 2, height() - s - 2, s + 2, s + 2);
+        QColor c1 = palette().color(QPalette::Window);
+        c1.setAlpha(180);
+        p.setPen(Qt::transparent);
+        p.setBrush(c1);
+        p.drawEllipse(r1);
+        // Foreground
+        const QRect r2(width() - s - 1, height() - s - 1, s, s);
+        QColor c2 = palette().color(QPalette::Text);
+        p.setPen(Qt::transparent);
+        p.setBrush(c2);
+        p.drawEllipse(r2);
     }
 }
 

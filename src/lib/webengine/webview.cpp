@@ -54,6 +54,7 @@ bool WebView::s_forceContextMenuOnMouseRelease = false;
 WebView::WebView(QWidget* parent)
     : QWebEngineView(parent)
     , m_progress(100)
+    , m_backgroundActivity(false)
     , m_page(0)
     , m_firstLoad(false)
 {
@@ -62,6 +63,7 @@ WebView::WebView(QWidget* parent)
     connect(this, &QWebEngineView::loadFinished, this, &WebView::slotLoadFinished);
     connect(this, &QWebEngineView::iconChanged, this, &WebView::slotIconChanged);
     connect(this, &QWebEngineView::urlChanged, this, &WebView::slotUrlChanged);
+    connect(this, &QWebEngineView::titleChanged, this, &WebView::slotTitleChanged);
 
     m_currentZoomLevel = zoomLevels().indexOf(100);
 
@@ -227,10 +229,9 @@ int WebView::loadingProgress() const
     return m_progress;
 }
 
-void WebView::fakeLoadingProgress(int progress)
+bool WebView::backgroundActivity() const
 {
-    emit loadStarted();
-    emit loadProgress(progress);
+    return m_backgroundActivity;
 }
 
 int WebView::zoomLevel() const
@@ -430,6 +431,16 @@ void WebView::slotUrlChanged(const QUrl &url)
     }
 }
 
+void WebView::slotTitleChanged(const QString &title)
+{
+    Q_UNUSED(title)
+
+    if (!isVisible() && !isLoading() && !m_backgroundActivity) {
+        m_backgroundActivity = true;
+        emit backgroundActivityChanged(m_backgroundActivity);
+    }
+}
+
 void WebView::openUrlInNewWindow()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -614,6 +625,16 @@ void WebView::userDefinedOpenUrlInBgTab(const QUrl &url)
     }
 
     userDefinedOpenUrlInNewTab(actionUrl, true);
+}
+
+void WebView::showEvent(QShowEvent *event)
+{
+    QWebEngineView::showEvent(event);
+
+    if (m_backgroundActivity) {
+        m_backgroundActivity = false;
+        emit backgroundActivityChanged(m_backgroundActivity);
+    }
 }
 
 void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)

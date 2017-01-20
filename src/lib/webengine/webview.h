@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,8 @@ public:
     bool isLoading() const;
 
     int loadingProgress() const;
-    void fakeLoadingProgress(int progress);
+
+    bool backgroundActivity() const;
 
     // Set zoom level (0 - 17)
     int zoomLevel() const;
@@ -80,6 +81,7 @@ signals:
     void showNotification(QWidget*);
     void privacyChanged(bool);
     void zoomLevelChanged(int);
+    void backgroundActivityChanged(bool);
 
 public slots:
     void zoomIn();
@@ -116,6 +118,7 @@ protected slots:
     void slotLoadFinished(bool ok);
     void slotIconChanged();
     void slotUrlChanged(const QUrl &url);
+    void slotTitleChanged(const QString &title);
 
     // Context menu slots
     void openUrlInNewWindow();
@@ -139,6 +142,7 @@ protected slots:
     void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
 protected:
+    void showEvent(QShowEvent *event) override;
     void resizeEvent(QResizeEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
 
@@ -175,8 +179,8 @@ private:
     void initializeActions();
 
     int m_currentZoomLevel;
-
     int m_progress;
+    bool m_backgroundActivity;
 
     QUrl m_clickedUrl;
     QPointF m_clickedPos;
