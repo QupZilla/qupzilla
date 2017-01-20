@@ -64,6 +64,12 @@
 #include <QWebEngineDownloadItem>
 #include <QWebEngineScriptCollection>
 
+#ifdef Q_OS_WIN
+#include <QtWin>
+#include <QWinJumpList>
+#include <QWinJumpListCategory>
+#endif
+
 #include <iostream>
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
@@ -675,7 +681,7 @@ void MainApplication::postLaunch()
     connect(this, SIGNAL(messageReceived(QString)), this, SLOT(messageReceived(QString)));
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 
-//    QtWin::createJumpList();
+    createJumpList();
 
     QTimer::singleShot(5000, this, &MainApplication::runDeferredPostLaunchActions);
 }
@@ -1120,6 +1126,29 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setCss(userCss));
     m_webProfile->scripts()->insert(script);
+}
+
+void MainApplication::createJumpList()
+{
+#ifdef Q_OS_WIN
+    QWinJumpList *jumpList = new QWinJumpList(this);
+    jumpList->clear();
+
+    // Frequent
+    QWinJumpListCategory *frequent = jumpList->frequent();
+    frequent->setVisible(true);
+    const QVector<HistoryEntry> mostList = m_history->mostVisited(7);
+    for (const HistoryEntry &entry : mostList) {
+        frequent->addLink(IconProvider::iconForUrl(entry.url), entry.title, applicationFilePath(), QStringList{entry.url.toEncoded()});
+    }
+
+    // Tasks
+    QWinJumpListCategory *tasks = jumpList->tasks();
+    tasks->setVisible(true);
+    tasks->addLink(IconProvider::newTabIcon(), tr("Open new tab"), applicationFilePath(), {QSL("--new-tab")});
+    tasks->addLink(IconProvider::newWindowIcon(), tr("Open new window"), applicationFilePath(), {QSL("--new-window")});
+    tasks->addLink(IconProvider::privateBrowsingIcon(), tr("Open new private window"), applicationFilePath(), {QSL("--private-browsing")});
+#endif
 }
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
