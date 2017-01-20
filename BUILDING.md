@@ -109,13 +109,6 @@ Available Defines
                           Compiler 2010
                           (enabled by default)
 
-     W7TASKBAR            Enable Windows 7 Taskbar support
-                          Requires linking against libraries from Microsoft Visual C++
-                          Compiler 2010
-                          May cause crash when downloading files on some systems.
-                          (disabled by default)
-
-
  Linux / Unix specific defines:
 
      NO_X11               Disable all X11 calls.

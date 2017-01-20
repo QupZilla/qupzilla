@@ -39,6 +39,8 @@
 
 #ifdef Q_OS_WIN
 #include <QtWin>
+#include <QWinTaskbarButton>
+#include <QWinTaskbarProgress>
 #endif
 
 DownloadManager::DownloadManager(QWidget* parent)
@@ -65,12 +67,6 @@ DownloadManager::DownloadManager(QWidget* parent)
     loadSettings();
 
     QzTools::setWmClass("Download Manager", this);
-
-#ifdef W7TASKBAR
-    if (QtWin::isRunningWindows7()) {
-        win7.init(QtWin::hwndOfWidget(this));
-    }
-#endif
 }
 
 void DownloadManager::loadSettings()
@@ -126,15 +122,6 @@ void DownloadManager::startExternalManager(const QUrl &url)
     m_lastDownloadOption = ExternalManager;
 }
 
-#ifdef W7TASKBAR
-bool DownloadManager::nativeEvent(const QByteArray &eventType, void* _message, long* result)
-{
-    Q_UNUSED(eventType)
-    MSG* message = static_cast<MSG*>(_message);
-    return win7.winEvent(message, result);
-}
-#endif
-
 void DownloadManager::timerEvent(QTimerEvent* e)
 {
     QVector<QTime> remTimes;
@@ -145,6 +132,11 @@ void DownloadManager::timerEvent(QTimerEvent* e)
         if (!ui->list->count()) {
             ui->speedLabel->clear();
             setWindowTitle(tr("Download Manager"));
+#ifdef Q_OS_WIN
+            if (m_taskbarButton) {
+                m_taskbarButton->progress()->hide();
+            }
+#endif
             return;
         }
         for (int i = 0; i < ui->list->count(); i++) {
@@ -184,10 +176,10 @@ void DownloadManager::timerEvent(QTimerEvent* e)
                                 DownloadItem::remaingTimeToString(remaining)));
 #endif
         setWindowTitle(tr("%1% - Download Manager").arg(progress));
-#ifdef W7TASKBAR
-        if (QtWin::isRunningWindows7()) {
-            win7.setProgressValue(progress, 100);
-            win7.setProgressState(win7.Normal);
+#ifdef Q_OS_WIN
+        if (m_taskbarButton) {
+            m_taskbarButton->progress()->show();
+            m_taskbarButton->progress()->setValue(progress);
         }
 #endif
     }
@@ -344,16 +336,27 @@ void DownloadManager::downloadFinished(bool success)
         }
         ui->speedLabel->clear();
         setWindowTitle(tr("Download Manager"));
-#ifdef W7TASKBAR
-        if (QtWin::isRunningWindows7()) {
-            win7.setProgressValue(0, 100);
-            win7.setProgressState(win7.NoProgress);
+#ifdef Q_OS_WIN
+        if (m_taskbarButton) {
+            m_taskbarButton->progress()->hide();
         }
 #endif
         if (m_closeOnFinish) {
             close();
         }
     }
+}
+
+void DownloadManager::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+#ifdef Q_OS_WIN
+    if (!m_taskbarButton) {
+        m_taskbarButton = new QWinTaskbarButton(this);
+    }
+    m_taskbarButton->setWindow(windowHandle());
+    m_taskbarButton->progress()->setRange(0, 100);
+#endif
 }
 
 void DownloadManager::deleteItem(DownloadItem* item)
