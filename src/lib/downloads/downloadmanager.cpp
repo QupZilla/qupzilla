@@ -176,9 +176,11 @@ void DownloadManager::timerEvent(QTimerEvent* e)
             speed += spee;
         }
 
+#ifndef Q_OS_WIN
         ui->speedLabel->setText(tr("%1% of %2 files (%3) %4 remaining").arg(QString::number(progress), QString::number(progresses.count()),
                                 DownloadItem::currentSpeedToString(speed),
                                 DownloadItem::remaingTimeToString(remaining)));
+#endif
         setWindowTitle(tr("%1% - Download Manager").arg(progress));
 #ifdef W7TASKBAR
         if (QtWin::isRunningWindows7()) {
