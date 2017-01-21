@@ -288,7 +288,6 @@ Preferences::Preferences(BrowserWindow* window)
     //Cache
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
-    ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
     ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
     connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
@@ -611,7 +610,7 @@ void Preferences::makeQupZillaDefault()
 
 void Preferences::allowCacheChanged(bool state)
 {
-    ui->cacheFrame->setEnabled(state);
+    ui->label_21->setEnabled(state); //'Maximum' Label
     ui->cacheMB->setEnabled(state);
     ui->storeCacheLabel->setEnabled(state);
     ui->cachePath->setEnabled(state);
@@ -746,11 +745,6 @@ void Preferences::newTabChanged(int value)
 void Preferences::afterLaunchChanged(int value)
 {
     ui->dontLoadTabsUntilSelected->setEnabled(value == 3);
-}
-
-void Preferences::cacheValueChanged(int value)
-{
-    ui->MBlabel->setText(QString::number(value) + " MB");
 }
 
 void Preferences::changeCachePathClicked()

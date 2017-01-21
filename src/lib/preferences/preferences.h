@@ -77,7 +77,6 @@ private slots:
 
     void newTabChanged(int value);
     void afterLaunchChanged(int value);
-    void cacheValueChanged(int value);
 
     void createProfile();
     void deleteProfile();
