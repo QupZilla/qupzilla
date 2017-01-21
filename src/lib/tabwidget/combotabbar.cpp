@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -615,8 +615,24 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
 {
     event->accept();
 
-    if (qzSettings->alwaysSwitchTabsWithWheel) {
-        setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
+    if (qzSettings->alwaysSwitchTabsWithWheel || (!m_mainTabBarWidget->isOverflowed() && !m_pinnedTabBarWidget->isOverflowed())) {
+        m_wheelHelper.processEvent(event);
+        while (WheelHelper::Direction direction = m_wheelHelper.takeDirection()) {
+            switch (direction) {
+            case WheelHelper::WheelUp:
+            case WheelHelper::WheelLeft:
+                setCurrentNextEnabledIndex(-1);
+                break;
+
+            case WheelHelper::WheelDown:
+            case WheelHelper::WheelRight:
+                setCurrentNextEnabledIndex(1);
+                break;
+
+            default:
+                break;
+            }
+        }
         return;
     }
 
@@ -635,10 +651,6 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
         else if (m_mainTabBarWidget->isOverflowed()) {
             m_mainTabBarWidget->scrollByWheel(event);
         }
-    }
-
-    if (!m_mainTabBarWidget->isOverflowed() && !m_pinnedTabBarWidget->isOverflowed()) {
-        setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
     }
 }
 

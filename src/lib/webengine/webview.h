@@ -23,6 +23,7 @@
 
 #include "qzcommon.h"
 #include "loadrequest.h"
+#include "wheelhelper.h"
 
 class WebPage;
 class LoadRequest;
@@ -189,6 +190,7 @@ private:
     bool m_firstLoad;
 
     QPointer<QWidget> m_rwhvqt;
+    WheelHelper m_wheelHelper;
 
     static bool s_forceContextMenuOnMouseRelease;
 };

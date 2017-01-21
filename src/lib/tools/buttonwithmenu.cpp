@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -122,13 +122,23 @@ void ButtonWithMenu::setCurrentIndex(int index, bool emitSignal)
 
 void ButtonWithMenu::wheelEvent(QWheelEvent* event)
 {
-    if (event->delta() > 0) {
-        selectPreviousItem();
-    }
-    else {
-        selectNextItem();
-    }
+    m_wheelHelper.processEvent(event);
+    while (WheelHelper::Direction direction = m_wheelHelper.takeDirection()) {
+        switch (direction) {
+        case WheelHelper::WheelUp:
+        case WheelHelper::WheelLeft:
+            selectPreviousItem();
+            break;
 
+        case WheelHelper::WheelDown:
+        case WheelHelper::WheelRight:
+            selectNextItem();
+            break;
+
+        default:
+            break;
+        }
+    }
     event->accept();
 }
 

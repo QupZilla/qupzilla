@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #define COMBOTABBAR_H
 
 #include "qzcommon.h"
+#include "wheelhelper.h"
 
 #include <QTabBar>
 #include <QScrollBar>
@@ -202,6 +203,8 @@ private:
     bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
     bool m_blockCurrentChangedSignal;
+
+    WheelHelper m_wheelHelper;
 
     friend class TabBarHelper;
     friend class TabStackedWidget;

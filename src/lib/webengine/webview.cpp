@@ -1019,10 +1019,28 @@ void WebView::_wheelEvent(QWheelEvent *event)
     }
 
     if (event->modifiers() & Qt::ControlModifier) {
-        event->delta() > 0 ? zoomIn() : zoomOut();
+        m_wheelHelper.processEvent(event);
+        while (WheelHelper::Direction direction = m_wheelHelper.takeDirection()) {
+            switch (direction) {
+            case WheelHelper::WheelUp:
+            case WheelHelper::WheelLeft:
+                zoomIn();
+                break;
+
+            case WheelHelper::WheelDown:
+            case WheelHelper::WheelRight:
+                zoomOut();
+                break;
+
+            default:
+                break;
+            }
+        }
         event->accept();
         return;
     }
+
+    m_wheelHelper.reset();
 
     // QtWebEngine ignores QApplication::wheelScrollLines() and instead always scrolls 3 lines
     if (event->spontaneous()) {

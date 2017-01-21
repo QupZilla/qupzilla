@@ -218,6 +218,7 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
+    tools/wheelhelper.cpp \
 
 HEADERS  += \
     3rdparty/fancytabwidget.h \
@@ -399,6 +400,7 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
+    tools/wheelhelper.h \
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
