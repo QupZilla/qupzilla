@@ -587,7 +587,6 @@ void Preferences::setNotificationPreviewVisible(bool state)
             }
 
             m_notification = new DesktopNotification(true);
-            m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
             m_notification.data()->setHeading(tr("OSD Notification"));
             m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
             m_notification.data()->move(m_notifPosition);

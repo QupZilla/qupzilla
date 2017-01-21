@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -101,15 +101,11 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
 #if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
-    QFile tmp(DataPaths::path(DataPaths::Temp) + "/qupzilla_notif.png");
-    tmp.open(QFile::WriteOnly);
-    QPixmap(":icons/preferences/dialog-question.png").save(tmp.fileName());
-
     QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
     QVariantList args;
     args.append(QLatin1String("qupzilla"));
     args.append(m_uint);
-    args.append(tmp.fileName());
+    args.append(QString());
     args.append(QObject::tr("Native System Notification"));
     args.append(QString());
     args.append(QStringList());

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ DesktopNotification::DesktopNotification(bool setPosition)
 void DesktopNotification::show()
 {
     ui->icon->setPixmap(m_icon);
+    ui->icon->setVisible(!m_icon.isNull());
     ui->heading->setText(m_heading);
     ui->text->setText(m_text);
 
