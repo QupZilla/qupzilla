@@ -1,11 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/qupzilla.png</file>
-        <file>icons/preferences/applications-internet.png</file>
-        <file>icons/preferences/applications-system.png</file>
-        <file>icons/preferences/applications-webbrowsers.png</file>
-        <file>icons/preferences/preferences-desktop.png</file>
-        <file>icons/preferences/extension.png</file>
         <file>qupzilla.png</file>
         <file>icons/menu/history.svg</file>
         <file>icons/menu/history_entry.svg</file>
@@ -21,14 +16,12 @@
         <file>icons/locationbar/visit2.png</file>
         <file>icons/locationbar/visit3.png</file>
         <file>icons/other/login.png</file>
-        <file>icons/preferences/applications-fonts.png</file>
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
         <file>icons/other/adblock.png</file>
         <file>icons/other/download.svg</file>
         <file>icons/other/bighistory.svg</file>
         <file>icons/other/bighistory-selected.svg</file>
-        <file>icons/preferences/style-default.png</file>
         <file>icons/other/adblock-disabled.png</file>
         <file>icons/menu/search-icon.svg</file>
         <file>icons/browsers/firefox.png</file>
@@ -40,18 +33,11 @@
         <file>icons/browsers/ie.png</file>
         <file>icons/browsers/ie@2x.png</file>
         <file>icons/browsers/html.svg</file>
-        <file>icons/preferences/application-x-theme.png</file>
-        <file>icons/preferences/dialog-password.png</file>
-        <file>icons/preferences/dialog-question.png</file>
-        <file>icons/preferences/mail-inbox.png</file>
-        <file>icons/preferences/preferences-system-firewall.png</file>
         <file>icons/exeicons/qupzilla-window.png</file>
-        <file>icons/preferences/text-x-sql.png</file>
         <file>icons/sites/duck.png</file>
         <file>icons/sites/google.png</file>
         <file>icons/sites/translate.png</file>
         <file>icons/sites/wikipedia.png</file>
-        <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
         <file>icons/menu/tab.svg</file>
         <file>icons/sites/startpage.png</file>
         <file>icons/sites/w3.png</file>
@@ -64,6 +50,18 @@
         <file>icons/other/startpage@2x.png</file>
         <file>icons/other/audioplaying.svg</file>
         <file>icons/other/audiomuted.svg</file>
-        <file>icons/preferences/tools-check-spelling.png</file>
+        <file>icons/preferences/appearance.svg</file>
+        <file>icons/preferences/browsing.svg</file>
+        <file>icons/preferences/downloads.svg</file>
+        <file>icons/preferences/extensions.svg</file>
+        <file>icons/preferences/fonts.svg</file>
+        <file>icons/preferences/general.svg</file>
+        <file>icons/preferences/notifications.svg</file>
+        <file>icons/preferences/other.svg</file>
+        <file>icons/preferences/passwords.svg</file>
+        <file>icons/preferences/privacy.svg</file>
+        <file>icons/preferences/shortcuts.svg</file>
+        <file>icons/preferences/spellcheck.svg</file>
+        <file>icons/preferences/tabs.svg</file>
     </qresource>
 </RCC>

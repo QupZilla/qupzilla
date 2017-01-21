@@ -117,19 +117,19 @@ Preferences::Preferences(BrowserWindow* window)
         ui->listWidget->item(index)->setIcon(QIcon(icon.pixmap(32)));
     };
 
-    setCategoryIcon(0, QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
-    setCategoryIcon(1, QIcon::fromTheme("application-x-theme", QIcon(":/icons/preferences/application-x-theme.png")));
-    setCategoryIcon(2, QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
-    setCategoryIcon(3, QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
-    setCategoryIcon(4, QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
-    setCategoryIcon(5, QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
-    setCategoryIcon(6, QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
-    setCategoryIcon(7, QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
-    setCategoryIcon(8, QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-    setCategoryIcon(9, QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
-    setCategoryIcon(10, QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-    setCategoryIcon(11, QIcon::fromTheme("tools-check-spelling", QIcon(":/icons/preferences/tools-check-spelling.png")));
-    setCategoryIcon(12, QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+    setCategoryIcon(0, QIcon(":/icons/preferences/general.svg"));
+    setCategoryIcon(1, QIcon(":/icons/preferences/appearance.svg"));
+    setCategoryIcon(2, QIcon(":/icons/preferences/tabs.svg"));
+    setCategoryIcon(3, QIcon(":/icons/preferences/browsing.svg"));
+    setCategoryIcon(4, QIcon(":/icons/preferences/fonts.svg"));
+    setCategoryIcon(5, QIcon(":/icons/preferences/shortcuts.svg"));
+    setCategoryIcon(6, QIcon(":/icons/preferences/downloads.svg"));
+    setCategoryIcon(7, QIcon(":/icons/preferences/passwords.svg"));
+    setCategoryIcon(8, QIcon(":/icons/preferences/privacy.svg"));
+    setCategoryIcon(9, QIcon(":/icons/preferences/notifications.svg"));
+    setCategoryIcon(10, QIcon(":/icons/preferences/extensions.svg"));
+    setCategoryIcon(11, QIcon(":/icons/preferences/spellcheck.svg"));
+    setCategoryIcon(12, QIcon(":/icons/preferences/other.svg"));
 
     Settings settings;
     //GENERAL URLs
