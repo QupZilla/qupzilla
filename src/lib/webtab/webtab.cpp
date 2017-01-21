@@ -28,6 +28,7 @@
 #include "qzsettings.h"
 #include "mainapplication.h"
 #include "iconprovider.h"
+#include "searchtoolbar.h"
 
 #include <QVBoxLayout>
 #include <QWebEngineHistory>
@@ -129,15 +130,23 @@ WebTab::WebTab(BrowserWindow* window)
     m_tabIcon = new TabIcon(this);
     m_tabIcon->setWebTab(this);
 
-    m_splitter = new QSplitter(Qt::Vertical, this);
-    m_splitter->setChildrenCollapsible(false);
-    m_splitter->addWidget(m_webView);
-
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
-    m_layout->addWidget(m_splitter);
-    setLayout(m_layout);
+    m_layout->addWidget(m_webView);
+
+    QWidget *viewWidget = new QWidget(this);
+    viewWidget->setLayout(m_layout);
+
+    m_splitter = new QSplitter(Qt::Vertical, this);
+    m_splitter->setChildrenCollapsible(false);
+    m_splitter->addWidget(viewWidget);
+
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(0);
+    layout->addWidget(m_splitter);
+    setLayout(layout);
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
@@ -181,6 +190,24 @@ void WebTab::toggleWebInspector()
         showWebInspector();
     else
         delete m_splitter->widget(1);
+}
+
+void WebTab::showSearchToolBar()
+{
+    const int index = 1;
+
+    SearchToolBar *toolBar = nullptr;
+
+    if (m_layout->count() == 1) {
+        toolBar = new SearchToolBar(m_webView, this);
+        m_layout->insertWidget(index, toolBar);
+    } else if (m_layout->count() == 2) {
+        Q_ASSERT(qobject_cast<SearchToolBar*>(m_layout->itemAt(index)->widget()));
+        toolBar = static_cast<SearchToolBar*>(m_layout->itemAt(index)->widget());
+    }
+
+    Q_ASSERT(toolBar);
+    toolBar->focusSearchLine();
 }
 
 QUrl WebTab::url() const

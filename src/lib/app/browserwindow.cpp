@@ -23,7 +23,6 @@
 #include "lineedit.h"
 #include "history.h"
 #include "locationbar.h"
-#include "searchtoolbar.h"
 #include "websearchbar.h"
 #include "pluginproxy.h"
 #include "sidebar.h"
@@ -876,11 +875,6 @@ void BrowserWindow::currentTabChanged()
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 
-    SearchToolBar* search = searchToolBar();
-    if (search) {
-        search->setWebView(view);
-    }
-
     updateLoadingActions();
 
     // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
@@ -1031,16 +1025,9 @@ void BrowserWindow::webSearch()
 
 void BrowserWindow::searchOnPage()
 {
-    SearchToolBar* toolBar = searchToolBar();
-
-    if (!toolBar) {
-        const int searchPos = 2;
-
-        toolBar = new SearchToolBar(weView(), this);
-        m_mainLayout->insertWidget(searchPos, toolBar);
+    if (weView() && weView()->webTab()) {
+        weView()->webTab()->showSearchToolBar();
     }
-
-    toolBar->focusSearchLine();
 }
 
 void BrowserWindow::openFile()
@@ -1406,18 +1393,6 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     #endif
 
     event->accept();
-}
-
-SearchToolBar* BrowserWindow::searchToolBar() const
-{
-    SearchToolBar* toolBar = 0;
-    const int searchPos = 2;
-
-    if (m_mainLayout->count() == searchPos + 1) {
-        toolBar = qobject_cast<SearchToolBar*>(m_mainLayout->itemAt(searchPos)->widget());
-    }
-
-    return toolBar;
 }
 
 void BrowserWindow::closeWindow()

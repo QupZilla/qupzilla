@@ -97,6 +97,8 @@ public:
     void showWebInspector(bool inspectElement = false);
     void toggleWebInspector();
 
+    void showSearchToolBar();
+
     bool isRestored() const;
     void restoreTab(const SavedTab &tab);
     void p_restoreTab(const SavedTab &tab);
