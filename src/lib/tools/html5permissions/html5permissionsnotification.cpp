@@ -40,32 +40,26 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
 
     switch (feature) {
     case QWebEnginePage::Notifications:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/notification.png"));
         ui->textLabel->setText(tr("Allow %1 to show desktop notifications?").arg(site));
         break;
 
     case QWebEnginePage::Geolocation:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/geolocation.png"));
         ui->textLabel->setText(tr("Allow %1 to locate your position?").arg(site));
         break;
 
     case QWebEnginePage::MediaAudioCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/audiocapture.png"));
         ui->textLabel->setText(tr("Allow %1 to use your microphone?").arg(site));
         break;
 
     case QWebEnginePage::MediaVideoCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/webcam.png"));
         ui->textLabel->setText(tr("Allow %1 to use your camera?").arg(site));
         break;
 
     case QWebEnginePage::MediaAudioVideoCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/microphone-webcam.png"));
         ui->textLabel->setText(tr("Allow %1 to use your microphone and camera?").arg(site));
         break;
 
     case QWebEnginePage::MouseLock:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/mouselock.png"));
         ui->textLabel->setText(tr("Allow %1 to hide your pointer?").arg(site));
         break;
 
