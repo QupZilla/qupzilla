@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2016-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,13 +49,13 @@ void WebScrollBar::updateValues(const QSize &viewport)
         setFixedHeight(m_view->height() - (m_view->height() - viewport.height()) * devicePixelRatioF());
         move(m_view->width() - width(), 0);
         setPageStep(viewport.height());
-        setMaximum(std::max(0, m_view->page()->contentsSize().toSize().height() - viewport.height()));
+        setMaximum(qMax(0, m_view->page()->contentsSize().toSize().height() - viewport.height()));
         newValue = m_view->page()->scrollPosition().toPoint().y();
     } else {
         setFixedWidth(m_view->width() - (m_view->width() - viewport.width()) * devicePixelRatioF());
         move(0, m_view->height() - height());
         setPageStep(viewport.width());
-        setMaximum(std::max(0, m_view->page()->contentsSize().toSize().width() - viewport.width()));
+        setMaximum(qMax(0, m_view->page()->contentsSize().toSize().width() - viewport.width()));
         newValue = m_view->page()->scrollPosition().toPoint().x();
     }
 
