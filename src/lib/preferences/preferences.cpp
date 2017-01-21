@@ -399,8 +399,7 @@ Preferences::Preferences(BrowserWindow* window)
         ui->useOSDNotifications->setChecked(true);
     }
 
-    connect(ui->useNativeSystemNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
-    connect(ui->useOSDNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
+    connect(ui->notificationPreview, &QPushButton::clicked, this, &Preferences::showNotificationPreview);
 
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
@@ -559,7 +558,10 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(index);
 
-    setNotificationPreviewVisible(index == 9);
+    if (m_notification) {
+        m_notifPosition = m_notification.data()->pos();
+        delete m_notification.data();
+    }
 
     if (index == 10) {
         m_pluginsList->load();
@@ -572,29 +574,22 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     }
 }
 
-void Preferences::setNotificationPreviewVisible(bool state)
+void Preferences::showNotificationPreview()
 {
-    if (!state && m_notification) {
-        m_notifPosition = m_notification.data()->pos();
-        delete m_notification.data();
+    if (ui->useOSDNotifications->isChecked()) {
+        if (m_notification) {
+            m_notifPosition = m_notification.data()->pos();
+            delete m_notification.data();
+        }
+
+        m_notification = new DesktopNotification(true);
+        m_notification.data()->setHeading(tr("OSD Notification"));
+        m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
+        m_notification.data()->move(m_notifPosition);
+        m_notification.data()->show();
     }
-
-    if (state) {
-        if (ui->useOSDNotifications->isChecked()) {
-            if (m_notification) {
-                m_notifPosition = m_notification.data()->pos();
-                delete m_notification.data();
-            }
-
-            m_notification = new DesktopNotification(true);
-            m_notification.data()->setHeading(tr("OSD Notification"));
-            m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
-            m_notification.data()->move(m_notifPosition);
-            m_notification.data()->show();
-        }
-        else if (ui->useNativeSystemNotifications->isChecked()) {
-            mApp->desktopNotifications()->nativeNotificationPreview();
-        }
+    else if (ui->useNativeSystemNotifications->isChecked()) {
+        mApp->desktopNotifications()->nativeNotificationPreview();
     }
 }
 

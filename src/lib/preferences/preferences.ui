@@ -2134,68 +2134,8 @@
          </widget>
          <widget class="QWidget" name="notificationsPage">
           <layout class="QGridLayout" name="gridLayout_17">
-           <item row="0" column="0" colspan="4">
-            <widget class="QLabel" name="label_41">
-             <property name="text">
-              <string>&lt;b&gt;Notifications&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1" colspan="3">
-            <widget class="QRadioButton" name="useOSDNotifications">
-             <property name="text">
-              <string>Use OSD Notifications</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1" colspan="3">
-            <widget class="QRadioButton" name="useNativeSystemNotifications">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Use Native System Notifications (Linux only)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1" colspan="3">
-            <widget class="QRadioButton" name="doNotUseNotifications">
-             <property name="text">
-              <string>Do not use Notifications</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0">
-            <spacer name="horizontalSpacer_13">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="4">
-            <spacer name="horizontalSpacer_17">
+           <item row="2" column="6">
+            <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -2231,7 +2171,73 @@
              </item>
             </layout>
            </item>
-           <item row="6" column="1" colspan="4">
+           <item row="4" column="4" colspan="3">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>&lt;b&gt;Notifications&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1" colspan="3">
+            <widget class="QRadioButton" name="useNativeSystemNotifications">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Use Native System Notifications (Linux only)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="3">
+            <widget class="QRadioButton" name="doNotUseNotifications">
+             <property name="text">
+              <string>Do not use Notifications</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1" colspan="5">
             <widget class="QLabel" name="label_43">
              <property name="text">
               <string>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</string>
@@ -2241,7 +2247,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <spacer name="verticalSpacer_5">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2252,6 +2258,33 @@
              <property name="sizeHint" stdset="0">
               <size>
                <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" colspan="3">
+            <widget class="QRadioButton" name="useOSDNotifications">
+             <property name="text">
+              <string>Use OSD Notifications</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QPushButton" name="notificationPreview">
+             <property name="text">
+              <string>Preview</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <spacer name="horizontalSpacer_27">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -2381,8 +2414,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>28</height>
+                <width>560</width>
+                <height>70</height>
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_14">
