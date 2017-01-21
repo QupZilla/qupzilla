@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,8 +51,7 @@ void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
     if (knownPages.contains(job->requestUrl().path()))
         job->reply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
     else
-        job->reply(QByteArray(), new QBuffer());
-        //job->fail(QWebEngineUrlRequestJob::UrlNotFound);
+        job->fail(QWebEngineUrlRequestJob::UrlInvalid);
 }
 
 QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)
