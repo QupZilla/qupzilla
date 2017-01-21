@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
 #include <QMouseEvent>
 #include <QSettings>
 #include <QLabel>
+#include <QIcon>
 
 AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     : QObject(parent)
@@ -189,20 +190,20 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
     }
 
     if (vertical && horizontal) {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_all.png"));
+        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_all.png").pixmap(32));
     }
     else if (vertical) {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_vertical.png"));
+        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_vertical.png").pixmap(32));
     }
     else {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_horizontal.png"));
+        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_horizontal.png").pixmap(32));
     }
 
     m_view = view;
 
     QPoint p;
-    p.setX(pos.x() - m_indicator->pixmap()->width() / 2);
-    p.setY(pos.y() - m_indicator->pixmap()->height() / 2);
+    p.setX(pos.x() - m_indicator->width() / 2);
+    p.setY(pos.y() - m_indicator->height() / 2);
 
     m_indicator->setParent(m_view->overlayWidget());
     m_indicator->move(m_view->mapTo(m_view->overlayWidget(), p));

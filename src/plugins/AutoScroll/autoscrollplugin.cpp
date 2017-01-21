@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ PluginSpec AutoScrollPlugin::pluginSpec()
     spec.description = "Provides support for autoscroll with middle mouse button";
     spec.version = "0.2.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
-    spec.icon = QPixmap(":/autoscroll/data/scroll_all.png");
+    spec.icon = QIcon(QSL(":/autoscroll/data/scroll_all.png")).pixmap(32);
     spec.hasSettings = true;
 
     return spec;

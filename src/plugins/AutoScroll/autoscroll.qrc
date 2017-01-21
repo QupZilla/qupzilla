@@ -1,8 +1,11 @@
 <RCC>
     <qresource prefix="/autoscroll">
         <file>data/scroll_all.png</file>
+        <file>data/scroll_all@2x.png</file>
         <file>data/scroll_horizontal.png</file>
+        <file>data/scroll_horizontal@2x.png</file>
         <file>data/scroll_vertical.png</file>
+        <file>data/scroll_vertical@2x.png</file>
         <file>locale/ar_SA.qm</file>
         <file>locale/bg_BG.qm</file>
         <file>locale/ca_ES.qm</file>

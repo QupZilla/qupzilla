@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@ AutoScrollSettings::AutoScrollSettings(AutoScroller* scroller, QWidget* parent)
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     ui->divider->setValue(m_scroller->scrollDivider());
+    ui->iconLabel->setPixmap(QIcon(QStringLiteral(":/autoscroll/data/scroll_all.png")).pixmap(32));
 
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accepted()));
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
