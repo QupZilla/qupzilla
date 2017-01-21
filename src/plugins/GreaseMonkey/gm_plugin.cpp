@@ -86,3 +86,12 @@ void GM_Plugin::showSettings(QWidget* parent)
 {
     m_manager->showSettings(parent);
 }
+
+bool GM_Plugin::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
+{
+    if (type == QWebEnginePage::NavigationTypeLinkClicked && url.toString().endsWith(QLatin1String(".user.js"))) {
+        m_manager->downloadScript(url);
+        return false;
+    }
+    return true;
+}

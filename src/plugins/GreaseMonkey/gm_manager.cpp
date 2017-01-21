@@ -19,7 +19,6 @@
 #include "gm_script.h"
 #include "gm_downloader.h"
 #include "gm_icon.h"
-#include "gm_urlinterceptor.h"
 #include "gm_addscriptdialog.h"
 #include "settings/gm_settings.h"
 
@@ -40,16 +39,8 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
-    , m_interceptor(new GM_UrlInterceptor(this))
 {
-    mApp->networkManager()->installUrlInterceptor(m_interceptor);
-
     QTimer::singleShot(0, this, SLOT(load()));
-}
-
-GM_Manager::~GM_Manager()
-{
-    mApp->networkManager()->removeUrlInterceptor(m_interceptor);
 }
 
 void GM_Manager::showSettings(QWidget* parent)
