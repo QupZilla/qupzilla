@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
 #include "webinspector.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
+#include "settings.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -34,6 +35,8 @@ WebInspector::WebInspector(QWidget *parent)
     setObjectName(QSL("web-inspector"));
     setMinimumHeight(80);
 
+    m_height = Settings().value(QSL("Web-Inspector/height"), 80).toInt();
+
     registerView(this);
 
     connect(page(), &QWebEnginePage::windowCloseRequested, this, &WebInspector::deleteLater);
@@ -43,6 +46,8 @@ WebInspector::WebInspector(QWidget *parent)
 WebInspector::~WebInspector()
 {
     unregisterView(this);
+
+    Settings().setValue(QSL("Web-Inspector/height"), height());
 }
 
 void WebInspector::setView(QWebEngineView *view)
@@ -117,6 +122,13 @@ void WebInspector::loadFinished()
         m_view->triggerPageAction(QWebEnginePage::InspectElement);
         m_inspectElement = false;
     }
+}
+
+QSize WebInspector::sizeHint() const
+{
+    QSize s = QWebEngineView::sizeHint();
+    s.setHeight(m_height);
+    return s;
 }
 
 void WebInspector::keyPressEvent(QKeyEvent *event)
