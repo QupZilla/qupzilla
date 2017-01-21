@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -93,8 +93,12 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
-    painter->drawPixmap(iconRect, pixmap);
-    leftPosition = iconRect.right() + m_padding;
+    if (!pixmap.isNull()) {
+        painter->drawPixmap(iconRect, pixmap);
+        leftPosition = iconRect.right() + m_padding;
+    } else {
+        leftPosition += m_padding;
+    }
 
     // Draw script name
     const QString name = index.data(Qt::DisplayRole).toString();

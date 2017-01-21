@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ GM_Icon::GM_Icon(GM_Manager* manager, BrowserWindow* window)
     , m_window(window)
 {
     setCursor(Qt::PointingHandCursor);
-    setPixmap(QPixmap(":gm/data/icon16.png"));
+    setPixmap(QIcon(":gm/data/icon.svg").pixmap(16));
     setToolTip(tr("Open GreaseMonkey settings"));
 
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(openSettings()));

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -201,9 +201,9 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
 
 void GM_Manager::showNotification(const QString &message, const QString &title)
 {
-    QPixmap icon(":gm/data/icon.png");
+    QIcon icon(":gm/data/icon.svg");
 
-    mApp->desktopNotifications()->showNotification(icon, title.isEmpty() ? tr("GreaseMonkey") : title, message);
+    mApp->desktopNotifications()->showNotification(icon.pixmap(48), title.isEmpty() ? tr("GreaseMonkey") : title, message);
 }
 
 void GM_Manager::load()
