@@ -7,8 +7,7 @@ Blog: [http://blog.qupzilla.com](http://blog.qupzilla.com)
 IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: [https://www.transifex.com](https://www.transifex.com/projects/p/qupzilla)
 
-About QupZilla
-----------------------------------------------------------------------------------------
+![](https://github.com/QupZilla/qupzilla/blob/master/src/lib/data/icons/other/about.png?raw=true)   
 
 QupZilla is a new and very fast QtWebEngine browser. It aims to be a lightweight web browser
 available through all major platforms. This project has been originally started only
@@ -23,9 +22,7 @@ History
 
 The very first version of QupZilla has been released in December 2010 and it was written
 in Python with PyQt4 bindings. After a few versions, QupZilla has been completely rewritten
-in C++ with the Qt Framework. The Windows version of QupZilla was compiled using MinGW, but due to
-a huge problem with Flash, it is now compiled with Microsoft Visual C++ Compiler 2008.
-First public release was 1.0.0-b4.
+in C++ with the Qt Framework. First public release was 1.0.0-b4.
 
 Until version 2.0, QupZilla was using QtWebKit. QtWebKit is now deprecated and new versions
 are using QtWebEngine.

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,6 @@
 #include "gm_script.h"
 #include "gm_downloader.h"
 #include "gm_icon.h"
-#include "gm_urlinterceptor.h"
 #include "gm_addscriptdialog.h"
 #include "settings/gm_settings.h"
 
@@ -40,16 +39,8 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
-    , m_interceptor(new GM_UrlInterceptor(this))
 {
-    mApp->networkManager()->installUrlInterceptor(m_interceptor);
-
     QTimer::singleShot(0, this, SLOT(load()));
-}
-
-GM_Manager::~GM_Manager()
-{
-    mApp->networkManager()->removeUrlInterceptor(m_interceptor);
 }
 
 void GM_Manager::showSettings(QWidget* parent)
@@ -201,9 +192,9 @@ bool GM_Manager::removeScript(GM_Script* script, bool removeFile)
 
 void GM_Manager::showNotification(const QString &message, const QString &title)
 {
-    QPixmap icon(":gm/data/icon.png");
+    QIcon icon(":gm/data/icon.svg");
 
-    mApp->desktopNotifications()->showNotification(icon, title.isEmpty() ? tr("GreaseMonkey") : title, message);
+    mApp->desktopNotifications()->showNotification(icon.pixmap(48), title.isEmpty() ? tr("GreaseMonkey") : title, message);
 }
 
 void GM_Manager::load()

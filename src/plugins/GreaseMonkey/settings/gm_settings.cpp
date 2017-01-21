@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@ GM_Settings::GM_Settings(GM_Manager* manager, QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
+    ui->iconLabel->setPixmap(QIcon(QSL(":gm/data/icon.svg")).pixmap(32));
 
     connect(ui->listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
             this, SLOT(showItemInfo(QListWidgetItem*)));
@@ -153,8 +154,6 @@ void GM_Settings::loadScripts()
 
     foreach (GM_Script* script, m_manager->allScripts()) {
         QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
-        QIcon icon = QIcon(":/gm/data/script.png");
-        item->setIcon(icon);
         item->setText(script->name());
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(script->isEnabled() ? Qt::Checked : Qt::Unchecked);

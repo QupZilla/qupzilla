@@ -30,18 +30,12 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="iconLabel">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="greasemonkey.qrc">:/gm/data/icon.png</pixmap>
        </property>
       </widget>
      </item>
@@ -129,9 +123,7 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="greasemonkey.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

@@ -117,19 +117,19 @@ Preferences::Preferences(BrowserWindow* window)
         ui->listWidget->item(index)->setIcon(QIcon(icon.pixmap(32)));
     };
 
-    setCategoryIcon(0, QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
-    setCategoryIcon(1, QIcon::fromTheme("application-x-theme", QIcon(":/icons/preferences/application-x-theme.png")));
-    setCategoryIcon(2, QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
-    setCategoryIcon(3, QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
-    setCategoryIcon(4, QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
-    setCategoryIcon(5, QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
-    setCategoryIcon(6, QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
-    setCategoryIcon(7, QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
-    setCategoryIcon(8, QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-    setCategoryIcon(9, QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
-    setCategoryIcon(10, QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-    setCategoryIcon(11, QIcon::fromTheme("tools-check-spelling", QIcon(":/icons/preferences/tools-check-spelling.png")));
-    setCategoryIcon(12, QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
+    setCategoryIcon(0, QIcon(":/icons/preferences/general.svg"));
+    setCategoryIcon(1, QIcon(":/icons/preferences/appearance.svg"));
+    setCategoryIcon(2, QIcon(":/icons/preferences/tabs.svg"));
+    setCategoryIcon(3, QIcon(":/icons/preferences/browsing.svg"));
+    setCategoryIcon(4, QIcon(":/icons/preferences/fonts.svg"));
+    setCategoryIcon(5, QIcon(":/icons/preferences/shortcuts.svg"));
+    setCategoryIcon(6, QIcon(":/icons/preferences/downloads.svg"));
+    setCategoryIcon(7, QIcon(":/icons/preferences/passwords.svg"));
+    setCategoryIcon(8, QIcon(":/icons/preferences/privacy.svg"));
+    setCategoryIcon(9, QIcon(":/icons/preferences/notifications.svg"));
+    setCategoryIcon(10, QIcon(":/icons/preferences/extensions.svg"));
+    setCategoryIcon(11, QIcon(":/icons/preferences/spellcheck.svg"));
+    setCategoryIcon(12, QIcon(":/icons/preferences/other.svg"));
 
     Settings settings;
     //GENERAL URLs
@@ -398,8 +398,7 @@ Preferences::Preferences(BrowserWindow* window)
         ui->useOSDNotifications->setChecked(true);
     }
 
-    connect(ui->useNativeSystemNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
-    connect(ui->useOSDNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
+    connect(ui->notificationPreview, &QPushButton::clicked, this, &Preferences::showNotificationPreview);
 
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
@@ -558,7 +557,10 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(index);
 
-    setNotificationPreviewVisible(index == 9);
+    if (m_notification) {
+        m_notifPosition = m_notification.data()->pos();
+        delete m_notification.data();
+    }
 
     if (index == 10) {
         m_pluginsList->load();
@@ -571,30 +573,22 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     }
 }
 
-void Preferences::setNotificationPreviewVisible(bool state)
+void Preferences::showNotificationPreview()
 {
-    if (!state && m_notification) {
-        m_notifPosition = m_notification.data()->pos();
-        delete m_notification.data();
+    if (ui->useOSDNotifications->isChecked()) {
+        if (m_notification) {
+            m_notifPosition = m_notification.data()->pos();
+            delete m_notification.data();
+        }
+
+        m_notification = new DesktopNotification(true);
+        m_notification.data()->setHeading(tr("OSD Notification"));
+        m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
+        m_notification.data()->move(m_notifPosition);
+        m_notification.data()->show();
     }
-
-    if (state) {
-        if (ui->useOSDNotifications->isChecked()) {
-            if (m_notification) {
-                m_notifPosition = m_notification.data()->pos();
-                delete m_notification.data();
-            }
-
-            m_notification = new DesktopNotification(true);
-            m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
-            m_notification.data()->setHeading(tr("OSD Notification"));
-            m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
-            m_notification.data()->move(m_notifPosition);
-            m_notification.data()->show();
-        }
-        else if (ui->useNativeSystemNotifications->isChecked()) {
-            mApp->desktopNotifications()->nativeNotificationPreview();
-        }
+    else if (ui->useNativeSystemNotifications->isChecked()) {
+        mApp->desktopNotifications()->nativeNotificationPreview();
     }
 }
 

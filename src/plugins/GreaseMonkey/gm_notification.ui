@@ -18,7 +18,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="iconLabel">
      <property name="minimumSize">
       <size>
        <width>24</width>
@@ -30,12 +30,6 @@
        <width>24</width>
        <height>24</height>
       </size>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="greasemonkey.qrc">:/gm/data/icon.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -85,8 +79,6 @@
    <header>mactoolbutton.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="greasemonkey.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

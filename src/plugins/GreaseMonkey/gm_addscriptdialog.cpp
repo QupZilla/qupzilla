@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@ GM_AddScriptDialog::GM_AddScriptDialog(GM_Manager* manager, GM_Script* script, Q
     , m_script(script)
 {
     ui->setupUi(this);
+    ui->iconLabel->setPixmap(QIcon(QSL(":gm/data/icon.svg")).pixmap(32));
 
     QString runsAt;
     QString dontRunsAt;

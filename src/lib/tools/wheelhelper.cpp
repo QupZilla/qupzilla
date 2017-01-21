@@ -36,7 +36,7 @@ void WheelHelper::processEvent(QWheelEvent *event)
 
     // When scroll to both directions, prefer the major one
     if (event->angleDelta().x() && event->angleDelta().y()) {
-        if (std::abs(event->angleDelta().y()) > std::abs(event->angleDelta().x())) {
+        if (qAbs(event->angleDelta().y()) > qAbs(event->angleDelta().x())) {
             delta = event->angleDelta().y();
             directionY = true;
         } else {

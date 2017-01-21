@@ -1,6 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
 * Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -352,8 +353,7 @@ QWidget* FCM_Plugin::createStatusBarIcon(BrowserWindow* mainWindow)
 
     ClickableLabel* icon = new ClickableLabel(mainWindow);
     icon->setCursor(Qt::PointingHandCursor);
-    QPixmap p(":/flashcookiemanager/data/flash-cookie-manager.png");
-    icon->setPixmap(p.scaledToHeight(16));
+    icon->setPixmap(QIcon(QSL(":/flashcookiemanager/data/flash-cookie-manager.png")).pixmap(16));
     icon->setToolTip(tr("Show Flash Cookie Manager"));
 
     connect(icon, SIGNAL(clicked(QPoint)), this, SLOT(showFlashCookieManager()));
