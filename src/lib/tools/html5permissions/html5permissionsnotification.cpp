@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -87,15 +87,7 @@ void HTML5PermissionsNotification::grantPermissions()
         return;
     }
 
-    QTimer::singleShot(0, this, [this]() {
-        // We need to have cursor inside view to correctly grab mouse
-        if (m_feature == QWebEnginePage::MouseLock) {
-            QWidget *view = m_page->view();
-            QCursor::setPos(view->mapToGlobal(view->rect().center()));
-        }
-
-        m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
-    });
+    m_page->setFeaturePermission(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);
 
     if (ui->remember->isChecked()) {
         mApp->html5PermissionsManager()->rememberPermissions(m_origin, m_feature, QWebEnginePage::PermissionGrantedByUser);

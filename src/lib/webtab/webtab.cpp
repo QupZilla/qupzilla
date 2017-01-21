@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -385,14 +385,14 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 void WebTab::showNotification(QWidget* notif)
 {
-    const int notifPos = 0;
-
-    if (m_layout->count() > notifPos + 1) {
-        delete m_layout->itemAt(notifPos)->widget();
+    if (m_notification) {
+        delete m_notification;
     }
 
-    m_layout->insertWidget(notifPos, notif);
-    notif->show();
+    m_notification = notif;
+    m_notification->setParent(this);
+    m_notification->setFixedWidth(width());;
+    m_notification->show();
 }
 
 void WebTab::loadStarted()
@@ -442,6 +442,15 @@ void WebTab::showEvent(QShowEvent* event)
         else {
             QTimer::singleShot(0, this, SLOT(slotRestore()));
         }
+    }
+}
+
+void WebTab::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    if (m_notification) {
+        m_notification->setFixedWidth(width());
     }
 }
 

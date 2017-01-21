@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QIcon>
 #include <QUrl>
+#include <QPointer>
 
 #include "qzcommon.h"
 
@@ -111,6 +112,7 @@ private slots:
 
 private:
     void showEvent(QShowEvent* event);
+    void resizeEvent(QResizeEvent *event) override;
 
     BrowserWindow* m_window;
     QVBoxLayout* m_layout;
@@ -121,6 +123,7 @@ private:
     LocationBar* m_locationBar;
     TabIcon* m_tabIcon;
     TabBar* m_tabBar;
+    QPointer<QWidget> m_notification;
 
     SavedTab m_savedTab;
     bool m_isPinned;
