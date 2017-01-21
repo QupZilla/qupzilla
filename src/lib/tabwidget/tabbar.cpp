@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -359,7 +359,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         menu.addAction(tr("Close Tabs To The Left"), this, SLOT(closeToLeft()));
         menu.addSeparator();
         menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
-        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
+        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose Tab"), this, SLOT(closeTab()));
     } else {
         menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
         menu.addSeparator();
