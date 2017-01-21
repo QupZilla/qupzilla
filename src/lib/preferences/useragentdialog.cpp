@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -85,11 +85,6 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
 
     enableGlobalComboBox(ui->changeGlobal->isChecked());
     enablePerSiteFrame(ui->changePerSite->isChecked());
-
-#if !QTWEBENGINE_DISABLED
-    ui->perSiteFrame->setVisible(false);
-    ui->changePerSite->setVisible(false);
-#endif
 }
 
 void UserAgentDialog::addSite()

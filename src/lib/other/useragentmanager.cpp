@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,6 +61,9 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
     const QString host = url.host();
 
     if (m_usePerDomainUserAgent) {
+        if (m_userAgentsList.contains(host)) {
+            return m_userAgentsList.value(host);
+        }
         QHashIterator<QString, QString> i(m_userAgentsList);
         while (i.hasNext()) {
             i.next();
@@ -70,7 +73,7 @@ QString UserAgentManager::userAgentForUrl(const QUrl &url) const
         }
     }
 
-    return m_globalUserAgent;
+    return QWebEngineProfile::defaultProfile()->httpUserAgent();
 }
 
 QString UserAgentManager::globalUserAgent() const
