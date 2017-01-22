@@ -290,7 +290,6 @@ Preferences::Preferences(BrowserWindow* window)
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
-    connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
     connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));
     allowCacheChanged(ui->allowCache->isChecked());
 
