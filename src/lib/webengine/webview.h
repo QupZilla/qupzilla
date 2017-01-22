@@ -123,7 +123,7 @@ protected slots:
 
     // Context menu slots
     void openUrlInNewWindow();
-    void sendLinkByMail();
+    void sendTextByMail();
     void copyLinkToClipboard();
     void savePageAs();
     void copyImageToClipboard();

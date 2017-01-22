@@ -448,10 +448,10 @@ void WebView::openUrlInNewWindow()
     }
 }
 
-void WebView::sendLinkByMail()
+void WebView::sendTextByMail()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        const QUrl mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(action->data().toUrl().toEncoded()));
+        const QUrl mailUrl = QUrl::fromEncoded("mailto:%20?body=" + QUrl::toPercentEncoding(action->data().toString()));
         QDesktopServices::openUrl(mailUrl);
     }
 }
@@ -786,7 +786,7 @@ void WebView::createLinkContextMenu(QMenu* menu, const WebHitTestResult &hitTest
     menu->addAction(QIcon::fromTheme("bookmark-new"), tr("B&ookmark link"), this, SLOT(bookmarkLink()))->setData(bData);
 
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save link as..."), this, SLOT(downloadLinkToDisk()));
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendLinkByMail()))->setData(hitTest.linkUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send link..."), this, SLOT(sendTextByMail()))->setData(hitTest.linkUrl().toEncoded());
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy link address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.linkUrl());
     menu->addSeparator();
 
@@ -808,7 +808,7 @@ void WebView::createImageContextMenu(QMenu* menu, const WebHitTestResult &hitTes
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy image ad&dress"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.imageUrl());
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("document-save"), tr("&Save image as..."), this, SLOT(downloadImageToDisk()));
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendLinkByMail()))->setData(hitTest.imageUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send image..."), this, SLOT(sendTextByMail()))->setData(hitTest.imageUrl().toEncoded());
     menu->addSeparator();
 
     if (!selectedText().isEmpty()) {
@@ -827,7 +827,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
     if (!menu->actions().contains(pageAction(QWebEnginePage::Copy))) {
         menu->addAction(pageAction(QWebEnginePage::Copy));
     }
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendLinkByMail()))->setData(selectedText);
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("Send text..."), this, SLOT(sendTextByMail()))->setData(selectedText);
     menu->addSeparator();
 
     QString langCode = mApp->currentLanguage().left(2).toUtf8();
@@ -898,7 +898,7 @@ void WebView::createMediaContextMenu(QMenu *menu, const WebHitTestResult &hitTes
     menu->addAction(muted ? tr("Un&mute") : tr("&Mute"), this, SLOT(toggleMediaMute()))->setIcon(QIcon::fromTheme(muted ? "audio-volume-muted" : "audio-volume-high"));
     menu->addSeparator();
     menu->addAction(QIcon::fromTheme("edit-copy"), tr("&Copy Media Address"), this, SLOT(copyLinkToClipboard()))->setData(hitTest.mediaUrl());
-    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendLinkByMail()))->setData(hitTest.mediaUrl());
+    menu->addAction(QIcon::fromTheme("mail-message-new"), tr("&Send Media Address"), this, SLOT(sendTextByMail()))->setData(hitTest.mediaUrl().toEncoded());
     menu->addAction(QIcon::fromTheme("document-save"), tr("Save Media To &Disk"), this, SLOT(downloadMediaToDisk()));
 }
 
