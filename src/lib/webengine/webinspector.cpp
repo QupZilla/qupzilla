@@ -36,6 +36,7 @@ WebInspector::WebInspector(QWidget *parent)
     setMinimumHeight(80);
 
     m_height = Settings().value(QSL("Web-Inspector/height"), 80).toInt();
+    m_windowSize = Settings().value(QSL("Web-Inspector/windowSize"), QSize(640, 480)).toSize();
 
     registerView(this);
 
@@ -47,7 +48,11 @@ WebInspector::~WebInspector()
 {
     unregisterView(this);
 
-    Settings().setValue(QSL("Web-Inspector/height"), height());
+    if (isWindow()) {
+        Settings().setValue(QSL("Web-Inspector/windowSize"), size());
+    } else {
+        Settings().setValue(QSL("Web-Inspector/height"), height());
+    }
 }
 
 void WebInspector::setView(QWebEngineView *view)
@@ -126,6 +131,9 @@ void WebInspector::loadFinished()
 
 QSize WebInspector::sizeHint() const
 {
+    if (isWindow()) {
+        return m_windowSize;
+    }
     QSize s = QWebEngineView::sizeHint();
     s.setHeight(m_height);
     return s;

@@ -51,6 +51,7 @@ private:
     static QList<QWebEngineView*> s_views;
 
     int m_height;
+    QSize m_windowSize;
     bool m_inspectElement = false;
     QWebEngineView *m_view;
 };
