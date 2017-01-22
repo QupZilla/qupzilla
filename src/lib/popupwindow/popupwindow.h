@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -60,6 +60,7 @@ private slots:
 
 private:
     void closeEvent(QCloseEvent* event);
+    void resizeEvent(QResizeEvent *event) override;
 
     PopupWebView* m_view;
     PopupLocationBar* m_locationBar;
@@ -74,6 +75,7 @@ private:
     QAction* m_actionReload;
     QAction* m_actionStop;
     QPointer<SearchToolBar> m_search;
+    QWidget *m_notificationWidget;
 };
 
 #endif // POPUPWINDOW_H

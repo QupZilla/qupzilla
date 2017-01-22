@@ -54,6 +54,17 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_statusBarMessage = new PopupStatusBarMessage(this);
 
+    m_notificationWidget = new QWidget(this);
+    m_notificationWidget->setAutoFillBackground(true);
+    QPalette pal = m_notificationWidget->palette();
+    pal.setColor(QPalette::Background, pal.window().color().darker(110));
+    m_notificationWidget->setPalette(pal);
+
+    QVBoxLayout *nlayout = new QVBoxLayout(m_notificationWidget);
+    nlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    nlayout->setContentsMargins(0, 0, 0, 0);
+    nlayout->setSpacing(1);
+
     m_menuBar = new QMenuBar(this);
 
     QMenu* menuFile = new QMenu(tr("File"));
@@ -158,11 +169,11 @@ PopupWebView* PopupWindow::webView()
 
 void PopupWindow::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 4) {
-        delete m_layout->itemAt(2)->widget();
-    }
-
-    m_layout->insertWidget(2, notif);
+    m_notificationWidget->setParent(nullptr);
+    m_notificationWidget->setParent(m_view->overlayWidget());
+    m_notificationWidget->setFixedWidth(m_view->width());
+    m_notificationWidget->layout()->addWidget(notif);
+    m_notificationWidget->show();
     notif->show();
 }
 
@@ -216,6 +227,13 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     m_view->deleteLater();
 
     event->accept();
+}
+
+void PopupWindow::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    m_notificationWidget->setFixedWidth(m_view->width());
 }
 
 void PopupWindow::searchOnPage()
