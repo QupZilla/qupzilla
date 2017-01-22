@@ -822,16 +822,10 @@ void Preferences::deleteProfile()
 
 void Preferences::startProfileIndexChanged(int index)
 {
-    // Index 0 is current profile
+    const bool current = ui->startProfile->itemText(index) == ProfileManager::currentProfile();
 
-    ui->deleteProfile->setEnabled(index != 0);
-
-    if (index == 0) {
-        ui->cannotDeleteActiveProfileLabel->setText(tr("Note: You cannot delete active profile."));
-    }
-    else {
-        ui->cannotDeleteActiveProfileLabel->setText(" ");
-    }
+    ui->deleteProfile->setEnabled(!current);
+    ui->cannotDeleteActiveProfileLabel->setText(current ? tr("Note: You cannot delete active profile.") : QString());
 }
 
 void Preferences::closeEvent(QCloseEvent* event)
