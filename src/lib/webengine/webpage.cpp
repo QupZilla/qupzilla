@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -376,21 +376,16 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
     if (terminationStatus == NormalTerminationStatus)
         return;
 
-    if (qstrcmp(qVersion(), "5.7.0") == 0) {
-        // Crashes with QtWebEngine 5.7.0
-        return;
-    }
-
     QTimer::singleShot(0, this, [this]() {
         QString page = QzTools::readAllFileContents(":html/tabcrash.html");
         page.replace(QL1S("%IMAGE%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(45)).toString());
-        page.replace(QL1S("%FAVICON%"), QzTools::pixmapToDataUrl(IconProvider::standardIcon(QStyle::SP_MessageBoxWarning).pixmap(16)).toString());
         page.replace(QL1S("%TITLE%"), tr("Failed loading page"));
         page.replace(QL1S("%HEADING%"), tr("Failed loading page"));
         page.replace(QL1S("%LI-1%"), tr("Something went wrong while loading this page."));
         page.replace(QL1S("%LI-2%"), tr("Try reloading the page or closing some tabs to make more memory available."));
         page.replace(QL1S("%RELOAD-PAGE%"), tr("Reload page"));
         page = QzTools::applyDirectionToPage(page);
+        load(url()); // Workaround for QtWebEngine crash
         setHtml(page.toUtf8(), url());
     });
 }
