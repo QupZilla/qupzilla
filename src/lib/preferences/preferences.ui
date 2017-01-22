@@ -1212,8 +1212,8 @@
               <layout class="QGridLayout" name="gridLayout_19">
                <item row="0" column="0" colspan="2">
                 <layout class="QGridLayout" name="gridLayout_4">
-                 <item row="1" column="1">            
-                  <widget class="QLabel" name="label_21">
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="maxCacheLabel">
                    <property name="text">
                     <string>Maximum:</string>
                    </property>

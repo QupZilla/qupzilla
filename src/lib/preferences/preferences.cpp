@@ -604,7 +604,7 @@ void Preferences::makeQupZillaDefault()
 
 void Preferences::allowCacheChanged(bool state)
 {
-    ui->label_21->setEnabled(state); //'Maximum' Label
+    ui->maxCacheLabel->setEnabled(state);
     ui->cacheMB->setEnabled(state);
     ui->storeCacheLabel->setEnabled(state);
     ui->cachePath->setEnabled(state);
