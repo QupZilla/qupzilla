@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -97,9 +97,17 @@ PopupWindow::PopupWindow(PopupWebView* view)
         addAction(action);
     }
 
+    QVBoxLayout *l = new QVBoxLayout();
+    l->setContentsMargins(0, 0, 0, 0);
+    l->setSpacing(0);
+    l->addWidget(m_view);
+
+    QWidget *viewWidget = new QWidget(this);
+    viewWidget->setLayout(l);
+
     m_layout->insertWidget(0, m_menuBar);
     m_layout->addWidget(m_locationBar);
-    m_layout->addWidget(m_view);
+    m_layout->addWidget(viewWidget);
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
 

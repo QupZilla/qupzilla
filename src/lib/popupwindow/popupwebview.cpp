@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ PopupWebView::PopupWebView(QWidget* parent)
 
 QWidget* PopupWebView::overlayWidget()
 {
-    return this;
+    return parentWidget();
 }
 
 void PopupWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags position)
