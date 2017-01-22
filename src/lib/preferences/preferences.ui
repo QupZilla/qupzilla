@@ -1212,39 +1212,26 @@
               <layout class="QGridLayout" name="gridLayout_19">
                <item row="0" column="0" colspan="2">
                 <layout class="QGridLayout" name="gridLayout_4">
-                 <item row="1" column="1">
-                  <widget class="QFrame" name="cacheFrame">
-                   <layout class="QHBoxLayout" name="horizontalLayout_5">
-                    <item>
-                     <widget class="QLabel" name="label_21">
-                      <property name="text">
-                       <string>Maximum </string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="MBlabel">
-                      <property name="text">
-                       <string>50 MB</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                 <item row="1" column="1">            
+                  <widget class="QLabel" name="label_21">
+                   <property name="text">
+                    <string>Maximum:</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="2">
-                  <widget class="QSlider" name="cacheMB">
+                  <widget class="QSpinBox" name="cacheMB">
                    <property name="minimum">
-                    <number>20</number>
+                    <number>1</number>
                    </property>
                    <property name="maximum">
-                    <number>200</number>
+                    <number>999999999</number>
                    </property>
-                   <property name="sliderPosition">
+                   <property name="value">
                     <number>50</number>
                    </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                   <property name="suffix">
+                    <string> MB</string>
                    </property>
                   </widget>
                  </item>
