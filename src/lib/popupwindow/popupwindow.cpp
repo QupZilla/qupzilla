@@ -191,7 +191,6 @@ void PopupWindow::loadStarted()
 
 void PopupWindow::loadProgress(int value)
 {
-    m_progressBar->show();
     m_progressBar->setValue(value);
 }
 
