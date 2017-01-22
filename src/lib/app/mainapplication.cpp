@@ -733,7 +733,7 @@ void MainApplication::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("Cookie-Settings");
-    bool deleteCookies = settings.value("clearCookiesOnExit", false).toBool();
+    bool deleteCookies = settings.value("deleteCookiesOnClose", false).toBool();
     settings.endGroup();
 
     if (deleteHistory) {
