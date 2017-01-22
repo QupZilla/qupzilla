@@ -1,6 +1,6 @@
 /* ============================================================
 * Mouse Gestures plugin for QupZilla
-* Copyright (C) 2013-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -306,6 +306,7 @@ void MouseGestures::init()
     initFilter();
 
     // We need to override right mouse button events
+    m_oldWebViewForceContextMenuOnRelease = WebView::forceContextMenuOnMouseRelease();
     WebView::setForceContextMenuOnMouseRelease(m_button == Qt::RightButton || m_enableRockerNavigation);
 }
 
@@ -389,4 +390,7 @@ MouseGestures::~MouseGestures()
 {
     m_filter->clearGestures(true);
     delete m_filter;
+
+    // Restore original value
+    WebView::setForceContextMenuOnMouseRelease(m_oldWebViewForceContextMenuOnRelease);
 }
