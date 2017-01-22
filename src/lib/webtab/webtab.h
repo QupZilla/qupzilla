@@ -21,7 +21,6 @@
 #include <QWidget>
 #include <QIcon>
 #include <QUrl>
-#include <QPointer>
 
 #include "qzcommon.h"
 
@@ -125,7 +124,7 @@ private:
     LocationBar* m_locationBar;
     TabIcon* m_tabIcon;
     TabBar* m_tabBar;
-    QPointer<QWidget> m_notification;
+    QWidget *m_notificationWidget;
 
     SavedTab m_savedTab;
     bool m_isPinned;

@@ -148,6 +148,17 @@ WebTab::WebTab(BrowserWindow* window)
     layout->addWidget(m_splitter);
     setLayout(layout);
 
+    m_notificationWidget = new QWidget(this);
+    m_notificationWidget->setAutoFillBackground(true);
+    QPalette pal = m_notificationWidget->palette();
+    pal.setColor(QPalette::Background, pal.window().color().darker(110));
+    m_notificationWidget->setPalette(pal);
+
+    QVBoxLayout *nlayout = new QVBoxLayout(m_notificationWidget);
+    nlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    nlayout->setContentsMargins(0, 0, 0, 0);
+    nlayout->setSpacing(1);
+
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
@@ -412,14 +423,11 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 void WebTab::showNotification(QWidget* notif)
 {
-    if (m_notification) {
-        delete m_notification;
-    }
-
-    m_notification = notif;
-    m_notification->setParent(this);
-    m_notification->setFixedWidth(width());;
-    m_notification->show();
+    m_notificationWidget->setParent(nullptr);
+    m_notificationWidget->setParent(this);
+    m_notificationWidget->layout()->addWidget(notif);
+    m_notificationWidget->show();
+    notif->show();
 }
 
 void WebTab::loadStarted()
@@ -476,9 +484,7 @@ void WebTab::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
 
-    if (m_notification) {
-        m_notification->setFixedWidth(width());
-    }
+    m_notificationWidget->setFixedWidth(width());
 }
 
 bool WebTab::isCurrentTab() const
