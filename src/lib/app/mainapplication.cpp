@@ -899,6 +899,9 @@ void MainApplication::loadSettings()
     const bool allowCache = settings.value(QSL("Web-Browser-Settings/AllowLocalCache"), true).toBool();
     profile->setHttpCacheType(allowCache ? QWebEngineProfile::DiskHttpCache : QWebEngineProfile::MemoryHttpCache);
 
+    const int cacheSize = settings.value(QSL("Web-Browser-Settings/LocalCacheSize"), 50).toInt() * 1000 * 1000;
+    profile->setHttpCacheMaximumSize(cacheSize);
+
 #if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     settings.beginGroup(QSL("SpellCheck"));
     profile->setSpellCheckEnabled(settings.value(QSL("Enabled"), false).toBool());
