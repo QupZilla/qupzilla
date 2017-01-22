@@ -70,6 +70,7 @@ CookieManager::CookieManager()
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
     ui->filter3rdParty->setChecked(settings.value("filterThirdPartyCookies", false).toBool());
     ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
+    ui->clearOnExit->setChecked(settings.value("clearCookiesOnExit", false).toBool());
     ui->whiteList->addItems(settings.value("whitelist", QStringList()).toStringList());
     ui->blackList->addItems(settings.value("blacklist", QStringList()).toStringList());
     settings.endGroup();
@@ -328,6 +329,7 @@ void CookieManager::closeEvent(QCloseEvent* e)
     settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("filterThirdPartyCookies", ui->filter3rdParty->isChecked());
     settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
+    settings.setValue("clearCookiesOnExit", ui->clearOnExit->isChecked());
     settings.setValue("whitelist", whitelist);
     settings.setValue("blacklist", blacklist);
     settings.endGroup();

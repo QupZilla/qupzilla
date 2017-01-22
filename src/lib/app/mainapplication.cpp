@@ -732,11 +732,18 @@ void MainApplication::saveSettings()
     bool deleteHtml5Storage = settings.value("deleteHTML5StorageOnClose", false).toBool();
     settings.endGroup();
 
+    settings.beginGroup("Cookie-Settings");
+    bool deleteCookies = settings.value("clearCookiesOnExit", false).toBool();
+    settings.endGroup();
+
     if (deleteHistory) {
         m_history->clearHistory();
     }
     if (deleteHtml5Storage) {
         ClearPrivateData::clearLocalStorage();
+    }
+    if (deleteCookies) {
+        m_cookieJar->deleteAllCookies();
     }
 
     m_searchEnginesManager->saveSettings();
