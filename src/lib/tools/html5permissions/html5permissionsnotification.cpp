@@ -72,6 +72,13 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
     connect(ui->deny, SIGNAL(clicked()), this, SLOT(denyPermissions()));
     connect(ui->close, SIGNAL(clicked()), this, SLOT(denyPermissions()));
 
+    connect(m_page, &QWebEnginePage::loadStarted, this, &QObject::deleteLater);
+    connect(m_page, &QWebEnginePage::featurePermissionRequestCanceled, this, [this](const QUrl &origin, QWebEnginePage::Feature feature) {
+        if (origin == m_origin && feature == m_feature) {
+            deleteLater();
+        }
+    });
+
     startAnimation();
 }
 
