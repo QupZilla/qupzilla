@@ -412,6 +412,7 @@ void WebView::slotLoadFinished(bool ok)
 
     if (ok)
         mApp->history()->addHistoryEntry(this);
+    applyZoom();
 }
 
 void WebView::slotIconChanged()
