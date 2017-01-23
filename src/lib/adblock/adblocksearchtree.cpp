@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,14 +54,13 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
 
     for (int i = 0; i < len; ++i) {
         const QChar c = filter.at(i);
-        if (!node->children.contains(c)) {
-            Node* n = new Node;
-            n->c = c;
-
-            node->children[c] = n;
+        Node *next = node->children.value(c);
+        if (!next) {
+            next = new Node;
+            next->c = c;
+            node->children[c] = next;
         }
-
-        node = node->children[c];
+        node = next;
     }
 
     node->rule = rule;
@@ -97,11 +96,10 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QWebEngineUrlRequestInf
 
     QChar c = string[0];
 
-    if (!m_root->children.contains(c)) {
-        return 0;
+    Node* node = m_root->children.value(c);
+    if (!node) {
+        return nullptr;
     }
-
-    Node* node = m_root->children[c];
 
     for (int i = 1; i < len; ++i) {
         const QChar c = (++string)[0];
@@ -110,18 +108,17 @@ const AdBlockRule* AdBlockSearchTree::prefixSearch(const QWebEngineUrlRequestInf
             return node->rule;
         }
 
-        if (!node->children.contains(c)) {
-            return 0;
+        node = node->children.value(c);
+        if (!node) {
+            return nullptr;
         }
-
-        node = node->children[c];
     }
 
     if (node->rule && node->rule->networkMatch(request, domain, urlString)) {
         return node->rule;
     }
 
-    return 0;
+    return nullptr;
 }
 
 void AdBlockSearchTree::deleteNode(AdBlockSearchTree::Node* node)
