@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -91,7 +91,7 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
 
 void WebHitTestResult::updateWithContextMenuData(const QWebEngineContextMenuData &data)
 {
-    if (!data.isValid()) {
+    if (!data.isValid() || data.position() != m_pos) {
         return;
     }
 
