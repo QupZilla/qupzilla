@@ -19,7 +19,7 @@ cd bin
 # copy libQupZilla into bundle
 cp $LIBRARY_NAME QupZilla.app/Contents/MacOS/
 
-# copy all plugins into bundle
+# copy all QupZilla plugins into bundle
 test -d QupZilla.app/Contents/Resources/plugins || mkdir QupZilla.app/Contents/Resources/plugins
 cp plugins/*.dylib QupZilla.app/Contents/Resources/plugins/
 
@@ -31,6 +31,9 @@ for plugin in QupZilla.app/Contents/Resources/plugins/*.dylib
 do
  install_name_tool -change $LIBRARY_NAME @executable_path/$LIBRARY_NAME $plugin
 done
+
+# copy additional Qt native plugin(s) into bundle
+cp $QTDIR/plugins/iconengines/libqsvgicon.dylib QupZilla.app/Contents/Resources/plugins/
 
 # run macdeployqt
 $MACDEPLOYQT QupZilla.app
