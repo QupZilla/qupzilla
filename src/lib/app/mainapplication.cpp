@@ -728,6 +728,7 @@ void MainApplication::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
+    bool deleteCache = settings.value("deleteCacheOnClose", false).toBool();
     bool deleteHistory = settings.value("deleteHistoryOnClose", false).toBool();
     bool deleteHtml5Storage = settings.value("deleteHTML5StorageOnClose", false).toBool();
     settings.endGroup();
@@ -745,12 +746,16 @@ void MainApplication::saveSettings()
     if (deleteCookies) {
         m_cookieJar->deleteAllCookies();
     }
+    if (deleteCache) {
+        DataPaths::clearCacheData();
+    }
 
     m_searchEnginesManager->saveSettings();
     m_plugins->shutdown();
     m_networkManager->shutdown();
 
     DataPaths::clearTempData();
+
 
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
