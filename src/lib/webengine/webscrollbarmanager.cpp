@@ -28,16 +28,19 @@
 #include <QPaintEvent>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
+#include <QStyle>
+#include <QStyleOption>
 
 Q_GLOBAL_STATIC(WebScrollBarManager, qz_web_scrollbar_manager)
 
-class WebScrollBarCornerWidget : QWidget
+class WebScrollBarCornerWidget : public QWidget
 {
 public:
     explicit WebScrollBarCornerWidget(WebView *view)
         : QWidget()
         , m_view(view)
     {
+        setAutoFillBackground(true);
     }
 
     void updateVisibility(bool visible, int thickness)
@@ -55,9 +58,14 @@ public:
 private:
     void paintEvent(QPaintEvent *ev) override
     {
-        QPainter painter(this);
-        painter.fillRect(ev->rect(), m_view->page()->backgroundColor());
-        QWidget::paintEvent(ev);
+        Q_UNUSED(ev)
+
+        QStyleOption option;
+        option.initFrom(this);
+        option.rect = rect();
+
+        QPainter p(this);
+        style()->drawPrimitive(QStyle::PE_PanelScrollAreaCorner, &option, &p, this);
     }
 
     WebView *m_view;
