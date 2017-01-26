@@ -72,6 +72,8 @@ struct ScrollBarData {
 
     WebScrollBar *vscrollbar;
     WebScrollBar *hscrollbar;
+    bool vscrollbarVisible = false;
+    bool hscrollbarVisible = false;
     WebScrollBarCornerWidget *corner;
 };
 
@@ -123,8 +125,10 @@ void WebScrollBarManager::addWebView(WebView *view)
     auto updateValues = [=]() {
         const QSize viewport = viewportSize(view, thickness);
         data->vscrollbar->updateValues(viewport);
+        data->vscrollbar->setVisible(data->vscrollbarVisible);
         data->hscrollbar->updateValues(viewport);
-        data->corner->updateVisibility(data->vscrollbar->isVisible() && data->hscrollbar->isVisible(), thickness);
+        data->hscrollbar->setVisible(data->hscrollbarVisible);
+        data->corner->updateVisibility(data->vscrollbarVisible && data->hscrollbarVisible, thickness);
     };
 
     connect(view, &WebView::viewportResized, this, updateValues);
@@ -141,10 +145,10 @@ void WebScrollBarManager::addWebView(WebView *view)
             if (!p) {
                 return;
             }
-            updateValues();
             const QVariantMap map = res.toMap();
-            data->vscrollbar->setVisible(map.value(QSL("vertical")).toBool());
-            data->hscrollbar->setVisible(map.value(QSL("horizontal")).toBool());
+            data->vscrollbarVisible = map.value(QSL("vertical")).toBool();
+            data->hscrollbarVisible = map.value(QSL("horizontal")).toBool();
+            updateValues();
         });
     });
 
@@ -202,9 +206,20 @@ void WebScrollBarManager::removeUserScript()
 QSize WebScrollBarManager::viewportSize(WebView *view, int thickness) const
 {
     QSize viewport = view->size();
-    const QSize content = view->page()->contentsSize().toSize();
 
     thickness /= view->devicePixelRatioF();
+
+    ScrollBarData *data = m_scrollbars.value(view);
+    Q_ASSERT(data);
+
+    if (data->vscrollbarVisible) {
+        viewport.setWidth(viewport.width() - thickness);
+    } else if (data->hscrollbarVisible) {
+        viewport.setHeight(viewport.height() - thickness);
+    }
+
+#if 0
+    const QSize content = view->page()->contentsSize().toSize();
 
     // Check both axis
     if (content.width() - viewport.width() > 0) {
@@ -223,6 +238,7 @@ QSize WebScrollBarManager::viewportSize(WebView *view, int thickness) const
     if (viewport.width() == view->width() && content.height() - viewport.height() > 0) {
         viewport.setWidth(viewport.width() - thickness);
     }
+#endif
 
     return viewport;
 }
