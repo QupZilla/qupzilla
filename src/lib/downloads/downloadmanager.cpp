@@ -28,6 +28,10 @@
 #include "webview.h"
 #include "settings.h"
 #include "datapaths.h"
+#include "tabwidget.h"
+#include "tabbedwebview.h"
+#include "tabbar.h"
+#include "locationbar.h"
 
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -111,6 +115,42 @@ void DownloadManager::keyPressEvent(QKeyEvent* e)
     }
 
     QWidget::keyPressEvent(e);
+}
+
+void DownloadManager::closeDownloadTab(const QUrl &url) const
+{
+    // Attempt to close empty tab that was opened only for loading the download url
+    auto testWebView = [](TabbedWebView *view, const QUrl &url) {
+        if (view->browserWindow()->tabWidget()->tabBar()->normalTabsCount() < 1) {
+            return false;
+        }
+        WebPage *page = view->page();
+        if (page->history()->count() != 0) {
+            return false;
+        }
+        if (page->url() != QUrl() || page->requestedUrl() != QUrl()) {
+            return false;
+        }
+        const QUrl tabUrl(view->webTab()->locationBar()->text());
+        return tabUrl.host() == url.host();
+    };
+
+    if (testWebView(mApp->getWindow()->weView(), url)) {
+        mApp->getWindow()->weView()->closeView();
+        return;
+    }
+
+    const auto windows = mApp->windows();
+    for (auto *window : windows) {
+        const auto tabs = window->tabWidget()->allTabs();
+        for (auto *tab : tabs) {
+            auto *view = tab->webView();
+            if (testWebView(view, url)) {
+                view->closeView();
+                return;
+            }
+        }
+    }
 }
 
 void DownloadManager::startExternalManager(const QUrl &url)
@@ -205,6 +245,8 @@ void DownloadManager::clearList()
 
 void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
 {
+    closeDownloadTab(downloadItem->url());
+
     QString downloadPath;
     bool openFile = false;
 

@@ -91,6 +91,8 @@ private:
     void resizeEvent(QResizeEvent* e);
     void keyPressEvent(QKeyEvent* e);
 
+    void closeDownloadTab(const QUrl &url) const;
+
     Ui::DownloadManager* ui;
     QBasicTimer m_timer;
 
