@@ -142,7 +142,7 @@ void WebScrollBarManager::addWebView(WebView *view)
 
         QPointer<WebView> p(view);
         view->page()->runJavaScript(source, WebPage::SafeJsWorld, [=](const QVariant &res) {
-            if (!p) {
+            if (!p || !m_scrollbars.contains(view)) {
                 return;
             }
             const QVariantMap map = res.toMap();
