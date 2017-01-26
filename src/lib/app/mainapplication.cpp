@@ -748,6 +748,7 @@ void MainApplication::saveSettings()
 
     m_searchEnginesManager->saveSettings();
     m_plugins->shutdown();
+    m_networkManager->shutdown();
 
     DataPaths::clearTempData();
 
