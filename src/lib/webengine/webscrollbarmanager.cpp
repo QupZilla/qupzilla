@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2016-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 #include "scripts.h"
 #include "settings.h"
 
+#include <QPointer>
 #include <QPaintEvent>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
@@ -127,8 +128,25 @@ void WebScrollBarManager::addWebView(WebView *view)
     };
 
     connect(view, &WebView::viewportResized, this, updateValues);
-    connect(view->page(), &WebPage::contentsSizeChanged, this, updateValues);
     connect(view->page(), &WebPage::scrollPositionChanged, this, updateValues);
+
+    connect(view->page(), &WebPage::contentsSizeChanged, this, [=]() {
+        const QString source = QL1S("var out = {"
+                                    "vertical: window.innerWidth > document.documentElement.clientWidth,"
+                                    "horizontal: window.innerHeight > document.documentElement.clientHeight"
+                                    "};out;");
+
+        QPointer<WebView> p(view);
+        view->page()->runJavaScript(source, WebPage::SafeJsWorld, [=](const QVariant &res) {
+            if (!p) {
+                return;
+            }
+            updateValues();
+            const QVariantMap map = res.toMap();
+            data->vscrollbar->setVisible(map.value(QSL("vertical")).toBool());
+            data->hscrollbar->setVisible(map.value(QSL("horizontal")).toBool());
+        });
+    });
 
     connect(view, &WebView::zoomLevelChanged, this, [=]() {
         view->page()->runJavaScript(m_scrollbarJs.arg(thickness));

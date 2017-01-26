@@ -64,8 +64,6 @@ void WebScrollBar::updateValues(const QSize &viewport)
         setValue(newValue);
         m_blockScrolling = false;
     }
-
-    setVisible(maximum() > minimum());
 }
 
 void WebScrollBar::performScroll()
