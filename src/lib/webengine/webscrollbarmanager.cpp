@@ -136,8 +136,8 @@ void WebScrollBarManager::addWebView(WebView *view)
 
     connect(view->page(), &WebPage::contentsSizeChanged, this, [=]() {
         const QString source = QL1S("var out = {"
-                                    "vertical: window.innerWidth > document.documentElement.clientWidth,"
-                                    "horizontal: window.innerHeight > document.documentElement.clientHeight"
+                                    "vertical: document.documentElement && window.innerWidth > document.documentElement.clientWidth,"
+                                    "horizontal: document.documentElement && window.innerHeight > document.documentElement.clientHeight"
                                     "};out;");
 
         QPointer<WebView> p(view);
@@ -214,7 +214,8 @@ QSize WebScrollBarManager::viewportSize(WebView *view, int thickness) const
 
     if (data->vscrollbarVisible) {
         viewport.setWidth(viewport.width() - thickness);
-    } else if (data->hscrollbarVisible) {
+    }
+    if (data->hscrollbarVisible) {
         viewport.setHeight(viewport.height() - thickness);
     }
 
