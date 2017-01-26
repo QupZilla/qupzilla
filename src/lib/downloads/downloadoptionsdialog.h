@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,12 +29,14 @@ namespace Ui
 class DownloadOptionsDialog;
 }
 
+class QWebEngineDownloadItem;
+
 class QUPZILLA_EXPORT DownloadOptionsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DownloadOptionsDialog(const QString &fileName, const QUrl &url, QWidget* parent = 0);
+    explicit DownloadOptionsDialog(const QString &fileName, QWebEngineDownloadItem *downloadItem, QWidget* parent = 0);
     ~DownloadOptionsDialog();
 
     void showExternalManagerOption(bool show);
@@ -54,7 +56,7 @@ signals:
 private:
     Ui::DownloadOptionsDialog* ui;
 
-    QUrl m_url;
+    QWebEngineDownloadItem *m_downloadItem;
     bool m_signalEmited;
 };
 

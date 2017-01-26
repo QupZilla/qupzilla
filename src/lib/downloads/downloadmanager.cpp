@@ -224,7 +224,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
             result = SavePage;
         } else {
             // Ask what to do
-            DownloadOptionsDialog optionsDialog(fileName, downloadItem->url(), mApp->activeWindow());
+            DownloadOptionsDialog optionsDialog(fileName, downloadItem, mApp->activeWindow());
             optionsDialog.showExternalManagerOption(m_useExternalManager);
             optionsDialog.setLastDownloadOption(m_lastDownloadOption);
             result = Result(optionsDialog.exec());
