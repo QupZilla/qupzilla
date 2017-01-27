@@ -27,14 +27,59 @@
 #include <QLabel>
 #include <QIcon>
 
+ScrollIndicator::ScrollIndicator(QWidget *parent)
+    : QLabel(parent)
+{
+    resize(33, 33);
+    setContentsMargins(0, 0, 0, 0);
+}
+
+void ScrollIndicator::setOrientations(Qt::Orientations orientations)
+{
+    m_orientations = orientations;
+
+    if (m_orientations == Qt::Vertical) {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_vertical.png")).pixmap(33));
+    } else if (m_orientations == Qt::Horizontal) {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_horizontal.png")).pixmap(33));
+    } else {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_all.png")).pixmap(33));
+    }
+
+    update();
+}
+
+void ScrollIndicator::paintEvent(QPaintEvent *event)
+{
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
+
+    QRectF r(rect());
+    r.adjust(1, 1, -1, -1);
+
+    QColor c1(Qt::gray);
+    c1.setAlpha(190);
+
+    QColor c2(Qt::white);
+    c2.setAlpha(190);
+
+    QRadialGradient g(r.center(), r.height() / 2.0);
+    g.setColorAt(1, c1);
+    g.setColorAt(0.7, c2);
+
+    p.setPen(Qt::NoPen);
+    p.setBrush(g);
+    p.drawEllipse(r);
+
+    QLabel::paintEvent(event);
+}
+
 AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     : QObject(parent)
     , m_view(0)
     , m_settingsFile(settingsFile)
 {
-    m_indicator = new QLabel;
-    m_indicator->resize(32, 32);
-    m_indicator->setContentsMargins(0, 0, 0, 0);
+    m_indicator = new ScrollIndicator;
     m_indicator->installEventFilter(this);
 
     QSettings settings(m_settingsFile, QSettings::IniFormat);
@@ -189,15 +234,14 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
         return false;
     }
 
-    if (vertical && horizontal) {
-        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_all.png").pixmap(32));
+    Qt::Orientations orientations;
+    if (vertical) {
+        orientations |= Qt::Vertical;
     }
-    else if (vertical) {
-        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_vertical.png").pixmap(32));
+    if (horizontal) {
+        orientations |= Qt::Horizontal;
     }
-    else {
-        m_indicator->setPixmap(QIcon(":/autoscroll/data/scroll_horizontal.png").pixmap(32));
-    }
+    m_indicator->setOrientations(orientations);
 
     m_view = view;
 

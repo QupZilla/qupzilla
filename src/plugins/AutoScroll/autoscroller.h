@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,15 +19,27 @@
 #define AUTOSCROLLER_H
 
 #include <QObject>
-#include <QPoint>
+#include <QLabel>
 
 class QMouseEvent;
 class QWheelEvent;
-class QLabel;
 class QRect;
 
 class WebView;
 class FrameScroller;
+
+class ScrollIndicator : public QLabel
+{
+public:
+    explicit ScrollIndicator(QWidget *parent = nullptr);
+
+    void setOrientations(Qt::Orientations orientations);
+
+private:
+    void paintEvent(QPaintEvent *event) override;
+
+    Qt::Orientations m_orientations;
+};
 
 class AutoScroller : public QObject
 {
@@ -53,7 +65,7 @@ private:
     QRect indicatorGlobalRect() const;
 
     WebView* m_view;
-    QLabel* m_indicator;
+    ScrollIndicator* m_indicator;
     FrameScroller* m_frameScroller;
     QString m_settingsFile;
 };
