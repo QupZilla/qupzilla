@@ -1127,7 +1127,9 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         optTabBase.tabBarRect |= tabRect(i);
     }
 
-    optTabBase.selectedTabRect = QRect();
+    if (m_activeTabBar) {
+        optTabBase.selectedTabRect = tabRect(selected);
+    }
 
     if (drawBase()) {
         p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
