@@ -31,6 +31,7 @@ SideWidget::SideWidget(QWidget* parent)
     : QWidget(parent)
 {
     setCursor(Qt::ArrowCursor);
+    setFocusPolicy(Qt::ClickFocus);
 }
 
 bool SideWidget::event(QEvent* event)
