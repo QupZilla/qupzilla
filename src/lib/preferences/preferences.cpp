@@ -516,7 +516,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
-    ui->version->setText(QSL(" QupZilla v") + QL1S(Qz::VERSION));
     ui->listWidget->setCurrentRow(currentSettingsPage);
 
     QDesktopWidget* desktop = QApplication::desktop();
