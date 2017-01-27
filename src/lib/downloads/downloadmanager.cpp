@@ -258,7 +258,14 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     // Filename may have been percent encoded and actually containing path
     fileName = QFileInfo(fileName).fileName();
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    const bool forceAsk = downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat
+            || downloadItem->type() == QWebEngineDownloadItem::UserRequested;
+#else
     const bool forceAsk = downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat;
+#endif
+
+    qDebug() << downloadItem->type();
 
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
@@ -269,6 +276,11 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
         if (downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat) {
             // Save Page requested
             result = SavePage;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+        } else if (downloadItem->type() == QWebEngineDownloadItem::UserRequested) {
+            // Save x as... requested
+            result = Save;
+#endif
         } else {
             // Ask what to do
             DownloadOptionsDialog optionsDialog(fileName, downloadItem, mApp->activeWindow());
