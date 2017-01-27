@@ -1528,7 +1528,7 @@ void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
     }
 
     // Fast scrolling with just wheel scroll
-    int factor = qMax(m_scrollBar->pageStep() / 3, m_scrollBar->singleStep());
+    int factor = qMax(qRound(m_scrollBar->pageStep() / 1.5), m_scrollBar->singleStep());
     if ((event->modifiers() & Qt::ControlModifier) || (event->modifiers() & Qt::ShiftModifier)) {
         factor = m_scrollBar->pageStep();
     }
