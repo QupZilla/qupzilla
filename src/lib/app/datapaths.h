@@ -55,9 +55,6 @@ public:
     // Remove Temp dir
     static void clearTempData();
 
-    // Remove Cache dir
-    static void clearCacheData();
-
 private:
     void init();
     void initCurrentProfile(const QString &profilePath);

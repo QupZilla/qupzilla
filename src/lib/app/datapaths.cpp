@@ -82,12 +82,6 @@ void DataPaths::clearTempData()
     QzTools::removeDir(path(Temp));
 }
 
-// static
-void DataPaths::clearCacheData()
-{
-    QzTools::removeDir(path(Cache));
-}
-
 void DataPaths::init()
 {
     // AppData
