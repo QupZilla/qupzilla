@@ -747,7 +747,7 @@ void MainApplication::saveSettings()
         m_cookieJar->deleteAllCookies();
     }
     if (deleteCache) {
-        DataPaths::clearCacheData();
+        QzTools::removeDir(mApp->webProfile()->cachePath());
     }
 
     m_searchEnginesManager->saveSettings();
@@ -755,7 +755,6 @@ void MainApplication::saveSettings()
     m_networkManager->shutdown();
 
     DataPaths::clearTempData();
-
 
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();

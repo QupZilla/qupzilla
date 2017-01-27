@@ -1219,7 +1219,23 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="0" colspan="3">
+                 <item row="1" column="0">
+                  <spacer name="horizontalSpacer_33">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="1" column="1" colspan="3">
                   <widget class="QCheckBox" name="removeCache">
                    <property name="text">
                     <string>Delete cache on close</string>
