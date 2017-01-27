@@ -248,8 +248,9 @@ MainApplication::MainApplication(int &argc, char** argv)
 #endif
 
     QSettings::setDefaultFormat(QSettings::IniFormat);
-    QDesktopServices::setUrlHandler("http", this, "addNewTab");
-    QDesktopServices::setUrlHandler("ftp", this, "addNewTab");
+    QDesktopServices::setUrlHandler(QSL("http"), this, "addNewTab");
+    QDesktopServices::setUrlHandler(QSL("https"), this, "addNewTab");
+    QDesktopServices::setUrlHandler(QSL("ftp"), this, "addNewTab");
 
     ProfileManager profileManager;
     profileManager.initConfigDir();
