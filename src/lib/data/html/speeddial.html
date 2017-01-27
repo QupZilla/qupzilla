@@ -506,7 +506,7 @@ function init()
     </div>
     <div class="rowsel">
       <span id="sliderValuePg"></span>
-      <input id="PgInRow" type="range" min="2" max="10" step="1" onchange="$('#sliderValuePg').html(this.value);" />
+      <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdcntrt" id="SdCntrToggle" />&nbsp;<label for="SdCntrToggle">%TXT_CNTRDLS%</label><br />
@@ -514,7 +514,7 @@ function init()
     </div>
     <div class="rowsel">
       <span id="sliderValueSd"></span>
-      <input id="SdSize" type="range" min="100" max="500" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+      <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>
