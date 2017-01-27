@@ -23,7 +23,7 @@ FORMS += \
 TRANSLATIONS = \
     translations/fa_IR.ts
 
-include(tldextractor/tldextractor.pri)
+include(..dextractor/tldextractor.pri)
 
 PLUGIN_DIR = $$PWD
 include(../../plugins.pri)
