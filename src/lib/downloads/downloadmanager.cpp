@@ -265,8 +265,6 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     const bool forceAsk = downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat;
 #endif
 
-    qDebug() << downloadItem->type();
-
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
     } else if (forceAsk || m_downloadPath.isEmpty()) {
