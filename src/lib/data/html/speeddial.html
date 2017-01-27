@@ -477,7 +477,6 @@ function init()
     external.speedDial.pageTitleLoaded.connect(setTitleToUrl);
 
     $(window).resize(function() { alignPage(); });
-    $("div").disableSelection();
     $("#quickdial").sortable({
         revert: true,
         cursor: 'move',
