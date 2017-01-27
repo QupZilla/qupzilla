@@ -36,8 +36,20 @@ SideWidget::SideWidget(QWidget* parent)
 
 bool SideWidget::event(QEvent* event)
 {
-    if (event->type() == QEvent::LayoutRequest) {
+    switch (event->type()) {
+    case QEvent::LayoutRequest:
         emit sizeHintChanged();
+        break;
+
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::MouseButtonDblClick:
+    case QEvent::MouseMove:
+        event->accept();
+        return true;
+
+    default:
+        break;
     }
 
     return QWidget::event(event);
@@ -393,10 +405,6 @@ void LineEdit::mouseReleaseEvent(QMouseEvent* event)
 
 void LineEdit::mouseDoubleClickEvent(QMouseEvent* event)
 {
-    if (!hasFocus()) {
-        return;
-    }
-
     if (event->buttons() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
         selectAll();
         return;
