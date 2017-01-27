@@ -117,6 +117,7 @@ public:
     bool isPinned(int index) const;
     void setMaxVisiblePinnedTab(int max);
 
+    void setFocusPolicy(Qt::FocusPolicy policy);
     void setObjectName(const QString &name);
     void setMouseTracking(bool enable);
 

@@ -498,6 +498,13 @@ bool ComboTabBar::isPinned(int index) const
     return index >= 0 && index < pinnedTabsCount();
 }
 
+void ComboTabBar::setFocusPolicy(Qt::FocusPolicy policy)
+{
+    QWidget::setFocusPolicy(policy);
+    m_mainTabBar->setFocusPolicy(policy);
+    m_pinnedTabBar->setFocusPolicy(policy);
+}
+
 void ComboTabBar::setObjectName(const QString &name)
 {
     m_mainTabBar->setObjectName(name);
