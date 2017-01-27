@@ -34,6 +34,11 @@ ScrollIndicator::ScrollIndicator(QWidget *parent)
     setContentsMargins(0, 0, 0, 0);
 }
 
+Qt::Orientations ScrollIndicator::orientations() const
+{
+    return m_orientations;
+}
+
 void ScrollIndicator::setOrientations(Qt::Orientations orientations)
 {
     m_orientations = orientations;
@@ -116,6 +121,13 @@ bool AutoScroller::mouseMove(QObject* obj, QMouseEvent* event)
         }
         else if (rect.bottom() < event->globalPos().y()) {
             ylength = event->globalPos().y() - rect.bottom();
+        }
+
+        if (!m_indicator->orientations().testFlag(Qt::Vertical)) {
+            ylength = 0;
+        }
+        if (!m_indicator->orientations().testFlag(Qt::Horizontal)) {
+            xlength = 0;
         }
 
         m_frameScroller->startScrolling(xlength, ylength);

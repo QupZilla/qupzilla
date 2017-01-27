@@ -33,6 +33,7 @@ class ScrollIndicator : public QLabel
 public:
     explicit ScrollIndicator(QWidget *parent = nullptr);
 
+    Qt::Orientations orientations() const;
     void setOrientations(Qt::Orientations orientations);
 
 private:
