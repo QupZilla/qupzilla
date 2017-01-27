@@ -305,8 +305,6 @@ void SpeedDial::setBackgroundImage(const QString &image)
 {
     m_backgroundImage = QzTools::pixmapToDataUrl(QPixmap(QUrl(image).toLocalFile())).toString();
     m_backgroundImageUrl = image;
-
-    emit pagesChanged();
 }
 
 void SpeedDial::setBackgroundImageSize(const QString &size)
