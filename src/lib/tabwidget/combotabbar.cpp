@@ -1151,6 +1151,10 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             continue;
         }
 
+        if (!m_activeTabBar) {
+            tab.selectedPosition = QStyleOptionTab::NotAdjacent;
+        }
+
         if (!(tab.state & QStyle::State_Enabled)) {
             tab.palette.setCurrentColorGroup(QPalette::Disabled);
         }
