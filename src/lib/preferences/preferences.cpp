@@ -287,6 +287,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     //Cache
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
+    ui->removeCache->setChecked(settings.value("deleteCacheOnClose", false).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
     ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
@@ -603,6 +604,7 @@ void Preferences::makeQupZillaDefault()
 
 void Preferences::allowCacheChanged(bool state)
 {
+    ui->removeCache->setEnabled(state);
     ui->maxCacheLabel->setEnabled(state);
     ui->cacheMB->setEnabled(state);
     ui->storeCacheLabel->setEnabled(state);
@@ -962,6 +964,7 @@ void Preferences::saveSettings()
 #endif
     //Cache
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
+    settings.setValue("deleteCacheOnClose", ui->removeCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
     settings.setValue("CachePath", ui->cachePath->text());
     //CSS Style

@@ -728,6 +728,7 @@ void MainApplication::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
+    bool deleteCache = settings.value("deleteCacheOnClose", false).toBool();
     bool deleteHistory = settings.value("deleteHistoryOnClose", false).toBool();
     bool deleteHtml5Storage = settings.value("deleteHTML5StorageOnClose", false).toBool();
     settings.endGroup();
@@ -744,6 +745,9 @@ void MainApplication::saveSettings()
     }
     if (deleteCookies) {
         m_cookieJar->deleteAllCookies();
+    }
+    if (deleteCache) {
+        QzTools::removeDir(mApp->webProfile()->cachePath());
     }
 
     m_searchEnginesManager->saveSettings();
