@@ -1432,8 +1432,8 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="123"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="194"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Server:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1459,12 +1459,12 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="181"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="191"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="201"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="146"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="147"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="148"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="149"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="150"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="151"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="152"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1475,7 +1475,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="242"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
         <source>Remove cookies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1547,72 +1547,67 @@ Are you sure you want to close this window?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="452"/>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="78"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="103"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="101"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>Secure only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="163"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>All connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="164"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
         <source>Session cookie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="169"/>
         <source>Remove cookie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="171"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Add to whitelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="178"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="178"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="194"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Add to blacklist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="205"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="205"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1758,7 +1753,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="383"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="395"/>
         <source>Download Manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1778,47 +1773,47 @@ Are you sure you want to close this window?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="286"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
         <source>Save file as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="296"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="297"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="302"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="376"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>Download Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="376"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>All files have been successfully downloaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="444"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="456"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="445"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2356,42 +2351,42 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LineEdit</name>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="89"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="102"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="94"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="107"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="99"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="112"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="104"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="117"/>
         <source>&amp;Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="109"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="122"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="118"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="131"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="121"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="134"/>
         <source>Clear All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="124"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="137"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2430,37 +2425,37 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1073"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1074"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1074"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1075"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1076"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1077"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1163"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1173"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4831,7 +4826,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="348"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="346"/>
         <source>Unable to load</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4877,83 +4872,83 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
         <source>&amp;Stop Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Reload Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Duplicate Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>D&amp;etach Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>Un&amp;pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>&amp;Pin Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>Un&amp;mute Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>&amp;Mute Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Re&amp;load All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
         <source>&amp;New tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="363"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation type="unfinished"></translation>
     </message>
