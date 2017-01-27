@@ -42,9 +42,6 @@
    </item>
    <item row="0" column="0">
     <widget class="HorizontalListWidget" name="listWidget">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
      <item>
       <property name="text">
        <string>General</string>
