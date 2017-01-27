@@ -128,10 +128,13 @@ void DownloadManager::closeDownloadTab(const QUrl &url) const
         if (page->history()->count() != 0) {
             return false;
         }
-        if (page->url() != QUrl() || page->requestedUrl() != QUrl()) {
+        if (page->url() != QUrl()) {
             return false;
         }
-        const QUrl tabUrl(view->webTab()->locationBar()->text());
+        QUrl tabUrl = page->requestedUrl();
+        if (tabUrl.isEmpty()) {
+            tabUrl = QUrl(view->webTab()->locationBar()->text());
+        }
         return tabUrl.host() == url.host();
     };
 
