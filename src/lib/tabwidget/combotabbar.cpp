@@ -1221,9 +1221,7 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 
     if (m_pressedIndex >= 0 && m_pressedIndex < count()) {
-        const int length = qAbs(m_pressedGlobalX - event->globalX());
-        const int duration = qMin((length * ANIMATION_DURATION) / tabRect(m_pressedIndex).width(), ANIMATION_DURATION);
-        QTimer::singleShot(duration, this, SLOT(resetDragState()));
+        QTimer::singleShot(ANIMATION_DURATION, this, &TabBarHelper::resetDragState);
 
         m_pressedIndex = -1;
         m_pressedGlobalX = -1;
