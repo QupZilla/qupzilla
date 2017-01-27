@@ -389,7 +389,7 @@ function bgImageSel() {
 function saveSettings() {
     MAX_PAGES_ROW = $('#PgInRow').val();
     DIAL_WIDTH = parseInt($('#SdSize').val());
-    SD_CENTER = $('#SdCntrToggle').attr('checked') ? true : false;
+    SD_CENTER = $('#SdCntrToggle').prop('checked');
 
     external.speedDial.setBackgroundImage($('#BgImgHoldUrl').val());
     external.speedDial.setBackgroundImageSize($('#BgImgSelSiz').val());
