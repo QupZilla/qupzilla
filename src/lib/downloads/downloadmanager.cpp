@@ -258,9 +258,11 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     // Filename may have been percent encoded and actually containing path
     fileName = QFileInfo(fileName).fileName();
 
+    const bool forceAsk = downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat;
+
     if (m_useExternalManager) {
         startExternalManager(downloadItem->url());
-    } else if (m_downloadPath.isEmpty()) {
+    } else if (forceAsk || m_downloadPath.isEmpty()) {
         enum Result { Open = 1, Save = 2, ExternalManager = 3, SavePage = 4, Unknown = 0 };
         Result result = Unknown;
 
