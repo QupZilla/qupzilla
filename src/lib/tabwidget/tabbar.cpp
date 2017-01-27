@@ -274,9 +274,6 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
 int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 {
-    if (!isVisible())
-        return -1;
-
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
         return iconButtonSize().width() + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
