@@ -392,6 +392,10 @@ void LineEdit::mouseReleaseEvent(QMouseEvent* event)
 
 void LineEdit::mouseDoubleClickEvent(QMouseEvent* event)
 {
+    if (!hasFocus()) {
+        return;
+    }
+
     if (event->buttons() == Qt::LeftButton && qzSettings->selectAllOnDoubleClick) {
         selectAll();
         return;
