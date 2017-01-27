@@ -47,8 +47,8 @@ MAC OS X
   You need to have Xcode from the Apple App Store installed in Applications, [Command Line Tools for the same Xcode version](https://developer.apple.com/) may be included depending on the version,
   [Homebrew](http://brew.sh/), and `$ brew install openssl` for openssl.
   Next compulsory requirement is Qt 5 (>= 5.7) with QtWebEngine.
-  After successful compilation, you need to set the `QTDIR` environment variable described below and
-  run macdeploy.sh script to correctly build the application bundle. You will do it with following command:
+  After successful compilation, you need to build the application bundle and follow any
+  instructions that may be presented. You will do it with following command:
 
     $ ./mac/macdeploy.sh [<path-to-macdeployqt>]
 
@@ -108,18 +108,6 @@ Available Defines
                           Requires linking against libraries from Microsoft Visual C++
                           Compiler 2010
                           (enabled by default)
-
- OS X specific defines:
-
-     QTDIR                You need to define this environment variable path in order to
-                          deploy an image.
-
-                          Typically with the Qt Online Installer for macOS it is located
-                          in the home directory and is updated/modified with
-                          the MaintenanceTool application.
-
-                          example:
-                          $ export QTDIR="$HOME/Qt/5.7/clang_64"
 
  Linux / Unix specific defines:
 
