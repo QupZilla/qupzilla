@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -74,6 +74,9 @@ CookieManager::CookieManager()
     ui->whiteList->addItems(settings.value("whitelist", QStringList()).toStringList());
     ui->blackList->addItems(settings.value("blacklist", QStringList()).toStringList());
     settings.endGroup();
+
+    // QTWEBENGINE_DISABLED
+    ui->filter3rdParty->hide();
 
     ui->search->setPlaceholderText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
