@@ -28,6 +28,7 @@
 
 #include <QMessageBox>
 #include <QClipboard>
+#include <QKeyEvent>
 
 HistoryManager::HistoryManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
