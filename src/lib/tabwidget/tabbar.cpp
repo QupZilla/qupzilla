@@ -584,7 +584,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     }
 
     if (m_tabWidget->buttonAddTab()->isHidden() && !isMainBarOverflowed()) {
-        QTimer::singleShot(500, m_tabWidget->buttonAddTab(), SLOT(show()));
+        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), m_tabWidget->buttonAddTab(), &AddTabButton::show);
     }
 
     if (!rect().contains(event->pos())) {

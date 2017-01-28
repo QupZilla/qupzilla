@@ -145,6 +145,9 @@ public:
     // Add widget to the left/right corner
     void addCornerWidget(QWidget* widget, Qt::Corner corner);
 
+    // Duration of tab slide animation when releasing dragged tab
+    static int slideAnimationDuration();
+
 public slots:
     void setUpLayout();
     void ensureVisible(int index = -1, int xmargin = -1);

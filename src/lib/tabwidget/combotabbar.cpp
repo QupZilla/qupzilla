@@ -36,9 +36,6 @@
 #include <QApplication>
 #include <QToolTip>
 
-// taken from qtabbar_p.h
-#define ANIMATION_DURATION 250
-
 ComboTabBar::ComboTabBar(QWidget* parent)
     : QWidget(parent)
     , m_mainTabBar(0)
@@ -842,6 +839,13 @@ void ComboTabBar::addCornerWidget(QWidget* widget, Qt::Corner corner)
     }
 }
 
+// static
+int ComboTabBar::slideAnimationDuration()
+{
+    // taken from qtabbar_p.h
+    return 250;
+}
+
 void ComboTabBar::ensureVisible(int index, int xmargin)
 {
     if (index == -1) {
@@ -1234,7 +1238,7 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 
     if (m_pressedIndex >= 0 && m_pressedIndex < count()) {
-        QTimer::singleShot(ANIMATION_DURATION, this, &TabBarHelper::resetDragState);
+        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), this, &TabBarHelper::resetDragState);
 
         m_pressedIndex = -1;
         m_pressedGlobalX = -1;
