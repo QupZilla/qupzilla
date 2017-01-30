@@ -8,6 +8,7 @@
 MACDEPLOYQT="macdeployqt"
 LIBRARY_NAME="libQupZilla.2.dylib"
 PLUGINS="QupZilla.app/Contents/Resources/plugins"
+QTPLUGINS="QupZilla.app/Contents/PlugIns"
 
 if [ -n "$1" ]; then
  MACDEPLOYQT=$1
@@ -48,7 +49,7 @@ if echo "$answer" | grep -iq "^y"; then
 
     FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
     if [ -f "$FILE" ]; then
-      cp $FILE $PLUGINS
+      cp $FILE $QTPLUGINS
     else
       echo "$FILE: No such file"
       exit 1
@@ -58,7 +59,7 @@ if echo "$answer" | grep -iq "^y"; then
 else
   printf '\nChecking for prior deploy image library plugins at target...\n'
 
-  rm $PLUGINS/libqsvgicon.dylib
+  rm $QTPLUGINS/libqsvgicon.dylib
 fi
 
 # run macdeployqt
