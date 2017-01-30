@@ -45,7 +45,9 @@ if echo "$answer" | grep -iq "^y"; then
     printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.7/clang_64"\n'
     exit 1
   else
-    printf '\nCopying known, missing, Qt native library plugins to target...\n'
+    printf '\nCopying known, missing, Qt native library plugins to target bundle...\n'
+
+    mkdir -p $QTPLUGINS
 
     FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
     if [ -f "$FILE" ]; then
@@ -57,9 +59,9 @@ if echo "$answer" | grep -iq "^y"; then
 
   fi
 else
-  printf '\nChecking for prior deploy image library plugins at target...\n'
+  printf '\nChecking for prior deploy image Qt native library plugins at target bundle...\n'
 
-  rm $QTPLUGINS/libqsvgicon.dylib
+  rm -Rf $QTPLUGINS
 fi
 
 # run macdeployqt
