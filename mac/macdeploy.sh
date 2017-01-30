@@ -51,7 +51,7 @@ if echo "$answer" | grep -iq "^y"; then
 
     FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
     if [ -f "$FILE" ]; then
-      cp $FILE $QTPLUGINS
+      cp $FILE $QTPLUGINS/
     else
       echo "$FILE: No such file"
       exit 1
