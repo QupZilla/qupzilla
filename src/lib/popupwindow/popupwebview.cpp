@@ -56,7 +56,7 @@ void PopupWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags 
 
 void PopupWebView::closeView()
 {
-    parentWidget()->close();
+    window()->close();
 }
 
 bool PopupWebView::isFullScreen()
