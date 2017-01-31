@@ -65,7 +65,11 @@ private:
         option.rect = rect();
 
         QPainter p(this);
-        style()->drawPrimitive(QStyle::PE_PanelScrollAreaCorner, &option, &p, this);
+        if (mApp->styleName() == QL1S("breeze")) {
+            p.fillRect(ev->rect(), option.palette.background());
+        } else {
+            style()->drawPrimitive(QStyle::PE_PanelScrollAreaCorner, &option, &p, this);
+        }
     }
 
     WebView *m_view;

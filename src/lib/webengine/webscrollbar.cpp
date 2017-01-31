@@ -86,6 +86,6 @@ void WebScrollBar::performScroll()
 void WebScrollBar::paintEvent(QPaintEvent *ev)
 {
     QPainter painter(this);
-    painter.fillRect(ev->rect(), m_view->page()->backgroundColor());
+    painter.fillRect(ev->rect(), palette().background());
     QScrollBar::paintEvent(ev);
 }
