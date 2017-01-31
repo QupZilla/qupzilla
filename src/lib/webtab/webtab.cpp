@@ -116,9 +116,6 @@ WebTab::WebTab(BrowserWindow* window)
 {
     setObjectName(QSL("webtab"));
 
-    // This fixes background of pages with dark themes
-    setStyleSheet("#webtab {background-color:white;}");
-
     m_webView = new TabbedWebView(this);
     m_webView->setBrowserWindow(m_window);
     m_webView->setWebPage(new WebPage);
