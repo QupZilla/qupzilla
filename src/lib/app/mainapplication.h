@@ -48,6 +48,7 @@ class SearchEnginesManager;
 class HTML5PermissionsManager;
 class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
+class ProxyStyle;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -84,6 +85,7 @@ public:
 
     // Name of current Qt style
     QString styleName() const;
+    void setProxyStyle(ProxyStyle *style);
 
     QString currentLanguageFile() const;
     QString currentLanguage() const;
@@ -175,6 +177,7 @@ private:
     QWebEngineProfile* m_webProfile;
 
     AutoSaver* m_autoSaver;
+    ProxyStyle *m_proxyStyle = nullptr;
 
     QList<BrowserWindow*> m_windows;
     QPointer<BrowserWindow> m_lastActiveWindow;

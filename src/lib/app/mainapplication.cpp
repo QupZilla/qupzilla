@@ -470,8 +470,13 @@ void MainApplication::reloadSettings()
 
 QString MainApplication::styleName() const
 {
-    QProxyStyle *proxyStyle = qobject_cast<QProxyStyle*>(style());
-    return proxyStyle ? proxyStyle->baseStyle()->objectName() : style()->objectName();
+    return m_proxyStyle ? m_proxyStyle->name() : QString();
+}
+
+void MainApplication::setProxyStyle(ProxyStyle *style)
+{
+    m_proxyStyle = style;
+    setStyle(style);
 }
 
 QString MainApplication::currentLanguageFile() const
