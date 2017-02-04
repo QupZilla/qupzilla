@@ -7,42 +7,42 @@
         <translation>Про QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.ui" line="57"/>
+        <location filename="../src/lib/other/aboutdialog.ui" line="54"/>
         <source>Authors</source>
         <translation>Автори</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="71"/>
         <source>Authors and Contributors</source>
         <translation>Автори та учасники</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="69"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Версія додатку %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;Версія QtWebEngine %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; Про QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="91"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="96"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Головний розробник:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="92"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="97"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Учасники:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="104"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="109"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Перекладачі:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -183,47 +183,47 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="41"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="42"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation>AdBlock дозволяє Вам блокувати небажаний контент на веб-сторінках</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>Blocked popup window</source>
         <translation>Заблоковано виринаюче вікно</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>AdBlock blocked unwanted popup window.</source>
         <translation>AdBlock заблокував небажане виринаюче вікно.</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="89"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="90"/>
         <source>AdBlock</source>
         <translation>AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="116"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="117"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>Показати &amp;налаштування AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable on %1</source>
         <translation>Відключити на %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="130"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="131"/>
         <source>Disable only on this page</source>
         <translation>Відключити лише на цій сторінці</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="140"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="141"/>
         <source>Blocked Popup Windows</source>
         <translation>Заблоковані виринаючі вікна</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="145"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
         <source>%1 with (%2)</source>
         <translation>%1з (%2)</translation>
     </message>
@@ -989,12 +989,12 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
         <source>Title</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="166"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
         <source>Address</source>
         <translation>Адреса</translation>
     </message>
@@ -1072,27 +1072,27 @@ Please install latest version of QupZilla.</source>
     <name>BookmarksWidget</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
-        <source>Add to bookmarks</source>
+        <source>Add to Bookmarks</source>
         <translation>Додати закладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="37"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="111"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="112"/>
         <source>Add to Speed Dial</source>
         <translation>Додати до сторінки Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="97"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="98"/>
         <source>Update Bookmark</source>
         <translation>Оновити закладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Remove from Speed Dial</source>
         <translation>Видалити зі сторінки Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="120"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="121"/>
         <source>Remove from Bookmarks</source>
         <translation>Вилучити із закладок</translation>
     </message>
@@ -1100,82 +1100,82 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="115"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="113"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="342"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="332"/>
         <source>IP Address of current page</source>
         <translation>IP адреса поточної сторінки</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="607"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="597"/>
         <source> (Private Browsing)</source>
         <translation> (Анонімний перегляд)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="636"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="884"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="874"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
         <source>&amp;Menu Bar</source>
         <translation>Панель &amp;меню</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="950"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="935"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Панель &amp;навігації</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="954"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="939"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Панель &amp;закладок</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Вкладки згори</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1001"/>
         <source>Other</source>
         <translation>Інше</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>HTML files</source>
         <translation>HTML-файли</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Image files</source>
         <translation>Файли зображень</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Text files</source>
         <translation>Текстові файли</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>All files</source>
         <translation>Всі файли</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1040"/>
         <source>Open file...</source>
         <translation>Відкрити файл...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1395"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1373"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Все ще маємо %n відкриту вкладку і вашу сесію не буде збережено. 
@@ -1184,12 +1184,12 @@ Are you sure you want to close this window?</source>
 Ви впевнені, що хочете закрити це вікно?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1396"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1374"/>
         <source>Don&apos;t ask again</source>
         <translation>Не питати знову</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1375"/>
         <source>There are still open tabs</source>
         <translation>Все ще маємо відкриті вкладки</translation>
     </message>
@@ -1217,22 +1217,22 @@ Are you sure you want to close this window?</source>
         <translation>Пошук...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="47"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="55"/>
         <source>History</source>
         <translation>Історія</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="48"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="56"/>
         <source>Bookmarks</source>
         <translation>Закладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="61"/>
         <source>Import Bookmarks...</source>
         <translation>Імпорт закладок...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="62"/>
         <source>Export Bookmarks...</source>
         <translation>Експорт закладок в HTML...</translation>
     </message>
@@ -1296,113 +1296,92 @@ Are you sure you want to close this window?</source>
         <translation>Очистити недавню історію</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="36"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
         <translation>&lt;b&gt;Очистити недавню історію&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
-        <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation>Позначені елементи буде очищено при натисканні кнопки Очистити.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
-        <source>Visited pages history from:</source>
-        <translation>Відвідані сторінки історії</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
-        <source>Earlier Today</source>
-        <translation>За сьогодні</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="69"/>
-        <source>Week</source>
-        <translation>За тиждень</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="74"/>
-        <source>Month</source>
-        <translation>За місяць</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="79"/>
-        <source>All</source>
-        <translation>Всю</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
-        <source>Web databases</source>
-        <translation>Бази даних мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
-        <source>Local storage</source>
-        <translation>Локальне сховище</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
-        <source>Cache</source>
-        <translation>Кеш</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
-        <source>Cookies</source>
-        <translation>Куки</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
         <translation>Редагувати куки</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
-        <source>Icons</source>
-        <translation>Іконки</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
+        <source>Earlier Today</source>
+        <translation>За сьогодні</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
-        <source>HTML5 notifications data</source>
-        <translation>HTML5 сповіщення</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="59"/>
+        <source>Week</source>
+        <translation>За тиждень</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
-        <source>Edit permissions</source>
-        <translation>Редагувати дозволи</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
+        <source>Month</source>
+        <translation>За місяць</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
-        <source>HTML5 geolocation data</source>
-        <translation>HTML5 геолокаційні дані</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="69"/>
+        <source>All</source>
+        <translation>Всю</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
-        <source>Optimize database</source>
-        <translation>Оптимізувати базу даних</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
+        <source>Visited pages history from:</source>
+        <translation>Відвідані сторінки історії</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
-        <source>Database</source>
-        <translation>База даних</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
+        <source>Checked items will be cleared upon clicking the Clear button.</source>
+        <translation>Позначені елементи буде очищено при натисканні кнопки Очистити.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="94"/>
+        <source>Local storage</source>
+        <translation>Локальне сховище</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="110"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="161"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="130"/>
+        <source>Web databases</source>
+        <translation>Бази даних мережі</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
+        <source>Cache</source>
+        <translation>Кеш</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
+        <source>Optimize database</source>
+        <translation>Оптимізувати базу даних</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="157"/>
+        <source>Cookies</source>
+        <translation>Куки</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="174"/>
+        <source>Database</source>
+        <translation>База даних</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="155"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="188"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database Optimized</source>
         <translation>Базу даних оптимізовано</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="188"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Базу даних успішно оптимізовано.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Розмір бази даних до: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Розмір бази даних після: &lt;/b&gt;%2</translation>
     </message>
@@ -1451,8 +1430,8 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="123"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="165"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Server:</source>
         <translation>Сервер:</translation>
     </message>
@@ -1478,12 +1457,12 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="181"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="191"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="201"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="140"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="141"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="142"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="143"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="144"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="145"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="149"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="150"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="151"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="152"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;cookie не обрано&gt;</translation>
     </message>
@@ -1494,7 +1473,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="242"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="147"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
         <source>Remove cookies</source>
         <translation>Видалити cookies</translation>
     </message>
@@ -1561,72 +1540,72 @@ Are you sure you want to close this window?</source>
         <translation>Фільтрувати шпигунські cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="445"/>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation>&lt;b&gt;Попередження:&lt;/b&gt; Фільтрування куків 3-х сторін та шпигунських куків може призвести до заборони деяких куків з сайтів. Якщо у Вас виникли проблеми з куками, спробуйте спочатку відключити ці опції!</translation>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
+        <source>Delete cookies on close</source>
+        <translation>Видаляти куки під час закриття</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="77"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
         <source>Search</source>
         <translation>Пошук</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="99"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="103"/>
         <source>Confirmation</source>
         <translation>Підтвердження</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
         <translation>Ви впевнені, що хочете видалити усі cookies з Вашого комп’ютера?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>Secure only</source>
         <translation>Безпечні тільки на</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>All connections</source>
         <translation>Всі з’єднання</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="158"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
         <source>Session cookie</source>
         <translation>Сесійні cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="160"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="169"/>
         <source>Remove cookie</source>
         <translation>Видалити cookie</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="165"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Add to whitelist</source>
         <translation>Додати до білого переліку</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
         <translation>Вже в чорному списку!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
         <translation>Сервер &quot;%1&quot; вже в чорному списку, спочатку видаліть його, будь ласка.</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Add to blacklist</source>
         <translation>Додати до чорного переліку</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
         <translation>Вже в білому списку!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
         <translation>Сервер &quot;%1&quot; вже в білому списку, спочатку видаліть його, будь ласка.</translation>
     </message>
@@ -1634,124 +1613,124 @@ Are you sure you want to close this window?</source>
 <context>
     <name>DownloadItem</name>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="71"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
         <source>Remaining time unavailable</source>
         <translation>Час, що залишився недоступний</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="133"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="124"/>
         <source>Done - %1 (%2)</source>
         <translation>Виконано - %1(%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="137"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="128"/>
         <source>Error - %1</source>
         <translation>Помилка — %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="141"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="270"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="132"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="259"/>
         <source>Cancelled - %1</source>
         <translation>Скасовано - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="188"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="295"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="179"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
         <source>Cancelled</source>
         <translation>Скасовано</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="194"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="185"/>
         <source>few seconds</source>
         <translation>кілька секунд</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="197"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="188"/>
         <source>%n seconds</source>
         <translation><numerusform>%n секунда</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунди</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="200"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="191"/>
         <source>%n minutes</source>
         <translation><numerusform>%n хвилина</numerusform><numerusform>%n хвилин</numerusform><numerusform>%n хвилини</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="203"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="194"/>
         <source>%n hours</source>
         <translation><numerusform>%n година</numerusform><numerusform>%n годин</numerusform><numerusform>%n годин</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="210"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="201"/>
         <source>Unknown speed</source>
         <translation>Швидкість невідома</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="215"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="206"/>
         <source>kB/s</source>
         <translation>КБ/с</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="220"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="211"/>
         <source>MB/s</source>
         <translation>МБ/с</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="224"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="215"/>
         <source>GB/s</source>
         <translation>ГБ/s</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="248"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="239"/>
         <source>Unknown size</source>
         <translation>Розмір невідомий</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="249"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="240"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - розмір невідомий (%3)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="252"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="243"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Залишилось %1 - %2 з %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="275"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="288"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="277"/>
         <source>Open Folder</source>
         <translation>Відкрити теку</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="290"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="279"/>
         <source>Copy Download Link</source>
         <translation>Копіювати посилання завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="292"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
         <source>Cancel downloading</source>
         <translation>Скасувати завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="282"/>
         <source>Remove From List</source>
         <translation>Видалити зі списку</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="295"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
         <source>Not found</source>
         <translation>Не знайдено</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1764,68 +1743,68 @@ Are you sure you want to close this window?</source>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="340"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="395"/>
         <source>Download Manager</source>
         <translation>Менеджер завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.ui" line="76"/>
+        <location filename="../src/lib/downloads/downloadmanager.ui" line="85"/>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="217"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% з %2 файлів (%3) %4 залишилось</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="182"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="221"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - Менеджер завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="243"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
         <source>Save file as...</source>
         <translation>Зберегти файл як...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="253"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
         <translation>Архів MIME HTML (*.mhtml)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="254"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
         <translation>Лише HTML-сторінка (*.html)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="255"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
         <translation>Повна HTML-сторінка (*.html)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
         <translation>Зберігти сторінку як…</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>Download Finished</source>
         <translation>Завантаження завершено</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Всі файли було успішно завантажено.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="390"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="456"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="391"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Ви впевнені, що хочете вийти? Всі незавершені завантаження буде скасовано!</translation>
     </message>
@@ -1833,52 +1812,52 @@ Are you sure you want to close this window?</source>
 <context>
     <name>DownloadOptionsDialog</name>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="26"/>
-        <source>Opening</source>
-        <translation>Відкриваю</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
-        <source>You have chosen to open</source>
-        <translation>Ви обрали відкрити</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="39"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="25"/>
         <source>What should QupZilla do with this file?</source>
         <translation>Що має QupZilla зробити з цим файлом?</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="61"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="47"/>
         <source>Open...</source>
         <translation>Відкрити...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="68"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="54"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="78"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="64"/>
         <source>Download with External Manager</source>
         <translation>Завантажити зовнішнім менеджером завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="129"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
+        <source>which is:</source>
+        <translation>що є:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
         <source>from:</source>
         <translation>з:</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="155"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="241"/>
         <source>Copy download link</source>
         <translation>Копіюйвати посилання на завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="33"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="256"/>
+        <source>You have chosen to open</source>
+        <translation>Ви обрали відкрити</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="49"/>
         <source>Opening %1</source>
         <translation>Відкриваю %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="97"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="111"/>
         <source>Download link copied.</source>
         <translation>Посилання на завантаження скопійовано</translation>
     </message>
@@ -1992,17 +1971,17 @@ Are you sure you want to close this window?</source>
 <context>
     <name>HTML5PermissionsNotification</name>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="43"/>
         <source>Remember</source>
         <translation>Запам’ятати</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="50"/>
         <source>Allow</source>
         <translation>Дозволити</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="57"/>
         <source>Deny</source>
         <translation>Заборонити</translation>
     </message>
@@ -2012,32 +1991,32 @@ Are you sure you want to close this window?</source>
         <translation>цей сайт</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="44"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
         <translation>Дозволити %1 показувати сповіщення на робочому столі?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="49"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
         <translation>Дозволити %1 визначати ваше місцерозташування?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="54"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="51"/>
         <source>Allow %1 to use your microphone?</source>
         <translation>Дозволити %1 використовувати ваш мікрофон?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="55"/>
         <source>Allow %1 to use your camera?</source>
         <translation>Дозволити %1 використовувати вашу камеру?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="64"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your microphone and camera?</source>
         <translation>Дозволити %1 використовувати ваші мікрофон і камеру?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="69"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="63"/>
         <source>Allow %1 to hide your pointer?</source>
         <translation>Дозволити %1 приховати вказівник миші?</translation>
     </message>
@@ -2045,67 +2024,67 @@ Are you sure you want to close this window?</source>
 <context>
     <name>History</name>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="80"/>
+        <location filename="../src/lib/history/history.cpp" line="84"/>
         <source>Empty Page</source>
         <translation>Порожня сторінка</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="267"/>
+        <location filename="../src/lib/history/history.cpp" line="265"/>
         <source>January</source>
         <translation>Січень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="269"/>
+        <location filename="../src/lib/history/history.cpp" line="267"/>
         <source>February</source>
         <translation>Лютий</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="271"/>
+        <location filename="../src/lib/history/history.cpp" line="269"/>
         <source>March</source>
         <translation>Березень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="273"/>
+        <location filename="../src/lib/history/history.cpp" line="271"/>
         <source>April</source>
         <translation>Квітень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="275"/>
+        <location filename="../src/lib/history/history.cpp" line="273"/>
         <source>May</source>
         <translation>Травень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="277"/>
+        <location filename="../src/lib/history/history.cpp" line="275"/>
         <source>June</source>
         <translation>Червень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="279"/>
+        <location filename="../src/lib/history/history.cpp" line="277"/>
         <source>July</source>
         <translation>Липень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="281"/>
+        <location filename="../src/lib/history/history.cpp" line="279"/>
         <source>August</source>
         <translation>Серпень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="283"/>
+        <location filename="../src/lib/history/history.cpp" line="281"/>
         <source>September</source>
         <translation>Вересень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="285"/>
+        <location filename="../src/lib/history/history.cpp" line="283"/>
         <source>October</source>
         <translation>Жовтень</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="287"/>
+        <location filename="../src/lib/history/history.cpp" line="285"/>
         <source>November</source>
         <translation>Листопад</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="289"/>
+        <location filename="../src/lib/history/history.cpp" line="287"/>
         <source>December</source>
         <translation>Грудень</translation>
     </message>
@@ -2363,42 +2342,42 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LineEdit</name>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="89"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="102"/>
         <source>&amp;Undo</source>
         <translation>Від&amp;мінити дію</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="94"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="107"/>
         <source>&amp;Redo</source>
         <translation>Пов&amp;торити дію</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="99"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="112"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Вирізати</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="104"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="117"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копіювати</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="109"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="122"/>
         <source>&amp;Paste</source>
         <translation>Вс&amp;тавити</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="118"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="131"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="121"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="134"/>
         <source>Clear All</source>
         <translation>Очистити все</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="124"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="137"/>
         <source>Select All</source>
         <translation>Виділити &amp;все</translation>
     </message>
@@ -2429,7 +2408,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="141"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="143"/>
         <source>Switch to tab</source>
         <translation>Перемкнутись на вкладку</translation>
     </message>
@@ -2437,22 +2416,37 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1074"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla не є Вашим типовим переглядачем. Чи хочете Ви зробити його таким?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1075"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Завжди виконувати перевірку під час запуску QupZill&apos;и.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1077"/>
         <source>Default Browser</source>
         <translation>Типовий переглядач</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
+        <source>Open new tab</source>
+        <translation>Відкрити нову вкладку</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
+        <source>Open new window</source>
+        <translation>Відкрити нове вікно</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
+        <source>Open new private window</source>
+        <translation>Відкрити нове приватне вікно</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla - це новий, швидкий і безпечний веб-переглядач з відкритим кодом. QupZilla поширюється за ліцензією GPL 3-ї версії  або (за Вашим бажанням) будь-якої пізнішої версії. Базується на ядрі WebKit і Qt Framework.</translation>
     </message>
@@ -2896,12 +2890,12 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="214"/>
         <source>Error!</source>
         <translation>Помилка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="214"/>
         <source>Cannot load extension!</source>
         <translation>Неможливо завантажити розширення!</translation>
     </message>
@@ -2909,7 +2903,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="101"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="100"/>
         <source>Inspect Element</source>
         <translation>Перевірити елемент</translation>
     </message>
@@ -2917,67 +2911,67 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PopupWindow</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="59"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="60"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>Send Link...</source>
         <translation>Відправити посилання...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="66"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="77"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
         <source>Find</source>
         <translation>Знайти</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
         <source>View</source>
         <translation>Вигляд</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>&amp;Stop</source>
         <translation>&amp;Зупинити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="81"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
         <source>&amp;Reload</source>
         <translation>&amp;Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="95"/>
         <source>Zoom &amp;In</source>
         <translation>З&amp;більшити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="96"/>
         <source>Zoom &amp;Out</source>
         <translation>З&amp;меншити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="97"/>
         <source>Reset</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="88"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="99"/>
         <source>&amp;Page Source</source>
         <translation>Вихідний код &amp;сторінки</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="227"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="252"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3062,7 +3056,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="227"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="841"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Примітка: Ви не можете видалити активний профіль.</translation>
     </message>
@@ -3420,10 +3414,10 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1015"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1792"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2440"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1286"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1906"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2490"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3469,433 +3463,443 @@ Are you sure you want to close this window?</source>
         <translation>Дозволити просторову навігацію</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1133"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
+        <source>Use native scrollbars</source>
+        <translation>Використовувати системні смужки прокрутки</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
         <source>Mouse wheel scrolls</source>
         <translation>Колесо миші прокручує</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1153"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1160"/>
         <source>lines on page</source>
         <translation>рядків на сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1164"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
         <source>Default zoom on pages: </source>
         <translation>Типове масштабування сторінок:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1203"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1210"/>
         <source>Local Storage</source>
         <translation>Локальне сховище</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1214"/>
-        <source>Maximum </source>
-        <translation>Максимум</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1221"/>
-        <source>50 MB</source>
-        <translation>50 МБ</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1247"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1218"/>
         <source>Allow storing network cache on disk</source>
         <translation>Дозволити зберігання кешу мережі на диску</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
+        <source>Delete cache on close</source>
+        <translation>Видаляти кеш під час закриття</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
+        <source>Maximum:</source>
+        <translation>Максимум:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
+        <source> MB</source>
+        <translation>МБ</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
         <source>Store cache in:</source>
         <translation>Зберігати кеш в:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1299"/>
         <source>Allow saving history</source>
         <translation>Дозволити зберігання історії</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1289"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1306"/>
         <source>Delete history on close</source>
         <translation>Видаляти історію під час закриття</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1329"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Дозволити локальне зберігання HTML5-контент</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1336"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Видаляти локально збережений HTML5-контент під час закриття</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1345"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
         <source>Delete now</source>
         <translation>Видалити зараз</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1384"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1401"/>
         <source>Proxy Configuration</source>
         <translation>Конфігурація проксі</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1403"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1420"/>
         <source>System proxy configuration</source>
         <translation>Системні налаштування проксі</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1443"/>
         <source>Manual configuration</source>
         <translation>Ручні налаштування</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1453"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1441"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1469"/>
         <source>Port:</source>
         <translation>Порт:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1490"/>
         <source>Username:</source>
         <translation>Ім&apos;я користувача:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1483"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1500"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1516"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1533"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Шрифтові сім&apos;ї&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1529"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Standard</source>
         <translation>Cтандарт</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1536"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1553"/>
         <source>Fixed</source>
         <translation>Фіксований</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1563"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1556"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1573"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1566"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1583"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1635"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1642"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Розміри шрифта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1651"/>
         <source>Fixed Font Size</source>
         <translation>Фіксований розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1658"/>
         <source>Default Font Size</source>
         <translation>Типовий розмір шрифту</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1668"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1685"/>
         <source>Minimum Font Size</source>
         <translation>Мінімальний розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1675"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1692"/>
         <source>Minimum Logical Font Size</source>
         <translation>Мінімальний логічний розмір шрифта</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Гарячі клавіши&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Перемикатись між вкладками за допомогою &quot;Alt&quot; і цифрових клавіш</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Завантажувати сторінки зі &quot;Speed Dial&quot; за допомогою &quot;Ctrl&quot; і цифрових клавіш</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1746"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation>Існуюче скорочення:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; — попередня вкладка&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; — наступна вкадка&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; — пошук на сторінці</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1749"/>
         <source>Use single key shortcuts</source>
         <translation>Використовувати єдині скорочення клавіш</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation>Якщо не позначено, запобігає випадковому виходу із програми при навмисному натисненні скорочення Ctrl-W.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1742"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1759"/>
         <source>Close application with Ctrl-Q</source>
         <translation>Закрити програму через Ctrl-Q</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1766"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Місцерозташування завантажень&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
         <source>Ask everytime for download location</source>
         <translation>Щоразу питати про місцерозташування завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1797"/>
         <source>Use defined location: </source>
         <translation>Використовувати визначене місце: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1830"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опції завантаження&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1837"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1854"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Закрити менеджер завантаження коли завантаження закінчиться</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1844"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1861"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Зовнішній менеджер завантаження&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1868"/>
         <source>Use external download manager</source>
         <translation>Використовувати зовнішній менеджер завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
         <source>Executable:</source>
         <translation>Виконуваний файл:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1887"/>
         <source>Arguments:</source>
         <translation>Параметри запуску:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1877"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1894"/>
         <source>Leave blank if unsure</source>
         <translation>Лишити порожнім якщо немає впевненості</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1915"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; буде замінено URL-адресою завантаження</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1941"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Опції автозаповення&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
         <source>Allow saving passwords from sites</source>
         <translation>Дозволити зберігання паролів з сайтів</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2010"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Інше&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2019"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
         <source>JavaScript options</source>
         <translation>Налаштування JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2059"/>
         <source>Cookies Manager</source>
         <translation> Менеджер cookies </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2069"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Керувати налаштуваннями приватності JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2092"/>
         <source>Manage HTML5 permissions</source>
         <translation>Керування дозволами HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
         <source>Manage Cookies</source>
         <translation>Керування Cookies&apos;ами</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2119"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Дозволи HTML5&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
         <source>HTML5 Permissions</source>
         <translation>Дозволи HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Відсилати серверам заголовок &quot;Не відстежувати&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2133"/>
-        <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Сповіщення&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2140"/>
-        <source>Use OSD Notifications</source>
-        <translation>Використовувати OSD-сповіщення</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
-        <source>Use Native System Notifications (Linux only)</source>
-        <translation>Використовувати рідні системні сповіщення (тільки для Linux)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2157"/>
-        <source>Do not use Notifications</source>
-        <translation>Не використовувати сповіщення</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2208"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2165"/>
         <source>Expiration timeout:</source>
         <translation>Час відображення:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
         <source> seconds</source>
         <translation> секунд</translation>
     </message>
     <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2200"/>
+        <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Сповіщення&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2223"/>
+        <source>Use Native System Notifications (Linux only)</source>
+        <translation>Використовувати рідні системні сповіщення (тільки для Linux)</translation>
+    </message>
+    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
+        <source>Do not use Notifications</source>
+        <translation>Не використовувати сповіщення</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2253"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Примітка: &lt;/b&gt;Ви можете змінити положення OSD сповіщеннь перетягуючи їх екраном.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
+        <source>Use OSD Notifications</source>
+        <translation>Використовувати OSD-сповіщення</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
+        <source>Preview</source>
+        <translation>Перегляд</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
         <translation>Щоб отримати більше інформації про перевірку правопису, дивіться &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;вікі&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2343"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Налаштування перевірки правопису&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2350"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
         <translation>Увмкнути перевірку правопису</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2357"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
         <translation>&lt;b&gt;Теки словників&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
         <translation>Не знайдено мов</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2416"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Управління пошуковими системами&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Використовувати стилі користувачів&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2430"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation>Автоматично завантажувати стилі разом з усіма веб-сайтами: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Пріоритетна мова для веб-сайтів&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2530"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Змінити ідентифікацію переглядача&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2505"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2555"/>
         <source>User Agent Manager</source>
         <translation>Менеджер User-Agent’ів</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2545"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
         <source>Languages</source>
         <translation>Мови</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2635"/>
         <source>Search Engines Manager</source>
         <translation>Менеджер пошукових систем</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
-        <source>QupZilla</source>
-        <translation>QupZilla</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
         <source>Default</source>
         <translation>За замовчуванням</translation>
     </message>
@@ -3905,78 +3909,78 @@ Are you sure you want to close this window?</source>
         <translation>Встановити за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="540"/>
         <source>Choose executable location...</source>
         <translation>Виберіть місцерозташування виконуваного файлу...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="589"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
         <source>OSD Notification</source>
         <translation>OSD сповіщення</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="585"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Перетягніть по екрану в місце, де Ви хочете щоб розміщувалося сповіщення.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="637"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="632"/>
         <source>Choose download location...</source>
         <translation>Виберіть місцерозташування завантаження...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="651"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="646"/>
         <source>Choose stylesheet location...</source>
         <translation>Виберіть місцерозташування таблиці стилів...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
         <source>Deleted</source>
         <translation>Видалено</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="746"/>
         <source>Choose cache path...</source>
         <translation>Виберіть шлях для кешу...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
         <source>New Profile</source>
         <translation>Новий профіль</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Введіть ім&apos;я нового профілю:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>Error!</source>
         <translation>Помилка!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>This profile already exists!</source>
         <translation>Такий профіль вже існує!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>Cannot create profile directory!</source>
         <translation>Неможливо створити теку профілю!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
         <source>Confirmation</source>
         <translation>Підтвердження</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="824"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Ви дійсно хочете остаточно видалити профіль &quot;%1&quot;? Цю дію не можна скасувати!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1099"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
         <source>Select Color</source>
         <translation>Оберіть колір</translation>
     </message>
@@ -3984,7 +3988,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="113"/>
+        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="109"/>
         <source>Native System Notification</source>
         <translation>Рідна система сповіщення</translation>
     </message>
@@ -3999,513 +4003,470 @@ Are you sure you want to close this window?</source>
         <translation>&lt;не встановлено в сертифікаті&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="333"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="342"/>
         <source>Unknown size</source>
         <translation>Розмір невідомий</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="338"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="347"/>
         <source>KB</source>
         <translation>КБ</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="343"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="352"/>
         <source>MB</source>
         <translation>МБ</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="347"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="356"/>
         <source>GB</source>
         <translation>ГБ</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="801"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="815"/>
         <source>Executable: </source>
         <translation>Виконуваний файл: </translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="802"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="816"/>
         <source>Arguments: </source>
         <translation>Параметри запуску: </translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="804"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="818"/>
         <source>Cannot start external program</source>
         <translation>Неможливо запустити зовнішню програму</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="805"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="819"/>
         <source>Cannot start external program! %1</source>
         <translation>Неможливо запустити зовнішню програму! %1</translation>
     </message>
 </context>
 <context>
-    <name>QtWin</name>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="375"/>
-        <source>Open new tab</source>
-        <translation>Відкрити нову вкладку</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="375"/>
-        <source>Opens a new tab if browser is running</source>
-        <translation>Відкриває нову вкладку, якщо переглядач запущено</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="379"/>
-        <source>Open new window</source>
-        <translation>Відкрити нове вікно</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="379"/>
-        <source>Opens a new window if browser is running</source>
-        <translation>Відкриває нове вікно, якщо переглядач запущено</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="383"/>
-        <source>Open new private window</source>
-        <translation>Відкрити нове приватне вікно</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="383"/>
-        <source>Opens a new private window</source>
-        <translation>Відкриває нове приватне вікно</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="387"/>
-        <source>Open download manager</source>
-        <translation>Відкрити менеджер завантаження</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="387"/>
-        <source>Opens a download manager if browser is running</source>
-        <translation>Відкриває менеджер завантаження, якщо переглядач запущено</translation>
-    </message>
-</context>
-<context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="131"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="132"/>
         <source>Report Issue</source>
         <translation>Повідомлення про проблему</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="133"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Якщо у Вас виникли проблеми з QupZilla, будь ласка, спробуйте, спочатку, відключити всі розширення. &lt;br/&gt;Якщо це не змінить ситуацію, тоді, будь ласка, заповніть цю форму: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
         <source>Your E-mail</source>
         <translation>Ваш E-mail</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="140"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
         <source>Issue type</source>
         <translation>Тип проблеми</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="141"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
         <source>Issue description</source>
         <translation>Опис проблеми</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="142"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="138"/>
         <source>Send</source>
         <translation>Відіслати</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="143"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>Вказувати E-mail не обов’язково &lt;br/&gt;&lt;b&gt;Примітка: &lt;/b&gt;Будь ласка, спочатку прочитайте про те, як створювати звіт про помилку &lt;a href=%1&gt;тут&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="145"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="141"/>
         <source>Please fill out all required fields!</source>
         <translation>Будь ласка, заповніть всі обов&apos;язкові поля!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="169"/>
         <source>Start Page</source>
         <translation>Стартова сторінка</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
         <translation>Шукати у Вебі</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Результати пошуку надані DuckDuckGo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="179"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="173"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="189"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="190"/>
         <source>About QupZilla</source>
         <translation>Про QupZill’у</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="180"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Приватний перегляд&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>Information about version</source>
         <translation>Інформація про версію</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="200"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
         <source>Copyright</source>
         <translation>Авторське право</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="203"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
         <source>Version</source>
         <translation>Версія</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="202"/>
         <source>Main developer</source>
         <translation>Головний розробник</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="212"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="204"/>
         <source>Contributors</source>
         <translation>Учасники</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="224"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
         <source>Translators</source>
         <translation>Перекладачі</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="276"/>
         <source>Speed Dial</source>
         <translation>Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="277"/>
         <source>Add New Page</source>
         <translation>Додати нову сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="278"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
         <source>Remove</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="280"/>
         <source>Reload</source>
         <translation>Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Are you sure you want to remove this speed dial?</source>
         <translation>Ви впевнені, що бажаєте видалити цю сторінку зі Speed Dial?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
         <source>Are you sure you want to reload all speed dials?</source>
         <translation>Ви впевнені, що бажаєте перезавантажити весь Speed Dial?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
         <source>Load title from page</source>
         <translation>Завантажити назву зі сторінки</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
         <source>Url</source>
         <translation>Url-адреса</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
         <source>Title</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
         <source>Apply</source>
         <translation>Застосувати</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
         <source>New Page</source>
         <translation>Нова сторінка</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
         <source>Speed Dial settings</source>
         <translation>Налаштування Speed Dial</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
         <source>Placement: </source>
         <translation>Розміщення: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
         <source>Auto</source>
         <translation>Автоматично</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
         <source>Cover</source>
         <translation>Покрити повністю</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Fit</source>
         <translation>Підігнати</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Fit Width</source>
         <translation>Підігнати ширину</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Fit Height</source>
         <translation>Підігнати висоту</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Use background image</source>
         <translation>Використовувати фонове зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Select image</source>
         <translation>Оберіть зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Maximum pages in a row:</source>
         <translation>Максимальна кількість сторінок в рядку:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Change size of pages:</source>
         <translation>Змінити розмір сторінок:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Center speed dials</source>
         <translation>Центрувати &quot;Speed Dials&quot;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="336"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
         <translation>Відновити сесію</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="337"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Ой, QupZilla впала.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="338"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Ми просимо вибачення за це. Чи бажаєте Ви відновити останній збережений стан?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="339"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Спробуйте вимкнути одну або декілька вкладок, які, на Вашу думку, спричиняють проблеми</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="340"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
         <translation>Або Ви можете розпочати нову сесію</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="330"/>
         <source>Window</source>
         <translation>Вікно</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="331"/>
         <source>Windows and Tabs</source>
         <translation>Вікна та вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="332"/>
         <source>Start New Session</source>
         <translation>Розпочати нову сесію</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="333"/>
         <source>Restore</source>
         <translation>Відновити</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Configuration Information</source>
         <translation>Інформація про конфігурацію</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Ця сторінка містить інфомацію про поточну конфігурацію QupZill&apos;и - актуальна для усунення несправностей. Будь ласка, додайте цю інформацію коли заповнюватимете звіти про помилки.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Browser Identification</source>
         <translation>Ідентифікація переглядача</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Paths</source>
         <translation>Шляхи</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Build Configuration</source>
         <translation>Конфігурація збірки</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Option</source>
         <translation>Опція</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Value</source>
         <translation>Значення</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Extensions</source>
         <translation>Розширення</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
         <source>Application version</source>
         <translation>Версія програми</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Qt version</source>
         <translation>Версія Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Platform</source>
         <translation>Платформа</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Profile</source>
         <translation>Профіль</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Saved session</source>
         <translation>Збережена сесія</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Pinned tabs</source>
         <translation>Закріплені вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Data</source>
         <translation>Дані</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Themes</source>
         <translation>Теми</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Translations</source>
         <translation>Переклади</translation>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Підключено&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <source>Disabled</source>
         <translation>Відключено</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Debug build</source>
         <translation>Збірка для налагодження</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Portable build</source>
         <translation>Переносна збірка</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="436"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
         <source>No available extensions.</source>
         <translation>Немає доступних розширень.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="495"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="481"/>
         <source>Blocked content</source>
         <translation>Блокований зміст</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="504"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="490"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
         <translation>Заблоковано &lt;i&gt;%1 (%2)&lt;/i&gt;</translation>
     </message>
@@ -4643,7 +4604,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="127"/>
+        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="121"/>
         <source>No results found.</source>
         <translation>Нічого не знайдено.</translation>
     </message>
@@ -4689,57 +4650,57 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Інформація про сайт</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="50"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="47"/>
         <source>General</source>
         <translation>Загальне</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="55"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="52"/>
         <source>Media</source>
         <translation>Медіа</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="87"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="84"/>
         <source>Site address:</source>
         <translation>Адреса сайту:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="116"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="113"/>
         <source>Encoding:</source>
         <translation>Кодування:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="135"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="132"/>
         <source>Meta tags of site:</source>
         <translation>Мета-теґи сайту:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="149"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="146"/>
         <source>Tag</source>
         <translation>Теґ</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="154"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="151"/>
         <source>Value</source>
         <translation>Значення</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="168"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="165"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
         <translation>&lt;b&gt;Інформація про захист&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="238"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="235"/>
         <source>Image</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="243"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="240"/>
         <source>Image address</source>
         <translation>Адреса зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="268"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="265"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
         <translation>&lt;b&gt;Попередній перегляд&lt;/b&gt;</translation>
     </message>
@@ -4795,7 +4756,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Завантажується...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="226"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="228"/>
         <source>Preview not available</source>
         <translation>Попередній перегляд недоступний</translation>
     </message>
@@ -4857,7 +4818,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Оберіть зображення...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="348"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="346"/>
         <source>Unable to load</source>
         <translation>Не вдається завантажити</translation>
     </message>
@@ -4903,83 +4864,83 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Справді бажаєте закрити всі вкладки ліворуч?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Зупинити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Перезавантажити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Дублювати вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>D&amp;etach Tab</source>
         <translation>Від&amp;чепити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>Un&amp;pin Tab</source>
         <translation>&amp;Відкріпити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>&amp;Pin Tab</source>
         <translation>За&amp;кріпити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>Un&amp;mute Tab</source>
         <translation>&amp;Увімкнути звук вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>&amp;Mute Tab</source>
         <translation>При&amp;тишити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Переза&amp;вантажити всі вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Додати до закладок &amp;всі вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Закрити &amp;інші вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
         <translation>Закрити вкладки праворуч</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
         <translation>Закрити вкладки ліворуч</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
-        <source>Cl&amp;ose</source>
-        <translation>З&amp;акрити</translation>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <source>Cl&amp;ose Tab</source>
+        <translation>&amp;Закрити вкладку</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
         <source>&amp;New tab</source>
         <translation>&amp;Нова вкладка</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="363"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Перезаванта&amp;жити всі вкладки</translation>
     </message>
@@ -4987,12 +4948,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabIcon</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
         <translation>Увімкнути звук вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
         <translation>Притишити вкладку</translation>
     </message>
@@ -5000,7 +4961,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="52"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="51"/>
         <source>New Tab</source>
         <translation>Нова вкладка</translation>
     </message>
@@ -5014,30 +4975,28 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <source>List of tabs</source>
         <translation>Перелік вкладок</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="293"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="457"/>
-        <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>Наразі у Вас відкрита %n вкладка</numerusform><numerusform>Наразі у Вас відкрито %n вкладки</numerusform><numerusform>Наразі у Вас відкрито %n вкладок</numerusform></translation>
-    </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="310"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="313"/>
         <source>Empty</source>
         <translation>Порожня</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="314"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="317"/>
         <source>Restore All Closed Tabs</source>
         <translation>Відновити всі закриті вкладки</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="315"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="318"/>
         <source>Clear list</source>
         <translation>Очистити перелік</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="460"/>
+        <source>Currently you have %n opened tab(s)</source>
+        <translation><numerusform>Наразі у Вас відкрита %n вкладка</numerusform><numerusform>Наразі у Вас відкрито %n вкладки</numerusform><numerusform>Наразі у Вас відкрито %n вкладок</numerusform></translation>
+    </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="850"/>
-        <location filename="../src/lib/tabwidget/tabwidget.h" line="105"/>
+        <location filename="../src/lib/tabwidget/tabwidget.h" line="102"/>
         <source>New tab</source>
         <translation>Нова вкладка</translation>
     </message>
@@ -5045,7 +5004,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="212"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="211"/>
         <source>Inspect Element</source>
         <translation>Перевірити елемент</translation>
     </message>
@@ -5134,22 +5093,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="100"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="95"/>
         <source>Add new site</source>
         <translation>Додати новий сайт</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="138"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="133"/>
         <source>Edit site</source>
         <translation>Редагувати сайт</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="216"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="211"/>
         <source>Site domain: </source>
         <translation>Домен сайту: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="217"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="212"/>
         <source>User Agent: </source>
         <translation>User Agent: </translation>
     </message>
@@ -5157,38 +5116,38 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla не може управитись з посиланнями &lt;b&gt;%1:&lt;/b&gt;. Шукане посилання &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Чи хочете Ви аби QupZilla спробувала відкрити це посилання за допомогою системної програми?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="280"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="286"/>
         <source>Remember my choice for this protocol</source>
         <translation>Запам&apos;ятати мій вибір для цього протоколу</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="287"/>
         <source>External Protocol Request</source>
         <translation>Запит зовнішнього протоколу</translation>
     </message>
     <message>
+        <location filename="../src/lib/webengine/webpage.cpp" line="382"/>
         <location filename="../src/lib/webengine/webpage.cpp" line="383"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Failed loading page</source>
         <translation>Не вдалося завантажити сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Під час завантаженя цієї сторінки щось пішло не так.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Спробуйте перезавантажити сторінку або закрити деякі вкладки, щоб звільнити пам&apos;ять.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="387"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Reload page</source>
         <translation>Перезавантажити сторінку</translation>
     </message>
@@ -5244,12 +5203,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="386"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="437"/>
         <source>Loading...</source>
         <translation>Завантажується...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="402"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="453"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -5257,252 +5216,252 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="103"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="124"/>
         <source>Empty Page</source>
         <translation>Порожня сторінка</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="637"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
         <translation>Немає пропозицій</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>&amp;Back</source>
         <translation>&amp;Назад</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="693"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="719"/>
         <source>&amp;Forward</source>
         <translation>&amp;Вперед</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Додати нову сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="701"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Налаштування швидкого набору</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="703"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="729"/>
         <source>Reload All Dials</source>
         <translation> Перезавантажити весь набір?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>Book&amp;mark page</source>
         <translation>Додати &amp;закладку на сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Зберегти сторінку як...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Копіювати посилання на сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send page link...</source>
         <translation>Відправити посилання на сторінку...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
         <source>Select &amp;all</source>
         <translation>Виділити &amp;все</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="758"/>
         <source>Validate page</source>
         <translation>Перевірити достовірність сторінки</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="762"/>
         <source>Translate page</source>
         <translation>Перекласти сторінку</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="766"/>
         <source>Show so&amp;urce code</source>
         <translation>Показати &amp;вихідний код</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="731"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Show info ab&amp;out site</source>
         <translation>Показати інформацію &amp;про сайт</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="775"/>
         <source>Open link in new &amp;tab</source>
         <translation>Відкрити посилання в новій &amp;вкладці</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
         <source>Open link in new &amp;window</source>
         <translation>Відкрити посилання в новому &amp;вікні</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Open link in &amp;private window</source>
         <translation>Відкрити посилання в &amp;анонімному вікні</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="786"/>
         <source>B&amp;ookmark link</source>
         <translation>Додати &amp;закладку на посилання</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="788"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Зберегти посилання як...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Send link...</source>
         <translation>Відправити посилання...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="790"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Копіювати адресу посилання</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
         <source>Show i&amp;mage</source>
         <translation>Показати &amp;зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="807"/>
         <source>Copy image</source>
         <translation>Копіювати зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Копіювати &amp;адресу зображення</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="810"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Зберегти зображення як...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
         <source>Send image...</source>
         <translation>Відправити зображення...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>Send text...</source>
         <translation>Відправити текст...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="835"/>
         <source>Google Translate</source>
         <translation>Google-переклад</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="841"/>
         <source>Dictionary</source>
         <translation>Словник</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="818"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="856"/>
         <source>Go to &amp;web address</source>
         <translation>Перейти до &amp;веб-адреси</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="870"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Шукати &quot;%1 ..&quot; в %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="876"/>
         <source>Search with...</source>
         <translation>Шукати з...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>&amp;Play</source>
         <translation>&amp;Грати</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>&amp;Pause</source>
         <translation>&amp;Пауза</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>Un&amp;mute</source>
         <translation>&amp;Увімкнути звук</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>&amp;Mute</source>
         <translation>&amp;Вимкнути звук</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="900"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Копіювати адресу медіа</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="901"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Відіслати адресу медіа</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="902"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Зберегти медіаконтент на &amp;диск</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Create Search Engine</source>
         <translation>Створити пошуковий двигун</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="962"/>
         <source>&amp;Undo</source>
         <translation>Від&amp;мінити дію</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="930"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="968"/>
         <source>&amp;Redo</source>
         <translation>Пов&amp;торити дію</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="974"/>
         <source>&amp;Cut</source>
         <translation>&amp;Вирізати</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="942"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="980"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копіювати</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="986"/>
         <source>&amp;Paste</source>
         <translation>Вс&amp;тавити</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="954"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="992"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="960"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="998"/>
         <source>&amp;Reload</source>
         <translation>&amp;Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="964"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1002"/>
         <source>S&amp;top</source>
         <translation>&amp;Зупинити</translation>
     </message>

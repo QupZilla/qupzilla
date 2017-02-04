@@ -7,42 +7,42 @@
         <translation>Um QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.ui" line="57"/>
+        <location filename="../src/lib/other/aboutdialog.ui" line="54"/>
         <source>Authors</source>
         <translation>Höfundar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="71"/>
         <source>Authors and Contributors</source>
         <translation>Höfundar og önnur framlög</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="69"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Útgáfa forrits er %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="76"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;QtWebEngine útgáfa %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="88"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; Um QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="91"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="96"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Aðalhöfundur:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="92"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="97"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Framlög frá:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="104"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="109"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Þýðendur:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -183,47 +183,47 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="41"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="42"/>
         <source>AdBlock lets you block unwanted content on web pages</source>
         <translation>AdBlock gerir þér kleift að loka á óæskilegt efni á vefsíðum</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>Blocked popup window</source>
         <translation>Bannaður sprettgluggi</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="70"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>AdBlock blocked unwanted popup window.</source>
         <translation>AdBlock lokaði á óæskilegan sprettglugga.</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="89"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="90"/>
         <source>AdBlock</source>
         <translation>AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="116"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="117"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>Sýna &amp;stillingar AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="124"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable on %1</source>
         <translation>Gera óvirkt á %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="130"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="131"/>
         <source>Disable only on this page</source>
         <translation>Gera óvirkt einungis á þessari síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="140"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="141"/>
         <source>Blocked Popup Windows</source>
         <translation>Bannaðir sprettgluggar</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="145"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
         <source>%1 with (%2)</source>
         <translation>%1 með (%2)</translation>
     </message>
@@ -990,12 +990,12 @@ Endilega settu upp nýjustu útgáfu QupZilla.</translation>
 <context>
     <name>BookmarksModel</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="164"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="147"/>
         <source>Title</source>
         <translation>Titill</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="166"/>
+        <location filename="../src/lib/bookmarks/bookmarksmodel.cpp" line="149"/>
         <source>Address</source>
         <translation>Vistfang</translation>
     </message>
@@ -1073,27 +1073,27 @@ Endilega settu upp nýjustu útgáfu QupZilla.</translation>
     <name>BookmarksWidget</name>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
-        <source>Add to bookmarks</source>
-        <translation>Bæta í bókamerki</translation>
+        <source>Add to Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="37"/>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="111"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="112"/>
         <source>Add to Speed Dial</source>
         <translation>Bæta við hraðval</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="97"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="98"/>
         <source>Update Bookmark</source>
         <translation>Uppfæra bókamerki</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="115"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Remove from Speed Dial</source>
         <translation>Fjarlægja úr hraðvali</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="120"/>
+        <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="121"/>
         <source>Remove from Bookmarks</source>
         <translation>Fjarlægja úr bókamerkjum</translation>
     </message>
@@ -1101,82 +1101,82 @@ Endilega settu upp nýjustu útgáfu QupZilla.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="115"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="113"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="342"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="332"/>
         <source>IP Address of current page</source>
         <translation>IP-vistfang núverandi síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="607"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="597"/>
         <source> (Private Browsing)</source>
         <translation> (Einkavafur)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="636"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="884"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="874"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
         <source>&amp;Menu Bar</source>
         <translation>Val&amp;myndastika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="950"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="935"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Fla&amp;kkstika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="954"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="939"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Bókamerkjastika</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="960"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Flipar efst</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1016"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1001"/>
         <source>Other</source>
         <translation>Annað</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>HTML files</source>
         <translation>HTML skrár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Image files</source>
         <translation>Myndskrár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Text files</source>
         <translation>Textaskrár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1060"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>All files</source>
         <translation>Allar skrár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1062"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1040"/>
         <source>Open file...</source>
         <translation>Opna skrá...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1395"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1373"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Þú ert með %n flipa opinn og setan þín verður ekki geymd.
@@ -1184,12 +1184,12 @@ Ertu viss um að þú viljir loka glugganum?</numerusform><numerusform>Þú ert 
 Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1396"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1374"/>
         <source>Don&apos;t ask again</source>
         <translation>Ekki spyrja mig aftur</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1397"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1375"/>
         <source>There are still open tabs</source>
         <translation>Það eru ennþá opnir flipar</translation>
     </message>
@@ -1217,22 +1217,22 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>Leita...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="47"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="55"/>
         <source>History</source>
         <translation>Ferill</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="48"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="56"/>
         <source>Bookmarks</source>
         <translation>Bókamerki</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="53"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="61"/>
         <source>Import Bookmarks...</source>
         <translation>Flytja inn bókamerki...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/browsinglibrary.cpp" line="54"/>
+        <location filename="../src/lib/other/browsinglibrary.cpp" line="62"/>
         <source>Export Bookmarks...</source>
         <translation>Flytja út bókamerki...</translation>
     </message>
@@ -1296,113 +1296,92 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>Hreinsa feril nýlegra skráa</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="20"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="36"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
         <translation>&lt;b&gt;Hreinsa feril nýlegra skráa&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
-        <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation>Valin atriði verða hreinsuð út þegar ýtt er á Hreinsa-hnappinn.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="50"/>
-        <source>Visited pages history from:</source>
-        <translation>Yfirlit yfir heimsóttar síður:</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
-        <source>Earlier Today</source>
-        <translation>Fyrr í dag</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="69"/>
-        <source>Week</source>
-        <translation>Í þessari viku</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="74"/>
-        <source>Month</source>
-        <translation>Í þessum mánuði</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="79"/>
-        <source>All</source>
-        <translation>Allt</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
-        <source>Web databases</source>
-        <translation>Vefgagnagrunnar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="97"/>
-        <source>Local storage</source>
-        <translation>Geymt staðvært</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="107"/>
-        <source>Cache</source>
-        <translation>Skyndiminni</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="117"/>
-        <source>Cookies</source>
-        <translation>Vefkökur</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="127"/>
         <source>Edit cookies</source>
         <translation>Sýsla með vefkökur</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="134"/>
-        <source>Icons</source>
-        <translation>Táknmyndir</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
+        <source>Earlier Today</source>
+        <translation>Fyrr í dag</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="144"/>
-        <source>HTML5 notifications data</source>
-        <translation>HTML5 tilkynningagögn</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="59"/>
+        <source>Week</source>
+        <translation>Í þessari viku</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="151"/>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="165"/>
-        <source>Edit permissions</source>
-        <translation>Breyta heimildum</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="64"/>
+        <source>Month</source>
+        <translation>Í þessum mánuði</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="158"/>
-        <source>HTML5 geolocation data</source>
-        <translation>HTML5 hnattstaðsetningargögn</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="69"/>
+        <source>All</source>
+        <translation>Allt</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="172"/>
-        <source>Optimize database</source>
-        <translation>Besta gagnagrunn</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
+        <source>Visited pages history from:</source>
+        <translation>Yfirlit yfir heimsóttar síður:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="179"/>
-        <source>Database</source>
-        <translation>Gagnagrunnur</translation>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
+        <source>Checked items will be cleared upon clicking the Clear button.</source>
+        <translation>Valin atriði verða hreinsuð út þegar ýtt er á Hreinsa-hnappinn.</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.ui" line="199"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="94"/>
+        <source>Local storage</source>
+        <translation>Geymt staðvært</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="110"/>
         <source>Clear</source>
         <translation>Hreinsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="161"/>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="130"/>
+        <source>Web databases</source>
+        <translation>Vefgagnagrunnar</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
+        <source>Cache</source>
+        <translation>Skyndiminni</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
+        <source>Optimize database</source>
+        <translation>Besta gagnagrunn</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="157"/>
+        <source>Cookies</source>
+        <translation>Vefkökur</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.ui" line="174"/>
+        <source>Database</source>
+        <translation>Gagnagrunnur</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="155"/>
         <source>Done</source>
         <translation>Lokið</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="188"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database Optimized</source>
         <translation>Gagnagrunnur bestaður</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="188"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Tókst að besta gagnagrunn.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Fyrri stærð gagnagrunns: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Stærð gagnagrunns eftir bestun: &lt;/b&gt;%2</translation>
     </message>
@@ -1451,8 +1430,8 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="123"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="165"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Server:</source>
         <translation>Þjónn:</translation>
     </message>
@@ -1478,12 +1457,12 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="181"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="191"/>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="201"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="140"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="141"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="142"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="143"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="144"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="145"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="149"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="150"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="151"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="152"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>&lt;cookie not selected&gt;</source>
         <translation>&lt;vefkaka ekki valin&gt;</translation>
     </message>
@@ -1494,7 +1473,7 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="242"/>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="147"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="156"/>
         <source>Remove cookies</source>
         <translation>Henda vefkökum</translation>
     </message>
@@ -1561,72 +1540,72 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>Sía eftirfylgnivefkökur (tracking cookies)</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.ui" line="445"/>
-        <source>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</source>
-        <translation>&lt;b&gt;Aðvörun:&lt;/b&gt; Síun á vefkökum frá þriðja aðila og á eftirfylgnivefkökum getur leitt til þess að vefkökum sé hafnað frá vefsvæðum. Ef þú lendir í vandamálum með vefkökur, reyndu þá fyrst að gera þessa valkosti óvirka!</translation>
+        <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
+        <source>Delete cookies on close</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="77"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
         <source>Search</source>
         <translation>Leita</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="99"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="103"/>
         <source>Confirmation</source>
         <translation>Staðfesting</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="100"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
         <translation>Ertu viss um að þú viljir eyða öllum vefkökum á tölvunni þinni?</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>Secure only</source>
         <translation>Einungis öruggar</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="157"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>All connections</source>
         <translation>Allar tengingar</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="158"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="167"/>
         <source>Session cookie</source>
         <translation>Setukaka</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="160"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="169"/>
         <source>Remove cookie</source>
         <translation>Fjarlægja vefköku</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="165"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Add to whitelist</source>
         <translation>Bæta við lista yfir leyfilegt</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
         <translation>Þegar á bannlista!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="172"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
         <translation>&quot;%1&quot; þjónninn er þegar á bannlista, fjarlægðu hann fyrst.</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="188"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Add to blacklist</source>
         <translation>Bæta á bannlista</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
         <translation>Þegar á lista yfir leyft!</translation>
     </message>
     <message>
-        <location filename="../src/lib/cookies/cookiemanager.cpp" line="199"/>
+        <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
         <translation>&quot;%1&quot; þjónninn er þegar á lista yfir leyft, fjarlægðu hann fyrst.</translation>
     </message>
@@ -1634,124 +1613,124 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>DownloadItem</name>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="71"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
         <source>Remaining time unavailable</source>
         <translation>Ekki hægt að sjá eftirlifandi tíma</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="133"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="124"/>
         <source>Done - %1 (%2)</source>
         <translation>Lokið - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="137"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="128"/>
         <source>Error - %1</source>
         <translation>Villa - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="141"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="270"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="132"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="259"/>
         <source>Cancelled - %1</source>
         <translation>Hætt við - %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="188"/>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="295"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="179"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
         <source>Cancelled</source>
         <translation>Hætt við</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="194"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="185"/>
         <source>few seconds</source>
         <translation>nokkrar sekúndur</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="197"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="188"/>
         <source>%n seconds</source>
         <translation><numerusform>%n sekúnda</numerusform><numerusform>%n sekúndur</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="200"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="191"/>
         <source>%n minutes</source>
         <translation><numerusform>%n mínúta</numerusform><numerusform>%n mínútur</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="203"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="194"/>
         <source>%n hours</source>
         <translation><numerusform>%n klukkustund</numerusform><numerusform>%n klukkustundir</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="210"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="201"/>
         <source>Unknown speed</source>
         <translation>Óþekktur hraði</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="215"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="206"/>
         <source>kB/s</source>
         <translation>kB/sek</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="220"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="211"/>
         <source>MB/s</source>
         <translation>MB/sek</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="224"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="215"/>
         <source>GB/s</source>
         <translation>GB/sek</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="248"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="239"/>
         <source>Unknown size</source>
         <translation>Óþekkt stærð</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="249"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="240"/>
         <source>%2 - unknown size (%3)</source>
         <translation>%2 - óþekkt stærð (%3)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="252"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="243"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
         <translation>Eftir %1 - %2 af %3 (%4)</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="286"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="275"/>
         <source>Open File</source>
         <translation>Opna skrá</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="288"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="277"/>
         <source>Open Folder</source>
         <translation>Opna möppu</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="290"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="279"/>
         <source>Copy Download Link</source>
         <translation>Afrita niðurhalstengil</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="292"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
         <source>Cancel downloading</source>
         <translation>Hætta við niðurhal</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="293"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="282"/>
         <source>Remove From List</source>
         <translation>Fjarlægja af lista</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="295"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
         <source>Error</source>
         <translation>Villa</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
         <source>Not found</source>
         <translation>Fannst ekki</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloaditem.cpp" line="321"/>
+        <location filename="../src/lib/downloads/downloaditem.cpp" line="310"/>
         <source>Sorry, the file 
  %1 
  was not found!</source>
@@ -1764,68 +1743,68 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     <name>DownloadManager</name>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="145"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="340"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="395"/>
         <source>Download Manager</source>
         <translation>Niðurhalsstjóri</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.ui" line="76"/>
+        <location filename="../src/lib/downloads/downloadmanager.ui" line="85"/>
         <source>Clear</source>
         <translation>Hreinsa</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="179"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="217"/>
         <source>%1% of %2 files (%3) %4 remaining</source>
         <translation>%1% af %2 skrám (%3) %4 eftir</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="182"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="221"/>
         <source>%1% - Download Manager</source>
         <translation>%1% - Niðurhalsstjóri</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="243"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
         <source>Save file as...</source>
         <translation>Vista skrá sem...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="253"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="254"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="255"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="259"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>Download Finished</source>
         <translation>Niðurhali lokið</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="333"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Allar skrár hafa verið sóttar.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="390"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="456"/>
         <source>Warning</source>
         <translation>Aðvörun</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="391"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Ertu viss um að þú viljir hætta? Hætt verður við öll ólokin niðurhöl!</translation>
     </message>
@@ -1833,52 +1812,52 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>DownloadOptionsDialog</name>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="26"/>
-        <source>Opening</source>
-        <translation>Opna</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="32"/>
-        <source>You have chosen to open</source>
-        <translation>Þú hefur valið að opna</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="39"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="25"/>
         <source>What should QupZilla do with this file?</source>
         <translation>Hvað á QupZilla að gera við þessa skrá?</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="61"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="47"/>
         <source>Open...</source>
         <translation>Opna...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="68"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="54"/>
         <source>Save File</source>
         <translation>Vista skrá</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="78"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="64"/>
         <source>Download with External Manager</source>
         <translation>Sækja með utanaðkomandi niðurhalsstjóra</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="129"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
+        <source>which is:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
         <source>from:</source>
         <translation>frá:</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="155"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="241"/>
         <source>Copy download link</source>
         <translation>Afrita niðurhalstengil</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="33"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="256"/>
+        <source>You have chosen to open</source>
+        <translation>Þú hefur valið að opna</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="49"/>
         <source>Opening %1</source>
         <translation>Opna %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="97"/>
+        <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="111"/>
         <source>Download link copied.</source>
         <translation>Niðurhalstengill afritaður.</translation>
     </message>
@@ -1992,17 +1971,17 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>HTML5PermissionsNotification</name>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="62"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="43"/>
         <source>Remember</source>
         <translation>Muna</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="69"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="50"/>
         <source>Allow</source>
         <translation>Leyfa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="76"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.ui" line="57"/>
         <source>Deny</source>
         <translation>Neita</translation>
     </message>
@@ -2012,32 +1991,32 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>þessu vefsvæði</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="44"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
         <translation>Leyfa %1 að birta tilkynningar á skjáborði?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="49"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
         <translation>Leyfa %1 að staðsetja þig?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="54"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="51"/>
         <source>Allow %1 to use your microphone?</source>
         <translation>Leyfa %1 að nota hljóðnemann?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="55"/>
         <source>Allow %1 to use your camera?</source>
         <translation>Leyfa %1 að nota myndavélina?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="64"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your microphone and camera?</source>
         <translation>Leyfa %1 að nota hljóðnemann og myndavélina?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="69"/>
+        <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="63"/>
         <source>Allow %1 to hide your pointer?</source>
         <translation>Leyfa %1 að fela bendilinn?</translation>
     </message>
@@ -2045,67 +2024,67 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>History</name>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="80"/>
+        <location filename="../src/lib/history/history.cpp" line="84"/>
         <source>Empty Page</source>
         <translation>Auð síða</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="267"/>
+        <location filename="../src/lib/history/history.cpp" line="265"/>
         <source>January</source>
         <translation>Janúar</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="269"/>
+        <location filename="../src/lib/history/history.cpp" line="267"/>
         <source>February</source>
         <translation>Febrúar</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="271"/>
+        <location filename="../src/lib/history/history.cpp" line="269"/>
         <source>March</source>
         <translation>Mars</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="273"/>
+        <location filename="../src/lib/history/history.cpp" line="271"/>
         <source>April</source>
         <translation>Apríl</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="275"/>
+        <location filename="../src/lib/history/history.cpp" line="273"/>
         <source>May</source>
         <translation>Maí</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="277"/>
+        <location filename="../src/lib/history/history.cpp" line="275"/>
         <source>June</source>
         <translation>Júní</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="279"/>
+        <location filename="../src/lib/history/history.cpp" line="277"/>
         <source>July</source>
         <translation>Júlí</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="281"/>
+        <location filename="../src/lib/history/history.cpp" line="279"/>
         <source>August</source>
         <translation>Ágúst</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="283"/>
+        <location filename="../src/lib/history/history.cpp" line="281"/>
         <source>September</source>
         <translation>September</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="285"/>
+        <location filename="../src/lib/history/history.cpp" line="283"/>
         <source>October</source>
         <translation>Október</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="287"/>
+        <location filename="../src/lib/history/history.cpp" line="285"/>
         <source>November</source>
         <translation>Nóvember</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="289"/>
+        <location filename="../src/lib/history/history.cpp" line="287"/>
         <source>December</source>
         <translation>Desember</translation>
     </message>
@@ -2363,42 +2342,42 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>LineEdit</name>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="89"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="102"/>
         <source>&amp;Undo</source>
         <translation>Aft&amp;urkalla</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="94"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="107"/>
         <source>&amp;Redo</source>
         <translation>&amp;Endurtaka</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="99"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="112"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Klippa</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="104"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="117"/>
         <source>&amp;Copy</source>
         <translation>&amp;Afrita</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="109"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="122"/>
         <source>&amp;Paste</source>
         <translation>&amp;Líma</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="118"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="131"/>
         <source>Delete</source>
         <translation>Eyða</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="121"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="134"/>
         <source>Clear All</source>
         <translation>Hreinsa allt</translation>
     </message>
     <message>
-        <location filename="../src/lib/3rdparty/lineedit.cpp" line="124"/>
+        <location filename="../src/lib/3rdparty/lineedit.cpp" line="137"/>
         <source>Select All</source>
         <translation>Velja allt</translation>
     </message>
@@ -2429,7 +2408,7 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>LocationCompleterView</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="141"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="143"/>
         <source>Switch to tab</source>
         <translation>Skipta yfir í flipa</translation>
     </message>
@@ -2437,22 +2416,37 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1053"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1074"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla er ekki sjálfgefinn vafri á kerfinu þínu. Viltu gera það að sjálfgefnum vafra?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1054"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1075"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Alltaf gera þessa athugun þegar QupZilla er ræst.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1056"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1077"/>
         <source>Default Browser</source>
         <translation>Sjálfgefinn vafri</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1114"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
+        <source>Open new tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
+        <source>Open new window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
+        <source>Open new private window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla er nýr, frjáls og opinn, hraðvirkur og öruggur netvafri. QupZilla kemur með GPL notkunarleyfi, útgáfu 3 eða (eftir vali) síðari útgáfu. QupZilla byggist á WebKit-kjarna og Qt Framework kerfinu.</translation>
     </message>
@@ -2896,12 +2890,12 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="214"/>
         <source>Error!</source>
         <translation>Villa!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="210"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="214"/>
         <source>Cannot load extension!</source>
         <translation>Get ekki hlaðið inn viðbót!</translation>
     </message>
@@ -2909,7 +2903,7 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>PopupWebView</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="101"/>
+        <location filename="../src/lib/popupwindow/popupwebview.cpp" line="100"/>
         <source>Inspect Element</source>
         <translation>Skoða einindi</translation>
     </message>
@@ -2917,67 +2911,67 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>PopupWindow</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="59"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
         <source>File</source>
         <translation>Skrá</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="60"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>Send Link...</source>
         <translation>Senda tengil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="63"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
         <source>Close</source>
         <translation>Loka</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="66"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="77"/>
         <source>Edit</source>
         <translation>Breyta</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="75"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
         <source>Find</source>
         <translation>Leita</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="78"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
         <source>View</source>
         <translation>Skoða</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="79"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>&amp;Stop</source>
         <translation>S&amp;toppa</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="81"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
         <source>&amp;Reload</source>
         <translation>Endu&amp;rhlaða</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="95"/>
         <source>Zoom &amp;In</source>
         <translation>Renna &amp;að</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="96"/>
         <source>Zoom &amp;Out</source>
         <translation>Renna &amp;frá</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="97"/>
         <source>Reset</source>
         <translation>Frumstilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="88"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="99"/>
         <source>&amp;Page Source</source>
         <translation>Frum&amp;kóði síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="227"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="252"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -3062,7 +3056,7 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="227"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="841"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Athugaðu: þú getur ekki eytt virkri forstillingu.</translation>
     </message>
@@ -3420,10 +3414,10 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1015"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1269"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1792"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1889"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2440"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1286"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1906"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2490"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3469,433 +3463,443 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>Virkja rýmisflakk (spatial navigation)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1133"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
+        <source>Use native scrollbars</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
         <source>Mouse wheel scrolls</source>
         <translation>Rennihjól músar skrunar</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1153"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1160"/>
         <source>lines on page</source>
         <translation>línur á síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1164"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
         <source>Default zoom on pages: </source>
         <translation>Sjálfgefin aðdráttur á síður: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1203"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1210"/>
         <source>Local Storage</source>
         <translation>Geymt staðvært</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1214"/>
-        <source>Maximum </source>
-        <translation>Hámark </translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1221"/>
-        <source>50 MB</source>
-        <translation>50 MB</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1247"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1218"/>
         <source>Allow storing network cache on disk</source>
         <translation>Leyfa að geyma netskyndiminni á diski</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1254"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
+        <source>Delete cache on close</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
+        <source>Maximum:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
+        <source> MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
         <source>Store cache in:</source>
         <translation>Geyma skyndiminni í:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1282"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1299"/>
         <source>Allow saving history</source>
         <translation>Leyfa vistun ferils</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1289"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1306"/>
         <source>Delete history on close</source>
         <translation>Eyða ferli þegar hætt er í forritinu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1312"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1329"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Leyfa geymslu á HTML5 vefefni</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1319"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1336"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Eyða geymdu HTML5 vefefni þegar hætt er í forritinu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1345"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
         <source>Delete now</source>
         <translation>Eyða núna</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1384"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1401"/>
         <source>Proxy Configuration</source>
         <translation>Uppsetning milliþjóns (proxy)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1403"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1420"/>
         <source>System proxy configuration</source>
         <translation>Stillingar kerfis fyrir milliþjón</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1426"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1443"/>
         <source>Manual configuration</source>
         <translation>Handvirk uppsetning</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1436"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1453"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1441"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1458"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1452"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1469"/>
         <source>Port:</source>
         <translation>Gátt:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1490"/>
         <source>Username:</source>
         <translation>Notandanafn:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1483"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1500"/>
         <source>Password:</source>
         <translation>Lykilorð:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1516"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1533"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Leturgerðir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1529"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
         <source>Standard</source>
         <translation>Staðlað</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1536"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1553"/>
         <source>Fixed</source>
         <translation>Jafnbreitt</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1546"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1563"/>
         <source>Serif</source>
         <translation>Broddletur (serif)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1556"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1573"/>
         <source>Sans Serif</source>
         <translation>Steinskrift (sans)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1566"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1583"/>
         <source>Cursive</source>
         <translation>Skriftletur</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1618"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1635"/>
         <source>Fantasy</source>
         <translation>Fantasíu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1625"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1642"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Leturstærðir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1634"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1651"/>
         <source>Fixed Font Size</source>
         <translation>Stærð á jafnbreiðu letri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1641"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1658"/>
         <source>Default Font Size</source>
         <translation>Sjálfgefin stærð leturs</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1668"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1685"/>
         <source>Minimum Font Size</source>
         <translation>Lágmarks leturstærð</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1675"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1692"/>
         <source>Minimum Logical Font Size</source>
         <translation>Lágmarks raunleturstærð</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1708"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Flýtilyklar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1715"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Skipta um flipa með Alt + númer flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1722"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Hlaða inn hraðvali með með Ctrl + númer hraðvals</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1729"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1746"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation>Skilgreindir flýtilyklar:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - fyrri flipi&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - næsti flipi&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - leita á síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1732"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1749"/>
         <source>Use single key shortcuts</source>
         <translation>Nota eins-lykils flýtilykla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation>Ef ekki er hakað við þetta, er komið í veg fyrir að hætt sé í forritinu fyrir slysni ef ætlunin var að nota Ctrl-W flýtilykilinn.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1742"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1759"/>
         <source>Close application with Ctrl-Q</source>
         <translation>Loka forriti með Ctrl-Q</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1766"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Staðsetning niðurhals&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1773"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
         <source>Ask everytime for download location</source>
         <translation>Spyrja í hvert skipti um staðsetningu niðurhals</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1780"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1797"/>
         <source>Use defined location: </source>
         <translation>Staðsetning skilgreind af notanda: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1830"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Val við niðurhal&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1837"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1854"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Loka niðurhalsstjóra þegar niðurhali lýkur</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1844"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1861"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Utanaðkomandi niðurhalsstjóri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1851"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1868"/>
         <source>Use external download manager</source>
         <translation>Nota utanaðkomandi niðurhalsstjóra</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1863"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
         <source>Executable:</source>
         <translation>Keyrsluskrá:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1870"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1887"/>
         <source>Arguments:</source>
         <translation>Breytur:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1877"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1894"/>
         <source>Leave blank if unsure</source>
         <translation>Skildu eftir autt ef þú ert ekki viss</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1898"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1915"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>&lt;b&gt;%d&lt;/b&gt; verður skipt út með slóðinni sem á að sækja</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1924"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1941"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Valkostir sjálfvirkrar útfyllingar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1931"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
         <source>Allow saving passwords from sites</source>
         <translation>Leyfa vistun lykilorða á vefsvæðum</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1986"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Vefkökur&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1993"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2010"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Annað&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2019"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
         <source>JavaScript options</source>
         <translation>Valkostir JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2029"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2042"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2059"/>
         <source>Cookies Manager</source>
         <translation>Vefkökustýring</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2052"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2069"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Sýsla með einkalífsvalkosti JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2075"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2092"/>
         <source>Manage HTML5 permissions</source>
         <translation>Sýsla með HTML5-heimildir</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2082"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
         <source>Manage Cookies</source>
         <translation>Sýsla með vefkökur</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2102"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2119"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 heimildir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2115"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 heimildir</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2122"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Senda &quot;ekki fylgjast með mér&quot; (Do Not Track) haus til vefþjóna</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2133"/>
-        <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Tilkynningar&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2140"/>
-        <source>Use OSD Notifications</source>
-        <translation>Birta skjátilkynningar (OSD)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2150"/>
-        <source>Use Native System Notifications (Linux only)</source>
-        <translation>Nota innbyggðar kerfistilkynningar (einungis Linux)</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2157"/>
-        <source>Do not use Notifications</source>
-        <translation>Ekki nota tilkynningar</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2208"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2165"/>
         <source>Expiration timeout:</source>
         <translation>Rennur út:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2221"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
         <source> seconds</source>
         <translation> sekúndur</translation>
     </message>
     <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2200"/>
+        <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Tilkynningar&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2223"/>
+        <source>Use Native System Notifications (Linux only)</source>
+        <translation>Nota innbyggðar kerfistilkynningar (einungis Linux)</translation>
+    </message>
+    <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
+        <source>Do not use Notifications</source>
+        <translation>Ekki nota tilkynningar</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2253"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Athugaðu: &lt;/b&gt;Þú getur breytt staðsetningu OSD skjátilkynninga með því að draga þær til á skjánum.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2301"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
+        <source>Use OSD Notifications</source>
+        <translation>Birta skjátilkynningar (OSD)</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
+        <source>Preview</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2343"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2350"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2357"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2416"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sýsla með leitarvélar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2423"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Stílasíða notanda&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2430"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation>Stílasafni hlaðið sjálfkrafa með öllum vefsvæðum: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Forgangstungumál fyrir vefsíður&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2530"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Breyta auðkenni vafra&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2505"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2555"/>
         <source>User Agent Manager</source>
         <translation>Stýring kennistrengja</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2545"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
         <source>Languages</source>
         <translation>Tungumál</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2635"/>
         <source>Search Engines Manager</source>
         <translation>Stýring leitarvéla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2622"/>
-        <source>QupZilla</source>
-        <translation>QupZilla</translation>
-    </message>
-    <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="605"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
         <source>Default</source>
         <translation>Sjálfgefið</translation>
     </message>
@@ -3905,78 +3909,78 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>Setja sem sjálfgefið</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="541"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="540"/>
         <source>Choose executable location...</source>
         <translation>Veldu staðsetningu keyranlegrar skrár...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="589"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
         <source>OSD Notification</source>
         <translation>Skjátilkynning (OSD)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="590"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="585"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Dragðu hana þangað sem þú vilt hafa hana.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="637"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="632"/>
         <source>Choose download location...</source>
         <translation>Veldu staðsetningu niðurhals...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="651"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="646"/>
         <source>Choose stylesheet location...</source>
         <translation>Veldu staðsetningu stílblaðs...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
         <source>Deleted</source>
         <translation>Eytt</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="756"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="746"/>
         <source>Choose cache path...</source>
         <translation>Veldu slóð fyrir skyndiminni...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
         <source>New Profile</source>
         <translation>Ný forstilling</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Settu inn nýtt heiti á forstillinguna:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>Error!</source>
         <translation>Villa!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="807"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="797"/>
         <source>This profile already exists!</source>
         <translation>Þessi forstilling er þegar til staðar!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="812"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="802"/>
         <source>Cannot create profile directory!</source>
         <translation>Get ekki búið til möppu undir forstillingar!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="823"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
         <source>Confirmation</source>
         <translation>Staðfesting</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="824"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Viltu eyða endanlega &quot;%1&quot;  forstillingunni? Þessi aðgerð er ekki afturkallanleg!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1099"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
         <source>Select Color</source>
         <translation>Velja lit</translation>
     </message>
@@ -3984,7 +3988,7 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="113"/>
+        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="109"/>
         <source>Native System Notification</source>
         <translation>Innbyggð kerfistilkynning</translation>
     </message>
@@ -3999,513 +4003,470 @@ Ertu viss um að þú viljir loka glugganum?</numerusform></translation>
         <translation>&lt;ekki sett í skilríki&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="333"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="342"/>
         <source>Unknown size</source>
         <translation>Óþekkt stærð</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="338"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="347"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="343"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="352"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="347"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="356"/>
         <source>GB</source>
         <translation>GB</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="801"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="815"/>
         <source>Executable: </source>
         <translation>Keyrsluskrá: </translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="802"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="816"/>
         <source>Arguments: </source>
         <translation>Breytur: </translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="804"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="818"/>
         <source>Cannot start external program</source>
         <translation>Gat ekki ræst utanaðkomandi forrit</translation>
     </message>
     <message>
-        <location filename="../src/lib/tools/qztools.cpp" line="805"/>
+        <location filename="../src/lib/tools/qztools.cpp" line="819"/>
         <source>Cannot start external program! %1</source>
         <translation>Gat ekki ræst utanaðkomandi forrit! %1</translation>
     </message>
 </context>
 <context>
-    <name>QtWin</name>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="375"/>
-        <source>Open new tab</source>
-        <translation>Opna nýjan flipa</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="375"/>
-        <source>Opens a new tab if browser is running</source>
-        <translation>Opnar nýjan flipa ef vafri er í gangi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="379"/>
-        <source>Open new window</source>
-        <translation>Opna nýjan glugga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="379"/>
-        <source>Opens a new window if browser is running</source>
-        <translation>Opnar nýjan glugga ef vafri er í gangi</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="383"/>
-        <source>Open new private window</source>
-        <translation>Opna nýjan einkaglugga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="383"/>
-        <source>Opens a new private window</source>
-        <translation>Opnar nýjan einkaglugga</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="387"/>
-        <source>Open download manager</source>
-        <translation>Opna niðurhalsstjóra</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/3rdparty/qtwin.cpp" line="387"/>
-        <source>Opens a download manager if browser is running</source>
-        <translation>Opnar niðurhalsstjóra ef vafri er í gangi</translation>
-    </message>
-</context>
-<context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="131"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="132"/>
         <source>Report Issue</source>
         <translation>Tilkynna um vandamál</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="133"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Ef þú verður fyrir vandamálum við notkun QupZilla, prófaðu fyrst að gera allar viðbætur óvirkar. &lt;br/&gt;Ef það gengur ekki, þá ættirðu að fylla út þetta eyðublað: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
         <source>Your E-mail</source>
         <translation>Tölvupóstfangið þitt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="140"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
         <source>Issue type</source>
         <translation>Tegund vandamáls</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="141"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
         <source>Issue description</source>
         <translation>Lýsing á vandamáli</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="142"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="138"/>
         <source>Send</source>
         <translation>Senda</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="143"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>Tölvupóstfang er valkvætt&lt;br/&gt;&lt;b&gt;Athugaðu: &lt;/b&gt;Lestu þér fyrst til um hvernig á að gera villuskýrslu, &lt;a href=%1&gt;hér&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="145"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="141"/>
         <source>Please fill out all required fields!</source>
         <translation>Fylltu út í alla nauðsynlega reiti!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="169"/>
         <source>Start Page</source>
         <translation>Upphafssíða</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="176"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
         <translation>Leita á vefnum</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="177"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="171"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Leitarniðurstöður í boði DuckDuckGo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="179"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="197"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="173"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="189"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="190"/>
         <source>About QupZilla</source>
         <translation>Um QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="180"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Einkavafur&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>Information about version</source>
         <translation>Upplýsingar um útgáfu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="200"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
         <source>Copyright</source>
         <translation>Höfundarréttur</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="203"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
         <source>Version</source>
         <translation>Útgáfunúmer</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="210"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="202"/>
         <source>Main developer</source>
         <translation>Aðalforritari</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="212"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="204"/>
         <source>Contributors</source>
         <translation>Framlög frá</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="224"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
         <source>Translators</source>
         <translation>Þýðendur</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="276"/>
         <source>Speed Dial</source>
         <translation>Hraðval</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="277"/>
         <source>Add New Page</source>
         <translation>Bæta við nýrri síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="278"/>
         <source>Edit</source>
         <translation>Breyta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
         <source>Remove</source>
         <translation>Fjarlægja</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="280"/>
         <source>Reload</source>
         <translation>Endurhlaða</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Are you sure you want to remove this speed dial?</source>
         <translation>Ertu viss um að þú viljir fjarlægja þetta hraðval?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
         <source>Are you sure you want to reload all speed dials?</source>
         <translation>Ertu viss um að þú viljir endurhlaða allt hraðval?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
         <source>Load title from page</source>
         <translation>Hlaða inn titli frá síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
         <source>Url</source>
         <translation>Slóð</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
         <source>Title</source>
         <translation>Titill</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
         <source>Apply</source>
         <translation>Virkja</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
         <source>Close</source>
         <translation>Loka</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
         <source>New Page</source>
         <translation>Ný síða</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
         <source>Speed Dial settings</source>
         <translation>Stillingar hraðvals</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
         <source>Placement: </source>
         <translation>Staðsetning: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
         <source>Auto</source>
         <translation>Sjálfvirkt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
         <source>Cover</source>
         <translation>Kápa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
         <source>Fit</source>
         <translation>Aðlaga</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
         <source>Fit Width</source>
         <translation>Aðlaga að breidd</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
         <source>Fit Height</source>
         <translation>Aðlaga að hæð</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
         <source>Use background image</source>
         <translation>Nota bakgrunnsmynd</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
         <source>Select image</source>
         <translation>Veldu mynd</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Maximum pages in a row:</source>
         <translation>Hámarksfjöldi síðna í röð:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Change size of pages:</source>
         <translation>Breyta stærð á síðum:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Center speed dials</source>
         <translation>Miðja hraðval</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="336"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Restore Session</source>
         <translation>Endurheimta setu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="337"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Úbbs, QupZilla hrundi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="338"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Við biðjumst afsökunar á þessu. Viltu endurheimta síðustu vistuðu uppsetningu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="339"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Prófaðu að loka einum eða fleiri flipum sem þér sýnist að geti valdið vandræðum</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="340"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
         <source>Or you can start completely new session</source>
         <translation>Eða að þú getur hafið alveg nýja setu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="341"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="330"/>
         <source>Window</source>
         <translation>Gluggi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="342"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="331"/>
         <source>Windows and Tabs</source>
         <translation>Gluggar og flipar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="343"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="332"/>
         <source>Start New Session</source>
         <translation>Hefja nýja setu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="344"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="333"/>
         <source>Restore</source>
         <translation>Endurheimta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Configuration Information</source>
         <translation>Stillingarupplýsingar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="364"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Þessi síða inniheldur upplýsingar um núgildandi stillingar QupZilla - nýtist við leit að vandamálum. Hafðu þessar upplýsingar með þegar þú sendir inn villuskýrslur.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Browser Identification</source>
         <translation>Auðkenni vafra</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Paths</source>
         <translation>Slóðir</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="367"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Build Configuration</source>
         <translation>Stillingar á uppsetningu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="368"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Preferences</source>
         <translation>Kjörstillingar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="369"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Option</source>
         <translation>Valkostir</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="370"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Value</source>
         <translation>Gildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="371"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Extensions</source>
         <translation>Viðbætur</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
         <source>Name</source>
         <translation>Heiti</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
         <source>Author</source>
         <translation>Höfundur</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
         <source>Description</source>
         <translation>Lýsing</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="365"/>
         <source>Application version</source>
         <translation>Útgáfa forrits</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Qt version</source>
         <translation>Útgáfa Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Platform</source>
         <translation>Stýrikerfi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Profile</source>
         <translation>Forstilling</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="390"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Settings</source>
         <translation>Stillingar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="391"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Saved session</source>
         <translation>Vistuð seta</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Pinned tabs</source>
         <translation>Fastir flipar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Data</source>
         <translation>Gögn</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Themes</source>
         <translation>Þemu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Translations</source>
         <translation>Þýðingar</translation>
     </message>
     <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Virkjað&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="394"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="398"/>
         <source>Disabled</source>
         <translation>Óvirkt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Debug build</source>
         <translation>Aflúsunarútgáfa (debug build)</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Portable build</source>
         <translation>Ferða-uppsetning (portable build)</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="436"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
         <source>No available extensions.</source>
         <translation>Engar tiltækar viðbætur.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="495"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="481"/>
         <source>Blocked content</source>
         <translation>Bannað efni</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="504"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="490"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
         <translation>Bannað af &lt;i&gt;%1 (%2)&lt;/i&gt;</translation>
     </message>
@@ -4643,7 +4604,7 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="127"/>
+        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="121"/>
         <source>No results found.</source>
         <translation>Engar niðurstöður fundust.</translation>
     </message>
@@ -4689,57 +4650,57 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <translation>Upplýsingar vefsvæðis</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="50"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="47"/>
         <source>General</source>
         <translation>Almennt</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="55"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="52"/>
         <source>Media</source>
         <translation>Gagnamiðlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="87"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="84"/>
         <source>Site address:</source>
         <translation>Vistfang vefsvæðis:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="116"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="113"/>
         <source>Encoding:</source>
         <translation>Stafatafla:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="135"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="132"/>
         <source>Meta tags of site:</source>
         <translation>Lýsimerkingar vefsvæðis:</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="149"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="146"/>
         <source>Tag</source>
         <translation>Merki</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="154"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="151"/>
         <source>Value</source>
         <translation>Gildi</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="168"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="165"/>
         <source>&lt;b&gt;Security information&lt;/b&gt;</source>
         <translation>&lt;b&gt;Öryggisupplýsingar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="238"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="235"/>
         <source>Image</source>
         <translation>Mynd</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="243"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="240"/>
         <source>Image address</source>
         <translation>Vistfang myndar</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.ui" line="268"/>
+        <location filename="../src/lib/other/siteinfo.ui" line="265"/>
         <source>&lt;b&gt;Preview&lt;/b&gt;</source>
         <translation>&lt;b&gt;Forskoðun&lt;/b&gt;</translation>
     </message>
@@ -4795,7 +4756,7 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <translation>Hleð inn...</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/siteinfo.cpp" line="226"/>
+        <location filename="../src/lib/other/siteinfo.cpp" line="228"/>
         <source>Preview not available</source>
         <translation>Forskoðun er ekki tiltæk</translation>
     </message>
@@ -4857,7 +4818,7 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <translation>Veldu mynd...</translation>
     </message>
     <message>
-        <location filename="../src/lib/plugins/speeddial.cpp" line="348"/>
+        <location filename="../src/lib/plugins/speeddial.cpp" line="346"/>
         <source>Unable to load</source>
         <translation>Gat ekki hlaðið inn</translation>
     </message>
@@ -4903,83 +4864,83 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <translation>Viltu örugglega loka öllum flipunum hér til vinstri?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Stöðva flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="339"/>
         <source>&amp;Reload Tab</source>
         <translation>Endur&amp;lesa flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="342"/>
         <source>&amp;Duplicate Tab</source>
         <translation>A&amp;frita flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>D&amp;etach Tab</source>
         <translation>Af&amp;tengja flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>Un&amp;pin Tab</source>
         <translation>&amp;Losa flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Festa flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>Un&amp;mute Tab</source>
         <translation>Afþa&amp;gga flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>&amp;Mute Tab</source>
         <translation>Þa&amp;gga niður í flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Endur&amp;lesa alla flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bókamerkja &amp;alla flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Loka öðrum fli&amp;pum</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="358"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
         <translation>Loka flipum hér til hægri</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
         <translation>Loka flipum hér til vinstri</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="362"/>
-        <source>Cl&amp;ose</source>
-        <translation>L&amp;oka</translation>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
+        <source>Cl&amp;ose Tab</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
         <source>&amp;New tab</source>
         <translation>&amp;Nýr flipi</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="363"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>En&amp;durlesa alla flipa</translation>
     </message>
@@ -4987,12 +4948,12 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>TabIcon</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabicon.cpp" line="108"/>
+        <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
         <translation type="unfinished"/>
     </message>
@@ -5000,7 +4961,7 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>TabWidget</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="52"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="51"/>
         <source>New Tab</source>
         <translation>Nýr flipi</translation>
     </message>
@@ -5014,30 +4975,28 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <source>List of tabs</source>
         <translation>Listi yfir flipa</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="293"/>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="457"/>
-        <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>Núna ertu með %n opinn flipa</numerusform><numerusform>Núna ertu með %n opna flipa</numerusform></translation>
-    </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="310"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="313"/>
         <source>Empty</source>
         <translation>Tóm</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="314"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="317"/>
         <source>Restore All Closed Tabs</source>
         <translation>Endurheimta alla lokaða flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="315"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="318"/>
         <source>Clear list</source>
         <translation>Hreinsa lista</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="460"/>
+        <source>Currently you have %n opened tab(s)</source>
+        <translation><numerusform>Núna ertu með %n opinn flipa</numerusform><numerusform>Núna ertu með %n opna flipa</numerusform></translation>
+    </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="850"/>
-        <location filename="../src/lib/tabwidget/tabwidget.h" line="105"/>
+        <location filename="../src/lib/tabwidget/tabwidget.h" line="102"/>
         <source>New tab</source>
         <translation>Nýr flipi</translation>
     </message>
@@ -5045,7 +5004,7 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="212"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="211"/>
         <source>Inspect Element</source>
         <translation>Skoða einindi</translation>
     </message>
@@ -5134,22 +5093,22 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
         <translation>Breyta</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="100"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="95"/>
         <source>Add new site</source>
         <translation>Bæta við nýju vefsvæði</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="138"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="133"/>
         <source>Edit site</source>
         <translation>Breyta vefsvæði</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="216"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="211"/>
         <source>Site domain: </source>
         <translation>Lén vefsvæðis: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="217"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="212"/>
         <source>User Agent: </source>
         <translation>Kennisstrengur: </translation>
     </message>
@@ -5157,38 +5116,38 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla getur ekki meðhöndlað &lt;b&gt;%1:&lt;/b&gt; tengla. Umbeðinn tengill er &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Viltu að QupZilla reyni að opna þennan tengil með forriti á kerfinu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="280"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="286"/>
         <source>Remember my choice for this protocol</source>
         <translation>Muna val mitt fyrir þennan samskiptamáta</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="287"/>
         <source>External Protocol Request</source>
         <translation>Utanaðkomandi fyrirspurn um samskiptamáta</translation>
     </message>
     <message>
+        <location filename="../src/lib/webengine/webpage.cpp" line="382"/>
         <location filename="../src/lib/webengine/webpage.cpp" line="383"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Failed loading page</source>
         <translation>Mistókst að hlaða inn síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Eitthvað mistókst þegar síðunni var hlaðið inn.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Prófaðu að endurlesa síðuna eða að loka nokkrum flipum til að losa um eitthvað af tiltæku minni.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="387"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Reload page</source>
         <translation>Endurlesa síðu</translation>
     </message>
@@ -5244,12 +5203,12 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="386"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="437"/>
         <source>Loading...</source>
         <translation>Hleð inn...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="402"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="453"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
@@ -5257,252 +5216,252 @@ Hugsanlega getur endurræsing með kerfisstjóraréttindum ráðið bug á þess
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="103"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="124"/>
         <source>Empty Page</source>
         <translation>Auð síða</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="637"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="689"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
         <source>&amp;Back</source>
         <translation>Til &amp;baka</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="693"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="719"/>
         <source>&amp;Forward</source>
         <translation>Á&amp;fram</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="700"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="726"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Bæta við nýrri síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="701"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>Stilla &amp;hraðval</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="703"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="729"/>
         <source>Reload All Dials</source>
         <translation>Endurlesa hraðval</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="710"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
         <source>Book&amp;mark page</source>
         <translation>Bóka&amp;merkja síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="711"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Save page as...</source>
         <translation>Vi&amp;sta síðu sem...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="712"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Copy page link</source>
         <translation>A&amp;frita tengil síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="713"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send page link...</source>
         <translation>Senda tengil á síðu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="715"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
         <source>Select &amp;all</source>
         <translation>Velja &amp;allt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="758"/>
         <source>Validate page</source>
         <translation>Staðfesta síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="724"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="762"/>
         <source>Translate page</source>
         <translation>Þýða síðu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="766"/>
         <source>Show so&amp;urce code</source>
         <translation>Birta fr&amp;umkóða</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="731"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Show info ab&amp;out site</source>
         <translation>Birta &amp;upplýsingar um vefsvæðið</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="775"/>
         <source>Open link in new &amp;tab</source>
         <translation>Opna tengil í nýjum &amp;flipa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
         <source>Open link in new &amp;window</source>
         <translation>Opna tengil í nýjum &amp;glugga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="743"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Open link in &amp;private window</source>
         <translation>Opna tengil í &amp;einkaglugga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="786"/>
         <source>B&amp;ookmark link</source>
         <translation>Bó&amp;kamerkja tengil</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="788"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Vista tengil sem...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Send link...</source>
         <translation>Senda tengil...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="790"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Afrita vistfang tengils</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
         <source>Show i&amp;mage</source>
         <translation>Sýna &amp;mynd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="769"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="807"/>
         <source>Copy image</source>
         <translation>Afrita mynd</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Afrita vistfang myn&amp;dar</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="810"/>
         <source>&amp;Save image as...</source>
         <translation>Vi&amp;sta mynd sem...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
         <source>Send image...</source>
         <translation>Senda mynd...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>Send text...</source>
         <translation>Senda texta...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="835"/>
         <source>Google Translate</source>
         <translation>Google Translate</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="841"/>
         <source>Dictionary</source>
         <translation>Orðasafn</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="818"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="856"/>
         <source>Go to &amp;web address</source>
         <translation>Fara á &amp;veffang</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="870"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Leita að &quot;%1 ..&quot; með %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="876"/>
         <source>Search with...</source>
         <translation>Leita með...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>&amp;Play</source>
         <translation>S&amp;pila</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="859"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>&amp;Pause</source>
         <translation>&amp;Gera hlé</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>Un&amp;mute</source>
         <translation>Afþa&amp;gga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="860"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>&amp;Mute</source>
         <translation>Þa&amp;gga</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="900"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Afrita vistfang gagnamiðils</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="901"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Senda vistfang gagnamiðils</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="902"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Vista gagnamiðil á &amp;disk</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Create Search Engine</source>
         <translation>Búa til leitarvél</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="962"/>
         <source>&amp;Undo</source>
         <translation>&amp;Afturkalla</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="930"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="968"/>
         <source>&amp;Redo</source>
         <translation>&amp;Endurtaka</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="974"/>
         <source>&amp;Cut</source>
         <translation>&amp;Klippa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="942"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="980"/>
         <source>&amp;Copy</source>
         <translation>&amp;Afrita</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="986"/>
         <source>&amp;Paste</source>
         <translation>&amp;Líma</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="954"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="992"/>
         <source>Select All</source>
         <translation>Velja allt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="960"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="998"/>
         <source>&amp;Reload</source>
         <translation>Endu&amp;rhlaða</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="964"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1002"/>
         <source>S&amp;top</source>
         <translation>S&amp;topp</translation>
     </message>

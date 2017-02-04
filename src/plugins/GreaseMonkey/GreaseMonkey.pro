@@ -71,6 +71,7 @@ TRANSLATIONS += \
     translations/pl_PL.ts \
     translations/pt_BR.ts \
     translations/pt_PT.ts \
+    translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr@ijekavianlatin.ts \
