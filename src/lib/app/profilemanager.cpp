@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -194,6 +194,11 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
 
     // No change in 2.0
     if (prof < Updater::Version("2.0.99")) {
+        return;
+    }
+
+    // No change in 2.1
+    if (prof < Updater::Version("2.1.99")) {
         return;
     }
 
