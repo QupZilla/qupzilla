@@ -262,9 +262,6 @@ void WebView::restoreHistory(const QByteArray &data)
 {
     QDataStream stream(data);
     stream >> *history();
-
-    // Workaround clearing QWebChannel after restoring history
-    page()->setupWebChannel();
 }
 
 QWidget *WebView::inputWidget() const

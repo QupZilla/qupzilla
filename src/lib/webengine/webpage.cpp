@@ -73,7 +73,9 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
-    setupWebChannel();
+    QWebChannel *channel = new QWebChannel(this);
+    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+    setWebChannel(channel);
 
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
     connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
@@ -309,21 +311,6 @@ void WebPage::desktopServicesOpen(const QUrl &url)
     else {
         qWarning() << "WebPage::desktopServicesOpen Url" << url << "has already been opened!\n"
                    "Ignoring it to prevent infinite loop!";
-    }
-}
-
-void WebPage::setupWebChannel()
-{
-    QWebChannel *old = webChannel();
-    const QString objectName = QSL("qz_object");
-
-    QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
-    setWebChannel(channel);
-
-    if (old) {
-        delete old->registeredObjects().value(objectName);
-        delete old;
     }
 }
 

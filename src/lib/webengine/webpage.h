@@ -69,8 +69,6 @@ public:
 
     bool isLoading() const;
 
-    void setupWebChannel();
-
 signals:
     void privacyChanged(bool status);
 
