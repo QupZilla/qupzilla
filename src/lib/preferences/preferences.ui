@@ -1104,6 +1104,13 @@
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="printEBackground">
+                   <property name="text">
+                    <string extracomment="when you are printing page (on printer), it determine whether to also print background (color, image) of html elements">Print element background</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="animateScrolling">
                    <property name="text">
                     <string>Animated scrolling</string>

@@ -876,6 +876,7 @@ void MainApplication::loadSettings()
     webSettings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
     webSettings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::SpatialNavigationEnabled, settings.value("SpatialNavigation", false).toBool());
     webSettings->setAttribute(QWebEngineSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::HyperlinkAuditingEnabled, false);

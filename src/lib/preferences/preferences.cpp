@@ -277,6 +277,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
+    ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", true).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
@@ -951,6 +952,7 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
+    settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
     settings.setValue("UseNativeScrollbars", ui->useNativeScrollbars->isChecked());
 #ifdef Q_OS_WIN
