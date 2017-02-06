@@ -79,15 +79,7 @@
 #include <QToolTip>
 #include <QScrollArea>
 #include <QCollator>
-#include <QPrintDialog>
-#include <QPrinter>
 #include <QTemporaryFile>
-
-#ifdef Q_OS_WIN
-#include <qt_windows.h>
-#else
-#include "fileprinter.h"
-#endif
 
 #ifdef QZ_WS_X11
 #include <QX11Info>
@@ -615,48 +607,7 @@ void BrowserWindow::changeEncoding()
 
 void BrowserWindow::printPage()
 {
-    QPrintDialog* dialog = new QPrintDialog(this);
-    dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
-#ifndef Q_OS_WIN
-    dialog->setOption(QAbstractPrintDialog::PrintPageRange);
-    if (Qz::FilePrinter::cupsAvailable()) {
-        dialog->setOption(QAbstractPrintDialog::PrintCollateCopies);
-    }
-#endif
-    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
-
-    if (dialog->exec() == QDialog::Accepted) {
-        if (dialog->printer()->outputFormat() == QPrinter::PdfFormat) {
-            weView()->page()->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
-            delete dialog;
-        } else {
-            weView()->page()->printToPdf([=](const QByteArray &data) {
-                if (!data.isEmpty()) {
-                    QTemporaryFile tempFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
-                    tempFile.setAutoRemove(false);
-                    if (tempFile.open()) {
-                        qint64 bytesWritten = tempFile.write(data);
-                        tempFile.close();
-                        if (bytesWritten == data.size()) {
-#ifdef Q_OS_WIN
-                            QString printerName = '"' + dialog->printer()->printerName() + '"';
-                            // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
-                            // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
-                            ShellExecuteW((HWND)winId(), L"printto", (LPCWSTR)tempFile.fileName().utf16(), (LPCWSTR)printerName.utf16(), NULL, SW_HIDE);
-                            // TODO: When can we delete the file?
-#else
-                            Qz::FilePrinter::printFile(dialog->printer(), tempFile.fileName(), Qz::FilePrinter::SystemDeletesFiles, Qz::FilePrinter::SystemSelectsPages);
-#endif
-                        } else {
-                            tempFile.remove();
-                        }
-                    }
-                }
-                delete dialog;
-            }, dialog->printer()->pageLayout());
-        }
-    }
+    weView()->printPage();
 }
 
 void BrowserWindow::bookmarkPage()

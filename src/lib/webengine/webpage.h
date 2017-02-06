@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ public:
 
     WebView *view() const;
 
+    bool execPrintPage(QPrinter *printer, int timeout = 1000);
     QVariant execJavaScript(const QString &scriptSource, quint32 worldId = QWebEngineScript::MainWorld, int timeout = 500);
 
     // TODO: Remove when depending on Qt 5.7

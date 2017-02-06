@@ -107,6 +107,25 @@ WebView *WebPage::view() const
     return static_cast<WebView*>(QWebEnginePage::view());
 }
 
+bool WebPage::execPrintPage(QPrinter *printer, int timeout)
+{
+    QPointer<QEventLoop> loop = new QEventLoop;
+    bool result = false;
+    QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
+
+    print(printer, [loop, &result](bool res) {
+        if (loop && loop->isRunning()) {
+            result = res;
+            loop->quit();
+        }
+    });
+
+    loop->exec();
+    delete loop;
+
+    return result;
+}
+
 QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, int timeout)
 {
     QPointer<QEventLoop> loop = new QEventLoop;

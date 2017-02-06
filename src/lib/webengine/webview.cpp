@@ -48,6 +48,8 @@
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
 #include <QScrollBar>
+#include <QPrintPreviewDialog>
+#include <QPrinter>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -394,6 +396,25 @@ void WebView::forward()
 
         emit urlChanged(url());
     }
+}
+
+void WebView::printPage()
+{
+    Q_ASSERT(m_page);
+
+    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->resize(800, 750);
+    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
+    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(m_page->url()));
+
+    connect(dialog, &QPrintPreviewDialog::paintRequested, this, [=](QPrinter *printer) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        m_page->execPrintPage(printer, 10 * 1000);
+        QApplication::restoreOverrideCursor();
+    });
+
+    dialog->open();
 }
 
 void WebView::slotLoadStarted()

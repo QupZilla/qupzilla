@@ -472,9 +472,6 @@ win32 {
     SOURCES += other/registerqappassociation.cpp
 
     LIBS += -llibeay32
-} else {
-    HEADERS += app/fileprinter.h
-    SOURCES += app/fileprinter.cpp
 }
 
 os2 {
