@@ -61,7 +61,6 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "Romanian"
-!insertmacro MUI_LANGUAGE "Hongkongese"
 !insertmacro MUI_LANGUAGE "Tradchinese"
 !insertmacro MUI_LANGUAGE "Simpchinese"
 !insertmacro MUI_LANGUAGE "Indonesian"
@@ -110,11 +109,11 @@ notRunning:
   File "qupzilla.dll"
   File "libeay32.dll"
   File "ssleay32.dll"
-  File "Microsoft.VC120.CRT.manifest"
   File "qt.conf"
-  File "msvcp120.dll"
-  File "msvcr120.dll"
-  File "vccorlib120.dll"
+  File "concrt140.dll"
+  File "msvcp140.dll"
+  File "vccorlib140.dll"
+  File "vcruntime140.dll"
   File "icudt54.dll"
   File "icuin54.dll"
   File "icuuc54.dll"
@@ -132,6 +131,7 @@ notRunning:
   File "Qt5QuickWidgets.dll"
   File "Qt5Sql.dll"
   File "Qt5Svg.dll"
+  File "Qt5WinExtras.dll"
   File "Qt5WebEngine.dll"
   File "Qt5WebEngineCore.dll"
   File "Qt5WebEngineWidgets.dll"
@@ -354,8 +354,6 @@ Function .onInit
         Push Italian
         Push ${LANG_ROMANIAN}
         Push Romanian
-        Push ${LANG_HONGKONG}
-        Push Hongkongese
         Push ${LANG_TRADCHINESE}
         Push TraditionalChinese
         Push ${LANG_SIMPCHINESE}
