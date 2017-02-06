@@ -145,26 +145,6 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, i
     return result;
 }
 
-void WebPage::runJavaScript(const QString &scriptSource)
-{
-    return QWebEnginePage::runJavaScript(scriptSource);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback)
-{
-    return QWebEnginePage::runJavaScript(scriptSource, resultCallback);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId)
-{
-    QWebEnginePage::runJavaScript(scriptSource, worldId);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback)
-{
-    QWebEnginePage::runJavaScript(scriptSource, worldId, resultCallback);
-}
-
 QPointF WebPage::mapToViewport(const QPointF &pos) const
 {
     return QPointF(pos.x() / zoomFactor(), pos.y() / zoomFactor());

@@ -50,12 +50,6 @@ public:
     bool execPrintPage(QPrinter *printer, int timeout = 1000);
     QVariant execJavaScript(const QString &scriptSource, quint32 worldId = QWebEngineScript::MainWorld, int timeout = 500);
 
-    // TODO: Remove when depending on Qt 5.7
-    void runJavaScript(const QString &scriptSource);
-    void runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback);
-    void runJavaScript(const QString &scriptSource, quint32 worldId);
-    void runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback);
-
     QPointF mapToViewport(const QPointF &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
