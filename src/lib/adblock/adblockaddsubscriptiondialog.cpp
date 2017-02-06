@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,22 +25,18 @@ AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
     ui->setupUi(this);
 
     m_knownSubscriptions << Subscription("EasyList (English)", ADBLOCK_EASYLIST_URL)
-                         << Subscription("Adversity (English)", "http://adversity.googlecode.com/hg/Adversity.txt")
                          << Subscription("BSI Lista Polska (Polish)", "http://www.bsi.info.pl/filtrABP.txt")
                          << Subscription("Czech List (Czech)", "http://adblock.dajbych.net/adblock.txt")
                          << Subscription("dutchblock (Dutch)", "http://groenewoudt.net/dutchblock/list.txt")
                          << Subscription("Filtros Nauscopicos (Spanish)", "http://abp.mozilla-hispano.org/nauscopio/filtros.txt")
-                         << Subscription("hufilter (Hungarian)", "http://www.hufilter.hu/hufilter.txt")
                          << Subscription("IsraelList (Hebrew)", "http://secure.fanboy.co.nz/israelilist/IsraelList.txt")
-                         << Subscription("Lista Basa (Polish)", "http://plok.studentlive.pl/abp.txt")
                          << Subscription("NLBlock (Dutch)", "http://www.verzijlbergh.com/adblock/nlblock.txt")
                          << Subscription("Peter Lowe's list (English)", "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&mimetype=plaintext")
                          << Subscription("PLgeneral (Polish)", "http://www.niecko.pl/adblock/adblock.txt")
                          << Subscription("Schacks Adblock Plus liste (Danish)", "http://adblock.schack.dk/block.txt")
                          << Subscription("Xfiles (Italian)", "http://mozilla.gfsolone.com/filtri.txt")
                          << Subscription("EasyPrivacy (English)", "http://easylist-downloads.adblockplus.org/easyprivacy.txt")
-                         << Subscription("Antisocial (English)", "http://adversity.googlecode.com/hg/Antisocial.txt")
-                         << Subscription("RU Adlist (Russian)", "https://ruadlist.googlecode.com/hg/advblock.txt")
+                         << Subscription("RU Adlist (Russian)", "https://easylist-downloads.adblockplus.org/advblock.txt")
                          << Subscription("ABPindo (Indonesian)", "https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt")
                          << Subscription("Easylist China (Chinese)", "https://easylist-downloads.adblockplus.org/easylistchina.txt")
                          << Subscription("Anti-Adblock Killer", "https://raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt")
