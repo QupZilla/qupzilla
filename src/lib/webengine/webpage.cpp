@@ -166,20 +166,6 @@ void WebPage::setScrollPosition(const QPointF &pos)
     runJavaScript(QSL("window.scrollTo(%1, %2)").arg(v.x()).arg(v.y()), WebPage::SafeJsWorld);
 }
 
-void WebPage::scheduleAdjustPage()
-{
-    if (view()->isLoading()) {
-        m_adjustingScheduled = true;
-    }
-    else {
-        const QSize originalSize = view()->size();
-        QSize newSize(originalSize.width() - 1, originalSize.height() - 1);
-
-        view()->resize(newSize);
-        view()->resize(originalSize);
-    }
-}
-
 bool WebPage::isRunningLoop()
 {
     return m_runningLoop;

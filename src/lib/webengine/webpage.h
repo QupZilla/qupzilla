@@ -65,7 +65,6 @@ public:
     bool hasMultipleUsernames() const;
     QVector<PasswordEntry> autoFillData() const;
 
-    void scheduleAdjustPage();
     bool isRunningLoop();
 
     bool isLoading() const;
