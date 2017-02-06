@@ -516,14 +516,7 @@ void WebView::showSource()
         return;
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     triggerPageAction(QWebEnginePage::ViewSource);
-#else
-    QUrl u;
-    u.setScheme(QSL("view-source"));
-    u.setPath(url().toString());
-    openUrlInNewTab(u, Qz::NT_SelectedTab);
-#endif
 }
 
 void WebView::showSiteInfo()
@@ -645,7 +638,6 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
     const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
     hitTest.updateWithContextMenuData(contextMenuData);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     if (!contextMenuData.misspelledWord().isEmpty()) {
         QFont boldFont = menu->font();
         boldFont.setBold(true);
@@ -666,7 +658,6 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
         menu->addSeparator();
         spellCheckActionCount = menu->actions().count();
     }
-#endif
 
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QL1S("javascript")) {
         createLinkContextMenu(menu, hitTest);

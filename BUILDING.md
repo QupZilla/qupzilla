@@ -16,18 +16,18 @@ General
 
                CONFIG += debug
 
-  QupZilla requires Qt (>= 5.7) and QtWebEngine (at least version included in Qt 5.7)
+  QupZilla requires Qt (>= 5.8) and QtWebEngine (at least version included in Qt 5.8)
 
 Microsoft Windows
 ----------------------------------------------------------------------------------
 
-  You need Microsoft Visual C++ Compiler, Qt Libraries 5.7.0 or higher and openssl
+  You need Microsoft Visual C++ Compiler, Qt Libraries 5.8 or higher and openssl
   libraries. in order to build QupZilla.
 
 Linux / Unix
 ----------------------------------------------------------------------------------
 
-  You need to have Qt 5 (>= 5.7) with QtWebEngine.
+  You need to have Qt 5 (>= 5.8) with QtWebEngine.
   Next compulsory requirement is OpenSSL (libcrypto). xcb libraries are also
   required unless you specify NO_X11 build option.
 
@@ -46,7 +46,7 @@ MAC OS X
 
   You need to have Xcode from the Apple App Store installed in Applications, [Command Line Tools for the same Xcode version](https://developer.apple.com/) may be included depending on the version,
   [Homebrew](http://brew.sh/), and `$ brew install openssl` for openssl.
-  Next compulsory requirement is Qt 5 (>= 5.7) with QtWebEngine.
+  Next compulsory requirement is Qt 5 (>= 5.8) with QtWebEngine.
   After successful compilation, you need to build the application bundle and follow any
   instructions that may be presented. You will do it with following command:
 
@@ -54,14 +54,6 @@ MAC OS X
 
   You need to specify path to macdeployqt (usually in QTDIR/bin/macdeployqt) only
   if it is not in PATH.
-
-OS/2
-----------------------------------------------------------------------------------
-
-  I cannot provide support for QupZilla on OS/2 as I don't have access to
-  machine with OS/2, but it is possible to get QupZilla working there.
-
-  Builds are provided by netlabs.org (http://svn.netlabs.org/qtapps/wiki/QT4%20Networking)
 
 FreeBSD
 ----------------------------------------------------------------------------------

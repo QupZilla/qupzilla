@@ -404,7 +404,6 @@ Preferences::Preferences(BrowserWindow* window)
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
@@ -444,10 +443,6 @@ Preferences::Preferences(BrowserWindow* window)
     } else {
         ui->spellcheckNoLanguages->hide();
     }
-#else
-    delete ui->listWidget->item(11);
-    delete ui->stackedWidget->widget(11);
-#endif
 
     //OTHER
     //Languages
