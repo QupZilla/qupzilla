@@ -90,7 +90,11 @@ void TabIcon::updateIcon()
 {
     m_sitePixmap = m_tab->icon(/*allowNull*/ true).pixmap(16);
     if (m_sitePixmap.isNull()) {
-        m_hideTimer->start();
+        if (m_tab->url().isEmpty() || m_tab->url().scheme() == QL1S("qupzilla")) {
+            hide();
+        } else {
+            m_hideTimer->start();
+        }
     } else {
         show();
     }
