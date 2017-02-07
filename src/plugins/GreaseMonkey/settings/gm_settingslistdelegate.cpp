@@ -67,6 +67,12 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
     }
+
+#ifdef Q_OS_WIN
+    opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
+    opt.palette.setColor(QPalette::All, QPalette::Highlight, opt.palette.base().color().darker(108));
+#endif
+
     QPalette textPalette = opt.palette;
     textPalette.setCurrentColorGroup(cg);
 
