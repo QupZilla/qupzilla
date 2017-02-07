@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "pagethumbnailer.h"
 #include "scripts.h"
+#include "webview.h"
 
 #include <QTimer>
 #include <QApplication>
@@ -77,11 +78,10 @@ QString PageThumbnailer::title()
 
 void PageThumbnailer::start()
 {
-    if (m_view->rootObject()) {
+    if (m_view->rootObject() && WebView::isUrlValid(m_url)) {
         m_view->rootObject()->setProperty("url", m_url);
-    }
-    else {
-        QTimer::singleShot(0, this, [this]() {
+    } else {
+        QTimer::singleShot(500, this, [this]() {
             emit thumbnailCreated(QPixmap());
         });
     }

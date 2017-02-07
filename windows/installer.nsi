@@ -166,12 +166,11 @@ notRunning:
   SetOutPath "$INSTDIR\translations\qtwebengine_locales"
   File "translations\qtwebengine_locales\*"
 
-  SetOutPath "$INSTDIR\hunspell\doc"
-  File "wininstall\hunspell\doc\*"
+  SetOutPath "$INSTDIR\qtwebengine_dictionaries\doc"
+  File "qtwebengine_dictionaries\doc\README-en-US.txt"
 
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\en_US.aff"
-  File "wininstall\hunspell\en_US.dic"
+  SetOutPath "$INSTDIR\qtwebengine_dictionaries"
+  File "qtwebengine_dictionaries\en_US.bdic"
 
   call RegisterCapabilities
 SectionEnd
@@ -219,9 +218,10 @@ SectionGroupEnd
 Section $(TITLE_SecTranslations) SecTranslations
   SetOutPath "$INSTDIR\locale"
   File "locale\*.qm"
-  SetOutPath "$INSTDIR\hunspell"
-  File "wininstall\hunspell\*.aff"
-  File "wininstall\hunspell\*.dic"
+  SetOutPath "$INSTDIR\qtwebengine_dictionaries\doc"
+  File "qtwebengine_dictionaries\doc\*"
+  SetOutPath "$INSTDIR\qtwebengine_dictionaries"
+  File "qtwebengine_dictionaries\*.bdic"
 SectionEnd
 
 Section $(TITLE_SecPlugins) SecPlugins

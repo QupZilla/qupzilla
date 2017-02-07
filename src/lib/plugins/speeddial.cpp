@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -264,10 +264,6 @@ void SpeedDial::changed(const QString &allPages)
 
 void SpeedDial::loadThumbnail(const QString &url, bool loadTitle)
 {
-    if (url.isEmpty()) {
-        return;
-    }
-
     PageThumbnailer* thumbnailer = new PageThumbnailer(this);
     thumbnailer->setUrl(QUrl::fromEncoded(url.toUtf8()));
     thumbnailer->setLoadTitle(loadTitle);
@@ -342,7 +338,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (pixmap.isNull()) {
-        fileName = "qrc:/html/broken-page.png";
+        fileName = ":/html/broken-page.png";
         title = tr("Unable to load");
     }
     else {
