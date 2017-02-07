@@ -291,8 +291,9 @@ void WebTab::attach(BrowserWindow* window)
     m_tabBar = m_window->tabWidget()->tabBar();
 
     m_webView->setBrowserWindow(m_window);
-    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
     m_tabBar->setTabText(tabIndex(), title());
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
+    m_tabIcon->updateIcon();
 }
 
 void WebTab::setHistoryData(const QByteArray &data)

@@ -847,7 +847,7 @@ void Preferences::saveSettings()
 
     switch (ui->newTab->currentIndex()) {
     case 0:
-        settings.setValue("newTabUrl", QUrl(QSL("about:blank")));
+        settings.setValue("newTabUrl", QUrl());
         break;
 
     case 1:
