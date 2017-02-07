@@ -338,7 +338,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (pixmap.isNull()) {
-        fileName = "qrc:/html/broken-page.png";
+        fileName = ":/html/broken-page.png";
         title = tr("Unable to load");
     }
     else {
