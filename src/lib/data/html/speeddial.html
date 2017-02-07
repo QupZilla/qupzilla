@@ -178,12 +178,12 @@ function boxEdited() {
     if (editingId == -1)
         return;
 
-    external.speedDial.urlFromUserInput($('#formUrl').attr("value"), function(newUrl) {
+    external.speedDial.urlFromUserInput($('#formUrl').val(), function(newUrl) {
         var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
         var a = box.getElementsByTagName('a')[0];
         var originalUrl = a.getAttribute('href');
         setBoxUrl(editingId, newUrl);
-        setBoxTitle(editingId, $('#formTitle').attr("value"));
+        setBoxTitle(editingId, $('#formTitle').val());
         var changedUrl = a.getAttribute('href');
         var fetchTitleChecked = document.getElementById('fetchTitle').checked;
 
