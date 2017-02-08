@@ -2431,8 +2431,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>28</height>
+                <width>560</width>
+                <height>80</height>
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -2450,6 +2450,12 @@
                <width>16777215</width>
                <height>100</height>
               </size>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="dragDropMode">
+              <enum>QAbstractItemView::InternalMove</enum>
              </property>
              <property name="selectionMode">
               <enum>QAbstractItemView::MultiSelection</enum>

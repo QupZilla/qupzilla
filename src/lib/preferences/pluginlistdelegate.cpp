@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -52,6 +52,12 @@ void PluginListDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
     }
+
+#ifdef Q_OS_WIN
+    opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
+    opt.palette.setColor(QPalette::All, QPalette::Highlight, opt.palette.base().color().darker(108));
+#endif
+
     QPalette textPalette = opt.palette;
     textPalette.setCurrentColorGroup(cg);
 

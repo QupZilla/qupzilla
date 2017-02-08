@@ -411,6 +411,13 @@ Preferences::Preferences(BrowserWindow* window)
     const QStringList spellcheckLanguages = settings.value(QSL("Languages")).toStringList();
     settings.endGroup();
 
+    auto updateSpellCheckEnabled = [this]() {
+        ui->spellcheckLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+        ui->spellcheckNoLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+    };
+    updateSpellCheckEnabled();
+    connect(ui->spellcheckEnabled, &QCheckBox::toggled, this, updateSpellCheckEnabled);
+
     QStringList dictionariesDirs = {
 #ifdef Q_OS_OSX
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
@@ -429,14 +436,27 @@ Preferences::Preferences(BrowserWindow* window)
         const QStringList files = dir.entryList({QSL("*.bdic")});
         for (const QString &file : files) {
             const QString lang = file.left(file.size() - 5);
+            const QString langName = createLanguageItem(lang);
+            if (!ui->spellcheckLanguages->findItems(langName, Qt::MatchExactly).isEmpty()) {
+                continue;
+            }
             QListWidgetItem *item = new QListWidgetItem;
-            item->setText(createLanguageItem(lang));
+            item->setText(langName);
             item->setData(Qt::UserRole, lang);
             ui->spellcheckLanguages->addItem(item);
-            if (spellcheckLanguages.contains(lang)) {
-                ui->spellcheckLanguages->setCurrentItem(item, QItemSelectionModel::Select);
-            }
         }
+    }
+
+    int topIndex = 0;
+    for (const QString &lang : spellcheckLanguages) {
+        const auto items = ui->spellcheckLanguages->findItems(createLanguageItem(lang), Qt::MatchExactly);
+        if (items.isEmpty()) {
+            continue;
+        }
+        QListWidgetItem *item = items.at(0);
+        ui->spellcheckLanguages->takeItem(ui->spellcheckLanguages->row(item));
+        ui->spellcheckLanguages->insertItem(topIndex++, item);
+        ui->spellcheckLanguages->setCurrentItem(item, QItemSelectionModel::Select);
     }
 
     if (ui->spellcheckLanguages->count() == 0) {
@@ -990,8 +1010,11 @@ void Preferences::saveSettings()
     settings.beginGroup(QSL("SpellCheck"));
     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
     QStringList languages;
-    for (QListWidgetItem *item : ui->spellcheckLanguages->selectedItems()) {
-        languages.append(item->data(Qt::UserRole).toString());
+    for (int i = 0; i < ui->spellcheckLanguages->count(); ++i) {
+        QListWidgetItem *item = ui->spellcheckLanguages->item(i);
+        if (item->isSelected()) {
+            languages.append(item->data(Qt::UserRole).toString());
+        }
     }
     settings.setValue("Languages", languages);
     settings.endGroup();
