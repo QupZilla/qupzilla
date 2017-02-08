@@ -429,6 +429,9 @@ Preferences::Preferences(BrowserWindow* window)
         const QStringList files = dir.entryList({QSL("*.bdic")});
         for (const QString &file : files) {
             const QString lang = file.left(file.size() - 5);
+            if (!ui->spellcheckLanguages->findItems(lang, Qt::MatchExactly).isEmpty()) {
+                continue;
+            }
             QListWidgetItem *item = new QListWidgetItem;
             item->setText(createLanguageItem(lang));
             item->setData(Qt::UserRole, lang);
