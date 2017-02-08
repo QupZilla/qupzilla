@@ -411,6 +411,13 @@ Preferences::Preferences(BrowserWindow* window)
     const QStringList spellcheckLanguages = settings.value(QSL("Languages")).toStringList();
     settings.endGroup();
 
+    auto updateSpellCheckEnabled = [this]() {
+        ui->spellcheckLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+        ui->spellcheckNoLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+    };
+    updateSpellCheckEnabled();
+    connect(ui->spellcheckEnabled, &QCheckBox::toggled, this, updateSpellCheckEnabled);
+
     QStringList dictionariesDirs = {
 #ifdef Q_OS_OSX
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
