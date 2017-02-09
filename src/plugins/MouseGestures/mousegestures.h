@@ -1,6 +1,6 @@
 /* ============================================================
 * Mouse Gestures plugin for QupZilla
-* Copyright (C) 2012-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -80,6 +80,8 @@ private:
 
     bool m_blockNextRightMouseRelease;
     bool m_blockNextLeftMouseRelease;
+
+    bool m_oldWebViewForceContextMenuOnRelease = false;
 };
 
 #endif // MOUSEGESTURES_H

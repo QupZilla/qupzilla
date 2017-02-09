@@ -24,6 +24,7 @@
 #include "bookmarksicon.h"
 #include "bookmarks.h"
 #include "bookmarkitem.h"
+#include "bookmarkstoolbar.h"
 #include "siteicon.h"
 #include "goicon.h"
 #include "downicon.h"
@@ -73,7 +74,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     m_completer = new LocationCompleter(this);
     m_completer->setMainWindow(m_window);
     m_completer->setLocationBar(this);
-    connect(m_completer, SIGNAL(showCompletion(QString)), this, SLOT(showCompletion(QString)));
+    connect(m_completer, SIGNAL(showCompletion(QString,bool)), this, SLOT(showCompletion(QString,bool)));
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
     connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(requestLoadUrl()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
@@ -129,7 +130,7 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
-    connect(m_webView, SIGNAL(iconChanged()), this, SLOT(updateSiteIcon()));
+    connect(m_webView, &TabbedWebView::iconChanged, this, &LocationBar::updateSiteIcon);
 }
 
 void LocationBar::setText(const QString &text)
@@ -153,12 +154,16 @@ void LocationBar::updatePlaceHolderText()
         setPlaceholderText(tr("Enter URL address"));
 }
 
-void LocationBar::showCompletion(const QString &completion)
+void LocationBar::showCompletion(const QString &completion, bool isOriginal)
 {
     LineEdit::setText(completion);
 
     // Move cursor to the end
     end(false);
+
+    if (isOriginal) {
+        completer()->complete();
+    }
 }
 
 void LocationBar::clearCompletion()
@@ -230,7 +235,7 @@ QString LocationBar::convertUrlToText(const QUrl &url)
 
     QString stringUrl = QzTools::urlEncodeQueryString(url);
 
-    if (stringUrl == QL1S("qupzilla:speeddial") || stringUrl.startsWith(QL1S("qupzilla:adblock")) || stringUrl == QL1S("about:blank")) {
+    if (stringUrl == QL1S("qupzilla:speeddial") || stringUrl == QL1S("about:blank")) {
         stringUrl.clear();
     }
 
@@ -403,6 +408,10 @@ void LocationBar::focusInEvent(QFocusEvent* event)
 
     clearTextFormat();
     LineEdit::focusInEvent(event);
+
+    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+        m_window->bookmarksToolbar()->show();
+    }
 }
 
 void LocationBar::focusOutEvent(QFocusEvent* event)
@@ -422,12 +431,16 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
     }
 
     refreshTextFormat();
+
+    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+        m_window->bookmarksToolbar()->hide();
+    }
 }
 
 void LocationBar::dropEvent(QDropEvent* event)
 {
     if (event->mimeData()->hasUrls()) {
-        QUrl dropUrl = event->mimeData()->urls().at(0);
+        const QUrl dropUrl = event->mimeData()->urls().at(0);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
 
@@ -440,7 +453,8 @@ void LocationBar::dropEvent(QDropEvent* event)
         }
     }
     else if (event->mimeData()->hasText()) {
-        QUrl dropUrl = QUrl(event->mimeData()->text().trimmed());
+        const QString dropText = event->mimeData()->text().trimmed();
+        const QUrl dropUrl = QUrl(dropText);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
 
@@ -450,8 +464,11 @@ void LocationBar::dropEvent(QDropEvent* event)
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
             return;
+        } else {
+            setText(dropText);
+            setFocus();
+            return;
         }
-
     }
 
     LineEdit::dropEvent(event);

@@ -46,6 +46,7 @@ TRANSLATIONS += \
     translations/he_IL.ts \
     translations/hr_HR.ts \
     translations/id_ID.ts \
+    translations/is.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/lt.ts \
@@ -65,6 +66,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 FORMS += \

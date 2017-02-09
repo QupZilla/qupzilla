@@ -62,10 +62,6 @@
        <property name="text">
         <string>Settings</string>
        </property>
-       <property name="icon">
-        <iconset resource="../data/icons.qrc">
-         <normaloff>:/icons/preferences/preferences-desktop.png</normaloff>:/icons/preferences/preferences-desktop.png</iconset>
-       </property>
       </widget>
      </item>
      <item>
@@ -85,8 +81,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

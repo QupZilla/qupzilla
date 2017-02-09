@@ -1,0 +1,44 @@
+{
+    "id": "org.qupzilla.QupZilla",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "master",
+    "sdk": "org.kde.Sdk",
+    "rename-desktop-file": "qupzilla.desktop",
+    "rename-appdata-file": "qupzilla.appdata.xml",
+    "rename-icon": "qupzilla",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "command": "qupzilla",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--device=dri",
+        "--filesystem=host",
+        "--system-talk-name=org.freedesktop.GeoClue2"
+    ],
+
+    "modules": [
+        {
+            "name": "qupzilla",
+            "build-options": {
+                "env": {
+                    "QUPZILLA_PREFIX": "/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/QupZilla/qupzilla.git"
+                },
+                {
+                    "type": "script",
+                    "commands": [ "qmake" ],
+                    "dest-filename": "configure"
+                }
+            ]
+        }
+    ]
+}

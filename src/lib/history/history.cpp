@@ -68,11 +68,15 @@ void History::addHistoryEntry(const QUrl &url, QString title)
     if (!m_isSaving) {
         return;
     }
-    if (url.isEmpty() ||
-        url.scheme() == QLatin1String("qupzilla") ||
-        url.scheme() == QLatin1String("about") ||
-        url.scheme() == QLatin1String("data")
-       ) {
+
+    const QStringList ignoredSchemes = {
+        QStringLiteral("qupzilla"),
+        QStringLiteral("view-source"),
+        QStringLiteral("data"),
+        QStringLiteral("about")
+    };
+
+    if (url.isEmpty() || ignoredSchemes.contains(url.scheme())) {
         return;
     }
 
@@ -233,12 +237,6 @@ QVector<HistoryEntry> History::mostVisited(int count)
         list.append(entry);
     }
     return list;
-}
-
-bool History::optimizeHistory()
-{
-    QSqlQuery query;
-    return query.exec("VACUUM");
 }
 
 void History::clearHistory()

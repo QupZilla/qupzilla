@@ -119,11 +119,14 @@ void LocationCompleter::currentChanged(const QModelIndex &index)
 {
     QString completion = index.data().toString();
 
+    bool isOriginal = false;
+
     if (completion.isEmpty()) {
+        isOriginal = true;
         completion = m_originalText;
     }
 
-    emit showCompletion(completion);
+    emit showCompletion(completion, isOriginal);
 }
 
 void LocationCompleter::indexActivated(const QModelIndex &index)
@@ -256,7 +259,7 @@ void LocationCompleter::loadUrl(const QUrl &url)
     closePopup();
 
     // Show url in locationbar
-    emit showCompletion(url.toEncoded());
+    emit showCompletion(url.toEncoded(), false);
 
     // Load url
     emit loadCompletion();

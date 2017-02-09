@@ -54,17 +54,17 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="108"/>
         <source>Disabled</source>
-        <translation>Poistetty käytöstä</translation>
+        <translation>Poistettu käytöstä</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="116"/>
         <source>Rocker Navigation:</source>
-        <translation type="unfinished"/>
+        <translation>Rocker-navigointi:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="123"/>
         <source>Enable Rocker Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Aktivoi Rocker-navigointi</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Kopioi&lt;/b&gt;&lt;br/&gt;Kopioi nykyinen välilehti</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

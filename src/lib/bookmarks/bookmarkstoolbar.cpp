@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -105,9 +105,9 @@ void BookmarksToolbar::contextMenuRequested(const QPoint &pos)
         button->update();
     }
 
-    m_clickedBookmark = 0;
-    m_actShowOnlyIcons = 0;
-    m_actShowOnlyText = 0;
+    m_clickedBookmark = nullptr;
+    m_actShowOnlyIcons = nullptr;
+    m_actShowOnlyText = nullptr;
 }
 
 void BookmarksToolbar::refresh()

@@ -63,6 +63,10 @@ private:
 
     void reloadEngines();
 
+    void showEvent(QShowEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
+    void resizeViewHeader();
+
     Ui::SearchEnginesDialog* ui;
     SearchEnginesManager* m_manager;
 };

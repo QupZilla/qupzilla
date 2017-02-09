@@ -426,6 +426,20 @@
          </property>
         </widget>
        </item>
+       <item row="5" column="1" colspan="2">
+        <widget class="QCheckBox" name="deleteCookiesOnClose">
+         <property name="text">
+          <string>Delete cookies on close</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="3">
+        <widget class="QDialogButtonBox" name="close3">
+         <property name="standardButtons">
+          <set>QDialogButtonBox::Close</set>
+         </property>
+        </widget>
+       </item>
        <item row="6" column="3">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
@@ -438,23 +452,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="5" column="1" colspan="3">
-        <widget class="QLabel" name="label_19">
-         <property name="text">
-          <string>&lt;b&gt;Warning:&lt;/b&gt; Filter 3rd party and tracking cookies options can lead to deny some cookies from sites. If you have problems with cookies, try to disable these options first!</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="3">
-        <widget class="QDialogButtonBox" name="close3">
-         <property name="standardButtons">
-          <set>QDialogButtonBox::Close</set>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>

@@ -1,7 +1,6 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>%SITE-TITLE%</title>
-<link rel="icon" href="%FAVICON%" type="image/x-icon" />
 <style type="text/css" media="screen">
 html { background: #dddddd url("%IMG_BACKGROUND%") no-repeat center center; background-size: %B_SIZE%; }
 body { font-family: sans-serif; color: #525c66; direction: %DIRECTION%; }
@@ -17,7 +16,7 @@ body * { -webkit-user-select: none; font-size: 100%; line-height: 1.6; margin: 0
 #quickdial img[src="%LOADING-IMG%"]{height:60px;width:60px}
 #quickdial img[src=""] { visibility: hidden; }
 #quickdial a { position: absolute; %LEFT_STR%: 0; top: 0; width: 100%; height: 87%; }
-span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 1px; max-height: 20px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; cursor: default; }
+span.boxTitle { width: 88%; position: absolute; %LEFT_STR%: 0; bottom: 0px; margin: 0 6%; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; cursor: default; }
 span.edit, span.close, span.reload { width: 16px; height: 16px; position: absolute; background-position: center; border: 1px solid transparent; display: none; }
 span.edit { %LEFT_STR%: 1px; bottom: 1px; background: url(%IMG_EDIT%) no-repeat; }
 span.close { %RIGHT_STR%: 1px; bottom: 1px; background: url(%IMG_CLOSE%) no-repeat; }
@@ -179,12 +178,12 @@ function boxEdited() {
     if (editingId == -1)
         return;
 
-    external.speedDial.urlFromUserInput($('#formUrl').attr("value"), function(newUrl) {
+    external.speedDial.urlFromUserInput($('#formUrl').val(), function(newUrl) {
         var box = document.getElementById('quickdial').getElementsByTagName('div')[editingId];
         var a = box.getElementsByTagName('a')[0];
         var originalUrl = a.getAttribute('href');
         setBoxUrl(editingId, newUrl);
-        setBoxTitle(editingId, $('#formTitle').attr("value"));
+        setBoxTitle(editingId, $('#formTitle').val());
         var changedUrl = a.getAttribute('href');
         var fetchTitleChecked = document.getElementById('fetchTitle').checked;
 
@@ -346,14 +345,15 @@ function removeBox(id) {
 }
 
 function alignPage() {
+    var dialHeight = Math.floor(Math.round(DIAL_WIDTH / 1.54));
     $('head').append('<style>#quickdial img{height:auto;width:'+DIAL_WIDTH+'px}</style>');
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
-                                   'height' : Math.round(DIAL_WIDTH / 1.54) + 'px'});
+                                   'height' : dialHeight  + 'px'});
 
     var width = $(window).width();
     var height = $(window).height();
     var boxWidth = Math.floor(DIAL_WIDTH + 12);
-    var boxHeight = Math.floor(Math.round(DIAL_WIDTH / 1.54) + 22);
+    var boxHeight = dialHeight + 22;
 
     var maxBoxes = Math.floor(width / boxWidth);
     if (maxBoxes > MAX_PAGES_ROW) maxBoxes = MAX_PAGES_ROW;
@@ -369,6 +369,7 @@ function alignPage() {
     if (margintop < 0) margintop = 0;
 
     $("#quickdial").css('margin-top', margintop + 'px');
+    $("span.boxTitle").css('font-size', ((dialHeight - DIAL_WIDTH / 1.77) / 1.5) + 'px');
 
     if (SD_CENTER)
         enableCentering();
@@ -388,7 +389,7 @@ function bgImageSel() {
 function saveSettings() {
     MAX_PAGES_ROW = $('#PgInRow').val();
     DIAL_WIDTH = parseInt($('#SdSize').val());
-    SD_CENTER = $('#SdCntrToggle').attr('checked') ? true : false;
+    SD_CENTER = $('#SdCntrToggle').prop('checked');
 
     external.speedDial.setBackgroundImage($('#BgImgHoldUrl').val());
     external.speedDial.setBackgroundImageSize($('#BgImgSelSiz').val());
@@ -476,7 +477,6 @@ function init()
     external.speedDial.pageTitleLoaded.connect(setTitleToUrl);
 
     $(window).resize(function() { alignPage(); });
-    $("div").disableSelection();
     $("#quickdial").sortable({
         revert: true,
         cursor: 'move',
@@ -498,13 +498,6 @@ function init()
     alignPage();
 }
 
-// Initialize
-if (window.external) {
-    init();
-} else {
-    document.addEventListener('_qupzilla_external_created', init);
-}
-
 </script>
 <div id="fadeOverlay2" class="overlay" style="display:none;">
   <div id="settingsBox">
@@ -513,7 +506,7 @@ if (window.external) {
     </div>
     <div class="rowsel">
       <span id="sliderValuePg"></span>
-      <input id="PgInRow" type="range" min="2" max="10" step="1" onchange="$('#sliderValuePg').html(this.value);" />
+      <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdcntrt" id="SdCntrToggle" />&nbsp;<label for="SdCntrToggle">%TXT_CNTRDLS%</label><br />
@@ -521,7 +514,7 @@ if (window.external) {
     </div>
     <div class="rowsel">
       <span id="sliderValueSd"></span>
-      <input id="SdSize" type="range" min="100" max="500" step="1" onchange="$('#sliderValueSd').html(this.value);" />
+      <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
     </div>
     <div class="togop">
       <input type="checkbox" name="sdbackimg" id="BgImgToggle" onchange="bgImgToggle();bgImgUpdate()" />&nbsp;<label for="BgImgToggle">%TXT_NOTE%</label>
@@ -550,4 +543,14 @@ if (window.external) {
   </div>
 </div>
 </body>
+
+<script type="text/javascript">
+// Initialize
+if (window.external) {
+    init();
+} else {
+    document.addEventListener('_qupzilla_external_created', init);
+}
+</script>
+
 </html>

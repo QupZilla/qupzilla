@@ -38,11 +38,12 @@ public:
         UrlRole = Qt::UserRole + 2,
         UrlStringRole = Qt::UserRole + 3,
         TitleRole = Qt::UserRole + 4,
-        DescriptionRole = Qt::UserRole + 5,
-        KeywordRole = Qt::UserRole + 6,
-        VisitCountRole = Qt::UserRole + 7,
-        ExpandedRole = Qt::UserRole + 8,
-        SidebarExpandedRole = Qt::UserRole + 9,
+        IconRole = Qt::UserRole + 5,
+        DescriptionRole = Qt::UserRole + 6,
+        KeywordRole = Qt::UserRole + 7,
+        VisitCountRole = Qt::UserRole + 8,
+        ExpandedRole = Qt::UserRole + 9,
+        SidebarExpandedRole = Qt::UserRole + 10,
         MaxRole = SidebarExpandedRole
     };
 

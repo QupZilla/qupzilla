@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,25 +26,24 @@
 #include <QShortcut>
 
 SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
-    : AnimatedWidget(AnimatedWidget::Up, 300, parent)
+    : QWidget(parent)
     , ui(new Ui::SearchToolbar)
     , m_view(view)
     , m_findFlags(0)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(widget());
+    ui->setupUi(this);
 
     ui->closeButton->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_DialogCloseButton));
     ui->next->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_ArrowDown));
     ui->previous->setIcon(IconProvider::instance()->standardIcon(QStyle::SP_ArrowUp));
 
-    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
     connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(findNext()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(findNext()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
     connect(ui->caseSensitive, SIGNAL(clicked()), this, SLOT(caseSensitivityChanged()));
-    startAnimation();
 
     QShortcut* findNextAction = new QShortcut(QKeySequence("F3"), this);
     connect(findNextAction, SIGNAL(activated()), this, SLOT(findNext()));
@@ -53,11 +52,6 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     connect(findPreviousAction, SIGNAL(activated()), this, SLOT(findPrevious()));
 
     parent->installEventFilter(this);
-}
-
-void SearchToolBar::setWebView(WebView* view)
-{
-    m_view = view;
 }
 
 void SearchToolBar::showMinimalInPopupWindow()
@@ -75,12 +69,12 @@ void SearchToolBar::focusSearchLine()
     ui->lineEdit->setFocus();
 }
 
-void SearchToolBar::hide()
+void SearchToolBar::close()
 {
-    AnimatedWidget::hide();
-
+    hide();
     searchText(QString());
     m_view->setFocus();
+    deleteLater();
 }
 
 void SearchToolBar::findNext()
@@ -142,7 +136,7 @@ bool SearchToolBar::eventFilter(QObject* obj, QEvent* event)
     Q_UNUSED(obj);
 
     if (event->type() == QEvent::KeyPress && static_cast<QKeyEvent*>(event)->key() == Qt::Key_Escape) {
-        hide();
+        close();
     }
 
     return false;

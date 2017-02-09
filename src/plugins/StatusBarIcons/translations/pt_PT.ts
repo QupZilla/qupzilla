@@ -4,7 +4,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="32"/>
         <source>Modify images loading settings per-site and globally</source>
-        <translation>Mudar definições de carregamento de imagens por sítio ou globalmente</translation>
+        <translation>Mudar definições de carregamento de imagens por site ou globalmente</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="33"/>
         <source>Modify JavaScript settings per-site and globally</source>
-        <translation>Mudar definições JavaScript por sítio ou globalmente</translation>
+        <translation>Mudar definições JavaScript por site ou globalmente</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="50"/>

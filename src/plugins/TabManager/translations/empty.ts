@@ -47,77 +47,77 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="86"/>
+        <location filename="../tabmanagerwidget.cpp" line="98"/>
         <source>Local File System:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="89"/>
+        <location filename="../tabmanagerwidget.cpp" line="101"/>
         <source>QupZilla:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="92"/>
+        <location filename="../tabmanagerwidget.cpp" line="104"/>
         <source> [FTP]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="237"/>
+        <location filename="../tabmanagerwidget.cpp" line="250"/>
         <source>Group by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="238"/>
+        <location filename="../tabmanagerwidget.cpp" line="251"/>
         <source>&amp;Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="243"/>
+        <location filename="../tabmanagerwidget.cpp" line="256"/>
         <source>&amp;Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="248"/>
+        <location filename="../tabmanagerwidget.cpp" line="261"/>
         <source>&amp;Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="269"/>
         <source>&amp;Show side by side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="262"/>
+        <location filename="../tabmanagerwidget.cpp" line="275"/>
         <source>&amp;Detach checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="263"/>
+        <location filename="../tabmanagerwidget.cpp" line="276"/>
         <source>Book&amp;mark checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="264"/>
+        <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Close checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="415"/>
+        <location filename="../tabmanagerwidget.cpp" line="528"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="416"/>
+        <location filename="../tabmanagerwidget.cpp" line="529"/>
         <source>Bookmark Selected Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="532"/>
+        <location filename="../tabmanagerwidget.cpp" line="646"/>
         <source>Window %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="533"/>
+        <location filename="../tabmanagerwidget.cpp" line="647"/>
         <source>Double click to switch</source>
         <translation type="unfinished"></translation>
     </message>

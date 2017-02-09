@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,25 +18,26 @@
 #ifndef WEBVIEW_H
 #define WEBVIEW_H
 
-#include <QIcon>
+#include <QPointer>
 #include <QWebEngineView>
 
 #include "qzcommon.h"
 #include "loadrequest.h"
+#include "wheelhelper.h"
 
 class WebPage;
 class LoadRequest;
-class IconLoader;
 class WebHitTestResult;
 
 class QUPZILLA_EXPORT WebView : public QWebEngineView
 {
     Q_OBJECT
+
 public:
     explicit WebView(QWidget* parent = 0);
     ~WebView();
 
-    QIcon icon() const;
+    QIcon icon(bool allowNull = false) const;
 
     QString title() const;
     bool isTitleEmpty() const;
@@ -49,13 +50,15 @@ public:
     bool isLoading() const;
 
     int loadingProgress() const;
-    void fakeLoadingProgress(int progress);
+
+    bool backgroundActivity() const;
 
     // Set zoom level (0 - 17)
     int zoomLevel() const;
     void setZoomLevel(int level);
 
-    QPoint mapToViewport(const QPoint &pos) const;
+    QPointF mapToViewport(const QPointF &pos) const;
+    QRect scrollBarGeometry(Qt::Orientation orientation) const;
 
     void restoreHistory(const QByteArray &data);
 
@@ -63,7 +66,7 @@ public:
     bool eventFilter(QObject *obj, QEvent *event);
 
     QWidget *inputWidget() const;
-    virtual QWidget* overlayWidget() = 0;
+    virtual QWidget *overlayWidget() = 0;
 
     static bool isUrlValid(const QUrl &url);
     static QList<int> zoomLevels();
@@ -74,11 +77,12 @@ public:
     static void setForceContextMenuOnMouseRelease(bool force);
 
 signals:
-    void iconChanged();
+    void focusChanged(bool);
     void viewportResized(QSize);
     void showNotification(QWidget*);
     void privacyChanged(bool);
     void zoomLevelChanged(int);
+    void backgroundActivityChanged(bool);
 
 public slots:
     void zoomIn();
@@ -98,6 +102,7 @@ public slots:
     void back();
     void forward();
 
+    void printPage();
     void showSource();
     void sendPageByMail();
 
@@ -113,13 +118,15 @@ protected slots:
     void slotLoadStarted();
     void slotLoadProgress(int progress);
     void slotLoadFinished(bool ok);
+    void slotIconChanged();
     void slotUrlChanged(const QUrl &url);
-    void slotIconUrlChanged(const QUrl &url);
+    void slotTitleChanged(const QString &title);
 
     // Context menu slots
     void openUrlInNewWindow();
-    void sendLinkByMail();
+    void sendTextByMail();
     void copyLinkToClipboard();
+    void savePageAs();
     void copyImageToClipboard();
     void downloadLinkToDisk();
     void downloadImageToDisk();
@@ -137,8 +144,7 @@ protected slots:
     void userDefinedOpenUrlInBgTab(const QUrl &url = QUrl());
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dropEvent(QDropEvent *event);
+    void showEvent(QShowEvent *event) override;
     void resizeEvent(QResizeEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
 
@@ -153,7 +159,7 @@ protected:
     void loadRequest(const LoadRequest &req);
     void applyZoom();
 
-    void createContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
+    void createContextMenu(QMenu *menu, WebHitTestResult &hitTest);
     void createPageContextMenu(QMenu *menu);
     void createLinkContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
     void createImageContextMenu(QMenu *menu, const WebHitTestResult &hitTest);
@@ -175,19 +181,17 @@ private:
     void initializeActions();
 
     int m_currentZoomLevel;
-
-    QIcon m_siteIcon;
-    IconLoader* m_siteIconLoader;
-
     int m_progress;
+    bool m_backgroundActivity;
 
     QUrl m_clickedUrl;
-    QPoint m_clickedPos;
+    QPointF m_clickedPos;
 
     WebPage* m_page;
     bool m_firstLoad;
 
-    QWidget *m_rwhvqt;
+    QPointer<QWidget> m_rwhvqt;
+    WheelHelper m_wheelHelper;
 
     static bool s_forceContextMenuOnMouseRelease;
 };

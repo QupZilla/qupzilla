@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -40,32 +40,26 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
 
     switch (feature) {
     case QWebEnginePage::Notifications:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/notification.png"));
         ui->textLabel->setText(tr("Allow %1 to show desktop notifications?").arg(site));
         break;
 
     case QWebEnginePage::Geolocation:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/geolocation.png"));
         ui->textLabel->setText(tr("Allow %1 to locate your position?").arg(site));
         break;
 
     case QWebEnginePage::MediaAudioCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/audiocapture.png"));
         ui->textLabel->setText(tr("Allow %1 to use your microphone?").arg(site));
         break;
 
     case QWebEnginePage::MediaVideoCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/webcam.png"));
         ui->textLabel->setText(tr("Allow %1 to use your camera?").arg(site));
         break;
 
     case QWebEnginePage::MediaAudioVideoCapture:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/microphone-webcam.png"));
         ui->textLabel->setText(tr("Allow %1 to use your microphone and camera?").arg(site));
         break;
 
     case QWebEnginePage::MouseLock:
-        ui->iconLabel->setPixmap(QPixmap(":icons/other/mouselock.png"));
         ui->textLabel->setText(tr("Allow %1 to hide your pointer?").arg(site));
         break;
 
@@ -77,6 +71,13 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
     connect(ui->allow, SIGNAL(clicked()), this, SLOT(grantPermissions()));
     connect(ui->deny, SIGNAL(clicked()), this, SLOT(denyPermissions()));
     connect(ui->close, SIGNAL(clicked()), this, SLOT(denyPermissions()));
+
+    connect(m_page, &QWebEnginePage::loadStarted, this, &QObject::deleteLater);
+    connect(m_page, &QWebEnginePage::featurePermissionRequestCanceled, this, [this](const QUrl &origin, QWebEnginePage::Feature feature) {
+        if (origin == m_origin && feature == m_feature) {
+            deleteLater();
+        }
+    });
 
     startAnimation();
 }

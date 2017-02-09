@@ -81,6 +81,7 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("File/SendLink")]);
+    superMenu->addAction(m_actions[QSL("File/Print")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Edit/SelectAll")]);
     superMenu->addAction(m_actions[QSL("Edit/Find")]);
@@ -162,6 +163,13 @@ void MainMenu::openFile()
 void MainMenu::closeWindow()
 {
     callSlot("closeWindow");
+}
+
+void MainMenu::savePageAs()
+{
+    if (m_window) {
+        QMetaObject::invokeMethod(m_window->weView(), "savePageAs");
+    }
 }
 
 void MainMenu::sendLink()
@@ -521,6 +529,7 @@ void MainMenu::init()
     ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
+    ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
     ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");
     m_menuFile->addSeparator();
@@ -600,7 +609,7 @@ void MainMenu::init()
     m_menuHelp = new QMenu(tr("&Help"));
 
 #ifndef Q_OS_MAC
-    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(QSL(":/icons/menu/qt.png")), tr("About &Qt"), SLOT(aboutQt()), "");
+    ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(), tr("About &Qt"), SLOT(aboutQt()), "");
     m_menuHelp->addAction(m_actions[QSL("Standard/About")]);
     m_menuHelp->addSeparator();
 #endif

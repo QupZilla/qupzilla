@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.1">
 <context>
     <name>AKN_Settings</name>
     <message>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>Toets om toegankelijkheidstoetsen te tonen:</translation>
+        <translation>Toets om toegankelijkheidstoetsen te weergeven:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>

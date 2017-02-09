@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -274,9 +274,6 @@ QSize TabBar::tabSizeHint(int index, bool fast) const
 
 int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 {
-    if (!isVisible())
-        return -1;
-
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
         return iconButtonSize().width() + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
@@ -329,8 +326,6 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     m_clickedTab = index;
 
     QMenu menu;
-    menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
-    menu.addSeparator();
     if (index != -1) {
         WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
         if (!webTab) {
@@ -351,23 +346,21 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         }
 
         menu.addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
         menu.addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));
-#endif
         menu.addSeparator();
         menu.addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
-        menu.addAction(tr("&Bookmark This Tab"), this, SLOT(bookmarkTab()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
-        menu.addSeparator();
-        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         menu.addSeparator();
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(tr("Close Tabs To The Right"), this, SLOT(closeToRight()));
         menu.addAction(tr("Close Tabs To The Left"), this, SLOT(closeToLeft()));
         menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
-    }
-    else {
+        menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
+        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose Tab"), this, SLOT(closeTab()));
+    } else {
+        menu.addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
+        menu.addSeparator();
         menu.addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         menu.addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         menu.addSeparator();
@@ -459,24 +452,10 @@ void TabBar::currentTabChanged(int index)
         showCloseButton(index);
         hideCloseButton(m_tabWidget->lastTabIndex());
 
-        QTimer::singleShot(100, this, [=]() {
-            ensureVisible(index);
-        });
+        QTimer::singleShot(100, this, [this]() { ensureVisible(); });
     }
 
     m_tabWidget->currentTabChanged(index);
-}
-
-void TabBar::bookmarkTab()
-{
-    TabbedWebView* view = m_window->weView(m_clickedTab);
-    if (!view) {
-        return;
-    }
-
-    WebTab* tab = view->webTab();
-
-    m_window->addBookmark(tab->url(), tab->title());
 }
 
 void TabBar::pinTab()
@@ -606,7 +585,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
     }
 
     if (m_tabWidget->buttonAddTab()->isHidden() && !isMainBarOverflowed()) {
-        QTimer::singleShot(500, m_tabWidget->buttonAddTab(), SLOT(show()));
+        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), m_tabWidget->buttonAddTab(), &AddTabButton::show);
     }
 
     if (!rect().contains(event->pos())) {

@@ -40,8 +40,6 @@ public:
     explicit CookieManager();
     ~CookieManager();
 
-    void refreshTable();
-
 private slots:
     void currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* parent);
     void remove();

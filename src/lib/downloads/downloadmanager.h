@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@
 #ifndef DOWNLOADMANAGER_H
 #define DOWNLOADMANAGER_H
 
+#include <QWidget>
 #include <QBasicTimer>
 
 #include "qzcommon.h"
-#include "ecwin7.h"
 
 namespace Ui
 {
@@ -32,9 +32,9 @@ class QUrl;
 class QNetworkAccessManager;
 class QListWidgetItem;
 class QWebEngineDownloadItem;
+class QWinTaskbarButton;
 
 class DownloadItem;
-class EcWin7;
 class WebPage;
 
 class QUPZILLA_EXPORT DownloadManager : public QWidget
@@ -76,11 +76,6 @@ public:
 public slots:
     void show();
 
-#ifdef W7TASKBAR
-protected:
-    virtual bool nativeEvent(const QByteArray &eventType, void* _message, long* result);
-#endif
-
 private slots:
     void clearList();
     void deleteItem(DownloadItem* item);
@@ -90,13 +85,13 @@ signals:
     void resized(QSize);
 
 private:
-#ifdef W7TASKBAR
-    EcWin7 win7;
-#endif
+    void showEvent(QShowEvent *event) override;
     void timerEvent(QTimerEvent* e);
     void closeEvent(QCloseEvent* e);
     void resizeEvent(QResizeEvent* e);
     void keyPressEvent(QKeyEvent* e);
+
+    void closeDownloadTab(const QUrl &url) const;
 
     Ui::DownloadManager* ui;
     QBasicTimer m_timer;
@@ -112,6 +107,8 @@ private:
     QString m_externalArguments;
 
     DownloadOption m_lastDownloadOption;
+
+    QWinTaskbarButton *m_taskbarButton = nullptr;
 };
 
 #endif // DOWNLOADMANAGER_H

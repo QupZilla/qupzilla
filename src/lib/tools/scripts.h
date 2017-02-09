@@ -37,7 +37,7 @@ public:
     static QString getOpenSearchLinks();
     static QString getAllImages();
     static QString getAllMetaAttributes();
-    static QString getFormData(const QPoint &pos);
+    static QString getFormData(const QPointF &pos);
 };
 
 #endif // SCRIPTS_H

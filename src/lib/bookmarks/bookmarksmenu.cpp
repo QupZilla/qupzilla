@@ -24,6 +24,7 @@
 #include "browserwindow.h"
 #include "qzsettings.h"
 #include "tabwidget.h"
+#include "iconprovider.h"
 
 BookmarksMenu::BookmarksMenu(QWidget* parent)
     : Menu(parent)
@@ -75,6 +76,19 @@ void BookmarksMenu::aboutToShow()
     if (m_changed) {
         refresh();
         m_changed = false;
+    }
+}
+
+void BookmarksMenu::menuAboutToShow()
+{
+    Q_ASSERT(qobject_cast<Menu*>(sender()));
+    Menu *menu = static_cast<Menu*>(sender());
+
+    foreach (QAction *action, menu->actions()) {
+        BookmarkItem *item = static_cast<BookmarkItem*>(action->data().value<void*>());
+        if (item && item->type() == BookmarkItem::Url && action->icon().isNull()) {
+            action->setIcon(item->icon());
+        }
     }
 }
 
@@ -150,12 +164,13 @@ void BookmarksMenu::init()
 {
     setTitle(tr("&Bookmarks"));
 
-    addAction(QIcon::fromTheme("bookmark-new"), tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
-    addAction(QIcon::fromTheme("bookmark-new-list"), tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
+    addAction(tr("Bookmark &This Page"), this, SLOT(bookmarkPage()))->setShortcut(QKeySequence("Ctrl+D"));
+    addAction(tr("Bookmark &All Tabs"), this, SLOT(bookmarkAllTabs()));
     addAction(QIcon::fromTheme("bookmarks-organize"), tr("Organize &Bookmarks"), this, SLOT(showBookmarksManager()))->setShortcut(QKeySequence("Ctrl+Shift+O"));
     addSeparator();
 
     connect(this, SIGNAL(aboutToShow()), this, SLOT(aboutToShow()));
+    connect(this, SIGNAL(aboutToShow()), this, SLOT(menuAboutToShow()));
     connect(this, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
 }
 

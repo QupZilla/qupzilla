@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -35,9 +35,6 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QToolTip>
-
-// taken from qtabbar_p.h
-#define ANIMATION_DURATION 250
 
 ComboTabBar::ComboTabBar(QWidget* parent)
     : QWidget(parent)
@@ -498,6 +495,13 @@ bool ComboTabBar::isPinned(int index) const
     return index >= 0 && index < pinnedTabsCount();
 }
 
+void ComboTabBar::setFocusPolicy(Qt::FocusPolicy policy)
+{
+    QWidget::setFocusPolicy(policy);
+    m_mainTabBar->setFocusPolicy(policy);
+    m_pinnedTabBar->setFocusPolicy(policy);
+}
+
 void ComboTabBar::setObjectName(const QString &name)
 {
     m_mainTabBar->setObjectName(name);
@@ -615,8 +619,24 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
 {
     event->accept();
 
-    if (qzSettings->alwaysSwitchTabsWithWheel) {
-        setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
+    if (qzSettings->alwaysSwitchTabsWithWheel || (!m_mainTabBarWidget->isOverflowed() && !m_pinnedTabBarWidget->isOverflowed())) {
+        m_wheelHelper.processEvent(event);
+        while (WheelHelper::Direction direction = m_wheelHelper.takeDirection()) {
+            switch (direction) {
+            case WheelHelper::WheelUp:
+            case WheelHelper::WheelLeft:
+                setCurrentNextEnabledIndex(-1);
+                break;
+
+            case WheelHelper::WheelDown:
+            case WheelHelper::WheelRight:
+                setCurrentNextEnabledIndex(1);
+                break;
+
+            default:
+                break;
+            }
+        }
         return;
     }
 
@@ -635,10 +655,6 @@ void ComboTabBar::wheelEvent(QWheelEvent* event)
         else if (m_mainTabBarWidget->isOverflowed()) {
             m_mainTabBarWidget->scrollByWheel(event);
         }
-    }
-
-    if (!m_mainTabBarWidget->isOverflowed() && !m_pinnedTabBarWidget->isOverflowed()) {
-        setCurrentNextEnabledIndex(event->delta() > 0 ? -1 : 1);
     }
 }
 
@@ -745,8 +761,8 @@ QTabBar::ButtonPosition ComboTabBar::closeButtonPosition() const
 QSize ComboTabBar::iconButtonSize() const
 {
     QSize s = closeButtonSize();
-    s.setWidth(std::max(16, s.width()));
-    s.setHeight(std::max(16, s.height()));
+    s.setWidth(qMax(16, s.width()));
+    s.setHeight(qMax(16, s.height()));
     return s;
 }
 
@@ -821,6 +837,13 @@ void ComboTabBar::addCornerWidget(QWidget* widget, Qt::Corner corner)
     else {
         qFatal("ComboTabBar::addCornerWidget Only TopLeft and TopRight corners are implemented!");
     }
+}
+
+// static
+int ComboTabBar::slideAnimationDuration()
+{
+    // taken from qtabbar_p.h
+    return 250;
 }
 
 void ComboTabBar::ensureVisible(int index, int xmargin)
@@ -1115,7 +1138,9 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         optTabBase.tabBarRect |= tabRect(i);
     }
 
-    optTabBase.selectedTabRect = QRect();
+    if (m_activeTabBar) {
+        optTabBase.selectedTabRect = tabRect(selected);
+    }
 
     if (drawBase()) {
         p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
@@ -1135,6 +1160,10 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         // Don't bother drawing a tab if the entire tab is outside of the visible tab bar.
         if (!isDisplayedOnViewPort(mapToGlobal(tab.rect.topLeft()).x(), mapToGlobal(tab.rect.topRight()).x())) {
             continue;
+        }
+
+        if (!m_activeTabBar) {
+            tab.selectedPosition = QStyleOptionTab::NotAdjacent;
         }
 
         if (!(tab.state & QStyle::State_Enabled)) {
@@ -1209,9 +1238,7 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
     QTabBar::mouseReleaseEvent(event);
 
     if (m_pressedIndex >= 0 && m_pressedIndex < count()) {
-        const int length = qAbs(m_pressedGlobalX - event->globalX());
-        const int duration = qMin((length * ANIMATION_DURATION) / tabRect(m_pressedIndex).width(), ANIMATION_DURATION);
-        QTimer::singleShot(duration, this, SLOT(resetDragState()));
+        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), this, &TabBarHelper::resetDragState);
 
         m_pressedIndex = -1;
         m_pressedGlobalX = -1;
@@ -1328,6 +1355,7 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     , m_totalDeltas(0)
 {
     m_scrollArea = new QScrollArea(this);
+    m_scrollArea->setFocusPolicy(Qt::NoFocus);
     m_scrollArea->setFrameStyle(QFrame::NoFrame);
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -1511,7 +1539,7 @@ void TabBarScrollWidget::scrollByWheel(QWheelEvent* event)
     }
 
     // Fast scrolling with just wheel scroll
-    int factor = qMax(m_scrollBar->pageStep() / 3, m_scrollBar->singleStep());
+    int factor = qMax(qRound(m_scrollBar->pageStep() / 1.5), m_scrollBar->singleStep());
     if ((event->modifiers() & Qt::ControlModifier) || (event->modifiers() & Qt::ShiftModifier)) {
         factor = m_scrollBar->pageStep();
     }

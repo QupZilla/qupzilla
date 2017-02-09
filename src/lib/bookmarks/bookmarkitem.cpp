@@ -89,6 +89,11 @@ QIcon BookmarkItem::icon()
     }
 }
 
+void BookmarkItem::setIcon(const QIcon &icon)
+{
+    m_icon = icon;
+}
+
 QString BookmarkItem::urlString() const
 {
     return QString::fromUtf8(m_url.toEncoded());

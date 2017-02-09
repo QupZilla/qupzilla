@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -52,7 +52,6 @@ DownloadItem::DownloadItem(QListWidgetItem *item, QWebEngineDownloadItem* downlo
     , m_fileName(fileName)
     , m_downUrl(downloadItem->url())
     , m_openFile(openFile)
-    , m_validIcon(false)
     , m_downloading(false)
     , m_downloadStopped(false)
     , m_currSpeed(0)
@@ -85,29 +84,21 @@ void DownloadItem::startDownloading()
 
     m_downloading = true;
     m_downTimer.start();
+
     updateDownloadInfo(0, m_download->receivedBytes(), m_download->totalBytes());
-}
 
-void DownloadItem::updateIcon()
-{
-    if (m_validIcon)
-        return;
-
-    // Copy the downloaded file to temp dir and get its icon
-    QString tempFile = DataPaths::path(DataPaths::Temp) + QL1S("/download_") + m_fileName;
-    QFile::copy(m_download->path() + QL1S(".download"), tempFile);
+#ifdef Q_OS_LINUX
+    // QFileIconProvider uses only suffix on Linux
     QFileIconProvider iconProvider;
-    QFileInfo info(tempFile);
-    QIcon fileIcon = iconProvider.icon(info);
-    QFile::remove(tempFile);
-
+    QIcon fileIcon = iconProvider.icon(QFileInfo(m_fileName));
     if (!fileIcon.isNull()) {
         ui->fileIcon->setPixmap(fileIcon.pixmap(30));
-        m_validIcon = true;
-    }
-    else {
+    } else {
         ui->fileIcon->setPixmap(style()->standardIcon(QStyle::SP_FileIcon).pixmap(30));
     }
+#else
+    ui->fileIcon->hide();
+#endif
 }
 
 void DownloadItem::parentResized(const QSize &size)
@@ -251,8 +242,6 @@ void DownloadItem::updateDownloadInfo(double currSpeed, qint64 received, qint64 
     else {
         ui->downloadInfo->setText(tr("Remaining %1 - %2 of %3 (%4)").arg(remTime, currSize, fileSize, speed));
     }
-
-    updateIcon();
 }
 
 void DownloadItem::stop()

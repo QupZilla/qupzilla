@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 #include "tabbedwebview.h"
 #include "browserwindow.h"
 #include "qztools.h"
+#include "iconprovider.h"
 
 #include <QJsonObject>
 
@@ -48,11 +49,16 @@ QJsonArray RecoveryJsObject::restoreData() const
         int j = 0;
         QJsonArray tabs;
         Q_FOREACH (const WebTab::SavedTab &t, w.tabsState) {
+            const QIcon icon = t.icon.isNull() ? IconProvider::emptyWebIcon() : t.icon;
             QJsonObject tab;
-            tab[QSL("tab")] = j++;
-            tab[QSL("icon")] = QzTools::pixmapToDataUrl(t.icon.pixmap(16)).toString();
+            tab[QSL("tab")] = j;
+            tab[QSL("icon")] = QzTools::pixmapToDataUrl(icon.pixmap(16)).toString();
             tab[QSL("title")] = t.title;
+            tab[QSL("url")] = t.url.toString();
+            tab[QSL("pinned")] = t.isPinned;
+            tab[QSL("current")] = w.currentTab == j;
             tabs.append(tab);
+            j++;
         }
 
         QJsonObject window;
@@ -78,6 +84,8 @@ void RecoveryJsObject::startNewSession()
 void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStringList &excludeTab)
 {
     Q_ASSERT(excludeWin.size() == excludeTab.size());
+
+    // This assumes that excludeWin and excludeTab are sorted in descending order
 
     RestoreData data = m_manager->restoreData();
 

@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Duplikuj&lt;/b&gt;&lt;br/&gt;Duplikuje aktualną kartę</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

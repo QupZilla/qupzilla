@@ -9,17 +9,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="72"/>
+        <location filename="../autoscrollsettings.ui" line="68"/>
         <source>&lt;h1&gt;AutoScroll&lt;/h1&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="109"/>
+        <location filename="../autoscrollsettings.ui" line="105"/>
         <source>Scroll Divider:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="138"/>
+        <location filename="../autoscrollsettings.ui" line="134"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</source>
         <translation type="unfinished"></translation>
     </message>

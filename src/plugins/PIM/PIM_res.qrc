@@ -19,6 +19,7 @@
         <file>locale/he_IL.qm</file>
         <file>locale/hr_HR.qm</file>
         <file>locale/id_ID.qm</file>
+        <file>locale/is.qm</file>
         <file>locale/it_IT.qm</file>
         <file>locale/ja_JP.qm</file>
         <file>locale/ko_KR.qm</file>
@@ -40,6 +41,7 @@
         <file>locale/uz@Cyrl.qm</file>
         <file>locale/uz@Latn.qm</file>
         <file>locale/zh_CN.qm</file>
+        <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

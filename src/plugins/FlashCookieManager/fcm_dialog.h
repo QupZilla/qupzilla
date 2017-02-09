@@ -66,7 +66,6 @@ private slots:
     void filterString(const QString &string);
 
     void reloadFromDisk();
-    void selectFlashDataPath();
     void cookieTreeContextMenuRequested(const QPoint &pos);
 
 private:

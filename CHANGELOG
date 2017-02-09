@@ -1,3 +1,42 @@
+Version 2.1.0
+    * released 4 February 2017
+    * bring back spellcheck
+    * bring back support for printing
+    * bring back save page action + support multiple formats
+    * bring back option to delete cookies on close
+    * bring back per-domain user agent settings
+    * show audio playing indicator in tab with possibility to mute
+    * show background activity indicator in pinned tabs
+    * add option to show navigation bar when opening new tab in fullscreen
+    * add option to show bookmarks toolbar when typing in location bar
+    * add option to use native scrollbars
+    * add option to delete cache on close
+    * each tab has now its own search toolbar
+    * lot of HighDPI fixes
+    * fix setting maximum size of cache
+    * fix scrolling with high resolution mouse/touchpad
+    * fix rules for disabling blocking on pages in AdBlock
+    * fix deleting cookies
+    * fix slow search in icons database
+    * fix restoring zoom level of tabs
+    * fix crash when opening web inspector
+    * fix crash of the application when render process crashes
+    * fix tabbar being invisible sometimes after leaving fullscreen
+    * fix sometimes not showing list of windows and tabs in recovery page
+    * Windows: show download progress in taskbar
+
+Version 2.0.2
+    * released 24 October 2016
+    * update default user-agent strings
+    * add short command line variant for all options
+    * show navigation bar when adding new tab in fullscreen
+    * supermenu button is no longer hidden in fullscreen
+    * fix overwriting speed dial title when loading fails
+    * fix positions of speed dials in rtl
+    * fix context menu actions when site specifies base href
+    * fix issue with tabbar sometimes being invisible when leaving fullscreen
+    * Windows: fix background radient in browsing library
+
 Version 2.0.1
     * released 8 June 2016
     * don't force enabling HighDPI scaling by default

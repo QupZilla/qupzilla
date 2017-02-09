@@ -97,8 +97,9 @@ void HistoryMenu::aboutToShow()
         const QUrl url = query.value(1).toUrl();
         const QString title = QzTools::truncatedText(query.value(0).toString(), 40);
 
-        Action* act = new Action(IconProvider::iconForUrl(url), title);
+        Action* act = new Action(title);
         act->setData(url);
+        act->setIcon(IconProvider::iconForUrl(url));
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
@@ -120,8 +121,9 @@ void HistoryMenu::aboutToShowMostVisited()
     const QVector<HistoryEntry> mostVisited = mApp->history()->mostVisited(10);
 
     foreach (const HistoryEntry &entry, mostVisited) {
-        Action* act = new Action(IconProvider::iconForUrl(entry.url), QzTools::truncatedText(entry.title, 40));
+        Action* act = new Action(QzTools::truncatedText(entry.title, 40));
         act->setData(entry.url);
+        act->setIcon(IconProvider::iconForUrl(entry.url));
         connect(act, SIGNAL(triggered()), this, SLOT(historyEntryActivated()));
         connect(act, SIGNAL(ctrlTriggered()), this, SLOT(historyEntryCtrlActivated()));
         connect(act, SIGNAL(shiftTriggered()), this, SLOT(historyEntryShiftActivated()));
@@ -215,7 +217,7 @@ void HistoryMenu::init()
     act = addAction(QIcon::fromTheme("go-home"), tr("&Home"), this, SLOT(goHome()));
     act->setShortcut(QKeySequence(Qt::ALT + Qt::Key_Home));
 
-    act = addAction(QIcon::fromTheme("view-history", QIcon(":/icons/menu/history.png")), tr("Show &All History"), this, SLOT(showHistoryManager()));
+    act = addAction(QIcon::fromTheme("deep-history", QIcon(":/icons/menu/history.svg")), tr("Show &All History"), this, SLOT(showHistoryManager()));
     act->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_H));
 
     addSeparator();

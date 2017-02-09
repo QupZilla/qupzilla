@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@
 #include "qztools.h"
 #include "qzsettings.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
+#include "searchtoolbar.h"
 
 #include <QVBoxLayout>
 #include <QWebEngineHistory>
@@ -47,7 +49,7 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
     title = webTab->title();
     url = webTab->url();
-    icon = webTab->icon();
+    icon = webTab->icon(true);
     history = webTab->historyData();
     isPinned = webTab->isPinned();
     zoomLevel = webTab->zoomLevel();
@@ -114,9 +116,6 @@ WebTab::WebTab(BrowserWindow* window)
 {
     setObjectName(QSL("webtab"));
 
-    // This fixes background of pages with dark themes
-    setStyleSheet("#webtab {background-color:white;}");
-
     m_webView = new TabbedWebView(this);
     m_webView->setBrowserWindow(m_window);
     m_webView->setWebPage(new WebPage);
@@ -128,23 +127,46 @@ WebTab::WebTab(BrowserWindow* window)
     m_tabIcon = new TabIcon(this);
     m_tabIcon->setWebTab(this);
 
-    m_splitter = new QSplitter(Qt::Vertical, this);
-    m_splitter->setChildrenCollapsible(false);
-    m_splitter->addWidget(m_webView);
-
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
-    m_layout->addWidget(m_splitter);
-    setLayout(m_layout);
+    m_layout->addWidget(m_webView);
+
+    QWidget *viewWidget = new QWidget(this);
+    viewWidget->setLayout(m_layout);
+
+    m_splitter = new QSplitter(Qt::Vertical, this);
+    m_splitter->setChildrenCollapsible(false);
+    m_splitter->addWidget(viewWidget);
+
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(0);
+    layout->addWidget(m_splitter);
+    setLayout(layout);
+
+    m_notificationWidget = new QWidget(this);
+    m_notificationWidget->setAutoFillBackground(true);
+    QPalette pal = m_notificationWidget->palette();
+    pal.setColor(QPalette::Background, pal.window().color().darker(110));
+    m_notificationWidget->setPalette(pal);
+
+    QVBoxLayout *nlayout = new QVBoxLayout(m_notificationWidget);
+    nlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    nlayout->setContentsMargins(0, 0, 0, 0);
+    nlayout->setSpacing(1);
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
     connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
-    connect(m_webView->page(), &QWebEnginePage::recentlyAudibleChanged, tabIcon(), &TabIcon::updateAudioIcon);
-#endif
+
+    // Workaround QTabBar not immediately noticing resizing of tab buttons
+    connect(m_tabIcon, &TabIcon::resized, this, [this]() {
+        if (m_tabBar) {
+            m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
+        }
+    });
 }
 
 TabbedWebView* WebTab::webView() const
@@ -178,6 +200,24 @@ void WebTab::toggleWebInspector()
         delete m_splitter->widget(1);
 }
 
+void WebTab::showSearchToolBar()
+{
+    const int index = 1;
+
+    SearchToolBar *toolBar = nullptr;
+
+    if (m_layout->count() == 1) {
+        toolBar = new SearchToolBar(m_webView, this);
+        m_layout->insertWidget(index, toolBar);
+    } else if (m_layout->count() == 2) {
+        Q_ASSERT(qobject_cast<SearchToolBar*>(m_layout->itemAt(index)->widget()));
+        toolBar = static_cast<SearchToolBar*>(m_layout->itemAt(index)->widget());
+    }
+
+    Q_ASSERT(toolBar);
+    toolBar->focusSearchLine();
+}
+
 QUrl WebTab::url() const
 {
     if (isRestored()) {
@@ -198,14 +238,17 @@ QString WebTab::title() const
     }
 }
 
-QIcon WebTab::icon() const
+QIcon WebTab::icon(bool allowNull) const
 {
     if (isRestored()) {
-        return m_webView->icon();
+        return m_webView->icon(allowNull);
     }
-    else {
+
+    if (allowNull || !m_savedTab.icon.isNull()) {
         return m_savedTab.icon;
     }
+
+    return IconProvider::emptyWebIcon();
 }
 
 QWebEngineHistory* WebTab::history() const
@@ -248,8 +291,9 @@ void WebTab::attach(BrowserWindow* window)
     m_tabBar = m_window->tabWidget()->tabBar();
 
     m_webView->setBrowserWindow(m_window);
-    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
     m_tabBar->setTabText(tabIndex(), title());
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
+    m_tabIcon->updateIcon();
 }
 
 void WebTab::setHistoryData(const QByteArray &data)
@@ -297,20 +341,12 @@ void WebTab::setPinned(bool state)
 
 bool WebTab::isMuted() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     return m_webView->page()->isAudioMuted();
-#else
-    return false;
-#endif
 }
 
 void WebTab::setMuted(bool muted)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
     m_webView->page()->setAudioMuted(muted);
-#else
-    Q_UNUSED(muted)
-#endif
 }
 
 void WebTab::toggleMuted()
@@ -346,8 +382,7 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 
         m_tabBar->setTabText(index, tab.title);
         m_locationBar->showUrl(tab.url);
-        m_webView->setZoomLevel(tab.zoomLevel);
-        m_tabIcon->setIcon(tab.icon);
+        m_tabIcon->updateIcon();
 
         if (!tab.url.isEmpty()) {
             QColor col = m_tabBar->palette().text().color();
@@ -363,30 +398,34 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
         }
     }
     else {
-        p_restoreTab(tab);
+        // This is called only on restore session and restoring tabs immediately
+        // crashes QtWebEngine, waiting after initialization is complete fixes it
+        QTimer::singleShot(1000, this, [=]() {
+            p_restoreTab(tab);
+        });
     }
 }
 
-void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history)
+void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel)
 {
     m_webView->load(url);
     m_webView->restoreHistory(history);
+    m_webView->setZoomLevel(zoomLevel);
+    m_webView->setFocus();
 }
 
 void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 {
-    p_restoreTab(tab.url, tab.history);
+    p_restoreTab(tab.url, tab.history, tab.zoomLevel);
 }
 
 void WebTab::showNotification(QWidget* notif)
 {
-    const int notifPos = 0;
-
-    if (m_layout->count() > notifPos + 1) {
-        delete m_layout->itemAt(notifPos)->widget();
-    }
-
-    m_layout->insertWidget(notifPos, notif);
+    m_notificationWidget->setParent(nullptr);
+    m_notificationWidget->setParent(this);
+    m_notificationWidget->setFixedWidth(width());
+    m_notificationWidget->layout()->addWidget(notif);
+    m_notificationWidget->show();
     notif->show();
 }
 
@@ -438,6 +477,13 @@ void WebTab::showEvent(QShowEvent* event)
             QTimer::singleShot(0, this, SLOT(slotRestore()));
         }
     }
+}
+
+void WebTab::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    m_notificationWidget->setFixedWidth(width());
 }
 
 bool WebTab::isCurrentTab() const

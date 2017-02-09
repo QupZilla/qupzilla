@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 * ============================================================ */
 #include "webhittestresult.h"
 #include "webpage.h"
+
+#include <QWebEngineContextMenuData>
 
 WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     : m_isNull(true)
@@ -87,6 +89,32 @@ WebHitTestResult::WebHitTestResult(const WebPage *page, const QPoint &pos)
     init(p->url(), p->execJavaScript(js, WebPage::SafeJsWorld).toMap());
 }
 
+void WebHitTestResult::updateWithContextMenuData(const QWebEngineContextMenuData &data)
+{
+    if (!data.isValid() || data.position() != m_pos) {
+        return;
+    }
+
+    m_linkTitle = data.linkText();
+    m_linkUrl = data.linkUrl();
+    m_isContentEditable = data.isContentEditable();
+    m_isContentSelected = !data.selectedText().isEmpty();
+
+    switch (data.mediaType()) {
+    case QWebEngineContextMenuData::MediaTypeImage:
+        m_imageUrl = data.mediaUrl();
+        break;
+
+    case QWebEngineContextMenuData::MediaTypeVideo:
+    case QWebEngineContextMenuData::MediaTypeAudio:
+        m_mediaUrl = data.mediaUrl();
+        break;
+
+    default:
+        break;
+    }
+}
+
 QUrl WebHitTestResult::baseUrl() const
 {
     return m_baseUrl;
@@ -152,7 +180,7 @@ QPoint WebHitTestResult::pos() const
     return m_pos;
 }
 
-QPoint WebHitTestResult::viewportPos() const
+QPointF WebHitTestResult::viewportPos() const
 {
     return m_viewportPos;
 }
@@ -167,6 +195,7 @@ void WebHitTestResult::init(const QUrl &url, const QVariantMap &map)
     if (map.isEmpty())
         return;
 
+    m_isNull = false;
     m_baseUrl = map.value(QSL("baseUrl")).toUrl();
     m_alternateText = map.value(QSL("alternateText")).toString();
     m_imageUrl = map.value(QSL("imageUrl")).toUrl();

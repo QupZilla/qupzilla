@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -91,27 +91,6 @@
 ** If you are unsure which license is appropriate for your use, please
 ** contact Nokia at qt-info@nokia.com.
 **
------------------------------------------------------------------------------
- EcWin7 class:
------------------------------------------------------------------------------
-/* EcWin7 - Support library for integrating Windows 7 taskbar features
- * into any Qt application
- * Copyright (C) 2010 Emanuele Colombo
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
 
 -----------------------------------------------------------------------------
  OpenSearchReader + OpenSearchEngine class:
@@ -136,12 +115,8 @@
  */
 
 -----------------------------------------------------------------------------
- QtWin class from
- http://labs.qt.nokia.com/2009/09/15/using-blur-behind-on-windows/
------------------------------------------------------------------------------
- In application are used also some icons from Oxygen icon set, which are
- licensed under the GNU/LGPL license.
- More info at http://www.oxygen-icons.org/
+ In application are used also some icons from Breeze icon set.
+ More info at https://cgit.kde.org/breeze-icons.git
 -----------------------------------------------------------------------------
  Speed Dial uses some icons from Faenza icon set, which are licensed under
  the GNU/GPL license.

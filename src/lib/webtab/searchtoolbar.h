@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2013  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,6 @@
 #include <QWebEnginePage>
 
 #include "qzcommon.h"
-#include "animatedwidget.h"
 
 namespace Ui
 {
@@ -33,14 +32,13 @@ class QLineEdit;
 class WebView;
 class LineEdit;
 
-class QUPZILLA_EXPORT SearchToolBar : public AnimatedWidget
+class QUPZILLA_EXPORT SearchToolBar : public QWidget
 {
     Q_OBJECT
 public:
     explicit SearchToolBar(WebView* view, QWidget* parent = 0);
     ~SearchToolBar();
 
-    void setWebView(WebView* view);
     void showMinimalInPopupWindow();
 
     void focusSearchLine();
@@ -56,7 +54,7 @@ public slots:
     void findNext();
     void findPrevious();
 
-    void hide();
+    void close();
 
 private:
     Ui::SearchToolbar* ui;

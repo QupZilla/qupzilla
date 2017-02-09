@@ -217,8 +217,10 @@ void SiteInfo::showLoadingText()
     ui->mediaPreview->setScene(scene);
 }
 
-void SiteInfo::showPixmap(const QPixmap &pixmap)
+void SiteInfo::showPixmap(QPixmap pixmap)
 {
+    pixmap.setDevicePixelRatio(devicePixelRatioF());
+
     delete ui->mediaPreview->scene();
     QGraphicsScene* scene = new QGraphicsScene(ui->mediaPreview);
 

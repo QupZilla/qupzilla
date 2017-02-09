@@ -70,7 +70,7 @@
     <message>
         <location filename="../gm_manager.cpp" line="270"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; ya está instalado</translation>
     </message>
 </context>
 <context>

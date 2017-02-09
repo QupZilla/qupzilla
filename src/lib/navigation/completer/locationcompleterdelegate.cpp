@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,18 +61,25 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     if (m_view->hoveredIndex() == index) {
         opt.state |= QStyle::State_Selected;
-    }
-    else {
+    } else {
         opt.state &= ~QStyle::State_Selected;
     }
 
-#ifdef Q_OS_WIN
-    const QPalette::ColorRole colorRole = QPalette::Text;
-    const QPalette::ColorRole colorLinkRole = QPalette::Link;
-#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
+
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+
+#ifdef Q_OS_WIN
+    opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
+    opt.palette.setColor(QPalette::All, QPalette::Highlight, opt.palette.base().color().darker(108));
 #endif
+
+    QPalette textPalette = opt.palette;
+    textPalette.setCurrentColorGroup(cg);
 
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
@@ -106,7 +113,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QString title = index.data(LocationCompleterModel::TitleRole).toString();
     painter->setFont(titleFont);
 
-    viewItemDrawText(painter, &opt, titleRect, title, colorRole, searchText);
+    viewItemDrawText(painter, &opt, titleRect, title, textPalette.color(colorRole), searchText);
 
     // Draw link
     const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
@@ -131,17 +138,18 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
 
     if (drawSwitchToTab() && tabPos != -1) {
-        const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.png"));
+        const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.svg"));
         QRect iconRect(linkRect);
-        iconRect.setWidth(m_padding + 16 + m_padding);
+        iconRect.setX(iconRect.x() + m_padding * 2);
+        iconRect.setWidth(16);
         tabIcon.paint(painter, iconRect);
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
-        viewItemDrawText(painter, &opt, textRect, LocationCompleterView::tr("Switch to tab"), colorLinkRole);
+        viewItemDrawText(painter, &opt, textRect, LocationCompleterView::tr("Switch to tab"), textPalette.color(colorLinkRole));
     }
     else {
-        viewItemDrawText(painter, &opt, linkRect, link, colorLinkRole, searchText);
+        viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole), searchText);
     }
 
     // Draw line at the very bottom of item if the item is not highlighted
@@ -212,13 +220,12 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
 void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
-                                                 const QString &text, const QPalette::ColorRole &role, const QString &searchText) const
+                                                 const QString &text, const QColor &color, const QString &searchText) const
 {
     if (text.isEmpty()) {
         return;
     }
 
-    const QColor &color = option->palette.color(role);
     const QWidget* widget = option->widget;
     const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();
     const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;

@@ -42,6 +42,7 @@ private slots:
 
     void bookmarksChanged();
     void aboutToShow();
+    void menuAboutToShow();
     void menuMiddleClicked(Menu* menu);
 
     void bookmarkActivated();

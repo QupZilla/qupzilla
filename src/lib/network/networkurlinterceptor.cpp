@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,10 +15,11 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-
 #include "networkurlinterceptor.h"
 #include "urlinterceptor.h"
 #include "settings.h"
+#include "mainapplication.h"
+#include "useragentmanager.h"
 
 NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
@@ -30,6 +31,8 @@ void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
     if (m_sendDNT)
         info.setHttpHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
+
+    info.setHttpHeader(QByteArrayLiteral("User-Agent"), mApp->userAgentManager()->userAgentForUrl(info.firstPartyUrl()).toUtf8());
 
     foreach (UrlInterceptor *interceptor, m_interceptors) {
         interceptor->interceptRequest(info);

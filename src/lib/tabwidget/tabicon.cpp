@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,17 @@
 * ============================================================ */
 #include "tabicon.h"
 #include "webtab.h"
+#include "webpage.h"
 #include "iconprovider.h"
 #include "tabbedwebview.h"
 
 #include <QTimer>
+#include <QToolTip>
 #include <QMouseEvent>
 
 #define ANIMATION_INTERVAL 70
+
+TabIcon::Data *TabIcon::s_data = Q_NULLPTR;
 
 TabIcon::TabIcon(QWidget* parent)
     : QWidget(parent)
@@ -34,19 +38,23 @@ TabIcon::TabIcon(QWidget* parent)
 {
     setObjectName(QSL("tab-icon"));
 
-    m_animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
-    m_framesCount = m_animationPixmap.width() / m_animationPixmap.height();
-
-    m_audioPlayingPixmap = QIcon(QSL(":icons/other/audioplaying.png")).pixmap(15, 15);
-    m_audioMutedPixmap = QIcon(QSL(":icons/other/audiomuted.png")).pixmap(15, 15);
+    if (!s_data) {
+        s_data = new TabIcon::Data;
+        s_data->animationPixmap = QIcon(QSL(":icons/other/loading.png")).pixmap(288, 16);
+        s_data->framesCount = s_data->animationPixmap.width() / s_data->animationPixmap.height();
+        s_data->audioPlayingPixmap = QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.svg"))).pixmap(16);
+        s_data->audioMutedPixmap = QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.svg"))).pixmap(16);
+    }
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(ANIMATION_INTERVAL);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateAnimationFrame()));
 
-    resize(16, 16);
+    m_hideTimer = new QTimer(this);
+    m_hideTimer->setInterval(250);
+    connect(m_hideTimer, &QTimer::timeout, this, &TabIcon::hide);
 
-    setIcon(IconProvider::emptyWebIcon());
+    resize(16, 16);
 }
 
 void TabIcon::setWebTab(WebTab* tab)
@@ -55,15 +63,11 @@ void TabIcon::setWebTab(WebTab* tab)
 
     connect(m_tab->webView(), SIGNAL(loadStarted()), this, SLOT(showLoadingAnimation()));
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
-    connect(m_tab->webView(), SIGNAL(iconChanged()), this, SLOT(showIcon()));
+    connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::updateIcon);
+    connect(m_tab->webView(), &WebView::backgroundActivityChanged, this, [this]() { update(); });
+    connect(m_tab->webView()->page(), &QWebEnginePage::recentlyAudibleChanged, this, &TabIcon::updateAudioIcon);
 
-    showIcon();
-}
-
-void TabIcon::setIcon(const QIcon &icon)
-{
-    m_sitePixmap = icon.pixmap(16);
-    update();
+    updateIcon();
 }
 
 void TabIcon::showLoadingAnimation()
@@ -71,6 +75,7 @@ void TabIcon::showLoadingAnimation()
     m_currentFrame = 0;
 
     updateAnimationFrame();
+    show();
 }
 
 void TabIcon::hideLoadingAnimation()
@@ -78,12 +83,21 @@ void TabIcon::hideLoadingAnimation()
     m_animationRunning = false;
 
     m_updateTimer->stop();
-    showIcon();
+    updateIcon();
 }
 
-void TabIcon::showIcon()
+void TabIcon::updateIcon()
 {
-    m_sitePixmap = m_tab->icon().pixmap(16);
+    m_sitePixmap = m_tab->icon(/*allowNull*/ true).pixmap(16);
+    if (m_sitePixmap.isNull()) {
+        if (m_tab->url().isEmpty() || m_tab->url().scheme() == QL1S("qupzilla")) {
+            hide();
+        } else {
+            m_hideTimer->start();
+        }
+    } else {
+        show();
+    }
     update();
 }
 
@@ -95,15 +109,68 @@ void TabIcon::updateAnimationFrame()
     }
 
     update();
-    m_currentFrame = (m_currentFrame + 1) % m_framesCount;
+    m_currentFrame = (m_currentFrame + 1) % s_data->framesCount;
+}
+
+void TabIcon::show()
+{
+    if (!shouldBeVisible()) {
+        return;
+    }
+
+    m_hideTimer->stop();
+
+    if (isVisible()) {
+        return;
+    }
+
+    setFixedSize(16, 16);
+    emit resized();
+    QWidget::show();
+}
+
+void TabIcon::hide()
+{
+    if (shouldBeVisible() || isHidden()) {
+        return;
+    }
+
+    emit resized();
+    setFixedSize(0, 0);
+    QWidget::hide();
+}
+
+bool TabIcon::shouldBeVisible() const
+{
+    if (m_tab && m_tab->isPinned()) {
+        return true;
+    }
+    return !m_sitePixmap.isNull() || m_animationRunning || m_audioIconDisplayed || (m_tab && m_tab->isPinned());
+}
+
+bool TabIcon::event(QEvent *event)
+{
+    if (event->type() == QEvent::ToolTip) {
+        QHelpEvent *e = static_cast<QHelpEvent*>(event);
+        if (m_audioIconDisplayed && m_audioIconRect.contains(e->pos())) {
+            QToolTip::showText(e->globalPos(), m_tab->isMuted() ? tr("Unmute Tab") : tr("Mute Tab"), this);
+            event->accept();
+            return true;
+        }
+    }
+
+    return QWidget::event(event);
 }
 
 void TabIcon::updateAudioIcon(bool recentlyAudible)
 {
-    if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible))
+    if (m_tab->isMuted() || (!m_tab->isMuted() && recentlyAudible)) {
         m_audioIconDisplayed = true;
-    else
+        show();
+    } else {
         m_audioIconDisplayed = false;
+        hide();
+    }
 
     update();
 }
@@ -113,9 +180,10 @@ void TabIcon::paintEvent(QPaintEvent* event)
     Q_UNUSED(event);
 
     QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
 
     const int size = 16;
-    const int pixmapSize = qRound(size * m_animationPixmap.devicePixelRatioF());
+    const int pixmapSize = qRound(size * s_data->animationPixmap.devicePixelRatioF());
 
     // Center the pixmap in rect
     QRect r = rect();
@@ -124,30 +192,56 @@ void TabIcon::paintEvent(QPaintEvent* event)
     r.setWidth(size);
     r.setHeight(size);
 
-    if (m_animationRunning)
-        p.drawPixmap(r, m_animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
-    else
+    if (m_animationRunning) {
+        p.drawPixmap(r, s_data->animationPixmap, QRect(m_currentFrame * pixmapSize, 0, pixmapSize, pixmapSize));
+    } else if (m_audioIconDisplayed && !m_tab->isPinned()) {
+        m_audioIconRect = r;
+        p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
+    } else if (!m_sitePixmap.isNull()) {
         p.drawPixmap(r, m_sitePixmap);
+    } else if (m_tab && m_tab->isPinned()) {
+        p.drawPixmap(r, IconProvider::emptyWebIcon().pixmap(size));
+    }
 
-    if (m_audioIconDisplayed) {
-        if (m_tab->isMuted())
-            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioMutedPixmap);
-        else
-            p.drawPixmap(QPointF(width() * 0.25, 0), m_audioPlayingPixmap);
+    // Draw audio icon on top of site icon for pinned tabs
+    if (!m_animationRunning && m_audioIconDisplayed && m_tab->isPinned()) {
+        const int s = size - 4;
+        const QRect r(width() - s, 0, s, s);
+        m_audioIconRect = r;
+        QColor c = palette().color(QPalette::Window);
+        c.setAlpha(180);
+        p.setPen(c);
+        p.setBrush(c);
+        p.drawEllipse(r);
+        p.drawPixmap(r, m_tab->isMuted() ? s_data->audioMutedPixmap : s_data->audioPlayingPixmap);
+    }
+
+    // Draw background activity indicator
+    if (m_tab && m_tab->isPinned() && m_tab->webView()->backgroundActivity()) {
+        const int s = 5;
+        // Background
+        const QRect r1(width() - s - 2, height() - s - 2, s + 2, s + 2);
+        QColor c1 = palette().color(QPalette::Window);
+        c1.setAlpha(180);
+        p.setPen(Qt::transparent);
+        p.setBrush(c1);
+        p.drawEllipse(r1);
+        // Foreground
+        const QRect r2(width() - s - 1, height() - s - 1, s, s);
+        QColor c2 = palette().color(QPalette::Text);
+        p.setPen(Qt::transparent);
+        p.setBrush(c2);
+        p.drawEllipse(r2);
     }
 }
 
 void TabIcon::mousePressEvent(QMouseEvent *event)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
-    qreal x = event->localPos().x();
-    qreal y = event->localPos().y();
-    // if audio icon is clicked - we don't propagate mouse press to the tab
-    if (m_audioIconDisplayed && x >= width() * 0.25 && y < height() * 0.75)
+    // If audio icon is clicked - we don't propagate mouse press to the tab
+    if (m_audioIconDisplayed && event->button() == Qt::LeftButton && m_audioIconRect.contains(event->pos())) {
         m_tab->toggleMuted();
-    else
-        QWidget::mousePressEvent(event);
-#else
+        return;
+    }
+
     QWidget::mousePressEvent(event);
-#endif
 }

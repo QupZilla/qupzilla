@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,36 @@
 * ============================================================ */
 #include "downloadoptionsdialog.h"
 #include "ui_downloadoptionsdialog.h"
+#include "iconprovider.h"
 
 #include <QClipboard>
+#include <QMimeDatabase>
+#include <QWebEngineDownloadItem>
 
-DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, const QUrl &url, QWidget *parent)
+DownloadOptionsDialog::DownloadOptionsDialog(const QString &fileName, QWebEngineDownloadItem *downloadItem, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::DownloadOptionsDialog)
-    , m_url(url)
+    , m_downloadItem(downloadItem)
     , m_signalEmited(false)
 {
     ui->setupUi(this);
 
     ui->fileName->setText("<b>" + fileName + "</b>");
-    ui->fromServer->setText(url.host());
-    setWindowTitle(tr("Opening %1").arg(fileName));
+    ui->fromServer->setText(m_downloadItem->url().host());
 
-    setFixedHeight(sizeHint().height());
+    const QIcon fileIcon = IconProvider::instance()->standardIcon(QStyle::SP_FileIcon);
+
+    QMimeDatabase db;
+    const QMimeType mime = db.mimeTypeForName(downloadItem->mimeType());
+    if (mime.isValid() && !mime.isDefault()) {
+        ui->mimeName->setText(mime.comment());
+        ui->iconLabel->setPixmap(QIcon::fromTheme(mime.iconName(), fileIcon).pixmap(22));
+    } else {
+        ui->mimeFrame->hide();
+        ui->iconLabel->setPixmap(fileIcon.pixmap(22));
+    }
+
+    setWindowTitle(tr("Opening %1").arg(fileName));
 
     ui->buttonBox->setFocus();
 
@@ -93,7 +107,7 @@ int DownloadOptionsDialog::exec()
 
 void DownloadOptionsDialog::copyDownloadLink()
 {
-    QApplication::clipboard()->setText(m_url.toString());
+    QApplication::clipboard()->setText(m_downloadItem->url().toString());
     ui->copyDownloadLink->setText(tr("Download link copied."));
 }
 

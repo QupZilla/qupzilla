@@ -4,8 +4,7 @@ language: cpp
 cache: apt
 
 env:
-  - QT=qt56
-  - QT=qt57
+  - QT=qt58
 
 before_install:
   - export DISPLAY=:99.0
@@ -14,13 +13,11 @@ before_install:
 install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install libssl-dev pkg-config libxcb-util0-dev
-  - if [[ "$QT" == "qt56" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt561-trusty; sudo apt-get update -qq; sudo apt-get install -qq qt56tools qt56script qt56webengine qt56webchannel qt56declarative qt56x11extras; fi
-  - if [[ "$QT" == "qt57" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt57-trusty; sudo apt-get update -qq; sudo apt-get install -qq qt57tools qt57script qt57webengine qt57webchannel qt57declarative qt57x11extras; fi
+  - if [[ "$QT" == "qt58" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt58-trusty; sudo apt-get update -qq; sudo apt-get install -qq qt58tools qt58script qt58webengine qt58webchannel qt58declarative qt58x11extras; fi
 
 script:
   - QMAKE="qmake"
-  - if [[ "$QT" == "qt56" ]]; then QMAKE="/opt/qt56/bin/qmake"; fi
-  - if [[ "$QT" == "qt57" ]]; then QMAKE="/opt/qt57/bin/qmake"; fi
+  - if [[ "$QT" == "qt58" ]]; then QMAKE="/opt/qt58/bin/qmake"; fi
   - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
   - make || exit 1
   - cd scripts && ./run_tests.sh $QMAKE

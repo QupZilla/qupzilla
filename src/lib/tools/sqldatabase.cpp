@@ -19,6 +19,7 @@
 
 #include <QThread>
 #include <QMutexLocker>
+#include <QApplication>
 
 #include <QtConcurrent/QtConcurrentRun>
 
@@ -54,8 +55,13 @@ QSqlDatabase SqlDatabase::databaseForThread(QThread* thread)
     return m_databases[thread];
 }
 
-QSqlQuery SqlDatabase::exec(const QSqlQuery &query)
+QSqlQuery SqlDatabase::exec(QSqlQuery &query)
 {
+    if (QThread::currentThread() == qApp->thread()) {
+        query.exec();
+        return query;
+    }
+
     QSqlQuery out(databaseForThread(QThread::currentThread()));
     out.prepare(query.lastQuery());
 
@@ -66,7 +72,7 @@ QSqlQuery SqlDatabase::exec(const QSqlQuery &query)
     }
 
     out.exec();
-    return out;
+    return query = out;
 }
 
 QFuture<QSqlQuery> SqlDatabase::execAsync(const QSqlQuery &query)

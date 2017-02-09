@@ -37,6 +37,8 @@ public:
 
     void setAllowCookies(bool allow);
 
+    void deleteCookie(const QNetworkCookie &cookie);
+
     QVector<QNetworkCookie> getAllCookies() const;
     void deleteAllCookies();
 

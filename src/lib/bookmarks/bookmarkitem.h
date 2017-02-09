@@ -51,6 +51,8 @@ public:
     QList<BookmarkItem*> children() const;
 
     QIcon icon();
+    void setIcon(const QIcon &icon);
+
     QString urlString() const;
 
     QUrl url() const;

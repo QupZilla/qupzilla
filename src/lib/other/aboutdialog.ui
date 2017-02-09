@@ -19,9 +19,6 @@
    </property>
    <item>
     <widget class="QLabel" name="label">
-     <property name="pixmap">
-      <pixmap resource="../data/icons.qrc">:/icons/other/about.png</pixmap>
-     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -72,9 +69,7 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

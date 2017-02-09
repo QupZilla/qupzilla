@@ -207,7 +207,7 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation>&amp;Configuration manuelle</translation>
+        <translation>Configuration &amp;manuelle</translation>
     </message>
 </context>
 <context>

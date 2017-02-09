@@ -1,6 +1,6 @@
 /* ============================================================
 * AutoScroll - Autoscroll for QupZilla
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,15 +25,66 @@
 #include <QMouseEvent>
 #include <QSettings>
 #include <QLabel>
+#include <QIcon>
+
+ScrollIndicator::ScrollIndicator(QWidget *parent)
+    : QLabel(parent)
+{
+    resize(33, 33);
+    setContentsMargins(0, 0, 0, 0);
+}
+
+Qt::Orientations ScrollIndicator::orientations() const
+{
+    return m_orientations;
+}
+
+void ScrollIndicator::setOrientations(Qt::Orientations orientations)
+{
+    m_orientations = orientations;
+
+    if (m_orientations == Qt::Vertical) {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_vertical.png")).pixmap(33));
+    } else if (m_orientations == Qt::Horizontal) {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_horizontal.png")).pixmap(33));
+    } else {
+        setPixmap(QIcon(QSL(":/autoscroll/data/scroll_all.png")).pixmap(33));
+    }
+
+    update();
+}
+
+void ScrollIndicator::paintEvent(QPaintEvent *event)
+{
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
+
+    QRectF r(rect());
+    r.adjust(1, 1, -1, -1);
+
+    QColor c1(Qt::gray);
+    c1.setAlpha(190);
+
+    QColor c2(Qt::white);
+    c2.setAlpha(190);
+
+    QRadialGradient g(r.center(), r.height() / 2.0);
+    g.setColorAt(1, c1);
+    g.setColorAt(0.7, c2);
+
+    p.setPen(Qt::NoPen);
+    p.setBrush(g);
+    p.drawEllipse(r);
+
+    QLabel::paintEvent(event);
+}
 
 AutoScroller::AutoScroller(const QString &settingsFile, QObject* parent)
     : QObject(parent)
     , m_view(0)
     , m_settingsFile(settingsFile)
 {
-    m_indicator = new QLabel;
-    m_indicator->resize(32, 32);
-    m_indicator->setContentsMargins(0, 0, 0, 0);
+    m_indicator = new ScrollIndicator;
     m_indicator->installEventFilter(this);
 
     QSettings settings(m_settingsFile, QSettings::IniFormat);
@@ -70,6 +121,13 @@ bool AutoScroller::mouseMove(QObject* obj, QMouseEvent* event)
         }
         else if (rect.bottom() < event->globalPos().y()) {
             ylength = event->globalPos().y() - rect.bottom();
+        }
+
+        if (!m_indicator->orientations().testFlag(Qt::Vertical)) {
+            ylength = 0;
+        }
+        if (!m_indicator->orientations().testFlag(Qt::Horizontal)) {
+            xlength = 0;
         }
 
         m_frameScroller->startScrolling(xlength, ylength);
@@ -169,7 +227,7 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
 {
     const WebHitTestResult res = view->page()->hitTestContent(pos);
 
-    if (res.isContentEditable() || !res.linkUrl().isEmpty()) {
+    if (res.isContentEditable() || !res.linkUrl().isEmpty() || res.tagName().endsWith(QL1S("frame"))) {
         return false;
     }
 
@@ -188,21 +246,20 @@ bool AutoScroller::showIndicator(WebView* view, const QPoint &pos)
         return false;
     }
 
-    if (vertical && horizontal) {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_all.png"));
+    Qt::Orientations orientations;
+    if (vertical) {
+        orientations |= Qt::Vertical;
     }
-    else if (vertical) {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_vertical.png"));
+    if (horizontal) {
+        orientations |= Qt::Horizontal;
     }
-    else {
-        m_indicator->setPixmap(QPixmap(":/autoscroll/data/scroll_horizontal.png"));
-    }
+    m_indicator->setOrientations(orientations);
 
     m_view = view;
 
     QPoint p;
-    p.setX(pos.x() - m_indicator->pixmap()->width() / 2);
-    p.setY(pos.y() - m_indicator->pixmap()->height() / 2);
+    p.setX(pos.x() - m_indicator->width() / 2);
+    p.setY(pos.y() - m_indicator->height() / 2);
 
     m_indicator->setParent(m_view->overlayWidget());
     m_indicator->move(m_view->mapTo(m_view->overlayWidget(), p));

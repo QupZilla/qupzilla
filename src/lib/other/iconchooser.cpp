@@ -65,9 +65,8 @@ void IconChooser::searchIcon(const QString &string)
     ui->iconList->clear();
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 20"));
-    query.bindValue(0, QString(QL1S("%%1%")).arg(QzTools::escapeSqlString(string)));
-    query.bindValue(1, QL1S("!"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 20"));
+    query.addBindValue(QString(QL1S("*%1*")).arg(QzTools::escapeSqlGlobString(string)));
     query.exec();
 
     while (query.next()) {
@@ -118,16 +117,13 @@ void IconChooserDelegate::paint(QPainter* painter, const QStyleOptionViewItem &o
     const QStyle* style = w ? w->style() : QApplication::style();
 
     // Draw background
-    if (mApp->styleName() == QLatin1String("fusion")) {
-        style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
-    }
-    else {
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
-    }
+    opt.showDecorationSelected = true;
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
-    QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
-    icon.paint(painter, opt.rect);
+    const int padding = opt.rect.width() / 4;
+    const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
+    icon.paint(painter, opt.rect.adjusted(padding, padding, -padding, -padding));
 }
 
 QSize IconChooserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

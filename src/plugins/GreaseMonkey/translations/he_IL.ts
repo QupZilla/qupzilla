@@ -70,7 +70,7 @@
     <message>
         <location filename="../gm_manager.cpp" line="270"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; כבר מותקן</translation>
     </message>
 </context>
 <context>
@@ -179,7 +179,7 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="65"/>
         <source>Start at:</source>
-        <translation>מתחיל ב:</translation>
+        <translation>מתחיל עם:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="45"/>
@@ -189,17 +189,17 @@
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="19"/>
         <source>Runs at:</source>
-        <translation>רץ אצל:</translation>
+        <translation>רץ בתחום:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.ui" line="128"/>
         <source>Does not run at:</source>
-        <translation>לא רץ אצל:</translation>
+        <translation>לא רץ בתחום:</translation>
     </message>
     <message>
         <location filename="../settings/gm_settingsscriptinfo.cpp" line="45"/>
         <source>Script Details of %1</source>
-        <translation>תיאור תסריט של %1</translation>
+        <translation>תיאור תסריט עבור %1</translation>
     </message>
 </context>
 </TS>

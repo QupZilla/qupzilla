@@ -1,70 +1,67 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/qupzilla.png</file>
-        <file>icons/preferences/applications-internet.png</file>
-        <file>icons/preferences/applications-system.png</file>
-        <file>icons/preferences/applications-webbrowsers.png</file>
-        <file>icons/preferences/preferences-desktop.png</file>
-        <file>icons/preferences/extension.png</file>
         <file>qupzilla.png</file>
-        <file>icons/menu/history.png</file>
-        <file>icons/menu/history_entry.png</file>
-        <file>icons/menu/tab-new.png</file>
-        <file>icons/menu/qt.png</file>
+        <file>icons/menu/history.svg</file>
+        <file>icons/menu/history_entry.svg</file>
+        <file>icons/menu/tab-new.svg</file>
+        <file>icons/menu/window-new.svg</file>
         <file>icons/other/about.png</file>
-        <file>icons/other/feed.png</file>
-        <file>icons/other/bigstar.png</file>
+        <file>icons/other/about@2x.png</file>
+        <file>icons/other/bigstar.svg</file>
+        <file>icons/other/bigstar-selected.svg</file>
         <file>icons/locationbar/safe.png</file>
         <file>icons/locationbar/unsafe.png</file>
         <file>icons/locationbar/visit1.png</file>
         <file>icons/locationbar/visit2.png</file>
         <file>icons/locationbar/visit3.png</file>
         <file>icons/other/login.png</file>
-        <file>icons/preferences/applications-fonts.png</file>
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
         <file>icons/other/adblock.png</file>
-        <file>icons/notifications/download.png</file>
-        <file>icons/other/bighistory.png</file>
-        <file>icons/menu/dot.png</file>
-        <file>icons/preferences/style-default.png</file>
+        <file>icons/other/download.svg</file>
+        <file>icons/other/bighistory.svg</file>
+        <file>icons/other/bighistory-selected.svg</file>
         <file>icons/other/adblock-disabled.png</file>
-        <file>icons/menu/search-icon.png</file>
+        <file>icons/menu/search-icon.svg</file>
         <file>icons/browsers/firefox.png</file>
+        <file>icons/browsers/firefox@2x.png</file>
         <file>icons/browsers/chrome.png</file>
+        <file>icons/browsers/chrome@2x.png</file>
         <file>icons/browsers/opera.png</file>
-        <file>icons/preferences/application-x-theme.png</file>
-        <file>icons/preferences/dialog-password.png</file>
-        <file>icons/preferences/dialog-question.png</file>
-        <file>icons/preferences/mail-inbox.png</file>
-        <file>icons/preferences/preferences-system-firewall.png</file>
-        <file>icons/browsers/html.png</file>
+        <file>icons/browsers/opera@2x.png</file>
+        <file>icons/browsers/ie.png</file>
+        <file>icons/browsers/ie@2x.png</file>
+        <file>icons/browsers/html.svg</file>
         <file>icons/exeicons/qupzilla-window.png</file>
-        <file>icons/preferences/text-x-sql.png</file>
-        <file>icons/sites/akregator.png</file>
-        <file>icons/sites/aol.png</file>
-        <file>icons/sites/bloglines.png</file>
         <file>icons/sites/duck.png</file>
         <file>icons/sites/google.png</file>
-        <file>icons/sites/liferea.png</file>
-        <file>icons/sites/netvibes.png</file>
         <file>icons/sites/translate.png</file>
         <file>icons/sites/wikipedia.png</file>
-        <file>icons/sites/yahoo.png</file>
-        <file>icons/preferences/preferences-desktop-keyboard-shortcuts.png</file>
-        <file>icons/menu/tab.png</file>
-        <file>icons/other/geolocation.png</file>
-        <file>icons/other/notification.png</file>
-        <file>icons/browsers/internet-explorer.png</file>
+        <file>icons/menu/tab.svg</file>
         <file>icons/sites/startpage.png</file>
         <file>icons/sites/w3.png</file>
         <file>icons/other/loading.png</file>
         <file>icons/other/loading@2x.png</file>
-        <file>icons/other/empty-page.png</file>
+        <file>icons/other/webpage.svg</file>
         <file>icons/menu/privatebrowsing.png</file>
-        <file>icons/menu/settings.png</file>
+        <file>icons/menu/settings.svg</file>
         <file>icons/other/startpage.png</file>
-        <file>icons/other/audioplaying.png</file>
-        <file>icons/other/audiomuted.png</file>
+        <file>icons/other/startpage@2x.png</file>
+        <file>icons/other/audioplaying.svg</file>
+        <file>icons/other/audiomuted.svg</file>
+        <file>icons/preferences/appearance.svg</file>
+        <file>icons/preferences/browsing.svg</file>
+        <file>icons/preferences/downloads.svg</file>
+        <file>icons/preferences/extensions.svg</file>
+        <file>icons/preferences/fonts.svg</file>
+        <file>icons/preferences/general.svg</file>
+        <file>icons/preferences/notifications.svg</file>
+        <file>icons/preferences/other.svg</file>
+        <file>icons/preferences/passwords.svg</file>
+        <file>icons/preferences/privacy.svg</file>
+        <file>icons/preferences/shortcuts.svg</file>
+        <file>icons/preferences/spellcheck.svg</file>
+        <file>icons/preferences/tabs.svg</file>
     </qresource>
 </RCC>

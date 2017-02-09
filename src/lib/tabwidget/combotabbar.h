@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #define COMBOTABBAR_H
 
 #include "qzcommon.h"
+#include "wheelhelper.h"
 
 #include <QTabBar>
 #include <QScrollBar>
@@ -116,6 +117,7 @@ public:
     bool isPinned(int index) const;
     void setMaxVisiblePinnedTab(int max);
 
+    void setFocusPolicy(Qt::FocusPolicy policy);
     void setObjectName(const QString &name);
     void setMouseTracking(bool enable);
 
@@ -142,6 +144,9 @@ public:
     int cornerWidth(Qt::Corner corner) const;
     // Add widget to the left/right corner
     void addCornerWidget(QWidget* widget, Qt::Corner corner);
+
+    // Duration of tab slide animation when releasing dragged tab
+    static int slideAnimationDuration();
 
 public slots:
     void setUpLayout();
@@ -202,6 +207,8 @@ private:
     bool m_lastAppliedOverflow;
     bool m_usesScrollButtons;
     bool m_blockCurrentChangedSignal;
+
+    WheelHelper m_wheelHelper;
 
     friend class TabBarHelper;
     friend class TabStackedWidget;

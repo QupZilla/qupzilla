@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@
 #include "adblocktest.h"
 #include "updatertest.h"
 #include "passwordbackendtest.h"
-#include "networktest.h"
 
 #include <QtTest/QtTest>
 
@@ -40,7 +39,6 @@ int main(int argc, char *argv[])
 //    RUN_TEST(CookiesTest)
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
-    RUN_TEST(NetworkTest)
 
     RUN_TEST(DatabasePasswordBackendTest)
     RUN_TEST(DatabaseEncryptedPasswordBackendTest)

@@ -28,6 +28,7 @@ TRANSLATIONS += \
     translations/gl_ES.ts \
     translations/hr_HR.ts \
     translations/id_ID.ts \
+    translations/is.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ko_KR.ts \
@@ -38,6 +39,7 @@ TRANSLATIONS += \
     translations/nqo.ts \
     translations/pl_PL.ts \
     translations/pt_PT.ts \
+    translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr@ijekavianlatin.ts \
@@ -49,6 +51,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 isEqual(QT_MAJOR_VERSION, 5) {

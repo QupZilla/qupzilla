@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,6 @@
 #include "cookiemanager.h"
 #include "pluginproxy.h"
 #include "pluginsmanager.h"
-#include "qtwin.h"
 #include "jsoptions.h"
 #include "networkproxyfactory.h"
 #include "networkmanager.h"
@@ -48,6 +47,7 @@
 #include "profilemanager.h"
 #include "html5permissions/html5permissionsdialog.h"
 #include "searchenginesdialog.h"
+#include "webscrollbarmanager.h"
 
 #include <QSettings>
 #include <QInputDialog>
@@ -58,10 +58,15 @@
 #include <QDesktopWidget>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
+#include <QLibraryInfo>
 
 static QString createLanguageItem(const QString &lang)
 {
     QLocale locale(lang);
+
+    if (locale.language() == QLocale::C) {
+        return lang;
+    }
 
     QString country = QLocale::countryToString(locale.country());
     QString language = QLocale::languageToString(locale.language());
@@ -108,34 +113,23 @@ Preferences::Preferences(BrowserWindow* window)
     ui->checkUpdates->setVisible(false);
 #endif
 
-    if (QIcon::themeName().toLower() == QLatin1String("oxygen")) {
-        ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
-        ui->listWidget->item(1)->setIcon(QIcon::fromTheme("format-stroke-color", QIcon(":/icons/preferences/application-x-theme.png")));
-        ui->listWidget->item(2)->setIcon(QIcon::fromTheme("tab-new-background", QIcon(":/icons/preferences/applications-internet.png")));
-        ui->listWidget->item(3)->setIcon(QIcon::fromTheme("preferences-system-network", QIcon(":/icons/preferences/applications-webbrowsers.png")));
-        ui->listWidget->item(4)->setIcon(QIcon::fromTheme("preferences-desktop-font", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("configure-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("download", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("user-identity", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("preferences-desktop-notification", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("preferences-plugin", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
-    }
-    else {
-        ui->listWidget->item(0)->setIcon(QIcon::fromTheme("preferences-desktop", QIcon(":/icons/preferences/preferences-desktop.png")));
-        ui->listWidget->item(1)->setIcon(QIcon::fromTheme("application-x-theme", QIcon(":/icons/preferences/application-x-theme.png")));
-        ui->listWidget->item(2)->setIcon(QIcon::fromTheme("applications-internet", QIcon(":/icons/preferences/applications-internet.png")));
-        ui->listWidget->item(3)->setIcon(QIcon::fromTheme("applications-webbrowsers", QIcon(":/icons/preferences/applications-webbrowsers.png")));
-        ui->listWidget->item(4)->setIcon(QIcon::fromTheme("applications-fonts", QIcon(":/icons/preferences/applications-fonts.png")));
-        ui->listWidget->item(5)->setIcon(QIcon::fromTheme("preferences-desktop-keyboard-shortcuts", QIcon(":/icons/preferences/preferences-desktop-keyboard-shortcuts.png")));
-        ui->listWidget->item(6)->setIcon(QIcon::fromTheme("mail-inbox", QIcon(":/icons/preferences/mail-inbox.png")));
-        ui->listWidget->item(7)->setIcon(QIcon::fromTheme("dialog-password", QIcon(":/icons/preferences/dialog-password.png")));
-        ui->listWidget->item(8)->setIcon(QIcon::fromTheme("preferences-system-firewall", QIcon(":/icons/preferences/preferences-system-firewall.png")));
-        ui->listWidget->item(9)->setIcon(QIcon::fromTheme("dialog-question", QIcon(":/icons/preferences/dialog-question.png")));
-        ui->listWidget->item(10)->setIcon(QIcon::fromTheme("extension", QIcon(":/icons/preferences/extension.png")));
-        ui->listWidget->item(11)->setIcon(QIcon::fromTheme("applications-system", QIcon(":/icons/preferences/applications-system.png")));
-    }
+    auto setCategoryIcon = [this](int index, const QIcon &icon) {
+        ui->listWidget->item(index)->setIcon(QIcon(icon.pixmap(32)));
+    };
+
+    setCategoryIcon(0, QIcon(":/icons/preferences/general.svg"));
+    setCategoryIcon(1, QIcon(":/icons/preferences/appearance.svg"));
+    setCategoryIcon(2, QIcon(":/icons/preferences/tabs.svg"));
+    setCategoryIcon(3, QIcon(":/icons/preferences/browsing.svg"));
+    setCategoryIcon(4, QIcon(":/icons/preferences/fonts.svg"));
+    setCategoryIcon(5, QIcon(":/icons/preferences/shortcuts.svg"));
+    setCategoryIcon(6, QIcon(":/icons/preferences/downloads.svg"));
+    setCategoryIcon(7, QIcon(":/icons/preferences/passwords.svg"));
+    setCategoryIcon(8, QIcon(":/icons/preferences/privacy.svg"));
+    setCategoryIcon(9, QIcon(":/icons/preferences/notifications.svg"));
+    setCategoryIcon(10, QIcon(":/icons/preferences/extensions.svg"));
+    setCategoryIcon(11, QIcon(":/icons/preferences/spellcheck.svg"));
+    setCategoryIcon(12, QIcon(":/icons/preferences/other.svg"));
 
     Settings settings;
     //GENERAL URLs
@@ -214,7 +208,13 @@ Preferences::Preferences(BrowserWindow* window)
     //APPEREANCE
     settings.beginGroup("Browser-View-Settings");
     ui->showStatusbar->setChecked(settings.value("showStatusBar", false).toBool());
+    // NOTE: instantBookmarksToolbar and showBookmarksToolbar cannot be both enabled at the same time
+    ui->instantBookmarksToolbar->setChecked(settings.value("instantBookmarksToolbar", false).toBool());
     ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
+    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar", true).toBool());
+    ui->showBookmarksToolbar->setDisabled(settings.value("instantBookmarksToolbar").toBool());
+    connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
+    connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
     ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
     ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
@@ -277,6 +277,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
+    ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
+    ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", true).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
         ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
@@ -286,11 +288,10 @@ Preferences::Preferences(BrowserWindow* window)
 
     //Cache
     ui->allowCache->setChecked(settings.value("AllowLocalCache", true).toBool());
+    ui->removeCache->setChecked(settings.value("deleteCacheOnClose", false).toBool());
     ui->cacheMB->setValue(settings.value("LocalCacheSize", 50).toInt());
-    ui->MBlabel->setText(settings.value("LocalCacheSize", 50).toString() + " MB");
     ui->cachePath->setText(settings.value("CachePath", QWebEngineProfile::defaultProfile()->cachePath()).toString());
     connect(ui->allowCache, SIGNAL(clicked(bool)), this, SLOT(allowCacheChanged(bool)));
-    connect(ui->cacheMB, SIGNAL(valueChanged(int)), this, SLOT(cacheValueChanged(int)));
     connect(ui->changeCachePath, SIGNAL(clicked()), this, SLOT(changeCachePathClicked()));
     allowCacheChanged(ui->allowCache->isChecked());
 
@@ -398,12 +399,71 @@ Preferences::Preferences(BrowserWindow* window)
         ui->useOSDNotifications->setChecked(true);
     }
 
-    connect(ui->useNativeSystemNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
-    connect(ui->useOSDNotifications, SIGNAL(toggled(bool)), this, SLOT(setNotificationPreviewVisible(bool)));
+    connect(ui->notificationPreview, &QPushButton::clicked, this, &Preferences::showNotificationPreview);
 
     ui->doNotUseNotifications->setChecked(!settings.value("Enabled", true).toBool());
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
+
+    //SPELLCHECK
+    settings.beginGroup(QSL("SpellCheck"));
+    ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
+    const QStringList spellcheckLanguages = settings.value(QSL("Languages")).toStringList();
+    settings.endGroup();
+
+    auto updateSpellCheckEnabled = [this]() {
+        ui->spellcheckLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+        ui->spellcheckNoLanguages->setEnabled(ui->spellcheckEnabled->isChecked());
+    };
+    updateSpellCheckEnabled();
+    connect(ui->spellcheckEnabled, &QCheckBox::toggled, this, updateSpellCheckEnabled);
+
+    QStringList dictionariesDirs = {
+#ifdef Q_OS_OSX
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
+#else
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/qtwebengine_dictionaries")),
+        QDir::cleanPath(QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries"))
+#endif
+    };
+    dictionariesDirs.removeDuplicates();
+
+    ui->spellcheckDirectories->setText(dictionariesDirs.join(QL1C('\n')));
+
+    for (const QString &path : dictionariesDirs) {
+        QDir dir(path);
+        const QStringList files = dir.entryList({QSL("*.bdic")});
+        for (const QString &file : files) {
+            const QString lang = file.left(file.size() - 5);
+            const QString langName = createLanguageItem(lang);
+            if (!ui->spellcheckLanguages->findItems(langName, Qt::MatchExactly).isEmpty()) {
+                continue;
+            }
+            QListWidgetItem *item = new QListWidgetItem;
+            item->setText(langName);
+            item->setData(Qt::UserRole, lang);
+            ui->spellcheckLanguages->addItem(item);
+        }
+    }
+
+    int topIndex = 0;
+    for (const QString &lang : spellcheckLanguages) {
+        const auto items = ui->spellcheckLanguages->findItems(createLanguageItem(lang), Qt::MatchExactly);
+        if (items.isEmpty()) {
+            continue;
+        }
+        QListWidgetItem *item = items.at(0);
+        ui->spellcheckLanguages->takeItem(ui->spellcheckLanguages->row(item));
+        ui->spellcheckLanguages->insertItem(topIndex++, item);
+        ui->spellcheckLanguages->setCurrentItem(item, QItemSelectionModel::Select);
+    }
+
+    if (ui->spellcheckLanguages->count() == 0) {
+        ui->spellcheckLanguages->hide();
+    } else {
+        ui->spellcheckNoLanguages->hide();
+    }
 
     //OTHER
     //Languages
@@ -472,7 +532,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(showStackedPage(QListWidgetItem*)));
     ui->listWidget->setItemSelected(ui->listWidget->itemAt(5, 5), true);
 
-    ui->version->setText(QSL(" QupZilla v") + QL1S(Qz::VERSION));
     ui->listWidget->setCurrentRow(currentSettingsPage);
 
     QDesktopWidget* desktop = QApplication::desktop();
@@ -513,7 +572,10 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     ui->caption->setText("<b>" + item->text() + "</b>");
     ui->stackedWidget->setCurrentIndex(index);
 
-    setNotificationPreviewVisible(index == 9);
+    if (m_notification) {
+        m_notifPosition = m_notification.data()->pos();
+        delete m_notification.data();
+    }
 
     if (index == 10) {
         m_pluginsList->load();
@@ -526,30 +588,22 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     }
 }
 
-void Preferences::setNotificationPreviewVisible(bool state)
+void Preferences::showNotificationPreview()
 {
-    if (!state && m_notification) {
-        m_notifPosition = m_notification.data()->pos();
-        delete m_notification.data();
+    if (ui->useOSDNotifications->isChecked()) {
+        if (m_notification) {
+            m_notifPosition = m_notification.data()->pos();
+            delete m_notification.data();
+        }
+
+        m_notification = new DesktopNotification(true);
+        m_notification.data()->setHeading(tr("OSD Notification"));
+        m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
+        m_notification.data()->move(m_notifPosition);
+        m_notification.data()->show();
     }
-
-    if (state) {
-        if (ui->useOSDNotifications->isChecked()) {
-            if (m_notification) {
-                m_notifPosition = m_notification.data()->pos();
-                delete m_notification.data();
-            }
-
-            m_notification = new DesktopNotification(true);
-            m_notification.data()->setPixmap(QPixmap(":icons/preferences/stock_dialog-question.png"));
-            m_notification.data()->setHeading(tr("OSD Notification"));
-            m_notification.data()->setText(tr("Drag it on the screen to place it where you want."));
-            m_notification.data()->move(m_notifPosition);
-            m_notification.data()->show();
-        }
-        else if (ui->useNativeSystemNotifications->isChecked()) {
-            mApp->desktopNotifications()->nativeNotificationPreview();
-        }
+    else if (ui->useNativeSystemNotifications->isChecked()) {
+        mApp->desktopNotifications()->nativeNotificationPreview();
     }
 }
 
@@ -565,7 +619,8 @@ void Preferences::makeQupZillaDefault()
 
 void Preferences::allowCacheChanged(bool state)
 {
-    ui->cacheFrame->setEnabled(state);
+    ui->removeCache->setEnabled(state);
+    ui->maxCacheLabel->setEnabled(state);
     ui->cacheMB->setEnabled(state);
     ui->storeCacheLabel->setEnabled(state);
     ui->cachePath->setEnabled(state);
@@ -702,11 +757,6 @@ void Preferences::afterLaunchChanged(int value)
     ui->dontLoadTabsUntilSelected->setEnabled(value == 3);
 }
 
-void Preferences::cacheValueChanged(int value)
-{
-    ui->MBlabel->setText(QString::number(value) + " MB");
-}
-
 void Preferences::changeCachePathClicked()
 {
     QString path = QzTools::getExistingDirectory("Preferences-CachePath", this, tr("Choose cache path..."), ui->cachePath->text());
@@ -789,16 +839,10 @@ void Preferences::deleteProfile()
 
 void Preferences::startProfileIndexChanged(int index)
 {
-    // Index 0 is current profile
+    const bool current = ui->startProfile->itemText(index) == ProfileManager::currentProfile();
 
-    ui->deleteProfile->setEnabled(index != 0);
-
-    if (index == 0) {
-        ui->cannotDeleteActiveProfileLabel->setText(tr("Note: You cannot delete active profile."));
-    }
-    else {
-        ui->cannotDeleteActiveProfileLabel->setText(" ");
-    }
+    ui->deleteProfile->setEnabled(!current);
+    ui->cannotDeleteActiveProfileLabel->setText(current ? tr("Note: You cannot delete active profile.") : QString());
 }
 
 void Preferences::closeEvent(QCloseEvent* event)
@@ -823,7 +867,7 @@ void Preferences::saveSettings()
 
     switch (ui->newTab->currentIndex()) {
     case 0:
-        settings.setValue("newTabUrl", QUrl(QSL("about:blank")));
+        settings.setValue("newTabUrl", QUrl());
         break;
 
     case 1:
@@ -853,6 +897,7 @@ void Preferences::saveSettings()
     //WINDOW
     settings.beginGroup("Browser-View-Settings");
     settings.setValue("showStatusBar", ui->showStatusbar->isChecked());
+    settings.setValue("instantBookmarksToolbar", ui->instantBookmarksToolbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
     settings.setValue("showHomeButton", ui->showHome->isChecked());
@@ -927,12 +972,15 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
+    settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
+    settings.setValue("UseNativeScrollbars", ui->useNativeScrollbars->isChecked());
 #ifdef Q_OS_WIN
     settings.setValue("CheckDefaultBrowser", ui->checkDefaultBrowser->isChecked());
 #endif
     //Cache
     settings.setValue("AllowLocalCache", ui->allowCache->isChecked());
+    settings.setValue("deleteCacheOnClose", ui->removeCache->isChecked());
     settings.setValue("LocalCacheSize", ui->cacheMB->value());
     settings.setValue("CachePath", ui->cachePath->text());
     //CSS Style
@@ -956,6 +1004,21 @@ void Preferences::saveSettings()
     settings.setValue("UseNativeDesktop", ui->useNativeSystemNotifications->isChecked());
     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
     settings.endGroup();
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+    //SPELLCHECK
+    settings.beginGroup(QSL("SpellCheck"));
+    settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
+    QStringList languages;
+    for (int i = 0; i < ui->spellcheckLanguages->count(); ++i) {
+        QListWidgetItem *item = ui->spellcheckLanguages->item(i);
+        if (item->isSelected()) {
+            languages.append(item->data(Qt::UserRole).toString());
+        }
+    }
+    settings.setValue("Languages", languages);
+    settings.endGroup();
+#endif
 
     //OTHER
     //AddressBar
@@ -1013,6 +1076,8 @@ void Preferences::saveSettings()
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
     mApp->networkManager()->loadSettings();
+
+    WebScrollBarManager::instance()->loadSettings();
 }
 
 Preferences::~Preferences()

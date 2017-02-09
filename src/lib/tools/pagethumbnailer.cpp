@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "pagethumbnailer.h"
+#include "scripts.h"
+#include "webview.h"
 
 #include <QTimer>
 #include <QApplication>
@@ -27,7 +29,7 @@
 PageThumbnailer::PageThumbnailer(QObject* parent)
     : QObject(parent)
     , m_view(new QQuickWidget())
-    , m_size(QSize(450, 253))
+    , m_size(QSize(450, 253) * qApp->devicePixelRatio())
     , m_loadTitle(false)
 {
     m_view->setAttribute(Qt::WA_DontShowOnScreen);
@@ -76,14 +78,18 @@ QString PageThumbnailer::title()
 
 void PageThumbnailer::start()
 {
-    if (m_view->rootObject()) {
+    if (m_view->rootObject() && WebView::isUrlValid(m_url)) {
         m_view->rootObject()->setProperty("url", m_url);
-    }
-    else {
-        QTimer::singleShot(0, this, [this]() {
+    } else {
+        QTimer::singleShot(500, this, [this]() {
             emit thumbnailCreated(QPixmap());
         });
     }
+}
+
+QString PageThumbnailer::afterLoadScript() const
+{
+    return Scripts::setCss(QSL("::-webkit-scrollbar{display:none;}"));
 }
 
 void PageThumbnailer::createThumbnail(bool status)

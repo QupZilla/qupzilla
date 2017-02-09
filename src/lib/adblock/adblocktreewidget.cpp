@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -214,10 +214,6 @@ void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockR
     }
     else if (rule->isCssRule()) {
         item->setForeground(0, QColor(Qt::darkBlue));
-        item->setFont(0, QFont());
-    }
-    else {
-        item->setForeground(0, QColor());
         item->setFont(0, QFont());
     }
 }

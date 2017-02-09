@@ -28,9 +28,6 @@
        <height>16777215</height>
       </size>
      </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
      <property name="showDropIndicator" stdset="0">
       <bool>false</bool>
      </property>
@@ -39,6 +36,9 @@
        <width>32</width>
        <height>32</height>
       </size>
+     </property>
+     <property name="verticalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
      </property>
      <property name="movement">
       <enum>QListView::Static</enum>
@@ -108,6 +108,11 @@
      <item>
       <property name="text">
        <string>Extensions</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Spell Check</string>
       </property>
      </item>
      <item>
@@ -588,6 +593,13 @@
                   <widget class="QCheckBox" name="showNavigationToolbar">
                    <property name="text">
                     <string>Show Navigation ToolBar on start</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="instantBookmarksToolbar">
+                   <property name="text">
+                    <string>Enable instant Bookmarks ToolBar</string>
                    </property>
                   </widget>
                  </item>
@@ -1092,6 +1104,13 @@
                   </widget>
                  </item>
                  <item>
+                  <widget class="QCheckBox" name="printEBackground">
+                   <property name="text">
+                    <string extracomment="when you are printing page (on printer), it determine whether to also print background (color, image) of html elements">Print element background</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QCheckBox" name="animateScrolling">
                    <property name="text">
                     <string>Animated scrolling</string>
@@ -1102,6 +1121,13 @@
                   <widget class="QCheckBox" name="spatialNavigation">
                    <property name="text">
                     <string>Enable spatial navigation</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="useNativeScrollbars">
+                   <property name="text">
+                    <string>Use native scrollbars</string>
                    </property>
                   </widget>
                  </item>
@@ -1193,42 +1219,6 @@
               <layout class="QGridLayout" name="gridLayout_19">
                <item row="0" column="0" colspan="2">
                 <layout class="QGridLayout" name="gridLayout_4">
-                 <item row="1" column="1">
-                  <widget class="QFrame" name="cacheFrame">
-                   <layout class="QHBoxLayout" name="horizontalLayout_5">
-                    <item>
-                     <widget class="QLabel" name="label_21">
-                      <property name="text">
-                       <string>Maximum </string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="MBlabel">
-                      <property name="text">
-                       <string>50 MB</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="2">
-                  <widget class="QSlider" name="cacheMB">
-                   <property name="minimum">
-                    <number>20</number>
-                   </property>
-                   <property name="maximum">
-                    <number>200</number>
-                   </property>
-                   <property name="sliderPosition">
-                    <number>50</number>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="0" column="0" colspan="3">
                   <widget class="QCheckBox" name="allowCache">
                    <property name="text">
@@ -1236,7 +1226,53 @@
                    </property>
                   </widget>
                  </item>
+                 <item row="1" column="0">
+                  <spacer name="horizontalSpacer_33">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="1" column="1" colspan="3">
+                  <widget class="QCheckBox" name="removeCache">
+                   <property name="text">
+                    <string>Delete cache on close</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="2" column="1">
+                  <widget class="QLabel" name="maxCacheLabel">
+                   <property name="text">
+                    <string>Maximum:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <widget class="QSpinBox" name="cacheMB">
+                   <property name="suffix">
+                    <string> MB</string>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="value">
+                    <number>50</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
                   <widget class="QLabel" name="storeCacheLabel">
                    <property name="text">
                     <string>Store cache in:</string>
@@ -1246,7 +1282,7 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="2" column="2">
+                 <item row="3" column="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_20">
                    <item>
                     <widget class="QLineEdit" name="cachePath"/>
@@ -2115,68 +2151,8 @@
          </widget>
          <widget class="QWidget" name="notificationsPage">
           <layout class="QGridLayout" name="gridLayout_17">
-           <item row="0" column="0" colspan="4">
-            <widget class="QLabel" name="label_41">
-             <property name="text">
-              <string>&lt;b&gt;Notifications&lt;/b&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1" colspan="3">
-            <widget class="QRadioButton" name="useOSDNotifications">
-             <property name="text">
-              <string>Use OSD Notifications</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1" colspan="3">
-            <widget class="QRadioButton" name="useNativeSystemNotifications">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Use Native System Notifications (Linux only)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1" colspan="3">
-            <widget class="QRadioButton" name="doNotUseNotifications">
-             <property name="text">
-              <string>Do not use Notifications</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0">
-            <spacer name="horizontalSpacer_13">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="4">
-            <spacer name="horizontalSpacer_17">
+           <item row="2" column="6">
+            <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -2212,7 +2188,73 @@
              </item>
             </layout>
            </item>
-           <item row="6" column="1" colspan="4">
+           <item row="4" column="4" colspan="3">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>&lt;b&gt;Notifications&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1" colspan="3">
+            <widget class="QRadioButton" name="useNativeSystemNotifications">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Use Native System Notifications (Linux only)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="3">
+            <widget class="QRadioButton" name="doNotUseNotifications">
+             <property name="text">
+              <string>Do not use Notifications</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1" colspan="5">
             <widget class="QLabel" name="label_43">
              <property name="text">
               <string>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</string>
@@ -2222,7 +2264,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <spacer name="verticalSpacer_5">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2233,6 +2275,33 @@
              <property name="sizeHint" stdset="0">
               <size>
                <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" colspan="3">
+            <widget class="QRadioButton" name="useOSDNotifications">
+             <property name="text">
+              <string>Use OSD Notifications</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QPushButton" name="notificationPreview">
+             <property name="text">
+              <string>Preview</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <spacer name="horizontalSpacer_27">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -2264,6 +2333,140 @@
                <number>0</number>
               </property>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="spellcheckPage">
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="3" column="6">
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1" colspan="6">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <spacer name="verticalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="4" column="4">
+            <spacer name="verticalSpacer_18">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="7">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>&lt;b&gt;Spell Check options&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="6">
+            <widget class="QCheckBox" name="spellcheckEnabled">
+             <property name="text">
+              <string>Enable Spell Check</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="6">
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string>&lt;b&gt;Dictionary directories&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="6">
+            <widget class="QScrollArea" name="spellcheckDirectoriesScrollArea">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>560</width>
+                <height>80</height>
+               </rect>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_14">
+               <item>
+                <widget class="QLabel" name="spellcheckDirectories"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QListWidget" name="spellcheckLanguages">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="dragDropMode">
+              <enum>QAbstractItemView::InternalMove</enum>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::MultiSelection</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="spellcheckNoLanguages">
+             <property name="text">
+              <string>No languages found</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -2473,13 +2676,6 @@
     <widget class="Line" name="line_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLabel" name="version">
-     <property name="text">
-      <string>QupZilla</string>
      </property>
     </widget>
    </item>

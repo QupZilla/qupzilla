@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,11 +61,20 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     titleFont.setPointSize(titleFont.pointSize() + 1);
 
     const QFontMetrics titleMetrics(titleFont);
-#ifdef Q_OS_WIN
-    const QPalette::ColorRole colorRole = QPalette::Text;
-#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
+
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+
+#ifdef Q_OS_WIN
+    opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
+    opt.palette.setColor(QPalette::All, QPalette::Highlight, opt.palette.base().color().darker(108));
 #endif
+
+    QPalette textPalette = opt.palette;
+    textPalette.setCurrentColorGroup(cg);
 
     int leftPosition = m_padding;
     int rightPosition = opt.rect.right() - m_padding - 16; // 16 for remove button
@@ -90,8 +99,12 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
-    painter->drawPixmap(iconRect, pixmap);
-    leftPosition = iconRect.right() + m_padding;
+    if (!pixmap.isNull()) {
+        painter->drawPixmap(iconRect, pixmap);
+        leftPosition = iconRect.right() + m_padding;
+    } else {
+        leftPosition += m_padding;
+    }
 
     // Draw script name
     const QString name = index.data(Qt::DisplayRole).toString();
@@ -100,21 +113,21 @@ void GM_SettingsListDelegate::paint(QPainter* painter, const QStyleOptionViewIte
     const int leftPosForVersion = titleMetrics.width(name) + m_padding;
     QRect nameRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
     painter->setFont(titleFont);
-    style->drawItemText(painter, nameRect, Qt::AlignLeft, opt.palette, true, name, colorRole);
+    style->drawItemText(painter, nameRect, Qt::AlignLeft, textPalette, true, name, colorRole);
 
     // Draw version
     QRect versionRect(nameRect.x() + leftPosForVersion, nameRect.y(), rightTitleEdge - leftPosForVersion, titleMetrics.height());
     QFont versionFont = titleFont;
     versionFont.setBold(false);
     painter->setFont(versionFont);
-    style->drawItemText(painter, versionRect, Qt::AlignLeft, opt.palette, true, script->version(), colorRole);
+    style->drawItemText(painter, versionRect, Qt::AlignLeft, textPalette, true, script->version(), colorRole);
 
     // Draw description
     const int infoYPos = nameRect.bottom() + opt.fontMetrics.leading();
     QRect infoRect(nameRect.x(), infoYPos, nameRect.width(), opt.fontMetrics.height());
     const QString info = opt.fontMetrics.elidedText(script->description(), Qt::ElideRight, infoRect.width());
     painter->setFont(opt.font);
-    style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, opt.palette, true, info, colorRole);
+    style->drawItemText(painter, infoRect, Qt::TextSingleLine | Qt::AlignLeft, textPalette, true, info, colorRole);
 
     // Draw update button
     if (!script->downloadUrl().isEmpty()) {

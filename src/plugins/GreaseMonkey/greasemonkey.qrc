@@ -2,10 +2,7 @@
     <qresource prefix="/gm">
         <file>data/bootstrap.min.js</file>
         <file>data/values.min.js</file>
-        <file>data/icon.png</file>
-        <file>data/icon16.png</file>
-        <file>data/icon18.png</file>
-        <file>data/script.png</file>
+        <file>data/icon.svg</file>
         <file>locale/ar_SA.qm</file>
         <file>locale/bg_BG.qm</file>
         <file>locale/ca_ES.qm</file>
@@ -25,6 +22,7 @@
         <file>locale/hr_HR.qm</file>
         <file>locale/hu_HU.qm</file>
         <file>locale/id_ID.qm</file>
+        <file>locale/is.qm</file>
         <file>locale/it_IT.qm</file>
         <file>locale/ja_JP.qm</file>
         <file>locale/ka_GE.qm</file>
@@ -37,6 +35,7 @@
         <file>locale/pl_PL.qm</file>
         <file>locale/pt_BR.qm</file>
         <file>locale/pt_PT.qm</file>
+        <file>locale/ro_RO.qm</file>
         <file>locale/ru_RU.qm</file>
         <file>locale/sk_SK.qm</file>
         <file>locale/sr@ijekavianlatin.qm</file>
@@ -49,6 +48,7 @@
         <file>locale/uz@Cyrl.qm</file>
         <file>locale/uz@Latn.qm</file>
         <file>locale/zh_CN.qm</file>
+        <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

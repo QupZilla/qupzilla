@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
 
 #include <QMessageBox>
 #include <QClipboard>
+#include <QKeyEvent>
 
 HistoryManager::HistoryManager(BrowserWindow* window, QWidget* parent)
     : QWidget(parent)
@@ -81,6 +82,17 @@ void HistoryManager::clearHistory()
     }
 
     mApp->history()->clearHistory();
+}
+
+void HistoryManager::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_Delete:
+        ui->historyTree->removeSelectedItems();
+        break;
+    }
+
+    QWidget::keyPressEvent(event);
 }
 
 void HistoryManager::search(const QString &searchText)

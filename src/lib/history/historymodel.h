@@ -39,7 +39,6 @@ public:
         UrlRole = Qt::UserRole + 3,
         UrlStringRole = Qt::UserRole + 4,
         IconRole = Qt::UserRole + 5,
-        IconLoadedRole = Qt::UserRole + 6,
         IsTopLevelRole = Qt::UserRole + 7,
         TimestampStartRole = Qt::UserRole + 8,
         TimestampEndRole = Qt::UserRole + 9,

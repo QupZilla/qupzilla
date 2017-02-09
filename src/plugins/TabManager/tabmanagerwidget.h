@@ -1,6 +1,6 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2016  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,6 +61,12 @@ public slots:
     void changeGroupType();
 
 private:
+    enum TabDataRole {
+        WebTabPointerRole = Qt::UserRole + 10,
+        QupZillaPointerRole = Qt::UserRole + 20,
+        UrlRole = Qt::UserRole + 30
+    };
+
     QTreeWidgetItem* createEmptyItem(QTreeWidgetItem* parent = 0, bool addToTree = true);
     void groupByDomainName(bool useHostName = false);
     void groupByWindow();
@@ -78,6 +84,8 @@ private:
     bool m_isDefaultWidget;
     GroupType m_groupType;
 
+    QString m_filterText;
+
     static TLDExtractor* s_tldExtractor;
 
 private slots:
@@ -86,6 +94,11 @@ private slots:
     void itemDoubleClick(QTreeWidgetItem* item, int);
     bool isTabSelected();
     void customContextMenuRequested(const QPoint &pos);
+    void filterChanged(const QString &filter, bool force = false);
+    void filterBarClosed();
+
+protected:
+    bool eventFilter(QObject* obj, QEvent* event);
 
 signals:
     void showSideBySide();

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "pluginlistdelegate.h"
 #include "qztools.h"
 #include "settings.h"
+#include "iconprovider.h"
 
 #include <QInputDialog>
 #include <QMessageBox>
@@ -35,6 +36,7 @@ PluginsManager::PluginsManager(QWidget* parent)
 {
     ui->setupUi(this);
     ui->list->setLayoutDirection(Qt::LeftToRight);
+    ui->butSettings->setIcon(IconProvider::settingsIcon());
 
     //Application Extensions
     Settings settings;
@@ -75,7 +77,11 @@ void PluginsManager::save()
             const Plugins::Plugin plugin = item->data(Qt::UserRole + 10).value<Plugins::Plugin>();
 
             // Save plugins with relative path in portable mode
+#ifdef NO_SYSTEM_DATAPATH
+            if (true)
+#else
             if (mApp->isPortable())
+#endif
                 allowedPlugins.append(plugin.fileName);
             else
                 allowedPlugins.append(plugin.fullPath);
@@ -124,7 +130,7 @@ void PluginsManager::refresh()
         QListWidgetItem* item = new QListWidgetItem(ui->list);
         QIcon icon = QIcon(spec.icon);
         if (icon.isNull()) {
-            icon = QIcon(":/icons/preferences/extension.png");
+            icon = QIcon(QSL(":/icons/preferences/extensions.svg"));
         }
         item->setIcon(icon);
 

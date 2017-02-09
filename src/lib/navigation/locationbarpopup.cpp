@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  Franz Fellner <alpine.art.de@googlemail.com>
-*                          David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2012-2014 Franz Fellner <alpine.art.de@googlemail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ LocationBarPopup::LocationBarPopup(QWidget* parent)
     , m_alignment(Qt::AlignRight)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
+    setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
     setLineWidth(1);
     setMidLineWidth(2);
 }

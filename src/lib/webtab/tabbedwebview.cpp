@@ -199,8 +199,7 @@ void TabbedWebView::_contextMenuEvent(QContextMenuEvent *event)
 {
     m_menu->clear();
 
-    const WebHitTestResult hitTest = page()->hitTestContent(event->pos());
-
+    WebHitTestResult hitTest = page()->hitTestContent(event->pos());
     createContextMenu(m_menu, hitTest);
 
     if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {

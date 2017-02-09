@@ -121,7 +121,6 @@ void FancyTabProxyStyle::drawControl(
     int textFlags = Qt::AlignHCenter | Qt::AlignVCenter;
     p->drawText(text_rect, textFlags, text);
     p->setPen(selected ? QColor(60, 60, 60) : Utils::StyleHelper::panelTextColor());
-#if 0
     if (widget) {
         const QString fader_key = "tab_" + text + "_fader";
         const QString animation_key = "tab_" + text + "_animation";
@@ -158,20 +157,15 @@ void FancyTabProxyStyle::drawControl(
 
         if (!selected) {
             p->save();
-            QLinearGradient grad(draw_rect.topLeft(), vertical_tabs ? draw_rect.bottomLeft() : draw_rect.topRight());
-            grad.setColorAt(0, Qt::transparent);
-            grad.setColorAt(0.5, QColor(255, 255, 255, fader));
-            grad.setColorAt(1, Qt::transparent);
-            p->fillRect(draw_rect, grad);
-            p->setPen(QPen(grad, 1.0));
+            p->fillRect(draw_rect, QColor(255, 255, 255, fader));
+            p->setPen(QPen(QColor(255, 255, 255, fader), 1.0));
             p->drawLine(draw_rect.topLeft(), vertical_tabs ? draw_rect.bottomLeft() : draw_rect.topRight());
             p->drawLine(draw_rect.bottomRight(), vertical_tabs ? draw_rect.topRight() : draw_rect.bottomLeft());
             p->restore();
         }
     }
-#endif
 
-    Utils::StyleHelper::drawIconWithShadow(v_opt->icon, icon_rect, p, QIcon::Normal);
+    Utils::StyleHelper::drawIconWithShadow(v_opt->icon, icon_rect, p, selected ? QIcon::Selected : QIcon::Normal);
 
     p->drawText(text_rect.translated(0, -1), textFlags, text);
 
@@ -217,25 +211,25 @@ bool FancyTabProxyStyle::eventFilter(QObject* o, QEvent* e)
 FancyTab::FancyTab(QWidget* tabbar)
     : QWidget(tabbar), tabbar(tabbar), m_fader(0)
 {
-//    animator.setPropertyName("fader");
-//    animator.setTargetObject(this);
+    animator.setPropertyName("fader");
+    animator.setTargetObject(this);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
 }
 
 void FancyTab::fadeIn()
 {
-//    animator.stop();
-//    animator.setDuration(80);
-//    animator.setEndValue(40);
-//    animator.start();
+    animator.stop();
+    animator.setDuration(80);
+    animator.setEndValue(40);
+    animator.start();
 }
 
 void FancyTab::fadeOut()
 {
-//    animator.stop();
-//    animator.setDuration(160);
-//    animator.setEndValue(0);
-//    animator.start();
+    animator.stop();
+    animator.setDuration(160);
+    animator.setEndValue(0);
+    animator.start();
 }
 
 void FancyTab::setFader(float value)
@@ -443,8 +437,10 @@ void FancyTabBar::paintTab(QPainter* painter, int tabIndex) const
         grad.setColorAt(0, Qt::transparent);
         grad.setColorAt(0.5, QColor(255, 255, 255, fader));
         grad.setColorAt(1, Qt::transparent);
-        painter->fillRect(rect, grad);
-        painter->setPen(QPen(grad, 1.0));
+//        painter->fillRect(rect, grad);
+//        painter->setPen(QPen(grad, 1.0));
+        painter->fillRect(rect, QColor(255, 255, 255, fader));
+        painter->setPen(QPen(QColor(255, 255, 255, fader), 1.0));
         painter->drawLine(rect.topLeft(), rect.topRight());
         painter->drawLine(rect.bottomLeft(), rect.bottomRight());
         painter->restore();
@@ -453,7 +449,7 @@ void FancyTabBar::paintTab(QPainter* painter, int tabIndex) const
 
     const int textHeight = painter->fontMetrics().height();
     tabIconRect.adjust(0, 4, 0, -textHeight);
-    Utils::StyleHelper::drawIconWithShadow(tabIcon(tabIndex), tabIconRect, painter, QIcon::Normal);
+    Utils::StyleHelper::drawIconWithShadow(tabIcon(tabIndex), tabIconRect, painter, selected ? QIcon::Selected : QIcon::Normal);
 
     painter->translate(0, -1);
     painter->drawText(tabTextRect, textFlags, tabText);

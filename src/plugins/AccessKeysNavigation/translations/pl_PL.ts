@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl_PL" version="2.1">
 <context>
     <name>AKN_Settings</name>
     <message>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>Klawsz pokazujący klawisze dostępu:</translation>
+        <translation>Klawisz pokazujący klawisze dostępu:</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>

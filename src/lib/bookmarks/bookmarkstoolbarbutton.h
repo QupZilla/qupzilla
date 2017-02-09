@@ -49,6 +49,7 @@ public:
 private slots:
     void createMenu();
 
+    void menuAboutToShow();
     void menuMiddleClicked(Menu* menu);
     void bookmarkActivated(BookmarkItem* item = 0);
     void bookmarkCtrlActivated(BookmarkItem* item = 0);

@@ -126,12 +126,19 @@ void BookmarksToolbarButton::createMenu()
     Menu* m = qobject_cast<Menu*>(menu());
     Q_ASSERT(m);
 
-    foreach (BookmarkItem* child, m_bookmark->children()) {
-        BookmarksTools::addActionToMenu(this, m, child);
-    }
+    BookmarksTools::addFolderContentsToMenu(this, m, m_bookmark);
+}
 
-    if (m->isEmpty()) {
-        m->addAction(Bookmarks::tr("Empty"))->setDisabled(true);
+void BookmarksToolbarButton::menuAboutToShow()
+{
+    Q_ASSERT(qobject_cast<Menu*>(sender()));
+    Menu *menu = static_cast<Menu*>(sender());
+
+    foreach (QAction *action, menu->actions()) {
+        BookmarkItem *item = static_cast<BookmarkItem*>(action->data().value<void*>());
+        if (item && item->type() == BookmarkItem::Url && action->icon().isNull()) {
+            action->setIcon(item->icon());
+        }
     }
 }
 
@@ -216,9 +223,8 @@ void BookmarksToolbarButton::init()
 
     if (m_bookmark->isFolder()) {
         Menu* m = new Menu(this);
-        connect(m, SIGNAL(aboutToShow()), this, SLOT(createMenu()));
-        connect(m, SIGNAL(menuMiddleClicked(Menu*)), this, SLOT(menuMiddleClicked(Menu*)));
         setMenu(m);
+        createMenu();
     }
 }
 

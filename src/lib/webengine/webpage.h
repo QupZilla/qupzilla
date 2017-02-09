@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,14 +36,10 @@ class DelayedFileWatcher;
 class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 {
     Q_OBJECT
+
 public:
     enum JsWorld {
-#if QT_VERSION >= QT_VERSION_CHECK(5,7,0)
-//        SafeJsWorld = QWebEngineScript::ApplicationWorld
-        SafeJsWorld = QWebEngineScript::MainWorld
-#else
-        SafeJsWorld = QWebEngineScript::MainWorld
-#endif
+        SafeJsWorld = QWebEngineScript::ApplicationWorld
     };
 
     explicit WebPage(QObject* parent = 0);
@@ -51,18 +47,14 @@ public:
 
     WebView *view() const;
 
+    bool execPrintPage(QPrinter *printer, int timeout = 1000);
     QVariant execJavaScript(const QString &scriptSource, quint32 worldId = QWebEngineScript::MainWorld, int timeout = 500);
 
-    // TODO: Remove when depending on Qt 5.7
-    void runJavaScript(const QString &scriptSource);
-    void runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback);
-    void runJavaScript(const QString &scriptSource, quint32 worldId);
-    void runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback);
-
-    QPoint mapToViewport(const QPoint &pos) const;
+    QPointF mapToViewport(const QPointF &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;
 
     void scroll(int x, int y);
+    void setScrollPosition(const QPointF &pos);
 
     bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result) Q_DECL_OVERRIDE;
     bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
@@ -73,12 +65,9 @@ public:
     bool hasMultipleUsernames() const;
     QVector<PasswordEntry> autoFillData() const;
 
-    void scheduleAdjustPage();
     bool isRunningLoop();
 
     bool isLoading() const;
-
-    void setupWebChannel();
 
 signals:
     void privacyChanged(bool status);

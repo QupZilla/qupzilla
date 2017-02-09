@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -55,6 +55,11 @@ void CookieJar::loadSettings()
 void CookieJar::setAllowCookies(bool allow)
 {
     m_allowCookies = allow;
+}
+
+void CookieJar::deleteCookie(const QNetworkCookie &cookie)
+{
+    m_client->deleteCookie(cookie);
 }
 
 QVector<QNetworkCookie> CookieJar::getAllCookies() const
@@ -122,6 +127,8 @@ bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookie
 
 bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const
 {
+    Q_UNUSED(domain)
+
     if (!m_allowCookies) {
         bool result = listMatchesDomain(m_whitelist, cookieDomain);
         if (!result) {
@@ -142,6 +149,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
         }
     }
 
+#if QTWEBENGINE_DISABLED
     if (m_filterThirdParty) {
         bool result = matchDomain(cookieDomain, domain);
         if (!result) {
@@ -151,6 +159,7 @@ bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie
             return true;
         }
     }
+#endif
 
     if (m_filterTrackingCookie && cookie.name().startsWith("__utm")) {
 #ifdef COOKIE_DEBUG

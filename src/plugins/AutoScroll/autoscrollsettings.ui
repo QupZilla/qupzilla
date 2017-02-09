@@ -30,11 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="label">
-       <property name="pixmap">
-        <pixmap resource="autoscroll.qrc">:/autoscroll/data/scroll_all.png</pixmap>
-       </property>
-      </widget>
+      <widget class="QLabel" name="iconLabel"/>
      </item>
      <item>
       <spacer name="horizontalSpacer_4">
@@ -151,8 +147,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="autoscroll.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

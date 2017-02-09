@@ -37,6 +37,9 @@ private slots:
     void splitCommandArguments_data();
     void splitCommandArguments();
 
+    void escapeSqlGlobString_data();
+    void escapeSqlGlobString();
+
     void ensureUniqueFilename();
 
 private:

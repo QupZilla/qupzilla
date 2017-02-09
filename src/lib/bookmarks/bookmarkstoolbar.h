@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -63,8 +63,8 @@ private:
     BookmarkItem* m_clickedBookmark;
     QHBoxLayout* m_layout;
     QTimer* m_updateTimer;
-    QAction* m_actShowOnlyIcons;
-    QAction* m_actShowOnlyText;
+    QAction* m_actShowOnlyIcons = nullptr;
+    QAction* m_actShowOnlyText = nullptr;
 };
 
 #endif // BOOKMARKSTOOLBAR_H

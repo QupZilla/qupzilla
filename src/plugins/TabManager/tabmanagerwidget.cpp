@@ -1,6 +1,6 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2016  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 #include "bookmarks.h"
 #include "tabmanagerplugin.h"
 #include "tldextractor/tldextractor.h"
+#include "tabfilterdelegate.h"
 
 
 #include <QDesktopWidget>
@@ -38,8 +39,6 @@
 #include <QTimer>
 #include <QLabel>
 
-#define WebTabPointerRole Qt::UserRole + 10
-#define QupZillaPointerRole Qt::UserRole + 20
 
 TLDExtractor* TabManagerWidget::s_tldExtractor = 0;
 
@@ -63,6 +62,19 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
     ui->treeWidget->setExpandsOnDoubleClick(false);
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    ui->treeWidget->installEventFilter(this);
+    ui->filterBar->installEventFilter(this);
+
+    QPushButton* closeButton = new QPushButton(ui->filterBar);
+    closeButton->setFlat(true);
+    closeButton->setIcon(style()->standardIcon(QStyle::SP_TitleBarCloseButton));
+    ui->filterBar->addWidget(closeButton, LineEdit::RightSide);
+    ui->filterBar->hide();
+
+    ui->treeWidget->setItemDelegate(new TabFilterDelegate(ui->treeWidget));
+
+    connect(closeButton, SIGNAL(clicked(bool)), this, SLOT(filterBarClosed()));
+    connect(ui->filterBar, SIGNAL(textChanged(QString)), this, SLOT(filterChanged(QString)));
     connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClick(QTreeWidgetItem*,int)));
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 }
@@ -183,6 +195,7 @@ void TabManagerWidget::refreshTree()
         }
     }
 
+    filterChanged(m_filterText, true);
     ui->treeWidget->expandAll();
     m_isRefreshing = false;
     m_waitForRefresh = false;
@@ -265,6 +278,106 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
     }
 
     menu.exec(ui->treeWidget->viewport()->mapToGlobal(pos));
+}
+
+void TabManagerWidget::filterChanged(const QString &filter, bool force)
+{
+    if (force || filter != m_filterText) {
+        m_filterText = filter.simplified();
+        ui->treeWidget->itemDelegate()->setProperty("filterText", m_filterText);
+        if (m_filterText.isEmpty()) {
+            for (int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
+                QTreeWidgetItem* parentItem = ui->treeWidget->topLevelItem(i);
+                for (int j = 0; j < parentItem->childCount(); ++j) {
+                    QTreeWidgetItem* childItem = parentItem->child(j);
+                    childItem->setHidden(false);
+                }
+                parentItem->setHidden(false);
+                parentItem->setExpanded(true);
+            }
+
+            return;
+        }
+
+        const QRegularExpression filterRegExp(filter.simplified().replace(QChar(' '), QLatin1String(".*"))
+                                              .append(QLatin1String(".*")).prepend(QLatin1String(".*")),
+                                              QRegularExpression::CaseInsensitiveOption);
+
+        for (int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
+            QTreeWidgetItem* parentItem = ui->treeWidget->topLevelItem(i);
+            int visibleChildCount = 0;
+            for (int j = 0; j < parentItem->childCount(); ++j) {
+                QTreeWidgetItem* childItem = parentItem->child(j);
+                if (childItem->text(0).contains(filterRegExp) || childItem->data(0, UrlRole).toString().simplified().contains(filterRegExp)) {
+                    ++visibleChildCount;
+                    childItem->setHidden(false);
+                }
+                else {
+                    childItem->setHidden(true);
+                }
+            }
+
+            if (visibleChildCount == 0) {
+                parentItem->setHidden(true);
+            }
+            else {
+                parentItem->setHidden(false);
+                parentItem->setExpanded(true);
+            }
+        }
+    }
+}
+
+void TabManagerWidget::filterBarClosed()
+{
+    ui->filterBar->clear();
+    ui->filterBar->hide();
+    ui->treeWidget->setFocusProxy(0);
+    ui->treeWidget->setFocus();
+}
+
+bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
+{
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        const QString text = keyEvent->text().simplified();
+
+        if (obj == ui->treeWidget) {
+            // switch to tab/window on enter
+            if (keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return) {
+                itemDoubleClick(ui->treeWidget->currentItem(), 0);
+                return QObject::eventFilter(obj, event);
+            }
+
+            if (!text.isEmpty() || ((keyEvent->modifiers() & Qt::ControlModifier) && keyEvent->key() == Qt::Key_F)) {
+                ui->filterBar->show();
+                ui->treeWidget->setFocusProxy(ui->filterBar);
+                ui->filterBar->setFocus();
+                if (!text.isEmpty() && text.at(0).isPrint()) {
+                    ui->filterBar->setText(ui->filterBar->text() + text);
+                }
+
+                return true;
+            }
+        }
+        else if (obj == ui->filterBar) {
+            bool isNavigationOrActionKey = keyEvent->key() == Qt::Key_Up ||
+                    keyEvent->key() == Qt::Key_Down ||
+                    keyEvent->key() == Qt::Key_PageDown ||
+                    keyEvent->key() == Qt::Key_PageUp ||
+                    keyEvent->key() == Qt::Key_Enter ||
+                    keyEvent->key() == Qt::Key_Return;
+
+            // send scroll or action press key to treeWidget
+            if (isNavigationOrActionKey) {
+                QKeyEvent ev(QKeyEvent::KeyPress, keyEvent->key(), keyEvent->modifiers());
+                QApplication::sendEvent(ui->treeWidget, &ev);
+                return false;
+            }
+        }
+    }
+
+    return QObject::eventFilter(obj, event);
 }
 
 void TabManagerWidget::processActions()
@@ -502,6 +615,7 @@ void TabManagerWidget::groupByDomainName(bool useHostName)
             tabItem->setText(0, webTab->title());
             tabItem->setToolTip(0, webTab->title());
 
+            tabItem->setData(0, UrlRole, webTab->url().toString());
             tabItem->setData(0, WebTabPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(webTab)));
             tabItem->setData(0, QupZillaPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(mainWin)));
 
@@ -566,6 +680,7 @@ void TabManagerWidget::groupByWindow()
             tabItem->setText(0, webTab->title());
             tabItem->setToolTip(0, webTab->title());
 
+            tabItem->setData(0, UrlRole, webTab->url().toString());
             tabItem->setData(0, WebTabPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(webTab)));
             tabItem->setData(0, QupZillaPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(mainWin)));
 
@@ -590,6 +705,8 @@ void TabManagerWidget::makeWebViewConnections(WebView* view)
         connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(delayedRefreshTree()));
         connect(view->page(), SIGNAL(loadStarted()), this, SLOT(delayedRefreshTree()));
         connect(view, SIGNAL(titleChanged(QString)), this, SLOT(delayedRefreshTree()));
-        connect(view, SIGNAL(iconChanged()), this, SLOT(delayedRefreshTree()));
+        connect(view, &WebView::iconChanged, this, [this]() {
+            delayedRefreshTree();
+        });
     }
 }

@@ -25,8 +25,15 @@
 
 #include <QTimer>
 #include <QBuffer>
+#include <QFutureWatcher>
+#include <QtConcurrent/QtConcurrentRun>
 
 Q_GLOBAL_STATIC(IconProvider, qz_icon_provider)
+
+static QByteArray encodeUrl(const QUrl &url)
+{
+    return url.toEncoded(QUrl::RemoveFragment | QUrl::StripTrailingSlash);
+}
 
 IconProvider::IconProvider()
     : QWidget()
@@ -42,18 +49,27 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
-    static const char *ignoredSchemes[] = { "qupzilla", "ftp", "file", "view-source" };
-    for (unsigned i = 0; i < sizeof(ignoredSchemes) / sizeof(ignoredSchemes[0]); ++i)
-        if (view->url().scheme() == ignoredSchemes[i])
-            return;
+    const QIcon icon = view->icon(true);
+    if (icon.isNull()) {
+        return;
+    }
+
+    const QStringList ignoredSchemes = {
+        QStringLiteral("qupzilla"),
+        QStringLiteral("ftp"),
+        QStringLiteral("file"),
+        QStringLiteral("view-source"),
+        QStringLiteral("data"),
+        QStringLiteral("about")
+    };
+
+    if (ignoredSchemes.contains(view->url().scheme())) {
+        return;
+    }
 
     BufferedIcon item;
     item.first = view->url();
-    item.second = view->icon().pixmap(32).toImage();
-
-    if (item.second == IconProvider::emptyWebImage()) {
-        return;
-    }
+    item.second = icon.pixmap(16).toImage();
 
     if (m_iconBuffer.contains(item)) {
         return;
@@ -125,12 +141,12 @@ QIcon IconProvider::standardIcon(QStyle::StandardPixmap icon)
 
 QIcon IconProvider::newTabIcon()
 {
-    return QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.png")));
+    return QIcon::fromTheme(QSL("tab-new"), QIcon(QSL(":/icons/menu/tab-new.svg")));
 }
 
 QIcon IconProvider::newWindowIcon()
 {
-    return QIcon::fromTheme(QSL("window-new"), QIcon(QSL(":/icons/menu/window-new.png")));
+    return QIcon::fromTheme(QSL("window-new"), QIcon(QSL(":/icons/menu/window-new.svg")));
 }
 
 QIcon IconProvider::privateBrowsingIcon()
@@ -140,7 +156,7 @@ QIcon IconProvider::privateBrowsingIcon()
 
 QIcon IconProvider::settingsIcon()
 {
-    return QIcon::fromTheme(QSL("configure"), QIcon(QSL(":/icons/menu/settings.png")));
+    return QIcon::fromTheme(QSL("configure"), QIcon(QSL(":/icons/menu/settings.svg")));
 }
 
 QIcon IconProvider::emptyWebIcon()
@@ -151,50 +167,54 @@ QIcon IconProvider::emptyWebIcon()
 QImage IconProvider::emptyWebImage()
 {
     if (instance()->m_emptyWebImage.isNull()) {
-        instance()->m_emptyWebImage = QPixmap(":icons/other/empty-page.png").toImage();
+        instance()->m_emptyWebImage = QIcon(QSL(":icons/other/webpage.svg")).pixmap(16).toImage();
     }
 
     return instance()->m_emptyWebImage;
 }
 
-QIcon IconProvider::iconForUrl(const QUrl &url)
+QIcon IconProvider::iconForUrl(const QUrl &url, bool allowNull)
 {
-    return instance()->iconFromImage(imageForUrl(url));
+    return instance()->iconFromImage(imageForUrl(url, allowNull));
 }
 
-QImage IconProvider::imageForUrl(const QUrl &url)
+QImage IconProvider::imageForUrl(const QUrl &url, bool allowNull)
 {
     if (url.path().isEmpty()) {
-        return IconProvider::emptyWebImage();
+        return allowNull ? QImage() : IconProvider::emptyWebImage();
     }
 
+    const QByteArray encodedUrl = encodeUrl(url);
+
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
-        if (ic.first.toString().startsWith(url.toString())) {
+        if (encodeUrl(ic.first) == encodedUrl) {
             return ic.second;
         }
     }
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
-
-    query.addBindValue(QString("%1%").arg(QzTools::escapeSqlString(QString::fromUtf8(url.toEncoded(QUrl::RemoveFragment)))));
-    query.addBindValue(QL1S("!"));
-    query.exec();
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
+    query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(encodedUrl))));
+    SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return IconProvider::emptyWebImage();
+    return allowNull ? QImage() : IconProvider::emptyWebImage();
 }
 
-QIcon IconProvider::iconForDomain(const QUrl &url)
+QIcon IconProvider::iconForDomain(const QUrl &url, bool allowNull)
 {
-    return instance()->iconFromImage(imageForDomain(url));
+    return instance()->iconFromImage(imageForDomain(url, allowNull));
 }
 
-QImage IconProvider::imageForDomain(const QUrl &url)
+QImage IconProvider::imageForDomain(const QUrl &url, bool allowNull)
 {
+    if (url.host().isEmpty()) {
+        return allowNull ? QImage() : IconProvider::emptyWebImage();
+    }
+
     foreach (const BufferedIcon &ic, instance()->m_iconBuffer) {
         if (ic.first.host() == url.host()) {
             return ic.second;
@@ -202,17 +222,16 @@ QImage IconProvider::imageForDomain(const QUrl &url)
     }
 
     QSqlQuery query;
-    query.prepare(QSL("SELECT icon FROM icons WHERE url LIKE ? ESCAPE ? LIMIT 1"));
+    query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
 
-    query.addBindValue(QString("%%1%").arg(QzTools::escapeSqlString(url.host())));
-    query.addBindValue(QL1S("!"));
+    query.addBindValue(QString("*%1*").arg(QzTools::escapeSqlGlobString(url.host())));
     query.exec();
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
     }
 
-    return QImage();
+    return allowNull ? QImage() : IconProvider::emptyWebImage();
 }
 
 IconProvider* IconProvider::instance()
@@ -240,7 +259,7 @@ void IconProvider::saveIconsToDatabase()
         buffer.open(QIODevice::WriteOnly);
         ic.second.save(&buffer, "PNG");
         query.bindValue(0, buffer.data());
-        query.bindValue(1, ic.first.toEncoded(QUrl::RemoveFragment));
+        query.bindValue(1, encodeUrl(ic.first));
 
         SqlDatabase::instance()->execAsync(query);
     }
@@ -248,13 +267,18 @@ void IconProvider::saveIconsToDatabase()
     m_iconBuffer.clear();
 }
 
-void IconProvider::clearIconsDatabase()
+void IconProvider::clearOldIconsInDatabase()
 {
-    QSqlQuery query;
-    query.exec("DELETE FROM icons");
-    query.exec("VACUUM");
+    // Delete icons for entries older than 6 months
+    const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
 
-    m_iconBuffer.clear();
+    QSqlQuery query;
+    query.prepare(QSL("DELETE FROM icons WHERE url IN (SELECT url FROM history WHERE date < ?)"));
+    query.addBindValue(date.toMSecsSinceEpoch());
+    query.exec();
+
+    query.clear();
+    query.exec(QSL("VACUUM"));
 }
 
 QIcon IconProvider::iconFromImage(const QImage &image)

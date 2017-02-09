@@ -126,11 +126,14 @@ void StatusBarMessage::showMessage(const QString &message)
 #endif
         WebView* view = m_window->weView();
 
+        const int verticalScrollSize = view->scrollBarGeometry(Qt::Vertical).width();;
+        const int horizontalScrollSize = view->scrollBarGeometry(Qt::Horizontal).height();
+
         m_statusBarText->setText(message);
-        m_statusBarText->setMaximumWidth(view->width() - 20);
+        m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
         m_statusBarText->resize(m_statusBarText->sizeHint());
 
-        QPoint position(0, view->height() - m_statusBarText->height());
+        QPoint position(0, view->height() - horizontalScrollSize - m_statusBarText->height());
         const QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
 
         if (statusRect.contains(QCursor::pos())) {

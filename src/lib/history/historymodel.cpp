@@ -86,7 +86,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         case Qt::EditRole:
             return index.column() == 0 ? item->title : QVariant();
         case Qt::DecorationRole:
-            return index.column() == 0 ? QIcon(":/icons/menu/history_entry.png") : QVariant();
+            return index.column() == 0 ? QIcon::fromTheme(QSL("view-calendar"), QIcon(":/icons/menu/history_entry.svg")) : QVariant();
         }
 
         return QVariant();
@@ -105,8 +105,6 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         return entry.urlString;
     case IconRole:
         return item->icon();
-    case IconLoadedRole:
-        return item->iconLoaded();
     case IsTopLevelRole:
         return false;
     case TimestampStartRole:

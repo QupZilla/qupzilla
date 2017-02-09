@@ -25,12 +25,16 @@
 
 #include "qzcommon.h"
 
+class QWebEngineContextMenuData;
+
 class WebPage;
 
 class QUPZILLA_EXPORT WebHitTestResult
 {
 public:
     explicit WebHitTestResult(const WebPage *page, const QPoint &pos);
+
+    void updateWithContextMenuData(const QWebEngineContextMenuData &data);
 
     QUrl baseUrl() const;
     QString alternateText() const;
@@ -45,7 +49,7 @@ public:
     bool mediaPaused() const;
     bool mediaMuted() const;
     QPoint pos() const;
-    QPoint viewportPos() const;
+    QPointF viewportPos() const;
     QString tagName() const;
 
 private:
@@ -64,7 +68,7 @@ private:
     bool m_mediaPaused;
     bool m_mediaMuted;
     QPoint m_pos;
-    QPoint m_viewportPos;
+    QPointF m_viewportPos;
     QString m_tagName;
 };
 

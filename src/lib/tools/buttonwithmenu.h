@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #include <QVariant>
 
 #include "toolbutton.h"
-#include "qzcommon.h"
+#include "wheelhelper.h"
 
 // Only to be used in WebSearchBar
 class ButtonWithMenu : public ToolButton
@@ -88,6 +88,7 @@ private:
     QMenu* m_menu;
     QVector<Item> m_items;
     Item m_currentItem;
+    WheelHelper m_wheelHelper;
 };
 
 // Hint to QVector to use std::realloc on item moving

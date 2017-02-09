@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="he_IL" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="he_IL" version="2.1">
 <context>
     <name>AutoScrollSettings</name>
     <message>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../autoscrollsettings.ui" line="138"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</source>
-        <translation>&lt;b&gt;הערה:&lt;/b&gt; הגדרת מחיצה גבוהה יותר תאט את הגלילה</translation>
+        <translation>&lt;b&gt;הערה:&lt;/b&gt; הגדרת מחיצה גבוהה יותר תאט גלילה</translation>
     </message>
 </context>
 </TS>

@@ -44,8 +44,16 @@ BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
 
     QzTools::centerWidgetOnScreen(this);
 
-    ui->tabs->AddTab(m_historyManager, QIcon(":/icons/other/bighistory.png"), tr("History"));
-    ui->tabs->AddTab(m_bookmarksManager, QIcon(":/icons/other/bigstar.png"), tr("Bookmarks"));
+    QIcon historyIcon;
+    historyIcon.addFile(QSL(":/icons/other/bighistory.svg"), QSize(), QIcon::Normal);
+    historyIcon.addFile(QSL(":/icons/other/bighistory-selected.svg"), QSize(), QIcon::Selected);
+
+    QIcon bookmarksIcon;
+    bookmarksIcon.addFile(QSL(":/icons/other/bigstar.svg"), QSize(), QIcon::Normal);
+    bookmarksIcon.addFile(QSL(":/icons/other/bigstar-selected.svg"), QSize(), QIcon::Selected);
+
+    ui->tabs->AddTab(m_historyManager, historyIcon, tr("History"));
+    ui->tabs->AddTab(m_bookmarksManager, bookmarksIcon, tr("Bookmarks"));
     ui->tabs->SetMode(FancyTabWidget::Mode_LargeSidebar);
     ui->tabs->setFocus();
 
@@ -54,28 +62,10 @@ BrowsingLibrary::BrowsingLibrary(BrowserWindow* window, QWidget* parent)
     m->addAction(tr("Export Bookmarks..."), this, SLOT(exportBookmarks()));
     ui->importExport->setMenu(m);
 
-    connect(ui->tabs, SIGNAL(CurrentChanged(int)), this, SLOT(currentIndexChanged(int)));
+    connect(ui->tabs, &FancyTabWidget::CurrentChanged, ui->searchLine, &QLineEdit::clear);
     connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(search()));
 
     QzTools::setWmClass("Browsing Library", this);
-}
-
-void BrowsingLibrary::currentIndexChanged(int index)
-{
-    switch (index) {
-    case 0:
-        ui->searchLine->show();
-        search();
-        break;
-
-    case 1:
-        ui->searchLine->show();
-        search();
-        break;
-
-    default:
-        qWarning("BrowsingLibrary::currentIndexChanged() received index out of range!");
-    }
 }
 
 void BrowsingLibrary::search()

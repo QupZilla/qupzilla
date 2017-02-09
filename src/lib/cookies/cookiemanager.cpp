@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -70,9 +70,13 @@ CookieManager::CookieManager()
     ui->saveCookies->setChecked(settings.value("allowCookies", true).toBool());
     ui->filter3rdParty->setChecked(settings.value("filterThirdPartyCookies", false).toBool());
     ui->filterTracking->setChecked(settings.value("filterTrackingCookie", false).toBool());
+    ui->deleteCookiesOnClose->setChecked(settings.value("deleteCookiesOnClose", false).toBool());
     ui->whiteList->addItems(settings.value("whitelist", QStringList()).toStringList());
     ui->blackList->addItems(settings.value("blacklist", QStringList()).toStringList());
     settings.endGroup();
+
+    // QTWEBENGINE_DISABLED
+    ui->filter3rdParty->hide();
 
     ui->search->setPlaceholderText(tr("Search"));
     ui->cookieTree->setDefaultItemShowMode(TreeWidget::ItemsCollapsed);
@@ -116,16 +120,21 @@ void CookieManager::remove()
         return;
     }
 
+    QList<QNetworkCookie> cookies;
+
     if (current->childCount()) {
         for (int i = 0; i < current->childCount(); ++i) {
             QTreeWidgetItem *item = current->child(i);
-            if (item && m_itemHash.contains(item))
-                removeCookie(m_itemHash.value(item));
+            if (item && m_itemHash.contains(item)) {
+                cookies.append(m_itemHash.value(item));
+            }
         }
+    } else if (m_itemHash.contains(current)) {
+        cookies.append(m_itemHash.value(current));
     }
-    else {
-        if (m_itemHash.contains(current))
-            removeCookie(m_itemHash.value(current));
+
+    foreach (const QNetworkCookie &cookie, cookies) {
+        mApp->cookieJar()->deleteCookie(cookie);
     }
 }
 
@@ -323,6 +332,7 @@ void CookieManager::closeEvent(QCloseEvent* e)
     settings.setValue("allowCookies", ui->saveCookies->isChecked());
     settings.setValue("filterThirdPartyCookies", ui->filter3rdParty->isChecked());
     settings.setValue("filterTrackingCookie", ui->filterTracking->isChecked());
+    settings.setValue("deleteCookiesOnClose", ui->deleteCookiesOnClose->isChecked());
     settings.setValue("whitelist", whitelist);
     settings.setValue("blacklist", blacklist);
     settings.endGroup();

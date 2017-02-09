@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>167</width>
-    <height>89</height>
+    <height>123</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,7 @@
    <item row="1" column="0">
     <widget class="QPushButton" name="bookmarksButton">
      <property name="text">
-      <string>Add to bookmarks</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../data/icons.qrc">
-       <normaloff>:/icons/other/bigstar.png</normaloff>:/icons/other/bigstar.png</iconset>
+      <string>Add to Bookmarks</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -37,7 +33,7 @@
       <string>Add to Speed Dial</string>
      </property>
      <property name="icon">
-      <iconset resource="../data/icons.qrc">
+      <iconset>
        <normaloff>:/icons/theme/speeddial.png</normaloff>:/icons/theme/speeddial.png</iconset>
      </property>
      <property name="flat">
@@ -57,8 +53,6 @@
    <header>bookmarkstools.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../data/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

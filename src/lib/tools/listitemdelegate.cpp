@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -57,22 +57,26 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
     const QStyle* style = w ? w->style() : QApplication::style();
     const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
 
-#ifdef Q_OS_WIN
-    const QPalette::ColorRole colorRole = QPalette::Text;
-#else
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
+
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+
+#ifdef Q_OS_WIN
+    opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
+    opt.palette.setColor(QPalette::All, QPalette::Highlight, opt.palette.base().color().darker(108));
 #endif
+
+    QPalette textPalette = opt.palette;
+    textPalette.setCurrentColorGroup(cg);
 
     int topPosition = opt.rect.top() + m_padding;
 
     // Draw background
-    // Use PanelItemViewRow, because of Qt5's Fusion style incorrectly renders PanelItemViewItem
-    if (mApp->styleName() == QLatin1String("fusion")) {
-        style->drawPrimitive(QStyle::PE_PanelItemViewRow, &opt, painter, w);
-    }
-    else {
-        style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
-    }
+    opt.showDecorationSelected = true;
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw icon
     QRect iconRect(opt.rect.left() + (opt.rect.width() - m_iconSize) / 2, topPosition, m_iconSize, m_iconSize);
@@ -86,7 +90,7 @@ void ListItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opti
     const int leftTitleEdge = opt.rect.left() + m_padding;
     QRect titleRect(leftTitleEdge, topPosition, opt.rect.width() - 2 * m_padding, opt.fontMetrics.height());
     QRect visualTitleRect = style->visualRect(direction, opt.rect, titleRect);
-    style->drawItemText(painter, visualTitleRect, Qt::AlignCenter, opt.palette, true, title, colorRole);
+    style->drawItemText(painter, visualTitleRect, Qt::AlignCenter, textPalette, true, title, colorRole);
 }
 
 QSize ListItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

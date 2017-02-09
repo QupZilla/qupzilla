@@ -39,6 +39,7 @@ BookmarksWidget::BookmarksWidget(WebView* view, BookmarkItem* bookmark, QWidget*
     , m_edited(false)
 {
     ui->setupUi(this);
+    ui->bookmarksButton->setIcon(QIcon::fromTheme(QSL("bookmark-new")));
 
     init();
 }

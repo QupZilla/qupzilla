@@ -7,15 +7,30 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleGetInfoString</key>
-    <string>2.0.1</string>
+    <string>2.1.0</string>
     <key>CFBundleVersion</key>
-    <string>2.0.1</string>
+    <string>2.1.0</string>
     <key>CFBundleSignature</key>
     <string>@TYPEINFO@</string>
     <key>CFBundleExecutable</key>
     <string>@EXECUTABLE@</string>
     <key>CFBundleIdentifier</key>
     <string>com.qupzilla.QupZilla</string>
+
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLIconFile</key>
+        <string>@ICON@</string>
+        <key>CFBundleURLName</key>
+        <string>http URL</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>http</string>
+          <string>https</string>
+        </array>
+      </dict>
+    </array>
 
     <key>CFBundleDocumentTypes</key>
     <array>

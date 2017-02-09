@@ -16,7 +16,6 @@ SOURCES += gm_plugin.cpp \
     settings/gm_settingslistwidget.cpp \
 #    gm_jsobject.cpp \
     gm_icon.cpp \
-    gm_urlinterceptor.cpp
 
 HEADERS += gm_plugin.h \
     gm_manager.h \
@@ -30,7 +29,6 @@ HEADERS += gm_plugin.h \
     settings/gm_settingslistwidget.h \
 #    gm_jsobject.h \
     gm_icon.h \
-    gm_urlinterceptor.h
 
 FORMS += \
     gm_addscriptdialog.ui \
@@ -60,6 +58,7 @@ TRANSLATIONS += \
     translations/hr_HR.ts \
     translations/hu_HU.ts \
     translations/id_ID.ts \
+    translations/is.ts \
     translations/it_IT.ts \
     translations/ja_JP.ts \
     translations/ka_GE.ts \
@@ -72,6 +71,7 @@ TRANSLATIONS += \
     translations/pl_PL.ts \
     translations/pt_BR.ts \
     translations/pt_PT.ts \
+    translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
     translations/sr@ijekavianlatin.ts \
@@ -84,6 +84,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 PLUGIN_DIR = $$PWD

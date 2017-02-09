@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,11 +54,22 @@ PopupWindow::PopupWindow(PopupWebView* view)
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_statusBarMessage = new PopupStatusBarMessage(this);
 
+    m_notificationWidget = new QWidget(this);
+    m_notificationWidget->setAutoFillBackground(true);
+    QPalette pal = m_notificationWidget->palette();
+    pal.setColor(QPalette::Background, pal.window().color().darker(110));
+    m_notificationWidget->setPalette(pal);
+
+    QVBoxLayout *nlayout = new QVBoxLayout(m_notificationWidget);
+    nlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    nlayout->setContentsMargins(0, 0, 0, 0);
+    nlayout->setSpacing(1);
+
     m_menuBar = new QMenuBar(this);
 
     QMenu* menuFile = new QMenu(tr("File"));
     menuFile->addAction(QIcon::fromTheme("mail-message-new"), tr("Send Link..."), m_view, SLOT(sendPageByMail()));
-    //menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
+    menuFile->addAction(QIcon::fromTheme("document-print"), tr("&Print..."), m_view, SLOT(printPage()))->setShortcut(QKeySequence("Ctrl+P"));
     menuFile->addSeparator();
     menuFile->addAction(QIcon::fromTheme("window-close"), tr("Close"), this, SLOT(close()))->setShortcut(QKeySequence("Ctrl+W"));
     m_menuBar->addMenu(menuFile);
@@ -97,19 +108,27 @@ PopupWindow::PopupWindow(PopupWebView* view)
         addAction(action);
     }
 
+    QVBoxLayout *l = new QVBoxLayout();
+    l->setContentsMargins(0, 0, 0, 0);
+    l->setSpacing(0);
+    l->addWidget(m_view);
+
+    QWidget *viewWidget = new QWidget(this);
+    viewWidget->setLayout(l);
+
     m_layout->insertWidget(0, m_menuBar);
     m_layout->addWidget(m_locationBar);
-    m_layout->addWidget(m_view);
+    m_layout->addWidget(viewWidget);
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
 
-    connect(m_view, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_view, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged()));
-    connect(m_view, SIGNAL(urlChanged(QUrl)), m_locationBar, SLOT(showUrl(QUrl)));
-    connect(m_view, SIGNAL(iconChanged()), m_locationBar, SLOT(showSiteIcon()));
-    connect(m_view, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
-    connect(m_view, SIGNAL(loadProgress(int)), this, SLOT(loadProgress(int)));
-    connect(m_view, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
+    connect(m_view, &WebView::showNotification, this, &PopupWindow::showNotification);
+    connect(m_view, &WebView::titleChanged, this, &PopupWindow::titleChanged);
+    connect(m_view, &WebView::urlChanged, m_locationBar, &PopupLocationBar::showUrl);
+    connect(m_view, &WebView::iconChanged, m_locationBar, &PopupLocationBar::showSiteIcon);
+    connect(m_view, &WebView::loadStarted, this, &PopupWindow::loadStarted);
+    connect(m_view, &WebView::loadProgress, this, &PopupWindow::loadProgress);
+    connect(m_view, &WebView::loadFinished, this, &PopupWindow::loadFinished);
 
     connect(m_view->page(), &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
     connect(m_view->page(), &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
@@ -150,11 +169,11 @@ PopupWebView* PopupWindow::webView()
 
 void PopupWindow::showNotification(QWidget* notif)
 {
-    if (m_layout->count() > 4) {
-        delete m_layout->itemAt(2)->widget();
-    }
-
-    m_layout->insertWidget(2, notif);
+    m_notificationWidget->setParent(nullptr);
+    m_notificationWidget->setParent(m_view->overlayWidget());
+    m_notificationWidget->setFixedWidth(m_view->width());
+    m_notificationWidget->layout()->addWidget(notif);
+    m_notificationWidget->show();
     notif->show();
 }
 
@@ -183,7 +202,6 @@ void PopupWindow::loadStarted()
 
 void PopupWindow::loadProgress(int value)
 {
-    m_progressBar->show();
     m_progressBar->setValue(value);
 }
 
@@ -209,6 +227,13 @@ void PopupWindow::closeEvent(QCloseEvent* event)
     m_view->deleteLater();
 
     event->accept();
+}
+
+void PopupWindow::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    m_notificationWidget->setFixedWidth(m_view->width());
 }
 
 void PopupWindow::searchOnPage()

@@ -99,7 +99,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>
         <source>License</source>
-        <translation>憑證</translation>
+        <translation>授權</translation>
     </message>
 </context>
 </TS>

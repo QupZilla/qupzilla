@@ -203,7 +203,7 @@ QIcon SearchEnginesManager::iconForSearchEngine(const QUrl &url)
     QIcon ic = IconProvider::iconForDomain(url);
 
     if (ic.isNull()) {
-        ic = QIcon(":icons/menu/search-icon.png");
+        ic = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg")));
     }
 
     return ic;

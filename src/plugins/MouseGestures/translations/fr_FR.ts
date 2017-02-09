@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation>&lt;b&gt;Dupliquer&lt;/b&gt;&lt;br/&gt;Dupliquer l&apos;onglet courant</translation>
+        <translation>&lt;b&gt;Dupliquer&lt;/b&gt;&lt;br/&gt;Dupliquer l&apos;onglet actuel</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

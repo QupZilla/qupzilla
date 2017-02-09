@@ -1,6 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
 * Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +24,7 @@
 #include "clickablelabel.h"
 #include "tabbedwebview.h"
 #include "fcm_notification.h"
+#include "datapaths.h"
 
 #include <QStatusBar>
 #include <QTimer>
@@ -157,43 +159,6 @@ void FCM_Plugin::clearCache()
     m_flashCookies.clear();
 }
 
-QString FCM_Plugin::flashDataPathForOS() const
-{
-    /* On Microsoft Windows NT 5.x and 6.x, they are stored in:
-     *  %APPDATA%\Macromedia\Flash Player\#SharedObjects\
-     *  %APPDATA%\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys\
-     * On Mac OS X, they are stored in:
-     * ~/Library/Preferences/Macromedia/Flash Player/#SharedObjects/
-     * ~/Library/Preferences/Macromedia/Flash Player/macromedia.com/support/flashplayer/sys/
-     * On Linux or Unix, they are stored in:
-     * ~/.macromedia/Flash_Player/#SharedObjects/
-     * ~/.macromedia/Flash_Player/macromedia.com/support/flashplayer/sys/
-     * For Linux and Unix systems, if the open-source Gnash plugin is being used
-     *  instead of the official Adobe Flash, they will instead be found at:
-     * ~/.gnash/SharedObjects/
-     */
-
-    if (m_flashDataPathForOS.isEmpty()) {
-#if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-        QString appData = QProcessEnvironment::systemEnvironment().value(QL1S("APPDATA"));
-        appData.replace(QL1C('\\'), QL1C('/'));
-
-        m_flashDataPathForOS = (appData + QL1S("/Macromedia/Flash Player"));
-#elif defined(Q_OS_MAC)
-        m_flashDataPathForOS = QDir::homePath() + QL1S("/Library/Preferences/Macromedia/Flash Player");
-#else
-        if (QDir::home().cd(QL1S(".macromedia"))) {
-            m_flashDataPathForOS = QDir::homePath() +  QL1S("/.macromedia/Flash_Player");
-        }
-        else {
-            m_flashDataPathForOS = QDir::homePath() +  QL1S("/.gnash");
-        }
-#endif
-    }
-
-    return m_flashDataPathForOS;
-}
-
 bool FCM_Plugin::isBlacklisted(const FlashCookie &flashCookie)
 {
     return readSettings().value(QL1S("flashCookiesBlacklist")).toStringList().contains(flashCookie.origin);
@@ -228,7 +193,7 @@ QString FCM_Plugin::sharedObjectDirName() const
 
 QString FCM_Plugin::flashPlayerDataPath() const
 {
-    return readSettings().value(QL1S("flashDataPath")).toString();
+    return DataPaths::currentProfilePath() + QSL("/Pepper Data/Shockwave Flash/WritableRoot/");
 }
 
 QVariantHash FCM_Plugin::readSettings() const
@@ -239,7 +204,6 @@ QVariantHash FCM_Plugin::readSettings() const
         m_settingsHash.insert(QL1S("notification"), QVariant(false));
         m_settingsHash.insert(QL1S("flashCookiesWhitelist"), QVariant());
         m_settingsHash.insert(QL1S("flashCookiesBlacklist"), QVariant());
-        m_settingsHash.insert(QL1S("flashDataPath"), flashDataPathForOS());
 
         QSettings settings(m_settingsPath + QL1S("/extensions.ini"), QSettings::IniFormat);
         settings.beginGroup(QL1S("FlashCookieManager"));
@@ -389,8 +353,7 @@ QWidget* FCM_Plugin::createStatusBarIcon(BrowserWindow* mainWindow)
 
     ClickableLabel* icon = new ClickableLabel(mainWindow);
     icon->setCursor(Qt::PointingHandCursor);
-    QPixmap p(":/flashcookiemanager/data/flash-cookie-manager.png");
-    icon->setPixmap(p.scaledToHeight(16));
+    icon->setPixmap(QIcon(QSL(":/flashcookiemanager/data/flash-cookie-manager.png")).pixmap(16));
     icon->setToolTip(tr("Show Flash Cookie Manager"));
 
     connect(icon, SIGNAL(clicked(QPoint)), this, SLOT(showFlashCookieManager()));

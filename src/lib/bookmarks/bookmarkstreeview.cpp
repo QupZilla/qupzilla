@@ -21,6 +21,7 @@
 #include "bookmarkitem.h"
 #include "bookmarks.h"
 #include "mainapplication.h"
+#include "iconprovider.h"
 
 #include <QHeaderView>
 #include <QMouseEvent>

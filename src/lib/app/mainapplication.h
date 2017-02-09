@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -48,6 +48,7 @@ class SearchEnginesManager;
 class HTML5PermissionsManager;
 class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
+class ProxyStyle;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -84,6 +85,7 @@ public:
 
     // Name of current Qt style
     QString styleName() const;
+    void setProxyStyle(ProxyStyle *style);
 
     QString currentLanguageFile() const;
     QString currentLanguage() const;
@@ -129,7 +131,7 @@ private slots:
     void messageReceived(const QString &message);
     void windowDestroyed(QObject* window);
     void onFocusChanged();
-    void checkDefaultWebBrowser();
+    void runDeferredPostLaunchActions();
 
     void downloadRequested(QWebEngineDownloadItem *download);
 
@@ -147,6 +149,9 @@ private:
     void backupSavedSessions();
 
     void setUserStyleSheet(const QString &filePath);
+
+    void checkDefaultWebBrowser();
+    void checkOptimizeDatabase();
 
     bool m_isPrivate;
     bool m_isPortable;
@@ -172,6 +177,7 @@ private:
     QWebEngineProfile* m_webProfile;
 
     AutoSaver* m_autoSaver;
+    ProxyStyle *m_proxyStyle = nullptr;
 
     QList<BrowserWindow*> m_windows;
     QPointer<BrowserWindow> m_lastActiveWindow;
@@ -179,6 +185,8 @@ private:
     QList<PostLaunchAction> m_postLaunchActions;
 
     QString m_languageFile;
+
+    void createJumpList();
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
 public:
