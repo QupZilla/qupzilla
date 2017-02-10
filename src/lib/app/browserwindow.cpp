@@ -340,7 +340,7 @@ void BrowserWindow::setupUi()
 
 void BrowserWindow::setupMenu()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     static MainMenu* macMainMenu = 0;
 
     if (!macMainMenu) {
@@ -471,7 +471,7 @@ void BrowserWindow::loadSettings()
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     menuBar()->setVisible(!isFullScreen() && showMenuBar);
 #endif
 
@@ -709,7 +709,7 @@ void BrowserWindow::saveSideBarWidth()
 
 void BrowserWindow::toggleShowMenubar()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     // We use one shared global menubar on Mac that can't be hidden
     return;
 #endif
@@ -763,7 +763,7 @@ void BrowserWindow::toggleShowNavigationToolbar()
 
     Settings().setValue("Browser-View-Settings/showNavigationToolbar", m_navigationToolbar->isVisible());
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     // Make sure we show Menu Bar when Navigation Toolbar is hidden
     if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
         toggleShowMenubar();
@@ -877,7 +877,7 @@ void BrowserWindow::createToolbarsMenu(QMenu* menu)
 
     QAction* action;
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     action = menu->addAction(tr("&Menu Bar"), this, SLOT(toggleShowMenubar()));
     action->setCheckable(true);
     action->setChecked(menuBar()->isVisible());
@@ -1053,7 +1053,7 @@ bool BrowserWindow::event(QEvent* event)
             m_windowStates = ev->oldState();
 
             m_statusBarVisible = statusBar()->isVisible();
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
             m_menuBarVisible = menuBar()->isVisible();
             menuBar()->hide();
 #endif
@@ -1065,7 +1065,7 @@ bool BrowserWindow::event(QEvent* event)
         else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
             statusBar()->setVisible(m_statusBarVisible);
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
             menuBar()->setVisible(m_menuBarVisible);
 #endif
 
@@ -1338,7 +1338,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
     saveSettings();
 
-    #ifndef Q_OS_MAC
+    #ifndef Q_OS_MACOS
         if (mApp->windowCount() == 1)
             mApp->quitApplication();
     #endif
@@ -1348,7 +1348,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
 void BrowserWindow::closeWindow()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     close();
     return;
 #endif

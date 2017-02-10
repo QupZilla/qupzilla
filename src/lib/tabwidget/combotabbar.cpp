@@ -686,7 +686,7 @@ void ComboTabBar::paintEvent(QPaintEvent* ev)
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &option, &p, this);
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     // Draw tabbar base even on parts of ComboTabBar that are not directly QTabBar
     QStyleOptionTabBarBase opt;
     TabBarHelper::initStyleBaseOption(&opt, m_mainTabBar, size());

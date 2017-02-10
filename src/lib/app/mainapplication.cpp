@@ -241,7 +241,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         return;
     }
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     setQuitOnLastWindowClosed(false);
 #else
     setQuitOnLastWindowClosed(true);
@@ -960,7 +960,7 @@ void MainApplication::loadTheme(const QString &name)
 
     QString qss = QzTools::readAllFileContents(activeThemePath + QLatin1String("/main.css"));
 
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/mac.css")));
 #elif defined(Q_OS_UNIX)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/linux.css")));
@@ -1112,11 +1112,11 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
 {
     QString userCss;
 
-#if !defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if !defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
     // Don't grey out selection on losing focus (to prevent graying out found text)
     QString highlightColor;
     QString highlightedTextColor;
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     highlightColor = QLatin1String("#b6d6fc");
     highlightedTextColor = QLatin1String("#000");
 #else
@@ -1189,7 +1189,7 @@ RegisterQAppAssociation* MainApplication::associationManager()
 }
 #endif
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <QFileOpenEvent>
 
 bool MainApplication::event(QEvent* e)

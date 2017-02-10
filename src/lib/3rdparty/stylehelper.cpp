@@ -50,7 +50,7 @@ namespace Utils
 
 qreal StyleHelper::sidebarFontSize()
 {
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
     return 10;
 #else
     return 7.5;

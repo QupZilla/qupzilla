@@ -41,7 +41,7 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
 
     m_layout = new QHBoxLayout(this);
     m_layout->setMargin(1);
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     m_layout->setSpacing(0);
 #endif
     setLayout(m_layout);

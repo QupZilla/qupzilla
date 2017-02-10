@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -118,7 +118,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
 #define DEFAULT_THEME_NAME "windows"
-#elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MACOS)
 #define DEFAULT_THEME_NAME "mac"
 #elif defined(Q_OS_UNIX)
 #define DEFAULT_THEME_NAME "linux"

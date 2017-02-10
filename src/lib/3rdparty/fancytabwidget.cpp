@@ -429,7 +429,7 @@ void FancyTabBar::paintTab(QPainter* painter, int tabIndex) const
     int textFlags = Qt::AlignCenter | Qt::AlignBottom;
     painter->drawText(tabTextRect, textFlags, tabText);
     painter->setPen(selected ? QColor(60, 60, 60) : Utils::StyleHelper::panelTextColor());
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     if (!selected) {
         painter->save();
         int fader = int(m_tabs[tabIndex]->fader());

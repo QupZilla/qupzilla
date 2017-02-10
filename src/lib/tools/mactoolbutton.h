@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
-* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
 #include "qzcommon.h"
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <QPushButton>
 
 class QUPZILLA_EXPORT MacToolButton : public QPushButton
