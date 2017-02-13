@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -143,11 +143,11 @@ QWebEngineScript GM_Script::webScript() const
     }
 
     QWebEngineScript script;
+    script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     script.setName(fullName());
     script.setWorldId(QWebEngineScript::MainWorld);
     script.setInjectionPoint(injectionPoint);
     script.setRunsOnSubFrames(!m_noframes);
-    script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     return script;
 }
 
