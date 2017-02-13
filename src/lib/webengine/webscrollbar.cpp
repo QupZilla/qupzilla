@@ -45,6 +45,8 @@ void WebScrollBar::updateValues(const QSize &viewport)
 
     int newValue;
 
+    m_blockScrolling = true;
+
     if (orientation() == Qt::Vertical) {
         setFixedHeight(m_view->height() - (m_view->height() - viewport.height()) * devicePixelRatioF());
         move(m_view->width() - width(), 0);
@@ -60,10 +62,10 @@ void WebScrollBar::updateValues(const QSize &viewport)
     }
 
     if (!isSliderDown()) {
-        m_blockScrolling = true;
         setValue(newValue);
-        m_blockScrolling = false;
     }
+
+    m_blockScrolling = false;
 }
 
 void WebScrollBar::performScroll()
