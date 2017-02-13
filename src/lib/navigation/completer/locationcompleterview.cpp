@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,9 @@ LocationCompleterView::LocationCompleterView()
     : QListView(0)
     , m_ignoreNextMouseMove(false)
 {
-    setWindowFlags(Qt::Popup);
+    setAttribute(Qt::WA_ShowWithoutActivating);
+    setAttribute(Qt::WA_X11NetWmWindowTypeCombo);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::BypassWindowManagerHint);
 
     setUniformItemSizes(true);
     setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -38,7 +40,7 @@ LocationCompleterView::LocationCompleterView()
     setSelectionMode(QAbstractItemView::SingleSelection);
 
     setMouseTracking(true);
-    installEventFilter(this);
+    qApp->installEventFilter(this);
 
     m_delegate = new LocationCompleterDelegate(this);
     setItemDelegate(m_delegate);
@@ -51,8 +53,11 @@ QPersistentModelIndex LocationCompleterView::hoveredIndex() const
 
 bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 {
-    Q_UNUSED(object)
     // Event filter based on QCompleter::eventFilter from qcompleter.cpp
+
+    if (object == this || !isVisible()) {
+        return false;
+    }
 
     switch (event->type()) {
     case QEvent::KeyPress: {
@@ -88,9 +93,21 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             break;
 
         case Qt::Key_End:
+            if (modifiers & Qt::ControlModifier) {
+                setCurrentIndex(model()->index(model()->rowCount() - 1, 0));
+                return true;
+            } else {
+                close();
+            }
+            break;
+
         case Qt::Key_Home:
             if (modifiers & Qt::ControlModifier) {
-                return false;
+                setCurrentIndex(model()->index(0, 0));
+                scrollToTop();
+                return true;
+            } else {
+                close();
             }
             break;
 
@@ -107,10 +124,13 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Tab:
         case Qt::Key_Backtab: {
+            if (keyEvent->modifiers() != Qt::NoModifier) {
+                return false;
+            }
             Qt::Key k = keyEvent->key() == Qt::Key_Tab ? Qt::Key_Down : Qt::Key_Up;
             QKeyEvent ev(QKeyEvent::KeyPress, k, Qt::NoModifier);
-            QApplication::sendEvent(this, &ev);
-            return false;
+            QApplication::sendEvent(focusProxy(), &ev);
+            return true;
         }
 
         case Qt::Key_Up:
@@ -118,26 +138,24 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 int rowCount = model()->rowCount();
                 QModelIndex lastIndex = model()->index(rowCount - 1, 0);
                 setCurrentIndex(lastIndex);
-                return true;
-            }
-            else if (idx.row() == 0) {
+            } else if (idx.row() == 0) {
                 setCurrentIndex(QModelIndex());
-                return true;
+            } else {
+                setCurrentIndex(model()->index(idx.row() - 1, 0));
             }
-            return false;
+            return true;
 
         case Qt::Key_Down:
             if (!idx.isValid()) {
                 QModelIndex firstIndex = model()->index(0, 0);
                 setCurrentIndex(firstIndex);
-                return true;
-            }
-            else if (idx.row() == model()->rowCount() - 1) {
+            } else if (idx.row() == model()->rowCount() - 1) {
                 setCurrentIndex(QModelIndex());
                 scrollToTop();
-                return true;
+            } else {
+                setCurrentIndex(model()->index(idx.row() + 1, 0));
             }
-            return false;
+            return true;
 
         case Qt::Key_Delete:
             if (viewport()->rect().contains(visualRect(idx))) {
@@ -147,8 +165,18 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             break;
 
         case Qt::Key_PageUp:
+            if (keyEvent->modifiers() != Qt::NoModifier) {
+                return false;
+            }
+            selectionModel()->setCurrentIndex(moveCursor(QAbstractItemView::MovePageUp, Qt::NoModifier), QItemSelectionModel::SelectCurrent);
+            return true;
+
         case Qt::Key_PageDown:
-            return false;
+            if (keyEvent->modifiers() != Qt::NoModifier) {
+                return false;
+            }
+            selectionModel()->setCurrentIndex(moveCursor(QAbstractItemView::MovePageDown, Qt::NoModifier), QItemSelectionModel::SelectCurrent);
+            return true;
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
@@ -181,17 +209,30 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         m_ignoreNextMouseMove = true;
         break;
 
+    case QEvent::Wheel:
     case QEvent::MouseButtonPress:
         if (!underMouse()) {
             close();
-            return true;
+            return false;
         }
         break;
 
-    case QEvent::ShortcutOverride:
-    case QEvent::InputMethod:
-        QApplication::sendEvent(focusProxy(), event);
+    case QEvent::FocusOut: {
+        QFocusEvent *focusEvent = static_cast<QFocusEvent*>(event);
+        if (focusEvent->reason() != Qt::PopupFocusReason) {
+            close();
+        }
         break;
+    }
+
+    case QEvent::Move:
+    case QEvent::Resize: {
+        QWidget *w = qobject_cast<QWidget*>(object);
+        if (w && w->isWindow() && w == focusProxy()->window()) {
+            close();
+        }
+        break;
+    }
 
     default:
         break;
