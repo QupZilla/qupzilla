@@ -1,40 +1,40 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de_DE" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
         <source>Tab Manager Settings</source>
-        <translation>Tab-Manager Einstellungen</translation>
+        <translation>标签页管理器设置</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="20"/>
         <source>View</source>
-        <translation>Ansicht</translation>
+        <translation>视图</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="26"/>
         <source>Please select view type:</source>
-        <translation>Bitte Ansicht wählen:</translation>
+        <translation>请选择视图类型：</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="33"/>
         <source>SideBar</source>
-        <translation>Seiten-Leiste</translation>
+        <translation>侧栏</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="40"/>
         <source>Window</source>
-        <translation>Fenster</translation>
+        <translation>窗口</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="47"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; The &amp;quot;Window&amp;quot; type is recommended for managing lots of windows/tabs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Hinweis:&lt;/span&gt; Die &quot;Fenster&quot;-Darstellung ist für die Verwaltung von vielen Fenstern/ Tabs empfohlen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;注意：&lt;/span&gt;“窗口”类型推荐作为管理大量窗口/标签页的方式。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="60"/>
         <source>Use TabManager plugin as replacement for main TabBar.</source>
-        <translation>Tab-Bar durch Tab-Manager-Plugin ersetzen</translation>
+        <translation>使用标签页管理器插件作为主标签栏的替代品。</translation>
     </message>
 </context>
 <context>
@@ -42,82 +42,82 @@
     <message>
         <location filename="../tabmanagerwidget.ui" line="14"/>
         <source>Tab Manager</source>
-        <translation>Tab-Manager</translation>
+        <translation>标签页管理器</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="98"/>
         <source>Local File System:</source>
-        <translation>Lokales Dateisystem:</translation>
+        <translation>本地文件系统：</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="101"/>
         <source>QupZilla:</source>
-        <translation>QupZilla:</translation>
+        <translation>QupZilla：</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="104"/>
         <source> [FTP]</source>
-        <translation>[FTP]</translation>
+        <translation> [FTP]</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="250"/>
         <source>Group by</source>
-        <translation>Gruppieren nach</translation>
+        <translation>分组依据</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="251"/>
         <source>&amp;Window</source>
-        <translation>&amp;Fenster</translation>
+        <translation>窗口(&amp;W)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="256"/>
         <source>&amp;Domain</source>
-        <translation>&amp;Domäne</translation>
+        <translation>域(&amp;D)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="261"/>
         <source>&amp;Host</source>
-        <translation>&amp;Host</translation>
+        <translation>主机(&amp;H)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="269"/>
         <source>&amp;Show side by side</source>
-        <translation>&amp;Seite für Seite anzeigen</translation>
+        <translation>并排显示(&amp;S)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="275"/>
         <source>&amp;Detach checked tabs</source>
-        <translation>Ausgewählte &amp;Tabs lösen</translation>
+        <translation>分离选中标签页(&amp;D)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="276"/>
         <source>Book&amp;mark checked tabs</source>
-        <translation>&amp;Lesezeichen für ausgewählte Tabs hinzufügen</translation>
+        <translation>选中标签页加为书签(&amp;M)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Close checked tabs</source>
-        <translation>&amp;Ausgewählte Tabs schließen</translation>
+        <translation>关闭选中标签页(&amp;C)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="528"/>
         <source>Choose folder for bookmarks:</source>
-        <translation>Ordner für Lesezeichen auswählen:</translation>
+        <translation>选择书签文件夹：</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="529"/>
         <source>Bookmark Selected Tabs</source>
-        <translation>Ausgewählte Tabs speichern</translation>
+        <translation>添加选中标签页至书签</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="646"/>
         <source>Window %1</source>
-        <translation>Fenster %1</translation>
+        <translation>窗口 %1</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="647"/>
         <source>Double click to switch</source>
-        <translation>Zum Wechseln doppelklicken</translation>
+        <translation>双击以切换</translation>
     </message>
 </context>
 <context>
@@ -126,12 +126,12 @@
         <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
         <source>Tab Manager</source>
-        <translation>Tab-Manager</translation>
+        <translation>标签页管理器</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
         <source>Show Tab Manager</source>
-        <translation>Tab-Manager anzeigen</translation>
+        <translation>显示标签页管理器</translation>
     </message>
 </context>
 </TS>

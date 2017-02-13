@@ -16,5 +16,7 @@ RESOURCES += imagefinder.qrc
 
 FORMS += imagefindersettings.ui
 
+TRANSLATIONS += \
+
 PLUGIN_DIR = $$PWD
 include(../../plugins.pri)

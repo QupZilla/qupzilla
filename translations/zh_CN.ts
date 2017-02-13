@@ -1074,7 +1074,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>添加为书签</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1540,7 +1540,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>关闭时删除 Cookie</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1832,7 +1832,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>即为：</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -2431,17 +2431,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>新建标签页</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>新建窗口</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>新建隐私浏览窗口</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
@@ -3464,7 +3464,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>使用原生滚动条</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3494,17 +3494,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>关闭时删除缓存</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>最大值：</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
@@ -3829,7 +3829,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>预览</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
@@ -4931,7 +4931,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>关闭标签页(&amp;O)</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>

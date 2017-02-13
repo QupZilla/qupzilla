@@ -21,7 +21,7 @@ do
     for translation in $dir/*.ts
     do
         [[ "$translation" == *empty.ts ]] && continue
-        echo "        <file>locale/`echo $translation | awk 'BEGIN{FS="/"}{print substr($6,0,length($6)-2)}'`.qm</file>"
+        echo "        <file>locale/`echo $translation | awk 'BEGIN{FS="/"}{print substr($6,0,length($6)-3)}'`.qm</file>"
     done
 
     echo -e "\n\n"
