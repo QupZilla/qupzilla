@@ -1,3 +1,12 @@
+Version 2.1.1
+    * released 13 February 2017
+    * updated translations
+    * fix loading previews in SpeedDial
+    * fix showing duplicated languages in spellcheck settings
+    * fix sometimes pages being scrolled by itself when using native scrollbars
+    * fix disabling GreaseMonkey scripts
+    * Windows: fix highlight text color in item views
+
 Version 2.1.0
     * released 4 February 2017
     * bring back spellcheck
