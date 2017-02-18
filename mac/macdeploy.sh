@@ -42,7 +42,7 @@ answer=$( while ! head -c 1 | grep -i '[yn]'; do true; done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y"; then
   if [ -z ${QTDIR+x} ]; then
-    printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.7/clang_64"\n'
+    printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.8/clang_64"\n'
     exit 1
   else
     printf '\nCopying known, missing, Qt native library plugins to target bundle...\n'
