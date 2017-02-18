@@ -10,7 +10,7 @@ WORK_TEMPLATE=tmp-QupZilla-release.dmg.sparseimage
 VOLUME_TEMPLATE=QupZilla
 
 echo "Ensuring working disk image template is not in use…"
-hdiutil detach $TMP/$WORK_TEMPLATE
+hdiutil detach "$TMP/$WORK_TEMPLATE"
 
 echo "Creating writable working disk image template…"
 hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "QupZilla"
