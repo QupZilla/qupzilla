@@ -143,10 +143,10 @@ void WebScrollBarManager::addWebView(WebView *view)
         data->corner->updateVisibility(data->vscrollbarVisible && data->hscrollbarVisible, thickness);
     };
 
-    connect(view, &WebView::viewportResized, this, updateValues);
-    connect(view->page(), &WebPage::scrollPositionChanged, this, updateValues);
+    connect(view, &WebView::viewportResized, data->vscrollbar, updateValues);
+    connect(view->page(), &WebPage::scrollPositionChanged, data->vscrollbar, updateValues);
 
-    connect(view->page(), &WebPage::contentsSizeChanged, this, [=]() {
+    connect(view->page(), &WebPage::contentsSizeChanged, data->vscrollbar, [=]() {
         const QString source = QL1S("var out = {"
                                     "vertical: document.documentElement && window.innerWidth > document.documentElement.clientWidth,"
                                     "horizontal: document.documentElement && window.innerHeight > document.documentElement.clientHeight"
@@ -164,7 +164,7 @@ void WebScrollBarManager::addWebView(WebView *view)
         });
     });
 
-    connect(view, &WebView::zoomLevelChanged, this, [=]() {
+    connect(view, &WebView::zoomLevelChanged, data->vscrollbar, [=]() {
         view->page()->runJavaScript(m_scrollbarJs.arg(thickness));
     });
 
@@ -175,12 +175,13 @@ void WebScrollBarManager::addWebView(WebView *view)
 
 void WebScrollBarManager::removeWebView(WebView *view)
 {
+    if (!m_scrollbars.contains(view)) {
+        return;
+    }
+
     if (m_scrollbars.size() == 1) {
         removeUserScript();
     }
-
-    disconnect(view, 0, this, 0);
-    disconnect(view->page(), 0, this, 0);
 
     delete m_scrollbars.take(view);
 }
