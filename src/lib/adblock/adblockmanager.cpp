@@ -34,6 +34,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QUrlQuery>
+#include <QMutexLocker>
 
 //#define ADBLOCK_DEBUG
 
@@ -47,7 +48,6 @@ AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
     , m_loaded(false)
     , m_enabled(true)
-    , m_useLimitedEasyList(true)
     , m_matcher(new AdBlockMatcher(this))
     , m_interceptor(new AdBlockUrlInterceptor(this))
 {
@@ -80,6 +80,14 @@ void AdBlockManager::setEnabled(bool enabled)
 
     load();
     mApp->reloadUserStyleSheet();
+
+    QMutexLocker locker(&m_mutex);
+
+    if (m_enabled) {
+        m_matcher->update();
+    } else {
+        m_matcher->clear();
+    }
 }
 
 QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
@@ -89,6 +97,12 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
 
 bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 {
+    QMutexLocker locker(&m_mutex);
+
+    if (!isEnabled()) {
+        return false;
+    }
+
 #ifdef ADBLOCK_DEBUG
     QElapsedTimer timer;
     timer.start();
@@ -97,8 +111,9 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
     const QString urlDomain = request.requestUrl().host().toLower();
     const QString urlScheme = request.requestUrl().scheme().toLower();
 
-    if (!isEnabled() || !canRunOnScheme(urlScheme) || !canBeBlocked(request.firstPartyUrl()))
-        return 0;
+    if (!canRunOnScheme(urlScheme) || !canBeBlocked(request.firstPartyUrl())) {
+        return false;
+    }
 
     bool res = false;
     const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
@@ -201,13 +216,15 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
 
     m_subscriptions.insert(m_subscriptions.count() - 1, subscription);
     connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
-    connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
+    connect(subscription, SIGNAL(subscriptionChanged()), this, SLOT(updateMatcher()));
 
     return subscription;
 }
 
 bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
 {
+    QMutexLocker locker(&m_mutex);
+
     if (!m_subscriptions.contains(subscription) || !subscription->canBeRemoved()) {
         return false;
     }
@@ -236,6 +253,8 @@ AdBlockCustomList* AdBlockManager::customList() const
 
 void AdBlockManager::load()
 {
+    QMutexLocker locker(&m_mutex);
+
     if (m_loaded) {
         return;
     }
@@ -248,13 +267,11 @@ void AdBlockManager::load()
     Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
-    m_useLimitedEasyList = settings.value("useLimitedEasyList", m_useLimitedEasyList).toBool();
     m_disabledRules = settings.value("disabledRules", QStringList()).toStringList();
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
 
     if (!m_enabled) {
-        mApp->networkManager()->removeUrlInterceptor(m_interceptor);
         return;
     }
 
@@ -310,7 +327,7 @@ void AdBlockManager::load()
         subscription->loadSubscription(m_disabledRules);
 
         connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
-        connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
+        connect(subscription, SIGNAL(subscriptionChanged()), this, SLOT(updateMatcher()));
     }
 
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
@@ -325,6 +342,13 @@ void AdBlockManager::load()
     m_loaded = true;
 
     mApp->networkManager()->installUrlInterceptor(m_interceptor);
+}
+
+void AdBlockManager::updateMatcher()
+{
+    QMutexLocker locker(&m_mutex);
+
+    m_matcher->update();
 }
 
 void AdBlockManager::updateAllSubscriptions()
@@ -352,7 +376,6 @@ void AdBlockManager::save()
     Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("enabled", m_enabled);
-    settings.setValue("useLimitedEasyList", m_useLimitedEasyList);
     settings.setValue("disabledRules", m_disabledRules);
     settings.endGroup();
 }
@@ -367,22 +390,6 @@ bool AdBlockManager::canRunOnScheme(const QString &scheme) const
     return !(scheme == QLatin1String("file") || scheme == QLatin1String("qrc")
              || scheme == QLatin1String("qupzilla") || scheme == QLatin1String("data")
              || scheme == QLatin1String("abp"));
-}
-
-bool AdBlockManager::useLimitedEasyList() const
-{
-    return m_useLimitedEasyList;
-}
-
-void AdBlockManager::setUseLimitedEasyList(bool useLimited)
-{
-    m_useLimitedEasyList = useLimited;
-
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        if (subscription->url() == QUrl(ADBLOCK_EASYLIST_URL)) {
-            subscription->updateSubscription();
-        }
-    }
 }
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QStringList>
 #include <QPointer>
+#include <QMutex>
 
 #include "qzcommon.h"
 
@@ -47,9 +48,6 @@ public:
 
     bool isEnabled() const;
     bool canRunOnScheme(const QString &scheme) const;
-
-    bool useLimitedEasyList() const;
-    void setUseLimitedEasyList(bool useLimited);
 
     QString elementHidingRules(const QUrl &url) const;
     QString elementHidingRulesForDomain(const QUrl &url) const;
@@ -79,6 +77,7 @@ public slots:
     void setEnabled(bool enabled);
     void showRule();
 
+    void updateMatcher();
     void updateAllSubscriptions();
 
     AdBlockDialog* showDialog();
@@ -88,7 +87,6 @@ private:
 
     bool m_loaded;
     bool m_enabled;
-    bool m_useLimitedEasyList;
 
     QList<AdBlockSubscription*> m_subscriptions;
     AdBlockMatcher* m_matcher;
@@ -96,6 +94,7 @@ private:
 
     AdBlockUrlInterceptor *m_interceptor;
     QPointer<AdBlockDialog> m_adBlockDialog;
+    QMutex m_mutex;
 };
 
 #endif // ADBLOCKMANAGER_H
