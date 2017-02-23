@@ -34,6 +34,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QUrlQuery>
+#include <QMutexLocker>
 
 //#define ADBLOCK_DEBUG
 
@@ -80,6 +81,14 @@ void AdBlockManager::setEnabled(bool enabled)
 
     load();
     mApp->reloadUserStyleSheet();
+
+    QMutexLocker locker(&m_mutex);
+
+    if (m_enabled) {
+        m_matcher->update();
+    } else {
+        m_matcher->clear();
+    }
 }
 
 QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
@@ -89,6 +98,8 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
 
 bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 {
+    QMutexLocker locker(&m_mutex);
+
 #ifdef ADBLOCK_DEBUG
     QElapsedTimer timer;
     timer.start();
@@ -201,13 +212,15 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
 
     m_subscriptions.insert(m_subscriptions.count() - 1, subscription);
     connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
-    connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
+    connect(subscription, SIGNAL(subscriptionChanged()), this, SLOT(updateMatcher()));
 
     return subscription;
 }
 
 bool AdBlockManager::removeSubscription(AdBlockSubscription* subscription)
 {
+    QMutexLocker locker(&m_mutex);
+
     if (!m_subscriptions.contains(subscription) || !subscription->canBeRemoved()) {
         return false;
     }
@@ -236,6 +249,8 @@ AdBlockCustomList* AdBlockManager::customList() const
 
 void AdBlockManager::load()
 {
+    QMutexLocker locker(&m_mutex);
+
     if (m_loaded) {
         return;
     }
@@ -310,7 +325,7 @@ void AdBlockManager::load()
         subscription->loadSubscription(m_disabledRules);
 
         connect(subscription, SIGNAL(subscriptionUpdated()), mApp, SLOT(reloadUserStyleSheet()));
-        connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
+        connect(subscription, SIGNAL(subscriptionChanged()), this, SLOT(updateMatcher()));
     }
 
     if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
@@ -325,6 +340,13 @@ void AdBlockManager::load()
     m_loaded = true;
 
     mApp->networkManager()->installUrlInterceptor(m_interceptor);
+}
+
+void AdBlockManager::updateMatcher()
+{
+    QMutexLocker locker(&m_mutex);
+
+    m_matcher->update();
 }
 
 void AdBlockManager::updateAllSubscriptions()

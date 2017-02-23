@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,6 @@ AdBlockMatcher::AdBlockMatcher(AdBlockManager* manager)
     : QObject(manager)
     , m_manager(manager)
 {
-    connect(manager, SIGNAL(enabledChanged(bool)), this, SLOT(enabledChanged(bool)));
 }
 
 AdBlockMatcher::~AdBlockMatcher()
@@ -217,12 +216,4 @@ void AdBlockMatcher::clear()
     m_elemhideRules.clear();
     qDeleteAll(m_createdRules);
     m_createdRules.clear();
-}
-
-void AdBlockMatcher::enabledChanged(bool enabled)
-{
-    if (enabled)
-        update();
-    else
-        clear();
 }
