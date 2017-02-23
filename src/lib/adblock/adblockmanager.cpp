@@ -48,7 +48,6 @@ AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
     , m_loaded(false)
     , m_enabled(true)
-    , m_useLimitedEasyList(true)
     , m_matcher(new AdBlockMatcher(this))
     , m_interceptor(new AdBlockUrlInterceptor(this))
 {
@@ -263,7 +262,6 @@ void AdBlockManager::load()
     Settings settings;
     settings.beginGroup("AdBlock");
     m_enabled = settings.value("enabled", m_enabled).toBool();
-    m_useLimitedEasyList = settings.value("useLimitedEasyList", m_useLimitedEasyList).toBool();
     m_disabledRules = settings.value("disabledRules", QStringList()).toStringList();
     QDateTime lastUpdate = settings.value("lastUpdate", QDateTime()).toDateTime();
     settings.endGroup();
@@ -374,7 +372,6 @@ void AdBlockManager::save()
     Settings settings;
     settings.beginGroup("AdBlock");
     settings.setValue("enabled", m_enabled);
-    settings.setValue("useLimitedEasyList", m_useLimitedEasyList);
     settings.setValue("disabledRules", m_disabledRules);
     settings.endGroup();
 }
@@ -389,22 +386,6 @@ bool AdBlockManager::canRunOnScheme(const QString &scheme) const
     return !(scheme == QLatin1String("file") || scheme == QLatin1String("qrc")
              || scheme == QLatin1String("qupzilla") || scheme == QLatin1String("data")
              || scheme == QLatin1String("abp"));
-}
-
-bool AdBlockManager::useLimitedEasyList() const
-{
-    return m_useLimitedEasyList;
-}
-
-void AdBlockManager::setUseLimitedEasyList(bool useLimited)
-{
-    m_useLimitedEasyList = useLimited;
-
-    foreach (AdBlockSubscription* subscription, m_subscriptions) {
-        if (subscription->url() == QUrl(ADBLOCK_EASYLIST_URL)) {
-            subscription->updateSubscription();
-        }
-    }
 }
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const

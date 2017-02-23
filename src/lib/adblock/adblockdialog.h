@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -55,8 +55,6 @@ private slots:
     void load();
 
 private:
-    void closeEvent(QCloseEvent* ev);
-
     AdBlockManager* m_manager;
     AdBlockTreeWidget* m_currentTreeWidget;
     AdBlockSubscription* m_currentSubscription;
@@ -67,7 +65,6 @@ private:
     QAction* m_actionRemoveSubscription;
 
     bool m_loaded;
-    bool m_useLimitedEasyList;
 };
 
 #endif // ADBLOCKDIALOG_H

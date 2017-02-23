@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,6 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
     , m_currentTreeWidget(0)
     , m_currentSubscription(0)
     , m_loaded(false)
-    , m_useLimitedEasyList(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setupUi(this);
@@ -127,9 +126,6 @@ void AdBlockDialog::currentChanged(int index)
     if (index != -1) {
         m_currentTreeWidget = qobject_cast<AdBlockTreeWidget*>(tabWidget->widget(index));
         m_currentSubscription = m_currentTreeWidget->subscription();
-
-        bool isEasyList = m_currentSubscription->url() == QUrl(ADBLOCK_EASYLIST_URL);
-        useLimitedEasyList->setVisible(isEasyList);
     }
 }
 
@@ -183,19 +179,7 @@ void AdBlockDialog::load()
         tabWidget->addTab(tree, subscription->title());
     }
 
-    m_useLimitedEasyList = m_manager->useLimitedEasyList();
-    useLimitedEasyList->setChecked(m_useLimitedEasyList);
-
     m_loaded = true;
 
     QTimer::singleShot(50, this, SLOT(loadSubscriptions()));
-}
-
-void AdBlockDialog::closeEvent(QCloseEvent* ev)
-{
-    if (useLimitedEasyList->isChecked() != m_useLimitedEasyList) {
-        m_manager->setUseLimitedEasyList(useLimitedEasyList->isChecked());
-    }
-
-    QWidget::closeEvent(ev);
 }
