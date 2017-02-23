@@ -99,6 +99,10 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
 {
     QMutexLocker locker(&m_mutex);
 
+    if (!isEnabled()) {
+        return false;
+    }
+
 #ifdef ADBLOCK_DEBUG
     QElapsedTimer timer;
     timer.start();
@@ -107,8 +111,9 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
     const QString urlDomain = request.requestUrl().host().toLower();
     const QString urlScheme = request.requestUrl().scheme().toLower();
 
-    if (!isEnabled() || !canRunOnScheme(urlScheme) || !canBeBlocked(request.firstPartyUrl()))
-        return 0;
+    if (!canRunOnScheme(urlScheme) || !canBeBlocked(request.firstPartyUrl())) {
+        return false;
+    }
 
     bool res = false;
     const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
@@ -267,7 +272,6 @@ void AdBlockManager::load()
     settings.endGroup();
 
     if (!m_enabled) {
-        mApp->networkManager()->removeUrlInterceptor(m_interceptor);
         return;
     }
 
