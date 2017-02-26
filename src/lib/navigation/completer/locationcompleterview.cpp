@@ -30,7 +30,12 @@ LocationCompleterView::LocationCompleterView()
 {
     setAttribute(Qt::WA_ShowWithoutActivating);
     setAttribute(Qt::WA_X11NetWmWindowTypeCombo);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::BypassWindowManagerHint);
+
+    if (qApp->platformName() == QLatin1String("wayland")) {
+        setWindowFlags(Qt::Popup);
+    } else {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::BypassWindowManagerHint);
+    }
 
     setUniformItemSizes(true);
     setEditTriggers(QAbstractItemView::NoEditTriggers);
