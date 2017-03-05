@@ -1,0 +1,135 @@
+version: 2.1.99.{build}-{branch}
+
+cache:
+  - windows/dependencies
+
+build:
+  parallel: true
+  verbosity: detailed
+
+configuration:
+  - release
+#  - debug
+
+branches:
+  except:
+    - v1.4
+    - v1.6
+    - v1.8
+
+environment:
+  global:
+    QZ_VER: 2.1.99
+    VSVER: 14
+    ARCH: x86
+    QMAKESPEC: win32-msvc2015
+    MAKETOOL: jom
+    TOOLSDIR: C:\Qt\Tools\QtCreator
+
+  matrix:
+    - QTDIR: C:\Qt\5.8\msvc2015
+    - ARCH: x64
+      QTDIR: C:\Qt\5.8\msvc2015_64
+    - PORTABLE_BUILD: "true"
+      QTDIR: C:\Qt\5.8\msvc2015
+
+install:
+  - set QZ_DIR=%CD%
+  - set CPU=32
+  - IF /I "%ARCH%" == "x64" (set CPU=64)
+  - set OPENSSL_DIR="C:\OpenSSL-Win%CPU%"
+  - set ICU_DIR_NAME=icu4c-54_1-Win%CPU%-msvc10
+  - set ICU_DOWNLOAD_URL="http://download.icu-project.org/files/icu4c/54.1/%ICU_DIR_NAME%.zip"
+  - call "C:\Program Files (x86)\Microsoft Visual Studio "%VSVER%".0\VC\vcvarsall.bat" %ARCH%
+  - set PATH=%QTDIR%\bin;%TOOLSDIR%\bin;%OPENSSL_DIR%\bin;%CD%\bin;%PATH%
+
+build_script:
+  - echo "QupZilla BUILD %APPVEYOR_BUILD_VERSION%_%QMAKESPEC%_%CONFIGURATION%_%ARCH%"
+  - qmake -v
+  - qmake CONFIG+=%CONFIGURATION% INCLUDEPATH+="%OPENSSL_DIR%\include" LIBS+=-L%OPENSSL_DIR%\lib QupZilla.pro
+  - call %MAKETOOL%
+
+test_script:
+  - cd %QZ_DIR%\tests\autotests
+  - qmake CONFIG+=%CONFIGURATION% INCLUDEPATH+="%OPENSSL_DIR%\include" LIBS+=-L%OPENSSL_DIR%\lib
+  - call %MAKETOOL%
+  - call %CONFIGURATION%\autotests.exe
+
+after_build:
+  # prepare dependencies
+  - echo [Paths] > %QZ_DIR%\bin\qt.conf && echo Plugins="." >> %QZ_DIR%\bin\qt.conf
+  - copy  %QZ_DIR%\COPYRIGHT %QZ_DIR%\bin\COPYRIGHT.txt
+  - cd %QZ_DIR%\windows
+  - IF NOT EXIST "dependencies" ( mkdir dependencies )
+  - cd dependencies
+  - IF NOT EXIST "%ICU_DIR_NAME%.zip" ( appveyor DownloadFile %ICU_DOWNLOAD_URL% ) else ( echo "Use cached %ICU_DIR_NAME%.zip")
+  # see: https://github.com/appveyor/ci/issues/1347
+  - ps: If (![System.IO.File]::Exists("$env:APPVEYOR_BUILD_FOLDER\windows\dependencies\KillProcDll&FindProcDll.zip")) { (New-Object Net.WebClient).DownloadFile("http://nsis.sourceforge.net/mediawiki/images/5/53/KillProcDll%26FindProcDll.zip", "$env:APPVEYOR_BUILD_FOLDER\windows\dependencies\KillProcDll&FindProcDll.zip") } ELse { echo "Use cached KillProcDll&FindProcDll.zip" }
+  - IF NOT EXIST "Registry.zip" (
+        appveyor DownloadFile "http://nsis.sourceforge.net/mediawiki/images/4/47/Registry.zip" ) else (echo "Use cached Registry.zip")
+  - IF NOT EXIST "AppAssocReg-0.4.zip" (
+        appveyor DownloadFile "http://nsis.sourceforge.net/mediawiki/images/d/d4/AppAssocReg-0.4.zip" ) else (echo "Use cached AppAssocReg-0.4.zip")
+  - IF NOT EXIST "master.tar.gz" (
+        appveyor DownloadFile "http://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+archive/master.tar.gz" ) else (echo "Use cached master.tar.gz")
+  - mkdir ..\wininstall
+  - cd ..\wininstall
+  - copy ..\*.nsh .\
+  - copy ..\*.ico .\
+  - copy ..\*.bmp .\
+  # prepare nsis plugins
+  - 7z x "..\dependencies\KillProcDll&FindProcDll.zip"
+  - 7z x ..\dependencies\Registry.zip
+  - 7z x ..\dependencies\AppAssocReg-0.4.zip
+  - copy Desktop\Plugin\*.dll .\
+  - copy Plugins\Unicode\*.dll .\
+  # prepare icu
+  - 7z x "..\dependencies\%ICU_DIR_NAME%.zip"
+  # prepare qtwebengine_dictionaries 
+  - mkdir qtwebengine_dictionaries
+  - cd qtwebengine_dictionaries
+  - 7z x ..\..\dependencies\master.tar.gz
+  - 7z x master.tar
+  - mkdir doc
+  - move README* doc\
+  - move COPYING* doc\
+  - cd %QZ_DIR%\windows
+  # set paths
+  - set OPENSSL_BIN_DIR="%OPENSSL_DIR%\bin"
+  - set MSVC_REDIST_DIR="C:\Program Files (x86)\Microsoft Visual Studio "%VSVER%".0\VC\redist\%ARCH%\Microsoft.VC%VSVER%0.CRT"
+  - set ICU_BIN_DIR="%QZ_DIR%\windows\wininstall\icu\bin"
+  - IF /I "%ARCH%" == "x64" (set INSTALLER_VERSION="%QZ_VER% x64" && set ICU_BIN_DIR="%QZ_DIR%\windows\wininstall\icu\bin64") else (set INSTALLER_VERSION="%QZ_VER%")
+  - IF /I "%PORTABLE_BUILD%" == "true" (set INSTALLER_VERSION="%QZ_VER% Portable")
+  - set QTWEBENGINE_DICTIONARIES_DIR="%QZ_DIR%\windows\wininstall\qtwebengine_dictionaries"
+  # make installer
+  - call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DVERSION=%INSTALLER_VERSION% /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+
+artifacts:
+   - path: windows\QupZilla*Installer*.exe
+     name: QupZilla Installer (%ARCH%)
+   - path: bin\*.exe
+     name: QupZilla Executable (%ARCH%)
+   - path: bin\*.dll
+     name: QupZilla DLL (%ARCH%)
+
+
+deploy:
+    release: 'Version $(qz_ver)'
+    tag: $(appveyor_repo_tag_name) # don't remove or modify tag field
+    description: 'QupZilla $(qz_ver) Windows Installer Released'
+    provider: GitHub
+    auth_token:
+      secure: BumEo5ic9KIrhc8RxwsKFd/L6WwC0s5LpSef9uH+PtUKICZBZAcyqnPewKUqzEFi  # your encrypted token from GitHub
+    artifact: /QupZilla.*Installer.*\.exe/         # QupZilla Installer
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true                      # deploy on tag push only
+
+# notifications:
+  # - provider: Email
+    # to:
+      # - nowrep@gmail.com
+      # - s.r.alavizadeh@gmail.com
+    # on_build_success: false
+    # on_build_failure: false
+    # on_build_status_changed: true
