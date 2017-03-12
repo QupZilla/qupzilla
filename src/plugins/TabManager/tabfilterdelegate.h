@@ -31,7 +31,7 @@ private:
     void viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
                           const QString &text, const QColor &color,
                           const QString &searchText = QString()) const;
-    mutable int m_padding;
+
     QString m_filterText;
 
 };
