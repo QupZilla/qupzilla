@@ -10,16 +10,6 @@
 ; http://nsis.sourceforge.net/Application_Association_Registration_plug-in
 ; http://nsis.sourceforge.net/Registry_plug-in
 
-RequestExecutionLevel admin
-
-; WinVer.nsh was added in the same release that RequestExecutionLevel so check
-; if ___WINVER__NSH___ is defined to determine if RequestExecutionLevel is
-; available.
-!include /NONFATAL WinVer.nsh
-!include x64.nsh
-
-!addplugindir "wininstall\"
-
 !ifndef CUSTOM
   !define VERSION 2.1.2
   !define ARCH x86
@@ -32,7 +22,22 @@ RequestExecutionLevel admin
   !define QT_BIN_DIR .
   !define QT_PLUGINS_DIR .
   !define QTWEBENGINE_DICTIONARIES_DIR qtwebengine_dictionaries
+  !undef PORTABLE
 !endif
+
+; WinVer.nsh was added in the same release that RequestExecutionLevel so check
+; if ___WINVER__NSH___ is defined to determine if RequestExecutionLevel is
+; available.
+!include /NONFATAL WinVer.nsh
+!include x64.nsh
+
+!ifndef PORTABLE
+  RequestExecutionLevel admin
+!else
+  RequestExecutionLevel user
+!endif
+
+!addplugindir "wininstall\"
 
 !include "FileFunc.nsh"
 !include "wininstall\AllAssociation.nsh"
@@ -187,7 +192,9 @@ notRunning:
   ; in some packages *.bdic files use dash '-' instead of underline '_' followed by a version number. e.g. en-US-3-0.bdic
   File "${QTWEBENGINE_DICTIONARIES_DIR}\en*US*.bdic"
 
-  call RegisterCapabilities
+  !ifndef PORTABLE
+    call RegisterCapabilities
+  !endif
 SectionEnd
 
 SectionGroup $(TITLE_SecThemes) SecThemes
@@ -236,93 +243,101 @@ Section $(TITLE_SecPlugins) SecPlugins
   File "${QZ_BIN_DIR}\plugins\*.dll"
 SectionEnd
 
-SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
-	Section $(TITLE_SecExtensions) SecExtensions
-	  SetOutPath "$INSTDIR"
-	  ${RegisterAssociation} ".htm" "$INSTDIR\qupzilla.exe" "QupZilla.HTM" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1" "file"
-	  ${RegisterAssociation} ".html" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" $(FILE_Html) "$INSTDIR\qupzilla.exe,1" "file"
-	  ${UpdateSystemIcons}
-	SectionEnd
-
-    Section $(TITLE_SecProtocols) SecProtocols
-	  ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTTP" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
-	  ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTTPS" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0" "protocol"
-	  ${RegisterAssociation} "ftp" "$INSTDIR\qupzilla.exe" "QupZilla.FTP" "URL:File Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
-	  ${UpdateSystemIcons}
-    SectionEnd
-SectionGroupEnd
-
-Section -StartMenu
-  SetOutPath "$INSTDIR"
-  SetShellVarContext all
-  CreateDirectory "$SMPROGRAMS\QupZilla"
-  CreateShortCut "$SMPROGRAMS\QupZilla\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-  CreateShortCut "$SMPROGRAMS\QupZilla\QupZilla.lnk" "$INSTDIR\qupzilla.exe"
-  CreateShortCut "$SMPROGRAMS\QupZilla\License.lnk" "$INSTDIR\COPYRIGHT.txt"
-SectionEnd
-
-Section $(TITLE_SecDesktop) SecDesktop
-  SetOutPath "$INSTDIR"
-  CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" ""
-SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} $(DESC_SecMain)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecTranslations} $(DESC_SecTranslations)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecPlugins} $(DESC_SecPlugins)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
+  !ifndef PORTABLE
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} $(DESC_SecDesktop)
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecExtensions} $(DESC_SecExtensions)
+  !endif
   !insertmacro MUI_DESCRIPTION_TEXT ${SecThemes} $(DESC_SecThemes)
 
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecSetASDefault} $(DESC_SecSetASDefault)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecProtocols} $(DESC_SecProtocols)
+  !ifndef PORTABLE
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecSetASDefault} $(DESC_SecSetASDefault)
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecProtocols} $(DESC_SecProtocols)
+  !endif
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
-Section -Uninstaller
-  WriteUninstaller "$INSTDIR\uninstall.exe"
-  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\qupzilla.exe"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "QupZilla Team"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "HelpLink" "https://github.com/QupZilla/qupzilla/wiki"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallLocation" "$INSTDIR"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallSource" "$EXEDIR"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "http://www.qupzilla.com"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLUpdateInfo" "http://blog.qupzilla.com/"
-  ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
-  WriteRegDWORD ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "EstimatedSize" "$0"
-SectionEnd
 
-Section Uninstall
-  FindProcDLL::FindProc "qupzilla.exe"
-  IntCmp $R0 1 0 notRunning
-  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
-    KillProcDLL::KillProc "qupzilla.exe"
-	Sleep 100
-	Goto notRunning
-AbortInstallation:
-  Abort "$(MSG_InstallationCanceled)"
+!ifndef PORTABLE
+    SectionGroup $(TITLE_SecSetASDefault) SecSetASDefault
+        Section $(TITLE_SecExtensions) SecExtensions
+          SetOutPath "$INSTDIR"
+          ${RegisterAssociation} ".htm" "$INSTDIR\qupzilla.exe" "QupZilla.HTM" $(FILE_Htm) "$INSTDIR\qupzilla.exe,1" "file"
+          ${RegisterAssociation} ".html" "$INSTDIR\qupzilla.exe" "QupZilla.HTML" $(FILE_Html) "$INSTDIR\qupzilla.exe,1" "file"
+          ${UpdateSystemIcons}
+        SectionEnd
 
-notRunning:
-  SetShellVarContext all
-  Delete "$DESKTOP\QupZilla.lnk"
-  RMDir /r "$INSTDIR"
-  RMDir /r "$SMPROGRAMS\QupZilla"
-  DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
-  DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
+        Section $(TITLE_SecProtocols) SecProtocols
+          ${RegisterAssociation} "http" "$INSTDIR\qupzilla.exe" "QupZilla.HTTP" "URL:HyperText Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
+          ${RegisterAssociation} "https" "$INSTDIR\qupzilla.exe" "QupZilla.HTTPS" "URL:HyperText Transfer Protocol with Privacy" "$INSTDIR\qupzilla.exe,0" "protocol"
+          ${RegisterAssociation} "ftp" "$INSTDIR\qupzilla.exe" "QupZilla.FTP" "URL:File Transfer Protocol" "$INSTDIR\qupzilla.exe,0" "protocol"
+          ${UpdateSystemIcons}
+        SectionEnd
+    SectionGroupEnd
 
-  DeleteRegKey HKLM "Software\${PRODUCT_NAME}"
-  DeleteRegValue HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}"
+    Section -StartMenu
+      SetOutPath "$INSTDIR"
+      SetShellVarContext all
+      CreateDirectory "$SMPROGRAMS\QupZilla"
+      CreateShortCut "$SMPROGRAMS\QupZilla\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
+      CreateShortCut "$SMPROGRAMS\QupZilla\QupZilla.lnk" "$INSTDIR\qupzilla.exe"
+      CreateShortCut "$SMPROGRAMS\QupZilla\License.lnk" "$INSTDIR\COPYRIGHT.txt"
+    SectionEnd
 
-  ${UnRegisterAssociation} ".htm" "QupZilla.HTM" "$INSTDIR\qupzilla.exe" "file"
-  ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
-  ${UnRegisterAssociation} "http" "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "protocol"
-  ${UnRegisterAssociation} "https" "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "protocol"
-  ${UnRegisterAssociation} "ftp" "QupZilla.FTP" "$INSTDIR\qupzilla.exe" "protocol"
-  ${UpdateSystemIcons}
-SectionEnd
+    Section $(TITLE_SecDesktop) SecDesktop
+      SetOutPath "$INSTDIR"
+      CreateShortCut "$DESKTOP\QupZilla.lnk" "$INSTDIR\qupzilla.exe" ""
+    SectionEnd
+
+    Section -Uninstaller
+      WriteUninstaller "$INSTDIR\uninstall.exe"
+      WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\qupzilla.exe"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\qupzilla.exe"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "QupZilla Team"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "HelpLink" "https://github.com/QupZilla/qupzilla/wiki"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallLocation" "$INSTDIR"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "InstallSource" "$EXEDIR"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "http://www.qupzilla.com"
+      WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLUpdateInfo" "http://blog.qupzilla.com/"
+      ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+      WriteRegDWORD ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "EstimatedSize" "$0"
+    SectionEnd
+
+    Section Uninstall
+      FindProcDLL::FindProc "qupzilla.exe"
+      IntCmp $R0 1 0 notRunning
+      MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "$(MSG_RunningInstance)" /SD IDOK IDCANCEL AbortInstallation
+        KillProcDLL::KillProc "qupzilla.exe"
+        Sleep 100
+        Goto notRunning
+    AbortInstallation:
+      Abort "$(MSG_InstallationCanceled)"
+
+    notRunning:
+      SetShellVarContext all
+      Delete "$DESKTOP\QupZilla.lnk"
+      RMDir /r "$INSTDIR"
+      RMDir /r "$SMPROGRAMS\QupZilla"
+      DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
+      DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
+
+      DeleteRegKey HKLM "Software\${PRODUCT_NAME}"
+      DeleteRegValue HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}"
+
+      ${UnRegisterAssociation} ".htm" "QupZilla.HTM" "$INSTDIR\qupzilla.exe" "file"
+      ${UnRegisterAssociation} ".html" "QupZilla.HTML" "$INSTDIR\qupzilla.exe" "file"
+      ${UnRegisterAssociation} "http" "QupZilla.HTTP" "$INSTDIR\qupzilla.exe" "protocol"
+      ${UnRegisterAssociation} "https" "QupZilla.HTTPS" "$INSTDIR\qupzilla.exe" "protocol"
+      ${UnRegisterAssociation} "ftp" "QupZilla.FTP" "$INSTDIR\qupzilla.exe" "protocol"
+      ${UpdateSystemIcons}
+    SectionEnd
+!endif
 
 BrandingText "${PRODUCT_NAME} ${PRODUCT_VERSION} Installer"
 
@@ -342,6 +357,10 @@ Function .onInit
             StrCpy $InstDir "$PROGRAMFILES\${PRODUCT_NAME}\"
           ${Endif}
         ${EndIf}
+
+        !ifdef PORTABLE
+            StrCpy $InstDir "$DESKTOP\${PRODUCT_NAME} Portable\"
+        !endif
 
         ;Prevent Multiple Instances
         System::Call 'kernel32::CreateMutexA(i 0, i 0, t "QupZillaInstaller-4ECB4694-2C39-4f93-9122-A986344C4E7B") i .r1 ?e'

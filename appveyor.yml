@@ -98,10 +98,13 @@ after_build:
   - set MSVC_REDIST_DIR="C:\Program Files (x86)\Microsoft Visual Studio "%VSVER%".0\VC\redist\%ARCH%\Microsoft.VC%VSVER%0.CRT"
   - set ICU_BIN_DIR="%QZ_DIR%\windows\wininstall\icu\bin"
   - IF /I "%ARCH%" == "x64" (set INSTALLER_VERSION="%QZ_VER% x64" && set ICU_BIN_DIR="%QZ_DIR%\windows\wininstall\icu\bin64") else (set INSTALLER_VERSION="%QZ_VER%")
-  - IF /I "%PORTABLE_BUILD%" == "true" (set INSTALLER_VERSION="%QZ_VER% Portable")
   - set QTWEBENGINE_DICTIONARIES_DIR="%QZ_DIR%\windows\wininstall\qtwebengine_dictionaries"
   # make installer
-  - call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DVERSION=%INSTALLER_VERSION% /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+  - IF /I "%PORTABLE_BUILD%" == "true" (
+        call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DPORTABLE=1 /DVERSION="%QZ_VER% Portable" /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+    ) else (
+        call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DVERSION=%INSTALLER_VERSION% /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+    )
 
 artifacts:
    - path: windows\QupZilla*Installer*.exe
