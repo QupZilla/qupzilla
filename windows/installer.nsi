@@ -206,14 +206,6 @@ SectionGroup $(TITLE_SecThemes) SecThemes
   SetOutPath "$INSTDIR\themes\breathe\images"
   File "themes\breathe\images\*"
   SectionEnd
-
-  Section Old SecOld
-  SetOutPath "$INSTDIR\themes\default"
-  File "themes\default\*"
-  SetOutPath "$INSTDIR\themes\default\images"
-  File "themes\default\images\*"
-  SectionEnd
-
 SectionGroupEnd
 
 Section $(TITLE_SecTranslations) SecTranslations
