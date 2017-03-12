@@ -120,7 +120,7 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, i
         }
     });
 
-    loop->exec();
+    loop->exec(QEventLoop::ExcludeUserInputEvents);
     delete loop;
 
     return result;
