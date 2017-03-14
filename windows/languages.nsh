@@ -652,6 +652,33 @@ LangString DESC_SecProtocols ${LANG_BASQUE} "Elkartu QupZilla http(s) eta ftp pr
 LangString MSG_RunningInstance ${LANG_BASQUE} "QupZilla jadanik ekinean dago! Nahi duzu ezartzaileak hura amaitzen saiatzea?"
 LangString MSG_InstallationCanceled ${LANG_BASQUE} "Prozesua erabiltzaileak ezeztaturik."
 
+;;;;Danish
+LangString PRODUCT_DESC  ${LANG_ENGLISH} "QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) en senere version. Den er baseret på WebKit-kerne og og Qt-framework."
+;
+LangString TITLE_SecMain ${LANG_ENGLISH} "Hovedkomponenter"
+LangString TITLE_SecTranslations ${LANG_ENGLISH} "Oversættelser"
+LangString TITLE_SecPlugins ${LANG_ENGLISH} "Plugins"
+LangString TITLE_SecDesktop ${LANG_ENGLISH} "Skrivebordsikon"
+LangString TITLE_SecExtensions ${LANG_ENGLISH} "Filtilknytninger"
+LangString TITLE_SecThemes ${LANG_ENGLISH} "Temaer"
+LangString TITLE_SecSetASDefault ${LANG_ENGLISH} "Standardbrowser"
+LangString TITLE_SecProtocols ${LANG_ENGLISH} "Protokoltilknytninger"
+
+LangString FILE_Htm ${LANG_ENGLISH} "HTM-fil"
+LangString FILE_Html ${LANG_ENGLISH} "HTML-fil"
+;
+LangString DESC_SecMain ${LANG_ENGLISH} "Programmets hovedkomponenter."
+LangString DESC_SecTranslations ${LANG_ENGLISH} "Andre oversættelser som kan installeres. Engelsk er standard."
+LangString DESC_SecPlugins ${LANG_ENGLISH} "Andre plugins som kan installeres."
+LangString DESC_SecDesktop ${LANG_ENGLISH} "Tilføj genvej på skrivebordet."
+LangString DESC_SecExtensions ${LANG_ENGLISH} "Tilknyt QupZilla med .htm(l)-filer"
+LangString DESC_SecThemes ${LANG_ENGLISH} "Yderligere temaer til QupZilla"
+LangString DESC_SecSetASDefault ${LANG_ENGLISH} "Indstil QupZilla som standardinternetbrowser"
+LangString DESC_SecProtocols ${LANG_ENGLISH} "Tilknyt QupZilla med http(s)- og ftp-protokoller"
+;
+LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla kører allerede! Vil du have installationsprogrammet til at stoppe den?"
+LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Proces annuleret af bruger."
+
 ;;;;;;;;;
 ;;;;;;;;;
 ; Unfinished translations
