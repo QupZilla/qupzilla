@@ -109,7 +109,7 @@ WebScrollBarManager::WebScrollBarManager(QObject *parent)
 
 void WebScrollBarManager::loadSettings()
 {
-    m_enabled = Settings().value(QSL("Web-Browser-Settings/UseNativeScrollbars"), true).toBool();
+    m_enabled = Settings().value(QSL("Web-Browser-Settings/UseNativeScrollbars"), false).toBool();
 
     if (!m_enabled) {
         for (WebView *view : m_scrollbars.keys()) {
