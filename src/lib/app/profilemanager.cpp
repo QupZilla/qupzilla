@@ -230,9 +230,6 @@ void ProfileManager::copyDataToProfile()
 
     QFile(QLatin1String(":data/browsedata.db")).copy(profileDir.filePath(QLatin1String("browsedata.db")));
     QFile(profileDir.filePath(QLatin1String("browsedata.db"))).setPermissions(QFile::ReadUser | QFile::WriteUser);
-
-    // Reconnect database
-    connectDatabase();
 }
 
 void ProfileManager::connectDatabase()

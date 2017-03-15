@@ -278,7 +278,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
     ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
-    ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", true).toBool());
+    ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", false).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
         ui->defaultZoomLevel->addItem(QString("%1%").arg(level));
