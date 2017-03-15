@@ -172,7 +172,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="94"/>
         <source>Are you sure you want to delete all flash cookies on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την διαγραφή όλων των flash cookies από τον υπολογιστή;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="166"/>
@@ -205,12 +205,12 @@
         <location filename="../fcm_dialog.cpp" line="289"/>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Βρίσκεται ήδη στην λευκή λίστα!</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="289"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Ο διακομιστής «%1» βρίσκεται ήδη στην μαύρη λίστα, παρακαλώ αφαιρέστε τον πρώτα.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="305"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>The origin &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Η αρχική «%1» βρίσκεται ήδη στην λευκή λίστα, παρακαλώ αφαιρέστε πρώτα.</translation>
     </message>
 </context>
 <context>
@@ -252,12 +252,12 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="129"/>
         <source>Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Διαχειριστής flash cookie</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="357"/>
         <source>Show Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Εμφάνιση του διαχειριστή Flash Cookie</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="439"/>

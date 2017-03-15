@@ -101,7 +101,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation>Añadir nueva suscripción a Adblock:</translation>
+        <translation>Añadir nueva suscripción al bloqueador de publicidad:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockmanager.cpp" line="168"/>
         <source>AdBlock Subscription</source>
-        <translation>Suscripción de AdBlock</translation>
+        <translation>Suscripción del bloqueador de publicidad</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockmanager.cpp" line="297"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation>Elegir idioma.preferido para páginas web</translation>
+        <translation>Elegir idioma preferido para páginas Web</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="32"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/lib/tools/aesinterface.cpp" line="143"/>
         <source>Warning!</source>
-        <translation>¡Advertencia!</translation>
+        <translation>¡Atención!</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/aesinterface.cpp" line="143"/>
@@ -330,7 +330,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
         <source>Warning!</source>
-        <translation>¡Advertencia!</translation>
+        <translation>¡Atención!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
@@ -796,7 +796,7 @@ Por favor instala la última versión de QupZilla.</translation>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="270"/>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="157"/>
         <source>Next &gt;</source>
-        <translation>SIguiente &gt;</translation>
+        <translation>Siguiente &gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.cpp" line="113"/>
@@ -835,7 +835,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="33"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in</source>
-        <translation>Google Chrome almacena sus marcadores en el archivo de texto &lt;b&gt;Bookmarks&lt;/b&gt;. Este archivo suele encontrarse en </translation>
+        <translation>Google Chrome almacena sus marcadores en el archivo de texto &lt;b&gt;Bookmarks&lt;/b&gt;. Este archivo suele ubicarse en </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="50"/>
@@ -861,7 +861,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="42"/>
         <source>Mozilla Firefox stores its bookmarks in &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. This file is usually located in</source>
-        <translation>Mozilla Firefox almacena sus marcadores en &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. Este archivo suele encontrarse en </translation>
+        <translation>Mozilla Firefox almacena sus marcadores en &lt;b&gt;places.sqlite&lt;/b&gt; SQLite database. Este archivo suele ubicarse en </translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="32"/>
@@ -1074,7 +1074,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Añadir a Marcadores</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1118,7 +1118,7 @@ Por favor instala la última versión de QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="874"/>
@@ -1527,7 +1527,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
         <source>&lt;b&gt;Cookie Settings&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Configuración de las Cookies&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Configuración de las cookies&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="418"/>
@@ -1542,7 +1542,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar cookies al cerrar</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1771,22 +1771,22 @@ el archivo
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>Fichero MIME HTML (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Página HTML, única (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Página HTML, completa (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Guardar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
@@ -1834,7 +1834,7 @@ el archivo
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>que es:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -2433,17 +2433,17 @@ el archivo
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>Abrir nueva pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>Abrir nueva ventana</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Abrir nueva ventana privada</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
@@ -2506,7 +2506,7 @@ el archivo
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
@@ -2752,12 +2752,12 @@ el archivo
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
         <source>Warning!</source>
-        <translation>¡Advertencia!</translation>
+        <translation>¡Atención!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
         <source>You entered a wrong password!</source>
-        <translation>¡Ingresaste una contraseña errónea!</translation>
+        <translation>¡Has introducido una contraseña incorrecta!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
@@ -3041,7 +3041,7 @@ el archivo
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Comprobación de ortografía</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="120"/>
@@ -3465,7 +3465,7 @@ el archivo
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>Usar barras de desplazamiento nativas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3495,17 +3495,17 @@ el archivo
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>Borrar caché al cerrar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>Máximo:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
@@ -3830,32 +3830,32 @@ el archivo
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Previsualizar</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Para más información acerca de la &apos;Comprobación de ortografía&apos;, por favor vea el &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Opciones de &apos;Comprobación de ortografía&apos;&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar comprobación de ortografía</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Directorios de diccionario&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>No se encontraron idiomas</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
@@ -4856,12 +4856,12 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Do you really want to close all tabs to the right?</source>
-        <translation type="unfinished"/>
+        <translation>¿De verdad quiere cerrar todas las pestañas a la derecha?</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
         <source>Do you really want to close all tabs to the left?</source>
-        <translation type="unfinished"/>
+        <translation>¿De verdad quiere cerrar todas las pestañas a la izquierda?</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
@@ -4922,17 +4922,17 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar pestañas a la derecha</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar pestañas a la izquierda</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>C&amp;errar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
@@ -4950,12 +4950,12 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Desilenciar pestaña</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Silenciar pestaña</translation>
     </message>
 </context>
 <context>
@@ -5223,7 +5223,7 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Sin sugerencias</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="715"/>
@@ -5258,7 +5258,7 @@ Talvez ejecutarlo nuevamente con derechos de administrador haga magia para usted
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Guardar página como...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="750"/>

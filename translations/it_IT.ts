@@ -1075,7 +1075,7 @@ Installa l&apos;ultima versione di QupZilla.
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi ai segnalibri</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1543,7 +1543,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Cancella cookie alla chiusura</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1772,22 +1772,22 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>MIME HTML Archive (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML Pagina singola(*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML Pagina, completa (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Salva pagina come...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
@@ -1835,7 +1835,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>qual è:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -2434,17 +2434,17 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>Apri nuova scheda</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>Apri nuova finestra</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Apri nuova finestra privata</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
@@ -3042,7 +3042,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Controllo ortografico</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="120"/>
@@ -3466,7 +3466,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>Usa barre di scorrimento native</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3496,17 +3496,17 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>Cancella cache alla chiusura</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>Massimo:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation> MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
@@ -3831,32 +3831,32 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Anteprima</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Per ulteriori informazioni riguardo il controllo ortografico, visita il &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Opzioni controllo ortografico&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Abilita controllo ortografico</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Cartelle dizionario&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>Nessuna lingua trovata</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
@@ -4933,7 +4933,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Chiudi scheda</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
@@ -4951,12 +4951,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Attiva audio scheda</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Silenzia scheda</translation>
     </message>
 </context>
 <context>
@@ -5224,7 +5224,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Nessun suggerimento</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="715"/>

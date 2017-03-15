@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Versi QtWebEngine %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
@@ -474,7 +474,7 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="233"/>
         <source>Are you sure you want to delete all passwords on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Apakah Anda yakin ingin menghapus semua kata sandi pada komputer Anda?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
@@ -520,17 +520,17 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="372"/>
         <source>Copy Username</source>
-        <translation type="unfinished"/>
+        <translation>Salin Nama Pengguna</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="373"/>
         <source>Copy Password</source>
-        <translation type="unfinished"/>
+        <translation>Salin Kata Sandi</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="375"/>
         <source>Edit Password</source>
-        <translation type="unfinished"/>
+        <translation>Sunting Kata Sandi</translation>
     </message>
 </context>
 <context>
@@ -644,27 +644,27 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Judul:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Alamat:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>Kata kunci:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Deskripsi:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Sunting Markah:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
@@ -1046,12 +1046,12 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Buka di jendela privat baru</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Sunting</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
@@ -1066,7 +1066,7 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Show Only Text</source>
-        <translation type="unfinished"/>
+        <translation>Tampilkan Hanya Teks</translation>
     </message>
 </context>
 <context>
@@ -1074,7 +1074,7 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Tambah ke Markah</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1118,7 +1118,7 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="874"/>
@@ -1179,7 +1179,8 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
         <location filename="../src/lib/app/browserwindow.cpp" line="1373"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Masih ada %n tab terbuka dan sesi Anda tidak akan disimpan.
+Apakah Anda yakin ingin menutup jendela ini?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1374"/>
