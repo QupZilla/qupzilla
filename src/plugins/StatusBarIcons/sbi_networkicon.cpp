@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@ SBI_NetworkIcon::SBI_NetworkIcon(BrowserWindow* window)
     : SBI_Icon(window)
     , m_networkConfiguration(new QNetworkConfigurationManager(this))
 {
+    setObjectName(QSL("sbi_networkicon"));
     setCursor(Qt::PointingHandCursor);
 
     onlineStateChanged(m_networkConfiguration->isOnline());
