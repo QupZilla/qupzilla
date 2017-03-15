@@ -653,31 +653,31 @@ LangString MSG_RunningInstance ${LANG_BASQUE} "QupZilla jadanik ekinean dago! Na
 LangString MSG_InstallationCanceled ${LANG_BASQUE} "Prozesua erabiltzaileak ezeztaturik."
 
 ;;;;Danish
-LangString PRODUCT_DESC  ${LANG_ENGLISH} "QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) en senere version. Den er baseret på WebKit-kerne og og Qt-framework."
+LangString PRODUCT_DESC  ${LANG_DANISH} "QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) en senere version. Den er baseret på WebKit-kerne og og Qt-framework."
 ;
-LangString TITLE_SecMain ${LANG_ENGLISH} "Hovedkomponenter"
-LangString TITLE_SecTranslations ${LANG_ENGLISH} "Oversættelser"
-LangString TITLE_SecPlugins ${LANG_ENGLISH} "Plugins"
-LangString TITLE_SecDesktop ${LANG_ENGLISH} "Skrivebordsikon"
-LangString TITLE_SecExtensions ${LANG_ENGLISH} "Filtilknytninger"
-LangString TITLE_SecThemes ${LANG_ENGLISH} "Temaer"
-LangString TITLE_SecSetASDefault ${LANG_ENGLISH} "Standardbrowser"
-LangString TITLE_SecProtocols ${LANG_ENGLISH} "Protokoltilknytninger"
+LangString TITLE_SecMain ${LANG_DANISH} "Hovedkomponenter"
+LangString TITLE_SecTranslations ${LANG_DANISH} "Oversættelser"
+LangString TITLE_SecPlugins ${LANG_DANISH} "Plugins"
+LangString TITLE_SecDesktop ${LANG_DANISH} "Skrivebordsikon"
+LangString TITLE_SecExtensions ${LANG_DANISH} "Filtilknytninger"
+LangString TITLE_SecThemes ${LANG_DANISH} "Temaer"
+LangString TITLE_SecSetASDefault ${LANG_DANISH} "Standardbrowser"
+LangString TITLE_SecProtocols ${LANG_DANISH} "Protokoltilknytninger"
 
-LangString FILE_Htm ${LANG_ENGLISH} "HTM-fil"
-LangString FILE_Html ${LANG_ENGLISH} "HTML-fil"
+LangString FILE_Htm ${LANG_DANISH} "HTM-fil"
+LangString FILE_Html ${LANG_DANISH} "HTML-fil"
 ;
-LangString DESC_SecMain ${LANG_ENGLISH} "Programmets hovedkomponenter."
-LangString DESC_SecTranslations ${LANG_ENGLISH} "Andre oversættelser som kan installeres. Engelsk er standard."
-LangString DESC_SecPlugins ${LANG_ENGLISH} "Andre plugins som kan installeres."
-LangString DESC_SecDesktop ${LANG_ENGLISH} "Tilføj genvej på skrivebordet."
-LangString DESC_SecExtensions ${LANG_ENGLISH} "Tilknyt QupZilla med .htm(l)-filer"
-LangString DESC_SecThemes ${LANG_ENGLISH} "Yderligere temaer til QupZilla"
-LangString DESC_SecSetASDefault ${LANG_ENGLISH} "Indstil QupZilla som standardinternetbrowser"
-LangString DESC_SecProtocols ${LANG_ENGLISH} "Tilknyt QupZilla med http(s)- og ftp-protokoller"
+LangString DESC_SecMain ${LANG_DANISH} "Programmets hovedkomponenter."
+LangString DESC_SecTranslations ${LANG_DANISH} "Andre oversættelser som kan installeres. Engelsk er standard."
+LangString DESC_SecPlugins ${LANG_DANISH} "Andre plugins som kan installeres."
+LangString DESC_SecDesktop ${LANG_DANISH} "Tilføj genvej på skrivebordet."
+LangString DESC_SecExtensions ${LANG_DANISH} "Tilknyt QupZilla med .htm(l)-filer"
+LangString DESC_SecThemes ${LANG_DANISH} "Yderligere temaer til QupZilla"
+LangString DESC_SecSetASDefault ${LANG_DANISH} "Indstil QupZilla som standardinternetbrowser"
+LangString DESC_SecProtocols ${LANG_DANISH} "Tilknyt QupZilla med http(s)- og ftp-protokoller"
 ;
-LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla kører allerede! Vil du have installationsprogrammet til at stoppe den?"
-LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Proces annuleret af bruger."
+LangString MSG_RunningInstance ${LANG_DANISH} "QupZilla kører allerede! Vil du have installationsprogrammet til at stoppe den?"
+LangString MSG_InstallationCanceled ${LANG_DANISH} "Proces annuleret af bruger."
 
 ;;;;;;;;;
 ;;;;;;;;;

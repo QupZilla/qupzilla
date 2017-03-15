@@ -77,6 +77,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_LANGUAGE "Arabic"
 !insertmacro MUI_LANGUAGE "Basque"
+!insertmacro MUI_LANGUAGE "Danish"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
@@ -382,6 +383,8 @@ Function .onInit
         Push Hebrew
         Push ${LANG_SPANISH}
         Push Spanish
+        Push ${LANG_DANISH}
+        Push Danish
         Push A ; A means auto count languages
                ; for the auto count to work the first empty push (Push "") must remain
         LangDLL::LangDialog "Installer Language" "Please select the language of the installer"
