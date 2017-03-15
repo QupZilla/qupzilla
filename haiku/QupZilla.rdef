@@ -2,7 +2,7 @@ resource app_signature "application/x-vnd.QupZilla";
 resource app_flags B_SINGLE_LAUNCH;
 resource app_version {
 	major  = 2,
-	middle = 0,
+	middle = 1,
 	minor  = 2,
 
 	/* Application "variety" can be set to one of the following:
