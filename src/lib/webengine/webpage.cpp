@@ -92,6 +92,16 @@ WebPage::WebPage(QObject* parent)
     connect(this, &QWebEnginePage::proxyAuthenticationRequired, this, [this](const QUrl &, QAuthenticator *auth, const QString &proxyHost) {
         mApp->networkManager()->proxyAuthentication(proxyHost, auth, view());
     });
+
+    // Workaround QWebEnginePage not scrolling to anchors when opened in background tab
+    m_contentsResizedConnection = connect(this, &QWebEnginePage::contentsSizeChanged, this, [this]() {
+        const QString fragment = url().fragment();
+        if (!fragment.isEmpty()) {
+            const QString src = QSL("var els = document.querySelectorAll(\"[name='%1']\"); if (els.length) els[0].scrollIntoView();");
+            runJavaScript(src.arg(fragment));
+        }
+        disconnect(m_contentsResizedConnection);
+    });
 }
 
 WebPage::~WebPage()

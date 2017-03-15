@@ -4,5 +4,21 @@
         <file>data/google.png</file>
         <file>data/yandex.png</file>
         <file>data/tineye.png</file>
+        <file>locale/bg_BG.qm</file>
+        <file>locale/de_DE.qm</file>
+        <file>locale/el_GR.qm</file>
+        <file>locale/es_ES.qm</file>
+        <file>locale/es_MX.qm</file>
+        <file>locale/eu_ES.qm</file>
+        <file>locale/fr_FR.qm</file>
+        <file>locale/hr_HR.qm</file>
+        <file>locale/is.qm</file>
+        <file>locale/it_IT.qm</file>
+        <file>locale/lt.qm</file>
+        <file>locale/nl_NL.qm</file>
+        <file>locale/pt_PT.qm</file>
+        <file>locale/ru_RU.qm</file>
+        <file>locale/uk_UA.qm</file>
+        <file>locale/zh_TW.qm</file>
     </qresource>
 </RCC>

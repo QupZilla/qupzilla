@@ -107,6 +107,8 @@ private:
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;
+
+    QMetaObject::Connection m_contentsResizedConnection;
 };
 
 #endif // WEBPAGE_H

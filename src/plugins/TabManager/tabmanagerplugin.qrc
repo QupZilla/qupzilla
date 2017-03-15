@@ -11,6 +11,7 @@
         <file>locale/bg_BG.qm</file>
         <file>locale/ca_ES.qm</file>
         <file>locale/de_DE.qm</file>
+        <file>locale/el_GR.qm</file>
         <file>locale/es_ES.qm</file>
         <file>locale/es_MX.qm</file>
         <file>locale/eu_ES.qm</file>
@@ -35,6 +36,5 @@
         <file>locale/zh_CN.qm</file>
         <file>locale/zh_HK.qm</file>
         <file>locale/zh_TW.qm</file>
-
     </qresource>
 </RCC>

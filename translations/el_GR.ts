@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;QtWebEngine έκδοση %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
@@ -474,7 +474,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="233"/>
         <source>Are you sure you want to delete all passwords on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την διαγραφή όλων των κωδικών πρόσβασης από τον υπολογιστή σας;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
@@ -520,17 +520,17 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="372"/>
         <source>Copy Username</source>
-        <translation type="unfinished"/>
+        <translation>Αντιγραφή του ονόματος χρήστη</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="373"/>
         <source>Copy Password</source>
-        <translation type="unfinished"/>
+        <translation>Αντιγραφή του κωδικού πρόσβασης</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="375"/>
         <source>Edit Password</source>
-        <translation type="unfinished"/>
+        <translation>Επεξεργασία του κωδικού πρόσβασης</translation>
     </message>
 </context>
 <context>
@@ -644,27 +644,27 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
         <source>Title:</source>
-        <translation type="unfinished"/>
+        <translation>Τίτλος:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>Λέξη-κλειδί:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="244"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Περιγραφή:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Επεξεργασία σελιδοδείκτη</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
@@ -1046,12 +1046,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα σε νέο ιδιωτικό παράθυρο</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
@@ -1066,7 +1066,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Show Only Text</source>
-        <translation type="unfinished"/>
+        <translation>Εμφάνιση μόνο κειμένου</translation>
     </message>
 </context>
 <context>
@@ -1074,7 +1074,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη στους σελιδοδείκτες</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1118,7 +1118,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="874"/>
@@ -1179,7 +1179,9 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1373"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Υπάρχουν ακόμα %n ανοιχτές καρτέλες και η συνεδρία σας δεν θα αποθηκευθεί. 
+Είστε σίγουρος-η ότι θέλετε να κλείσετε το παράθυρο;</numerusform><numerusform>Υπάρχουν ακόμα %n ανοιχτές καρτέλες και η συνεδρία σας δεν θα αποθηκευθεί. 
+Είστε σίγουρος-η ότι θέλετε να κλείσετε το παράθυρο;</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1374"/>
@@ -1520,7 +1522,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="404"/>
         <source>Filter 3rd party cookies</source>
-        <translation type="unfinished"/>
+        <translation>Φιλτράρισμα cookie τρίτων</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
@@ -1540,7 +1542,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Διαγραφή των cookie κατά το κλείσιμο</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1555,7 +1557,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την διαγραφή όλων των cookie από τον υπολογιστή σας;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
@@ -1585,12 +1587,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
-        <translation type="unfinished"/>
+        <translation>Βρίσκεται ήδη στην μαύρη λίστα!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Ο διακομιστής «%1» βρίσκεται ήδη στην μαύρη λίστα, παρακαλώ αφαιρέστε τον πρώτα.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
@@ -1600,12 +1602,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Βρίσκεται ήδη στην λευκή λίστα!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Ο διακομιστής «%1» βρίσκεται ήδη στην λευκή λίστα, παρακαλώ αφαιρέστε τον πρώτα.</translation>
     </message>
 </context>
 <context>
@@ -1623,7 +1625,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="128"/>
         <source>Error - %1</source>
-        <translation type="unfinished"/>
+        <translation>Σφάλμα - %1</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="132"/>
@@ -1764,27 +1766,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
         <source>Save file as...</source>
-        <translation type="unfinished"/>
+        <translation>Αποθήκευση αρχείου ως...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>Αρχειοθήκη MIME HTML (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Σελίδα HTML, απλή (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Σελίδα HTML, πλήρης (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Αποθήκευση της σελίδας ως...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
@@ -1804,7 +1806,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>Είστε σίγουρος-η ότι θέλετε να εγκαταλείψετε; Όλες οι μη ολοκληρωμένες λήψεις θα ακυρωθούν!</translation>
     </message>
 </context>
 <context>
@@ -1832,7 +1834,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>το οποίο είναι:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -1923,7 +1925,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="79"/>
         <source>Permission for:</source>
-        <translation type="unfinished"/>
+        <translation>Άδειες για:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="87"/>
@@ -1938,22 +1940,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="97"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Μικρόφωνο</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="102"/>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Εικονοληπτική μηχανή</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="107"/>
         <source>Microphone and Camera</source>
-        <translation type="unfinished"/>
+        <translation>Μικρόφωνο και εικονοληπτική μηχανή</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="112"/>
         <source>Hide Pointer</source>
-        <translation type="unfinished"/>
+        <translation>Απόκρυψη δρομέα</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="59"/>
@@ -2001,22 +2003,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="51"/>
         <source>Allow %1 to use your microphone?</source>
-        <translation type="unfinished"/>
+        <translation>Να επιτραπεί στην %1 να χρησιμοποιήσει το μικρόφωνο;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="55"/>
         <source>Allow %1 to use your camera?</source>
-        <translation type="unfinished"/>
+        <translation>Να επιτραπεί στην %1 να χρησιμοποιήσει την εικονοληπτική μηχανή;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your microphone and camera?</source>
-        <translation type="unfinished"/>
+        <translation>Να επιτραπεί στην %1 να χρησιμοποιήσει το μικρόφωνο και την εικονοληπτική μηχανή;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="63"/>
         <source>Allow %1 to hide your pointer?</source>
-        <translation type="unfinished"/>
+        <translation>Να επιτραπεί στην %1 να αποκρύψει τον δείκτη;</translation>
     </message>
 </context>
 <context>
@@ -2113,7 +2115,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure you want to delete all history?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την διαγραφή ολόκληρου του ιστορικού;</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="133"/>
@@ -2395,7 +2397,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="154"/>
         <source>Enter URL address</source>
-        <translation type="unfinished"/>
+        <translation>Εισαγάγετε την διεύθυνση URL</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2431,17 +2433,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα νέας καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα νέου παραθύρου</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα νέου ιδιωτικού παραθύρου</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
@@ -2504,7 +2506,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Αποθήκευση της σελίδας ως...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
@@ -2659,7 +2661,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
         <source>&amp;Extensions</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Επεκτάσεις</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
@@ -2765,7 +2767,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την εκκαθάριση του κύριου κωδικού πρόσβασης και την αποκρυπτογράφηση των δεδομένων;</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
@@ -2854,7 +2856,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation type="unfinished"/>
+        <translation>Αποθήκευση του ονόματος χρήστη και του κωδικού πρόσβασης στην ιστοσελίδα</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
@@ -3039,7 +3041,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Ορθογραφικός έλεγχος</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="120"/>
@@ -3203,7 +3205,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση της στιγμιαίας εργαλειοθήκης σελιδοδεικτών</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="611"/>
@@ -3263,7 +3265,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="712"/>
         <source>Open popup windows in tabs</source>
-        <translation type="unfinished"/>
+        <translation>Άνοιγμα των αναδυόμενων παραθύρων σε καρτέλες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="719"/>
@@ -3373,7 +3375,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση της αυτόματης αναζήτησης από την γραμμή διευθύνσεων</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="922"/>
@@ -3432,7 +3434,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation type="unfinished"/>
+        <translation>Να επιτρέπονται τα πρόσθετα Pepper (Flash)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
@@ -3463,7 +3465,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>Χρήση των εγγενών γραμμών κύλισης</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3493,17 +3495,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>Διαγραφή της κρυφής μνήμης κατά την έξοδο</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>Μέγιστο:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation> MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
@@ -3828,32 +3830,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Προεπισκόπηση</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Για περισσότερες πληροφορίες σχετικά με τον ορθογραφικό έλεγχο, παρακαλώ ανατρέξτε στο &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Επιλογές ορθογραφικού ελέγχου&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση του ορθογραφικού ελέγχου</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Κατάλογοι λεξικών&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκαν γλώσσες</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
@@ -3975,7 +3977,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την μόνιμη διαγραφή του προφίλ «%1»; Αυτή η ενέργεια είναι μη αναστρέψιμη!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
@@ -4171,12 +4173,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Are you sure you want to remove this speed dial?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την αφαίρεση της γρήγορης κλήσης;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
         <source>Are you sure you want to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Επιθυμείτε σίγουρα την επαναφόρτωση όλων των γρήγορων κλήσεων;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
@@ -4296,22 +4298,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="330"/>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Παράθυρο</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="331"/>
         <source>Windows and Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Παράθυρα και καρτέλες</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="332"/>
         <source>Start New Session</source>
-        <translation type="unfinished"/>
+        <translation>Έναρξη νέας συνεδρίας</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="333"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
@@ -4461,12 +4463,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="481"/>
         <source>Blocked content</source>
-        <translation type="unfinished"/>
+        <translation>Φραγμένο περιεχόμενο</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="490"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Φραγμένο από &lt;i&gt;%1 (%2)&lt;/i&gt;</translation>
     </message>
 </context>
 <context>
@@ -4622,7 +4624,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
         <source>&amp;Match Case</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ταίριασμα πεζών/κεφαλαίων</translation>
     </message>
 </context>
 <context>
@@ -4751,7 +4753,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="215"/>
         <source>Loading...</source>
-        <translation type="unfinished"/>
+        <translation>Φόρτωση...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="228"/>
@@ -4854,12 +4856,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Do you really want to close all tabs to the right?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλετε πράγματι να κλείσετε όλες τις καρτέλες στα δεξιά;</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
         <source>Do you really want to close all tabs to the left?</source>
-        <translation type="unfinished"/>
+        <translation>Θέλετε πράγματι να κλείσετε όλες τις καρτέλες στα αριστερά;</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
@@ -4894,12 +4896,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>Un&amp;mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Αποσίγαση καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>&amp;Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Σίγαση καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
@@ -4920,17 +4922,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
-        <translation type="unfinished"/>
+        <translation>Κλείσιμο των καρτελών στα δεξιά</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
-        <translation type="unfinished"/>
+        <translation>Κλείσιμο των καρτελών στα αριστερά</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>Κλείσιμο της καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
@@ -4948,12 +4950,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Αποσίγαση καρτέλας</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Σίγαση καρτέλας</translation>
     </message>
 </context>
 <context>
@@ -5137,17 +5139,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Something went wrong while loading this page.</source>
-        <translation type="unfinished"/>
+        <translation>Κάτι πήγε στραβά κατά την φόρτωση της σελίδας.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
-        <translation type="unfinished"/>
+        <translation>Προσπαθήστε να επαναφορτώσετε την σελίδα ή να κλείσετε μερικές καρτέλες για να απελευθερώσετε περισσότερη μνήμη.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
         <source>Reload page</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφόρτωση της σελίδας</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="421"/>
@@ -5157,7 +5159,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="425"/>
         <source>Choose files...</source>
-        <translation type="unfinished"/>
+        <translation>Επιλογή αρχείων...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
@@ -5221,7 +5223,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Καμία πρόταση</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="715"/>
@@ -5256,7 +5258,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Αποθήκευση της σελίδας ως...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="750"/>
@@ -5336,7 +5338,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="807"/>
         <source>Copy image</source>
-        <translation type="unfinished"/>
+        <translation>Αντιγραφή της εικόνας</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="808"/>

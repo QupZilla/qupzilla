@@ -25,6 +25,7 @@ TRANSLATIONS += \
     translations/bg_BG.ts \
     translations/ca_ES.ts \
     translations/de_DE.ts \
+    translations/el_GR.ts \
     translations/es_ES.ts \
     translations/es_MX.ts \
     translations/eu_ES.ts \
