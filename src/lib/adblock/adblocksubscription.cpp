@@ -297,6 +297,10 @@ void AdBlockCustomList::loadSubscription(const QStringList &disabledRules)
     const QString rules = QzTools::readAllFileContents(filePath());
 
     QFile file(filePath());
+    if (!file.exists()) {
+        saveSubscription();
+    }
+
     if (file.open(QFile::WriteOnly | QFile::Append)) {
         QTextStream stream(&file);
         stream.setCodec("UTF-8");
