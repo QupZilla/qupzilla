@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -115,6 +115,8 @@ private:
     bool m_blockAlerts;
     bool m_secureStatus;
     bool m_adjustingScheduled;
+
+    QMetaObject::Connection m_contentsResizedConnection;
 };
 
 #endif // WEBPAGE_H
