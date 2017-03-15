@@ -62,7 +62,7 @@ You need to specify path to `macdeployqt` only if it is not in PATH.
 Current version
 ----------------------------------------------------------------------------------------
 
-The current stable version of QupZilla is 2.1.1. You can download precompiled packages
+The current stable version of QupZilla is 2.1.2. You can download precompiled packages
 and the sources from the download section at [homepage](http://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:

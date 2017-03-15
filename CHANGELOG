@@ -1,3 +1,13 @@
+Version 2.1.2
+    * released 15 March 2017
+    * updated translations
+    * disable native scrollbars by default due to performance issues
+    * fix middle click on links sometimes not opening new tab
+    * fix scrolling to anchors when opening tab in background
+    * fix possible crash in AdBlock when editing subscribptions
+    * fix clicking on go icon in locationbar
+    * fix possible crash with native scrollbars
+
 Version 2.1.1
     * released 13 February 2017
     * updated translations
