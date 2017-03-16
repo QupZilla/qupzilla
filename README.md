@@ -67,7 +67,7 @@ and the sources from the download section at [homepage](https://www.qupzilla.com
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 
-    $ git clone git://github.com/QupZilla/qupzilla.git
+    $ git clone https://github.com/QupZilla/qupzilla.git
 
 FAQ and Changelog
 ----------------------------------------------------------------------------------------
