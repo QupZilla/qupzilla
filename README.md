@@ -7,7 +7,7 @@ Blog: http://blog.qupzilla.com
 IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: https://www.transifex.com/projects/p/qupzilla
 
-![](https://github.com/QupZilla/qupzilla/blob/master/src/lib/data/icons/other/about.png?raw=true)
+![QupZilla icon](https://github.com/QupZilla/qupzilla/blob/master/src/lib/data/icons/other/about.png?raw=true)
 
 QupZilla is a new and very fast QtWebEngine browser. It aims to be a lightweight web browser
 available through all major platforms. This project has been originally started only
