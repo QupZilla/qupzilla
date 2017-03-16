@@ -12,6 +12,7 @@ headers*.tar.gz
 license_template
 Makefile*
 bin/qupzilla
+bin/QupZilla.dmg
 lib*.so*
 bin/core
 qupzilla.sh
