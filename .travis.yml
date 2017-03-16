@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 language: cpp
-cache: apt
+cache: ccache
 
 env:
   - QT=qt58
@@ -19,5 +19,5 @@ script:
   - QMAKE="qmake"
   - if [[ "$QT" == "qt58" ]]; then QMAKE="/opt/qt58/bin/qmake"; fi
   - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
-  - make || exit 1
+  - make -j2 || exit 1
   - cd scripts && ./run_tests.sh $QMAKE
