@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 language: cpp
-cache: apt
+cache: ccache
 
 env:
   - QT=qt58
