@@ -2,7 +2,7 @@ QupZilla Web Browser
 ----------------------------------------------------------------------------------------
 
 [![Build Status](https://travis-ci.org/QupZilla/qupzilla.svg?branch=master)](https://travis-ci.org/QupZilla/qupzilla)  
-Homepage: http://www.qupzilla.com  
+Homepage: https://www.qupzilla.com  
 Blog: http://blog.qupzilla.com  
 IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: https://www.transifex.com/projects/p/qupzilla
@@ -63,7 +63,7 @@ Current version
 ----------------------------------------------------------------------------------------
 
 The current stable version of QupZilla is 2.1.2. You can download precompiled packages
-and the sources from the download section at [homepage](http://www.qupzilla.com/download).
+and the sources from the download section at [homepage](https://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:
 
