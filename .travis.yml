@@ -41,7 +41,7 @@ install:
               hdiutil attach -noverify $QT_INSTALLER_FILE_NAME.dmg;
               QT_INSTALLER=/Volumes/$QT_INSTALLER_FILE_NAME/$QT_INSTALLER_FILE_NAME.app/Contents/MacOS/$QT_INSTALLER_FILE_NAME;
               echo "Silently installing Qt...";
-              $QT_INSTALLER --script $QZ_DIR/mac/qt-mac-silent-install.qs;
+              travis_wait $QT_INSTALLER --script $QZ_DIR/mac/qt-mac-silent-install.qs;
          fi
     fi
 
