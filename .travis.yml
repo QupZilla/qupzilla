@@ -3,21 +3,82 @@ dist: trusty
 language: cpp
 cache: ccache
 
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode8.2
+
 env:
   - QT=qt58
 
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - export QZ_VER=2.1.99
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+         export DISPLAY=:99.0;
+         sh -e /etc/init.d/xvfb start;
+    fi
 
 install:
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install libssl-dev pkg-config libxcb-util0-dev
-  - if [[ "$QT" == "qt58" ]]; then sudo apt-add-repository -y ppa:beineri/opt-qt58-trusty; sudo apt-get update -qq; sudo apt-get install -qq qt58tools qt58script qt58webengine qt58webchannel qt58declarative qt58x11extras; fi
+  - export QZ_DIR=$PWD
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+         sudo apt-get -qq update;
+         sudo apt-get -qq install libssl-dev pkg-config libxcb-util0-dev;
+         if [[ "$QT" == "qt58" ]]; then
+              sudo apt-add-repository -y ppa:beineri/opt-qt58-trusty;
+              sudo apt-get update -qq;
+              sudo apt-get install -qq qt58tools qt58script qt58webengine qt58webchannel qt58declarative qt58x11extras;
+         fi
+    fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         if [[ "$QT" == "qt58" ]]; then
+              QT_VER=5.8;
+              export QTDIR="$HOME/Qt/$QT_VER/clang_64";
+              echo "Calling brew update...";
+              brew update;
+              brew outdated openssl || brew upgrade openssl;
+              QT_INSTALLER_FILE_NAME=qt-opensource-mac-x64-clang-$QT_VER.0;
+              wget "http://download.qt.io/official_releases/qt/$QT_VER/$QT_VER.0/$QT_INSTALLER_FILE_NAME.dmg";
+              hdiutil attach -noverify $QT_INSTALLER_FILE_NAME.dmg;
+              QT_INSTALLER=/Volumes/$QT_INSTALLER_FILE_NAME/$QT_INSTALLER_FILE_NAME.app/Contents/MacOS/$QT_INSTALLER_FILE_NAME;
+              echo "Silently installing Qt...";
+              $QT_INSTALLER --script $QZ_DIR/mac/qt-mac-silent-install.qs;
+         fi
+    fi
 
 script:
   - QMAKE="qmake"
-  - if [[ "$QT" == "qt58" ]]; then QMAKE="/opt/qt58/bin/qmake"; fi
-  - $QMAKE QMAKE_CXXFLAGS+="-Wextra -Werror"
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+         CXXFLAGS="-Wextra -Werror";
+         if [[ "$QT" == "qt58" ]]; then QMAKE="/opt/qt58/bin/qmake"; fi
+    fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         MACDEPLOYQT="macdeployqt";
+         CXXFLAGS="-Wextra -Werror -Wno-inconsistent-missing-override -Wno-deprecated-declarations";
+         if [[ "$QT" == "qt58" ]]; then
+              MACDEPLOYQT=$QTDIR/bin/macdeployqt;
+              QMAKE=$QTDIR/bin/qmake;
+         fi
+    fi
+  - $QMAKE QMAKE_CXXFLAGS+="$CXXFLAGS"
   - make -j2 || exit 1
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         cp -v bin/libQupZilla*.dylib tests/autotests;
+    fi
   - cd scripts && ./run_tests.sh $QMAKE
+
+before_deploy:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         cd $QZ_DIR;
+         ./mac/macdeploy.sh $MACDEPLOYQT;
+         mv bin/QupZilla.dmg bin/QupZilla-${QZ_VER}.dmg;
+    fi
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "bGGHyeMXF3nrFIaJCzA5zicH3TfdcMNY6+DT+84veBoCAsBMIjp+1t//mkEBnyAYZHKV/6XDhgztwinX1yEylvOeXxQXG5J0fYj96UzZmjBY+QmgDc31XgVeKKIbEi0Ab2bkgW3qHyQJ5ao/lZwSPCt1stOnjz0WuGgrjGWoAgEoHBXzRlsGzU2LrF/bXnmjyPL/qe7AaV0neE9mD+FmeQwiBPoP+/cQCyz5veOdjuzCy4I57HLCvNH4y28z1p6qotS+V1jGRj8PgMWWQP/VXVp9glTV0+gGkOLKL91SPKvLkS76f5bgn6K3+vdDASf+ZCNajIsh1YpwiabX4tQKwnCd80Ps9PR5dXcQVPMBRy1lFr6u2ps0ZTTfiBpI6vqyvLtyv2QbrfGZfT5bWtwdqpSRPJhp6b/ieHHduuRkZ0aU3JuTpLeoob+rLlkvYQmpvmDgyTx44/q+UOOetkoSCD276sMxYxsd3DJKyeG320UcQvwU+dR8uv9NDdv9wpUi13mfGqaRdcSXXgUQWpZlzCGvQYwLozcNnFfbtyrY9BlJsH7Sf97b3313qHO1lrz92z4IhagY1eQqyTwUrtdH8VeeWNx3INdnd7/u1bSdTSLerzMOG/xds96XW/kVbB1SO8bG9IEel7kC5oTiEQfWXAvFw54P6F3eRjDCZvXGaZA="
+  file: $QZ_DIR/bin/QupZilla-$QZ_VER.dmg
+  skip_cleanup: true
+  on:
+    tags: true
+    condition: "$TRAVIS_OS_NAME = osx"

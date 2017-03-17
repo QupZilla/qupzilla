@@ -34,34 +34,22 @@ do
  install_name_tool -change $LIBRARY_NAME @executable_path/$LIBRARY_NAME $plugin
 done
 
-# prompt and optionally copy additional Qt native plugin(s) into bundle
-echo -n "Do you wish to redistribute known, missing, Qt Library plugins (y/n)? "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[yn]'; do true; done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y"; then
-  if [ -z ${QTDIR+x} ]; then
-    printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.8/clang_64"\n'
-    exit 1
-  else
-    printf '\nCopying known, missing, Qt native library plugins to target bundle...\n'
-
-    mkdir -p $QTPLUGINS
-
-    FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
-    if [ -f "$FILE" ]; then
-      cp $FILE $QTPLUGINS/
-    else
-      echo "$FILE: No such file"
-      exit 1
-    fi
-
-  fi
+if [ -z ${QTDIR+x} ]; then
+  printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.8/clang_64"\n'
+  exit 1
 else
-  printf '\nChecking for prior deploy image Qt native library plugins at target bundle...\n'
+  printf '\nCopying known, missing, Qt native library plugins to target bundle...\n'
 
-  rm -Rf $QTPLUGINS
+  mkdir -p $QTPLUGINS
+
+  FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
+  if [ -f "$FILE" ]; then
+    cp $FILE $QTPLUGINS/
+  else
+    echo "$FILE: No such file"
+    exit 1
+  fi
+
 fi
 
 # run macdeployqt
