@@ -69,7 +69,7 @@ script:
 before_deploy:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
          cd $QZ_DIR;
-         make bundle
+         make bundle;
          mv bin/QupZilla.dmg bin/QupZilla-${QZ_VER}.dmg;
     fi
 
