@@ -420,8 +420,8 @@ Preferences::Preferences(BrowserWindow* window)
 
     QStringList dictionariesDirs = {
 #ifdef Q_OS_OSX
-        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Resources/qtwebengine_dictionaries")),
-        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Contents/Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Resources/qtwebengine_dictionaries")),
+        QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/../Frameworks/QtWebEngineCore.framework/Resources/qtwebengine_dictionaries"))
 #else
         QDir::cleanPath(QCoreApplication::applicationDirPath() + QL1S("/qtwebengine_dictionaries")),
         QDir::cleanPath(QLibraryInfo::location(QLibraryInfo::DataPath) + QL1S("/qtwebengine_dictionaries"))
@@ -1005,7 +1005,6 @@ void Preferences::saveSettings()
     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
     settings.endGroup();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
@@ -1018,7 +1017,6 @@ void Preferences::saveSettings()
     }
     settings.setValue("Languages", languages);
     settings.endGroup();
-#endif
 
     //OTHER
     //AddressBar
