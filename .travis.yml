@@ -19,6 +19,7 @@ before_install:
     fi
 
 install:
+  - export QZ_DIR=$PWD
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
          sudo apt-get -qq update;
          sudo apt-get -qq install libssl-dev pkg-config libxcb-util0-dev;
@@ -30,14 +31,21 @@ install:
     fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
          if [[ "$QT" == "qt58" ]]; then
+              QT_VER=5.8;
+              export QTDIR="$HOME/Qt/$QT_VER/clang_64";
+              echo "Calling brew update...";
               brew update;
               brew outdated openssl || brew upgrade openssl;
-              brew install qt5;
+              QT_INSTALLER_FILE_NAME=qt-opensource-mac-x64-clang-$QT_VER.0;
+              wget "http://download.qt.io/official_releases/qt/$QT_VER/$QT_VER.0/$QT_INSTALLER_FILE_NAME.dmg";
+              hdiutil attach -noverify $QT_INSTALLER_FILE_NAME.dmg;
+              QT_INSTALLER=/Volumes/$QT_INSTALLER_FILE_NAME/$QT_INSTALLER_FILE_NAME.app/Contents/MacOS/$QT_INSTALLER_FILE_NAME;
+              echo "Silently installing Qt...";
+              $QT_INSTALLER --script $QZ_DIR/mac/qt-mac-silent-install.qs;
          fi
     fi
 
 script:
-  - export QZ_DIR=$PWD
   - QMAKE="qmake"
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
          CXXFLAGS="-Wextra -Werror";
@@ -47,9 +55,8 @@ script:
          MACDEPLOYQT="macdeployqt";
          CXXFLAGS="-Wextra -Werror -Wno-inconsistent-missing-override -Wno-deprecated-declarations";
          if [[ "$QT" == "qt58" ]]; then
-              export QTDIR=/usr/local/opt/qt5;
-              MACDEPLOYQT=/usr/local/opt/qt5/bin/macdeployqt;
-              QMAKE=/usr/local/opt/qt5/bin/qmake;
+              MACDEPLOYQT=$QTDIR/bin/macdeployqt;
+              QMAKE=$QTDIR/bin/qmake;
          fi
     fi
   - $QMAKE QMAKE_CXXFLAGS+="$CXXFLAGS"
