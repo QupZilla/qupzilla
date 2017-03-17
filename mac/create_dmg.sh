@@ -45,7 +45,7 @@ hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "
     cp -fpR "$BUNDLE_PATH/QupZilla.app/Contents" "$TMP/$VOLUME_TEMPLATE/QupZilla.app"
 
     echo "Blessing folder to automatically open on mount…"
-    bless -folder "$TMP/$VOLUME_TEMPLATE" --openfolder "$TMP/$VOLUME_TEMPLATE"
+    bless --folder "$TMP/$VOLUME_TEMPLATE" --openfolder "$TMP/$VOLUME_TEMPLATE"
 
   echo "Detaching working disk image template from write…"
   hdiutil detach "$TMP/$VOLUME_TEMPLATE"

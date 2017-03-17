@@ -1,18 +1,19 @@
 #!/bin/bash
 #
-# Usage: ./macdeploy.sh [<full-path-to-macdeployqt>]
+# Usage: ./macdeploy.sh <full-path-to-macdeployqt>
 #
 # macdeployqt is usually located in QTDIR/bin/macdeployqt
-# If path to macdeployqt is not specified, using it from PATH
 
-MACDEPLOYQT="macdeployqt"
+if [ -z "$1" ]; then
+ echo "Required parameter missing for full path to macdeployqt"
+ exit 1
+fi
+
+MACDEPLOYQT=$1
+QTDIR="`dirname $MACDEPLOYQT`/.."
 LIBRARY_NAME="libQupZilla.2.dylib"
 PLUGINS="QupZilla.app/Contents/Resources/plugins"
 QTPLUGINS="QupZilla.app/Contents/PlugIns"
-
-if [ -n "$1" ]; then
- MACDEPLOYQT=$1
-fi
 
 # cd to directory with bundle
 test -d bin || cd ..
@@ -34,22 +35,19 @@ do
  install_name_tool -change $LIBRARY_NAME @executable_path/$LIBRARY_NAME $plugin
 done
 
-if [ -z ${QTDIR+x} ]; then
-  printf '\nPlease set the environment variable for the Qt platform folder.\n\texample:\n\t$ export QTDIR="$HOME/Qt/5.8/clang_64"\n'
-  exit 1
+# copy known, missing, Qt native library plugins into bundle
+#
+# See:
+#  *  http://code.qt.io/cgit/qt/qttools.git/tree/src/macdeployqt/shared/shared.cpp#n1044
+#
+mkdir -p $QTPLUGINS
+
+FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
+if [ -f "$FILE" ]; then
+ cp $FILE $QTPLUGINS/
 else
-  printf '\nCopying known, missing, Qt native library plugins to target bundle...\n'
-
-  mkdir -p $QTPLUGINS
-
-  FILE="$QTDIR/plugins/iconengines/libqsvgicon.dylib"
-  if [ -f "$FILE" ]; then
-    cp $FILE $QTPLUGINS/
-  else
-    echo "$FILE: No such file"
-    exit 1
-  fi
-
+ echo "$FILE: No such file"
+ exit 1
 fi
 
 # run macdeployqt

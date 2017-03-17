@@ -55,9 +55,7 @@ On Linux/Unix: To install QupZilla, run this command: (it may be necessary to ru
 
 On Mac OS X: To deploy QupZilla in dmg image, run this command:
 
-    $ ./mac/macdeploy.sh full-path-to-macdeployqt
-
-You need to specify path to `macdeployqt` only if it is not in PATH.
+    $ make bundle
 
 Current version
 ----------------------------------------------------------------------------------------
