@@ -48,6 +48,8 @@
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
 #include <QScrollBar>
+#include <QPrintPreviewDialog>
+#include <QPrinter>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -260,9 +262,6 @@ void WebView::restoreHistory(const QByteArray &data)
 {
     QDataStream stream(data);
     stream >> *history();
-
-    // Workaround clearing QWebChannel after restoring history
-    page()->setupWebChannel();
 }
 
 QWidget *WebView::inputWidget() const
@@ -396,6 +395,25 @@ void WebView::forward()
     }
 }
 
+void WebView::printPage()
+{
+    Q_ASSERT(m_page);
+
+    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->resize(800, 750);
+    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
+    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(m_page->url()));
+
+    connect(dialog, &QPrintPreviewDialog::paintRequested, this, [=](QPrinter *printer) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        m_page->execPrintPage(printer, 10 * 1000);
+        QApplication::restoreOverrideCursor();
+    });
+
+    dialog->open();
+}
+
 void WebView::slotLoadStarted()
 {
     m_progress = 0;
@@ -518,14 +536,7 @@ void WebView::showSource()
         return;
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     triggerPageAction(QWebEnginePage::ViewSource);
-#else
-    QUrl u;
-    u.setScheme(QSL("view-source"));
-    u.setPath(url().toString());
-    openUrlInNewTab(u, Qz::NT_SelectedTab);
-#endif
 }
 
 void WebView::showSiteInfo()
@@ -647,7 +658,6 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
     const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
     hitTest.updateWithContextMenuData(contextMenuData);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     if (!contextMenuData.misspelledWord().isEmpty()) {
         QFont boldFont = menu->font();
         boldFont.setBold(true);
@@ -668,7 +678,6 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
         menu->addSeparator();
         spellCheckActionCount = menu->actions().count();
     }
-#endif
 
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != QL1S("javascript")) {
         createLinkContextMenu(menu, hitTest);

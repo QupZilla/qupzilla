@@ -241,7 +241,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         return;
     }
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     setQuitOnLastWindowClosed(false);
 #else
     setQuitOnLastWindowClosed(true);
@@ -876,6 +876,7 @@ void MainApplication::loadSettings()
     webSettings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, settings.value("allowJavaScriptAccessClipboard", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::LinksIncludedInFocusChain, settings.value("IncludeLinkInFocusChain", false).toBool());
     webSettings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, settings.value("XSSAuditing", false).toBool());
+    webSettings->setAttribute(QWebEngineSettings::PrintElementBackgrounds, settings.value("PrintElementBackground", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::SpatialNavigationEnabled, settings.value("SpatialNavigation", false).toBool());
     webSettings->setAttribute(QWebEngineSettings::ScrollAnimatorEnabled, settings.value("AnimateScrolling", true).toBool());
     webSettings->setAttribute(QWebEngineSettings::HyperlinkAuditingEnabled, false);
@@ -920,12 +921,10 @@ void MainApplication::loadSettings()
     const int cacheSize = settings.value(QSL("Web-Browser-Settings/LocalCacheSize"), 50).toInt() * 1000 * 1000;
     profile->setHttpCacheMaximumSize(cacheSize);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     settings.beginGroup(QSL("SpellCheck"));
     profile->setSpellCheckEnabled(settings.value(QSL("Enabled"), false).toBool());
     profile->setSpellCheckLanguages(settings.value(QSL("Languages")).toStringList());
     settings.endGroup();
-#endif
 
     if (isPrivate()) {
         webSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
@@ -961,7 +960,7 @@ void MainApplication::loadTheme(const QString &name)
 
     QString qss = QzTools::readAllFileContents(activeThemePath + QLatin1String("/main.css"));
 
-#if defined(Q_OS_MAC)
+#if defined(Q_OS_MACOS)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/mac.css")));
 #elif defined(Q_OS_UNIX)
     qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/linux.css")));
@@ -1113,11 +1112,11 @@ void MainApplication::setUserStyleSheet(const QString &filePath)
 {
     QString userCss;
 
-#if !defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if !defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
     // Don't grey out selection on losing focus (to prevent graying out found text)
     QString highlightColor;
     QString highlightedTextColor;
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     highlightColor = QLatin1String("#b6d6fc");
     highlightedTextColor = QLatin1String("#000");
 #else
@@ -1190,7 +1189,7 @@ RegisterQAppAssociation* MainApplication::associationManager()
 }
 #endif
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <QFileOpenEvent>
 
 bool MainApplication::event(QEvent* e)

@@ -73,7 +73,9 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
     , m_adjustingScheduled(false)
 {
-    setupWebChannel();
+    QWebChannel *channel = new QWebChannel(this);
+    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+    setWebChannel(channel);
 
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
     connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
@@ -117,6 +119,25 @@ WebView *WebPage::view() const
     return static_cast<WebView*>(QWebEnginePage::view());
 }
 
+bool WebPage::execPrintPage(QPrinter *printer, int timeout)
+{
+    QPointer<QEventLoop> loop = new QEventLoop;
+    bool result = false;
+    QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
+
+    print(printer, [loop, &result](bool res) {
+        if (loop && loop->isRunning()) {
+            result = res;
+            loop->quit();
+        }
+    });
+
+    loop->exec();
+    delete loop;
+
+    return result;
+}
+
 QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, int timeout)
 {
     QPointer<QEventLoop> loop = new QEventLoop;
@@ -134,26 +155,6 @@ QVariant WebPage::execJavaScript(const QString &scriptSource, quint32 worldId, i
     delete loop;
 
     return result;
-}
-
-void WebPage::runJavaScript(const QString &scriptSource)
-{
-    return QWebEnginePage::runJavaScript(scriptSource);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, const QWebEngineCallback<const QVariant &> &resultCallback)
-{
-    return QWebEnginePage::runJavaScript(scriptSource, resultCallback);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId)
-{
-    QWebEnginePage::runJavaScript(scriptSource, worldId);
-}
-
-void WebPage::runJavaScript(const QString &scriptSource, quint32 worldId, const QWebEngineCallback<const QVariant &> &resultCallback)
-{
-    QWebEnginePage::runJavaScript(scriptSource, worldId, resultCallback);
 }
 
 QPointF WebPage::mapToViewport(const QPointF &pos) const
@@ -175,20 +176,6 @@ void WebPage::setScrollPosition(const QPointF &pos)
 {
     const QPointF v = mapToViewport(pos.toPoint());
     runJavaScript(QSL("window.scrollTo(%1, %2)").arg(v.x()).arg(v.y()), WebPage::SafeJsWorld);
-}
-
-void WebPage::scheduleAdjustPage()
-{
-    if (view()->isLoading()) {
-        m_adjustingScheduled = true;
-    }
-    else {
-        const QSize originalSize = view()->size();
-        QSize newSize(originalSize.width() - 1, originalSize.height() - 1);
-
-        view()->resize(newSize);
-        view()->resize(originalSize);
-    }
 }
 
 bool WebPage::isRunningLoop()
@@ -334,21 +321,6 @@ void WebPage::desktopServicesOpen(const QUrl &url)
     else {
         qWarning() << "WebPage::desktopServicesOpen Url" << url << "has already been opened!\n"
                    "Ignoring it to prevent infinite loop!";
-    }
-}
-
-void WebPage::setupWebChannel()
-{
-    QWebChannel *old = webChannel();
-    const QString objectName = QSL("qz_object");
-
-    QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
-    setWebChannel(channel);
-
-    if (old) {
-        delete old->registeredObjects().value(objectName);
-        delete old;
     }
 }
 

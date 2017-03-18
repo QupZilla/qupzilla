@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@
 #include <QMenuBar>
 #include <QDesktopServices>
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 extern void qt_mac_set_dock_menu(QMenu* menu);
 #endif
 
@@ -362,7 +362,7 @@ void MainMenu::restoreClosedTab()
 
 void MainMenu::aboutToShowFileMenu()
 {
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     m_actions[QSL("File/CloseWindow")]->setEnabled(mApp->windowCount() > 1);
 #endif
 }
@@ -608,7 +608,7 @@ void MainMenu::init()
     // Help menu
     m_menuHelp = new QMenu(tr("&Help"));
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     ADD_ACTION("Help/AboutQt", m_menuHelp, QIcon(), tr("About &Qt"), SLOT(aboutQt()), "");
     m_menuHelp->addAction(m_actions[QSL("Standard/About")]);
     m_menuHelp->addSeparator();
@@ -634,7 +634,7 @@ void MainMenu::init()
     connect(action, SIGNAL(triggered()), this, SLOT(restoreClosedTab()));
     m_actions[QSL("Other/RestoreClosedTab")] = action;
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     m_actions[QSL("View/FullScreen")]->setShortcut(QKeySequence(QSL("Ctrl+Meta+F")));
 
     // Add standard actions to File Menu (as it won't be ever cleared) and Mac menubar should move them to "Application" menu
@@ -652,9 +652,9 @@ void MainMenu::init()
     qt_mac_set_dock_menu(dockMenu);
 #endif
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
     m_menuEdit->addAction(m_actions[QSL("Standard/Preferences")]);
-#elif !defined(Q_OS_MAC)
+#elif !defined(Q_OS_MACOS)
     m_menuTools->addAction(m_actions[QSL("Standard/Preferences")]);
 #endif
 

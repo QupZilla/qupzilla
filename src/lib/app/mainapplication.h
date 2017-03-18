@@ -196,7 +196,7 @@ private:
     RegisterQAppAssociation* m_registerQAppAssociation;
 #endif
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 public:
     bool event(QEvent* e);
 #endif

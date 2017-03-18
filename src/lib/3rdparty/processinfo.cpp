@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "processinfo.h"
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
 #include <sys/stat.h>
 #include <dirent.h>
 #include <unistd.h>
@@ -36,7 +36,7 @@ ProcessInfo::ProcessInfo(const QString &name)
 
 bool ProcessInfo::isRunning() const
 {
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
     pid_t pid = GetPIDbyName(qPrintable(m_name));
     // -1 = process not found
     // -2 = /proc fs access error
@@ -46,7 +46,7 @@ bool ProcessInfo::isRunning() const
 #endif
 }
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
 bool ProcessInfo::IsNumeric(const char* ccharptr_CharacterList) const
 {
     for (; *ccharptr_CharacterList; ccharptr_CharacterList++) {
@@ -75,7 +75,7 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
 
     // Loop while not NULL
     while ((de_DirEntity = readdir(dir_proc))) {
-#ifndef __HAIKU__    	
+#ifndef __HAIKU__
         if (de_DirEntity->d_type == DT_DIR) {
             if (IsNumeric(de_DirEntity->d_name)) {
                 strcpy(chrarry_CommandLinePath, "/proc/") ;
@@ -109,7 +109,7 @@ pid_t ProcessInfo::GetPIDbyName(const char* cchrptr_ProcessName) const
                 }
             }
         }
-#endif        
+#endif
     }
 
     closedir(dir_proc) ;

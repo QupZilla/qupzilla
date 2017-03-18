@@ -79,15 +79,7 @@
 #include <QToolTip>
 #include <QScrollArea>
 #include <QCollator>
-#include <QPrintDialog>
-#include <QPrinter>
 #include <QTemporaryFile>
-
-#ifdef Q_OS_WIN
-#include <qt_windows.h>
-#else
-#include "fileprinter.h"
-#endif
 
 #ifdef QZ_WS_X11
 #include <QX11Info>
@@ -348,7 +340,7 @@ void BrowserWindow::setupUi()
 
 void BrowserWindow::setupMenu()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     static MainMenu* macMainMenu = 0;
 
     if (!macMainMenu) {
@@ -479,7 +471,7 @@ void BrowserWindow::loadSettings()
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     menuBar()->setVisible(!isFullScreen() && showMenuBar);
 #endif
 
@@ -615,48 +607,7 @@ void BrowserWindow::changeEncoding()
 
 void BrowserWindow::printPage()
 {
-    QPrintDialog* dialog = new QPrintDialog(this);
-    dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
-#ifndef Q_OS_WIN
-    dialog->setOption(QAbstractPrintDialog::PrintPageRange);
-    if (Qz::FilePrinter::cupsAvailable()) {
-        dialog->setOption(QAbstractPrintDialog::PrintCollateCopies);
-    }
-#endif
-    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(weView()->url()));
-
-    if (dialog->exec() == QDialog::Accepted) {
-        if (dialog->printer()->outputFormat() == QPrinter::PdfFormat) {
-            weView()->page()->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
-            delete dialog;
-        } else {
-            weView()->page()->printToPdf([=](const QByteArray &data) {
-                if (!data.isEmpty()) {
-                    QTemporaryFile tempFile(QDir::tempPath() + QSL("/QupZillaPrintXXXXXX.pdf"));
-                    tempFile.setAutoRemove(false);
-                    if (tempFile.open()) {
-                        qint64 bytesWritten = tempFile.write(data);
-                        tempFile.close();
-                        if (bytesWritten == data.size()) {
-#ifdef Q_OS_WIN
-                            QString printerName = '"' + dialog->printer()->printerName() + '"';
-                            // This may bring up a PDF viewer window, and even keep it open, but it is the best we can do without adding third-party dependencies.
-                            // lpr is not installed by default on Windows, and it also can only print PDF if the printer handles it in hardware.
-                            ShellExecuteW((HWND)winId(), L"printto", (LPCWSTR)tempFile.fileName().utf16(), (LPCWSTR)printerName.utf16(), NULL, SW_HIDE);
-                            // TODO: When can we delete the file?
-#else
-                            Qz::FilePrinter::printFile(dialog->printer(), tempFile.fileName(), Qz::FilePrinter::SystemDeletesFiles, Qz::FilePrinter::SystemSelectsPages);
-#endif
-                        } else {
-                            tempFile.remove();
-                        }
-                    }
-                }
-                delete dialog;
-            }, dialog->printer()->pageLayout());
-        }
-    }
+    weView()->printPage();
 }
 
 void BrowserWindow::bookmarkPage()
@@ -758,7 +709,7 @@ void BrowserWindow::saveSideBarWidth()
 
 void BrowserWindow::toggleShowMenubar()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     // We use one shared global menubar on Mac that can't be hidden
     return;
 #endif
@@ -812,7 +763,7 @@ void BrowserWindow::toggleShowNavigationToolbar()
 
     Settings().setValue("Browser-View-Settings/showNavigationToolbar", m_navigationToolbar->isVisible());
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     // Make sure we show Menu Bar when Navigation Toolbar is hidden
     if (!m_navigationToolbar->isVisible() && !menuBar()->isVisible()) {
         toggleShowMenubar();
@@ -926,7 +877,7 @@ void BrowserWindow::createToolbarsMenu(QMenu* menu)
 
     QAction* action;
 
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     action = menu->addAction(tr("&Menu Bar"), this, SLOT(toggleShowMenubar()));
     action->setCheckable(true);
     action->setChecked(menuBar()->isVisible());
@@ -1102,7 +1053,7 @@ bool BrowserWindow::event(QEvent* event)
             m_windowStates = ev->oldState();
 
             m_statusBarVisible = statusBar()->isVisible();
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
             m_menuBarVisible = menuBar()->isVisible();
             menuBar()->hide();
 #endif
@@ -1114,7 +1065,7 @@ bool BrowserWindow::event(QEvent* event)
         else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
             statusBar()->setVisible(m_statusBarVisible);
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
             menuBar()->setVisible(m_menuBarVisible);
 #endif
 
@@ -1387,7 +1338,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
     saveSettings();
 
-    #ifndef Q_OS_MAC
+    #ifndef Q_OS_MACOS
         if (mApp->windowCount() == 1)
             mApp->quitApplication();
     #endif
@@ -1397,7 +1348,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
 void BrowserWindow::closeWindow()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     close();
     return;
 #endif

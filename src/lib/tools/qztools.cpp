@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@
 #include <windows.h>
 #endif
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
 #include <CoreServices/CoreServices.h>
 #endif
 
@@ -850,7 +850,7 @@ void QzTools::setWmClass(const QString &name, const QWidget* widget)
 
 QString QzTools::operatingSystem()
 {
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     QString str = "Mac OS X";
 
     SInt32 majorVersion;

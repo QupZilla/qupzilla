@@ -40,7 +40,7 @@ AdBlockDialog::AdBlockDialog(QWidget* parent)
 
     QzTools::centerWidgetOnScreen(this);
 
-#ifdef Q_OS_MAC
+#ifdef Q_OS_MACOS
     tabWidget->setDocumentMode(false);
 #endif
     adblockCheckBox->setChecked(m_manager->isEnabled());

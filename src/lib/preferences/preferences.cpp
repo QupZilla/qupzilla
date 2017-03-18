@@ -277,6 +277,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->animateScrolling->setChecked(settings.value("AnimateScrolling", true).toBool());
     ui->wheelScroll->setValue(settings.value("wheelScrollLines", qApp->wheelScrollLines()).toInt());
     ui->xssAuditing->setChecked(settings.value("XSSAuditing", false).toBool());
+    ui->printEBackground->setChecked(settings.value("PrintElementBackground", true).toBool());
     ui->useNativeScrollbars->setChecked(settings.value("UseNativeScrollbars", false).toBool());
 
     foreach (int level, WebView::zoomLevels()) {
@@ -404,7 +405,6 @@ Preferences::Preferences(BrowserWindow* window)
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
@@ -464,10 +464,6 @@ Preferences::Preferences(BrowserWindow* window)
     } else {
         ui->spellcheckNoLanguages->hide();
     }
-#else
-    delete ui->listWidget->item(11);
-    delete ui->stackedWidget->widget(11);
-#endif
 
     //OTHER
     //Languages
@@ -976,6 +972,7 @@ void Preferences::saveSettings()
     settings.setValue("LoadTabsOnActivation", ui->dontLoadTabsUntilSelected->isChecked());
     settings.setValue("DefaultZoomLevel", ui->defaultZoomLevel->currentIndex());
     settings.setValue("XSSAuditing", ui->xssAuditing->isChecked());
+    settings.setValue("PrintElementBackground", ui->printEBackground->isChecked());
     settings.setValue("closeAppWithCtrlQ", ui->closeAppWithCtrlQ->isChecked());
     settings.setValue("UseNativeScrollbars", ui->useNativeScrollbars->isChecked());
 #ifdef Q_OS_WIN

@@ -102,6 +102,7 @@ public slots:
     void back();
     void forward();
 
+    void printPage();
     void showSource();
     void sendPageByMail();
 
