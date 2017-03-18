@@ -688,6 +688,7 @@ void MainApplication::postLaunch()
     connect(this, SIGNAL(aboutToQuit()), this, SLOT(saveSettings()));
 
     createJumpList();
+    initPulseSupport();
 
     QTimer::singleShot(5000, this, &MainApplication::runDeferredPostLaunchActions);
 }
@@ -1169,6 +1170,13 @@ void MainApplication::createJumpList()
     tasks->addLink(IconProvider::newWindowIcon(), tr("Open new window"), applicationFilePath(), {QSL("--new-window")});
     tasks->addLink(IconProvider::privateBrowsingIcon(), tr("Open new private window"), applicationFilePath(), {QSL("--private-browsing")});
 #endif
+}
+
+void MainApplication::initPulseSupport()
+{
+    qputenv("PULSE_PROP_OVERRIDE_application.name", "QupZilla");
+    qputenv("PULSE_PROP_OVERRIDE_application.icon_name", "qupzilla");
+    qputenv("PULSE_PROP_OVERRIDE_media.icon_name", "qupzilla");
 }
 
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
