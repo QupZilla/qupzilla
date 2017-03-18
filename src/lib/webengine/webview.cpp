@@ -421,7 +421,9 @@ void WebView::slotLoadStarted()
 
 void WebView::slotLoadProgress(int progress)
 {
-    m_progress = progress;
+    if (m_progress < 100) {
+        m_progress = progress;
+    }
 }
 
 void WebView::slotLoadFinished(bool ok)
