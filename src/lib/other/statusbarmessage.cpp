@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -119,11 +119,7 @@ void StatusBarMessage::showMessage(const QString &message)
         const static QChar LRE(0x202a);
         m_window->statusBar()->showMessage(message.isRightToLeft() ? message : (LRE + message));
     }
-#ifdef Q_OS_WIN
     else if (mApp->activeWindow() == m_window) {
-#else
-    else {
-#endif
         WebView* view = m_window->weView();
 
         const int verticalScrollSize = view->scrollBarGeometry(Qt::Vertical).width();;
