@@ -68,6 +68,7 @@ script:
          cp -v bin/libQupZilla*.dylib tests/autotests;
     fi
   - cd scripts && ./run_tests.sh $QMAKE
+  - ccache --show-stats
 
 before_deploy:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
