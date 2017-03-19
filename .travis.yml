@@ -30,11 +30,14 @@ install:
          fi
     fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         echo "Calling brew update...";
+         brew update;
+         brew install ccache;
+         PATH="/usr/local/opt/ccache/libexec:$PATH";
+
          if [[ "$QT" == "qt58" ]]; then
               QT_VER=5.8;
               export QTDIR="$HOME/Qt/$QT_VER/clang_64";
-              echo "Calling brew update...";
-              brew update;
               brew outdated openssl || brew upgrade openssl;
               QT_INSTALLER_FILE_NAME=qt-opensource-mac-x64-clang-$QT_VER.0;
               wget "http://download.qt.io/official_releases/qt/$QT_VER/$QT_VER.0/$QT_INSTALLER_FILE_NAME.dmg";
@@ -60,11 +63,12 @@ script:
          fi
     fi
   - $QMAKE QMAKE_CXXFLAGS+="$CXXFLAGS"
-  - make -j2 || exit 1
+  - make -j2 CC=$CC CXX=$CXX || exit 1
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
          cp -v bin/libQupZilla*.dylib tests/autotests;
     fi
   - cd scripts && ./run_tests.sh $QMAKE
+  - ccache --show-stats
 
 before_deploy:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
