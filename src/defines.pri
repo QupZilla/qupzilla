@@ -47,7 +47,13 @@ win32-msvc* {
 }
 
 # QtDBus not available on Mac
-mac: DEFINES *= DISABLE_DBUS
+mac {
+    DEFINES *= DISABLE_DBUS
+
+    # Git revision
+    rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
+    !equals(rev, ""): DEFINES *= GIT_REVISION=\\\"""$$rev"\\\""
+}
 
 haiku-* {
     DEFINES *= DISABLE_DBUS
