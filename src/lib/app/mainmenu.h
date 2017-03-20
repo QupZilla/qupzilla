@@ -38,12 +38,14 @@ class QUPZILLA_EXPORT MainMenu : public QMenu
 public:
     explicit MainMenu(BrowserWindow* window, QWidget* parent = 0);
 
-    void setWindow(BrowserWindow* window);
 
     void initMenuBar(QMenuBar* menuBar) const;
     void initSuperMenu(QMenu* superMenu) const;
 
     QAction* action(const QString &name) const;
+
+public slots:
+    void setWindow(BrowserWindow* window);
 
 private slots:
     // Standard actions

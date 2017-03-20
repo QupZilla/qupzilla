@@ -346,20 +346,20 @@ void BrowserWindow::setupMenu()
     if (!macMainMenu) {
         macMainMenu = new MainMenu(this, 0);
         macMainMenu->initMenuBar(new QMenuBar(0));
+        connect(mApp, SIGNAL(activeWindowChanged(BrowserWindow*)), macMainMenu, SLOT(setWindow(BrowserWindow*)));
     }
     else {
         macMainMenu->setWindow(this);
     }
 
     m_mainMenu = macMainMenu;
-    m_mainMenu->initSuperMenu(m_superMenu);
 #else
     setMenuBar(new MenuBar(this));
 
     m_mainMenu = new MainMenu(this, this);
     m_mainMenu->initMenuBar(menuBar());
-    m_mainMenu->initSuperMenu(m_superMenu);
 #endif
+    m_mainMenu->initSuperMenu(m_superMenu);
 
     // Setup other shortcuts
     QShortcut* reloadBypassCacheAction = new QShortcut(QKeySequence(QSL("Ctrl+F5")), this);

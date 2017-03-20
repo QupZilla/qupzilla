@@ -845,6 +845,8 @@ void MainApplication::onFocusChanged()
 
     if (activeBrowserWindow) {
         m_lastActiveWindow = activeBrowserWindow;
+
+        emit activeWindowChanged(m_lastActiveWindow);
     }
 }
 

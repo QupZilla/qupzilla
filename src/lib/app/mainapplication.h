@@ -121,6 +121,7 @@ public slots:
 
 signals:
     void settingsReloaded();
+    void activeWindowChanged(BrowserWindow* window);
 
 private slots:
     void postLaunch();
