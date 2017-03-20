@@ -47,13 +47,7 @@ win32-msvc* {
 }
 
 # QtDBus not available on Mac
-mac {
-    DEFINES *= DISABLE_DBUS
-
-    # Git revision
-    rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
-    !equals(rev, ""): DEFINES *= GIT_REVISION=\\\"""$$rev"\\\""
-}
+mac: DEFINES *= DISABLE_DBUS
 
 haiku-* {
     DEFINES *= DISABLE_DBUS
@@ -89,12 +83,14 @@ haiku-* {
     DEFINES *= USE_LIBPATH=\\\"""$$library_folder"\\\""
     DEFINES *= USE_DATADIR=\\\"""$$data_folder"\\\""
 
+    # Define QZ_WS_X11 even with Qt5 (but only when building for X11)
+    !contains(DEFINES, NO_X11) DEFINES *= QZ_WS_X11
+}
+
+unix: {
     # Git revision
     rev = $$system(cd ../ && sh $$PWD/../scripts/getrevision.sh)
     !equals(rev, ""): DEFINES *= GIT_REVISION=\\\"""$$rev"\\\""
-
-    # Define QZ_WS_X11 even with Qt5 (but only when building for X11)
-    !contains(DEFINES, NO_X11) DEFINES *= QZ_WS_X11
 }
 
 isEmpty(QMAKE_LRELEASE) {
