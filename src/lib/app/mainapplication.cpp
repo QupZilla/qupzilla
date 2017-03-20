@@ -243,6 +243,9 @@ MainApplication::MainApplication(int &argc, char** argv)
 
 #ifdef Q_OS_MACOS
     setQuitOnLastWindowClosed(false);
+    // disable tabbing issue#2261
+    extern void disableWindowTabbing();
+    disableWindowTabbing();
 #else
     setQuitOnLastWindowClosed(true);
 #endif

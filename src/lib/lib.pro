@@ -485,6 +485,9 @@ mac {
     LIBS += -L$$BREW_OPENSSL/lib
 
     LIBS += -lcrypto -framework CoreServices
+
+    OBJECTIVE_SOURCES += tools/disablewindowtabbbing.mm
+    LIBS += -framework AppKit
 }
 
 message(===========================================)
