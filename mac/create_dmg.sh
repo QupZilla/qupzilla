@@ -25,7 +25,30 @@ hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "
     cp images/qupzilla-dmg-background.png "$TMP/$VOLUME_TEMPLATE/.background/"
 
     echo "Creating volume icon set…"
-    iconutil -c icns images/qupzilla-dmg-icon.iconset -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
+    ICON=qupzilla-dmg-icon
+    ICONEXT=png
+    ICONSETDIR=images/$ICON.iconset
+
+    mkdir -p "$ICONSETDIR"
+
+    # Convert last with qlmanage since sips does not do SVG
+    qlmanage -t -s 1024 -o "$ICONSETDIR" "images/$ICON.$ICONEXT"
+    mv "$ICONSETDIR/$ICON.$ICONEXT.png" "$ICONSETDIR/icon_512x512@2x.png"
+
+    # Convert remaining with sips since qlmanage does not do 16 pixels
+    sizes=( 512 256 128 64 32 16 )
+    for size in ${sizes[@]}
+    do
+      sips -Z $size -s format png "$ICONSETDIR/icon_512x512@2x.png" --out "$ICONSETDIR/icon_${size}x${size}.png"
+
+      halfsize=$((size / 2))
+      if [[ size -ne 16 ]]; then
+        ln "$ICONSETDIR/icon_${size}x${size}.png" "$ICONSETDIR/icon_${halfsize}x${halfsize}@2x.png"
+      fi
+    done
+
+    # iconutil will only pick what it needs
+    iconutil -c icns "$ICONSETDIR" -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
 
     echo "Creating application reference folder…"
     mkdir "$TMP/$VOLUME_TEMPLATE/QupZilla.app"
@@ -58,4 +81,5 @@ rm "$BUNDLE_PATH/QupZilla.dmg"
 hdiutil convert "$TMP/$WORK_TEMPLATE" -format UDBZ -o "$BUNDLE_PATH/QupZilla.dmg"
 
 echo  "Cleaning up"
+rm -Rf "$ICONSETDIR"
 rm "$TMP/$WORK_TEMPLATE"

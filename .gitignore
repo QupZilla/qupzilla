@@ -13,6 +13,7 @@ license_template
 Makefile*
 bin/qupzilla
 bin/QupZilla.dmg
+mac/images/qupzilla-dmg-icon.iconset
 lib*.so*
 bin/core
 qupzilla.sh
