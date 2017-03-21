@@ -51,7 +51,7 @@ else
 fi
 
 # run macdeployqt
-$MACDEPLOYQT QupZilla.app
+$MACDEPLOYQT QupZilla.app -qmldir=$PWD/../src/lib/data/data
 
 # create final dmg image
 cd ../mac
