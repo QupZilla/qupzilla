@@ -522,7 +522,7 @@ void WebView::openUrlInNewTab(const QUrl &url, Qz::NewTabPositionFlags position)
 void WebView::openActionUrl()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
-        load(action->data().toUrl());
+        openUrlInNewTab(action->data().toUrl(), Qz::NT_SelectedTab);
     }
 }
 
