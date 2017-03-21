@@ -48,7 +48,7 @@ hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "
     done
 
     # iconutil will only pick what it needs
-    iconutil -c icns images/qupzilla-dmg-icon.iconset -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
+    iconutil -c icns "$ICONSETDIR" -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
 
     echo "Creating application reference folder…"
     mkdir "$TMP/$VOLUME_TEMPLATE/QupZilla.app"
