@@ -653,7 +653,7 @@ LangString MSG_RunningInstance ${LANG_BASQUE} "QupZilla jadanik ekinean dago! Na
 LangString MSG_InstallationCanceled ${LANG_BASQUE} "Prozesua erabiltzaileak ezeztaturik."
 
 ;;;;Danish
-LangString PRODUCT_DESC  ${LANG_DANISH} "QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) en senere version. Den er baseret på WebKit-kerne og og Qt-framework."
+LangString PRODUCT_DESC  ${LANG_DANISH} "QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) en senere version. Den er baseret på WebKit-kerne og Qt-framework."
 ;
 LangString TITLE_SecMain ${LANG_DANISH} "Hovedkomponenter"
 LangString TITLE_SecTranslations ${LANG_DANISH} "Oversættelser"
@@ -677,7 +677,7 @@ LangString DESC_SecSetASDefault ${LANG_DANISH} "Indstil QupZilla som standardint
 LangString DESC_SecProtocols ${LANG_DANISH} "Tilknyt QupZilla med http(s)- og ftp-protokoller"
 ;
 LangString MSG_RunningInstance ${LANG_DANISH} "QupZilla kører allerede! Vil du have installationsprogrammet til at stoppe den?"
-LangString MSG_InstallationCanceled ${LANG_DANISH} "Proces annuleret af bruger."
+LangString MSG_InstallationCanceled ${LANG_DANISH} "Proces annulleret af bruger."
 
 ;;;;;;;;;
 ;;;;;;;;;
