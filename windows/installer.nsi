@@ -39,6 +39,7 @@
 
 !addplugindir "wininstall\"
 
+!include "StdUtils.nsh"
 !include "FileFunc.nsh"
 !include "wininstall\AllAssociation.nsh"
 SetCompressor /SOLID /FINAL lzma
@@ -63,7 +64,8 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 
-!define MUI_FINISHPAGE_RUN "$INSTDIR\qupzilla.exe"
+!define MUI_FINISHPAGE_RUN
+!define MUI_FINISHPAGE_RUN_FUNCTION "RunQupZillaAsUser"
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_WELCOME
@@ -460,4 +462,8 @@ Function RegisterCapabilities
 			WriteRegStr HKLM "SOFTWARE\RegisteredApplications" "${PRODUCT_NAME}" "${PRODUCT_CAPABILITIES_KEY}"
 		${EndIf}
 	!endif
+FunctionEnd
+
+Function RunQupZillaAsUser
+    ${StdUtils.ExecShellAsUser} $0 "$INSTDIR\qupzilla.exe" "open" ""
 FunctionEnd

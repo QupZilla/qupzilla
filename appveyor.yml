@@ -69,6 +69,8 @@ after_build:
         appveyor DownloadFile "http://nsis.sourceforge.net/mediawiki/images/4/47/Registry.zip" ) else (echo "Use cached Registry.zip")
   - IF NOT EXIST "AppAssocReg-0.4.zip" (
         appveyor DownloadFile "http://nsis.sourceforge.net/mediawiki/images/d/d4/AppAssocReg-0.4.zip" ) else (echo "Use cached AppAssocReg-0.4.zip")
+  - IF NOT EXIST "StdUtils.2016-05-14.r2.zip" (
+        appveyor DownloadFile "http://github.com/lordmulder/stdutils/releases/download/1.10/StdUtils.2016-05-14.r2.zip" ) else (echo "Use cached StdUtils.2016-05-14.r2.zip")
   - IF NOT EXIST "master.tar.gz" (
         appveyor DownloadFile "http://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+archive/master.tar.gz" ) else (echo "Use cached master.tar.gz")
   - mkdir ..\wininstall
@@ -80,8 +82,10 @@ after_build:
   - 7z x "..\dependencies\KillProcDll&FindProcDll.zip"
   - 7z x ..\dependencies\Registry.zip
   - 7z x ..\dependencies\AppAssocReg-0.4.zip
+  - 7z x ..\dependencies\StdUtils.2016-05-14.r2.zip
   - copy Desktop\Plugin\*.dll .\
   - copy Plugins\Unicode\*.dll .\
+  - copy Include\*.nsh %QZ_DIR%\windows
   # prepare icu
   - 7z x "..\dependencies\%ICU_DIR_NAME%.zip"
   # prepare qtwebengine_dictionaries 
