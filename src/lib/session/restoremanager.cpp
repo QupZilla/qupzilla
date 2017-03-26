@@ -49,7 +49,7 @@ QObject *RestoreManager::recoveryObject(WebPage *page)
     return m_recoveryObject;
 }
 
-void RestoreManager::createFromFile(const QString &file)
+void RestoreManager::createFromFile(const QString &file, QVector<WindowData> &data)
 {
     if (!QFile::exists(file)) {
         return;
@@ -97,6 +97,11 @@ void RestoreManager::createFromFile(const QString &file)
         tabStream >> currentTab;
         wd.currentTab = currentTab;
 
-        m_data.append(wd);
+        data.append(wd);
     }
+}
+
+void RestoreManager::createFromFile(const QString &file)
+{
+    createFromFile(file, m_data);
 }

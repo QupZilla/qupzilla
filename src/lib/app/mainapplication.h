@@ -79,6 +79,7 @@ public:
 
     AfterLaunch afterLaunch() const;
 
+    void openSession(BrowserWindow* window, RestoreData &restoreData);
     bool restoreSession(BrowserWindow* window, RestoreData restoreData);
     void destroyRestoreManager();
     void reloadSettings();
@@ -118,6 +119,8 @@ public slots:
 
     void changeOccurred();
     void quitApplication();
+
+    void writeCurrentSession(const QString &filePath);
 
 signals:
     void settingsReloaded();

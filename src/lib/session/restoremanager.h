@@ -42,6 +42,7 @@ public:
 
     QObject *recoveryObject(WebPage *page);
 
+    static void createFromFile(const QString &file, QVector<RestoreManager::WindowData> &data);
 private:
     void createFromFile(const QString &file);
 
