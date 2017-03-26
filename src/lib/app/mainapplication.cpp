@@ -403,17 +403,17 @@ MainApplication::AfterLaunch MainApplication::afterLaunch() const
     return static_cast<AfterLaunch>(Settings().value(QSL("Web-URL-Settings/afterLaunch"), RestoreSession).toInt());
 }
 
-bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
+void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreData)
 {
-    if (m_isPrivate || restoreData.isEmpty()) {
-        return false;
-    }
-
-    m_isRestoring = true;
     setOverrideCursor(Qt::BusyCursor);
 
+    if (!window)
+        window = createWindow(Qz::BW_OtherRestoredWindow);
+
     window->setUpdatesEnabled(false);
-    window->tabWidget()->closeRecoveryTab();
+
+    if (m_isRestoring)
+        window->tabWidget()->closeRecoveryTab();
 
     if (window->tabWidget()->normalTabsCount() > 1) {
         // This can only happen when recovering crashed session!
@@ -452,8 +452,20 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
         processEvents();
     }
 
-    destroyRestoreManager();
     restoreOverrideCursor();
+}
+
+bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
+{
+    if (m_isPrivate || restoreData.isEmpty()) {
+        return false;
+    }
+
+    m_isRestoring = true;
+
+    openSession(window, restoreData);
+
+    destroyRestoreManager();
     m_isRestoring = false;
 
     return true;
@@ -696,12 +708,8 @@ void MainApplication::postLaunch()
     QTimer::singleShot(5000, this, &MainApplication::runDeferredPostLaunchActions);
 }
 
-void MainApplication::saveSession()
+void MainApplication::writeCurrentSession(const QString &filePath)
 {
-    if (m_isPrivate || m_isRestoring || m_windows.count() == 0 || m_restoreManager) {
-        return;
-    }
-
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
@@ -718,10 +726,19 @@ void MainApplication::saveSession()
         }
     }
 
-    QFile file(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
+    QFile file(filePath);
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.close();
+}
+
+void MainApplication::saveSession()
+{
+    if (m_isPrivate || m_isRestoring || m_windows.count() == 0 || m_restoreManager) {
+        return;
+    }
+
+    writeCurrentSession(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
 }
 
 void MainApplication::saveSettings()
