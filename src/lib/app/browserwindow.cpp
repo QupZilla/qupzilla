@@ -1128,6 +1128,7 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
         }
         break;
 
+    case Qt::Key_Reload:
     case Qt::Key_Refresh:
         if (view) {
             view->reload();
