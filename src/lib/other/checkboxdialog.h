@@ -1,6 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2017  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2017  Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,35 +19,23 @@
 #ifndef CHECKBOXDIALOG_H
 #define CHECKBOXDIALOG_H
 
-#include <QDialog>
-#include <QDialogButtonBox>
+#include <QMessageBox>
 
 #include "qzcommon.h"
 
-namespace Ui
-{
-class CheckBoxDialog;
-}
-
-class QUPZILLA_EXPORT CheckBoxDialog : public QDialog
+class QUPZILLA_EXPORT CheckBoxDialog : public QMessageBox
 {
     Q_OBJECT
 public:
-    explicit CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons, QWidget* parent = 0);
+    explicit CheckBoxDialog(const QMessageBox::StandardButtons &buttons, QWidget* parent = 0);
 
-    void setIcon(const QIcon &icon);
-
-    void setText(const QString &text);
     void setCheckBoxText(const QString &text);
 
     bool isChecked() const;
     void setDefaultCheckState(Qt::CheckState state);
 
-public slots:
-    int exec();
-
 private:
-    Ui::CheckBoxDialog* ui;
+    QCheckBox* m_checkBox;
 
 };
 

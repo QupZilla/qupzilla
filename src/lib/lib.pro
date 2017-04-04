@@ -424,7 +424,6 @@ FORMS    += \
     other/aboutdialog.ui \
     other/browsinglibrary.ui \
     other/clearprivatedata.ui \
-    other/checkboxdialog.ui \
     other/iconchooser.ui \
     other/siteinfo.ui \
     other/siteinfowidget.ui \
