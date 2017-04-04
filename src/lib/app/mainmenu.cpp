@@ -532,6 +532,10 @@ void MainMenu::init()
     m_menuFile->addSeparator();
 
     if (!mApp->isPrivate()) {
+        action = new QAction(tr("New Session..."), this);
+        connect(action, SIGNAL(triggered()), mApp->sessionManager(), SLOT(newSession()));
+        m_actions[QSL("File/NewSession")] = action;
+        m_menuFile->addAction(action);
         action = new QAction(tr("Save Session..."), this);
         connect(action, SIGNAL(triggered()), mApp->sessionManager(), SLOT(saveSession()));
         m_actions[QSL("File/SaveSession")] = action;

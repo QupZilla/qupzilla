@@ -58,6 +58,7 @@ private slots:
     void cloneSession();
     void deleteSession();
     void saveSession();
+    void newSession();
 
 private:
     void fillSessionsMetaDataListIfNeeded();

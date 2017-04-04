@@ -260,6 +260,34 @@ void SessionManager::saveSession()
     }
 }
 
+void SessionManager::newSession()
+{
+    bool ok;
+    QString sessionName = QInputDialog::getText(mApp->activeWindow(), tr("New Session"),
+                                         tr("Please enter a name to create new session:"), QLineEdit::Normal,
+                                         tr("New Session (%1)").arg(QDateTime::currentDateTime().toString("dd MMM yyyy HH-mm-ss")), &ok);
+
+    if (ok) {
+        const QString filePath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(sessionName);
+        if (QFile::exists(filePath)) {
+            QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(sessionName));
+            newSession();
+            return;
+        }
+
+        writeCurrentSession(m_lastActiveSessionPath);
+
+        BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
+        for (BrowserWindow* win : mApp->windows()) {
+            if (win != window)
+                win->close();
+        }
+
+        m_lastActiveSessionPath = filePath;
+        autoSaveLastSession();
+    }
+}
+
 void SessionManager::fillSessionsMetaDataListIfNeeded()
 {
     if (m_sessionsMetaDataList.isEmpty()) {
