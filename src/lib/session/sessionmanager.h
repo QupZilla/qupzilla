@@ -52,7 +52,8 @@ private slots:
     void aboutToShowSessionsMenu();
     void aboutToShowSessionSubmenu();
     void sessionsDirectoryChanged();
-    void openSession(QString sessionFilePath = QString());
+    void switchToSession();
+    void openSession(QString sessionFilePath = QString(), bool switchSession = false);
     void renameSession(QString &sessionFilePath = QString(), bool clone = false);
     void cloneSession();
     void deleteSession();
