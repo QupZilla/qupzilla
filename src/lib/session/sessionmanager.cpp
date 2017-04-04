@@ -182,7 +182,7 @@ void SessionManager::openSession(QString sessionFilePath, bool switchSession)
     }
 }
 
-void SessionManager::renameSession(QString &sessionFilePath, bool clone)
+void SessionManager::renameSession(QString sessionFilePath, bool clone)
 {
     if (sessionFilePath.isEmpty()) {
         QAction* action = qobject_cast<QAction*>(sender());
