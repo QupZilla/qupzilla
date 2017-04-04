@@ -110,6 +110,8 @@ public:
     DesktopNotificationsFactory* desktopNotifications();
     QWebEngineProfile* webProfile() const;
 
+    QByteArray saveState() const;
+
     static MainApplication* instance();
 
 public slots:
@@ -122,8 +124,6 @@ public slots:
     void changeOccurred();
     void quitApplication();
 
-    void writeCurrentSession(const QString &filePath);
-
 signals:
     void settingsReloaded();
     void activeWindowChanged(BrowserWindow* window);
@@ -131,7 +131,6 @@ signals:
 private slots:
     void postLaunch();
 
-    void saveSession();
     void saveSettings();
 
     void messageReceived(const QString &message);
@@ -152,7 +151,6 @@ private:
     void loadTheme(const QString &name);
 
     void translateApp();
-    void backupSavedSessions();
 
     void setUserStyleSheet(const QString &filePath);
 

@@ -214,7 +214,7 @@ void SessionManager::saveSession()
             return;
         }
 
-        mApp->writeCurrentSession(filePath);
+        writeCurrentSession(filePath);
     }
 }
 
@@ -255,4 +255,38 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 QString SessionManager::defaultSessionPath()
 {
     return DataPaths::currentProfilePath() + QL1S("/session.dat");
+}
+
+void SessionManager::backupSavedSessions()
+{
+    if (!QFile::exists(defaultSessionPath())) {
+        return;
+    }
+
+    if (QFile::exists(m_firstBackupSession)) {
+        QFile::remove(m_secondBackupSession);
+        QFile::copy(m_firstBackupSession, m_secondBackupSession);
+    }
+
+    QFile::remove(m_firstBackupSession);
+    QFile::copy(defaultSessionPath(), m_firstBackupSession);
+}
+
+void SessionManager::writeCurrentSession(const QString &filePath)
+{
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly) || file.write(mApp->saveState()) == -1) {
+        qWarning() << "Error! can not write the current session file: " << filePath << file.errorString();
+        return;
+    }
+    file.close();
+}
+
+void SessionManager::autoSaveLastSession()
+{
+    if (mApp->isPrivate() || mApp->isRestoring() || mApp->windowCount() == 0 || mApp->restoreManager()) {
+        return;
+    }
+
+    writeCurrentSession(defaultSessionPath());
 }

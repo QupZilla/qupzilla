@@ -38,6 +38,12 @@ public:
 
     static QString defaultSessionPath();
 
+    void backupSavedSessions();
+    void writeCurrentSession(const QString &filePath);
+
+public slots:
+    void autoSaveLastSession();
+
 private slots:
     void aboutToShowSessionsMenu();
     void aboutToShowSessionSubmenu();
