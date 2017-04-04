@@ -46,6 +46,7 @@
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "scripts.h"
+#include "sessionmanager.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -91,6 +92,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_browsingLibrary(0)
     , m_networkManager(0)
     , m_restoreManager(0)
+    , m_sessionManager(0)
     , m_downloadManager(0)
     , m_userAgentManager(0)
     , m_searchEnginesManager(0)
@@ -277,6 +279,10 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     m_autoSaver = new AutoSaver(this);
     connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSession()));
+
+    if (!isPrivate()) {
+        m_sessionManager = new SessionManager(this);
+    }
 
     translateApp();
     loadSettings();
@@ -560,6 +566,11 @@ NetworkManager *MainApplication::networkManager()
 RestoreManager* MainApplication::restoreManager()
 {
     return m_restoreManager;
+}
+
+SessionManager* MainApplication::sessionManager()
+{
+    return m_sessionManager;
 }
 
 DownloadManager* MainApplication::downloadManager()

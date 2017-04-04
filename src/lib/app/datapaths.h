@@ -35,7 +35,8 @@ public:
         CurrentProfile = 6,      // $Profiles/current_profile
         Temp = 7,                // $Config/tmp
         Cache = 8,               // $XDG_CACHE_HOME/qupzilla or $CurrentProfile/cache
-        LastPath = 9
+        Sessions = 9,            // $CurrentProfile/sessions
+        LastPath = 10
     };
 
     explicit DataPaths();

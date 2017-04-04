@@ -166,6 +166,7 @@ SOURCES += \
     preferences/useragentdialog.cpp \
     session/recoveryjsobject.cpp \
     session/restoremanager.cpp \
+    session/sessionmanager.cpp \
     sidebar/bookmarkssidebar.cpp \
     sidebar/historysidebar.cpp \
     sidebar/sidebar.cpp \
@@ -347,6 +348,7 @@ HEADERS  += \
     preferences/useragentdialog.h \
     session/recoveryjsobject.h \
     session/restoremanager.h \
+    session/sessionmanager.h \
     sidebar/bookmarkssidebar.h \
     sidebar/historysidebar.h \
     sidebar/sidebar.h \

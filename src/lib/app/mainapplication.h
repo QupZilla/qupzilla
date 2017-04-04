@@ -49,6 +49,7 @@ class HTML5PermissionsManager;
 class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
 class ProxyStyle;
+class SessionManager;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -101,6 +102,7 @@ public:
 
     NetworkManager* networkManager();
     RestoreManager* restoreManager();
+    SessionManager* sessionManager();
     DownloadManager* downloadManager();
     UserAgentManager* userAgentManager();
     SearchEnginesManager* searchEnginesManager();
@@ -173,6 +175,7 @@ private:
 
     NetworkManager* m_networkManager;
     RestoreManager* m_restoreManager;
+    SessionManager* m_sessionManager;
     DownloadManager* m_downloadManager;
     UserAgentManager* m_userAgentManager;
     SearchEnginesManager* m_searchEnginesManager;
