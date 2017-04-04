@@ -23,12 +23,16 @@
 #include "settings.h"
 
 #include <QAction>
+#include <QComboBox>
 #include <QDateTime>
+#include <QDialogButtonBox>
 #include <QDir>
 #include <QFileSystemWatcher>
 #include <QInputDialog>
+#include <QLabel>
 #include <QMenu>
 #include <QMessageBox>
+#include <QVBoxLayout>
 
 
 SessionManager::SessionManager(QObject* parent)
@@ -385,4 +389,42 @@ void SessionManager::autoSaveLastSession()
 
     saveSettings();
     writeCurrentSession(m_lastActiveSessionPath);
+}
+
+QString SessionManager::askSessionFromUser()
+{
+    fillSessionsMetaDataListIfNeeded();
+
+    QDialog dialog(mApp->getWindow(), Qt::WindowStaysOnTopHint);
+    QLabel label(tr("Please select the startup session:"), &dialog);
+    QComboBox comboBox(&dialog);
+    QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    connect(&buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+    QVBoxLayout layout;
+    layout.addWidget(&label);
+    layout.addWidget(&comboBox);
+    layout.addWidget(&buttonBox);
+    dialog.setLayout(&layout);
+
+
+    const QFileInfo lastActiveSessionFileInfo(m_lastActiveSessionPath);
+
+    for (const SessionMetaData &metaData : m_sessionsMetaDataList) {
+        if (QFileInfo(metaData.filePath) != lastActiveSessionFileInfo) {
+            comboBox.addItem(metaData.name, metaData.filePath);
+        }
+        else {
+            comboBox.insertItem(0, tr("%1 (last session)").arg(metaData.name), metaData.filePath);
+        }
+    }
+
+    comboBox.setCurrentIndex(0);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        m_lastActiveSessionPath = comboBox.currentData().toString();
+    }
+
+    return m_lastActiveSessionPath;
 }

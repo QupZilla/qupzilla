@@ -164,6 +164,7 @@ void BrowserWindow::postLaunch()
 
     case MainApplication::OpenHomePage:
     case MainApplication::RestoreSession:
+    case MainApplication::SelectSession:
         startUrl = m_homepage;
         break;
 
@@ -178,7 +179,7 @@ void BrowserWindow::postLaunch()
             startUrl.clear();
             m_tabWidget->addView(QUrl("qupzilla:restore"), Qz::NT_CleanSelectedTabAtTheEnd);
         }
-        else if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->restoreManager()) {
+        else if ((mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) && mApp->restoreManager()) {
             addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
         }
         break;
@@ -1316,7 +1317,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     Settings settings;
     bool askOnClose = settings.value("Browser-Tabs-Settings/AskOnClosing", true).toBool();
 
-    if (mApp->afterLaunch() == MainApplication::RestoreSession && mApp->windowCount() == 1) {
+    if ((mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) && mApp->windowCount() == 1) {
         askOnClose = false;
     }
 

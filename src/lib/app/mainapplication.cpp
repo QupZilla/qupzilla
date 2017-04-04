@@ -281,6 +281,14 @@ MainApplication::MainApplication(int &argc, char** argv)
         m_sessionManager = new SessionManager(this);
         m_autoSaver = new AutoSaver(this);
         connect(m_autoSaver, SIGNAL(save()), m_sessionManager, SLOT(autoSaveLastSession()));
+
+        Settings settings;
+        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
+        settings.setValue("SessionRestore/isRunning", true);
+
+        // we have to ask about startup session before creating main window
+        if (!m_isStartingAfterCrash && afterLaunch() == SelectSession)
+            m_restoreManager = new RestoreManager(sessionManager()->askSessionFromUser());
     }
 
     translateApp();
@@ -299,11 +307,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
 
     if (!isPrivate()) {
-        Settings settings;
-        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-        settings.setValue("SessionRestore/isRunning", true);
-
 #ifndef DISABLE_CHECK_UPDATES
+        Settings settings;
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", true).toBool();
 
         if (checkUpdates) {

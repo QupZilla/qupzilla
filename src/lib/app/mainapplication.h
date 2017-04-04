@@ -60,7 +60,8 @@ public:
         OpenBlankPage = 0,
         OpenHomePage = 1,
         OpenSpeedDial = 2,
-        RestoreSession = 3
+        RestoreSession = 3,
+        SelectSession = 4
     };
 
     explicit MainApplication(int &argc, char** argv);

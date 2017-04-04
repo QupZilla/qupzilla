@@ -41,6 +41,7 @@ public:
 
     static QString defaultSessionPath();
     QString lastActiveSessionPath() const;
+    QString askSessionFromUser();
 
     void backupSavedSessions();
     void writeCurrentSession(const QString &filePath);
