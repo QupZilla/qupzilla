@@ -314,7 +314,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         sessionManager()->backupSavedSessions();
 
         if (m_isStartingAfterCrash || afterLaunch() == RestoreSession) {
-            m_restoreManager = new RestoreManager();
+            m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
             } else {
@@ -785,6 +785,8 @@ void MainApplication::saveSettings()
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(DataPaths::currentProfilePath() + QLatin1String("/WebpageIcons.db"));
+
+    sessionManager()->saveSettings();
 }
 
 void MainApplication::messageReceived(const QString &message)

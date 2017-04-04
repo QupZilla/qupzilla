@@ -22,10 +22,10 @@
 
 #include <QFile>
 
-RestoreManager::RestoreManager()
+RestoreManager::RestoreManager(const QString &file)
     : m_recoveryObject(new RecoveryJsObject(this))
 {
-    createFromFile(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
+    createFromFile(file);
 }
 
 RestoreManager::~RestoreManager()

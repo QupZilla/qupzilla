@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "restoremanager.h"
 #include "sessionmanager.h"
+#include "settings.h"
 
 #include <QAction>
 #include <QDateTime>
@@ -37,21 +38,25 @@ SessionManager::SessionManager(QObject* parent)
 {
     QFileSystemWatcher* sessionFilesWatcher = new QFileSystemWatcher({DataPaths::path(DataPaths::Sessions)}, this);
     connect(sessionFilesWatcher, SIGNAL(directoryChanged(QString)), this, SLOT(sessionsDirectoryChanged()));
+
+    loadSettings();
 }
 
-static void addSessionSubmenu(QObject* receiver, QMenu* menu, const QString &title, const QString &filePath)
+static void addSessionSubmenu(QObject* receiver, QMenu* menu, const QString &title, const QString &filePath, const QFileInfo &lastActiveSessionFileInfo)
 {
     QMenu* sessionSubmenu = new QMenu(title, menu);
     QObject::connect(sessionSubmenu, SIGNAL(aboutToShow()), receiver, SLOT(aboutToShowSessionSubmenu()));
 
     QAction* action = menu->addMenu(sessionSubmenu);
     action->setData(filePath);
+    action->setCheckable(true);
+    action->setChecked(QFileInfo(filePath) == lastActiveSessionFileInfo);
 }
 
-static void addSessionsMetaDataToMenu(QObject* receiver, QMenu* menu, const QList<SessionManager::SessionMetaData> &sessionsMetaDataList)
+static void addSessionsMetaDataToMenu(QObject* receiver, QMenu* menu, const QFileInfo &lastActiveSessionFileInfo, const QList<SessionManager::SessionMetaData> &sessionsMetaDataList)
 {
     for (const SessionManager::SessionMetaData &metaData : sessionsMetaDataList) {
-        addSessionSubmenu(receiver, menu, metaData.name, metaData.filePath);
+        addSessionSubmenu(receiver, menu, metaData.name, metaData.filePath, lastActiveSessionFileInfo);
     }
 }
 
@@ -60,16 +65,18 @@ void SessionManager::aboutToShowSessionsMenu()
     QMenu* menu = qobject_cast<QMenu*>(sender());
     menu->clear();
 
+    const QFileInfo lastActiveSessionInfo(m_lastActiveSessionPath);
+
     fillSessionsMetaDataListIfNeeded();
 
-    addSessionsMetaDataToMenu(this, menu, m_sessionsMetaDataList);
+    addSessionsMetaDataToMenu(this, menu, lastActiveSessionInfo, m_sessionsMetaDataList);
 
     menu->addSeparator();
 
     if (QFile::exists(m_firstBackupSession))
-        addSessionSubmenu(this, menu, tr("First Backup"), m_firstBackupSession);
+        addSessionSubmenu(this, menu, tr("First Backup"), m_firstBackupSession, lastActiveSessionInfo);
     if (QFile::exists(m_secondBackupSession))
-        addSessionSubmenu(this, menu, tr("Second Backup"), m_secondBackupSession);
+        addSessionSubmenu(this, menu, tr("Second Backup"), m_secondBackupSession, lastActiveSessionInfo);
 }
 
 void SessionManager::aboutToShowSessionSubmenu()
@@ -78,31 +85,38 @@ void SessionManager::aboutToShowSessionSubmenu()
     menu->clear();
 
     const QString sessionFilePath = menu->menuAction()->data().toString();
+
+    const QFileInfo currentSessionFileInfo(m_lastActiveSessionPath);
     const QFileInfo sessionFileInfo(sessionFilePath);
 
     QList<QAction*> actions;
     QAction* action;
 
-    action = new QAction(SessionManager::tr("Open"));
-    action->setData(sessionFilePath);
-    QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(openSession()));
-    actions << action;
+    if (sessionFileInfo != currentSessionFileInfo || mApp->restoreManager()) {
+        action = new QAction(SessionManager::tr("Open"));
+        action->setData(sessionFilePath);
+        QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(openSession()));
+        actions << action;
 
-    action = new QAction;
-    action->setSeparator(true);
-    actions << action;
+        action = new QAction;
+        action->setSeparator(true);
+        actions << action;
+    }
 
     action = new QAction(SessionManager::tr("Clone"));
     action->setData(sessionFilePath);
     QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(cloneSession()));
     actions << action;
 
-    action = new QAction(SessionManager::tr("Rename"));
-    action->setData(sessionFilePath);
-    QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(renameSession()));
-    actions << action;
+    if (sessionFileInfo != currentSessionFileInfo) {
+        action = new QAction(SessionManager::tr("Rename"));
+        action->setData(sessionFilePath);
+        QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(renameSession()));
+        actions << action;
+    }
 
-    if (sessionFileInfo != QFileInfo(defaultSessionPath()) && sessionFileInfo != QFileInfo(m_firstBackupSession) && sessionFileInfo != QFileInfo(m_secondBackupSession)) {
+    if (sessionFileInfo != currentSessionFileInfo && sessionFileInfo != QFileInfo(defaultSessionPath()) &&
+            sessionFileInfo != QFileInfo(m_firstBackupSession) && sessionFileInfo != QFileInfo(m_secondBackupSession)) {
         action = new QAction(SessionManager::tr("Remove"));
         action->setData(sessionFilePath);
         QObject::connect(action, SIGNAL(triggered(bool)), this, SLOT(deleteSession()));
@@ -237,7 +251,7 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
                 metaData.name = fileInfo.baseName();
 
                 if (fileInfo == QFileInfo(defaultSessionPath()))
-                    metaData.name = tr("Last Session");
+                    metaData.name = tr("Default Session");
                 else if (fileNames.contains(fileInfo.baseName()))
                     metaData.name = fileInfo.fileName();
                 else
@@ -252,14 +266,39 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
     }
 }
 
+void SessionManager::loadSettings()
+{
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+    m_lastActiveSessionPath = settings.value("lastActiveSessionPath", defaultSessionPath()).toString();
+    settings.endGroup();
+
+    // fallback to default session
+    if (!QFile::exists(m_lastActiveSessionPath))
+        m_lastActiveSessionPath = defaultSessionPath();
+}
+
+void SessionManager::saveSettings()
+{
+    Settings settings;
+    settings.beginGroup("Web-Browser-Settings");
+    settings.setValue("lastActiveSessionPath", m_lastActiveSessionPath);
+    settings.endGroup();
+}
+
 QString SessionManager::defaultSessionPath()
 {
     return DataPaths::currentProfilePath() + QL1S("/session.dat");
 }
 
+QString SessionManager::lastActiveSessionPath() const
+{
+    return m_lastActiveSessionPath;
+}
+
 void SessionManager::backupSavedSessions()
 {
-    if (!QFile::exists(defaultSessionPath())) {
+    if (!QFile::exists(m_lastActiveSessionPath)) {
         return;
     }
 
@@ -269,7 +308,7 @@ void SessionManager::backupSavedSessions()
     }
 
     QFile::remove(m_firstBackupSession);
-    QFile::copy(defaultSessionPath(), m_firstBackupSession);
+    QFile::copy(m_lastActiveSessionPath, m_firstBackupSession);
 }
 
 void SessionManager::writeCurrentSession(const QString &filePath)
@@ -288,5 +327,6 @@ void SessionManager::autoSaveLastSession()
         return;
     }
 
-    writeCurrentSession(defaultSessionPath());
+    saveSettings();
+    writeCurrentSession(m_lastActiveSessionPath);
 }

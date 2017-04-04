@@ -36,7 +36,11 @@ public:
         QString filePath;
     };
 
+    void loadSettings();
+    void saveSettings();
+
     static QString defaultSessionPath();
+    QString lastActiveSessionPath() const;
 
     void backupSavedSessions();
     void writeCurrentSession(const QString &filePath);
@@ -61,6 +65,7 @@ private:
 
     QString m_firstBackupSession;
     QString m_secondBackupSession;
+    QString m_lastActiveSessionPath;
 };
 
 #endif // SESSIONMANAGER_H
