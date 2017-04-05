@@ -164,22 +164,23 @@ void SessionManager::openSession(QString sessionFilePath, bool switchSession)
     QVector<RestoreManager::WindowData> sessionData;
     RestoreManager::createFromFile(sessionFilePath, sessionData);
 
-    if (!sessionData.isEmpty()) {
-        BrowserWindow* window = mApp->getWindow();
-        if (switchSession) {
-            writeCurrentSession(m_lastActiveSessionPath);
+    if (sessionData.isEmpty())
+        return;
 
-            window = mApp->createWindow(Qz::BW_OtherRestoredWindow);
-            for (BrowserWindow* win : mApp->windows()) {
-                if (win != window)
-                    win->close();
-            }
+    BrowserWindow* window = mApp->getWindow();
+    if (switchSession) {
+        writeCurrentSession(m_lastActiveSessionPath);
 
-            m_lastActiveSessionPath = QFileInfo(sessionFilePath).canonicalFilePath();
+        window = mApp->createWindow(Qz::BW_OtherRestoredWindow);
+        for (BrowserWindow* win : mApp->windows()) {
+            if (win != window)
+                win->close();
         }
 
-        mApp->openSession(window, sessionData);
+        m_lastActiveSessionPath = QFileInfo(sessionFilePath).canonicalFilePath();
     }
+
+    mApp->openSession(window, sessionData);
 }
 
 void SessionManager::renameSession(QString sessionFilePath, bool clone)
@@ -198,26 +199,25 @@ void SessionManager::renameSession(QString sessionFilePath, bool clone)
                                             tr("Please enter a new name:"), QLineEdit::Normal,
                                             suggestedName, &ok);
 
-    if (ok) {
-        const QString newSessionPath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(newName);
-        if (QFile::exists(newSessionPath)) {
-            QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(newName));
-            renameSession(sessionFilePath, clone);
+    if (!ok)
+        return;
+
+    const QString newSessionPath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(newName);
+    if (QFile::exists(newSessionPath)) {
+        QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(newName));
+        renameSession(sessionFilePath, clone);
+        return;
+    }
+
+    if (clone) {
+        if (!QFile::copy(sessionFilePath, newSessionPath)) {
+            QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("An error occurred when cloning session file."));
             return;
         }
-
-        if (clone) {
-            if (!QFile::copy(sessionFilePath, newSessionPath)) {
-                QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("An error occurred when cloning session file."));
-                return;
-            }
-        }
-        else {
-            if (!QFile::rename(sessionFilePath, newSessionPath)) {
-                QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("An error occurred when renaming session file."));
-                return;
-            }
-        }
+    }
+    else if (!QFile::rename(sessionFilePath, newSessionPath)) {
+        QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("An error occurred when renaming session file."));
+        return;
     }
 }
 
@@ -252,16 +252,17 @@ void SessionManager::saveSession()
                                          tr("Please enter a name to save session:"), QLineEdit::Normal,
                                          tr("Saved Session (%1)").arg(QDateTime::currentDateTime().toString("dd MMM yyyy HH-mm-ss")), &ok);
 
-    if (ok) {
-        const QString filePath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(sessionName);
-        if (QFile::exists(filePath)) {
-            QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(sessionName));
-            saveSession();
-            return;
-        }
+    if (!ok)
+        return;
 
-        writeCurrentSession(filePath);
+    const QString filePath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(sessionName);
+    if (QFile::exists(filePath)) {
+        QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(sessionName));
+        saveSession();
+        return;
     }
+
+    writeCurrentSession(filePath);
 }
 
 void SessionManager::newSession()
@@ -271,58 +272,61 @@ void SessionManager::newSession()
                                          tr("Please enter a name to create new session:"), QLineEdit::Normal,
                                          tr("New Session (%1)").arg(QDateTime::currentDateTime().toString("dd MMM yyyy HH-mm-ss")), &ok);
 
-    if (ok) {
-        const QString filePath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(sessionName);
-        if (QFile::exists(filePath)) {
-            QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(sessionName));
-            newSession();
-            return;
-        }
+    if (!ok)
+        return;
 
-        writeCurrentSession(m_lastActiveSessionPath);
-
-        BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
-        for (BrowserWindow* win : mApp->windows()) {
-            if (win != window)
-                win->close();
-        }
-
-        m_lastActiveSessionPath = filePath;
-        autoSaveLastSession();
+    const QString filePath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(sessionName);
+    if (QFile::exists(filePath)) {
+        QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(sessionName));
+        newSession();
+        return;
     }
+
+    writeCurrentSession(m_lastActiveSessionPath);
+
+    BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
+    for (BrowserWindow* win : mApp->windows()) {
+        if (win != window)
+            win->close();
+    }
+
+    m_lastActiveSessionPath = filePath;
+    autoSaveLastSession();
 }
 
 void SessionManager::fillSessionsMetaDataListIfNeeded()
 {
-    if (m_sessionsMetaDataList.isEmpty()) {
-        QDir dir(DataPaths::path(DataPaths::Sessions));
+    if (!m_sessionsMetaDataList.isEmpty())
+        return;
 
-        const QFileInfoList sessionFiles = QFileInfoList() << QFileInfo(defaultSessionPath()) << dir.entryInfoList({QSL("*.*")}, QDir::Files, QDir::Time);
+    QDir dir(DataPaths::path(DataPaths::Sessions));
 
-        QStringList fileNames;
+    const QFileInfoList sessionFiles = QFileInfoList() << QFileInfo(defaultSessionPath()) << dir.entryInfoList({QSL("*.*")}, QDir::Files, QDir::Time);
 
-        for (int i = 0; i < sessionFiles.size(); ++i) {
-            const QFileInfo &fileInfo = sessionFiles.at(i);
-            QVector<RestoreManager::WindowData> data;
-            RestoreManager::createFromFile(fileInfo.absoluteFilePath(), data);
+    QStringList fileNames;
 
-            if (!data.isEmpty()) {
-                SessionMetaData metaData;
-                metaData.name = fileInfo.baseName();
+    for (int i = 0; i < sessionFiles.size(); ++i) {
+        const QFileInfo &fileInfo = sessionFiles.at(i);
+        QVector<RestoreManager::WindowData> data;
+        RestoreManager::createFromFile(fileInfo.absoluteFilePath(), data);
 
-                if (fileInfo == QFileInfo(defaultSessionPath()))
-                    metaData.name = tr("Default Session");
-                else if (fileNames.contains(fileInfo.baseName()))
-                    metaData.name = fileInfo.fileName();
-                else
-                    metaData.name = fileInfo.baseName();
+        if (data.isEmpty())
+            continue;
 
-                fileNames << metaData.name;
-                metaData.filePath = fileInfo.canonicalFilePath();
+        SessionMetaData metaData;
+        metaData.name = fileInfo.baseName();
 
-                m_sessionsMetaDataList << metaData;
-            }
-        }
+        if (fileInfo == QFileInfo(defaultSessionPath()))
+            metaData.name = tr("Default Session");
+        else if (fileNames.contains(fileInfo.baseName()))
+            metaData.name = fileInfo.fileName();
+        else
+            metaData.name = fileInfo.baseName();
+
+        fileNames << metaData.name;
+        metaData.filePath = fileInfo.canonicalFilePath();
+
+        m_sessionsMetaDataList << metaData;
     }
 }
 
@@ -407,7 +411,6 @@ QString SessionManager::askSessionFromUser()
     layout.addWidget(&comboBox);
     layout.addWidget(&buttonBox);
     dialog.setLayout(&layout);
-
 
     const QFileInfo lastActiveSessionFileInfo(m_lastActiveSessionPath);
 
