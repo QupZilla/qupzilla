@@ -75,7 +75,7 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
 
     connect(closeButton, SIGNAL(clicked(bool)), this, SLOT(filterBarClosed()));
     connect(ui->filterBar, SIGNAL(textChanged(QString)), this, SLOT(filterChanged(QString)));
-    connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClick(QTreeWidgetItem*,int)));
+    connect(ui->treeWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(onItemActivated(QTreeWidgetItem*,int)));
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 }
 
@@ -201,7 +201,7 @@ void TabManagerWidget::refreshTree()
     m_waitForRefresh = false;
 }
 
-void TabManagerWidget::itemDoubleClick(QTreeWidgetItem* item, int)
+void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int)
 {
     if (!item) {
         return;
@@ -345,7 +345,7 @@ bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
         if (obj == ui->treeWidget) {
             // switch to tab/window on enter
             if (keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return) {
-                itemDoubleClick(ui->treeWidget->currentItem(), 0);
+                onItemActivated(ui->treeWidget->currentItem(), 0);
                 return QObject::eventFilter(obj, event);
             }
 

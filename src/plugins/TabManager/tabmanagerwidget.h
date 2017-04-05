@@ -91,7 +91,7 @@ private:
 private slots:
     void refreshTree();
     void processActions();
-    void itemDoubleClick(QTreeWidgetItem* item, int);
+    void onItemActivated(QTreeWidgetItem* item, int);
     bool isTabSelected();
     void customContextMenuRequested(const QPoint &pos);
     void filterChanged(const QString &filter, bool force = false);
