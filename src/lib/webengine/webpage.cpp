@@ -272,7 +272,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
         return;
     }
 
-    CheckBoxDialog dialog(QDialogButtonBox::Yes | QDialogButtonBox::No, view());
+    CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, view());
 
     const QString wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
     const QString text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
@@ -282,10 +282,10 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     dialog.setText(text);
     dialog.setCheckBoxText(tr("Remember my choice for this protocol"));
     dialog.setWindowTitle(tr("External Protocol Request"));
-    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxQuestion));
+    dialog.setIcon(QMessageBox::Question);
 
     switch (dialog.exec()) {
-    case QDialog::Accepted:
+    case QMessageBox::Yes:
         if (dialog.isChecked()) {
             qzSettings->autoOpenProtocols.append(protocol);
             qzSettings->saveSettings();
@@ -295,7 +295,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
         QDesktopServices::openUrl(url);
         break;
 
-    case QDialog::Rejected:
+    case QMessageBox::No:
         if (dialog.isChecked()) {
             qzSettings->blockedProtocols.append(protocol);
             qzSettings->saveSettings();
@@ -546,11 +546,11 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
         title.append(QString(" - %1").arg(url().host()));
     }
 
-    CheckBoxDialog dialog(QDialogButtonBox::Ok, view());
+    CheckBoxDialog dialog(QMessageBox::Ok, view());
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setIcon(IconProvider::standardIcon(QStyle::SP_MessageBoxInformation));
+    dialog.setIcon(QMessageBox::Information);
     dialog.exec();
 
     m_blockAlerts = dialog.isChecked();

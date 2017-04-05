@@ -25,11 +25,11 @@
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "iconprovider.h"
+#include "checkboxdialog.h"
 
 #include <QMenu>
 #include <QMimeData>
 #include <QMouseEvent>
-#include <QMessageBox>
 #include <QStyleOption>
 #include <QApplication>
 #include <QTimer>
@@ -127,33 +127,48 @@ void TabBar::overflowChanged(bool overflowed)
     }
 }
 
-//TODO: replace these 3 w/ preferencable mbox
+static bool canCloseTabs(const QString &settingsKey, const QString &title, const QString &description)
+{
+    Settings settings;
+    bool ask = settings.value("Browser-Tabs-Settings/" + settingsKey, true).toBool();
+
+    if (ask) {
+        CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, mApp->activeWindow());
+        dialog.setDefaultButton(QMessageBox::No);
+        dialog.setWindowTitle(title);
+        dialog.setText(description);
+        dialog.setCheckBoxText(TabBar::tr("Don't ask again"));
+        dialog.setIcon(QMessageBox::Question);
+
+        if (dialog.exec() != QMessageBox::Yes) {
+            return false;
+        }
+
+        if (dialog.isChecked()) {
+            settings.setValue("Browser-Tabs-Settings/" + settingsKey, false);
+        }
+    }
+
+    return true;
+}
+
 void TabBar::closeAllButCurrent()
 {
-    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close other tabs?"),
-                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-
-    if (button == QMessageBox::Yes) {
+    if (canCloseTabs(QLatin1String("AskOnClosingAllButCurrent"), tr("Close Tabs"), tr("Do you really want to close other tabs?"))) {
         emit closeAllButCurrent(m_clickedTab);
     }
 }
 
 void TabBar::closeToRight()
 {
-    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the right?"),
-                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-
-    if (button == QMessageBox::Yes) {
+    if (canCloseTabs(QLatin1String("AskOnClosingToRight"), tr("Close Tabs"), tr("Do you really want to close all tabs to the right?"))) {
         emit closeToRight(m_clickedTab);
     }
 }
 
 void TabBar::closeToLeft()
 {
-    QMessageBox::StandardButton button = QMessageBox::question(this, tr("Close Tabs"), tr("Do you really want to close all tabs to the left?"),
-                                         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-
-    if (button == QMessageBox::Yes) {
+    if (canCloseTabs(QLatin1String("AskOnClosingToLeft"), tr("Close Tabs"), tr("Do you really want to close all tabs to the left?"))) {
         emit closeToLeft(m_clickedTab);
     }
 }

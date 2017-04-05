@@ -1,6 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2017  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2017  Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,47 +17,28 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "checkboxdialog.h"
-#include "ui_checkboxdialog.h"
+#include <QCheckBox>
 
-CheckBoxDialog::CheckBoxDialog(const QDialogButtonBox::StandardButtons &buttons, QWidget* parent)
-    : QDialog(parent, Qt::MSWindowsFixedSizeDialogHint | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint)
-    , ui(new Ui::CheckBoxDialog)
+CheckBoxDialog::CheckBoxDialog(const QMessageBox::StandardButtons &buttons, QWidget* parent)
+    : QMessageBox(parent)
+    , m_checkBox(new QCheckBox)
 {
-    ui->setupUi(this);
-
-    ui->buttonBox->setStandardButtons(buttons);
-}
-
-void CheckBoxDialog::setIcon(const QIcon &icon)
-{
-    ui->iconLabel->setPixmap(icon.pixmap(48, 48));
-    ui->iconLabel->setFixedWidth(48);
-}
-
-void CheckBoxDialog::setText(const QString &text)
-{
-    ui->textLabel->setText(text);
+    setCheckBox(m_checkBox);
+    setStandardButtons(buttons);
+    setWindowFlags(windowFlags() | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint);
 }
 
 void CheckBoxDialog::setCheckBoxText(const QString &text)
 {
-    ui->checkBox->setText(text);
+    m_checkBox->setText(text);
 }
 
 bool CheckBoxDialog::isChecked() const
 {
-    return ui->checkBox->isChecked();
+    return m_checkBox->isChecked();
 }
 
 void CheckBoxDialog::setDefaultCheckState(Qt::CheckState state)
 {
-    ui->checkBox->setChecked(state == Qt::Checked);
-}
-
-int CheckBoxDialog::exec()
-{
-    ui->buttonBox->setFocus();
-    setMaximumSize(size());
-
-    return QDialog::exec();
+    m_checkBox->setChecked(state == Qt::Checked);
 }
