@@ -1,6 +1,6 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013-2016  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -59,6 +59,14 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
     }
 
     ui->setupUi(this);
+    ui->treeWidget->setUniformRowHeights(true);
+    ui->treeWidget->setColumnCount(2);
+    ui->treeWidget->header()->hide();
+    ui->treeWidget->header()->setStretchLastSection(false);
+    ui->treeWidget->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    ui->treeWidget->header()->setSectionResizeMode(1, QHeaderView::Fixed);
+    ui->treeWidget->header()->resizeSection(1, 16);
+
     ui->treeWidget->setExpandsOnDoubleClick(false);
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -201,7 +209,7 @@ void TabManagerWidget::refreshTree()
     m_waitForRefresh = false;
 }
 
-void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int)
+void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int column)
 {
     if (!item) {
         return;
@@ -211,6 +219,11 @@ void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int)
     QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
 
     if (!mainWindow) {
+        return;
+    }
+
+    if (column == 1 && item->childCount() == 0 && tabWidget) {
+        mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
         return;
     }
 
@@ -376,6 +389,9 @@ bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
             }
         }
     }
+
+    if (obj == ui->treeWidget && event->type() == QEvent::Resize)
+        ui->treeWidget->setColumnHidden(1, ui->treeWidget->viewport()->width() < 150);
 
     return QObject::eventFilter(obj, event);
 }

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2016 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2016-2017 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * Copyright (C) 2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -35,6 +35,7 @@ void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opt
 
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
+    const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
 
@@ -60,6 +61,21 @@ void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opt
 
     // draw the background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+
+    // draw close button
+    if (index.column() == 1) {
+        if (index.parent().isValid() && opt.state & QStyle::State_MouseOver) {
+            static const int buttonSize = 16;
+            static const  QPixmap closeButton = style->standardIcon(QStyle::SP_TitleBarCloseButton)
+                    .pixmap(buttonSize, buttonSize).scaled(buttonSize, buttonSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+            const QRect rect(opt.rect.right() - buttonSize, (opt.rect.height() - buttonSize) / 2 + opt.rect.y(), buttonSize, buttonSize);
+            painter->drawPixmap(style->visualRect(direction, opt.rect, rect), closeButton);
+        }
+
+        painter->restore();
+        return;
+    }
 
     // draw the check mark
     if (opt.features & QStyleOptionViewItem::HasCheckIndicator) {
