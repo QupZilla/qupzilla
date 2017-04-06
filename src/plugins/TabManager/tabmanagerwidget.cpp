@@ -222,8 +222,11 @@ void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int column)
         return;
     }
 
-    if (column == 1 && item->childCount() == 0 && tabWidget) {
-        mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
+    if (column == 1) {
+        if (item->childCount() == 0 && tabWidget)
+            mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
+        else if (item->childCount() > 0)
+            QMetaObject::invokeMethod(mainWindow, "addTab");
         return;
     }
 
