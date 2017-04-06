@@ -16,19 +16,19 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "tabfilterdelegate.h"
+#include "tabmanagerdelegate.h"
 
 #include <QPainter>
 #include <QApplication>
 #include <QTextLayout>
 
-TabFilterDelegate::TabFilterDelegate(QObject* parent)
+TabManagerDelegate::TabManagerDelegate(QObject* parent)
     : QStyledItemDelegate(parent)
 {
 }
 
 // most of codes taken from QCommonStyle::drawControl() and add our custom text drawer
-void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
@@ -156,7 +156,7 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
-void TabFilterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
+void TabManagerDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
                                                  const QString &text, const QColor &color, const QString &searchText) const
 {
     if (text.isEmpty()) {

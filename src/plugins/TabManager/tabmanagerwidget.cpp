@@ -29,7 +29,7 @@
 #include "bookmarks.h"
 #include "tabmanagerplugin.h"
 #include "tldextractor/tldextractor.h"
-#include "tabfilterdelegate.h"
+#include "tabmanagerdelegate.h"
 
 
 #include <QDesktopWidget>
@@ -79,7 +79,7 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
     ui->filterBar->addWidget(closeButton, LineEdit::RightSide);
     ui->filterBar->hide();
 
-    ui->treeWidget->setItemDelegate(new TabFilterDelegate(ui->treeWidget));
+    ui->treeWidget->setItemDelegate(new TabManagerDelegate(ui->treeWidget));
 
     connect(closeButton, SIGNAL(clicked(bool)), this, SLOT(filterBarClosed()));
     connect(ui->filterBar, SIGNAL(textChanged(QString)), this, SLOT(filterChanged(QString)));
