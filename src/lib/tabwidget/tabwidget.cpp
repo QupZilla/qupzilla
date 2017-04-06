@@ -787,17 +787,8 @@ QByteArray TabWidget::saveState()
         if (!webTab)
             continue;
 
-        // save state does not support saving restore tab
-        if (webTab->url().toString() == QLatin1String("qupzilla:restore")) {
-            WebTab::SavedTab tab;
-            tab.title = m_urlOnNewTab.toString();
-            tab.url = m_urlOnNewTab;
-            tabList.append(tab);
-        }
-        else {
-            WebTab::SavedTab tab(webTab);
-            tabList.append(tab);
-        }
+        WebTab::SavedTab tab(webTab);
+        tabList.append(tab);
     }
 
     QByteArray data;
