@@ -390,7 +390,7 @@ bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
         }
     }
 
-    if (obj == ui->treeWidget && event->type() == QEvent::Resize)
+    if (obj == ui->treeWidget && (event->type() == QEvent::Resize || event->type() == QEvent::Show))
         ui->treeWidget->setColumnHidden(1, ui->treeWidget->viewport()->width() < 150);
 
     return QObject::eventFilter(obj, event);
