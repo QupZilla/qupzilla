@@ -66,11 +66,10 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     if (index.column() == 1) {
         if (index.parent().isValid() && opt.state & QStyle::State_MouseOver) {
             static const int buttonSize = 16;
-            static const  QPixmap closeButton = style->standardIcon(QStyle::SP_TitleBarCloseButton)
-                    .pixmap(buttonSize, buttonSize).scaled(buttonSize, buttonSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            static const  QPixmap closeTabButton(":tabmanager/data/closetab.png");
 
             const QRect rect(opt.rect.right() - buttonSize, (opt.rect.height() - buttonSize) / 2 + opt.rect.y(), buttonSize, buttonSize);
-            painter->drawPixmap(style->visualRect(direction, opt.rect, rect), closeButton);
+            painter->drawPixmap(style->visualRect(direction, opt.rect, rect), closeTabButton);
         }
 
         painter->restore();
