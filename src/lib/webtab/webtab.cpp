@@ -47,6 +47,10 @@ WebTab::SavedTab::SavedTab()
 
 WebTab::SavedTab::SavedTab(WebTab* webTab)
 {
+    if (webTab->url().toString() == QL1S("qupzilla:restore")) {
+        return;
+    }
+
     title = webTab->title();
     url = webTab->url();
     icon = webTab->icon(true);
