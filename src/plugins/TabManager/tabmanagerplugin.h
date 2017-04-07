@@ -1,6 +1,6 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
