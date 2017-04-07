@@ -799,18 +799,15 @@ QByteArray TabWidget::saveState()
     }
 
     QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
 
-    if (!tabList.isEmpty()) {
-        QDataStream stream(&data, QIODevice::WriteOnly);
+    stream << tabList.count();
 
-        stream << tabList.count();
-
-        foreach (const WebTab::SavedTab &tab, tabList) {
-            stream << tab;
-        }
-
-        stream << currentTabIndex;
+    foreach (const WebTab::SavedTab &tab, tabList) {
+        stream << tab;
     }
+
+    stream << currentTabIndex;
 
     return data;
 }
