@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2016  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2016-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,15 +15,15 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef TABFILTERDELEGATE_H
-#define TABFILTERDELEGATE_H
+#ifndef TABMANAGERDELEGATE_H
+#define TABMANAGERDELEGATE_H
 
 #include <QStyledItemDelegate>
 
-class TabFilterDelegate : public QStyledItemDelegate
+class TabManagerDelegate : public QStyledItemDelegate
 {
 public:
-    explicit TabFilterDelegate(QObject* parent = 0);
+    explicit TabManagerDelegate(QObject* parent = 0);
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
@@ -36,4 +36,4 @@ private:
 
 };
 
-#endif // TABFILTERDELEGATE_H
+#endif // TABMANAGERDELEGATE_H

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2016 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2016-2017 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * Copyright (C) 2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -16,25 +16,26 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "tabfilterdelegate.h"
+#include "tabmanagerdelegate.h"
 
 #include <QPainter>
 #include <QApplication>
 #include <QTextLayout>
 
-TabFilterDelegate::TabFilterDelegate(QObject* parent)
+TabManagerDelegate::TabManagerDelegate(QObject* parent)
     : QStyledItemDelegate(parent)
 {
 }
 
 // most of codes taken from QCommonStyle::drawControl() and add our custom text drawer
-void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
+    const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
 
@@ -60,6 +61,21 @@ void TabFilterDelegate::paint(QPainter* painter, const QStyleOptionViewItem &opt
 
     // draw the background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
+
+    // draw close button
+    if (index.column() == 1) {
+        if (opt.state & QStyle::State_MouseOver) {
+            static const int buttonSize = 16;
+            static const  QPixmap closeTabButton(":tabmanager/data/closetab.png");
+            static const  QPixmap addTabButton(":tabmanager/data/addtab.png");
+
+            const QRect rect(opt.rect.right() - buttonSize, (opt.rect.height() - buttonSize) / 2 + opt.rect.y(), buttonSize, buttonSize);
+            painter->drawPixmap(style->visualRect(direction, opt.rect, rect), (index.parent().isValid() ? closeTabButton : addTabButton));
+        }
+
+        painter->restore();
+        return;
+    }
 
     // draw the check mark
     if (opt.features & QStyleOptionViewItem::HasCheckIndicator) {
@@ -140,7 +156,7 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
-void TabFilterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
+void TabManagerDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
                                                  const QString &text, const QColor &color, const QString &searchText) const
 {
     if (text.isEmpty()) {

@@ -1,6 +1,6 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013-2016  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@
 #include "bookmarks.h"
 #include "tabmanagerplugin.h"
 #include "tldextractor/tldextractor.h"
-#include "tabfilterdelegate.h"
+#include "tabmanagerdelegate.h"
 
 
 #include <QDesktopWidget>
@@ -59,6 +59,14 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
     }
 
     ui->setupUi(this);
+    ui->treeWidget->setUniformRowHeights(true);
+    ui->treeWidget->setColumnCount(2);
+    ui->treeWidget->header()->hide();
+    ui->treeWidget->header()->setStretchLastSection(false);
+    ui->treeWidget->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    ui->treeWidget->header()->setSectionResizeMode(1, QHeaderView::Fixed);
+    ui->treeWidget->header()->resizeSection(1, 16);
+
     ui->treeWidget->setExpandsOnDoubleClick(false);
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -71,11 +79,11 @@ TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bo
     ui->filterBar->addWidget(closeButton, LineEdit::RightSide);
     ui->filterBar->hide();
 
-    ui->treeWidget->setItemDelegate(new TabFilterDelegate(ui->treeWidget));
+    ui->treeWidget->setItemDelegate(new TabManagerDelegate(ui->treeWidget));
 
     connect(closeButton, SIGNAL(clicked(bool)), this, SLOT(filterBarClosed()));
     connect(ui->filterBar, SIGNAL(textChanged(QString)), this, SLOT(filterChanged(QString)));
-    connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(itemDoubleClick(QTreeWidgetItem*,int)));
+    connect(ui->treeWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(onItemActivated(QTreeWidgetItem*,int)));
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(customContextMenuRequested(QPoint)));
 }
 
@@ -201,7 +209,7 @@ void TabManagerWidget::refreshTree()
     m_waitForRefresh = false;
 }
 
-void TabManagerWidget::itemDoubleClick(QTreeWidgetItem* item, int)
+void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int column)
 {
     if (!item) {
         return;
@@ -211,6 +219,14 @@ void TabManagerWidget::itemDoubleClick(QTreeWidgetItem* item, int)
     QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
 
     if (!mainWindow) {
+        return;
+    }
+
+    if (column == 1) {
+        if (item->childCount() == 0 && tabWidget)
+            mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
+        else if (item->childCount() > 0)
+            QMetaObject::invokeMethod(mainWindow, "addTab");
         return;
     }
 
@@ -345,7 +361,7 @@ bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
         if (obj == ui->treeWidget) {
             // switch to tab/window on enter
             if (keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return) {
-                itemDoubleClick(ui->treeWidget->currentItem(), 0);
+                onItemActivated(ui->treeWidget->currentItem(), 0);
                 return QObject::eventFilter(obj, event);
             }
 
@@ -376,6 +392,9 @@ bool TabManagerWidget::eventFilter(QObject* obj, QEvent* event)
             }
         }
     }
+
+    if (obj == ui->treeWidget && (event->type() == QEvent::Resize || event->type() == QEvent::Show))
+        ui->treeWidget->setColumnHidden(1, ui->treeWidget->viewport()->width() < 150);
 
     return QObject::eventFilter(obj, event);
 }
