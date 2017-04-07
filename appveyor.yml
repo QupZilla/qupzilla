@@ -1,4 +1,5 @@
 version: 2.1.99.{build}-{branch}
+shallow_clone: true
 
 cache:
   - windows/dependencies
