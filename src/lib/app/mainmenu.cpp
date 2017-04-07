@@ -33,6 +33,7 @@
 #include "qzsettings.h"
 #include "pluginproxy.h"
 #include "webinspector.h"
+#include "sessionmanager.h"
 
 #include <QApplication>
 #include <QMetaObject>
@@ -529,6 +530,22 @@ void MainMenu::init()
     ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
+
+    if (!mApp->isPrivate()) {
+        action = new QAction(tr("New Session..."), this);
+        connect(action, SIGNAL(triggered()), mApp->sessionManager(), SLOT(newSession()));
+        m_actions[QSL("File/NewSession")] = action;
+        m_menuFile->addAction(action);
+        action = new QAction(tr("Save Session..."), this);
+        connect(action, SIGNAL(triggered()), mApp->sessionManager(), SLOT(saveSession()));
+        m_actions[QSL("File/SaveSession")] = action;
+        m_menuFile->addAction(action);
+        QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
+        connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
+        m_menuFile->addMenu(sessionsSubmenu);
+        m_menuFile->addSeparator();
+    }
+
     ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
     ADD_ACTION("File/Print", m_menuFile, QIcon::fromTheme(QSL("document-print")), tr("&Print..."), SLOT(printPage()), "Ctrl+P");

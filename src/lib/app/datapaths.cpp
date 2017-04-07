@@ -148,5 +148,10 @@ void DataPaths::initCurrentProfile(const QString &profilePath)
     if (m_paths[Cache].isEmpty())
         m_paths[Cache].append(m_paths[CurrentProfile].at(0) + QLatin1String("/cache"));
 
-    QDir().mkpath(m_paths[Cache].at(0));
+    if (m_paths[Sessions].isEmpty())
+        m_paths[Sessions].append(m_paths[CurrentProfile].at(0) + QLatin1String("/sessions"));
+
+    QDir dir;
+    dir.mkpath(m_paths[Cache].at(0));
+    dir.mkpath(m_paths[Sessions].at(0));
 }

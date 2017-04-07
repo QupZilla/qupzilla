@@ -46,6 +46,7 @@
 #include "desktopnotificationsfactory.h"
 #include "html5permissions/html5permissionsmanager.h"
 #include "scripts.h"
+#include "sessionmanager.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -91,6 +92,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_browsingLibrary(0)
     , m_networkManager(0)
     , m_restoreManager(0)
+    , m_sessionManager(0)
     , m_downloadManager(0)
     , m_userAgentManager(0)
     , m_searchEnginesManager(0)
@@ -275,8 +277,19 @@ MainApplication::MainApplication(int &argc, char** argv)
     script.setSourceCode(Scripts::setupWebChannel());
     m_webProfile->scripts()->insert(script);
 
-    m_autoSaver = new AutoSaver(this);
-    connect(m_autoSaver, SIGNAL(save()), this, SLOT(saveSession()));
+    if (!isPrivate()) {
+        m_sessionManager = new SessionManager(this);
+        m_autoSaver = new AutoSaver(this);
+        connect(m_autoSaver, SIGNAL(save()), m_sessionManager, SLOT(autoSaveLastSession()));
+
+        Settings settings;
+        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
+        settings.setValue("SessionRestore/isRunning", true);
+
+        // we have to ask about startup session before creating main window
+        if (!m_isStartingAfterCrash && afterLaunch() == SelectSession)
+            m_restoreManager = new RestoreManager(sessionManager()->askSessionFromUser());
+    }
 
     translateApp();
     loadSettings();
@@ -294,11 +307,8 @@ MainApplication::MainApplication(int &argc, char** argv)
 
 
     if (!isPrivate()) {
-        Settings settings;
-        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-        settings.setValue("SessionRestore/isRunning", true);
-
 #ifndef DISABLE_CHECK_UPDATES
+        Settings settings;
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", true).toBool();
 
         if (checkUpdates) {
@@ -306,10 +316,10 @@ MainApplication::MainApplication(int &argc, char** argv)
         }
 #endif
 
-        backupSavedSessions();
+        sessionManager()->backupSavedSessions();
 
         if (m_isStartingAfterCrash || afterLaunch() == RestoreSession) {
-            m_restoreManager = new RestoreManager();
+            m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
             } else {
@@ -562,6 +572,11 @@ RestoreManager* MainApplication::restoreManager()
     return m_restoreManager;
 }
 
+SessionManager* MainApplication::sessionManager()
+{
+    return m_sessionManager;
+}
+
 DownloadManager* MainApplication::downloadManager()
 {
     if (!m_downloadManager) {
@@ -655,7 +670,8 @@ void MainApplication::restoreOverrideCursor()
 
 void MainApplication::changeOccurred()
 {
-    m_autoSaver->changeOccurred();
+    if (m_autoSaver)
+        m_autoSaver->changeOccurred();
 }
 
 void MainApplication::quitApplication()
@@ -665,8 +681,8 @@ void MainApplication::quitApplication()
         return;
     }
 
-    if (m_windows.count() > 0) {
-        saveSession();
+    if (m_sessionManager && m_windows.count() > 0) {
+        m_sessionManager->autoSaveLastSession();
     }
 
     m_isClosing = true;
@@ -708,7 +724,7 @@ void MainApplication::postLaunch()
     QTimer::singleShot(5000, this, &MainApplication::runDeferredPostLaunchActions);
 }
 
-void MainApplication::writeCurrentSession(const QString &filePath)
+QByteArray MainApplication::saveState() const
 {
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
@@ -726,19 +742,7 @@ void MainApplication::writeCurrentSession(const QString &filePath)
         }
     }
 
-    QFile file(filePath);
-    file.open(QIODevice::WriteOnly);
-    file.write(data);
-    file.close();
-}
-
-void MainApplication::saveSession()
-{
-    if (m_isPrivate || m_isRestoring || m_windows.count() == 0 || m_restoreManager) {
-        return;
-    }
-
-    writeCurrentSession(DataPaths::currentProfilePath() + QLatin1String("/session.dat"));
+    return data;
 }
 
 void MainApplication::saveSettings()
@@ -786,6 +790,8 @@ void MainApplication::saveSettings()
     qzSettings->saveSettings();
     AdBlockManager::instance()->save();
     QFile::remove(DataPaths::currentProfilePath() + QLatin1String("/WebpageIcons.db"));
+
+    sessionManager()->saveSettings();
 }
 
 void MainApplication::messageReceived(const QString &message)
@@ -1057,27 +1063,6 @@ void MainApplication::translateApp()
 
     installTranslator(app);
     installTranslator(sys);
-}
-
-void MainApplication::backupSavedSessions()
-{
-    // session.dat      - current
-    // session.dat.old  - first backup
-    // session.dat.old1 - second backup
-
-    const QString sessionFile = DataPaths::currentProfilePath() + QLatin1String("/session.dat");
-
-    if (!QFile::exists(sessionFile)) {
-        return;
-    }
-
-    if (QFile::exists(sessionFile + QLatin1String(".old"))) {
-        QFile::remove(sessionFile + QLatin1String(".old1"));
-        QFile::copy(sessionFile + QLatin1String(".old"), sessionFile + QLatin1String(".old1"));
-    }
-
-    QFile::remove(sessionFile + QLatin1String(".old"));
-    QFile::copy(sessionFile, sessionFile + QLatin1String(".old"));
 }
 
 void MainApplication::checkDefaultWebBrowser()

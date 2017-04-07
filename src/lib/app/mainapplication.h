@@ -49,6 +49,7 @@ class HTML5PermissionsManager;
 class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
 class ProxyStyle;
+class SessionManager;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -59,7 +60,8 @@ public:
         OpenBlankPage = 0,
         OpenHomePage = 1,
         OpenSpeedDial = 2,
-        RestoreSession = 3
+        RestoreSession = 3,
+        SelectSession = 4
     };
 
     explicit MainApplication(int &argc, char** argv);
@@ -101,12 +103,15 @@ public:
 
     NetworkManager* networkManager();
     RestoreManager* restoreManager();
+    SessionManager* sessionManager();
     DownloadManager* downloadManager();
     UserAgentManager* userAgentManager();
     SearchEnginesManager* searchEnginesManager();
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
     QWebEngineProfile* webProfile() const;
+
+    QByteArray saveState() const;
 
     static MainApplication* instance();
 
@@ -120,8 +125,6 @@ public slots:
     void changeOccurred();
     void quitApplication();
 
-    void writeCurrentSession(const QString &filePath);
-
 signals:
     void settingsReloaded();
     void activeWindowChanged(BrowserWindow* window);
@@ -129,7 +132,6 @@ signals:
 private slots:
     void postLaunch();
 
-    void saveSession();
     void saveSettings();
 
     void messageReceived(const QString &message);
@@ -150,7 +152,6 @@ private:
     void loadTheme(const QString &name);
 
     void translateApp();
-    void backupSavedSessions();
 
     void setUserStyleSheet(const QString &filePath);
 
@@ -173,6 +174,7 @@ private:
 
     NetworkManager* m_networkManager;
     RestoreManager* m_restoreManager;
+    SessionManager* m_sessionManager;
     DownloadManager* m_downloadManager;
     UserAgentManager* m_userAgentManager;
     SearchEnginesManager* m_searchEnginesManager;
