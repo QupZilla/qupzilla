@@ -1,4 +1,5 @@
 version: 2.1.99.{build}-{branch}
+shallow_clone: true
 
 cache:
   - windows/dependencies
@@ -91,11 +92,13 @@ after_build:
   # prepare qtwebengine_dictionaries 
   - mkdir qtwebengine_dictionaries
   - cd qtwebengine_dictionaries
-  - 7z x ..\..\dependencies\master.tar.gz
-  - 7z x master.tar
-  - mkdir doc
-  - move README* doc\
-  - move COPYING* doc\
+  - IF /I "%APPVEYOR_REPO_TAG%" == "true" (
+        7z x "%QZ_DIR%\windows\dependencies\master.tar.gz" &&
+        7z x "master.tar" &&
+        mkdir "doc" &&
+        move README* "doc\" &&
+        move COPYING* "doc\"
+    )
   - cd %QZ_DIR%\windows
   # set paths
   - set OPENSSL_BIN_DIR="%OPENSSL_DIR%\bin"
@@ -104,10 +107,12 @@ after_build:
   - IF /I "%ARCH%" == "x64" (set INSTALLER_VERSION="%QZ_VER% x64" && set ICU_BIN_DIR="%QZ_DIR%\windows\wininstall\icu\bin64") else (set INSTALLER_VERSION="%QZ_VER%")
   - set QTWEBENGINE_DICTIONARIES_DIR="%QZ_DIR%\windows\wininstall\qtwebengine_dictionaries"
   # make installer
-  - IF /I "%PORTABLE_BUILD%" == "true" (
-        call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DPORTABLE=1 /DVERSION="%QZ_VER% Portable" /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
-    ) else (
-        call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DVERSION=%INSTALLER_VERSION% /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+  - IF /I "%APPVEYOR_REPO_TAG%" == "true" (
+        IF /I "%PORTABLE_BUILD%" == "true" (
+            call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DPORTABLE=1 /DVERSION="%QZ_VER% Portable" /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+        ) else (
+            call "C:\Program Files (x86)\NSIS\makensis.exe" /X"Unicode true" /DCUSTOM=1 /DVERSION=%INSTALLER_VERSION% /DARCH=%ARCH% /DMSVC_VER=%VSVER%0 /DOPENSSL_BIN_DIR=%OPENSSL_BIN_DIR% /DMSVC_REDIST_DIR=%MSVC_REDIST_DIR% /DQZ_BIN_DIR=%QZ_DIR%\bin /DICU_BIN_DIR=%ICU_BIN_DIR% /DQT_DIR=%QTDIR% /DQT_BIN_DIR=%QTDIR%\bin /DQT_PLUGINS_DIR=%QTDIR%\plugins /DQTWEBENGINE_DICTIONARIES_DIR=%QTWEBENGINE_DICTIONARIES_DIR% installer.nsi
+        )
     )
 
 artifacts:
@@ -140,3 +145,11 @@ deploy:
     # on_build_success: false
     # on_build_failure: false
     # on_build_status_changed: true
+
+# # remote desktop connection on init
+# init:
+  # - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+# # remote desktop connection on finish and block build to not destroy VM
+# on_finish:
+  # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
