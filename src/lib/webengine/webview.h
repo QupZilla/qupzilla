@@ -60,8 +60,6 @@ public:
     QPointF mapToViewport(const QPointF &pos) const;
     QRect scrollBarGeometry(Qt::Orientation orientation) const;
 
-    void restoreHistory(const QByteArray &data);
-
     void addNotification(QWidget* notif);
     bool eventFilter(QObject *obj, QEvent *event);
 

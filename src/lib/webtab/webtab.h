@@ -73,7 +73,6 @@ public:
     void detach();
     void attach(BrowserWindow* window);
 
-    void setHistoryData(const QByteArray &data);
     QByteArray historyData() const;
 
     void stop();

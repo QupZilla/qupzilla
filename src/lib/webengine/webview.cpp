@@ -258,12 +258,6 @@ QRect WebView::scrollBarGeometry(Qt::Orientation orientation) const
     return s && s->isVisible() ? s->geometry() : QRect();
 }
 
-void WebView::restoreHistory(const QByteArray &data)
-{
-    QDataStream stream(data);
-    stream >> *history();
-}
-
 QWidget *WebView::inputWidget() const
 {
     return m_rwhvqt ? m_rwhvqt : const_cast<WebView*>(this);

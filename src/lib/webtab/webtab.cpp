@@ -300,11 +300,6 @@ void WebTab::attach(BrowserWindow* window)
     m_tabIcon->updateIcon();
 }
 
-void WebTab::setHistoryData(const QByteArray &data)
-{
-    m_webView->restoreHistory(data);
-}
-
 QByteArray WebTab::historyData() const
 {
     if (isRestored()) {
@@ -413,7 +408,18 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 void WebTab::p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel)
 {
     m_webView->load(url);
-    m_webView->restoreHistory(history);
+
+    // Restoring history of internal pages crashes QtWebEngine 5.8
+    static const QStringList blacklistedSchemes = {
+        QSL("view-source"),
+        QSL("chrome")
+    };
+
+    if (!blacklistedSchemes.contains(url.scheme())) {
+        QDataStream stream(history);
+        stream >> *m_webView->history();
+    }
+
     m_webView->setZoomLevel(zoomLevel);
     m_webView->setFocus();
 }
