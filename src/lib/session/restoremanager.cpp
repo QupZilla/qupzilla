@@ -91,6 +91,10 @@ void RestoreManager::createFromFile(const QString &file, QVector<WindowData> &da
             tabStream >> tab;
             tabs.append(tab);
         }
+
+        if (tabs.count() == 0)
+            continue;
+
         wd.tabsState = tabs;
 
         int currentTab;
