@@ -218,15 +218,15 @@ void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int column)
     BrowserWindow* mainWindow = qobject_cast<BrowserWindow*>(qvariant_cast<QWidget*>(item->data(0, QupZillaPointerRole)));
     QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
 
-    if (!mainWindow) {
+    if (column == 1) {
+        if (item->childCount() > 0)
+            QMetaObject::invokeMethod(mainWindow ? mainWindow : mApp->getWindow(), "addTab");
+        else if (tabWidget && mainWindow)
+            mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
         return;
     }
 
-    if (column == 1) {
-        if (item->childCount() == 0 && tabWidget)
-            mainWindow->tabWidget()->requestCloseTab(mainWindow->tabWidget()->indexOf(tabWidget));
-        else if (item->childCount() > 0)
-            QMetaObject::invokeMethod(mainWindow, "addTab");
+    if (!mainWindow) {
         return;
     }
 
