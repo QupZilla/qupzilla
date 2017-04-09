@@ -1312,6 +1312,12 @@ bool WebView::eventFilter(QObject *obj, QEvent *event)
         case QEvent::Wheel:
             return true;
 
+        case QEvent::Hide:
+            if (isFullScreen()) {
+                triggerPageAction(QWebEnginePage::ExitFullScreen);
+            }
+            break;
+
         default:
             break;
         }
