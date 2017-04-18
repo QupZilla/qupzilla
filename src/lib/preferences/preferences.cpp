@@ -404,7 +404,7 @@ Preferences::Preferences(BrowserWindow* window)
     m_notifPosition = settings.value("Position", QPoint(10, 10)).toPoint();
     settings.endGroup();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
@@ -1008,7 +1008,7 @@ void Preferences::saveSettings()
     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
     settings.endGroup();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     //SPELLCHECK
     settings.beginGroup(QSL("SpellCheck"));
     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());

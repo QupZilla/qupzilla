@@ -258,7 +258,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     // Filename may have been percent encoded and actually containing path
     fileName = QFileInfo(fileName).fileName();
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     const bool forceAsk = downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat
             || downloadItem->type() == QWebEngineDownloadItem::UserRequested;
 #else
@@ -274,7 +274,7 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
         if (downloadItem->savePageFormat() != QWebEngineDownloadItem::UnknownSaveFormat) {
             // Save Page requested
             result = SavePage;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
         } else if (downloadItem->type() == QWebEngineDownloadItem::UserRequested) {
             // Save x as... requested
             result = Save;
