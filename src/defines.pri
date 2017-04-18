@@ -35,6 +35,10 @@ equals(d_disable_dbus, "true") { DEFINES *= DISABLE_DBUS }
 equals(d_disable_updates_check, "true") { DEFINES *= DISABLE_UPDATES_CHECK }
 equals(d_debug_build, "true") { CONFIG += debug }
 
+!lessThan(QT.webengine.VERSION, 5.8) {
+    DEFINES *= HAVE_QTWEBENGINE_58
+}
+
 DEFINES *= QT_NO_URL_CAST_FROM_STRING
 DEFINES *= QT_USE_QSTRINGBUILDER
 

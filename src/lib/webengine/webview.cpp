@@ -518,7 +518,7 @@ void WebView::showSource()
         return;
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     triggerPageAction(QWebEnginePage::ViewSource);
 #else
     QUrl u;
@@ -647,7 +647,7 @@ void WebView::createContextMenu(QMenu *menu, WebHitTestResult &hitTest)
     const QWebEngineContextMenuData &contextMenuData = page()->contextMenuData();
     hitTest.updateWithContextMenuData(contextMenuData);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     if (!contextMenuData.misspelledWord().isEmpty()) {
         QFont boldFont = menu->font();
         boldFont.setBold(true);

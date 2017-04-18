@@ -920,7 +920,7 @@ void MainApplication::loadSettings()
     const int cacheSize = settings.value(QSL("Web-Browser-Settings/LocalCacheSize"), 50).toInt() * 1000 * 1000;
     profile->setHttpCacheMaximumSize(cacheSize);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 8, 0)
+#ifdef HAVE_QTWEBENGINE_58
     settings.beginGroup(QSL("SpellCheck"));
     profile->setSpellCheckEnabled(settings.value(QSL("Enabled"), false).toBool());
     profile->setSpellCheckLanguages(settings.value(QSL("Languages")).toStringList());
