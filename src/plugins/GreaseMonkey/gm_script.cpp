@@ -127,26 +127,10 @@ QString GM_Script::fileName() const
 
 QWebEngineScript GM_Script::webScript() const
 {
-    QWebEngineScript::InjectionPoint injectionPoint;
-    switch (startAt()) {
-    case DocumentStart:
-        injectionPoint = QWebEngineScript::DocumentCreation;
-        break;
-    case DocumentEnd:
-        injectionPoint = QWebEngineScript::DocumentReady;
-        break;
-    case DocumentIdle:
-        injectionPoint = QWebEngineScript::Deferred;
-        break;
-    default:
-        Q_UNREACHABLE();
-    }
-
     QWebEngineScript script;
     script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     script.setName(fullName());
     script.setWorldId(QWebEngineScript::MainWorld);
-    script.setInjectionPoint(injectionPoint);
     script.setRunsOnSubFrames(!m_noframes);
     return script;
 }
@@ -182,28 +166,6 @@ void GM_Script::watchedFileChanged(const QString &file)
     if (m_fileName == file) {
         reloadScript();
     }
-}
-
-static QString toJavaScriptList(const QStringList &patterns)
-{
-    QString out;
-    foreach (const QString &pattern, patterns) {
-        QString p;
-        if (pattern.startsWith(QL1C('/')) && pattern.endsWith(QL1C('/')) && pattern.size() > 1) {
-            p = pattern.mid(1, pattern.size() - 2);
-        } else {
-            p = pattern;
-            p.replace(QL1S("."), QL1S("\\."));
-            p.replace(QL1S("*"), QL1S(".*"));
-        }
-        p = QSL("'%1'").arg(p);
-        if (out.isEmpty()) {
-            out.append(p);
-        } else {
-            out.append(QL1C(',') + p);
-        }
-    }
-    return QSL("[%1]").arg(out);
 }
 
 void GM_Script::parseScript()
@@ -312,26 +274,7 @@ void GM_Script::parseScript()
 
     const QString nspace = QCryptographicHash::hash(fullName().toUtf8(), QCryptographicHash::Md4).toHex();
     const QString gmValues = m_manager->valuesScript().arg(nspace);
-    const QString runCheck = QString(QL1S("for (var value of %1) {"
-                                          "    var re = new RegExp(value);"
-                                          "    if (re.test(window.location.href)) {"
-                                          "        return;"
-                                          "    }"
-                                          "}"
-                                          "__qz_includes = false;"
-                                          "for (var value of %2) {"
-                                          "    var re = new RegExp(value);"
-                                          "    if (re.test(window.location.href)) {"
-                                          "        __qz_includes = true;"
-                                          "        break;"
-                                          "    }"
-                                          "}"
-                                          "if (!__qz_includes) {"
-                                          "    return;"
-                                          "}"
-                                          "delete __qz_includes;")).arg(toJavaScriptList(m_exclude), toJavaScriptList(m_include));
-
-    m_script = QSL("(function(){%1\n%2\n%3\n%4\n})();").arg(runCheck, gmValues, m_manager->requireScripts(m_require), fileData);
+    m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(m_require), fileData);
     m_valid = true;
 
     downloadRequires();
