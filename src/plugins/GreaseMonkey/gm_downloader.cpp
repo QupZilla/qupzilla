@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -127,7 +127,7 @@ void GM_Downloader::requireDownloaded()
 
             QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
             settings.beginGroup("Files");
-            settings.setValue(m_reply->request().url().toString(), fileName);
+            settings.setValue(m_reply->request().url().toString(), QFileInfo(fileName).fileName());
         }
     }
 

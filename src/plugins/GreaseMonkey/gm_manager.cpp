@@ -82,7 +82,10 @@ QString GM_Manager::requireScripts(const QStringList &urlList) const
 
     foreach (const QString &url, urlList) {
         if (settings.contains(url)) {
-            const QString fileName = settings.value(url).toString();
+            QString fileName = settings.value(url).toString();
+            if (!QFileInfo(fileName).isAbsolute()) {
+                fileName = m_settingsPath + QL1S("/greasemonkey/requires/") + fileName;
+            }
             script.append(QzTools::readAllFileContents(fileName).trimmed() + '\n');
         }
     }
