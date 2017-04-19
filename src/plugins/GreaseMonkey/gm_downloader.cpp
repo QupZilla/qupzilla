@@ -110,7 +110,13 @@ void GM_Downloader::requireDownloaded()
         const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
         if (!response.isEmpty()) {
-            const QString filePath = m_manager->settinsPath() + QL1S("/greasemonkey/requires/require.js");
+            QString name = QFileInfo(m_reply->request().url().path()).fileName();
+            if (name.isEmpty()) {
+                name = QSL("require.js");
+            } else if (!name.endsWith(QL1S(".js"))) {
+                name.append(QSL(".js"));
+            }
+            const QString filePath = m_manager->settinsPath() + QL1S("/greasemonkey/requires/") + name;
             const QString fileName = QzTools::ensureUniqueFilename(filePath, "%1");
 
             QFile file(fileName);
