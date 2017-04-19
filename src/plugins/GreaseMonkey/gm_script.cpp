@@ -115,9 +115,9 @@ QStringList GM_Script::exclude() const
     return m_exclude;
 }
 
-QString GM_Script::script() const
+QStringList GM_Script::require() const
 {
-    return m_script;
+    return m_require;
 }
 
 QString GM_Script::fileName() const
@@ -174,17 +174,13 @@ void GM_Script::updateScript()
         m_updating = false;
         emit updatingChanged(m_updating);
     });
+    downloadRequires();
 }
 
 void GM_Script::watchedFileChanged(const QString &file)
 {
     if (m_fileName == file) {
-        parseScript();
-
-        m_manager->removeScript(this, false);
-        m_manager->addScript(this);
-
-        emit scriptChanged();
+        reloadScript();
     }
 }
 
@@ -218,6 +214,7 @@ void GM_Script::parseScript()
     m_version.clear();
     m_include.clear();
     m_exclude.clear();
+    m_require.clear();
     m_downloadUrl.clear();
     m_updateUrl.clear();
     m_startAt = DocumentEnd;
@@ -247,7 +244,6 @@ void GM_Script::parseScript()
         return;
     }
 
-    QStringList requireList;
     QzRegExp rxNL(QSL("(?:\\r\\n|[\\r\\n])"));
 
     const QStringList lines = metadataBlock.split(rxNL, QString::SkipEmptyParts);
@@ -295,7 +291,7 @@ void GM_Script::parseScript()
             m_exclude.append(value);
         }
         else if (key == QLatin1String("@require")) {
-            requireList.append(value);
+            m_require.append(value);
         }
         else if (key == QLatin1String("@run-at")) {
             if (value == QLatin1String("document-end")) {
@@ -335,6 +331,28 @@ void GM_Script::parseScript()
                                           "}"
                                           "delete __qz_includes;")).arg(toJavaScriptList(m_exclude), toJavaScriptList(m_include));
 
-    m_script = QSL("(function(){%1\n%2\n%3\n%4\n})();").arg(runCheck, gmValues, m_manager->requireScripts(requireList), fileData);
+    m_script = QSL("(function(){%1\n%2\n%3\n%4\n})();").arg(runCheck, gmValues, m_manager->requireScripts(m_require), fileData);
     m_valid = true;
+
+    downloadRequires();
+}
+
+void GM_Script::reloadScript()
+{
+    parseScript();
+
+    m_manager->removeScript(this, false);
+    m_manager->addScript(this);
+
+    emit scriptChanged();
+}
+
+void GM_Script::downloadRequires()
+{
+    for (const QString &url : qAsConst(m_require)) {
+        if (m_manager->requireScripts({url}).isEmpty()) {
+            GM_Downloader *downloader = new GM_Downloader(QUrl(url), m_manager, GM_Downloader::DownloadRequireScript);
+            connect(downloader, &GM_Downloader::finished, this, &GM_Script::reloadScript);
+        }
+    }
 }

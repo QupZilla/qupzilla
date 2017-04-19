@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -55,8 +55,8 @@ public:
 
     QStringList include() const;
     QStringList exclude() const;
+    QStringList require() const;
 
-    QString script() const;
     QString metaData() const;
     QString fileName() const;
 
@@ -74,6 +74,8 @@ private slots:
 
 private:
     void parseScript();
+    void reloadScript();
+    void downloadRequires();
 
     GM_Manager* m_manager;
     DelayedFileWatcher* m_fileWatcher;
@@ -85,6 +87,7 @@ private:
 
     QStringList m_include;
     QStringList m_exclude;
+    QStringList m_require;
 
     QUrl m_downloadUrl;
     QUrl m_updateUrl;

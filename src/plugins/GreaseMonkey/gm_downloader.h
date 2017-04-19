@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2016  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,12 @@ class GM_Downloader : public QObject
 {
     Q_OBJECT
 public:
-    explicit GM_Downloader(const QUrl &url, GM_Manager* manager);
+    enum Mode {
+        DownloadMainScript,
+        DownloadRequireScript
+    };
+
+    explicit GM_Downloader(const QUrl &url, GM_Manager *manager, Mode mode = DownloadMainScript);
 
     void updateScript(const QString& fileName);
 
@@ -47,10 +52,7 @@ private:
 
     GM_Manager* m_manager;
     QNetworkReply *m_reply;
-
     QString m_fileName;
-    QList<QUrl> m_requireUrls;
-
 };
 
 #endif // GM_DOWNLOADER_H

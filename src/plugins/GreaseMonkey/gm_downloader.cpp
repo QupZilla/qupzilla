@@ -29,12 +29,16 @@
 #include <QSettings>
 #include <QNetworkReply>
 
-GM_Downloader::GM_Downloader(const QUrl &url, GM_Manager* manager)
+GM_Downloader::GM_Downloader(const QUrl &url, GM_Manager *manager, Mode mode)
     : QObject()
     , m_manager(manager)
 {
     m_reply = mApp->networkManager()->get(QNetworkRequest(url));
-    connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::scriptDownloaded);
+    if (mode == DownloadMainScript) {
+        connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::scriptDownloaded);
+    } else {
+        connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::requireDownloaded);
+    }
 }
 
 void GM_Downloader::updateScript(const QString &fileName)
@@ -44,72 +48,76 @@ void GM_Downloader::updateScript(const QString &fileName)
 
 void GM_Downloader::scriptDownloaded()
 {
-    if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
-        emit error();
-        deleteLater();
-        return;
-    }
+    Q_ASSERT(m_reply == qobject_cast<QNetworkReply*>(sender()));
+
+    deleteLater();
+    m_reply->deleteLater();
 
     if (m_reply->error() != QNetworkReply::NoError) {
         qWarning() << "GreaseMonkey: Cannot download script" << m_reply->errorString();
-    }
-    else {
-        const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
-
-        if (response.contains(QByteArray("// ==UserScript=="))) {
-            if (m_fileName.isEmpty()) {
-                const QString filePath = QString("%1/%2").arg(m_manager->scriptsDirectory(), QzTools::getFileNameFromUrl(m_reply->url()));
-                m_fileName = QzTools::ensureUniqueFilename(filePath);
-            }
-            QFile file(m_fileName);
-
-            if (!file.open(QFile::WriteOnly)) {
-                qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
-                emit error();
-                deleteLater();
-                return;
-            }
-
-            file.write(response);
-            file.close();
-
-            QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
-            settings.beginGroup("Files");
-
-            QzRegExp rx("@require(.*)\\n");
-            rx.setMinimal(true);
-            rx.indexIn(response);
-
-            for (int i = 1; i <= rx.captureCount(); ++i) {
-                const QString url = rx.cap(i).trimmed();
-                if (!url.isEmpty() && !settings.contains(url)) {
-                    m_requireUrls.append(QUrl(url));
-                }
-            }
-        }
+        emit error();
+        return;
     }
 
-    m_reply->deleteLater();
-    m_reply = 0;
+    const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
-    downloadRequires();
+    if (!response.contains(QByteArray("// ==UserScript=="))) {
+        qWarning() << "GreaseMonkey: Script does not contain UserScript header" << m_reply->request().url();
+        emit error();
+        return;
+    }
+
+    if (m_fileName.isEmpty()) {
+        const QString filePath = QString("%1/%2").arg(m_manager->scriptsDirectory(), QzTools::getFileNameFromUrl(m_reply->url()));
+        m_fileName = QzTools::ensureUniqueFilename(filePath);
+    }
+
+    QFile file(m_fileName);
+
+    if (!file.open(QFile::WriteOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
+        emit error();
+        return;
+    }
+
+    file.write(response);
+    file.close();
+
+    emit finished(m_fileName);
 }
 
 void GM_Downloader::requireDownloaded()
 {
+    Q_ASSERT(m_reply == qobject_cast<QNetworkReply*>(sender()));
+
+    deleteLater();
+    m_reply->deleteLater();
+
     if (m_reply != qobject_cast<QNetworkReply*>(sender())) {
         emit error();
-        deleteLater();
         return;
     }
 
     if (m_reply->error() != QNetworkReply::NoError) {
         qWarning() << "GreaseMonkey: Cannot download require script" << m_reply->errorString();
+        emit error();
+        return;
     }
-    else {
-        const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
 
-        if (!response.isEmpty()) {
+    const QByteArray response = QString::fromUtf8(m_reply->readAll()).toUtf8();
+
+    if (response.isEmpty()) {
+        qWarning() << "GreaseMonkey: Empty script downloaded" << m_reply->request().url();
+        emit error();
+        return;
+    }
+
+    QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
+    settings.beginGroup("Files");
+
+    if (m_fileName.isEmpty()) {
+        m_fileName = settings.value(m_reply->request().url().toString()).toString();
+        if (m_fileName.isEmpty()) {
             QString name = QFileInfo(m_reply->request().url().path()).fileName();
             if (name.isEmpty()) {
                 name = QSL("require.js");
@@ -117,40 +125,25 @@ void GM_Downloader::requireDownloaded()
                 name.append(QSL(".js"));
             }
             const QString filePath = m_manager->settinsPath() + QL1S("/greasemonkey/requires/") + name;
-            const QString fileName = QzTools::ensureUniqueFilename(filePath, "%1");
-
-            QFile file(fileName);
-
-            if (!file.open(QFile::WriteOnly)) {
-                qWarning() << "GreaseMonkey: Cannot open file for writing" << fileName;
-                emit error();
-                deleteLater();
-                return;
-            }
-
-            file.write(response);
-            file.close();
-
-            QSettings settings(m_manager->settinsPath() + QL1S("/greasemonkey/requires/requires.ini"), QSettings::IniFormat);
-            settings.beginGroup("Files");
-            settings.setValue(m_reply->request().url().toString(), QFileInfo(fileName).fileName());
+            m_fileName = QzTools::ensureUniqueFilename(filePath, "%1");
+        }
+        if (!QFileInfo(m_fileName).isAbsolute()) {
+            m_fileName.prepend(m_manager->settinsPath() + QL1S("/greasemonkey/requires/"));
         }
     }
 
-    m_reply->deleteLater();
-    m_reply = 0;
+    QFile file(m_fileName);
 
-    downloadRequires();
-}
+    if (!file.open(QFile::WriteOnly)) {
+        qWarning() << "GreaseMonkey: Cannot open file for writing" << m_fileName;
+        emit error();
+        return;
+    }
 
-void GM_Downloader::downloadRequires()
-{
-    if (!m_requireUrls.isEmpty()) {
-        m_reply = mApp->networkManager()->get(QNetworkRequest(m_requireUrls.takeFirst()));
-        connect(m_reply, &QNetworkReply::finished, this, &GM_Downloader::requireDownloaded);
-    }
-    else {
-        emit finished(m_fileName);
-        deleteLater();
-    }
+    file.write(response);
+    file.close();
+
+    settings.setValue(m_reply->request().url().toString(), QFileInfo(m_fileName).fileName());
+
+    emit finished(m_fileName);
 }
