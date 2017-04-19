@@ -24,6 +24,7 @@
 #include "mainapplication.h"
 
 #include <QFile>
+#include <QTextStream>
 #include <QStringList>
 #include <QWebEngineScript>
 #include <QCryptographicHash>
@@ -195,21 +196,23 @@ void GM_Script::parseScript()
         m_fileWatcher->addPath(m_fileName);
     }
 
-    const QString fileData = QString::fromUtf8(file.readAll());
+    const QByteArray fileData = file.readAll();
 
-    QzRegExp rx(QSL("(?:^|[\\r\\n])// ==UserScript==(.*)(?:\\r\\n|[\\r\\n])// ==/UserScript==(?:[\\r\\n]|$)"));
-    rx.indexIn(fileData);
-    QString metadataBlock = rx.cap(1).trimmed();
+    bool inMetadata = false;
 
-    if (metadataBlock.isEmpty()) {
-        qWarning() << "GreaseMonkey: File does not contain metadata block" << m_fileName;
-        return;
-    }
+    QTextStream stream(fileData);
+    QString line;
+    while (stream.readLineInto(&line)) {
+        if (line.startsWith(QL1S("// ==UserScript=="))) {
+            inMetadata = true;
+        }
+        if (line.startsWith(QL1S("// ==/UserScript=="))) {
+            break;
+        }
+        if (!inMetadata) {
+            continue;
+        }
 
-    QzRegExp rxNL(QSL("(?:\\r\\n|[\\r\\n])"));
-
-    const QStringList lines = metadataBlock.split(rxNL, QString::SkipEmptyParts);
-    foreach (QString line, lines) {
         if (!line.startsWith(QLatin1String("// @"))) {
             continue;
         }
@@ -266,6 +269,11 @@ void GM_Script::parseScript()
                 m_startAt = DocumentIdle;
             }
         }
+    }
+
+    if (!inMetadata) {
+        qWarning() << "GreaseMonkey: File does not contain metadata block" << m_fileName;
+        return;
     }
 
     if (m_include.isEmpty()) {
