@@ -39,14 +39,18 @@ AesInterface::AesInterface(QObject* parent)
     : QObject(parent)
     , m_ok(false)
 {
-    EVP_CIPHER_CTX_init(&m_encodeCTX);
-    EVP_CIPHER_CTX_init(&m_decodeCTX);
+    m_encodeCTX = EVP_CIPHER_CTX_new();
+    m_decodeCTX = EVP_CIPHER_CTX_new();
+    EVP_CIPHER_CTX_init(m_encodeCTX);
+    EVP_CIPHER_CTX_init(m_decodeCTX);
 }
 
 AesInterface::~AesInterface()
 {
-    EVP_CIPHER_CTX_cleanup(&m_encodeCTX);
-    EVP_CIPHER_CTX_cleanup(&m_decodeCTX);
+    EVP_CIPHER_CTX_cleanup(m_encodeCTX);
+    EVP_CIPHER_CTX_cleanup(m_decodeCTX);
+    EVP_CIPHER_CTX_free(m_encodeCTX);
+    EVP_CIPHER_CTX_free(m_decodeCTX);
 }
 
 bool AesInterface::isOk()
@@ -78,10 +82,10 @@ bool AesInterface::init(int evpMode, const QByteArray &password, const QByteArra
     int result = 0;
     if (evpMode == EVP_PKEY_MO_ENCRYPT) {
         m_iVector = createRandomData(EVP_MAX_IV_LENGTH);
-        result = EVP_EncryptInit_ex(&m_encodeCTX, EVP_aes_256_cbc(), NULL, key, (uchar*)m_iVector.constData());
+        result = EVP_EncryptInit_ex(m_encodeCTX, EVP_aes_256_cbc(), NULL, key, (uchar*)m_iVector.constData());
     }
     else if (evpMode == EVP_PKEY_MO_DECRYPT) {
-        result = EVP_DecryptInit_ex(&m_decodeCTX, EVP_aes_256_cbc(), NULL, key, (uchar*)iVector.constData());
+        result = EVP_DecryptInit_ex(m_decodeCTX, EVP_aes_256_cbc(), NULL, key, (uchar*)iVector.constData());
     }
 
     if (result == 0) {
@@ -106,14 +110,14 @@ QByteArray AesInterface::encrypt(const QByteArray &plainData, const QByteArray &
     uchar* ciphertext = (uchar*)malloc(cipherlength);
 
     // allows reusing of 'm_encodeCTX' for multiple encryption cycles
-    EVP_EncryptInit_ex(&m_encodeCTX, NULL, NULL, NULL, NULL);
+    EVP_EncryptInit_ex(m_encodeCTX, NULL, NULL, NULL, NULL);
 
     // update ciphertext, c_len is filled with the length of ciphertext generated,
     // dataLength is the size of plaintext in bytes
-    EVP_EncryptUpdate(&m_encodeCTX, ciphertext, &cipherlength, (uchar*)plainData.data(), dataLength);
+    EVP_EncryptUpdate(m_encodeCTX, ciphertext, &cipherlength, (uchar*)plainData.data(), dataLength);
 
     // update ciphertext with the final remaining bytes
-    EVP_EncryptFinal_ex(&m_encodeCTX, ciphertext + cipherlength, &finalLength);
+    EVP_EncryptFinal_ex(m_encodeCTX, ciphertext + cipherlength, &finalLength);
 
     dataLength = cipherlength + finalLength;
     QByteArray out((char*)ciphertext, dataLength);
@@ -163,9 +167,9 @@ QByteArray AesInterface::decrypt(const QByteArray &cipherData, const QByteArray 
     // because we have padding ON, we must allocate an extra cipher block size of memory
     uchar* plainText = (uchar*)malloc(plainTextLength + AES_BLOCK_SIZE);
 
-    EVP_DecryptInit_ex(&m_decodeCTX, NULL, NULL, NULL, NULL);
-    EVP_DecryptUpdate(&m_decodeCTX, plainText, &plainTextLength, cipherText, cipherLength);
-    int success = EVP_DecryptFinal_ex(&m_decodeCTX, plainText + plainTextLength, &finalLength);
+    EVP_DecryptInit_ex(m_decodeCTX, NULL, NULL, NULL, NULL);
+    EVP_DecryptUpdate(m_decodeCTX, plainText, &plainTextLength, cipherText, cipherLength);
+    int success = EVP_DecryptFinal_ex(m_decodeCTX, plainText + plainTextLength, &finalLength);
 
     cipherLength = plainTextLength + finalLength;
 
