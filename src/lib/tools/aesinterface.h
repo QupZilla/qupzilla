@@ -50,8 +50,8 @@ public:
 private:
     bool init(int evpMode, const QByteArray &password, const QByteArray &iVector = QByteArray());
 
-    EVP_CIPHER_CTX m_encodeCTX;
-    EVP_CIPHER_CTX m_decodeCTX;
+    EVP_CIPHER_CTX* m_encodeCTX;
+    EVP_CIPHER_CTX* m_decodeCTX;
 
     bool m_ok;
     QByteArray m_iVector;
