@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This is based on a work by Saju Pillai <saju.pillai@gmail.com>
 *
@@ -201,9 +201,7 @@ QByteArray AesInterface::createRandomData(int length)
 {
     uchar* randomData = (uchar*)malloc(length);
 
-    if (RAND_bytes(randomData, length) != 1) {
-        RAND_pseudo_bytes(randomData, length);
-    }
+    RAND_bytes(randomData, length);
     QByteArray data((char*)randomData, length);
     free(randomData);
 
