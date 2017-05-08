@@ -40,6 +40,7 @@
 
 #include <QDir>
 #include <QTimer>
+#include <QVersionNumber>
 #include <QDesktopServices>
 #include <QWebEngineHistory>
 #include <QClipboard>
@@ -153,6 +154,15 @@ void WebView::setPage(WebPage *page)
 
     // Set default zoom level
     zoomReset();
+
+    static const bool zoomBug = QVersionNumber::fromString(qVersion()) < QVersionNumber(5, 9, 0);
+    if (zoomBug) {
+        connect(m_page, &WebPage::loadProgress, this, [this](int progress) {
+            if (progress > 0) {
+                applyZoom();
+            }
+        });
+    }
 
     // Actions needs to be initialized for every QWebEnginePage change
     initializeActions();
