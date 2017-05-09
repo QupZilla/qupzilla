@@ -146,6 +146,10 @@ void WebView::setPage(WebPage *page)
         return;
     }
 
+    if (m_page) {
+        m_page->deleteLater(); // we are the parent, see below
+    }
+
     m_page = page;
     m_page->setParent(this);
     QWebEngineView::setPage(m_page);
