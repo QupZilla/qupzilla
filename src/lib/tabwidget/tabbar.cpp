@@ -369,6 +369,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         menu.addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
         menu.addAction(tr("Close Tabs To The Right"), this, SLOT(closeToRight()));
         menu.addAction(tr("Close Tabs To The Left"), this, SLOT(closeToLeft()));
+        menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose"), this, SLOT(closeTab()));
         menu.addSeparator();
         menu.addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         menu.addAction(QIcon::fromTheme("window-close"), tr("Cl&ose Tab"), this, SLOT(closeTab()));
