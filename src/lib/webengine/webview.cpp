@@ -147,7 +147,8 @@ void WebView::setPage(WebPage *page)
     }
 
     if (m_page) {
-        m_page->deleteLater(); // we are the parent, see below
+        m_page->setView(nullptr);
+        m_page->deleteLater();
     }
 
     m_page = page;
