@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2015-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -115,10 +115,10 @@ QString Scripts::setupFormObserver()
                           "var observer = new MutationObserver(function(mutations) {"
                           "    for (var i = 0; i < mutations.length; ++i)"
                           "        for (var j = 0; j < mutations[i].addedNodes.length; ++j)"
-                          "            if (mutations[i].addedNodes[j].tagName == 'form')"
+                          "            if (mutations[i].addedNodes[j].tagName == 'FORM')"
                           "                registerForm(mutations[i].addedNodes[j]);"
                           "});"
-                          "observer.observe(document.documentElement, { childList: true });"
+                          "observer.observe(document.documentElement, { childList: true, subtree: true });"
                           ""
                           "})()");
 
