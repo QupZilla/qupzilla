@@ -106,7 +106,6 @@ private:
     int m_loadProgress;
     bool m_blockAlerts;
     bool m_secureStatus;
-    bool m_adjustingScheduled;
 
     QMetaObject::Connection m_contentsResizedConnection;
 };

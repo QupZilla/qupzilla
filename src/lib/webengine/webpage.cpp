@@ -71,7 +71,6 @@ WebPage::WebPage(QObject* parent)
     , m_loadProgress(-1)
     , m_blockAlerts(false)
     , m_secureStatus(false)
-    , m_adjustingScheduled(false)
 {
     QWebChannel *channel = new QWebChannel(this);
     channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
@@ -212,12 +211,6 @@ void WebPage::progress(int prog)
 void WebPage::finished()
 {
     progress(100);
-
-    if (m_adjustingScheduled) {
-        m_adjustingScheduled = false;
-        setZoomFactor(zoomFactor() + 1);
-        setZoomFactor(zoomFactor() - 1);
-    }
 
     // File scheme watcher
     if (url().scheme() == QLatin1String("file")) {
