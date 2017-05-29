@@ -463,6 +463,11 @@ function disableCentering()
 
 function init()
 {
+    if (!external.speedDial) {
+        setTimeout(init, 50);
+        return;
+    }
+
     %INITIAL-SCRIPT%
 
     external.speedDial.pagesChanged.connect(function() {
