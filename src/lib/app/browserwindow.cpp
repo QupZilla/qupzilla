@@ -1305,6 +1305,18 @@ void BrowserWindow::keyReleaseEvent(QKeyEvent* event)
         return;
     }
 
+    switch (event->key()) {
+    case Qt::Key_F:
+        if (event->modifiers() == Qt::ControlModifier) {
+            action(QSL("Edit/Find"))->trigger();
+            event->accept();
+        }
+        break;
+
+    default:
+        break;
+    }
+
     QMainWindow::keyReleaseEvent(event);
 }
 
