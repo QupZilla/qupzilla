@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -208,8 +208,15 @@ void AutoFill::saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData 
         }
     }
 
+    if (m_lastNotification && m_lastNotificationPage == page) {
+        m_lastNotification->close();
+    }
+
     AutoFillNotification* aWidget = new AutoFillNotification(frameUrl, formData, updateData);
     page->view()->addNotification(aWidget);
+
+    m_lastNotification = aWidget;
+    m_lastNotificationPage = page;
 }
 
 // Returns all saved passwords on this page

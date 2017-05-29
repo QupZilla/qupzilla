@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 #define AUTOFILL_H
 
 #include <QObject>
+#include <QPointer>
 
 #include "qzcommon.h"
 
@@ -28,6 +29,7 @@ class QWebEnginePage;
 class WebPage;
 class BrowserWindow;
 class PasswordManager;
+class AutoFillNotification;
 struct PageFormData;
 struct PasswordEntry;
 
@@ -78,6 +80,8 @@ public:
 private:
     PasswordManager* m_manager;
     bool m_isStoring;
+    QPointer<AutoFillNotification> m_lastNotification;
+    WebPage *m_lastNotificationPage = nullptr;
 
 };
 
