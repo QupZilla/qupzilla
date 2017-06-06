@@ -123,7 +123,7 @@ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString
 
 int main(int argc, char* argv[])
 {
-    QT_REQUIRE_VERSION(argc, argv, "5.6.0");
+    QT_REQUIRE_VERSION(argc, argv, "5.8.0");
 
 #ifndef Q_OS_WIN
     qInstallMessageHandler(&msgHandler);
