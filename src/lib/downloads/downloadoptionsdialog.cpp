@@ -72,6 +72,7 @@ void DownloadOptionsDialog::setLastDownloadOption(const DownloadManager::Downloa
             ui->radioExternal->setChecked(true);
             break;
         }
+        // fallthrough
 
     case DownloadManager::OpenFile:
         ui->radioOpen->setChecked(true);

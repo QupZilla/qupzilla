@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -120,6 +120,7 @@ QVariant BookmarksModel::data(const QModelIndex &index, int role) const
         if (index.column() == 0 && itm->isUrl()) {
             return QString("%1\n%2").arg(itm->title(), QString::fromUtf8(itm->url().toEncoded()));
         }
+        // fallthrough
     case Qt::DisplayRole:
         switch (index.column()) {
         case 0:
