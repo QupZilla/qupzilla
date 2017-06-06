@@ -110,6 +110,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     setApplicationName(QLatin1String("QupZilla"));
     setOrganizationDomain(QLatin1String("qupzilla"));
     setWindowIcon(QIcon::fromTheme(QSL("qupzilla"), QIcon(QSL(":icons/exeicons/qupzilla-window.png"))));
+    setDesktopFileName(QSL("org.qupzilla.QupZilla"));
 
 #ifdef GIT_REVISION
     setApplicationVersion(QSL("%1 (%2)").arg(Qz::VERSION, GIT_REVISION));

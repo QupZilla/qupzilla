@@ -19,7 +19,7 @@ mac {
     target1.files += $$QZ_DESTDIR/themes
     target1.path = $$data_folder
 
-    target2.files = $$PWD/../linux/applications/qupzilla.desktop
+    target2.files = $$PWD/../linux/applications/org.qupzilla.QupZilla.desktop
     target2.path = $$launcher_folder
 
     target3.files = $$PWD/../linux/pixmaps/qupzilla.png
@@ -46,7 +46,7 @@ mac {
     bashcompletion.files = $$PWD/../linux/completion/qupzilla
     bashcompletion.path = $$share_folder/bash-completion/completions
 
-    appdata.files = $$PWD/../linux/appdata/qupzilla.appdata.xml
+    appdata.files = $$PWD/../linux/appdata/org.qupzilla.QupZilla.appdata.xml
     appdata.path = $$share_folder/appdata
 
 
