@@ -1254,10 +1254,14 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
 
 void WebView::loadRequest(const LoadRequest &req)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 9, 0)
+    QWebEngineView::load(req.webRequest());
+#else
     if (req.operation() == LoadRequest::GetOperation)
         load(req.url());
     else
         page()->runJavaScript(Scripts::sendPostData(req.url(), req.data()), WebPage::SafeJsWorld);
+#endif
 }
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)
