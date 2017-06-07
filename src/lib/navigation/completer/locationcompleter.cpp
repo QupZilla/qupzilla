@@ -29,6 +29,8 @@
 #include "bookmarkitem.h"
 #include "qzsettings.h"
 
+#include <QWindow>
+
 LocationCompleterView* LocationCompleter::s_view = 0;
 LocationCompleterModel* LocationCompleter::s_model = 0;
 
@@ -292,6 +294,11 @@ void LocationCompleter::showPopup()
     connect(s_view, SIGNAL(indexShiftActivated(QModelIndex)), this, SLOT(indexShiftActivated(QModelIndex)));
     connect(s_view, SIGNAL(indexDeleteRequested(QModelIndex)), this, SLOT(indexDeleteRequested(QModelIndex)));
     connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
+
+    if (m_locationBar->nativeParentWidget()) {
+        s_view->createWinId();
+        s_view->windowHandle()->setTransientParent(m_locationBar->nativeParentWidget()->windowHandle());
+    }
 
     adjustPopupSize();
 }
