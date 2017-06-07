@@ -481,7 +481,7 @@ os2 {
 
 mac {
     # homebrew openssl
-    BREW_OPENSSL = $$system("brew --prefix openssl")
+    BREW_OPENSSL = /usr/local$$system("readlink `brew --prefix openssl` | sed 's/..//'")
     INCLUDEPATH += $$BREW_OPENSSL/include
     LIBS += -L$$BREW_OPENSSL/lib
 
