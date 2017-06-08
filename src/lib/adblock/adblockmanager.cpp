@@ -35,6 +35,7 @@
 #include <QMessageBox>
 #include <QUrlQuery>
 #include <QMutexLocker>
+#include <QSaveFile>
 
 //#define ADBLOCK_DEBUG
 
@@ -200,14 +201,13 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
 
     QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toLatin1();
 
-    QFile file(filePath);
+    QSaveFile file(filePath);
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         qWarning() << "AdBlockManager: Cannot write to file" << filePath;
         return 0;
     }
-
     file.write(data);
-    file.close();
+    file.commit();
 
     AdBlockSubscription* subscription = new AdBlockSubscription(title, this);
     subscription->setUrl(QUrl(url));

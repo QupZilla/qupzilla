@@ -53,6 +53,7 @@
 #include <QFile>
 #include <QTimer>
 #include <QNetworkReply>
+#include <QSaveFile>
 
 AdBlockSubscription::AdBlockSubscription(const QString &title, QObject* parent)
     : QObject(parent)
@@ -179,7 +180,7 @@ void AdBlockSubscription::subscriptionDownloaded()
 
 bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 {
-    QFile file(m_filePath);
+    QSaveFile file(m_filePath);
 
     if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << m_filePath;
@@ -189,7 +190,7 @@ bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
     // Write subscription header
     file.write(QString("Title: %1\nUrl: %2\n").arg(title(), url().toString()).toUtf8());
     file.write(data);
-    file.close();
+    file.commit();
     return true;
 }
 
