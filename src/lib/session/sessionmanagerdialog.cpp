@@ -98,8 +98,11 @@ void SessionManagerDialog::switchToSession()
     }
     const QString filePath = item->data(0, SessionFileRole).toString();
     if (!filePath.isEmpty()) {
-        close();
-        mApp->sessionManager()->switchToSession(filePath);
+        if (item->data(0, IsBackupSessionRole).toBool()) {
+            mApp->sessionManager()->replaceSession(filePath);
+        } else {
+            mApp->sessionManager()->switchToSession(filePath);
+        }
     }
 }
 
@@ -133,7 +136,8 @@ void SessionManagerDialog::updateButtons()
     ui->renameButton->setEnabled(item && !isDefault && !isBackup);
     ui->cloneButton->setEnabled(item && !isBackup);
     ui->deleteButton->setEnabled(item && !isBackup && !isDefault && !isActive);
-    ui->switchToButton->setEnabled(item && !isActive && !isBackup);
+    ui->switchToButton->setEnabled(item && !isActive);
+    ui->switchToButton->setText(isBackup ? tr("Restore") : tr("Switch To"));
 }
 
 void SessionManagerDialog::updateItem(QTreeWidgetItem *item)

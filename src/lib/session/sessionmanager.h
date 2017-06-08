@@ -29,8 +29,6 @@ class QUPZILLA_EXPORT SessionManager : public QObject
     Q_OBJECT
 
 public:
-    explicit SessionManager(QObject* parent = 0);
-
     struct SessionMetaData {
         QString name;
         QString filePath;
@@ -38,6 +36,15 @@ public:
         bool isDefault = false;
         bool isBackup = false;
     };
+
+    enum SessionFlag {
+        SwitchSession = 1,
+        CloneSession = 2,
+        ReplaceSession = SwitchSession | 4
+    };
+    Q_DECLARE_FLAGS(SessionFlags, SessionFlag)
+
+    explicit SessionManager(QObject* parent = 0);
 
     void loadSettings();
     void saveSettings();
@@ -59,10 +66,11 @@ public slots:
 private slots:
     void aboutToShowSessionsMenu();
     void sessionsDirectoryChanged();
-    void openSession(QString sessionFilePath = QString(), bool switchSession = false);
-    void renameSession(QString sessionFilePath = QString(), bool clone = false);
+    void openSession(QString sessionFilePath = QString(), SessionFlags flags = nullptr);
+    void renameSession(QString sessionFilePath = QString(), SessionFlags flags = nullptr);
     void saveSession();
 
+    void replaceSession(const QString &filePath);
     void switchToSession(const QString &filePath);
     void cloneSession(const QString &filePath);
     void deleteSession(const QString &filePath);
@@ -83,5 +91,7 @@ private:
 
     friend class SessionManagerDialog;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(SessionManager::SessionFlags)
 
 #endif // SESSIONMANAGER_H

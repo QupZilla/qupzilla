@@ -72,7 +72,7 @@ void SessionManager::sessionsDirectoryChanged()
     m_sessionsMetaDataList.clear();
 }
 
-void SessionManager::openSession(QString sessionFilePath, bool switchSession)
+void SessionManager::openSession(QString sessionFilePath, SessionFlags flags)
 {
     if (sessionFilePath.isEmpty()) {
         QAction* action = qobject_cast<QAction*>(sender());
@@ -93,7 +93,7 @@ void SessionManager::openSession(QString sessionFilePath, bool switchSession)
         return;
 
     BrowserWindow* window = mApp->getWindow();
-    if (switchSession) {
+    if (flags.testFlag(SwitchSession)) {
         writeCurrentSession(m_lastActiveSessionPath);
 
         window = mApp->createWindow(Qz::BW_OtherRestoredWindow);
@@ -102,14 +102,16 @@ void SessionManager::openSession(QString sessionFilePath, bool switchSession)
                 win->close();
         }
 
-        m_lastActiveSessionPath = QFileInfo(sessionFilePath).canonicalFilePath();
-        m_sessionsMetaDataList.clear();
+        if (!flags.testFlag(ReplaceSession)) {
+            m_lastActiveSessionPath = QFileInfo(sessionFilePath).canonicalFilePath();
+            m_sessionsMetaDataList.clear();
+        }
     }
 
     mApp->openSession(window, sessionData);
 }
 
-void SessionManager::renameSession(QString sessionFilePath, bool clone)
+void SessionManager::renameSession(QString sessionFilePath, SessionFlags flags)
 {
     if (sessionFilePath.isEmpty()) {
         QAction* action = qobject_cast<QAction*>(sender());
@@ -120,8 +122,8 @@ void SessionManager::renameSession(QString sessionFilePath, bool clone)
     }
 
     bool ok;
-    const QString suggestedName = QFileInfo(sessionFilePath).baseName() + (clone ? tr("_cloned") : tr("_renamed"));
-    QString newName = QInputDialog::getText(mApp->activeWindow(), (clone ? tr("Clone Session") : tr("Rename Session")),
+    const QString suggestedName = QFileInfo(sessionFilePath).baseName() + (flags.testFlag(CloneSession) ? tr("_cloned") : tr("_renamed"));
+    QString newName = QInputDialog::getText(mApp->activeWindow(), (flags.testFlag(CloneSession) ? tr("Clone Session") : tr("Rename Session")),
                                             tr("Please enter a new name:"), QLineEdit::Normal,
                                             suggestedName, &ok);
 
@@ -131,11 +133,11 @@ void SessionManager::renameSession(QString sessionFilePath, bool clone)
     const QString newSessionPath = QString("%1/%2.dat").arg(DataPaths::path(DataPaths::Sessions)).arg(newName);
     if (QFile::exists(newSessionPath)) {
         QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("The session file \"%1\" exists. Please enter another name.").arg(newName));
-        renameSession(sessionFilePath, clone);
+        renameSession(sessionFilePath, flags);
         return;
     }
 
-    if (clone) {
+    if (flags.testFlag(CloneSession)) {
         if (!QFile::copy(sessionFilePath, newSessionPath)) {
             QMessageBox::information(mApp->activeWindow(), tr("Error!"), tr("An error occurred when cloning session file."));
             return;
@@ -172,14 +174,23 @@ void SessionManager::saveSession()
     writeCurrentSession(filePath);
 }
 
+void SessionManager::replaceSession(const QString &filePath)
+{
+    QMessageBox::StandardButton result = QMessageBox::information(mApp->activeWindow(), tr("Restore Backup"), tr("Are you sure you want to replace current session?"),
+                                                                  QMessageBox::Yes | QMessageBox::No);
+    if (result == QMessageBox::Yes) {
+        openSession(filePath, ReplaceSession);
+    }
+}
+
 void SessionManager::switchToSession(const QString &filePath)
 {
-    openSession(filePath, /*switchSession*/ true);
+    openSession(filePath, SwitchSession);
 }
 
 void SessionManager::cloneSession(const QString &filePath)
 {
-    renameSession(filePath, /*clone*/ true);
+    renameSession(filePath, CloneSession);
 }
 
 void SessionManager::deleteSession(const QString &filePath)
@@ -228,14 +239,14 @@ QList<SessionManager::SessionMetaData> SessionManager::sessionMetaData(bool with
 
     if (withBackups && QFile::exists(m_firstBackupSession)) {
         SessionMetaData data;
-        data.name = tr("First Backup");
+        data.name = tr("Backup 1");
         data.filePath = m_firstBackupSession;
         data.isBackup = true;
         out.append(data);
     }
     if (withBackups && QFile::exists(m_secondBackupSession)) {
         SessionMetaData data;
-        data.name = tr("Second Backup");
+        data.name = tr("Backup 2");
         data.filePath = m_secondBackupSession;
         data.isBackup = true;
         out.append(data);
