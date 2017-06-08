@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,8 @@
 #include "ui_searchenginesdialog.h"
 #include "editsearchengine.h"
 #include "mainapplication.h"
+#include "removeitemfocusdelegate.h"
+
 #include <QMessageBox>
 
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
@@ -40,6 +42,7 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
 
     connect(ui->treeWidget, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(editEngine()));
 
+    ui->treeWidget->setItemDelegate(new RemoveItemFocusDelegate(ui->treeWidget));
     ui->treeWidget->sortByColumn(-1);
     reloadEngines();
 }
