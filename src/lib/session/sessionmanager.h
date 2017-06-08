@@ -22,7 +22,7 @@
 
 class QAction;
 class QMenu;
-
+class QFileInfo;
 
 class QUPZILLA_EXPORT SessionManager : public QObject
 {
@@ -34,6 +34,9 @@ public:
     struct SessionMetaData {
         QString name;
         QString filePath;
+        bool isActive = false;
+        bool isDefault = false;
+        bool isBackup = false;
     };
 
     void loadSettings();
@@ -46,22 +49,30 @@ public:
     void backupSavedSessions();
     void writeCurrentSession(const QString &filePath);
 
+signals:
+    void sessionsMetaDataChanged();
+
 public slots:
     void autoSaveLastSession();
+    void openSessionManagerDialog();
 
 private slots:
     void aboutToShowSessionsMenu();
-    void aboutToShowSessionSubmenu();
     void sessionsDirectoryChanged();
-    void switchToSession();
     void openSession(QString sessionFilePath = QString(), bool switchSession = false);
     void renameSession(QString sessionFilePath = QString(), bool clone = false);
-    void cloneSession();
-    void deleteSession();
     void saveSession();
+
+    void switchToSession(const QString &filePath);
+    void cloneSession(const QString &filePath);
+    void deleteSession(const QString &filePath);
     void newSession();
 
+    QList<SessionMetaData> sessionMetaData(bool withBackups = true);
+
 private:
+    bool isActive(const QString &filePath) const;
+    bool isActive(const QFileInfo &fileInfo) const;
     void fillSessionsMetaDataListIfNeeded();
 
     QList<SessionMetaData> m_sessionsMetaDataList;
@@ -69,6 +80,8 @@ private:
     QString m_firstBackupSession;
     QString m_secondBackupSession;
     QString m_lastActiveSessionPath;
+
+    friend class SessionManagerDialog;
 };
 
 #endif // SESSIONMANAGER_H

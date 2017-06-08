@@ -167,6 +167,7 @@ SOURCES += \
     session/recoveryjsobject.cpp \
     session/restoremanager.cpp \
     session/sessionmanager.cpp \
+    session/sessionmanagerdialog.cpp \
     sidebar/bookmarkssidebar.cpp \
     sidebar/historysidebar.cpp \
     sidebar/sidebar.cpp \
@@ -202,11 +203,13 @@ SOURCES += \
     tools/progressbar.cpp \
     tools/qzregexp.cpp \
     tools/qztools.cpp \
+    tools/removeitemfocusdelegate.cpp \
     tools/scripts.cpp \
     tools/sqldatabase.cpp \
     tools/toolbutton.cpp \
     tools/treewidget.cpp \
     tools/widget.cpp \
+    tools/wheelhelper.cpp \
     webengine/javascript/autofilljsobject.cpp \
     webengine/javascript/externaljsobject.cpp \
     webengine/loadrequest.cpp \
@@ -219,7 +222,6 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
-    tools/wheelhelper.cpp \
 
 HEADERS  += \
     3rdparty/fancytabwidget.h \
@@ -349,6 +351,7 @@ HEADERS  += \
     session/recoveryjsobject.h \
     session/restoremanager.h \
     session/sessionmanager.h \
+    session/sessionmanagerdialog.h \
     sidebar/bookmarkssidebar.h \
     sidebar/historysidebar.h \
     sidebar/sidebar.h \
@@ -385,11 +388,13 @@ HEADERS  += \
     tools/progressbar.h \
     tools/qzregexp.h \
     tools/qztools.h \
+    tools/removeitemfocusdelegate.h \
     tools/scripts.h \
     tools/sqldatabase.h \
     tools/toolbutton.h \
     tools/treewidget.h \
     tools/widget.h \
+    tools/wheelhelper.h \
     webengine/javascript/autofilljsobject.h \
     webengine/javascript/externaljsobject.h \
     webengine/loadrequest.h \
@@ -402,7 +407,6 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
-    tools/wheelhelper.h \
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
@@ -437,6 +441,7 @@ FORMS    += \
     preferences/preferences.ui \
     preferences/thememanager.ui \
     preferences/useragentdialog.ui \
+    session/sessionmanagerdialog.ui \
     sidebar/bookmarkssidebar.ui \
     sidebar/historysidebar.ui \
     tools/certificateinfowidget.ui \
