@@ -195,8 +195,8 @@ void SessionManager::cloneSession(const QString &filePath)
 
 void SessionManager::deleteSession(const QString &filePath)
 {
-    QMessageBox::StandardButton result = QMessageBox::information(mApp->activeWindow(), tr("Warning!"), tr("Are you sure to delete following session?\n%1")
-                                                                  .arg(QDir::toNativeSeparators(filePath)), QMessageBox::Yes | QMessageBox::No);
+    QMessageBox::StandardButton result = QMessageBox::information(mApp->activeWindow(), tr("Delete Session"), tr("Are you sure you want to delete session '%1'?")
+                                                                  .arg(QFileInfo(filePath).baseName()), QMessageBox::Yes | QMessageBox::No);
     if (result == QMessageBox::Yes) {
         QFile::remove(filePath);
     }
