@@ -90,17 +90,14 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_menuHistory->actions().at(3));
     superMenu->addAction(m_menuBookmarks->actions().at(2));
     superMenu->addSeparator();
-    superMenu->addAction(m_actions[QSL("Standard/Preferences")]);
-    superMenu->addSeparator();
     superMenu->addMenu(m_menuView);
     superMenu->addMenu(m_menuHistory);
     superMenu->addMenu(m_menuBookmarks);
     superMenu->addMenu(m_menuTools);
+    superMenu->addMenu(m_menuHelp);
     superMenu->addSeparator();
+    superMenu->addAction(m_actions[QSL("Standard/Preferences")]);
     superMenu->addAction(m_actions[QSL("Standard/About")]);
-    superMenu->addAction(m_actions[QSL("Help/InfoAboutApp")]);
-    superMenu->addAction(m_actions[QSL("Help/ConfigInfo")]);
-    superMenu->addAction(m_actions[QSL("Help/ReportIssue")]);
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("Standard/Quit")]);
 
