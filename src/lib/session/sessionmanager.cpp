@@ -33,7 +33,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QVBoxLayout>
-
+#include <QSaveFile>
 
 SessionManager::SessionManager(QObject* parent)
     : QObject(parent)
@@ -377,12 +377,12 @@ void SessionManager::backupSavedSessions()
 
 void SessionManager::writeCurrentSession(const QString &filePath)
 {
-    QFile file(filePath);
+    QSaveFile file(filePath);
     if (!file.open(QIODevice::WriteOnly) || file.write(mApp->saveState()) == -1) {
         qWarning() << "Error! can not write the current session file: " << filePath << file.errorString();
         return;
     }
-    file.close();
+    file.commit();
 }
 
 void SessionManager::autoSaveLastSession()
