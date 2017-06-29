@@ -1036,7 +1036,7 @@ Należy zainstalować najnowszą wersję tej przeglądarki.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Open in new tab</source>
-        <translation>Otwórz w nowej karcei</translation>
+        <translation>Otwórz w nowej karcie</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
