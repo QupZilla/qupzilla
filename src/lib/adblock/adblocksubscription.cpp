@@ -182,7 +182,7 @@ bool AdBlockSubscription::saveDownloadedData(const QByteArray &data)
 {
     QSaveFile file(m_filePath);
 
-    if (!file.open(QFile::ReadWrite | QFile::Truncate)) {
+    if (!file.open(QFile::WriteOnly)) {
         qWarning() << "AdBlockSubscription::" << __FUNCTION__ << "Unable to open adblock file for writing:" << m_filePath;
         return false;
     }

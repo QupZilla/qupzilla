@@ -202,7 +202,7 @@ AdBlockSubscription* AdBlockManager::addSubscription(const QString &title, const
     QByteArray data = QString("Title: %1\nUrl: %2\n[Adblock Plus 1.1.1]").arg(title, url).toLatin1();
 
     QSaveFile file(filePath);
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
+    if (!file.open(QFile::WriteOnly)) {
         qWarning() << "AdBlockManager: Cannot write to file" << filePath;
         return 0;
     }
