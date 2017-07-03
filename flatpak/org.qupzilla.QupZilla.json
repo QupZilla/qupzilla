@@ -3,8 +3,6 @@
     "runtime": "org.kde.Platform",
     "runtime-version": "master",
     "sdk": "org.kde.Sdk",
-    "rename-desktop-file": "qupzilla.desktop",
-    "rename-appdata-file": "qupzilla.appdata.xml",
     "rename-icon": "qupzilla",
     "tags": ["nightly"],
     "desktop-file-name-suffix": " (Nightly)",
