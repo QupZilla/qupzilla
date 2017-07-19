@@ -224,7 +224,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
     case QEvent::FocusOut: {
         QFocusEvent *focusEvent = static_cast<QFocusEvent*>(event);
-        if (focusEvent->reason() != Qt::PopupFocusReason) {
+        if (focusEvent->reason() != Qt::PopupFocusReason && focusEvent->reason() != Qt::MouseFocusReason) {
             close();
         }
         break;
