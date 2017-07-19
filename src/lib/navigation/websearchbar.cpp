@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -89,6 +89,7 @@ WebSearchBar::WebSearchBar(BrowserWindow* window)
     m_completer->setModel(m_completerModel);
     m_completer->popup()->setMinimumHeight(90);
     setCompleter(m_completer);
+    connect(m_completer->popup(), &QAbstractItemView::activated, this, &WebSearchBar::search);
 
     m_openSearchEngine = new OpenSearchEngine(this);
     m_openSearchEngine->setNetworkAccessManager(mApp->networkManager());
