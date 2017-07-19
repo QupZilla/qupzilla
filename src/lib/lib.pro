@@ -5,7 +5,7 @@ TEMPLATE = lib
 
 DEFINES *= QUPZILLA_SHAREDLIBRARY
 
-CONFIG += c++11
+CONFIG += c++14
 
 include(../defines.pri)
 include(../../translations/translations.pri)
