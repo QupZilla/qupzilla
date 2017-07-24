@@ -24,6 +24,7 @@ TRANSLATIONS += \
     translations/ar_SA.ts \
     translations/bg_BG.ts \
     translations/ca_ES.ts \
+    translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/es_ES.ts \
@@ -41,6 +42,7 @@ TRANSLATIONS += \
     translations/pl_PL.ts \
     translations/pt_PT.ts \
     translations/ru_RU.ts \
+    translations/sl_SI.ts \
     translations/sr@ijekavianlatin.ts \
     translations/sr@ijekavian.ts \
     translations/sr@latin.ts \

@@ -9,12 +9,12 @@
     <message>
         <location filename="../testplugin.cpp" line="133"/>
         <source>Example Plugin Settings</source>
-        <translation>Voorbeeldplugin-instellingen</translation>
+        <translation>Voorbeeldplug-in-instellingen</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="163"/>
         <source>My first plugin action</source>
-        <translation>Mijn eerste plugin-actie</translation>
+        <translation>Mijn eerste plug-in-actie</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="178"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../testplugin.cpp" line="178"/>
         <source>First plugin action works :-)</source>
-        <translation>De eerste plugin-actie werkt :-)</translation>
+        <translation>De eerste plug-in-actie werkt :-)</translation>
     </message>
 </context>
 <context>

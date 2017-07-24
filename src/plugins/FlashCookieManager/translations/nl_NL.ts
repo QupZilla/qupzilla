@@ -205,7 +205,7 @@
         <location filename="../fcm_dialog.cpp" line="289"/>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>Already whitelisted!</source>
-        <translation>Staat al op de witte lijst!</translation>
+        <translation>Deze cookie staat al op de witte lijst!</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="289"/>

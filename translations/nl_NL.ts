@@ -195,7 +195,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>De Advertentieblokkeerder blokkeerde een ongewenst pop-upvenster.</translation>
+        <translation>De Advertentieblokkeerder heeft een ongewenst pop-upvenster geblokkeerd.</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="90"/>

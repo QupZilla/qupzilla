@@ -1074,7 +1074,7 @@ Si us plau, instal·leu l&apos;última versió del QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix a les adreces d&apos;interès</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1542,7 +1542,7 @@ Esteu segur que voleu tancar aquesta finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix les galetes amb el tancament</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1587,12 +1587,12 @@ Esteu segur que voleu tancar aquesta finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
-        <translation>Ja està a la llista negra!</translation>
+        <translation>Ja és a la llista negra!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>El servidor &quot;%1&quot; ja és a la llista negra; si us plau, elimineu-lo primer.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
@@ -1602,12 +1602,12 @@ Esteu segur que voleu tancar aquesta finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
-        <translation>Ja està a la llista blanca!</translation>
+        <translation>Ja és a la llista blanca!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>El servidor &quot;%1&quot; ja és a la llista blanca; si us plau, elimineu-lo primer.</translation>
     </message>
 </context>
 <context>
@@ -1771,22 +1771,22 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>Arxiu HTML MIME (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Pàgina HTML, única (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>Pàgina HTML, completa (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Anomena i desa la pàgina...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
@@ -1806,7 +1806,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu sortir? Es cancel·laran totes les baixades no completades!</translation>
     </message>
 </context>
 <context>
@@ -1834,7 +1834,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>que és </translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -2397,7 +2397,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="154"/>
         <source>Enter URL address</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu l&apos;adreça URL</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2433,17 +2433,17 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>Obre una pestanya nova</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>Obre una finestra nova</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Obre una finestra privada nova</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
@@ -2767,7 +2767,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu esborrar la contrasenya mestra i desencriptar les dades?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
@@ -3041,7 +3041,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Corrector ortogràfic</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="120"/>
@@ -3205,7 +3205,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
-        <translation type="unfinished"/>
+        <translation>Habilita la barra de les adreces d&apos;interès instantània</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="611"/>
@@ -3434,7 +3434,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation type="unfinished"/>
+        <translation>Permet els connectors Pepper (connector de flash)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
@@ -3465,7 +3465,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza les barres de desplaçament natives</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
@@ -3495,17 +3495,17 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix la memòria cau amb el tancament</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>Màxim:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation> MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
@@ -3655,7 +3655,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1746"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Dreceres existents:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - pestanya anterior&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - pestanya següent&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - cerca a la pàgina</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1749"/>
@@ -3665,7 +3665,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation type="unfinished"/>
+        <translation>Si no està marcat, evita la sortida de l&apos;aplicació si la drecera Ctrl-W estava prevista.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1759"/>
@@ -3830,32 +3830,32 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Vista prèvia</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Per a més informació sobre la Comprovació ortogràfica, vegeu el &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Opcions del corrector ortogràfic&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Habilita  el corrector ortogràfic</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Directoris dels diccionaris&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha trobat cap idioma</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
@@ -3865,12 +3865,12 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Full d&apos;estil de l&apos;usuari&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>El full d&apos;estil que es carrega automàticament amb tots els llocs web:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
@@ -3977,7 +3977,7 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu esborrar permanentment el perfil &quot;%1&quot;? Aquesta acció no es pot desfer!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
@@ -4173,12 +4173,12 @@ no s&apos;ha trobat!</translation>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Are you sure you want to remove this speed dial?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu eliminar aquest marcador ràpid?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
         <source>Are you sure you want to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu tornar a carregar tots els marcadors ràpids?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
@@ -4624,7 +4624,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
         <source>&amp;Match Case</source>
-        <translation type="unfinished"/>
+        <translation>Coincidència de &amp;majúscules</translation>
     </message>
 </context>
 <context>
@@ -4932,7 +4932,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>Ta&amp;nca la pestanya</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
@@ -4950,12 +4950,12 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Des-silencia la pestanya</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Silencia la pestanya</translation>
     </message>
 </context>
 <context>
@@ -5139,12 +5139,12 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="384"/>
         <source>Something went wrong while loading this page.</source>
-        <translation>Alguna cosa va anar malament mentre es carregava aquesta pàgina.</translation>
+        <translation>Alguna cosa ha anat malament mentre es carregava aquesta pàgina.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="385"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
-        <translation type="unfinished"/>
+        <translation>Intenteu tornar a carregar la pàgina o tancar algunes pestanyes per tenir més memòria disponible.</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="386"/>
@@ -5159,7 +5159,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="425"/>
         <source>Choose files...</source>
-        <translation type="unfinished"/>
+        <translation>Tria els fitxers...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
@@ -5223,7 +5223,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha cap suggeriment</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="715"/>
@@ -5248,7 +5248,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="729"/>
         <source>Reload All Dials</source>
-        <translation type="unfinished"/>
+        <translation>Torna a carregar tots els marcadors</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="748"/>

@@ -29,12 +29,12 @@
     <message>
         <location filename="../tabmanagersettings.ui" line="47"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; The &amp;quot;Window&amp;quot; type is recommended for managing lots of windows/tabs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Nota:&lt;/span&gt; El tipus &amp;quot;finestra&amp;quot; és recomanable per gestionar moltes finestres / pestanyes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="60"/>
         <source>Use TabManager plugin as replacement for main TabBar.</source>
-        <translation type="unfinished"/>
+        <translation>Usa el connector TabManager com a substitut de la barra de pestanyes principal.</translation>
     </message>
 </context>
 <context>
@@ -82,17 +82,17 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="269"/>
         <source>&amp;Show side by side</source>
-        <translation type="unfinished"/>
+        <translation>Mostra-le&amp;s una al costat de l&apos;altra</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="275"/>
         <source>&amp;Detach checked tabs</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Desprèn les pestanyes marcades</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="276"/>
         <source>Book&amp;mark checked tabs</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix les pestanyes &amp;marcades a les adreces d&apos;interès</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="277"/>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="528"/>
         <source>Choose folder for bookmarks:</source>
-        <translation type="unfinished"/>
+        <translation>Trieu una carpeta per a les adreces d&apos;interès:</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="529"/>
         <source>Bookmark Selected Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix les pestanyes seleccionades a les adreces d&apos;interès</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="646"/>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="647"/>
         <source>Double click to switch</source>
-        <translation type="unfinished"/>
+        <translation>Doble clic per al canvi</translation>
     </message>
 </context>
 <context>

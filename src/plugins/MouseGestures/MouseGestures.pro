@@ -30,6 +30,7 @@ TRANSLATIONS += \
     translations/bg_BG.ts \
     translations/ca_ES.ts \
     translations/cs_CZ.ts \
+    translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \
     translations/es_ES.ts \
@@ -57,6 +58,7 @@ TRANSLATIONS += \
     translations/ro_RO.ts \
     translations/ru_RU.ts \
     translations/sk_SK.ts \
+    translations/sl_SI.ts \
     translations/sr@ijekavianlatin.ts \
     translations/sr@ijekavian.ts \
     translations/sr@latin.ts \
@@ -68,6 +70,7 @@ TRANSLATIONS += \
     translations/uz@Cyrl.ts \
     translations/uz@Latn.ts \
     translations/zh_CN.ts \
+    translations/zh_HK.ts \
     translations/zh_TW.ts \
 
 PLUGIN_DIR = $$PWD

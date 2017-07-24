@@ -34,7 +34,7 @@
     <message>
         <location filename="../akn_settings.ui" line="58"/>
         <source>Key for showing access keys:</source>
-        <translation>快捷键激活方式：</translation>
+        <translation>显示快捷键用按键：</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="103"/>

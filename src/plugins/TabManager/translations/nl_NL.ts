@@ -102,12 +102,12 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="528"/>
         <source>Choose folder for bookmarks:</source>
-        <translation>Kies een map voor de bladwijzers:</translation>
+        <translation>Kies een bladwijzermap:</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="529"/>
         <source>Bookmark Selected Tabs</source>
-        <translation>Geselecteerde tabbladen aan bladwijzers toevoegen</translation>
+        <translation>Geselecteerde tabbladen toevoegen aan bladwijzers</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="646"/>

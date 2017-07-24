@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="71"/>
         <source>Authors and Contributors</source>
-        <translation>Udviklere og Bidragydere</translation>
+        <translation>Udviklere og bidragydere</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="96"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Hovedudvikler:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;b&gt;Primær udvikler:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="97"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;b&gt;Bidragsydere:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;b&gt;Bidragydere:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="109"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="14"/>
         <source>Add Subscription</source>
-        <translation>Abonner</translation>
+        <translation>Tilføj abonnement</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="23"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="298"/>
         <source>Custom Rules</source>
-        <translation>Brugerdefinerede Regler</translation>
+        <translation>Brugerdefinerede regler</translation>
     </message>
 </context>
 <context>
@@ -122,12 +122,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="14"/>
         <source>AdBlock Configuration</source>
-        <translation>AdBlock-opsætning</translation>
+        <translation>AdBlock-konfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="20"/>
         <source>Enable AdBlock</source>
-        <translation>Aktiver AdBlock</translation>
+        <translation>Aktivér AdBlock</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="32"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="68"/>
         <source>Options</source>
-        <translation>Indstillinger</translation>
+        <translation>Valgmuligheder</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="98"/>
@@ -147,7 +147,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="122"/>
         <source>Use only essential part of EasyList (for performance reasons)</source>
-        <translation type="unfinished"/>
+        <translation>Brug kun essentielle dele af EasyList (pga. ydelse)</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
@@ -190,12 +190,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>Blocked popup window</source>
-        <translation>Blokeret popup-vindue</translation>
+        <translation>Blokerede pop op-vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
         <source>AdBlock blocked unwanted popup window.</source>
-        <translation>AdBlock har blokeret et uønsket popup-vindue</translation>
+        <translation>AdBlock har blokeret et uønsket pop op-vindue.</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="90"/>
@@ -205,22 +205,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="117"/>
         <source>Show AdBlock &amp;Settings</source>
-        <translation>Vis &amp;Indstillinger for AdBlock</translation>
+        <translation>Vis AdBlock-&amp;indstillinger</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
         <source>Disable on %1</source>
-        <translation>Deaktiver ved %1</translation>
+        <translation>Deaktivér ved %1</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="131"/>
         <source>Disable only on this page</source>
-        <translation>Deaktiver kun på denne side</translation>
+        <translation>Deaktivér kun på denne side</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="141"/>
         <source>Blocked Popup Windows</source>
-        <translation>Blokerede popup-vinduer</translation>
+        <translation>Blokerede pop op-vinduer</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
@@ -238,12 +238,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockmanager.cpp" line="168"/>
         <source>AdBlock Subscription</source>
-        <translation>AdBlock abonnement</translation>
+        <translation>AdBlock-abonnement</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockmanager.cpp" line="297"/>
         <source>EasyList</source>
-        <translation type="unfinished"/>
+        <translation>EasyList</translation>
     </message>
 </context>
 <context>
@@ -259,27 +259,27 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="80"/>
         <source>Add Rule</source>
-        <translation>Tilføj Regl</translation>
+        <translation>Tilføj regel</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="82"/>
         <source>Remove Rule</source>
-        <translation>Fjern Regl</translation>
+        <translation>Fjern regel</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="141"/>
         <source>Add Custom Rule</source>
-        <translation>Tilføj Brugerbestemt Regel</translation>
+        <translation>Tilføj brugerdefineret regel</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="141"/>
         <source>Please write your rule here:</source>
-        <translation type="unfinished"/>
+        <translation>Skriv venligst din regel her:</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="179"/>
         <source>%1 (recently updated)</source>
-        <translation type="unfinished"/>
+        <translation>%1 (opdateret fornylig)</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="188"/>
@@ -297,12 +297,12 @@
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="20"/>
         <source>Choose preferred language for web sites</source>
-        <translation>Vælg foretrukne sprog for hjemmesider</translation>
+        <translation>Vælg foretrukne sprog for websteder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/addacceptlanguage.ui" line="32"/>
         <source>Personal definition:</source>
-        <translation type="unfinished"/>
+        <translation>Personlig definition:</translation>
     </message>
 </context>
 <context>
@@ -325,7 +325,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="243"/>
         <source>Database (encrypted)</source>
-        <translation>Database (Krypteret)</translation>
+        <translation>Database (krypteret)</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
@@ -335,22 +335,22 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
-        <translation type="unfinished"/>
+        <translation>Denne motor har brug for at en hovedadgangskode er sat! QupZilla skifter blot til sin standardmotor</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="659"/>
         <source>Enter Master Password</source>
-        <translation type="unfinished"/>
+        <translation>Indtast hovedadgangskode</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="663"/>
         <source>Permission is required, please enter Master Password:</source>
-        <translation type="unfinished"/>
+        <translation>Tilladelse kræves, indtast venligst hovedadgangskoden:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="669"/>
         <source>Entered password is wrong!</source>
-        <translation>Indtastet kodeord er forkert!</translation>
+        <translation>Indtastet adgangskode er forkert!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databasepasswordbackend.cpp" line="32"/>
@@ -373,12 +373,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="42"/>
         <source>Backend options</source>
-        <translation>Motorindstillinger</translation>
+        <translation>Valgmuligheder for motor</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="71"/>
         <source>Passwords</source>
-        <translation>Kodeord</translation>
+        <translation>Adgangskoder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="87"/>
@@ -394,12 +394,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="97"/>
         <source>Password</source>
-        <translation>Kodeord</translation>
+        <translation>Adgangskode</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="113"/>
         <source>Import and Export</source>
-        <translation>Import og Eksport</translation>
+        <translation>Import og eksport</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="140"/>
@@ -407,7 +407,7 @@ Installer den nyeste version af QupZilla.</translation>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="171"/>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="179"/>
         <source>Show Passwords</source>
-        <translation>Vis Kodeord</translation>
+        <translation>Vis adgangskoder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="154"/>
@@ -424,7 +424,7 @@ Installer den nyeste version af QupZilla.</translation>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="168"/>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="218"/>
         <source>Remove All</source>
-        <translation>Fjern Alle</translation>
+        <translation>Fjern alle</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.ui" line="191"/>
@@ -434,12 +434,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="67"/>
         <source>Import Passwords from File...</source>
-        <translation>Importer Kodeord fra Fil...</translation>
+        <translation>Importér adgangskoder fra fil...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="68"/>
         <source>Export Passwords to File...</source>
-        <translation>Eksporter Kodeord til Fil...</translation>
+        <translation>Eksportér adgangskoder til fil...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="70"/>
@@ -454,17 +454,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="130"/>
         <source>Change backend:</source>
-        <translation type="unfinished"/>
+        <translation>Skift motor:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="179"/>
         <source>Are you sure that you want to show all passwords?</source>
-        <translation>Ønsker du virkelig at vise alle kodeord?</translation>
+        <translation>Er du sikker på, at du vil vise alle adgangskoder?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="194"/>
         <source>Hide Passwords</source>
-        <translation>Gem Kodeord</translation>
+        <translation>Skjul adgangskoder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="232"/>
@@ -474,17 +474,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="233"/>
         <source>Are you sure you want to delete all passwords on your computer?</source>
-        <translation>Er du sikker på du vil slette alle kodeord på din computer?</translation>
+        <translation>Er du sikker på, at du vil slette alle adgangskoder på din computer?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
         <source>Edit password</source>
-        <translation>Rediger kodeord</translation>
+        <translation>Rediger adgangskode</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
         <source>Change password:</source>
-        <translation>Skift kodeord:</translation>
+        <translation>Skift adgangskode:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="301"/>
@@ -500,7 +500,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="335"/>
         <source>Successfully imported</source>
-        <translation>Importering successfuldt udført</translation>
+        <translation>Import udført</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="335"/>
@@ -510,27 +510,27 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="346"/>
         <source>Cannot write to file!</source>
-        <translation>Kan ikke skrive til filen!</translation>
+        <translation>Kan ikke skrive til fil!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="355"/>
         <source>Successfully exported</source>
-        <translation>eksportering successfuldt udført</translation>
+        <translation>Eksport udført</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="372"/>
         <source>Copy Username</source>
-        <translation>Kopier Brugernavn</translation>
+        <translation>Kopiér brugernavn</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="373"/>
         <source>Copy Password</source>
-        <translation>Kopiér Kodeord</translation>
+        <translation>Kopiér adgangskode</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="375"/>
         <source>Edit Password</source>
-        <translation>Rediger Kodeord</translation>
+        <translation>Rediger adgangskode</translation>
     </message>
 </context>
 <context>
@@ -538,7 +538,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="69"/>
         <source>Update</source>
-        <translation>Ajourfør</translation>
+        <translation>Opdater</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="85"/>
@@ -548,12 +548,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="101"/>
         <source>Never For This Site</source>
-        <translation>Aldrig for Denne Side</translation>
+        <translation>Aldrig for dette sted</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.ui" line="117"/>
         <source>Not Now</source>
-        <translation>Ikke Nu</translation>
+        <translation>Ikke nu</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="41"/>
@@ -568,7 +568,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="49"/>
         <source>Do you want QupZilla to update saved password %1?</source>
-        <translation>Vil du have QupZilla til at ajourføre det gemte kodeord %1?</translation>
+        <translation>Vil du have QupZilla til at opdatere den gemte adgangskode %1?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/autofillnotification.cpp" line="55"/>
@@ -594,12 +594,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="205"/>
         <source>Bookmarks Toolbar</source>
-        <translation>Bogmærke Værktøjslinie</translation>
+        <translation>Bogmærkelinje</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="206"/>
         <source>Bookmarks located in Bookmarks Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Bogmærker beliggende på bogmærkelinjen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="209"/>
@@ -609,12 +609,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="210"/>
         <source>Bookmarks located in Bookmarks Menu</source>
-        <translation>Bogmærker beliggende i Bogmærkemenuen</translation>
+        <translation>Bogmærker beliggende i bogmærkemenuen</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="213"/>
         <source>Unsorted Bookmarks</source>
-        <translation>Usorterede Bogmærker</translation>
+        <translation>Usorterede bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarks.cpp" line="214"/>
@@ -624,12 +624,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="151"/>
         <source>Choose name and location of this bookmark.</source>
-        <translation>Vælg navn og placering af dette bogmærke</translation>
+        <translation>Vælg navn og placering af dette bogmærke.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="155"/>
         <source>Add New Bookmark</source>
-        <translation>Tilføj Nyt Bogmærke</translation>
+        <translation>Tilføj nyt bogmærke</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="195"/>
@@ -639,7 +639,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="196"/>
         <source>Bookmark All Tabs</source>
-        <translation>Bogmærk Alle Faneblade</translation>
+        <translation>Bogmærk alle faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="236"/>
@@ -649,7 +649,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="239"/>
         <source>Address:</source>
-        <translation>Addresse:</translation>
+        <translation>Adresse:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="241"/>
@@ -664,7 +664,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="249"/>
         <source>Edit Bookmark</source>
-        <translation>Rediger Bogmærke</translation>
+        <translation>Rediger bogmærke</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="415"/>
@@ -677,17 +677,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="14"/>
         <source>Export Bookmarks</source>
-        <translation>Eksportér Bogmærker</translation>
+        <translation>Eksportér bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="20"/>
         <source>&lt;b&gt;Export Bookmarks&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Eksporter Boogmærker&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Eksportér bogmærker&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="27"/>
         <source>Export options</source>
-        <translation>Eksportindstillinger</translation>
+        <translation>Valgmuligheder for eksport</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="42"/>
@@ -697,12 +697,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="73"/>
         <source>Output File:</source>
-        <translation type="unfinished"/>
+        <translation>Outputfil:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="89"/>
         <source>Format:</source>
-        <translation type="unfinished"/>
+        <translation>Format:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.cpp" line="64"/>
@@ -715,12 +715,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="31"/>
         <source>HTML File</source>
-        <translation>HTML fil</translation>
+        <translation>HTML-fil</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="37"/>
         <source>HTML Bookmarks</source>
-        <translation>HTML Bogmærker</translation>
+        <translation>HTML-bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/htmlexporter.cpp" line="38"/>
@@ -747,7 +747,7 @@ Installer den nyeste version af QupZilla.</translation>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="37"/>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="105"/>
         <source>Bookmark this Page</source>
-        <translation>Bogmærk denne Side</translation>
+        <translation>Sæt bogmærke for denne side</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksicon.cpp" line="97"/>
@@ -760,12 +760,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="20"/>
         <source>Import Bookmarks</source>
-        <translation>Importér Bogmærker</translation>
+        <translation>Importér bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="26"/>
         <source>&lt;b&gt;Import Bookmarks&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Importer Bogmærker&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Importér bogmærker&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="74"/>
@@ -775,7 +775,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="83"/>
         <source>Html File</source>
-        <translation>HTML fil</translation>
+        <translation>HTML-fil</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
@@ -822,7 +822,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="70"/>
         <source>File does not exist.</source>
-        <translation>Filen eksisterer ikke.</translation>
+        <translation>Filen findes ikke.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="77"/>
@@ -835,7 +835,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="33"/>
         <source>Google Chrome stores its bookmarks in &lt;b&gt;Bookmarks&lt;/b&gt; text file. This file is usually located in</source>
-        <translation>Google Chrome gemmer sine bogmærker i en &lt;b&gt;Bookmarks&lt;/b&gt; tekstfil. Denne fil er oftest at finde i</translation>
+        <translation>Google Chrome gemmer sine bogmærker i en &lt;b&gt;Bogmærker&lt;/b&gt;-tekstfil. Denne fil er oftest at finde i</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="50"/>
@@ -856,7 +856,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/chromeimporter.cpp" line="76"/>
         <source>Cannot parse JSON file!</source>
-        <translation>Kan ikke evaluere JSON fil!</translation>
+        <translation>Kan ikke evaluere JSON-fil!</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/firefoximporter.cpp" line="42"/>
@@ -866,12 +866,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="32"/>
         <source>You can import bookmarks from any browser that supports HTML exporting. This file has usually these suffixes</source>
-        <translation>Du kan importere bogmærker fra enhver netlæser, der understøtter HTML eksport. Denne fil har normalt disse endelser</translation>
+        <translation>Du kan importere bogmærker fra enhver browser, der understøtter eksport af HTML. Denne fil har normalt disse endelser</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/htmlimporter.cpp" line="43"/>
         <source>HTML Bookmarks</source>
-        <translation>HTML Bogmærker</translation>
+        <translation>HTML-bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="33"/>
@@ -881,7 +881,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/ieimporter.cpp" line="52"/>
         <source>Directory does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>Mappen findes ikke.</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="35"/>
@@ -891,12 +891,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="66"/>
         <source>File is not valid Opera bookmarks file!</source>
-        <translation type="unfinished"/>
+        <translation>Filen er ikke en gyldig Opera-bogmærkefil!</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="71"/>
         <source>Only UTF-8 encoded Opera bookmarks file is supported!</source>
-        <translation>Kun UTF-8 indkodede Opera-bogmærker er understøttet!</translation>
+        <translation>Kun UTF-8-kodet Opera-bogmærker understøttes!</translation>
     </message>
 </context>
 <context>
@@ -929,29 +929,29 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="105"/>
         <source>Open in new tab</source>
-        <translation>Åben i nyt faneblad</translation>
+        <translation>Åbn i nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="106"/>
         <source>Open in new window</source>
-        <translation>Åben i nyt vindue</translation>
+        <translation>Åbn i nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="107"/>
         <source>Open in new private window</source>
-        <translation>Åben i nyt privat vindue</translation>
+        <translation>Åbn i nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="110"/>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="171"/>
         <source>New Bookmark</source>
-        <translation>Nyt Bogmærke</translation>
+        <translation>Nyt bogmærke</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="111"/>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="179"/>
         <source>New Folder</source>
-        <translation>Ny Folder</translation>
+        <translation>Ny mappe</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmanager.cpp" line="112"/>
@@ -974,17 +974,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="167"/>
         <source>Bookmark &amp;This Page</source>
-        <translation>Bogmærk Denne Side</translation>
+        <translation>Sæt bogmærke for denne side</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="168"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Bogmærk &amp;Alle Faneblade</translation>
+        <translation>Sæt bogmærke for &amp;alle faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksmenu.cpp" line="169"/>
         <source>Organize &amp;Bookmarks</source>
-        <translation>Håndter &amp;Bogmærker</translation>
+        <translation>Håndter &amp;bogmærker</translation>
     </message>
 </context>
 <context>
@@ -1013,17 +1013,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="103"/>
         <source>Open in new tab</source>
-        <translation>Åben i nyt faneblad</translation>
+        <translation>Åbn i nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="104"/>
         <source>Open in new window</source>
-        <translation>Åben i nyt vindue</translation>
+        <translation>Åbn i nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="105"/>
         <source>Open in new private window</source>
-        <translation>Åben i nyt privat vindue</translation>
+        <translation>Åbn i nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/bookmarkssidebar.cpp" line="108"/>
@@ -1036,17 +1036,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Open in new tab</source>
-        <translation>Åben i nyt faneblad</translation>
+        <translation>Åbn i nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
         <source>Open in new window</source>
-        <translation>Åben i nyt vindue</translation>
+        <translation>Åbn i nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
         <source>Open in new private window</source>
-        <translation>Åben i nyt privat vindue</translation>
+        <translation>Åbn i nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
@@ -1061,12 +1061,12 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="80"/>
         <source>Show Only Icons</source>
-        <translation>Vis Kun Ikoner</translation>
+        <translation>Vis kun ikoner</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
         <source>Show Only Text</source>
-        <translation>Vis Kun Tekst</translation>
+        <translation>Vis kun tekst</translation>
     </message>
 </context>
 <context>
@@ -1074,28 +1074,28 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Tilføj til bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="112"/>
         <source>Add to Speed Dial</source>
-        <translation>Tilføj til Kvikknapper</translation>
+        <translation>Tilføj til kvikknapper</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="98"/>
         <source>Update Bookmark</source>
-        <translation>Ajourfør Bogmærke</translation>
+        <translation>Opdater bogmærke</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="116"/>
         <source>Remove from Speed Dial</source>
-        <translation>Fjern fra Hurtigstart</translation>
+        <translation>Fjern fra kvikknapper</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.cpp" line="121"/>
         <source>Remove from Bookmarks</source>
-        <translation>Fjern fra Bogmærker</translation>
+        <translation>Fjern fra bogmærker</translation>
     </message>
 </context>
 <context>
@@ -1113,7 +1113,7 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="597"/>
         <source> (Private Browsing)</source>
-        <translation type="unfinished"/>
+        <translation> (privat browse)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="626"/>
@@ -1128,22 +1128,22 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="930"/>
         <source>&amp;Menu Bar</source>
-        <translation>&amp;Menulinie</translation>
+        <translation>&amp;Menulinje</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="935"/>
         <source>&amp;Navigation Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Navigationslinje</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="939"/>
         <source>&amp;Bookmarks Toolbar</source>
-        <translation>&amp;Bogmærke Værktøjslinie</translation>
+        <translation>&amp;Bogmærkelinje</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="945"/>
         <source>&amp;Tabs on Top</source>
-        <translation>Faneblade i &amp;Toppen</translation>
+        <translation>&amp;Faneblade øverst</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1001"/>
@@ -1153,17 +1153,17 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>HTML files</source>
-        <translation>HTML filer</translation>
+        <translation>HTML-filer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Image files</source>
-        <translation>Billed filer</translation>
+        <translation>Billedfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
         <source>Text files</source>
-        <translation>Tekst filer</translation>
+        <translation>Tekstfiler</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1038"/>
@@ -1173,13 +1173,15 @@ Installer den nyeste version af QupZilla.</translation>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1040"/>
         <source>Open file...</source>
-        <translation>Åben filer...</translation>
+        <translation>Åbn fil...</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/app/browserwindow.cpp" line="1373"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Der er stadig %n åbent faneblad, og din session vil ikke blive gemt.
+Er du sikker på, at du vil lukke dette vindue?</numerusform><numerusform>Der er stadig %n åbne faneblade, og din session vil ikke blive gemt.
+Er du sikker på, at du vil lukke dette vindue?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1374"/>
@@ -1194,7 +1196,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="66"/>
         <source>Close Tab</source>
-        <translation>Luk Faneblad</translation>
+        <translation>Luk faneblad</translation>
     </message>
 </context>
 <context>
@@ -1207,7 +1209,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="64"/>
         <source>Import and Export</source>
-        <translation>Import og Export</translation>
+        <translation>Import og eksport</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.ui" line="84"/>
@@ -1227,12 +1229,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="61"/>
         <source>Import Bookmarks...</source>
-        <translation>Importer Bogmærker...</translation>
+        <translation>Importér bogmærker...</translation>
     </message>
     <message>
         <location filename="../src/lib/other/browsinglibrary.cpp" line="62"/>
         <source>Export Bookmarks...</source>
-        <translation>Eksportér Bogmærker...</translation>
+        <translation>Eksportér bogmærker...</translation>
     </message>
 </context>
 <context>
@@ -1240,13 +1242,13 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="17"/>
         <source>&lt;b&gt;Issued To&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Givet Til&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Givet til&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="24"/>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="99"/>
         <source>Common Name (CN):</source>
-        <translation type="unfinished"/>
+        <translation>Normalt navn (CN):</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="41"/>
@@ -1258,7 +1260,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="58"/>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="133"/>
         <source>Organizational Unit (OU):</source>
-        <translation type="unfinished"/>
+        <translation>Organisatorisk enhed (OU):</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="75"/>
@@ -1268,7 +1270,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="92"/>
         <source>&lt;b&gt;Issued By&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Udstedt Af&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Udstedt af&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="150"/>
@@ -1278,7 +1280,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="157"/>
         <source>Issued On:</source>
-        <translation>Udgivet Den:</translation>
+        <translation>Udstedt den:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.ui" line="174"/>
@@ -1291,12 +1293,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="14"/>
         <source>Clear Recent History</source>
-        <translation>Ryd Nyere Historik</translation>
+        <translation>Ryd seneste historik</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="36"/>
         <source>&lt;b&gt;Clear Recent History&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Fjern seneste historik&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ryd seneste historik&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="43"/>
@@ -1306,7 +1308,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="54"/>
         <source>Earlier Today</source>
-        <translation>Tidligere idag</translation>
+        <translation>Tidligere i dag</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="59"/>
@@ -1326,17 +1328,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
         <source>Visited pages history from:</source>
-        <translation>Besøgt side historik fra:</translation>
+        <translation>Besøgte sider historik fra:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
         <source>Checked items will be cleared upon clicking the Clear button.</source>
-        <translation type="unfinished"/>
+        <translation>Tilvalgte elementer vil blive ryddet når der klikkes på Ryd-knappen.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="94"/>
         <source>Local storage</source>
-        <translation>Lokallager</translation>
+        <translation>Lokalt lager</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="110"/>
@@ -1351,7 +1353,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="140"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>Mellemlager</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="150"/>
@@ -1376,12 +1378,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database Optimized</source>
-        <translation>Database Optimeret</translation>
+        <translation>Database optimeret</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
-        <translation>Database succesfuldt optimeret.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Databasestørrelse Før: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databasestørrelse Efter: &lt;/b&gt;%2</translation>
+        <translation>Database blev optimeret.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Databasestørrelse før: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Databasestørrelse efter: &lt;/b&gt;%2</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1464,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="153"/>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="154"/>
         <source>&lt;cookie not selected&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;cookie ikke valgt&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="235"/>
@@ -1483,7 +1485,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="272"/>
         <source>&lt;b&gt;Cookie whitelist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Cookiehvidliste&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Godkendelsesliste for cookie&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="279"/>
@@ -1505,12 +1507,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="323"/>
         <source>&lt;b&gt;Cookie blacklist&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Cookiesortliste&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Blokeringsliste for cookie&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="330"/>
         <source>Cookies from these servers will NEVER be accepted</source>
-        <translation>Cookies fea disse servere vil ALDRIG blive accepteret</translation>
+        <translation>Cookies fra disse servere vil ALDRIG blive accepteret</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="382"/>
@@ -1520,7 +1522,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="404"/>
         <source>Filter 3rd party cookies</source>
-        <translation>Filtrér tredjeparts cookies</translation>
+        <translation>Filtrer tredjepartscookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
@@ -1535,12 +1537,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="425"/>
         <source>Filter tracking cookies</source>
-        <translation type="unfinished"/>
+        <translation>Filtrer sporingscookies</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>Slet cookies ved lukning</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1555,12 +1557,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
-        <translation>Er du sikker på at du vil slette alle cookies på din computer?</translation>
+        <translation>Er du sikker på, at du vil slette alle cookies på din computer?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
         <source>Secure only</source>
-        <translation type="unfinished"/>
+        <translation>Kun sikker</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
@@ -1580,32 +1582,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="174"/>
         <source>Add to whitelist</source>
-        <translation>Tilføj til hvidliste</translation>
+        <translation>Tilføj til godkendelsesliste</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
-        <translation>Allerede sortlistet!</translation>
+        <translation>Allerede på blokeringsliste</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation>Serveren &quot;%1&quot; er allerede sortlistet, fjern venligst først.</translation>
+        <translation>Serveren &quot;%1&quot; er allerede på blokeringsliste, fjern venligst først.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
         <source>Add to blacklist</source>
-        <translation>Tilføj til sortliste</translation>
+        <translation>Tilføj til blokeringsliste</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
-        <translation>Allerede hvidlistet!</translation>
+        <translation>Allerede på godkendelsesliste!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation>Serveren &quot;%1&quot; er allerede hvidlistet, fjern den venligst først fra listen.</translation>
+        <translation>Serveren &quot;%1&quot; er allerede på godkendelsesliste, fjern den venligst først fra listen.</translation>
     </message>
 </context>
 <context>
@@ -1613,7 +1615,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
         <source>Remaining time unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Tilbageværende tid utilgængelig</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="124"/>
@@ -1665,7 +1667,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="206"/>
         <source>kB/s</source>
-        <translation type="unfinished"/>
+        <translation>kB/s</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="211"/>
@@ -1690,32 +1692,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="243"/>
         <source>Remaining %1 - %2 of %3 (%4)</source>
-        <translation type="unfinished"/>
+        <translation>Tilbageværende %1 - %2 ud af %3 (%4)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="275"/>
         <source>Open File</source>
-        <translation>Åben fil</translation>
+        <translation>Åbn fil</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="277"/>
         <source>Open Folder</source>
-        <translation>Åben Folder</translation>
+        <translation>Åbn mappe</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="279"/>
         <source>Copy Download Link</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér downloadlink</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="281"/>
         <source>Cancel downloading</source>
-        <translation>Annullér hentning</translation>
+        <translation>Annuller download</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="282"/>
         <source>Remove From List</source>
-        <translation>Fjern Fra Liste</translation>
+        <translation>Fjern fra liste</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="284"/>
@@ -1732,7 +1734,9 @@ Are you sure you want to close this window?</source>
         <source>Sorry, the file 
  %1 
  was not found!</source>
-        <translation type="unfinished"/>
+        <translation>Beklager, filen 
+ %1 
+ blev ikke fundet!</translation>
     </message>
 </context>
 <context>
@@ -1742,7 +1746,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="395"/>
         <source>Download Manager</source>
-        <translation>Overførselshåndtering</translation>
+        <translation>Downloadhåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="85"/>
@@ -1757,7 +1761,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="221"/>
         <source>%1% - Download Manager</source>
-        <translation>%1% - Overførselsshåndtering</translation>
+        <translation>%1% - Downloadhåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="298"/>
@@ -1767,32 +1771,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>MIME HTML-arkiv (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML-side, enkel (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML-side, komplet (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Gem side som...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>Download Finished</source>
-        <translation>Overførsel Udført</translation>
+        <translation>Download udført</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="388"/>
         <source>All files have been successfully downloaded.</source>
-        <translation>Alle filer er blevet succesfuldt overført.</translation>
+        <translation>Alle filer er blevet downloadet.</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="456"/>
@@ -1802,7 +1806,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="457"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
-        <translation>Er du sikker på at du vil afslutte? Alle uafsluttede overførsler vil blive afbrudt!</translation>
+        <translation>Er du sikker på, at du vil afslutte? Alle uafsluttede downloads vil blive annulleret!</translation>
     </message>
 </context>
 <context>
@@ -1815,22 +1819,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="47"/>
         <source>Open...</source>
-        <translation>Åben...</translation>
+        <translation>Åbn...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="54"/>
         <source>Save File</source>
-        <translation>Gem Fil</translation>
+        <translation>Gem fil</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="64"/>
         <source>Download with External Manager</source>
-        <translation>Hent med ekstern Overførselshåndtering</translation>
+        <translation>Download med ekstern håndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>som er:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -1840,7 +1844,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="241"/>
         <source>Copy download link</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér downloadlink</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="256"/>
@@ -1855,7 +1859,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="111"/>
         <source>Download link copied.</source>
-        <translation type="unfinished"/>
+        <translation>Downloadlink kopieret.</translation>
     </message>
 </context>
 <context>
@@ -1888,12 +1892,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="106"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;%s in url or post data represent searched string</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Bemærk: &lt;/b&gt;%s i url eller postdata udgør søgte streng</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/editsearchengine.ui" line="123"/>
         <source>Post Data:</source>
-        <translation type="unfinished"/>
+        <translation>Postdata:</translation>
     </message>
 </context>
 <context>
@@ -1901,7 +1905,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="14"/>
         <source>HTML5 Permissions</source>
-        <translation>HTML5 Rettigheder</translation>
+        <translation>HTML5-tilladelser</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="35"/>
@@ -1911,7 +1915,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="64"/>
         <source>Site</source>
-        <translation>Side</translation>
+        <translation>Sted</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="69"/>
@@ -1921,7 +1925,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="79"/>
         <source>Permission for:</source>
-        <translation>Rettigheder for:</translation>
+        <translation>Tilladelse for:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="87"/>
@@ -1931,7 +1935,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="92"/>
         <source>Geolocation</source>
-        <translation>Geolocation</translation>
+        <translation>Geolokation</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="97"/>
@@ -1946,12 +1950,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="107"/>
         <source>Microphone and Camera</source>
-        <translation>Mikrofon og Kamera</translation>
+        <translation>Mikrofon og kamera</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="112"/>
         <source>Hide Pointer</source>
-        <translation type="unfinished"/>
+        <translation>Skjul markør</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="59"/>
@@ -1984,37 +1988,37 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="39"/>
         <source>this site</source>
-        <translation>denne hjemmeside</translation>
+        <translation>dette sted</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="43"/>
         <source>Allow %1 to show desktop notifications?</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at %1 viser skrivebordsnotifikationer?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="47"/>
         <source>Allow %1 to locate your position?</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at %1 finder din placering?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="51"/>
         <source>Allow %1 to use your microphone?</source>
-        <translation>Tillad %1 at bruge din mikrofon</translation>
+        <translation>Tillad at %1 bruger din mikrofon?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="55"/>
         <source>Allow %1 to use your camera?</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at %1 bruger dit kamera?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your microphone and camera?</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at %1 bruger din mikrofon eller kamera?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="63"/>
         <source>Allow %1 to hide your pointer?</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at %1 skjuler din markør?</translation>
     </message>
 </context>
 <context>
@@ -2022,7 +2026,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/history.cpp" line="84"/>
         <source>Empty Page</source>
-        <translation>Tom Side</translation>
+        <translation>Tom side</translation>
     </message>
     <message>
         <location filename="../src/lib/history/history.cpp" line="265"/>
@@ -2096,12 +2100,12 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/history/historymanager.ui" line="20"/>
         <location filename="../src/lib/history/historymanager.cpp" line="142"/>
         <source>Delete</source>
-        <translation>Fjern</translation>
+        <translation>Slet</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.ui" line="27"/>
         <source>Clear All History</source>
-        <translation>Nulstil Al Historik</translation>
+        <translation>Ryd al historik</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="77"/>
@@ -2111,27 +2115,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="78"/>
         <source>Are you sure you want to delete all history?</source>
-        <translation>Er du sikker på at du vil slette alt historik!</translation>
+        <translation>Er du sikker på, at du vil slette al historik?</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="133"/>
         <source>Open in new tab</source>
-        <translation>Åben i nyt faneblad</translation>
+        <translation>Åbn i nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="134"/>
         <source>Open in new window</source>
-        <translation>Åben i et nyt vindue</translation>
+        <translation>Åbn i nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="135"/>
         <source>Open in new private window</source>
-        <translation>Åben i nyt privat vindue</translation>
+        <translation>Åbn i nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="138"/>
         <source>Copy url</source>
-        <translation>Kopiér URL</translation>
+        <translation>Kopiér url</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="139"/>
@@ -2150,12 +2154,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="162"/>
         <source>Restore All Closed Tabs</source>
-        <translation>Gendan Alle Lukkede Faneblade</translation>
+        <translation>Gendan alle lukkede faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="163"/>
         <source>Clear list</source>
-        <translation>Nulstil liste</translation>
+        <translation>Ryd liste</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="209"/>
@@ -2170,7 +2174,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="214"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Frem</translation>
+        <translation>&amp;Fremad</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="217"/>
@@ -2180,7 +2184,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="220"/>
         <source>Show &amp;All History</source>
-        <translation>Vis &amp;Al Historik</translation>
+        <translation>Vis &amp;al historik</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="228"/>
@@ -2190,7 +2194,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="231"/>
         <source>Closed Tabs</source>
-        <translation>Lukkede Faneblade</translation>
+        <translation>Lukkede faneblade</translation>
     </message>
 </context>
 <context>
@@ -2219,7 +2223,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/history/historymodel.cpp" line="339"/>
         <location filename="../src/lib/history/historymodel.cpp" line="470"/>
         <source>Today</source>
-        <translation>Idag</translation>
+        <translation>I dag</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="475"/>
@@ -2242,17 +2246,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="85"/>
         <source>Open in new tab</source>
-        <translation>Åben i nyt faneblad</translation>
+        <translation>Åbn i nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="86"/>
         <source>Open in new window</source>
-        <translation>Åben i nyt vindue</translation>
+        <translation>Åbn i nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="87"/>
         <source>Open in new private window</source>
-        <translation>Åben i nyt privat vindue</translation>
+        <translation>Åbn i nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/historysidebar.cpp" line="90"/>
@@ -2291,7 +2295,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/iconchooser.ui" line="61"/>
         <source>Site Url:</source>
-        <translation type="unfinished"/>
+        <translation>Sted-Url:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/iconchooser.cpp" line="41"/>
@@ -2304,7 +2308,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="14"/>
         <source>JavaScript Options</source>
-        <translation>JavaScript Indstillinger</translation>
+        <translation>Valgmuligheder for JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="20"/>
@@ -2314,7 +2318,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="29"/>
         <source>Open popup windows</source>
-        <translation type="unfinished"/>
+        <translation>Åbn pop op-vinduer</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="36"/>
@@ -2324,7 +2328,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/jsoptions.ui" line="43"/>
         <source>Access clipboard</source>
-        <translation>Tilgå klippebordsholder</translation>
+        <translation>Tilgå udklipsholder</translation>
     </message>
 </context>
 <context>
@@ -2340,12 +2344,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="102"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Fortryd</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="107"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Gentag</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="112"/>
@@ -2370,12 +2374,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="134"/>
         <source>Clear All</source>
-        <translation>Ryd Alle</translation>
+        <translation>Ryd alle</translation>
     </message>
     <message>
         <location filename="../src/lib/3rdparty/lineedit.cpp" line="137"/>
         <source>Select All</source>
-        <translation>Vælg Alle</translation>
+        <translation>Vælg alle</translation>
     </message>
 </context>
 <context>
@@ -2383,22 +2387,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
         <source>Paste And &amp;Go</source>
-        <translation type="unfinished"/>
+        <translation>Indsæt og &amp;gå</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="152"/>
         <source>Enter URL address or search on %1</source>
-        <translation type="unfinished"/>
+        <translation>Indtast URL-adresse eller søg på %1</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="154"/>
         <source>Enter URL address</source>
-        <translation type="unfinished"/>
+        <translation>Indtast URL-adresse</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
         <source>Show information about this page</source>
-        <translation>Vis Information om denne side</translation>
+        <translation>Vis information om denne side</translation>
     </message>
 </context>
 <context>
@@ -2414,7 +2418,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1074"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
-        <translation>QupZilla er i øjeblikket ikke din standardnetlæser. Vil du gerne gøre den til din standardnetlæser?</translation>
+        <translation>QupZilla er i øjeblikket ikke din standardbrowser. Vil du gerne gøre den til din standardbrowser?</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1075"/>
@@ -2424,27 +2428,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1077"/>
         <source>Default Browser</source>
-        <translation>Standard Netlæser</translation>
+        <translation>Standardbrowser</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1164"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>Åbn nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1165"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>Åbn nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1166"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>Åbn nyt privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1174"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
-        <translation>QupZilla er en ny, hurtig og sikker webbrowser. QupZilla er udgivet under GPL version 3 eller (hvis ønsket) senere. Den er baseret på WebKit Core og QT-frameworket.</translation>
+        <translation>QupZilla er en ny, hurtig og sikker open source WWW-browser. QupZilla er licenseret under GPL version 3 eller (efter eget valg) enhver senere version. Den er baseret på WebKit-kerne og Qt-framework.</translation>
     </message>
 </context>
 <context>
@@ -2452,12 +2456,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="503"/>
         <source>&amp;About QupZilla</source>
-        <translation>&amp; Om QupZilla</translation>
+        <translation>&amp;Om QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
         <source>Pr&amp;eferences</source>
-        <translation>Indstilling&amp;er</translation>
+        <translation>&amp;Præferencer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="514"/>
@@ -2467,67 +2471,67 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="521"/>
         <source>&amp;File</source>
-        <translation>&amp;Fil</translation>
+        <translation>&amp;Filer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="525"/>
         <source>New Tab</source>
-        <translation>Nyt Faneblad</translation>
+        <translation>Nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>&amp;New Window</source>
-        <translation>&amp;Nyt Vindue</translation>
+        <translation>&amp;Nyt vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="527"/>
         <source>New &amp;Private Window</source>
-        <translation>Nyt &amp;Privat Vindue</translation>
+        <translation>Nyt &amp;privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
         <source>Open Location</source>
-        <translation type="unfinished"/>
+        <translation>Åbn placering</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Open &amp;File...</source>
-        <translation>Åben &amp;Fil...</translation>
+        <translation>Åbn &amp;fil...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
         <source>Close Window</source>
-        <translation>Luk Vindue</translation>
+        <translation>Luk vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
         <source>&amp;Save Page As...</source>
-        <translation>Gem &amp;Side Som...</translation>
+        <translation>Gem &amp;side som...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
         <source>Send Link...</source>
-        <translation>Send Link...</translation>
+        <translation>Send link...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="534"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Udskriv</translation>
+        <translation>&amp;Udskriv...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>&amp;Edit</source>
-        <translation>R&amp;ediger</translation>
+        <translation>&amp;Rediger</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Fortryd</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="544"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Gentag</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="546"/>
@@ -2547,7 +2551,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="550"/>
         <source>Select &amp;All</source>
-        <translation>Vælg &amp;Alle</translation>
+        <translation>Vælg &amp;alle</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="551"/>
@@ -2562,7 +2566,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Toolbars</source>
-        <translation>Værktøjslinier</translation>
+        <translation>Værktøjslinjer</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
@@ -2572,12 +2576,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>Character &amp;Encoding</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Tegnkodning</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>Sta&amp;tus Bar</source>
-        <translation>Sta&amp;tusbar</translation>
+        <translation>Sta&amp;tuslinje</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
@@ -2592,12 +2596,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Zoom &amp;In</source>
-        <translation>Zoom &amp;Ind</translation>
+        <translation>Zoom &amp;ind</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Zoom &amp;Out</source>
-        <translation>Zoom &amp;Ud</translation>
+        <translation>Zoom &amp;ud</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="579"/>
@@ -2612,7 +2616,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
         <source>&amp;FullScreen</source>
-        <translation>&amp;FuldSkærm</translation>
+        <translation>&amp;Fuldskærm</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
@@ -2622,17 +2626,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="591"/>
         <source>&amp;Web Search</source>
-        <translation>&amp;Netsøgning</translation>
+        <translation>&amp;Websøgning</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>Site &amp;Info</source>
-        <translation>Side</translation>
+        <translation>&amp;Stedinfo</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
         <source>&amp;Download Manager</source>
-        <translation>Overførselshån&amp;dtering</translation>
+        <translation>&amp;Downloadhåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="595"/>
@@ -2647,12 +2651,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>Web In&amp;spector</source>
-        <translation type="unfinished"/>
+        <translation>Webin&amp;spektør</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Clear Recent &amp;History</source>
-        <translation type="unfinished"/>
+        <translation>Ryd seneste &amp;historik</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="603"/>
@@ -2677,17 +2681,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
         <source>Configuration Information</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguratonsinformation</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="619"/>
         <source>Report &amp;Issue</source>
-        <translation>Rapporter Problem</translation>
+        <translation>Rapportér &amp;problem</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="632"/>
         <source>Restore &amp;Closed Tab</source>
-        <translation>Gendan &amp;Lukket Faneblad</translation>
+        <translation>Gendan &amp;lukket faneblad</translation>
     </message>
 </context>
 <context>
@@ -2695,32 +2699,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="20"/>
         <source>Encrypted DataBase Settings</source>
-        <translation>Indstillinger for Krypteret Database</translation>
+        <translation>Indstillinger for krypteret database</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="33"/>
         <source>Set/Change Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Sæt/skift hovedadgangskode...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="36"/>
         <source>This backend does not work without a master password.</source>
-        <translation type="unfinished"/>
+        <translation>Denne motor virker ikke uden en hovedadgangskode.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="43"/>
         <source>Clear Master Password...</source>
-        <translation type="unfinished"/>
+        <translation>Ryd hovedadgangskode...</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="46"/>
         <source>This option clears the master password and moves all encrypted data to the &quot;DataBase (Plain Text)&quot; backend, and switches to it.</source>
-        <translation type="unfinished"/>
+        <translation>Denne valgmulighed rydder hovedadgangskoden og flytter alle krypterede data til &quot;DataBase (ren tekst)&quot;-motoren og skifter til den.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="64"/>
         <source>The Master Password is used to protect site passwords and form data. If you set a Master Password you will be asked to enter it once per session.</source>
-        <translation type="unfinished"/>
+        <translation>Hovedadgangskoden bruges til at beskytte stedadgangskoder og formulardata. Hvis du sætter en hovedgangskode, så skal du indtaste den en gang pr. session.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="76"/>
@@ -2730,17 +2734,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="83"/>
         <source>New Password:</source>
-        <translation>Nyt Kodeord:</translation>
+        <translation>Ny adgangskode:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="90"/>
         <source>Confirm Password:</source>
-        <translation>Bekræft Kodeord:</translation>
+        <translation>Bekræft adgangskode:</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/masterpassworddialog.ui" line="120"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; The Master Password is not resettable. Do not forget it, please.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Bemærk:&lt;/b&gt; Hovedadgangskoden kan ikke nulstilles. Glem den venligst ikke.</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
@@ -2753,22 +2757,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
         <source>You entered a wrong password!</source>
-        <translation>Du indtastede et forkert kodeord!</translation>
+        <translation>Du indtastede en forkert adgangskode!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
         <source>New/Confirm password fields do not match!</source>
-        <translation>Nyt/Bekræft kodeordsfelter er ikke ens!</translation>
+        <translation>Nyt/bekræft adgangskodefelter er ikke ens!</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>Er du sikker på, at du vil rydde hovedadgangskoden og dekryptere data?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
-        <translation type="unfinished"/>
+        <translation>Nogle data er ikke blevet dekrypteret. Hovedadgangskoden blev ikke ryddet!</translation>
     </message>
 </context>
 <context>
@@ -2791,7 +2795,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="87"/>
         <source>New Tab</source>
-        <translation>Nyt Faneblad</translation>
+        <translation>Nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="107"/>
@@ -2801,18 +2805,18 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="124"/>
         <source>Exit Fullscreen</source>
-        <translation>Afslut Fuldskærm</translation>
+        <translation>Afslut fuldskærm</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="240"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="274"/>
         <source>Clear history</source>
-        <translation>Nulstil historik</translation>
+        <translation>Ryd historik</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="376"/>
         <source>Empty Page</source>
-        <translation>Tom Side</translation>
+        <translation>Tom side</translation>
     </message>
 </context>
 <context>
@@ -2820,7 +2824,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="71"/>
         <source>SSL Certificate Error!</source>
-        <translation>SSL Certifikatfejl!</translation>
+        <translation>Fejl i SSL-certifikat!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="72"/>
@@ -2841,23 +2845,23 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/network/networkmanager.cpp" line="104"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="190"/>
         <source>Username: </source>
-        <translation>Brugernavn:</translation>
+        <translation>Brugernavn: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="105"/>
         <location filename="../src/lib/network/networkmanager.cpp" line="191"/>
         <source>Password: </source>
-        <translation>Kodeord:</translation>
+        <translation>Adgangskode: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation>Gem brugernavn og kodeord til denne side</translation>
+        <translation>Gem brugernavn og adgangskode til dette sted</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
         <source>A username and password are being requested by %1. The site says: &quot;%2&quot;</source>
-        <translation>Et brugernavn og kodeord efterspørges af %1. Siden siger: &quot;%2&quot;</translation>
+        <translation>Et brugernavn og adgangskode efterspørges af %1. Stedet siger: &quot;%2&quot;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="183"/>
@@ -2867,7 +2871,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="203"/>
         <source>A username and password are being requested by proxy %1. </source>
-        <translation>Proxy %1 anmoder om brugernavn og kodeord.</translation>
+        <translation>Proxy %1 anmoder om brugernavn og adgangskode. </translation>
     </message>
 </context>
 <context>
@@ -2875,7 +2879,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="29"/>
         <source>Allow Application Extensions to be loaded</source>
-        <translation>Tillad indlæsning af Programudvidelser</translation>
+        <translation>Tillad indlæsning af programudvidelser</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/pluginslist.ui" line="63"/>
@@ -2901,7 +2905,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/popupwindow/popupwebview.cpp" line="100"/>
         <source>Inspect Element</source>
-        <translation>Inspicér Element</translation>
+        <translation>Inspicer element</translation>
     </message>
 </context>
 <context>
@@ -2914,7 +2918,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
         <source>Send Link...</source>
-        <translation type="unfinished"/>
+        <translation>Send link...</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
@@ -2949,22 +2953,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="95"/>
         <source>Zoom &amp;In</source>
-        <translation>Zoom &amp;Ind</translation>
+        <translation>Zoom &amp;ind</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="96"/>
         <source>Zoom &amp;Out</source>
-        <translation>Zoom &amp;Ud</translation>
+        <translation>Zoom &amp;ud</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="97"/>
         <source>Reset</source>
-        <translation>Nustil</translation>
+        <translation>Nulstil</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="99"/>
         <source>&amp;Page Source</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Sidekilde</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="252"/>
@@ -2977,12 +2981,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Indstillinger</translation>
+        <translation>Præferencer</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="60"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Generelt</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="65"/>
@@ -2997,7 +3001,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="75"/>
         <source>Browsing</source>
-        <translation type="unfinished"/>
+        <translation>Browse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="80"/>
@@ -3012,12 +3016,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="90"/>
         <source>Downloads</source>
-        <translation>Hentninger</translation>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="95"/>
         <source>Password Manager</source>
-        <translation>Kodeordshåndtering</translation>
+        <translation>Adgangskodehåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="100"/>
@@ -3037,7 +3041,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="115"/>
         <source>Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Stavekontrol</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="120"/>
@@ -3069,29 +3073,29 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="285"/>
         <source>&lt;b&gt;Launching&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Starter&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Start&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="295"/>
         <source>After launch: </source>
-        <translation>Efter opstart:</translation>
+        <translation>Efter opstart: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="303"/>
         <source>Open blank page</source>
-        <translation>Åben blank side</translation>
+        <translation>Åbn tom side</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="308"/>
         <location filename="../src/lib/preferences/preferences.ui" line="360"/>
         <source>Open homepage</source>
-        <translation>Åben hjemmeside</translation>
+        <translation>Åbn hjemmeside</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="313"/>
         <location filename="../src/lib/preferences/preferences.ui" line="365"/>
         <source>Open speed dial</source>
-        <translation>Åben Kvikknapper</translation>
+        <translation>Åbn kvikknapper</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="318"/>
@@ -3101,22 +3105,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="326"/>
         <source>Homepage: </source>
-        <translation>Hjemmeside:</translation>
+        <translation>Hjemmeside: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="347"/>
         <source>On new tab: </source>
-        <translation>I nyt faneblad:</translation>
+        <translation>I nyt faneblad: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="355"/>
         <source>Open blank tab</source>
-        <translation>Åben tomt faneblad</translation>
+        <translation>Åbn tomt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="370"/>
         <source>Open other page...</source>
-        <translation>Åben anden side...</translation>
+        <translation>Åbn anden side...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="378"/>
@@ -3131,7 +3135,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="392"/>
         <source>Check for updates on start</source>
-        <translation>Tjek for opdateringer ved opstart</translation>
+        <translation>Søg efter opdateringer ved opstart</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="399"/>
@@ -3141,7 +3145,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="413"/>
         <source>In order to change language, you must restart browser.</source>
-        <translation>For at skifte programsprog, skal du genstarte netlæseren.</translation>
+        <translation>For at skifte programsprog, skal du genstarte browseren.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="420"/>
@@ -3151,7 +3155,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="441"/>
         <source>Available translations: </source>
-        <translation>Tilgængelige oversættelser:</translation>
+        <translation>Tilgængelige oversættelser: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="453"/>
@@ -3161,12 +3165,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="475"/>
         <source>Check to see if QupZilla is the default browser on startup</source>
-        <translation>Kontrollér om QupZilla er standardnetlæser ved opstart</translation>
+        <translation>Kontroller om QupZilla er standardbrowser ved opstart</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="485"/>
         <source>Check Now</source>
-        <translation>Tjek Nu</translation>
+        <translation>Tjek nu</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="515"/>
@@ -3176,62 +3180,62 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="537"/>
         <source>Advanced options</source>
-        <translation>Avancerede indstillinger</translation>
+        <translation>Avancerede valgmuligheder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="543"/>
         <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Netlæservindue&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Browservindue&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="581"/>
         <source>Show StatusBar on start</source>
-        <translation>Vis statuslinie ved opstart</translation>
+        <translation>Vis statuslinje ved opstart</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="588"/>
         <source>Show Bookmarks ToolBar on start</source>
-        <translation>Vis Bogmærker Værktøjslinie ved opstart</translation>
+        <translation>Vis bogmærkelinje ved opstart</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="595"/>
         <source>Show Navigation ToolBar on start</source>
-        <translation type="unfinished"/>
+        <translation>Vis navigationslinje ved opstart</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="602"/>
         <source>Enable instant Bookmarks ToolBar</source>
-        <translation type="unfinished"/>
+        <translation>Aktivér lynbogmærkelinje</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="611"/>
         <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Navigationslinje&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="618"/>
         <source>Show Home button</source>
-        <translation type="unfinished"/>
+        <translation>Vis Hjem-knap</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="625"/>
         <source>Show Back / Forward buttons</source>
-        <translation>Vis Tilbage / Frem knapper</translation>
+        <translation>Vis Tilbage/Fremad-knapper</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="645"/>
         <source>Show Add Tab button</source>
-        <translation>Vis Tilføj Faneblad knap</translation>
+        <translation>Vis Tilføj faneblad-knap</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="652"/>
         <source>Show web search bar</source>
-        <translation>Vis netsøgelinie</translation>
+        <translation>Vis websøgelinje</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="659"/>
         <source>Show Reload / Stop buttons</source>
-        <translation>Vis Genindlæs / Stop knapper</translation>
+        <translation>Vis Genindlæs/Stop-knapper</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="678"/>
@@ -3241,7 +3245,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="684"/>
         <source>Hide tabs when there is only one tab</source>
-        <translation type="unfinished"/>
+        <translation>Skjul faneblade når der kun er et faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="691"/>
@@ -3256,17 +3260,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="705"/>
         <source>Open new empty tabs after active tab</source>
-        <translation type="unfinished"/>
+        <translation>Åbn nye tomme faneblade efter aktive faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="712"/>
         <source>Open popup windows in tabs</source>
-        <translation>Åben pop op vinduer i faneblade</translation>
+        <translation>Åbn pop op-vinduer i faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Always switch between tabs with mouse wheel</source>
-        <translation type="unfinished"/>
+        <translation>Skift altid mellem faneblade med musehjulet</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="726"/>
@@ -3276,22 +3280,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="733"/>
         <source>Don&apos;t close window upon closing last tab</source>
-        <translation>Luk ikke vinduet, når det sidste faneblad lukkes.</translation>
+        <translation>Luk ikke vinduet, når det sidste faneblad lukkes</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="740"/>
         <source>Ask when closing multiple tabs</source>
-        <translation type="unfinished"/>
+        <translation>Spørg når flere faneblade lukkes</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="747"/>
         <source>Show closed tabs button</source>
-        <translation type="unfinished"/>
+        <translation>Vis lukkede fanebladsknap</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="756"/>
         <source>Show close buttons on inactive tabs:</source>
-        <translation>Vis lukkeknapper på inaktive faneblade.</translation>
+        <translation>Vis lukkeknapper på inaktive faneblade:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="764"/>
@@ -3311,17 +3315,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="814"/>
         <source>Address Bar behaviour</source>
-        <translation type="unfinished"/>
+        <translation>Opførsel for adresselinje</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="822"/>
         <source>Suggest when typing into address bar:</source>
-        <translation type="unfinished"/>
+        <translation>Foreslå når der skrives i adresselinjen:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="836"/>
         <source>History and Bookmarks</source>
-        <translation>Historik og Bogmærker</translation>
+        <translation>Historik og bogmærker</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="841"/>
@@ -3341,47 +3345,47 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="877"/>
         <source>Enable inline suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Aktivér forslag mens der skrives</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="884"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
-        <translation type="unfinished"/>
+        <translation>Tryk på &quot;Skift&quot; for ikke at skifte fanebladet men indlæse url&apos;en i det aktuelle faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="887"/>
         <source>Propose to switch tab if completed url is already loaded</source>
-        <translation type="unfinished"/>
+        <translation>Forslå at skifte faneblad hvis fuldførte url allerede er indlæst</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="894"/>
         <source>Always show go icon</source>
-        <translation type="unfinished"/>
+        <translation>Vis altid gå-ikon</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="901"/>
         <source>Select all text by double clicking in address bar</source>
-        <translation type="unfinished"/>
+        <translation>Vælg al tekst ved at dobbeltklikke i adresselinjen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="908"/>
         <source>Select all text by clicking in address bar</source>
-        <translation type="unfinished"/>
+        <translation>Vælg al tekst ved at klikke i adresselinjen</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation>Aktivér automatisk søgning fra adresselinie</translation>
+        <translation>Aktivér automatisk søgning fra adresselinje</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="922"/>
         <source>Search with Default Engine</source>
-        <translation>Søg med Standardsøgemaskine</translation>
+        <translation>Søg med standardsøgetjeneste</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="945"/>
         <source>Show loading progress in address bar</source>
-        <translation>Vis indlæsningsstatus i adresselinie</translation>
+        <translation>Vis indlæsningsstatus i adresselinje</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="978"/>
@@ -3401,7 +3405,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="996"/>
         <source>Custom color:</source>
-        <translation type="unfinished"/>
+        <translation>Brugerdefineret farve:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1012"/>
@@ -3425,12 +3429,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1073"/>
         <source>Web Configuration</source>
-        <translation>Netindstillinger</translation>
+        <translation>Webkonfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1081"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
-        <translation>Tillad Pepper-moduler (Flash udvidelsesmodul)</translation>
+        <translation>Tillad Pepper-plugins (Flash-plugin)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1088"/>
@@ -3440,13 +3444,13 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1095"/>
         <source>Include links in focus chain</source>
-        <translation type="unfinished"/>
+        <translation>Inkluder links i fokuskæde</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1102"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
-        <translation type="unfinished"/>
+        <translation>Aktivér XSS-revision</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1109"/>
@@ -3456,27 +3460,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1116"/>
         <source>Enable spatial navigation</source>
-        <translation type="unfinished"/>
+        <translation>Aktivér rumlig navigation</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1123"/>
         <source>Use native scrollbars</source>
-        <translation type="unfinished"/>
+        <translation>Brug indbyggede rullebjælker</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1140"/>
         <source>Mouse wheel scrolls</source>
-        <translation type="unfinished"/>
+        <translation>Musehjul ruller</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1160"/>
         <source>lines on page</source>
-        <translation>linier på side</translation>
+        <translation>linjer på side</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1171"/>
         <source>Default zoom on pages: </source>
-        <translation>Standard zoom på siderne:</translation>
+        <translation>Standardzoom på siderne: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1210"/>
@@ -3486,32 +3490,32 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1218"/>
         <source>Allow storing network cache on disk</source>
-        <translation>Tillad lagring af netværkscache på disk</translation>
+        <translation>Tillad lagring af netværksmellemlager på disk</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1241"/>
         <source>Delete cache on close</source>
-        <translation type="unfinished"/>
+        <translation>Slet mellemlager ved lukning</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Maximum:</source>
-        <translation type="unfinished"/>
+        <translation>Maksimum:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1255"/>
         <source> MB</source>
-        <translation type="unfinished"/>
+        <translation> MB</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1271"/>
         <source>Store cache in:</source>
-        <translation type="unfinished"/>
+        <translation>Gem mellemlager i:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1299"/>
         <source>Allow saving history</source>
-        <translation type="unfinished"/>
+        <translation>Tillad at historik gemmes</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1306"/>
@@ -3521,12 +3525,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1329"/>
         <source>Allow local storage of HTML5 web content</source>
-        <translation>Tillad lokal lagring af HTML5 netindhold</translation>
+        <translation>Tillad lokal lagring af HTML5-webindhold</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1336"/>
         <source>Delete locally stored HTML5 web content on close</source>
-        <translation>Slet lokalt lagret HTML5 netindhold ved lukning</translation>
+        <translation>Slet lokalt lagret HTML5-webindhold ved lukning</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1362"/>
@@ -3536,17 +3540,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1401"/>
         <source>Proxy Configuration</source>
-        <translation>Proxyindstillinger</translation>
+        <translation>Proxykonfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1420"/>
         <source>System proxy configuration</source>
-        <translation>System proxyindstillinger</translation>
+        <translation>Systemets proxykonfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1443"/>
         <source>Manual configuration</source>
-        <translation>Manuelle indstillinger</translation>
+        <translation>Manuel konfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1453"/>
@@ -3616,22 +3620,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1651"/>
         <source>Fixed Font Size</source>
-        <translation>Fast Tekststørrelse</translation>
+        <translation>Fast skriftstørrelse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1658"/>
         <source>Default Font Size</source>
-        <translation>Standard Tekststørrelse</translation>
+        <translation>Standardskriftstørrelse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1685"/>
         <source>Minimum Font Size</source>
-        <translation>Minimum Skriftstørrelse</translation>
+        <translation>Minimum skriftstørrelse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1692"/>
         <source>Minimum Logical Font Size</source>
-        <translation>Minimum Tekststørrelse</translation>
+        <translation>Minimum logiske skriftstørrelse</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1725"/>
@@ -3646,22 +3650,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1739"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
-        <translation>Indlæs Kvikknapper med Ctrl + nummer på kvikknap</translation>
+        <translation>Indlæs kvikknapper med Ctrl + nummer på kvikknap</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1746"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>Eksisterende genveje:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - forrige faneblad&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - næste faneblad&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - søg på side</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1749"/>
         <source>Use single key shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Brug genveje med en tast</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis den er fravalgt, så forhindres utilsigtet programafslutning hvis Ctrl-W-genvejen var tiltænkt.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1759"/>
@@ -3671,37 +3675,37 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1783"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Downloadplacering&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1790"/>
         <source>Ask everytime for download location</source>
-        <translation type="unfinished"/>
+        <translation>Spørg om downloadplacering hver gang</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1797"/>
         <source>Use defined location: </source>
-        <translation type="unfinished"/>
+        <translation>Brug defineret placering: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1847"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Overførselsindstillinger&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Valgmulighed for download&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1854"/>
         <source>Close download manager when downloading finishes</source>
-        <translation>Luk overførselshåndtering, når overførslerne er afsluttet</translation>
+        <translation>Luk downloadhåndtering, når download afslutter</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1861"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Ekstern overførselshåndtering&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ekstern downloadhåndtering&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1868"/>
         <source>Use external download manager</source>
-        <translation>Brug ekstern overførselshåndtering</translation>
+        <translation>Brug ekstern downloadhåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
@@ -3716,22 +3720,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1894"/>
         <source>Leave blank if unsure</source>
-        <translation type="unfinished"/>
+        <translation>Lad den være tom hvis du er i tvivl</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1915"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%d&lt;/b&gt; vil blive erstattet med URL&apos;en til det som skal downloades</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1941"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Valgmuligheder for automatisk udfyldning&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1948"/>
         <source>Allow saving passwords from sites</source>
-        <translation>Tillad lagring af kodeord fra sider</translation>
+        <translation>Tillad lagring af adgangskoder fra steder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2003"/>
@@ -3746,7 +3750,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2036"/>
         <source>JavaScript options</source>
-        <translation>JavaScript Indstillinger</translation>
+        <translation>Valgmuligheder for JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2046"/>
@@ -3761,42 +3765,42 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2069"/>
         <source>Manage JavaScript privacy options</source>
-        <translation>Håndtér JavaScript privatlivsindstillinger</translation>
+        <translation>Valgmuligheder for håndtering af JavaScript</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2092"/>
         <source>Manage HTML5 permissions</source>
-        <translation>Håndter HTML5 rettigheder</translation>
+        <translation>Håndter HTML5-tilladelser</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2099"/>
         <source>Manage Cookies</source>
-        <translation>Håndter Cookies</translation>
+        <translation>Håndter cookies</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2119"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;HTML5 Rettigheder&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;HTML5-tilladelser&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2132"/>
         <source>HTML5 Permissions</source>
-        <translation>HTML5 Tilladelser</translation>
+        <translation>HTML5-tilladelser</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2139"/>
         <source>Send Do Not Track header to servers</source>
-        <translation>Send Spor Mig Ikke anmodning til servere</translation>
+        <translation>Send spor mig ikke-anmodning til servere</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2165"/>
         <source>Expiration timeout:</source>
-        <translation type="unfinished"/>
+        <translation>Udløbstimeout:</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2178"/>
         <source> seconds</source>
-        <translation>sekunder</translation>
+        <translation> sekunder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2200"/>
@@ -3806,7 +3810,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2223"/>
         <source>Use Native System Notifications (Linux only)</source>
-        <translation>Brug Systemets Påmindelser (Kun Linux)</translation>
+        <translation>Brug systemets påmindelser (kun Linux)</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2230"/>
@@ -3816,72 +3820,72 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2253"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Bemærk: &lt;/b&gt;Du kan ændre placeringen af skærmnotifikation ved at trække i den på skærmen.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2279"/>
         <source>Use OSD Notifications</source>
-        <translation>Brug Skærmpåmindelser</translation>
+        <translation>Brug skærmpåmindelser</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2286"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Forhåndvisning</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2351"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Se venligst &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt; for mere information om stavekontrol.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2393"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Valgmuligheder for stavekontrol&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>Aktivér stavekontrol</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Ordbogsmapper&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2455"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>Ingen sprog fundet</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2466"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Håndtér søgemaskiner&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Håndter søgetjenester&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Brugerstilark&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Brugertypografiark&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2480"/>
         <source>Style Sheet automatically loaded with all websites: </source>
-        <translation type="unfinished"/>
+        <translation>Typografiark indlæses automatisk med alle websteder: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2510"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
-        <translation>&lt;b&gt; Foretrukket sprog for hjemmesider&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Foretrukket sprog for websteder&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2530"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Skift netlæseridentifikation&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Skift browseridentifikation&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2555"/>
         <source>User Agent Manager</source>
-        <translation>Brugeragenthåndtering</translation>
+        <translation>Håndtering af user agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
@@ -3891,7 +3895,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2635"/>
         <source>Search Engines Manager</source>
-        <translation type="unfinished"/>
+        <translation>Søgetjenestehåndtering</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
@@ -3907,27 +3911,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="540"/>
         <source>Choose executable location...</source>
-        <translation type="unfinished"/>
+        <translation>Vælg placering for eksekverbar...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="584"/>
         <source>OSD Notification</source>
-        <translation>OSD Påmindelser</translation>
+        <translation>Skærmpåmindelser</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="585"/>
         <source>Drag it on the screen to place it where you want.</source>
-        <translation type="unfinished"/>
+        <translation>Træk den rundt på skærmen for at placere den hvor du ønsker.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="632"/>
         <source>Choose download location...</source>
-        <translation type="unfinished"/>
+        <translation>Vælg placering for download...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="646"/>
         <source>Choose stylesheet location...</source>
-        <translation>Vælg placering for stilark...</translation>
+        <translation>Vælg placering for typografiark...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
@@ -3937,12 +3941,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="746"/>
         <source>Choose cache path...</source>
-        <translation type="unfinished"/>
+        <translation>Vælg mellemlagringssti...</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
         <source>New Profile</source>
-        <translation>Ny Profil</translation>
+        <translation>Ny profil</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="787"/>
@@ -3973,12 +3977,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
-        <translation>Er du sikker på du vil slette profilen  &quot;%1&quot; ? Denne handling kan ikke fortrydes!</translation>
+        <translation>Er du sikker på, at du vil slette profilen &quot;%1&quot;? Denne handling kan ikke fortrydes!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
         <source>Select Color</source>
-        <translation>Vælg Farve</translation>
+        <translation>Vælg farve</translation>
     </message>
 </context>
 <context>
@@ -3996,7 +4000,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/certificateinfowidget.cpp" line="300"/>
         <source>&lt;not set in certificate&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;ikke sat i certifikat&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="342"/>
@@ -4011,22 +4015,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="352"/>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="356"/>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="815"/>
         <source>Executable: </source>
-        <translation>Eksekverbar:</translation>
+        <translation>Eksekverbar: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="816"/>
         <source>Arguments: </source>
-        <translation>Argumenter:</translation>
+        <translation>Argumenter: </translation>
     </message>
     <message>
         <location filename="../src/lib/tools/qztools.cpp" line="818"/>
@@ -4045,22 +4049,22 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="131"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="132"/>
         <source>Report Issue</source>
-        <translation>Indrapporter Problem</translation>
+        <translation>Rapportér problem</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="133"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>Hvis du oplever problemer med QupZilla, så forsøg først at deaktivere alle udvidelser.&lt;br/&gt;Hvis dette ikke løser problemet, så udfyld venligst denne formular:</translation>
+        <translation>Hvis du oplever problemer med QupZilla, så forsøg først at deaktivere alle udvidelser. &lt;br/&gt;Hvis dette ikke løser problemet, så udfyld venligst denne formular: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
         <source>Your E-mail</source>
-        <translation>Din emailadresse</translation>
+        <translation>Din e-mailadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
         <source>Issue type</source>
-        <translation type="unfinished"/>
+        <translation>Problemtype</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
@@ -4075,12 +4079,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
-        <translation>E-post er valgfrit&lt;br/&gt;&lt;b&gt;Bemærk:&lt;/b&gt; Læs venligst først om hvordan du laver en fejlrapport &lt;a href=%1&gt; her&lt;/a&gt;.</translation>
+        <translation>E-mail er valgfrit&lt;br/&gt;&lt;b&gt;Bemærk: &lt;/b&gt;Læs venligst først om hvordan du laver en fejlrapport &lt;a href=%1&gt;her&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="141"/>
         <source>Please fill out all required fields!</source>
-        <translation type="unfinished"/>
+        <translation>Udfyld venligst alle påkrævede felter!</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="169"/>
@@ -4090,7 +4094,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="170"/>
         <source>Search on Web</source>
-        <translation>Søg på Web</translation>
+        <translation>Søg på web</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="171"/>
@@ -4107,7 +4111,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
-        <translation>&lt;h1&gt;Privat Browsing&lt;/h1&gt;</translation>
+        <translation>&lt;h1&gt;Privat browse&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
@@ -4118,7 +4122,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
         <source>Copyright</source>
-        <translation>Copyright</translation>
+        <translation>Ophavsret</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
@@ -4129,7 +4133,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="202"/>
         <source>Main developer</source>
-        <translation>Hovedudvikler</translation>
+        <translation>Primær udvikler</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="204"/>
@@ -4169,7 +4173,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
         <source>Are you sure you want to remove this speed dial?</source>
-        <translation>Er du sikker på at du vil fjerne denne Kvikknap</translation>
+        <translation>Er du sikker på, at du vil fjerne denne kvikknap?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
@@ -4179,7 +4183,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
         <source>Load title from page</source>
-        <translation>Hent titel fra webside</translation>
+        <translation>Indlæs titel fra webside</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
@@ -4214,7 +4218,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
         <source>Placement: </source>
-        <translation>Placering</translation>
+        <translation>Placering: </translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
@@ -4254,7 +4258,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Maximum pages in a row:</source>
-        <translation type="unfinished"/>
+        <translation>Maksimum sider i en række:</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
@@ -4274,17 +4278,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Oops, QupZilla crashed.</source>
-        <translation type="unfinished"/>
+        <translation>Ups, QupZilla holdt op med at virke.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
-        <translation type="unfinished"/>
+        <translation>Vi beklager. Vil du gendanne til den sidst gemte tilstand?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
-        <translation type="unfinished"/>
+        <translation>Prøv at fjerne en eller flere faneblade som du tror skaber problemer</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
@@ -4299,12 +4303,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="331"/>
         <source>Windows and Tabs</source>
-        <translation>Vinduer og Faneblade</translation>
+        <translation>Vinduer og faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="332"/>
         <source>Start New Session</source>
-        <translation>Start Ny Session</translation>
+        <translation>Start ny session</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="333"/>
@@ -4315,17 +4319,17 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Configuration Information</source>
-        <translation>Opsætningsoplysninger</translation>
+        <translation>Konfiguratonsinformation</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
-        <translation>Denne side indeholder oplysninger om QupZilla aktuelle indstillinger - relevant for fejlfinding. Vedlæg denne information ved indsendelse af  fejlrapporter.</translation>
+        <translation>Denne side indeholder oplysninger om QupZillas aktuelle konfiguration - relevant ved fejlfinding. Vedlæg denne information ved indsendelse af fejlrapporter.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Browser Identification</source>
-        <translation>Netlæser Identifikation</translation>
+        <translation>Browseridentifikation</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
@@ -4335,17 +4339,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Build Configuration</source>
-        <translation type="unfinished"/>
+        <translation>Byggekonfiguration</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Preferences</source>
-        <translation>Indstillinger</translation>
+        <translation>Præferencer</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Option</source>
-        <translation>Indstilling</translation>
+        <translation>Valgmulighed</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
@@ -4380,7 +4384,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
         <source>Qt version</source>
-        <translation>Version af QT</translation>
+        <translation>Qt-version</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
@@ -4405,7 +4409,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Pinned tabs</source>
-        <translation type="unfinished"/>
+        <translation>Fastgjorte faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
@@ -4439,22 +4443,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Debug build</source>
-        <translation type="unfinished"/>
+        <translation>Debug-byg</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Windows 7 API</source>
-        <translation>Windows 7 API</translation>
+        <translation>Windows 7-API</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Portable build</source>
-        <translation type="unfinished"/>
+        <translation>Portable-byg</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
         <source>No available extensions.</source>
-        <translation>Ingen tilgængelige udvidelser</translation>
+        <translation>Ingen tilgængelige udvidelser.</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="481"/>
@@ -4478,7 +4482,8 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/other/registerqappassociation.cpp" line="111"/>
         <source>There are some problems. Please, reinstall QupZilla.
 Maybe relaunch with administrator right do a magic for you! ;)</source>
-        <translation type="unfinished"/>
+        <translation>Der er problemer. Geninstaller venligst QupZilla.
+Måske vil genstart med administratorrettigheder hjælpe dig! ;)</translation>
     </message>
 </context>
 <context>
@@ -4499,7 +4504,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="14"/>
         <source>Manage Search Engines</source>
-        <translation>Håndter Søgemaskiner</translation>
+        <translation>Håndter søgetjenester</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="22"/>
@@ -4534,7 +4539,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="86"/>
         <source>Search Engine</source>
-        <translation>Søgemaskine</translation>
+        <translation>Søgetjeneste</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.ui" line="91"/>
@@ -4550,22 +4555,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="49"/>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="316"/>
         <source>Add Search Engine</source>
-        <translation>Tilføj søgemaskine</translation>
+        <translation>Tilføj søgetjeneste</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="86"/>
         <source>Remove Engine</source>
-        <translation>Fjern Motor</translation>
+        <translation>Fjern tjeneste</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="87"/>
         <source>You can&apos;t remove the default search engine.&lt;br&gt;Set a different engine as default before removing %1.</source>
-        <translation type="unfinished"/>
+        <translation>Du kan ikke fjerne standardsøgetjenesten.&lt;br&gt;Sæt en anden tjeneste som standard inden du fjerner %1.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesdialog.cpp" line="104"/>
         <source>Edit Search Engine</source>
-        <translation>Rediger søgemaskine</translation>
+        <translation>Rediger søgetjeneste</translation>
     </message>
 </context>
 <context>
@@ -4573,17 +4578,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="402"/>
         <source>Search Engine Added</source>
-        <translation>Søgemaskine tilføjet</translation>
+        <translation>Søgetjeneste tilføjet</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="402"/>
         <source>Search Engine &quot;%1&quot; has been successfully added.</source>
-        <translation type="unfinished"/>
+        <translation>Søgetjenesten &quot;%1&quot; er blevet tilføjet.</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="409"/>
         <source>Search Engine is not valid!</source>
-        <translation>Søgemaskine er ugyldig!</translation>
+        <translation>Søgetjeneste er ugyldig!</translation>
     </message>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="410"/>
@@ -4593,7 +4598,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/opensearch/searchenginesmanager.cpp" line="410"/>
         <source>Error while adding Search Engine &lt;br&gt;&lt;b&gt;Error Message: &lt;/b&gt; %1</source>
-        <translation type="unfinished"/>
+        <translation>Fejl ved tilføjelse af søgetjeneste &lt;br&gt;&lt;b&gt;Fejlmeddelelse: &lt;/b&gt; %1</translation>
     </message>
 </context>
 <context>
@@ -4609,7 +4614,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="36"/>
         <source>Search: </source>
-        <translation>Søg:</translation>
+        <translation>Søg: </translation>
     </message>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="55"/>
@@ -4619,7 +4624,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
         <source>&amp;Match Case</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Forskel på store og små bogstaver</translation>
     </message>
 </context>
 <context>
@@ -4642,22 +4647,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="14"/>
         <source>Site Info</source>
-        <translation>Sideinfo</translation>
+        <translation>Stedinfo</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="47"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Generelt</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="52"/>
         <source>Media</source>
-        <translation>Media</translation>
+        <translation>Medie</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="84"/>
         <source>Site address:</source>
-        <translation>Sideadresse:</translation>
+        <translation>Stedadresse:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="113"/>
@@ -4667,7 +4672,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="132"/>
         <source>Meta tags of site:</source>
-        <translation type="unfinished"/>
+        <translation>Metatags for sted:</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="146"/>
@@ -4692,7 +4697,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="240"/>
         <source>Image address</source>
-        <translation>Billedaddresse</translation>
+        <translation>Billedadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.ui" line="265"/>
@@ -4702,27 +4707,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="67"/>
         <source>&lt;b&gt;Connection is Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Forbindelse er krypteret.&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Forbindelsen er krypteret.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="69"/>
         <source>&lt;b&gt;Connection Not Encrypted.&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Forbindelse ikke krypteret.&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Forbindelsen er ikke krypteret.&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="156"/>
         <source>Copy Image Location</source>
-        <translation>Kopiér Billedaddresse</translation>
+        <translation>Kopiér billedadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="157"/>
         <source>Copy Image Name</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér billednavn</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="159"/>
         <source>Save Image to Disk</source>
-        <translation>Gem Billede på Disk</translation>
+        <translation>Gem billede på disk</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="186"/>
@@ -4766,23 +4771,23 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="42"/>
         <source>Your connection to this site is &lt;b&gt;secured&lt;/b&gt;.</source>
-        <translation>Din forbindelse til denne side er &lt;b&gt;sikret&lt;/b&gt;.</translation>
+        <translation>Din forbindelse til dette sted er &lt;b&gt;sikret&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="46"/>
         <source>Your connection to this site is &lt;b&gt;unsecured&lt;/b&gt;.</source>
-        <translation>Din forbindelse til denne side er &lt;b&gt;ikke sikret&lt;/b&gt;.</translation>
+        <translation>Din forbindelse til dette sted er &lt;b&gt;ikke sikret&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="61"/>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="80"/>
         <source>This is your &lt;b&gt;%1&lt;/b&gt; visit of this site.</source>
-        <translation>Dette er din &lt;b&gt;%1&lt;/b&gt; gang på denne side.</translation>
+        <translation>Det er &lt;b&gt;%1&lt;/b&gt;. gang du besøger dette sted.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="65"/>
         <source>You have &lt;b&gt;never&lt;/b&gt; visited this site before.</source>
-        <translation>Du har &lt;b&gt;aldrig&lt;/b&gt; været på denne side før.</translation>
+        <translation>Du har &lt;b&gt;aldrig&lt;/b&gt; besøgt dette sted før.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfowidget.cpp" line="72"/>
@@ -4823,7 +4828,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/3rdparty/squeezelabelv2.cpp" line="64"/>
         <source>Copy</source>
-        <translation>Kopier</translation>
+        <translation>Kopiér</translation>
     </message>
 </context>
 <context>
@@ -4831,7 +4836,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
         <source>SSL Certificate Error!</source>
-        <translation>SSL-certifikat Fejl!</translation>
+        <translation>Fejl i SSL-certifikat!</translation>
     </message>
 </context>
 <context>
@@ -4841,7 +4846,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
         <source>Close Tabs</source>
-        <translation>Luk Faneblade</translation>
+        <translation>Luk faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="133"/>
@@ -4851,12 +4856,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="143"/>
         <source>Do you really want to close all tabs to the right?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig lukke alle faneblade til højre?</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="153"/>
         <source>Do you really want to close all tabs to the left?</source>
-        <translation type="unfinished"/>
+        <translation>Vil du virkelig lukke alle faneblade til venstre?</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="336"/>
@@ -4876,58 +4881,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="345"/>
         <source>D&amp;etach Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Løsriv faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>Un&amp;pin Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Frigør faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="348"/>
         <source>&amp;Pin Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Fastgør faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>Un&amp;mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Slå lyden til i faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="349"/>
         <source>&amp;Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Slå lyden fra i faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
         <source>Re&amp;load All Tabs</source>
-        <translation>Genind&amp;læs Alle Faneblade</translation>
+        <translation>Genind&amp;læs alle faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="352"/>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Bogmærk &amp;Alle Faneblade</translation>
+        <translation>Sæt bogmærke for &amp;alle faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
         <source>Close Ot&amp;her Tabs</source>
-        <translation>Luk &amp;andre Faneblade</translation>
+        <translation>Luk &amp;andre faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="355"/>
         <source>Close Tabs To The Right</source>
-        <translation type="unfinished"/>
+        <translation>Luk faneblade til højre</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="356"/>
         <source>Close Tabs To The Left</source>
-        <translation type="unfinished"/>
+        <translation>Luk faneblade til venstre</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="359"/>
         <source>Cl&amp;ose Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Luk faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="361"/>
@@ -4945,12 +4950,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Slå lyden til i faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="152"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>Slå lyden fra i faneblad</translation>
     </message>
 </context>
 <context>
@@ -4958,7 +4963,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="51"/>
         <source>New Tab</source>
-        <translation>Nyt Faneblad</translation>
+        <translation>Nyt faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="161"/>
@@ -4978,7 +4983,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="317"/>
         <source>Restore All Closed Tabs</source>
-        <translation>Gendan Alle Lukkede Faneblade</translation>
+        <translation>Gendan alle lukkede faneblade</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabwidget.cpp" line="318"/>
@@ -5001,7 +5006,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/tabbedwebview.cpp" line="211"/>
         <source>Inspect Element</source>
-        <translation>Inspicér Element</translation>
+        <translation>Inspicer element</translation>
     </message>
 </context>
 <context>
@@ -5037,12 +5042,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="151"/>
         <source>New version of QupZilla is ready to download.</source>
-        <translation>Ny version af QupZilla er klar til at blive hentet.</translation>
+        <translation>Ny version af QupZilla er klar til at blive downloadet.</translation>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="160"/>
         <source>Update</source>
-        <translation>Ajourfør</translation>
+        <translation>Opdater</translation>
     </message>
 </context>
 <context>
@@ -5050,27 +5055,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation type="unfinished"/>
+        <translation>Håndtering af user agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation type="unfinished"/>
+        <translation>Skift global user agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation type="unfinished"/>
+        <translation>Brug forskellige user agents til angivne steder</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="89"/>
         <source>Site</source>
-        <translation>Hjemmeside</translation>
+        <translation>Sted</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="94"/>
         <source>User Agent</source>
-        <translation>Brugeragent</translation>
+        <translation>User agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="104"/>
@@ -5090,22 +5095,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="95"/>
         <source>Add new site</source>
-        <translation>Tilføj ny hjemmeside</translation>
+        <translation>Tilføj nyt sted</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="133"/>
         <source>Edit site</source>
-        <translation>Rediger hjemmeside</translation>
+        <translation>Rediger sted</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="211"/>
         <source>Site domain: </source>
-        <translation type="unfinished"/>
+        <translation>Steddomæne: </translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.cpp" line="212"/>
         <source>User Agent: </source>
-        <translation>Brugeragent:</translation>
+        <translation>User agent: </translation>
     </message>
 </context>
 <context>
@@ -5113,17 +5118,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla kan ikke håndtere &lt;b&gt;%1:&lt;/b&gt; links. Det anmodede link er &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Skal QupZilla prøve at åbne dette link i systemets program?</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="286"/>
         <source>Remember my choice for this protocol</source>
-        <translation type="unfinished"/>
+        <translation>Husk mit valg for denne protokol</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="287"/>
         <source>External Protocol Request</source>
-        <translation>Ekstern Protokolforespørgsel</translation>
+        <translation>Ekstern protokolforespørgsel</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="382"/>
@@ -5164,7 +5169,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="570"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"/>
+        <translation>Forhindr denne side i at oprette yderligere dialoger</translation>
     </message>
 </context>
 <context>
@@ -5172,7 +5177,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="98"/>
         <source>Paste And &amp;Search</source>
-        <translation>Indsæt Og &amp;Søg</translation>
+        <translation>Indsæt og &amp;søg</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="124"/>
@@ -5182,7 +5187,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="128"/>
         <source>Manage Search Engines</source>
-        <translation>Håndter Søgemaskiner</translation>
+        <translation>Håndter søgetjenester</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="257"/>
@@ -5192,7 +5197,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/navigation/websearchbar.cpp" line="262"/>
         <source>Search when engine changed</source>
-        <translation type="unfinished"/>
+        <translation>Søg når tjenesten skiftes</translation>
     </message>
 </context>
 <context>
@@ -5200,7 +5205,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webtab/webtab.cpp" line="437"/>
         <source>Loading...</source>
-        <translation>Henter...</translation>
+        <translation>Indlæser...</translation>
     </message>
     <message>
         <location filename="../src/lib/webtab/webtab.cpp" line="453"/>
@@ -5213,12 +5218,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="124"/>
         <source>Empty Page</source>
-        <translation>Tom Side</translation>
+        <translation>Tom side</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="663"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ingen forslag</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="715"/>
@@ -5228,22 +5233,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="719"/>
         <source>&amp;Forward</source>
-        <translation>&amp;Frem</translation>
+        <translation>&amp;Fremad</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="726"/>
         <source>&amp;Add New Page</source>
-        <translation>&amp;Tilføj Ny Side</translation>
+        <translation>&amp;Tilføj ny side</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="727"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation>&amp;Indstil Kvikknapper</translation>
+        <translation>&amp;Konfigurer kvikknapper</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="729"/>
         <source>Reload All Dials</source>
-        <translation>Genindlæs Alle Kvikknapper</translation>
+        <translation>Genindlæs alle kvikknapper</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="748"/>
@@ -5253,17 +5258,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>Gem &amp;side som...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Copy page link</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Kopiér sidelink</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>Send page link...</source>
-        <translation type="unfinished"/>
+        <translation>Send sidelink...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="753"/>
@@ -5273,7 +5278,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="758"/>
         <source>Validate page</source>
-        <translation>Validér side</translation>
+        <translation>Valider side</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="762"/>
@@ -5288,42 +5293,42 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="769"/>
         <source>Show info ab&amp;out site</source>
-        <translation>Vis info &amp;om siden</translation>
+        <translation>Vis info &amp;om sted</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="775"/>
         <source>Open link in new &amp;tab</source>
-        <translation type="unfinished"/>
+        <translation>Åbn link i nyt &amp;faneblad</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="780"/>
         <source>Open link in new &amp;window</source>
-        <translation>Åben link i nyt &amp;vindue</translation>
+        <translation>Åbn link i nyt &amp;vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Open link in &amp;private window</source>
-        <translation type="unfinished"/>
+        <translation>Åbn link i &amp;privat vindue</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="786"/>
         <source>B&amp;ookmark link</source>
-        <translation type="unfinished"/>
+        <translation>Sæt &amp;bogmærke for link</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="788"/>
         <source>&amp;Save link as...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Gem link som...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Send link...</source>
-        <translation type="unfinished"/>
+        <translation>Send link...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="790"/>
         <source>&amp;Copy link address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Kopiér linkadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="802"/>
@@ -5333,7 +5338,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="807"/>
         <source>Copy image</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér billede</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="808"/>
@@ -5353,7 +5358,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>Send text...</source>
-        <translation>Send text...</translation>
+        <translation>Send tekst...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="835"/>
@@ -5368,12 +5373,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="856"/>
         <source>Go to &amp;web address</source>
-        <translation type="unfinished"/>
+        <translation>Gå til &amp;webadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="870"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
-        <translation>Søg &quot;%1 ..&quot; med %2</translation>
+        <translation>Søg efter &quot;%1 ..&quot; med %2</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="876"/>
@@ -5393,42 +5398,42 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>Un&amp;mute</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Slå lyden til</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>&amp;Mute</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Slå lyden fra</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="900"/>
         <source>&amp;Copy Media Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Kopiér medieadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="901"/>
         <source>&amp;Send Media Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Send medieadresse</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="902"/>
         <source>Save Media To &amp;Disk</source>
-        <translation type="unfinished"/>
+        <translation>Gem medie til &amp;disk</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Create Search Engine</source>
-        <translation>Opret Søgemaskine</translation>
+        <translation>Opret søgetjeneste</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="962"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Fortryd</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="968"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Gentag</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="974"/>
@@ -5448,7 +5453,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="992"/>
         <source>Select All</source>
-        <translation>Vælg Alle</translation>
+        <translation>Vælg alle</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="998"/>
@@ -5466,7 +5471,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/jsalert.ui" line="125"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation type="unfinished"/>
+        <translation>Forhindr denne side i at oprette yderligere dialoger</translation>
     </message>
 </context>
 </TS>

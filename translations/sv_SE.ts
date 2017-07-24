@@ -1592,7 +1592,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Servern &quot;%1&quot; finns redan på svarta listan, var snäll och ta bort den först.</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
@@ -1602,12 +1602,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Redan tillagd till vita listan!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Servern &quot;%1&quot; finns redan på vita listan, var snäll och ta bort den först.</translation>
     </message>
 </context>
 <context>
@@ -1620,12 +1620,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="124"/>
         <source>Done - %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Klart - %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="128"/>
         <source>Error - %1</source>
-        <translation type="unfinished"/>
+        <translation>Fel - %1</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="132"/>
@@ -5425,32 +5425,32 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="962"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ångra</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="968"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Gör om</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="974"/>
         <source>&amp;Cut</source>
-        <translation type="unfinished"/>
+        <translation>Klipp &amp;ut</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="980"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Kopiera</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="986"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"/>
+        <translation>Klistra &amp;in</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="992"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Välj alla</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="998"/>

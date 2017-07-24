@@ -12,7 +12,7 @@ mv src/plugins/MouseGestures/translations/sr@{I,i}jekavian.ts
 mv src/plugins/PIM/translations/sr@{I,i}jekavian.ts
 mv src/plugins/StatusBarIcons/translations/sr@{I,i}jekavian.ts
 mv src/plugins/TabManager/translations/sr@{I,i}jekavian.ts
-mv src/plugins/ImageFinder/translations/sr@{I,i}jekavian.ts
+mv src/plugins/TestPlugin/translations/sr@{I,i}jekavian.ts
 mv translations/sr@{I,i}jekavian.ts
 
 echo "Done"

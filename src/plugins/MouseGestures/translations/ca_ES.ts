@@ -59,12 +59,12 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="116"/>
         <source>Rocker Navigation:</source>
-        <translation type="unfinished"/>
+        <translation>Navegació del Rocker:</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="123"/>
         <source>Enable Rocker Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Habilita la navegació del Rocker</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>

@@ -2211,12 +2211,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="60"/>
         <source>Visit Date</source>
-        <translation>查訪日期</translation>
+        <translation>造訪日期</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="62"/>
         <source>Visit Count</source>
-        <translation>查訪次數</translation>
+        <translation>造訪次數</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymodel.cpp" line="339"/>
@@ -3844,7 +3844,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2400"/>
         <source>Enable Spell Check</source>
-        <translation>啟用拼字簡檢查</translation>
+        <translation>啟用拼字檢查</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2407"/>

@@ -9,7 +9,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="56"/>
         <source>Current Page Settings</source>
-        <translation>Instellingen voor huidige pagina</translation>
+        <translation>Huidige pagina-instellingen</translation>
     </message>
     <message>
         <location filename="../sbi_imagesicon.cpp" line="59"/>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../sbi_networkicondialog.ui" line="69"/>
         <source>No proxies. You can add proxy by clicking on &lt;b&gt;Add&lt;/b&gt; button.</source>
-        <translation>Geen proxies. U kunt een proxy toevoegen door op de &lt;b&gt;Proxy toevoegen&lt;/b&gt;-knop te klikken.</translation>
+        <translation>Geen proxies. U kunt een proxy toevoegen door te klikken op de &lt;b&gt;Proxy toevoegen&lt;/b&gt;-knop.</translation>
     </message>
     <message>
         <location filename="../sbi_networkicondialog.ui" line="104"/>

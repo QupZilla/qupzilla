@@ -29,7 +29,7 @@
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
         <source>&lt; About QupZilla</source>
-        <translation>&lt; 关于 QupZilla</translation>
+        <translation>&lt; 关于  QupZilla</translation>
     </message>
     <message>
         <location filename="../src/lib/other/aboutdialog.cpp" line="96"/>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="14"/>
         <source>Preferred Languages</source>
-        <translation>惯用语言</translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/acceptlanguage.ui" line="25"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.ui" line="53"/>
         <source>Add new subscription to AdBlock:</source>
-        <translation>添加新的订阅到 AdBlock：</translation>
+        <translation>为AdBlock订阅新的在线规则列表：</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="47"/>
@@ -147,7 +147,7 @@
     <message>
         <location filename="../src/lib/adblock/adblockdialog.ui" line="122"/>
         <source>Use only essential part of EasyList (for performance reasons)</source>
-        <translation>仅使用 EasyList 的必须功能(出于性能考虑)</translation>
+        <translation>仅使用 EasyList 的必需部分(出于性能考虑)</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockdialog.cpp" line="50"/>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../src/lib/adblock/adblocksubscription.cpp" line="170"/>
         <source>Cannot load subscription!</source>
-        <translation>无法加载规则列表订阅！</translation>
+        <translation>无法加载在线规则列表！</translation>
     </message>
 </context>
 <context>
@@ -780,7 +780,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="95"/>
         <source>Choose from which you want to import bookmarks:</source>
-        <translation>请指定书签导入来源：</translation>
+        <translation>请选择书签导入来源：</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/bookmarksimportdialog.ui" line="125"/>
@@ -891,7 +891,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="66"/>
         <source>File is not valid Opera bookmarks file!</source>
-        <translation>文件不是有效的 Opera 书签文件！</translation>
+        <translation>该文件不是有效的 Opera 书签文件！</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksimport/operaimporter.cpp" line="71"/>
@@ -1326,7 +1326,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="77"/>
         <source>Visited pages history from:</source>
-        <translation>从此处开始的页面浏览记录：</translation>
+        <translation>从此开始的浏览记录：</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.ui" line="87"/>
@@ -1376,7 +1376,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
         <source>Database Optimized</source>
-        <translation>数据库已经优化</translation>
+        <translation>数据库已优化</translation>
     </message>
     <message>
         <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
@@ -1555,7 +1555,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
-        <translation>您确定要删除本浏览器中的所有 Cookie 吗？</translation>
+        <translation>确定要删除本浏览器中的所有 Cookie 吗？</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
@@ -1769,17 +1769,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation>MIME HTML 归档 (*.mhtml)</translation>
+        <translation>MIME HTML 文件 (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>HTML Page, single (*.html)</source>
-        <translation>HTML 文档，单个 (*.html)</translation>
+        <translation>HTML 文件，仅HTML文件 (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="310"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation>HTML 文档，完整 (*.html)</translation>
+        <translation>HTML 文件，全部文件 (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="314"/>
@@ -1812,7 +1812,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="25"/>
         <source>What should QupZilla do with this file?</source>
-        <translation>需要个文件 QupZilla 怎么处理此文件？</translation>
+        <translation>需要  QupZilla 如何处理此文件？</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="47"/>
@@ -1827,7 +1827,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="64"/>
         <source>Download with External Manager</source>
-        <translation>使用外部管理器下载</translation>
+        <translation>使用外部下载器下载</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
@@ -1837,7 +1837,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
         <source>from:</source>
-        <translation>它来自：</translation>
+        <translation>来自：</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="241"/>
@@ -2421,7 +2421,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1075"/>
         <source>Always perform this check when starting QupZilla.</source>
-        <translation>每次启动 QupZilla 时总是检查此设定。</translation>
+        <translation>每次启动 QupZilla 时总是检查 QupZilla 是否为默认浏览器</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1077"/>
@@ -2609,7 +2609,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Page Source</source>
-        <translation>页面源代码  (&amp;P)</translation>
+        <translation>网页源代码  (&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="584"/>
@@ -3664,7 +3664,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1756"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation>如果取消选择，防止误触 Ctrl-W 导致应用程序退出。</translation>
+        <translation>如果取消选定，可防止误触 Ctrl+W 导致应用程序意外退出。</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1759"/>
@@ -3884,7 +3884,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2555"/>
         <source>User Agent Manager</source>
-        <translation>UA（用户代理）字符串管理器</translation>
+        <translation>UA（User Agent）管理器</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2595"/>
@@ -4053,7 +4053,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="133"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
-        <translation>如果您遇到 QupZilla 发生问题，请先尝试禁用全部附加组件。&lt;BR /&gt;如果还未能解决问题，请填写此表单：</translation>
+        <translation>如果您遇到 QupZilla 发生问题，请先尝试禁用所有附加组件。&lt;BR /&gt;如果还未能解决问题，请填写此表单：</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="135"/>
@@ -4716,7 +4716,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="156"/>
         <source>Copy Image Location</source>
-        <translation>复制图像位置</translation>
+        <translation>复制图像链接</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="157"/>
@@ -4726,7 +4726,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="159"/>
         <source>Save Image to Disk</source>
-        <translation>保存图像到磁盘</translation>
+        <translation>保存图像至本地</translation>
     </message>
     <message>
         <location filename="../src/lib/other/siteinfo.cpp" line="186"/>
@@ -4835,7 +4835,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/network/sslerrordialog.ui" line="14"/>
         <source>SSL Certificate Error!</source>
-        <translation>SSL 认证错误!</translation>
+        <translation>SSL 证书错误!</translation>
     </message>
 </context>
 <context>
@@ -5041,7 +5041,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="151"/>
         <source>New version of QupZilla is ready to download.</source>
-        <translation>有 QupZilla 新版本可供下载。</translation>
+        <translation>QupZilla 有新版本可下载。</translation>
     </message>
     <message>
         <location filename="../src/lib/other/updater.cpp" line="160"/>
@@ -5054,17 +5054,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="14"/>
         <source>User Agent Manager</source>
-        <translation>管理 UA（用户代理）字符串</translation>
+        <translation>管理 UA（User Agent）</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="20"/>
         <source>Change global User Agent</source>
-        <translation>更改全局 UA 字符串</translation>
+        <translation>更改全局User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="48"/>
         <source>Use different User Agents for specified sites</source>
-        <translation>为特定网站使用专门设定的 UA 字符串</translation>
+        <translation>为特定网站使用特定的 User Agent</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/useragentdialog.ui" line="89"/>
@@ -5122,7 +5122,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="286"/>
         <source>Remember my choice for this protocol</source>
-        <translation>记住我对该 URI 方案（URL 协议）的选择</translation>
+        <translation>记住我对该 URI方案（URL 协议）的选择</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="287"/>
@@ -5470,7 +5470,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/jsalert.ui" line="125"/>
         <source>Prevent this page from creating additional dialogs</source>
-        <translation>防止此页创建更多的对话框</translation>
+        <translation>禁止此页创建更多对话框</translation>
     </message>
 </context>
 </TS>

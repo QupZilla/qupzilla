@@ -44,7 +44,7 @@
     <message>
         <location filename="../PIM_handler.cpp" line="67"/>
         <source>State/Region</source>
-        <translation>Delstat/Region</translation>
+        <translation>Delstat/region</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="68"/>
@@ -59,17 +59,17 @@
     <message>
         <location filename="../PIM_handler.cpp" line="70"/>
         <source>Custom 1</source>
-        <translation>Custom 1</translation>
+        <translation>Brugerdefineret 1</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="71"/>
         <source>Custom 2</source>
-        <translation>Custom 2</translation>
+        <translation>Brugerdefineret 2</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="72"/>
         <source>Custom 3</source>
-        <translation>Custom 3</translation>
+        <translation>Brugerdefineret 3</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="114"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../PIM_settings.ui" line="180"/>
         <source>State/Region:</source>
-        <translation>Delstat/Region:</translation>
+        <translation>Delstat/region:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="193"/>
@@ -157,22 +157,22 @@
     <message>
         <location filename="../PIM_settings.ui" line="219"/>
         <source>Custom 1:</source>
-        <translation>Custom 1:</translation>
+        <translation>Brugerdefineret 1:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="232"/>
         <source>Custom 2:</source>
-        <translation>Custom 2:</translation>
+        <translation>Brugerdefineret 2:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="245"/>
         <source>Custom 3:</source>
-        <translation>Custom 3:</translation>
+        <translation>Brugerdefineret 3:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="260"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Press Ctrl+ENTER to autofill form fields for which QupZilla finds personal entries.</source>
-        <translation>&lt;b&gt;Note:&lt;/b&gt;Tryk Ctrl+Enter for at udfylde formularfelter automatisk, når Qupzilla finder personoplysninger.</translation>
+        <translation>&lt;b&gt;Bemærk:&lt;/b&gt;Tryk på Ctrl+Enter for at udfylde formularfelter automatisk, når QupZilla finder personoplysninger.</translation>
     </message>
 </context>
 </TS>

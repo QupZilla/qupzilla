@@ -4,7 +4,7 @@
     <message>
         <location filename="../gnomekeyringpasswordbackend.cpp" line="84"/>
         <source>Gnome Keyring</source>
-        <translation>Gnome Nøglering</translation>
+        <translation>Gnome-nøglering</translation>
     </message>
 </context>
 </TS>

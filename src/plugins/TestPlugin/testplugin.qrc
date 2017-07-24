@@ -4,6 +4,7 @@
         <file>locale/bg_BG.qm</file>
         <file>locale/ca_ES.qm</file>
         <file>locale/cs_CZ.qm</file>
+        <file>locale/da_DK.qm</file>
         <file>locale/de_DE.qm</file>
         <file>locale/el_GR.qm</file>
         <file>locale/es_ES.qm</file>
@@ -16,6 +17,7 @@
         <file>locale/gl_ES.qm</file>
         <file>locale/he_IL.qm</file>
         <file>locale/hr_HR.qm</file>
+        <file>locale/hu_HU.qm</file>
         <file>locale/id_ID.qm</file>
         <file>locale/is.qm</file>
         <file>locale/it_IT.qm</file>
@@ -32,6 +34,7 @@
         <file>locale/ro_RO.qm</file>
         <file>locale/ru_RU.qm</file>
         <file>locale/sk_SK.qm</file>
+        <file>locale/sl_SI.qm</file>
         <file>locale/sr@ijekavianlatin.qm</file>
         <file>locale/sr@ijekavian.qm</file>
         <file>locale/sr@latin.qm</file>

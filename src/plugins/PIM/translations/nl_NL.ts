@@ -19,12 +19,12 @@
     <message>
         <location filename="../PIM_handler.cpp" line="62"/>
         <source>Mobile</source>
-        <translation>Mobiel telefoonnummer</translation>
+        <translation>Mobiel nummer</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="63"/>
         <source>Phone</source>
-        <translation>Vast telefoonnummer</translation>
+        <translation>Vast nummer</translation>
     </message>
     <message>
         <location filename="../PIM_handler.cpp" line="64"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../PIM_settings.ui" line="115"/>
         <source>Phone:</source>
-        <translation>Vast telefoonnummer:</translation>
+        <translation>Vast nummer:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="128"/>
         <source>Mobile Phone:</source>
-        <translation>Mobiel telefoonnummer:</translation>
+        <translation>Mobiel nummer:</translation>
     </message>
     <message>
         <location filename="../PIM_settings.ui" line="141"/>

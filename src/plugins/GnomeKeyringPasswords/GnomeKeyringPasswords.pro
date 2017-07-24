@@ -27,6 +27,7 @@ TRANSLATIONS += \
     translations/gl_ES.ts \
     translations/he_IL.ts \
     translations/hr_HR.ts \
+    translations/hu_HU.ts \
     translations/id_ID.ts \
     translations/is.ts \
     translations/it_IT.ts \
