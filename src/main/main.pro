@@ -40,4 +40,10 @@ openbsd-*|freebsd-*|haiku-* {
 
 include(../install.pri)
 
-unix:contains(DEFINES, "NO_SYSTEM_DATAPATH"): QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
+unix:contains(DEFINES, "NO_SYSTEM_DATAPATH") {
+   # For running the app without installing it
+   QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}\\$\$ORIGIN
+   # For running the app after installation
+   QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$${library_folder}
+   message(QMAKE_LFLAGS: $$QMAKE_LFLAGS)
+}
