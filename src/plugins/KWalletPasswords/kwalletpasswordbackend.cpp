@@ -21,7 +21,7 @@
 #include <QDateTime>
 
 #if QT_VERSION >= 0x050000
-#include <KF5/KWallet/KWallet>
+#include <KWallet>
 #else
 #include <KDE/KWallet/Wallet>
 #endif
