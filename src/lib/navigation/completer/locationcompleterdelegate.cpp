@@ -16,7 +16,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "locationcompleterdelegate.h"
-#include "locationcompleterview.h"
 #include "locationcompletermodel.h"
 #include "locationbar.h"
 #include "iconprovider.h"
@@ -44,12 +43,11 @@ static bool isUrlOrDomain(const QString &text)
     return false;
 }
 
-LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* parent)
+LocationCompleterDelegate::LocationCompleterDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
     , m_drawSwitchToTab(true)
-    , m_view(parent)
 {
 }
 
@@ -73,13 +71,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
 
-    opt.state &= ~QStyle::State_MouseOver;
-
-    if (m_view->hoveredIndex() == index) {
-        opt.state |= QStyle::State_Selected;
-    } else {
-        opt.state &= ~QStyle::State_Selected;
-    }
+    opt.state |= QStyle::State_Active;
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
@@ -173,12 +165,12 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
-        viewItemDrawText(painter, &opt, textRect, LocationCompleterView::tr("Switch to tab"), textPalette.color(colorLinkRole));
+        viewItemDrawText(painter, &opt, textRect, tr("Switch to tab"), textPalette.color(colorLinkRole));
     } else if (isVisitSearchItem) {
         if (!isWebSearch) {
-            link = LocationCompleterView::tr("Visit");
+            link = tr("Visit");
         } else {
-            link = LocationCompleterView::tr("Search on %1").arg(LocationBar::searchEngineName());
+            link = tr("Search on %1").arg(LocationBar::searchEngineName());
         }
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole));
     } else {

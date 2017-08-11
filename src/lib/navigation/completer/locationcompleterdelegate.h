@@ -22,12 +22,10 @@
 
 #include "qzcommon.h"
 
-class LocationCompleterView;
-
 class QUPZILLA_EXPORT LocationCompleterDelegate : public QStyledItemDelegate
 {
 public:
-    explicit LocationCompleterDelegate(LocationCompleterView* parent = 0);
+    explicit LocationCompleterDelegate(QObject *parent = 0);
 
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -46,8 +44,6 @@ private:
     mutable int m_padding;
     bool m_drawSwitchToTab;
     QString m_originalText;
-
-    LocationCompleterView* m_view;
 };
 
 #endif // LOCATIONCOMPLETERDELEGATE_H

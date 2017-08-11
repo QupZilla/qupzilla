@@ -50,11 +50,6 @@ LocationCompleterView::LocationCompleterView()
     setItemDelegate(m_delegate);
 }
 
-QPersistentModelIndex LocationCompleterView::hoveredIndex() const
-{
-    return m_hoveredIndex;
-}
-
 void LocationCompleterView::setOriginalText(const QString &originalText)
 {
     m_delegate->setOriginalText(originalText);
@@ -72,7 +67,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
     case QEvent::KeyPress: {
         QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
         Qt::KeyboardModifiers modifiers = keyEvent->modifiers();
-        const QModelIndex idx = m_hoveredIndex;
+        const QModelIndex idx = currentIndex();
         const QModelIndex visitSearchIdx = model()->index(0, 0).data(LocationCompleterModel::VisitSearchItemRole).toBool() ? model()->index(0, 0) : QModelIndex();
 
         if ((keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) && currentIndex() != idx) {
@@ -190,7 +185,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
-            if (idx.isValid() || m_hoveredIndex.isValid()) {
+            if (idx != visitSearchIdx || m_hoveredIndex.isValid()) {
                 m_delegate->setShowSwitchToTab(false);
                 viewport()->update();
                 return true;
@@ -260,15 +255,6 @@ void LocationCompleterView::close()
     m_delegate->setShowSwitchToTab(true);
 
     emit closed();
-}
-
-void LocationCompleterView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
-{
-    m_hoveredIndex = current;
-
-    QListView::currentChanged(current, previous);
-
-    viewport()->update();
 }
 
 void LocationCompleterView::mouseMoveEvent(QMouseEvent* event)

@@ -47,9 +47,6 @@ signals:
 public slots:
     void close();
 
-private slots:
-    void currentChanged(const QModelIndex &current, const QModelIndex &previous);
-
 protected:
     void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
