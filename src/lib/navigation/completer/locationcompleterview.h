@@ -48,14 +48,12 @@ public slots:
     void close();
 
 protected:
-    void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
 private:
     bool m_ignoreNextMouseMove;
 
     LocationCompleterDelegate* m_delegate;
-    QPersistentModelIndex m_hoveredIndex;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

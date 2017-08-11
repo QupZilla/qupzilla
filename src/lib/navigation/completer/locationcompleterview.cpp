@@ -185,7 +185,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
-            if (idx != visitSearchIdx || m_hoveredIndex.isValid()) {
+            if (idx != visitSearchIdx || underMouse()) {
                 m_delegate->setShowSwitchToTab(false);
                 viewport()->update();
                 return true;
@@ -251,54 +251,34 @@ void LocationCompleterView::close()
     QListView::hide();
     verticalScrollBar()->setValue(0);
 
-    m_hoveredIndex = QPersistentModelIndex();
     m_delegate->setShowSwitchToTab(true);
 
     emit closed();
 }
 
-void LocationCompleterView::mouseMoveEvent(QMouseEvent* event)
+void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
 {
-    if (m_ignoreNextMouseMove || !isVisible()) {
-        m_ignoreNextMouseMove = false;
-        QListView::mouseMoveEvent(event);
+    QModelIndex idx = indexAt(event->pos());
+    if (!idx.isValid()) {
         return;
     }
 
-    QModelIndex last = m_hoveredIndex;
-    QModelIndex atCursor = indexAt(mapFromGlobal(QCursor::pos()));
+    Qt::MouseButton button = event->button();
+    Qt::KeyboardModifiers modifiers = event->modifiers();
 
-    if (atCursor.isValid()) {
-        m_hoveredIndex = atCursor;
+    if (button == Qt::LeftButton && modifiers == Qt::NoModifier) {
+        emit indexActivated(idx);
+        return;
     }
 
-    if (last != atCursor) {
-        viewport()->update();
+    if (button == Qt::MiddleButton || (button == Qt::LeftButton && modifiers == Qt::ControlModifier)) {
+        emit indexCtrlActivated(idx);
+        return;
     }
 
-    QListView::mouseMoveEvent(event);
-}
-
-void LocationCompleterView::mouseReleaseEvent(QMouseEvent* event)
-{
-    if (m_hoveredIndex.isValid()) {
-        Qt::MouseButton button = event->button();
-        Qt::KeyboardModifiers modifiers = event->modifiers();
-
-        if (button == Qt::LeftButton && modifiers == Qt::NoModifier) {
-            emit indexActivated(m_hoveredIndex);
-            return;
-        }
-
-        if (button == Qt::MiddleButton || (button == Qt::LeftButton && modifiers == Qt::ControlModifier)) {
-            emit indexCtrlActivated(m_hoveredIndex);
-            return;
-        }
-
-        if (button == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
-            emit indexShiftActivated(m_hoveredIndex);
-            return;
-        }
+    if (button == Qt::LeftButton && modifiers == Qt::ShiftModifier) {
+        emit indexShiftActivated(idx);
+        return;
     }
 
     QListView::mouseReleaseEvent(event);
