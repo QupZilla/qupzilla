@@ -171,7 +171,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         if (!isSearchSuggestion && !isWebSearch) {
             link = tr("Visit");
         } else {
-            link = tr("Search on %1").arg(LocationBar::searchEngine().name);
+            link = tr("Search with %1").arg(LocationBar::searchEngine().name);
         }
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole));
     } else {
