@@ -39,12 +39,16 @@ public:
         TabPositionWindowRole,
         TabPositionTabRole,
         ImageRole,
-        VisitSearchItemRole
+        VisitSearchItemRole,
+        SearchSuggestionRole
     };
 
     explicit LocationCompleterModel(QObject* parent = 0);
 
     void setCompletions(const QList<QStandardItem*> &items);
+    void addCompletions(const QList<QStandardItem*> &items);
+
+    QList<QStandardItem*> suggestionItems() const;
 
     static QSqlQuery createHistoryQuery(const QString &searchString, int limit, bool exactMatch = false);
     static QSqlQuery createDomainQuery(const QString &text);

@@ -28,6 +28,8 @@
 #include "bookmarks.h"
 #include "bookmarkitem.h"
 #include "qzsettings.h"
+#include "opensearchengine.h"
+#include "networkmanager.h"
 
 #include <QWindow>
 
@@ -77,6 +79,18 @@ void LocationCompleter::complete(const QString &string)
     LocationCompleterRefreshJob* job = new LocationCompleterRefreshJob(trimmedStr);
     connect(job, SIGNAL(finished()), this, SLOT(refreshJobFinished()));
     connect(this, SIGNAL(cancelRefreshJob()), job, SLOT(jobCancelled()));
+
+    if (qzSettings->searchFromAddressBar && trimmedStr.length() > 2) {
+        if (!m_openSearchEngine) {
+            m_openSearchEngine = new OpenSearchEngine(this);
+            m_openSearchEngine->setNetworkAccessManager(mApp->networkManager());
+            connect(m_openSearchEngine, &OpenSearchEngine::suggestions, this, &LocationCompleter::addSuggestions);
+        }
+        m_openSearchEngine->setSuggestionsUrl(LocationBar::searchEngine().suggestionsUrl);
+        m_openSearchEngine->setSuggestionsParameters(LocationBar::searchEngine().suggestionsParameters);
+        m_suggestionsTerm = trimmedStr;
+        m_openSearchEngine->requestSuggestions(m_suggestionsTerm);
+    }
 }
 
 void LocationCompleter::showMostVisited()
@@ -96,6 +110,7 @@ void LocationCompleter::refreshJobFinished()
         m_lastRefreshTimestamp = job->timestamp();
 
         showPopup();
+        addSuggestions(m_oldSuggestions);
 
         if (!s_view->currentIndex().isValid() && s_model->index(0, 0).data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
             m_ignoreCurrentChanged = true;
@@ -113,6 +128,8 @@ void LocationCompleter::refreshJobFinished()
 
 void LocationCompleter::slotPopupClosed()
 {
+    m_oldSuggestions.clear();
+
     disconnect(s_view, SIGNAL(closed()), this, SLOT(slotPopupClosed()));
     disconnect(s_view, SIGNAL(indexActivated(QModelIndex)), this, SLOT(indexActivated(QModelIndex)));
     disconnect(s_view, SIGNAL(indexCtrlActivated(QModelIndex)), this, SLOT(indexCtrlActivated(QModelIndex)));
@@ -121,6 +138,33 @@ void LocationCompleter::slotPopupClosed()
     disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
 
     emit popupClosed();
+}
+
+void LocationCompleter::addSuggestions(const QStringList &suggestions)
+{
+    const auto suggestionItems = s_model->suggestionItems();
+
+    // Delete existing suggestions
+    for (QStandardItem *item : suggestionItems) {
+        s_model->takeRow(item->row());
+        delete item;
+    }
+
+    // Add new suggestions
+    QList<QStandardItem*> items;
+    for (const QString &suggestion : suggestions) {
+        QStandardItem* item = new QStandardItem();
+        item->setText(suggestion);
+        item->setData(suggestion, LocationCompleterModel::TitleRole);
+        item->setData(suggestion, LocationCompleterModel::UrlRole);
+        item->setData(m_suggestionsTerm, LocationCompleterModel::SearchStringRole);
+        item->setData(true, LocationCompleterModel::SearchSuggestionRole);
+        items.append(item);
+    }
+
+    s_model->addCompletions(items);
+    adjustPopupSize();
+    m_oldSuggestions = suggestions;
 }
 
 void LocationCompleter::currentChanged(const QModelIndex &index)

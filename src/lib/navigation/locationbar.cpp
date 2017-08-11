@@ -33,7 +33,6 @@
 #include "qzsettings.h"
 #include "colors.h"
 #include "autofillicon.h"
-#include "searchenginesmanager.h"
 #include "completer/locationcompleter.h"
 
 #include <QTimer>
@@ -146,7 +145,7 @@ void LocationBar::setText(const QString &text)
 void LocationBar::updatePlaceHolderText()
 {
     if (qzSettings->searchFromAddressBar) {
-        setPlaceholderText(tr("Enter URL address or search on %1").arg(searchEngineName()));
+        setPlaceholderText(tr("Enter URL address or search on %1").arg(searchEngine().name));
     } else
         setPlaceholderText(tr("Enter URL address"));
 }
@@ -239,14 +238,14 @@ QString LocationBar::convertUrlToText(const QUrl &url)
     return stringUrl;
 }
 
-QString LocationBar::searchEngineName()
+SearchEnginesManager::Engine LocationBar::searchEngine()
 {
     if (!qzSettings->searchFromAddressBar) {
-        return QString();
+        return SearchEnginesManager::Engine();
     } else if (qzSettings->searchWithDefaultEngine) {
-        return mApp->searchEnginesManager()->defaultEngine().name;
+        return mApp->searchEnginesManager()->defaultEngine();
     } else {
-        return mApp->searchEnginesManager()->activeEngine().name;
+        return mApp->searchEnginesManager()->activeEngine();
     }
 }
 

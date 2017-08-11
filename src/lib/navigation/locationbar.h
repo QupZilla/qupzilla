@@ -20,6 +20,7 @@
 
 #include "qzcommon.h"
 #include "lineedit.h"
+#include "searchenginesmanager.h"
 
 class QStringListModel;
 
@@ -44,7 +45,7 @@ public:
     void setWebView(TabbedWebView* view);
 
     static QString convertUrlToText(const QUrl &url);
-    static QString searchEngineName();
+    static SearchEnginesManager::Engine searchEngine();
 
 public slots:
     void setText(const QString &text);

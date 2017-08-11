@@ -27,6 +27,7 @@ class QModelIndex;
 
 class LocationBar;
 class BrowserWindow;
+class OpenSearchEngine;
 class LocationCompleterModel;
 class LocationCompleterView;
 
@@ -56,9 +57,9 @@ signals:
 private slots:
     void refreshJobFinished();
     void slotPopupClosed();
+    void addSuggestions(const QStringList &suggestions);
 
     void currentChanged(const QModelIndex &index);
-
     void indexActivated(const QModelIndex &index);
     void indexCtrlActivated(const QModelIndex &index);
     void indexShiftActivated(const QModelIndex &index);
@@ -77,6 +78,9 @@ private:
     QString m_originalText;
     bool m_popupClosed;
     bool m_ignoreCurrentChanged = false;
+    OpenSearchEngine* m_openSearchEngine = nullptr;
+    QStringList m_oldSuggestions;
+    QString m_suggestionsTerm;
 
     static LocationCompleterView* s_view;
     static LocationCompleterModel* s_model;

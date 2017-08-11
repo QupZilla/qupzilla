@@ -93,6 +93,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     const bool isVisitSearchItem = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
+    const bool isSearchSuggestion = index.data(LocationCompleterModel::SearchSuggestionRole).toBool();
     const bool isWebSearch = qzSettings->searchFromAddressBar && !isUrlOrDomain(m_originalText.trimmed());
 
     // Draw icon
@@ -100,7 +101,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
-    if (isVisitSearchItem && isWebSearch) {
+    if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
         pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize);
     }
     painter->drawPixmap(iconRect, pixmap);
@@ -166,11 +167,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
         viewItemDrawText(painter, &opt, textRect, tr("Switch to tab"), textPalette.color(colorLinkRole));
-    } else if (isVisitSearchItem) {
-        if (!isWebSearch) {
+    } else if (isVisitSearchItem || isSearchSuggestion) {
+        if (!isSearchSuggestion && !isWebSearch) {
             link = tr("Visit");
         } else {
-            link = tr("Search on %1").arg(LocationBar::searchEngineName());
+            link = tr("Search on %1").arg(LocationBar::searchEngine().name);
         }
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole));
     } else {

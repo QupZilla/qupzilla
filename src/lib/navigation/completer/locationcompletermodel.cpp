@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,17 +33,32 @@ LocationCompleterModel::LocationCompleterModel(QObject* parent)
 
 void LocationCompleterModel::setCompletions(const QList<QStandardItem*> &items)
 {
-    foreach (QStandardItem* item, items) {
+    clear();
+    addCompletions(items);
+}
+
+void LocationCompleterModel::addCompletions(const QList<QStandardItem*> &items)
+{
+    for (QStandardItem *item : items) {
         item->setIcon(QPixmap::fromImage(item->data(ImageRole).value<QImage>()));
         setTabPosition(item);
-
         if (item->icon().isNull()) {
             item->setIcon(IconProvider::emptyWebIcon());
         }
+        appendRow({item});
     }
+}
 
-    clear();
-    appendColumn(items);
+QList<QStandardItem*> LocationCompleterModel::suggestionItems() const
+{
+    QList<QStandardItem*> items;
+    for (int i = 0; i < rowCount(); ++i) {
+        QStandardItem *it = item(i);
+        if (it->data(SearchSuggestionRole).toBool()) {
+            items.append(it);
+        }
+    }
+    return items;
 }
 
 QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
