@@ -123,7 +123,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Escape:
             close();
-            return false;
+            return true;
 
         case Qt::Key_F4:
             if (modifiers == Qt::AltModifier)  {
