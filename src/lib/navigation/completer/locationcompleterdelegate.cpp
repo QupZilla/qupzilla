@@ -18,6 +18,7 @@
 #include "locationcompleterdelegate.h"
 #include "locationcompleterview.h"
 #include "locationcompletermodel.h"
+#include "locationbar.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
 
@@ -27,6 +28,21 @@
 #include <QApplication>
 #include <QMouseEvent>
 #include <QTextLayout>
+
+static bool isUrlOrDomain(const QString &text)
+{
+    QUrl url(text);
+    if (!url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty())) {
+        return true;
+    }
+    if (text.contains(QL1C('.')) && !text.contains(QL1C(' '))) {
+        return true;
+    }
+    if (text == QL1S("localhost")) {
+        return true;
+    }
+    return false;
+}
 
 LocationCompleterDelegate::LocationCompleterDelegate(LocationCompleterView* parent)
     : QStyledItemDelegate(parent)
@@ -84,11 +100,17 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
+    const bool isVisitSearchItem = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
+    const bool isWebSearch = qzSettings->searchFromAddressBar && !isUrlOrDomain(m_originalText.trimmed());
+
     // Draw icon
     const int iconSize = 16;
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
+    if (isVisitSearchItem && isWebSearch) {
+        pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize);
+    }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
 
@@ -103,7 +125,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         painter->drawPixmap(starRect, icon.pixmap(starSize));
     }
 
-    const QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
+    QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
 
     // Draw title
     const int leftTitleEdge = leftPosition + 2;
@@ -112,6 +134,13 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
     QString title = index.data(LocationCompleterModel::TitleRole).toString();
     painter->setFont(titleFont);
+
+    if (isVisitSearchItem) {
+        title = m_originalText.trimmed();
+        if (searchText == title) {
+            searchText.clear();
+        }
+    }
 
     viewItemDrawText(painter, &opt, titleRect, title, textPalette.color(colorRole), searchText);
 
@@ -147,8 +176,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
         viewItemDrawText(painter, &opt, textRect, LocationCompleterView::tr("Switch to tab"), textPalette.color(colorLinkRole));
-    }
-    else {
+    } else if (isVisitSearchItem) {
+        if (!isWebSearch) {
+            link = LocationCompleterView::tr("Visit");
+        } else {
+            link = LocationCompleterView::tr("Search on %1").arg(LocationBar::searchEngineName());
+        }
+        viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole));
+    } else {
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole), searchText);
     }
 
@@ -188,6 +223,11 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 void LocationCompleterDelegate::setShowSwitchToTab(bool enable)
 {
     m_drawSwitchToTab = enable;
+}
+
+void LocationCompleterDelegate::setOriginalText(const QString &originalText)
+{
+    m_originalText = originalText;
 }
 
 bool LocationCompleterDelegate::drawSwitchToTab() const

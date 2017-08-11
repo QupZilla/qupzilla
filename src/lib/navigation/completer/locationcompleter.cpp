@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -97,6 +97,12 @@ void LocationCompleter::refreshJobFinished()
 
         showPopup();
 
+        if (!s_view->currentIndex().isValid() && s_model->index(0, 0).data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
+            m_ignoreCurrentChanged = true;
+            s_view->setCurrentIndex(s_model->index(0, 0));
+            m_ignoreCurrentChanged = false;
+        }
+
         if (qzSettings->useInlineCompletion) {
             emit showDomainCompletion(job->domainCompletion());
         }
@@ -119,23 +125,32 @@ void LocationCompleter::slotPopupClosed()
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
 {
+    if (m_ignoreCurrentChanged) {
+        return;
+    }
+
     QString completion = index.data().toString();
 
-    bool isOriginal = false;
+    bool completeDomain = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
+
+    // Domain completion was dismissed
+    if (completeDomain && completion == m_originalText) {
+        completeDomain = false;
+    }
 
     if (completion.isEmpty()) {
-        isOriginal = true;
+        completeDomain = true;
         completion = m_originalText;
     }
 
-    emit showCompletion(completion, isOriginal);
+    emit showCompletion(completion, completeDomain);
 }
 
 void LocationCompleter::indexActivated(const QModelIndex &index)
 {
     Q_ASSERT(index.isValid());
 
-    const QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
+    QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
 
     bool ok;
     const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt(&ok);
@@ -151,6 +166,10 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
     if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
         BookmarkItem* bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
         bookmark->updateVisitCount();
+    }
+
+    if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
+        url = QUrl(m_originalText);
     }
 
     loadUrl(url);
@@ -308,8 +327,9 @@ void LocationCompleter::adjustPopupSize()
     const int maxItemsCount = 6;
     const int popupHeight = s_view->sizeHintForRow(0) * qMin(maxItemsCount, s_model->rowCount()) + 2 * s_view->frameWidth();
 
+    m_originalText = m_locationBar->text();
+
+    s_view->setOriginalText(m_originalText);
     s_view->resize(s_view->width(), popupHeight);
     s_view->show();
-
-    m_originalText = m_locationBar->text();
 }

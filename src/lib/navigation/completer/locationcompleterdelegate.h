@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     void setShowSwitchToTab(bool enable);
+    void setOriginalText(const QString &originalText);
 
 private:
     bool drawSwitchToTab() const;
@@ -44,6 +45,7 @@ private:
     mutable int m_rowHeight;
     mutable int m_padding;
     bool m_drawSwitchToTab;
+    QString m_originalText;
 
     LocationCompleterView* m_view;
 };

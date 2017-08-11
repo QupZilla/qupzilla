@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -146,22 +146,19 @@ void LocationBar::setText(const QString &text)
 void LocationBar::updatePlaceHolderText()
 {
     if (qzSettings->searchFromAddressBar) {
-        QString engineName = qzSettings->searchWithDefaultEngine ?
-                             mApp->searchEnginesManager()->defaultEngine().name :
-                             mApp->searchEnginesManager()->activeEngine().name;
-        setPlaceholderText(tr("Enter URL address or search on %1").arg(engineName));
+        setPlaceholderText(tr("Enter URL address or search on %1").arg(searchEngineName()));
     } else
         setPlaceholderText(tr("Enter URL address"));
 }
 
-void LocationBar::showCompletion(const QString &completion, bool isOriginal)
+void LocationBar::showCompletion(const QString &completion, bool completeDomain)
 {
     LineEdit::setText(completion);
 
     // Move cursor to the end
     end(false);
 
-    if (isOriginal) {
+    if (completeDomain) {
         completer()->complete();
     }
 }
@@ -240,6 +237,17 @@ QString LocationBar::convertUrlToText(const QUrl &url)
     }
 
     return stringUrl;
+}
+
+QString LocationBar::searchEngineName()
+{
+    if (!qzSettings->searchFromAddressBar) {
+        return QString();
+    } else if (qzSettings->searchWithDefaultEngine) {
+        return mApp->searchEnginesManager()->defaultEngine().name;
+    } else {
+        return mApp->searchEnginesManager()->activeEngine().name;
+    }
 }
 
 void LocationBar::refreshTextFormat()

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -115,6 +115,20 @@ void LocationCompleterRefreshJob::runJob()
         if (domainQuery.next()) {
             m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
         }
+    }
+
+    // Add search/visit item
+    if (!m_searchString.isEmpty()) {
+        QStandardItem* item = new QStandardItem();
+        item->setText(m_searchString);
+        item->setData(m_searchString, LocationCompleterModel::UrlRole);
+        item->setData(m_searchString, LocationCompleterModel::SearchStringRole);
+        item->setData(QVariant(true), LocationCompleterModel::VisitSearchItemRole);
+        if (!m_domainCompletion.isEmpty()) {
+            const QUrl url = QUrl(QSL("http://%1").arg(m_domainCompletion));
+            item->setData(IconProvider::imageForDomain(url), LocationCompleterModel::ImageRole);
+        }
+        m_items.prepend(item);
     }
 }
 

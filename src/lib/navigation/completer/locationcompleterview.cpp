@@ -21,7 +21,6 @@
 
 #include <QKeyEvent>
 #include <QApplication>
-#include <QStyle>
 #include <QScrollBar>
 
 LocationCompleterView::LocationCompleterView()
@@ -56,6 +55,11 @@ QPersistentModelIndex LocationCompleterView::hoveredIndex() const
     return m_hoveredIndex;
 }
 
+void LocationCompleterView::setOriginalText(const QString &originalText)
+{
+    m_delegate->setOriginalText(originalText);
+}
+
 bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 {
     // Event filter based on QCompleter::eventFilter from qcompleter.cpp
@@ -68,7 +72,8 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
     case QEvent::KeyPress: {
         QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
         Qt::KeyboardModifiers modifiers = keyEvent->modifiers();
-        QModelIndex idx = m_hoveredIndex;
+        const QModelIndex idx = m_hoveredIndex;
+        const QModelIndex visitSearchIdx = model()->index(0, 0).data(LocationCompleterModel::VisitSearchItemRole).toBool() ? model()->index(0, 0) : QModelIndex();
 
         if ((keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) && currentIndex() != idx) {
             setCurrentIndex(idx);
@@ -139,7 +144,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         }
 
         case Qt::Key_Up:
-            if (!idx.isValid()) {
+            if (!idx.isValid() || idx == visitSearchIdx) {
                 int rowCount = model()->rowCount();
                 QModelIndex lastIndex = model()->index(rowCount - 1, 0);
                 setCurrentIndex(lastIndex);
@@ -154,8 +159,8 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             if (!idx.isValid()) {
                 QModelIndex firstIndex = model()->index(0, 0);
                 setCurrentIndex(firstIndex);
-            } else if (idx.row() == model()->rowCount() - 1) {
-                setCurrentIndex(QModelIndex());
+            } else if (idx != visitSearchIdx && idx.row() == model()->rowCount() - 1) {
+                setCurrentIndex(visitSearchIdx);
                 scrollToTop();
             } else {
                 setCurrentIndex(model()->index(idx.row() + 1, 0));

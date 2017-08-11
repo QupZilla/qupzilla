@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ public slots:
     void showMostVisited();
 
 signals:
-    void showCompletion(const QString &completion, bool isOriginal);
+    void showCompletion(const QString &completion, bool completeDomain);
     void showDomainCompletion(const QString &completion);
     void loadCompletion();
     void clearCompletion();
@@ -76,6 +76,7 @@ private:
     qint64 m_lastRefreshTimestamp;
     QString m_originalText;
     bool m_popupClosed;
+    bool m_ignoreCurrentChanged = false;
 
     static LocationCompleterView* s_view;
     static LocationCompleterModel* s_model;
