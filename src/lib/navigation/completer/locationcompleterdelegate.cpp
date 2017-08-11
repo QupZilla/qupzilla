@@ -149,16 +149,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
     const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
 
-    // Let's assume that more than 500 characters won't fit in line on any display...
-    // Fixes performance when trying to get elidedText for a really long
-    // (length() > 1000000) urls - data: urls can get that long
+    // Trim link to maximum number of characters that can be visible, otherwise there may be perf issue with huge URLs
+    const int maxChars = linkRect.width() / opt.fontMetrics.width(QL1C('i'));
 
     QString link;
     if (!linkArray.startsWith("data") && !linkArray.startsWith("javascript")) {
-        link = QString::fromUtf8(QByteArray::fromPercentEncoding(linkArray)).left(500);
-    }
-    else {
-        link = QString::fromLatin1(linkArray.left(500));
+        link = QString::fromUtf8(QByteArray::fromPercentEncoding(linkArray)).left(maxChars);
+    } else {
+        link = QString::fromLatin1(linkArray.left(maxChars));
     }
 
     painter->setFont(opt.font);
