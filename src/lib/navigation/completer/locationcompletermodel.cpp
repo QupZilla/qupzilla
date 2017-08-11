@@ -45,7 +45,7 @@ void LocationCompleterModel::addCompletions(const QList<QStandardItem*> &items)
         if (item->icon().isNull()) {
             item->setIcon(IconProvider::emptyWebIcon());
         }
-        appendRow({item});
+        appendRow(QList<QStandardItem*>{item});
     }
 }
 

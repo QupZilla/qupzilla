@@ -53,7 +53,7 @@ TRANSLATIONS += \
     translations/zh_HK.ts \
     translations/zh_TW.ts \
 
-include(..dextractor/tldextractor.pri)
+include(tldextractor/tldextractor.pri)
 
 PLUGIN_DIR = $$PWD
 include(../../plugins.pri)
