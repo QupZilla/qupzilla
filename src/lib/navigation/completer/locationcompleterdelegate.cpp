@@ -133,28 +133,38 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     leftPosition += viewItemDrawText(painter, &opt, titleRect, title, textPalette.color(colorRole), searchText);
     leftPosition += m_padding * 2;
 
-    // Draw separator
-    QChar separator = QL1C('-');
-    QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
-    style->drawItemText(painter, separatorRect, Qt::AlignCenter, textPalette, true, separator, colorRole);
-    leftPosition += separatorRect.width() + m_padding * 2;
-
-    // Draw link
-    const int leftLinkEdge = leftPosition;
-    const int rightLinkEdge = rightPosition - m_padding - starPixmapWidth;
-    QRect linkRect(leftLinkEdge, center - opt.fontMetrics.height() / 2, rightLinkEdge - leftLinkEdge, opt.fontMetrics.height());
-    const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
-
     // Trim link to maximum number of characters that can be visible, otherwise there may be perf issue with huge URLs
-    const int maxChars = linkRect.width() / opt.fontMetrics.width(QL1C('i'));
-
+    const int maxChars = (opt.rect.width() - leftPosition) / opt.fontMetrics.width(QL1C('i'));
     QString link;
+    const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
     if (!linkArray.startsWith("data") && !linkArray.startsWith("javascript")) {
         link = QString::fromUtf8(QByteArray::fromPercentEncoding(linkArray)).left(maxChars);
     } else {
         link = QString::fromLatin1(linkArray.left(maxChars));
     }
 
+    if (isVisitSearchItem || isSearchSuggestion) {
+        if (!isSearchSuggestion && !isWebSearch) {
+            link = tr("Visit");
+        } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
+            link = tr("Search with %1").arg(LocationBar::searchEngine().name);
+        } else {
+            link.clear();
+        }
+    }
+
+    // Draw separator
+    if (!link.isEmpty()) {
+        QChar separator = QL1C('-');
+        QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
+        style->drawItemText(painter, separatorRect, Qt::AlignCenter, textPalette, true, separator, colorRole);
+        leftPosition += separatorRect.width() + m_padding * 2;
+    }
+
+    // Draw link
+    const int leftLinkEdge = leftPosition;
+    const int rightLinkEdge = rightPosition - m_padding - starPixmapWidth;
+    QRect linkRect(leftLinkEdge, center - opt.fontMetrics.height() / 2, rightLinkEdge - leftLinkEdge, opt.fontMetrics.height());
     painter->setFont(opt.font);
 
     // Draw url (or switch to tab)
@@ -171,11 +181,6 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
         viewItemDrawText(painter, &opt, textRect, tr("Switch to tab"), textPalette.color(colorLinkRole));
     } else if (isVisitSearchItem || isSearchSuggestion) {
-        if (!isSearchSuggestion && !isWebSearch) {
-            link = tr("Visit");
-        } else {
-            link = tr("Search with %1").arg(LocationBar::searchEngine().name);
-        }
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole));
     } else {
         viewItemDrawText(painter, &opt, linkRect, link, textPalette.color(colorLinkRole), searchText);
