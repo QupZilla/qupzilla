@@ -73,13 +73,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     opt.state |= QStyle::State_Active;
 
+    const QIcon::Mode iconMode = opt.state & QStyle::State_Selected ? QIcon::Selected : QIcon::Normal;
+
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
     const QPalette::ColorRole colorLinkRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Link;
-
-    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
-    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
-        cg = QPalette::Inactive;
-    }
 
 #ifdef Q_OS_WIN
     opt.palette.setColor(QPalette::All, QPalette::HighlightedText, opt.palette.color(QPalette::Active, QPalette::Text));
@@ -87,7 +84,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 #endif
 
     QPalette textPalette = opt.palette;
-    textPalette.setCurrentColorGroup(cg);
+    textPalette.setCurrentColorGroup(opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled);
 
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
@@ -100,9 +97,9 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int iconSize = 16;
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
+    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
     if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
-        pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize);
+        pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize, iconMode);
     }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
@@ -115,7 +112,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         starPixmapWidth = starSize.width();
         QPoint pos(rightPosition - starPixmapWidth, center - starSize.height() / 2);
         QRect starRect(pos, starSize);
-        painter->drawPixmap(starRect, icon.pixmap(starSize));
+        painter->drawPixmap(starRect, icon.pixmap(starSize, iconMode));
     }
 
     QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
@@ -139,7 +136,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw separator
     QChar separator = QL1C('-');
     QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
-    style->drawItemText(painter, separatorRect, Qt::AlignCenter, opt.palette, true, separator, colorRole);
+    style->drawItemText(painter, separatorRect, Qt::AlignCenter, textPalette, true, separator, colorRole);
     leftPosition += separatorRect.width() + m_padding * 2;
 
     // Draw link
@@ -168,7 +165,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         QRect iconRect(linkRect);
         iconRect.setX(iconRect.x());
         iconRect.setWidth(16);
-        tabIcon.paint(painter, iconRect);
+        painter->drawPixmap(iconRect, tabIcon.pixmap(iconRect.size(), iconMode));
 
         QRect textRect(linkRect);
         textRect.setX(textRect.x() + m_padding + 16 + m_padding);
