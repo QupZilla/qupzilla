@@ -368,7 +368,7 @@ void LocationCompleter::showPopup()
 
 void LocationCompleter::adjustPopupSize()
 {
-    const int maxItemsCount = 6;
+    const int maxItemsCount = 12;
     const int popupHeight = s_view->sizeHintForRow(0) * qMin(maxItemsCount, s_model->rowCount()) + 2 * s_view->frameWidth();
 
     m_originalText = m_locationBar->text();

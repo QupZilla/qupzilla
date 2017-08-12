@@ -121,10 +121,8 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
 
     // Draw title
-    const int leftTitleEdge = leftPosition + 2;
-    // RTL Support: remove conflicting of right-aligned text and starpixmap!
-    const int rightTitleEdge = rightPosition - m_padding - starPixmapWidth;
-    QRect titleRect(leftTitleEdge, opt.rect.top() + m_padding, rightTitleEdge - leftTitleEdge, titleMetrics.height());
+    leftPosition += 2;
+    QRect titleRect(leftPosition, center - titleMetrics.height() / 2, opt.rect.width() * 0.6, titleMetrics.height());
     QString title = index.data(LocationCompleterModel::TitleRole).toString();
     painter->setFont(titleFont);
 
@@ -135,11 +133,19 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         }
     }
 
-    viewItemDrawText(painter, &opt, titleRect, title, textPalette.color(colorRole), searchText);
+    leftPosition += viewItemDrawText(painter, &opt, titleRect, title, textPalette.color(colorRole), searchText);
+    leftPosition += m_padding * 2;
+
+    // Draw separator
+    QChar separator = QL1C('-');
+    QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
+    style->drawItemText(painter, separatorRect, Qt::AlignCenter, opt.palette, true, separator, colorRole);
+    leftPosition += separatorRect.width() + m_padding * 2;
 
     // Draw link
-    const int infoYPos = titleRect.bottom() + opt.fontMetrics.leading() + 2;
-    QRect linkRect(titleRect.x(), infoYPos, titleRect.width(), opt.fontMetrics.height());
+    const int leftLinkEdge = leftPosition;
+    const int rightLinkEdge = rightPosition - m_padding - starPixmapWidth;
+    QRect linkRect(leftLinkEdge, center - opt.fontMetrics.height() / 2, rightLinkEdge - leftLinkEdge, opt.fontMetrics.height());
     const QByteArray linkArray = index.data(Qt::DisplayRole).toByteArray();
 
     // Trim link to maximum number of characters that can be visible, otherwise there may be perf issue with huge URLs
@@ -160,7 +166,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     if (drawSwitchToTab() && tabPos != -1) {
         const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.svg"));
         QRect iconRect(linkRect);
-        iconRect.setX(iconRect.x() + m_padding * 2);
+        iconRect.setX(iconRect.x());
         iconRect.setWidth(16);
         tabIcon.paint(painter, iconRect);
 
@@ -204,8 +210,7 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
 
         const QFontMetrics titleMetrics(titleFont);
 
-        // 2 px bigger space between title and link because of underlining
-        m_rowHeight = 2 * m_padding + opt.fontMetrics.leading() + opt.fontMetrics.height() + titleMetrics.height() + 2;
+        m_rowHeight = 4 * m_padding + qMax(16, titleMetrics.height());
     }
 
     return QSize(200, m_rowHeight);
@@ -250,20 +255,15 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 
 // most of codes taken from QCommonStylePrivate::viewItemDrawText()
 // added highlighting and simplified for single-line textlayouts
-void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
-                                                 const QString &text, const QColor &color, const QString &searchText) const
+int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
+                                                const QString &text, const QColor &color, const QString &searchText) const
 {
     if (text.isEmpty()) {
-        return;
+        return 0;
     }
 
-    const QWidget* widget = option->widget;
-    const QStyle* proxyStyle = widget ? widget->style()->proxy() : QApplication::style()->proxy();
-    const int textMargin = proxyStyle->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;
-
-    QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
     const QFontMetrics fontMetrics(p->font());
-    QString elidedText = fontMetrics.elidedText(text, option->textElideMode, textRect.width());
+    QString elidedText = fontMetrics.elidedText(text, option->textElideMode, rect.width());
     QTextOption textOption;
     textOption.setWrapMode(QTextOption::NoWrap);
     textOption.setTextDirection(text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight);
@@ -339,35 +339,37 @@ void LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOption
     }
 
     // do layout
-    viewItemTextLayout(textLayout, textRect.width());
+    viewItemTextLayout(textLayout, rect.width());
 
     if (textLayout.lineCount() <= 0) {
-        return;
+        return 0;
     }
 
     QTextLine textLine = textLayout.lineAt(0);
 
     // if elidedText after highlighting is longer
     // than available width then re-elide it and redo layout
-    int diff = textLine.naturalTextWidth() - textRect.width();
+    int diff = textLine.naturalTextWidth() - rect.width();
     if (diff > 0) {
-        elidedText = fontMetrics.elidedText(elidedText, option->textElideMode, textRect.width() - diff);
+        elidedText = fontMetrics.elidedText(elidedText, option->textElideMode, rect.width() - diff);
 
         textLayout.setText(elidedText);
         // redo layout
-        viewItemTextLayout(textLayout, textRect.width());
+        viewItemTextLayout(textLayout, rect.width());
 
         if (textLayout.lineCount() <= 0) {
-            return;
+            return 0;
         }
         textLine = textLayout.lineAt(0);
     }
 
     // draw line
     p->setPen(color);
-    qreal width = qMax<qreal>(textRect.width(), textLayout.lineAt(0).width());
-    const QRect &layoutRect = QStyle::alignedRect(option->direction, option->displayAlignment, QSize(int(width), int(textLine.height())), textRect);
+    qreal width = qMax<qreal>(rect.width(), textLayout.lineAt(0).width());
+    const QRect &layoutRect = QStyle::alignedRect(option->direction, option->displayAlignment, QSize(int(width), int(textLine.height())), rect);
     const QPointF &position = layoutRect.topLeft();
 
     textLine.draw(p, position);
+
+    return qMin<int>(rect.width(), textLayout.lineAt(0).naturalTextWidth());
 }
