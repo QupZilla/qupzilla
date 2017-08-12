@@ -260,6 +260,16 @@ bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QS
         if (hasOption(ObjectSubrequestOption) && !matchObjectSubrequest(request)) {
             return false;
         }
+
+        // Check ping restriction
+        if (hasOption(PingOption) && !matchPing(request)) {
+            return false;
+        }
+
+        // Check media restriction
+        if (hasOption(MediaOption) && !matchMedia(request)) {
+            return false;
+        }
     }
 
     return matched;
@@ -362,9 +372,37 @@ bool AdBlockRule::matchStyleSheet(const QWebEngineUrlRequestInfo &request) const
 
 bool AdBlockRule::matchObjectSubrequest(const QWebEngineUrlRequestInfo &request) const
 {
-    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeSubResource;
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypePluginResource;
 
     return hasException(ObjectSubrequestOption) ? !match : match;
+}
+
+bool AdBlockRule::matchPing(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypePing;
+
+    return hasException(PingOption) ? !match : match;
+}
+
+bool AdBlockRule::matchMedia(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMedia;
+
+    return hasException(MediaOption) ? !match : match;
+}
+
+bool AdBlockRule::matchOther(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeFontResource
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeSubResource
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeWorker
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeSharedWorker
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypePrefetch
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeFavicon
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeServiceWorker
+              || request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeUnknown;
+
+    return hasException(MediaOption) ? !match : match;
 }
 
 void AdBlockRule::parseFilter()
@@ -458,6 +496,21 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith(QL1S("object-subrequest"))) {
                 setOption(ObjectSubrequestOption);
                 setException(ObjectSubrequestOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("ping"))) {
+                setOption(PingOption);
+                setException(PingOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("media"))) {
+                setOption(MediaOption);
+                setException(MediaOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("other"))) {
+                setOption(OtherOption);
+                setException(OtherOption, option.startsWith(QL1C('~')));
                 ++handledOptions;
             }
             else if (option == QL1S("document") && m_isException) {

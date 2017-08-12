@@ -102,6 +102,9 @@ public:
     bool matchScript(const QWebEngineUrlRequestInfo &request) const;
     bool matchStyleSheet(const QWebEngineUrlRequestInfo &request) const;
     bool matchObjectSubrequest(const QWebEngineUrlRequestInfo &request) const;
+    bool matchPing(const QWebEngineUrlRequestInfo &request) const;
+    bool matchMedia(const QWebEngineUrlRequestInfo &request) const;
+    bool matchOther(const QWebEngineUrlRequestInfo &request) const;
 
 protected:
     bool stringMatch(const QString &domain, const QString &encodedUrl) const;
@@ -131,10 +134,13 @@ private:
         ScriptOption = 64,
         StyleSheetOption = 128,
         ObjectSubrequestOption = 256,
+        PingOption = 512,
+        MediaOption = 1024,
+        OtherOption = 2048,
 
         // Exception only options
-        DocumentOption = 1024,
-        ElementHideOption = 2048
+        DocumentOption = 4096,
+        ElementHideOption = 8192
     };
 
     Q_DECLARE_FLAGS(RuleOptions, RuleOption)
