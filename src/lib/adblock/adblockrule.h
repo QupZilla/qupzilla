@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -116,10 +116,12 @@ private:
         RegExpMatchRule = 2,
         StringEndsMatchRule = 3,
         StringContainsMatchRule = 4,
-        Invalid = 5
+        MatchAllUrlsRule = 5,
+        Invalid = 6
     };
 
     enum RuleOption {
+        NoOption = 0,
         DomainRestrictedOption = 1,
         ThirdPartyOption = 2,
         ObjectOption = 4,

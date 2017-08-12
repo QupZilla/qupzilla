@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -200,7 +200,6 @@ bool AdBlockRule::urlMatch(const QUrl &url) const
     if (!hasOption(DocumentOption) && !hasOption(ElementHideOption)) {
         return false;
     }
-
 
     const QString encodedUrl = url.toEncoded();
     const QString domain = url.host();
@@ -538,6 +537,18 @@ void AdBlockRule::parseFilter()
         return;
     }
 
+    // This rule matches all urls
+    if (parsedLine.isEmpty()) {
+        if (m_options == NoOption) {
+            qWarning() << "Disabling unrestricted rule that would block all requests" << m_filter;
+            m_isInternalDisabled = true;
+            m_type = Invalid;
+            return;
+        }
+        m_type = MatchAllUrlsRule;
+        return;
+    }
+
     // We haven't found anything that needs use of regexp, yay!
     m_type = StringContainsMatchRule;
     m_matchString = parsedLine;
@@ -671,23 +682,28 @@ QList<QStringMatcher> AdBlockRule::createStringMatchers(const QStringList &filte
 
 bool AdBlockRule::stringMatch(const QString &domain, const QString &encodedUrl) const
 {
-    if (m_type == StringContainsMatchRule) {
+    switch (m_type) {
+    case StringContainsMatchRule:
         return encodedUrl.contains(m_matchString, m_caseSensitivity);
-    }
-    else if (m_type == DomainMatchRule) {
+
+    case DomainMatchRule:
         return isMatchingDomain(domain, m_matchString);
-    }
-    else if (m_type == StringEndsMatchRule) {
+
+    case StringEndsMatchRule:
         return encodedUrl.endsWith(m_matchString, m_caseSensitivity);
-    }
-    else if (m_type == RegExpMatchRule) {
+
+    case RegExpMatchRule:
         if (!isMatchingRegExpStrings(encodedUrl)) {
             return false;
         }
         return (m_regExp->regExp.indexIn(encodedUrl) != -1);
-    }
 
-    return false;
+    case MatchAllUrlsRule:
+        return true;
+
+    default:
+        return false;
+    }
 }
 
 bool AdBlockRule::isMatchingDomain(const QString &domain, const QString &filter) const

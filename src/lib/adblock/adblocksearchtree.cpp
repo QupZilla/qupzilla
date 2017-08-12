@@ -46,7 +46,7 @@ bool AdBlockSearchTree::add(const AdBlockRule* rule)
     int len = filter.size();
 
     if (len <= 0) {
-        qDebug() << "AdBlockSearchTree: Inserting rule with filter len <= 0!";
+        qDebug() << "AdBlockSearchTree: Inserting rule with filter len <= 0!" << rule->filter();
         return false;
     }
 
