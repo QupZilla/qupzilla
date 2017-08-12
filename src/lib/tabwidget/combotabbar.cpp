@@ -1366,6 +1366,7 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     m_scrollArea->setWidget(m_tabBar);
 
     m_leftScrollButton = new ToolButton(this);
+    m_leftScrollButton->setFocusPolicy(Qt::NoFocus);
     m_leftScrollButton->setAutoRaise(true);
     m_leftScrollButton->setObjectName("tabbar-button-left");
     m_leftScrollButton->setAutoRepeat(true);
@@ -1376,6 +1377,7 @@ TabBarScrollWidget::TabBarScrollWidget(QTabBar* tabBar, QWidget* parent)
     connect(m_leftScrollButton, SIGNAL(middleMouseClicked()), this, SLOT(ensureVisible()));
 
     m_rightScrollButton = new ToolButton(this);
+    m_rightScrollButton->setFocusPolicy(Qt::NoFocus);
     m_rightScrollButton->setAutoRaise(true);
     m_rightScrollButton->setObjectName("tabbar-button-right");
     m_rightScrollButton->setAutoRepeat(true);
