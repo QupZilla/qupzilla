@@ -163,7 +163,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             return true;
 
         case Qt::Key_Delete:
-            if (viewport()->rect().contains(visualRect(idx))) {
+            if (idx != visitSearchIdx && viewport()->rect().contains(visualRect(idx))) {
                 emit indexDeleteRequested(idx);
                 return true;
             }
