@@ -1055,9 +1055,7 @@ void BrowserWindow::hideNavigationSlot()
 bool BrowserWindow::event(QEvent* event)
 {
     switch (event->type()) {
-    case QEvent::WindowStateChange: {
-        QWindowStateChangeEvent* ev = static_cast<QWindowStateChangeEvent*>(event);
-
+    case QEvent::WindowStateChange:
         if (!(m_oldWindowState & Qt::WindowFullScreen) && windowState() & Qt::WindowFullScreen) {
             // Enter fullscreen
             m_normalWindowState = m_oldWindowState;
@@ -1091,7 +1089,6 @@ bool BrowserWindow::event(QEvent* event)
 
         m_oldWindowState = windowState();
         break;
-    }
 
     default:
         break;
