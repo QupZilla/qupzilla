@@ -683,6 +683,15 @@ void BrowserWindow::showSource(WebView *view)
     view->showSource();
 }
 
+void BrowserWindow::showNormal()
+{
+    if (m_normalWindowState & Qt::WindowMaximized) {
+        QMainWindow::showMaximized();
+    } else {
+        QMainWindow::showNormal();
+    }
+}
+
 SideBar* BrowserWindow::addSideBar()
 {
     if (m_sideBar) {
@@ -786,9 +795,9 @@ void BrowserWindow::toggleFullScreen()
     }
 
     if (isFullScreen())
-        setWindowState(windowState() & ~Qt::WindowFullScreen);
+        showNormal();
     else
-        setWindowState(windowState() | Qt::WindowFullScreen);
+        showFullScreen();
 }
 
 void BrowserWindow::enterHtmlFullScreen()
@@ -1049,9 +1058,9 @@ bool BrowserWindow::event(QEvent* event)
     case QEvent::WindowStateChange: {
         QWindowStateChangeEvent* ev = static_cast<QWindowStateChangeEvent*>(event);
 
-        if (!(ev->oldState() & Qt::WindowFullScreen) && windowState() & Qt::WindowFullScreen) {
+        if (!(m_oldWindowState & Qt::WindowFullScreen) && windowState() & Qt::WindowFullScreen) {
             // Enter fullscreen
-            m_windowStates = ev->oldState();
+            m_normalWindowState = m_oldWindowState;
 
             m_statusBarVisible = statusBar()->isVisible();
 #ifndef Q_OS_MACOS
@@ -1063,7 +1072,7 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationContainer->hide();
             m_navigationToolbar->buttonExitFullscreen()->show();
         }
-        else if (ev->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
+        else if (m_oldWindowState & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
             statusBar()->setVisible(m_statusBarVisible);
 #ifndef Q_OS_MACOS
@@ -1074,13 +1083,13 @@ bool BrowserWindow::event(QEvent* event)
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
             m_navigationToolbar->buttonExitFullscreen()->hide();
             m_isHtmlFullScreen = false;
-
-            setWindowState(m_windowStates);
         }
 
         if (m_hideNavigationTimer) {
             m_hideNavigationTimer->stop();
         }
+
+        m_oldWindowState = windowState();
         break;
     }
 

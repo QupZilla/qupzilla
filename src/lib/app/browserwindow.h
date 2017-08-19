@@ -141,6 +141,8 @@ public slots:
     void loadAddress(const QUrl &url);
     void showSource(WebView *view = Q_NULLPTR);
 
+    void showNormal();
+
 private slots:
     void addTab();
     void openLocation();
@@ -211,7 +213,8 @@ private:
     bool m_menuBarVisible;
     bool m_statusBarVisible;
     bool m_isHtmlFullScreen;
-    Qt::WindowStates m_windowStates;
+    Qt::WindowStates m_oldWindowState = Qt::WindowNoState;
+    Qt::WindowStates m_normalWindowState = Qt::WindowNoState;
     QTimer* m_hideNavigationTimer;
 
     QList<QPointer<QWidget> > m_deleteOnCloseWidgets;
