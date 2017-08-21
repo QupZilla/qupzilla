@@ -193,7 +193,9 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             break;
         } // switch (keyEvent->key())
 
-        (static_cast<QObject*>(focusProxy()))->event(keyEvent);
+        if (focusProxy()) {
+            (static_cast<QObject*>(focusProxy()))->event(keyEvent);
+        }
         return true;
     }
 
@@ -233,7 +235,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
     case QEvent::Move:
     case QEvent::Resize: {
         QWidget *w = qobject_cast<QWidget*>(object);
-        if (w && w->isWindow() && w == focusProxy()->window()) {
+        if (w && w->isWindow() && focusProxy() && w == focusProxy()->window()) {
             close();
         }
         break;
