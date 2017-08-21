@@ -23,16 +23,18 @@ environment:
     QZ_VER: 2.1.99
     VSVER: 14
     ARCH: x86
-    QMAKESPEC: win32-msvc2015
+    QMAKESPEC: win32-msvc
     MAKETOOL: jom
     TOOLSDIR: C:\Qt\Tools\QtCreator
 
   matrix:
+    - QTDIR: C:\Qt\5.9\msvc2015
     - QTDIR: C:\Qt\5.8\msvc2015
+      QMAKESPEC: win32-msvc2015
     - ARCH: x64
-      QTDIR: C:\Qt\5.8\msvc2015_64
+      QTDIR: C:\Qt\5.9\msvc2015_64
     - PORTABLE_BUILD: "true"
-      QTDIR: C:\Qt\5.8\msvc2015
+      QTDIR: C:\Qt\5.9\msvc2015
 
 install:
   - set QZ_DIR=%CD%
