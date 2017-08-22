@@ -1092,7 +1092,8 @@ void MainApplication::checkDefaultWebBrowser()
         dialog.setIcon(QMessageBox::Warning);
 
         if (dialog.exec() == QMessageBox::Yes) {
-            associationManager()->registerAllAssociation();
+            if (!mApp->associationManager()->showNativeDefaultAppSettingsUi())
+                mApp->associationManager()->registerAllAssociation();
         }
 
         checkAgain = dialog.isChecked();
