@@ -267,9 +267,6 @@ void RegisterQAppAssociation::registerAllAssociation()
     }
 }
 
-// The code of the following method was taken
-// from https://github.com/mozilla/gecko-dev/blob/master/browser/components/shell/nsWindowsShellService.cpp#L364
-// that is licensed under MPL-2.0.
 bool RegisterQAppAssociation::showNativeDefaultAppSettingsUi()
 {
     if (!isVistaOrNewer()) {
@@ -290,8 +287,8 @@ bool RegisterQAppAssociation::showNativeDefaultAppSettingsUi()
 
         DWORD pid;
         hr = pActivator->ActivateApplication(
-            L"windows.immersivecontrolpanel_cw5n1h2txyewy"
-            L"!microsoft.windows.immersivecontrolpanel",
+            L"windows.immersivecontrolpanel_cw5n1h2txyewy" // appUserModelId of "Settings"
+            L"!microsoft.windows.immersivecontrolpanel",   //  in Windows Store
             L"page=SettingsPageAppsDefaults", AO_NONE, &pid);
 
         if (!SUCCEEDED(hr)) {
