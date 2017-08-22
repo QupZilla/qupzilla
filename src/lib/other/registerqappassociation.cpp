@@ -1,5 +1,5 @@
 /* ============================================================
-* Copyright (C) 2012-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2012-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * This file is part of QupZilla - WebKit based browser 2010-2014
 * by  David Rosca <nowrep@gmail.com>
 *
@@ -148,6 +148,12 @@ bool RegisterQAppAssociation::isVistaOrNewer()
             QSysInfo::windowsVersion() <= QSysInfo::WV_NT_based);
 }
 
+bool RegisterQAppAssociation::isWin10OrNewer()
+{
+    return (QSysInfo::windowsVersion() >= QSysInfo::WV_WINDOWS10 &&
+            QSysInfo::windowsVersion() <= QSysInfo::WV_NT_based);
+}
+
 void RegisterQAppAssociation::registerAssociation(const QString &assocName, AssociationType type)
 {
     if (isVistaOrNewer()) { // Vista and newer
@@ -259,6 +265,65 @@ void RegisterQAppAssociation::registerAllAssociation()
         SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0 , 0);
 #endif
     }
+}
+
+// The code of the following method was taken
+// from https://github.com/mozilla/gecko-dev/blob/master/browser/components/shell/nsWindowsShellService.cpp#L364
+// that is licensed under MPL-2.0.
+bool RegisterQAppAssociation::showNativeDefaultAppSettingsUi()
+{
+    if (!isVistaOrNewer()) {
+        return false;
+    }
+
+    if (isWin10OrNewer()) {
+        IApplicationActivationManager* pActivator;
+        HRESULT hr = CoCreateInstance(CLSID_ApplicationActivationManager,
+                                      nullptr,
+                                      CLSCTX_INPROC,
+                                      IID_IApplicationActivationManager,
+                                      (void**)&pActivator);
+
+        if (!SUCCEEDED(hr)) {
+            return false;
+        }
+
+        DWORD pid;
+        hr = pActivator->ActivateApplication(
+            L"windows.immersivecontrolpanel_cw5n1h2txyewy"
+            L"!microsoft.windows.immersivecontrolpanel",
+            L"page=SettingsPageAppsDefaults", AO_NONE, &pid);
+
+        if (!SUCCEEDED(hr)) {
+            return false;
+        }
+
+        // Do not check error because we could at least open
+        // the "Default apps" setting.
+        pActivator->ActivateApplication(
+            L"windows.immersivecontrolpanel_cw5n1h2txyewy"
+            L"!microsoft.windows.immersivecontrolpanel",
+            L"page=SettingsPageAppsDefaults"
+            L"&target=SystemSettings_DefaultApps_Browser", AO_NONE, &pid);
+
+        pActivator->Release();
+    }
+    else {
+        IApplicationAssociationRegistrationUI* pAARUI = NULL;
+
+        HRESULT hr = CoCreateInstance(CLSID_ApplicationAssociationRegistrationUI,
+                                      NULL, CLSCTX_INPROC, __uuidof(IApplicationAssociationRegistrationUI),
+                                      reinterpret_cast< void** > (&pAARUI));
+
+        if (!SUCCEEDED(hr)) {
+            return false;
+        }
+
+        hr = pAARUI->LaunchAdvancedAssociationUI(reinterpret_cast<LPCWSTR>(_appRegisteredName.utf16()));
+        pAARUI->Release();
+    }
+
+    return true;
 }
 
 void RegisterQAppAssociation::createProgId(const QString &progId)

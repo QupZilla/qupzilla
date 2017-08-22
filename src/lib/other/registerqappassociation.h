@@ -1,5 +1,5 @@
 /* ============================================================
-* Copyright (C) 2012-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2012-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 * This file is part of QupZilla - WebKit based browser 2010-2014
 * by  David Rosca <nowrep@gmail.com>
 *
@@ -50,6 +50,7 @@ public:
     void setPerMachineRegisteration(bool enable);
     bool registerAppCapabilities();
     bool isVistaOrNewer();
+    bool isWin10OrNewer();
     void registerAssociation(const QString &assocName, AssociationType type);
     void createProgId(const QString &progId);
 
@@ -57,6 +58,7 @@ public:
     bool isDefaultForAllCapabilities();
     void registerAllAssociation();
 
+    bool showNativeDefaultAppSettingsUi();
 
 private:
     QString _appRegisteredName;

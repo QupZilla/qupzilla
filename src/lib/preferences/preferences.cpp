@@ -611,9 +611,11 @@ void Preferences::makeQupZillaDefault()
 {
 #if defined(Q_OS_WIN) && !defined(Q_OS_OS2)
     disconnect(ui->checkNowDefaultBrowser, SIGNAL(clicked()), this, SLOT(makeQupZillaDefault()));
-    mApp->associationManager()->registerAllAssociation();
     ui->checkNowDefaultBrowser->setText(tr("Default"));
     ui->checkNowDefaultBrowser->setEnabled(false);
+
+    if (!mApp->associationManager()->showNativeDefaultAppSettingsUi())
+        mApp->associationManager()->registerAllAssociation();
 #endif
 }
 
