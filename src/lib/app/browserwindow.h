@@ -131,7 +131,7 @@ public slots:
     void toggleTabsOnTop(bool enable);
 
     void toggleFullScreen();
-    void enterHtmlFullScreen();
+    void toggleHtmlFullScreen(bool enable);
 
     void loadActionUrl(QObject* obj = 0);
     void loadActionUrlInNewTab(QObject* obj = 0);

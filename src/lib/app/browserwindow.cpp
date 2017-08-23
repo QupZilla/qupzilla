@@ -800,10 +800,17 @@ void BrowserWindow::toggleFullScreen()
         showFullScreen();
 }
 
-void BrowserWindow::enterHtmlFullScreen()
+void BrowserWindow::toggleHtmlFullScreen(bool enable)
 {
-    showFullScreen();
-    m_isHtmlFullScreen = true;
+    if (enable)
+        showFullScreen();
+    else
+        showNormal();
+
+    if (m_sideBar)
+        m_sideBar.data()->setHidden(enable);
+
+    m_isHtmlFullScreen = enable;
 }
 
 void BrowserWindow::showWebInspector()

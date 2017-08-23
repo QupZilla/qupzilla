@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -182,10 +182,7 @@ void TabbedWebView::requestFullScreen(bool enable)
     if (!m_window)
         return;
 
-    if (enable)
-        m_window->enterHtmlFullScreen();
-    else
-        m_window->showNormal();
+    m_window->toggleHtmlFullScreen(enable);
 }
 
 void TabbedWebView::setAsCurrentTab()
