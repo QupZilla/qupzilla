@@ -8,6 +8,12 @@ Blog: http://blog.qupzilla.com
 IRC: `#qupzilla` at `irc.freenode.net`  
 Translations: https://www.transifex.com/projects/p/qupzilla
 
+QupZilla was renamed to Falkon and moved to KDE infrastructure
+----------------------------------------------------------------
+
+New repository is now available at https://phabricator.kde.org/source/falkon/.   
+This repository at GitHub will only be used for 2.2 release and after that will be made read-only.
+
 ![QupZilla icon](https://github.com/QupZilla/qupzilla/blob/master/src/lib/data/icons/other/about.png?raw=true)
 
 QupZilla is a new and very fast QtWebEngine browser. It aims to be a lightweight web browser
