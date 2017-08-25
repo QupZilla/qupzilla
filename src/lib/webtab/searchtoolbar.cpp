@@ -113,7 +113,11 @@ void SearchToolBar::caseSensitivityChanged()
 
 void SearchToolBar::searchText(const QString &text)
 {
-    m_view->findText(text, m_findFlags, [this](bool found) {
+    QPointer<SearchToolBar> guard = this;
+    m_view->findText(text, m_findFlags, [=](bool found) {
+        if (!guard) {
+            return;
+        }
         if (ui->lineEdit->text().isEmpty())
             found = true;
 
