@@ -327,7 +327,7 @@ void LocationCompleter::loadUrl(const QUrl &url)
     closePopup();
 
     // Show url in locationbar
-    emit showCompletion(url.toEncoded(), false);
+    emit showCompletion(url.toString(), false);
 
     // Load url
     emit loadCompletion();

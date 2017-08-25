@@ -20,6 +20,7 @@
 #include "locationbar.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
+#include "mainapplication.h"
 
 #include <algorithm>
 
@@ -147,7 +148,16 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         if (!isSearchSuggestion && !isWebSearch) {
             link = tr("Visit");
         } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
-            link = tr("Search with %1").arg(LocationBar::searchEngine().name);
+            QString searchEngineName;
+            const int firstSpacePos = title.indexOf(QL1C(' '));
+            if (firstSpacePos != -1) {
+                const QString shortcut = title.left(firstSpacePos);
+                searchEngineName = mApp->searchEnginesManager()->engineForShortcut(shortcut).name;
+            }
+            if (searchEngineName.isEmpty()) {
+                searchEngineName = LocationBar::searchEngine().name;
+            }
+            link = tr("Search with %1").arg(searchEngineName);
         } else {
             link.clear();
         }
