@@ -278,7 +278,6 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
     QString elidedText = fontMetrics.elidedText(text, option->textElideMode, rect.width());
     QTextOption textOption;
     textOption.setWrapMode(QTextOption::NoWrap);
-    textOption.setTextDirection(text.isRightToLeft() ? Qt::RightToLeft : Qt::LeftToRight);
     textOption.setAlignment(QStyle::visualAlignment(textOption.textDirection(), option->displayAlignment));
     QTextLayout textLayout;
     textLayout.setFont(p->font());
