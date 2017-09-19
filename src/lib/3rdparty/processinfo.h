@@ -18,15 +18,11 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
-#include <QtGlobal>
+#include "qzcommon.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
 #include <sys/types.h>
 #endif
-
-#include <QString>
-
-#include "qzcommon.h"
 
 /*
  * Code used from http://ubuntuforums.org/showpost.php?p=6593782&postcount=5
