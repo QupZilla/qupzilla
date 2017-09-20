@@ -50,7 +50,7 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
     QString scheme = view->url().scheme();
     QSqlQuery query;
     QString host = view->url().host();
-setPixmap(QIcon::fromTheme("security-high", QIcon(QSL(":icons/other/adblock.png"))).pixmap(22));
+
     query.prepare("SELECT sum(count) FROM history WHERE url LIKE ?");
     query.addBindValue(QString("%1://%2%").arg(scheme, host));
     query.exec();
