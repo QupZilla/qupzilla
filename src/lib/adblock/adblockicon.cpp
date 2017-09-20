@@ -207,10 +207,10 @@ void AdBlockIcon::stopAnimation()
 void AdBlockIcon::setEnabled(bool enabled)
 {
     if (enabled) {
-        setPixmap(QIcon(QSL(":icons/other/adblock.png")).pixmap(16));
+        setPixmap(QIcon::fromTheme("security-high", QIcon(QSL(":icons/other/adblock.png"))).pixmap(22));
     }
     else {
-        setPixmap(QIcon(QSL(":icons/other/adblock-disabled.png")).pixmap(16));
+        setPixmap(QIcon::fromTheme("security-low", QIcon(QSL(":icons/other/adblock-disabled.png"))).pixmap(22));
     }
 
     m_enabled = enabled;

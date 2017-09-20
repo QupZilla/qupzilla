@@ -41,10 +41,10 @@ SBI_NetworkIcon::SBI_NetworkIcon(BrowserWindow* window)
 void SBI_NetworkIcon::onlineStateChanged(bool online)
 {
     if (online) {
-        setPixmap(QIcon(":sbi/data/network-online.png").pixmap(16));
+        setPixmap(QIcon::fromTheme("network-wired-activated", QIcon(":sbi/data/network-online.png")).pixmap(22));
     }
     else {
-        setPixmap(QIcon(":sbi/data/network-offline.png").pixmap(16));
+        setPixmap(QIcon::fromTheme("network-offline", QIcon(":sbi/data/network-offline.png")).pixmap(22));
     }
 
     updateToolTip();
