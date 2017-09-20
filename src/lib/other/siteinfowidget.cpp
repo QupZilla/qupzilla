@@ -40,11 +40,11 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
 
     if (view->url().scheme() == QL1S("https")) {
         ui->secureLabel->setText(tr("Your connection to this site is <b>secured</b>."));
-        ui->secureIcon->setIcon(QIcon::fromTheme("document-encrypted"), QIcon(":/icons/locationbar/safe.png"));
+        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/safe.png"));
     }
     else {
         ui->secureLabel->setText(tr("Your connection to this site is <b>unsecured</b>."));
-        ui->secureIcon->setIcon(QIcon::fromTheme("document-decrypt"), QIcon(":/icons/locationbar/unsafe.png"));
+        ui->secureIcon->setPixmap(QPixmap(":/icons/locationbar/unsafe.png"));
     }
 
     QString scheme = view->url().scheme();
@@ -59,14 +59,14 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
         int count = query.value(0).toInt();
         if (count > 3) {
             ui->historyLabel->setText(tr("This is your <b>%1</b> visit of this site.").arg(QString::number(count) + "."));
-            ui->historyIcon->setIcon(QIcon::fromTheme("appointment-new"), QIcon(":/icons/locationbar/visit3.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit3.png"));
         }
         else if (count == 0) {
             ui->historyLabel->setText(tr("You have <b>never</b> visited this site before."));
-            ui->historyIcon->setIcon(QIcon::fromTheme("appointment-new"), QIcon(":/icons/locationbar/visit1.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit1.png"));
         }
         else {
-            ui->historyIcon->setIcon(QIcon::fromTheme("appointment-new"), QIcon(":/icons/locationbar/visit2.png"));
+            ui->historyIcon->setPixmap(QPixmap(":/icons/locationbar/visit2.png"));
             QString text;
             if (count == 1) {
                 text = tr("first");
