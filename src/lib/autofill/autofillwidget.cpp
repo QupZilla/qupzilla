@@ -44,7 +44,7 @@ void AutoFillWidget::setFormData(const QVector<PasswordEntry> &data)
         }
 
         QPushButton* button = new QPushButton(this);
-        button->setIcon(QIcon(":icons/other/login.png"));
+        button->setIcon(QIcon::fromTheme("user"), QIcon(":icons/other/login.png"));
         button->setStyleSheet("text-align:left;font-weight:bold;");
         button->setText(d.username);
         button->setProperty("data-index", i);
