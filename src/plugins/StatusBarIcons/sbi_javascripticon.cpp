@@ -34,7 +34,7 @@ SBI_JavaScriptIcon::SBI_JavaScriptIcon(BrowserWindow* window)
     setToolTip(tr("Modify JavaScript settings per-site and globally"));
 
     m_icon = QIcon::fromTheme("code-context", QIcon(":sbi/data/javascript.png"));
-    setPixmap(m_icon.pixmap(22));
+    setPixmap(m_icon.pixmap(16));
 
     connect(m_window->tabWidget(), SIGNAL(currentChanged(int)), this, SLOT(updateIcon()));
     connect(this, SIGNAL(clicked(QPoint)), this, SLOT(showMenu(QPoint)));
