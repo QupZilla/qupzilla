@@ -151,7 +151,7 @@ QIcon IconProvider::newWindowIcon()
 
 QIcon IconProvider::privateBrowsingIcon()
 {
-    return QIcon(QSL(":/icons/menu/privatebrowsing.png"));
+    return QIcon::fromTheme(QSL("hint"), QIcon(QSL(":/icons/menu/privatebrowsing.png")));
 }
 
 QIcon IconProvider::settingsIcon()
