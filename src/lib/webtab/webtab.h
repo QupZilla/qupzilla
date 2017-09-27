@@ -129,6 +129,9 @@ private:
     bool m_isPinned;
 
     static bool s_pinningTab;
+
+signals:
+    void pinStateChanged(bool);
 };
 
 #endif // WEBTAB_H

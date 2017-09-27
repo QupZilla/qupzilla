@@ -39,7 +39,6 @@
 #include <QTimer>
 #include <QLabel>
 
-
 TLDExtractor* TabManagerWidget::s_tldExtractor = 0;
 
 TabManagerWidget::TabManagerWidget(BrowserWindow* mainClass, QWidget* parent, bool defaultWidget)
@@ -169,11 +168,11 @@ void TabManagerWidget::refreshTree()
         }
 
         for (int j = 0; j < winItem->childCount(); ++j) {
-            QTreeWidgetItem* tabItem = winItem->child(j);
-            if (tabItem->checkState(0) == Qt::Unchecked) {
+            TabItem* tabItem = static_cast<TabItem*>(winItem->child(j));
+            if (!tabItem || tabItem->checkState(0) == Qt::Unchecked) {
                 continue;
             }
-            selectedTabs << qvariant_cast<QWidget*>(tabItem->data(0, WebTabPointerRole));
+            selectedTabs << tabItem->webTab();
         }
     }
 
@@ -196,9 +195,9 @@ void TabManagerWidget::refreshTree()
         QTreeWidgetItem* winItem = ui->treeWidget->topLevelItem(i);
 
         for (int j = 0; j < winItem->childCount(); ++j) {
-            QTreeWidgetItem* tabItem = winItem->child(j);
+            TabItem* tabItem = static_cast<TabItem*>(winItem->child(j));
 
-            if (selectedTabs.contains(qvariant_cast<QWidget*>(tabItem->data(0, WebTabPointerRole)))) {
+            if (tabItem && selectedTabs.contains(tabItem->webTab())) {
                 tabItem->setCheckState(0, Qt::Checked);
             }
         }
@@ -216,12 +215,13 @@ void TabManagerWidget::refreshTree()
 
 void TabManagerWidget::onItemActivated(QTreeWidgetItem* item, int column)
 {
-    if (!item) {
+    TabItem* tabItem = static_cast<TabItem*>(item);
+    if (!tabItem) {
         return;
     }
 
-    BrowserWindow* mainWindow = qobject_cast<BrowserWindow*>(qvariant_cast<QWidget*>(item->data(0, QupZillaPointerRole)));
-    QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
+    BrowserWindow* mainWindow = tabItem->window();
+    QWidget* tabWidget = tabItem->webTab();
 
     if (column == 1) {
         if (item->childCount() > 0)
@@ -268,11 +268,11 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
 {
     QMenu* menu = nullptr;
 
-    QTreeWidgetItem* item = ui->treeWidget->itemAt(pos);
+    TabItem* item = static_cast<TabItem*>(ui->treeWidget->itemAt(pos));
 
     if (item) {
-        BrowserWindow* mainWindow = qobject_cast<BrowserWindow*>(qvariant_cast<QWidget*>(item->data(0, QupZillaPointerRole)));
-        QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
+        BrowserWindow* mainWindow = item->window();
+        QWidget* tabWidget = item->webTab();
 
         if (mainWindow && tabWidget) {
             int index = mainWindow->tabWidget()->indexOf(tabWidget);
@@ -351,8 +351,12 @@ void TabManagerWidget::filterChanged(const QString &filter, bool force)
             QTreeWidgetItem* parentItem = ui->treeWidget->topLevelItem(i);
             int visibleChildCount = 0;
             for (int j = 0; j < parentItem->childCount(); ++j) {
-                QTreeWidgetItem* childItem = parentItem->child(j);
-                if (childItem->text(0).contains(filterRegExp) || childItem->data(0, UrlRole).toString().simplified().contains(filterRegExp)) {
+                TabItem* childItem = static_cast<TabItem*>(parentItem->child(j));
+                if (!childItem) {
+                    continue;
+                }
+
+                if (childItem->text(0).contains(filterRegExp) || childItem->webTab()->url().toString().simplified().contains(filterRegExp)) {
                     ++visibleChildCount;
                     childItem->setHidden(false);
                 }
@@ -446,13 +450,13 @@ void TabManagerWidget::processActions()
         }
 
         for (int j = 0; j < winItem->childCount(); ++j) {
-            QTreeWidgetItem* tabItem = winItem->child(j);
-            if (tabItem->checkState(0) == Qt::Unchecked) {
+            TabItem* tabItem = static_cast<TabItem*>(winItem->child(j));
+            if (!tabItem || tabItem->checkState(0) == Qt::Unchecked) {
                 continue;
             }
 
-            BrowserWindow* mainWindow = qobject_cast<BrowserWindow*>(qvariant_cast<QWidget*>(tabItem->data(0, QupZillaPointerRole)));
-            WebTab* webTab = qobject_cast<WebTab*>(qvariant_cast<QWidget*>(tabItem->data(0, WebTabPointerRole)));
+            BrowserWindow* mainWindow = tabItem->window();
+            WebTab* webTab = tabItem->webTab();
 
             // current supported actions are not applied to pinned tabs
             if (webTab->isPinned()) {
@@ -597,15 +601,6 @@ bool TabManagerWidget::bookmarkSelectedTabs(const QHash<BrowserWindow*, WebTab*>
     return true;
 }
 
-QTreeWidgetItem* TabManagerWidget::createEmptyItem(QTreeWidgetItem* parent, bool addToTree)
-{
-    QTreeWidgetItem* item = new QTreeWidgetItem(addToTree ? (parent ? parent : ui->treeWidget->invisibleRootItem()) : 0);
-    item->setFlags(item->flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsTristate));
-    item->setCheckState(0, Qt::Unchecked);
-
-    return item;
-}
-
 QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
 {
     QTreeWidgetItem* currentTabItem = nullptr;
@@ -634,44 +629,29 @@ QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
             QString domain = domainFromUrl(webTab->url(), useHostName);
 
             if (!tabsGroupedByDomain.contains(domain)) {
-                QTreeWidgetItem* groupItem = createEmptyItem(0, false);
-                groupItem->setText(0, domain);
-                groupItem->setToolTip(0, domain);
-                QFont font = groupItem->font(0);
-                font.setBold(true);
-                groupItem->setFont(0, font);
+                TabItem* groupItem = new TabItem(ui->treeWidget, 0, false);
+                groupItem->setTitle(domain);
+                groupItem->setBold(true);
+
                 tabsGroupedByDomain.insert(domain, groupItem);
             }
+
             QTreeWidgetItem* groupItem = tabsGroupedByDomain.value(domain);
 
-            QTreeWidgetItem* tabItem = createEmptyItem(groupItem);
+            TabItem* tabItem = new TabItem(ui->treeWidget, groupItem);
+            tabItem->setBrowserWindow(mainWin);
+            tabItem->setWebTab(webTab);
+
             if (webTab == mainWin->weView()->webTab()) {
-                QFont font = tabItem->font(0);
-                font.setBold(true);
-                tabItem->setFont(0, font);
+                tabItem->setBold(true);
 
                 if (mainWin == getQupZilla())
                     currentTabItem = tabItem;
             }
-            if (!webTab->isLoading()) {
-                if (!webTab->isPinned()) {
-                    tabItem->setIcon(0, webTab->icon());
-                }
-                else {
-                    tabItem->setIcon(0, QIcon(":tabmanager/data/tab-pinned.png"));
-                }
-            }
-            else {
-                tabItem->setIcon(0, QIcon(":tabmanager/data/tab-loading.png"));
-            }
-            tabItem->setText(0, webTab->title());
-            tabItem->setToolTip(0, webTab->title());
 
-            tabItem->setData(0, UrlRole, webTab->url().toString());
-            tabItem->setData(0, WebTabPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(webTab)));
-            tabItem->setData(0, QupZillaPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(mainWin)));
 
-            makeWebViewConnections(webTab->webView());
+            tabItem->updateIcon();
+            tabItem->setTitle(webTab->title());
         }
     }
 
@@ -698,16 +678,11 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
 
     for (int win = 0; win < windows.count(); ++win) {
         BrowserWindow* mainWin = windows.at(win);
-        QTreeWidgetItem* winItem = createEmptyItem();
+        TabItem* winItem = new TabItem(ui->treeWidget);
         winItem->setText(0, tr("Window %1").arg(QString::number(win + 1)));
         winItem->setToolTip(0, tr("Double click to switch"));
-        if (win == currentWindowIdx) {
-            QFont font = winItem->font(0);
-            font.setBold(true);
-            winItem->setFont(0, font);
-        }
+        winItem->setBold(win == currentWindowIdx);
 
-        winItem->setData(0, QupZillaPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(mainWin)));
         QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
 
         for (int tab = 0; tab < tabs.count(); ++tab) {
@@ -716,34 +691,19 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
                 m_webPage = 0;
                 continue;
             }
-            QTreeWidgetItem* tabItem = createEmptyItem(winItem);
+            TabItem* tabItem = new TabItem(ui->treeWidget, winItem);
+            tabItem->setBrowserWindow(mainWin);
+            tabItem->setWebTab(webTab);
+
             if (webTab == mainWin->weView()->webTab()) {
-                QFont font = tabItem->font(0);
-                font.setBold(true);
-                tabItem->setFont(0, font);
+                tabItem->setBold(true);
 
                 if (mainWin == getQupZilla())
                     currentTabItem = tabItem;
             }
-            if (!webTab->isLoading()) {
-                if (!webTab->isPinned()) {
-                    tabItem->setIcon(0, webTab->icon());
-                }
-                else {
-                    tabItem->setIcon(0, QIcon(":tabmanager/data/tab-pinned.png"));
-                }
-            }
-            else {
-                tabItem->setIcon(0, QIcon(":tabmanager/data/tab-loading.png"));
-            }
-            tabItem->setText(0, webTab->title());
-            tabItem->setToolTip(0, webTab->title());
 
-            tabItem->setData(0, UrlRole, webTab->url().toString());
-            tabItem->setData(0, WebTabPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(webTab)));
-            tabItem->setData(0, QupZillaPointerRole, QVariant::fromValue(qobject_cast<QWidget*>(mainWin)));
-
-            makeWebViewConnections(webTab->webView());
+            tabItem->updateIcon();
+            tabItem->setTitle(webTab->title());
         }
     }
 
@@ -760,14 +720,79 @@ BrowserWindow* TabManagerWidget::getQupZilla()
     }
 }
 
-void TabManagerWidget::makeWebViewConnections(WebView* view)
+TabItem::TabItem(QTreeWidget* treeWidget, QTreeWidgetItem* parent, bool addToTree)
+    : QObject()
+    , QTreeWidgetItem(addToTree ? (parent ? parent : treeWidget->invisibleRootItem()) : 0, 1)
+    , m_treeWidget(treeWidget)
+    , m_window(0)
+    , m_webTab(0)
 {
-    if (view) {
-        connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(delayedRefreshTree()));
-        connect(view->page(), SIGNAL(loadStarted()), this, SLOT(delayedRefreshTree()));
-        connect(view, SIGNAL(titleChanged(QString)), this, SLOT(delayedRefreshTree()));
-        connect(view, &WebView::iconChanged, this, [this]() {
-            delayedRefreshTree();
-        });
+    setFlags(flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsTristate));
+    setCheckState(0, Qt::Unchecked);
+}
+
+BrowserWindow* TabItem::window() const
+{
+    return m_window;
+}
+
+void TabItem::setBrowserWindow(BrowserWindow* window)
+{
+    m_window = window;
+}
+
+WebTab* TabItem::webTab() const
+{
+    return m_webTab;
+}
+
+void TabItem::setWebTab(WebTab* webTab)
+{
+    m_webTab = webTab;
+
+    connect(m_webTab->webView()->page(), SIGNAL(audioMutedChanged(bool)), this, SLOT(updateIcon()));
+    connect(m_webTab->webView()->page(), SIGNAL(loadFinished(bool)), this, SLOT(updateIcon()));
+    connect(m_webTab->webView()->page(), SIGNAL(loadStarted()), this, SLOT(updateIcon()));
+    connect(m_webTab->webView(), SIGNAL(titleChanged(QString)), this, SLOT(setTitle(QString)));
+    connect(m_webTab->webView(), SIGNAL(iconChanged(QIcon)), this, SLOT(updateIcon()));
+    connect(m_webTab, SIGNAL(pinStateChanged(bool)), this, SLOT(updateIcon()));
+}
+
+void TabItem::updateIcon()
+{
+    if (!m_webTab)
+        return;
+
+    if (!m_webTab->isLoading()) {
+        if (!m_webTab->isPinned()) {
+            if (m_webTab->isMuted()) {
+                setIcon(0, QIcon::fromTheme(QSL("audio-volume-muted"), QIcon(QSL(":icons/other/audiomuted.svg"))));
+            }
+            else if (!m_webTab->isMuted() && m_webTab->webView()->page()->recentlyAudible()) {
+                setIcon(0, QIcon::fromTheme(QSL("audio-volume-high"), QIcon(QSL(":icons/other/audioplaying.svg"))));
+            }
+            else {
+                setIcon(0, m_webTab->icon());
+            }
+        }
+        else {
+            setIcon(0, QIcon(":tabmanager/data/tab-pinned.png"));
+        }
     }
+    else {
+        setIcon(0, QIcon(":tabmanager/data/tab-loading.png"));
+    }
+}
+
+void TabItem::setTitle(const QString &title)
+{
+    setText(0, title);
+    setToolTip(0, title);
+}
+
+void TabItem::setBold(bool bold)
+{
+    QFont fnt(font(0));
+    fnt.setBold(bold);
+    setFont(0, fnt);
 }
