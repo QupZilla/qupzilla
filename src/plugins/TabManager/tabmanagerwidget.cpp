@@ -178,16 +178,17 @@ void TabManagerWidget::refreshTree()
     }
 
     ui->treeWidget->clear();
+    QTreeWidgetItem* currentTabItem = nullptr;
 
     if (m_groupType == GroupByHost) {
-        groupByDomainName(true);
+        currentTabItem = groupByDomainName(true);
     }
     else if (m_groupType == GroupByDomain) {
-        groupByDomainName();
+        currentTabItem = groupByDomainName();
     }
     else { // fallback to GroupByWindow
         m_groupType = GroupByWindow;
-        groupByWindow();
+        currentTabItem = groupByWindow();
     }
 
     // restore selected items
@@ -205,6 +206,10 @@ void TabManagerWidget::refreshTree()
 
     filterChanged(m_filterText, true);
     ui->treeWidget->expandAll();
+
+    if (currentTabItem)
+        ui->treeWidget->scrollToItem(currentTabItem, QAbstractItemView::EnsureVisible);
+
     m_isRefreshing = false;
     m_waitForRefresh = false;
 }
@@ -601,13 +606,15 @@ QTreeWidgetItem* TabManagerWidget::createEmptyItem(QTreeWidgetItem* parent, bool
     return item;
 }
 
-void TabManagerWidget::groupByDomainName(bool useHostName)
+QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
 {
+    QTreeWidgetItem* currentTabItem = nullptr;
+
     QList<BrowserWindow*> windows = mApp->windows();
     int currentWindowIdx = windows.indexOf(getQupZilla());
     if (currentWindowIdx == -1) {
         // getQupZilla() instance is closing
-        return;
+        return nullptr;
     }
     windows.move(currentWindowIdx, 0);
 
@@ -642,6 +649,9 @@ void TabManagerWidget::groupByDomainName(bool useHostName)
                 QFont font = tabItem->font(0);
                 font.setBold(true);
                 tabItem->setFont(0, font);
+
+                if (mainWin == getQupZilla())
+                    currentTabItem = tabItem;
             }
             if (!webTab->isLoading()) {
                 if (!webTab->isPinned()) {
@@ -666,14 +676,18 @@ void TabManagerWidget::groupByDomainName(bool useHostName)
     }
 
     ui->treeWidget->insertTopLevelItems(0, tabsGroupedByDomain.values());
+
+    return currentTabItem;
 }
 
-void TabManagerWidget::groupByWindow()
+QTreeWidgetItem* TabManagerWidget::groupByWindow()
 {
+    QTreeWidgetItem* currentTabItem = nullptr;
+
     QList<BrowserWindow*> windows = mApp->windows();
     int currentWindowIdx = windows.indexOf(getQupZilla());
     if (currentWindowIdx == -1) {
-        return;
+        return nullptr;
     }
     m_isRefreshing = true;
 
@@ -707,6 +721,9 @@ void TabManagerWidget::groupByWindow()
                 QFont font = tabItem->font(0);
                 font.setBold(true);
                 tabItem->setFont(0, font);
+
+                if (mainWin == getQupZilla())
+                    currentTabItem = tabItem;
             }
             if (!webTab->isLoading()) {
                 if (!webTab->isPinned()) {
@@ -729,6 +746,8 @@ void TabManagerWidget::groupByWindow()
             makeWebViewConnections(webTab->webView());
         }
     }
+
+    return currentTabItem;
 }
 
 BrowserWindow* TabManagerWidget::getQupZilla()
