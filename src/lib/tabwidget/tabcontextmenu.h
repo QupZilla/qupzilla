@@ -29,7 +29,7 @@ class QUPZILLA_EXPORT TabContextMenu : public QMenu
 {
     Q_OBJECT
 public:
-    explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget);
+    explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs = true);
 
 
 signals:
@@ -63,6 +63,7 @@ private:
     Qt::Orientation m_tabsOrientation;
     BrowserWindow* m_window;
     TabWidget* m_tabWidget;
+    bool m_showCloseOtherTabs;
 };
 
 #endif // TABCONTEXTMENU_H
