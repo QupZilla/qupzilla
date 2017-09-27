@@ -176,6 +176,7 @@ SOURCES += \
     tabwidget/tabicon.cpp \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
+    tabwidget/tabcontextmenu.cpp \
     tools/aesinterface.cpp \
     tools/animatedwidget.cpp \
     tools/buttonbox.cpp \
@@ -361,6 +362,7 @@ HEADERS  += \
     tabwidget/tabicon.h \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
+    tabwidget/tabcontextmenu.h \
     tools/aesinterface.h \
     tools/animatedwidget.h \
     tools/buttonbox.h \

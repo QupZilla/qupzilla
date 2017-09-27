@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,8 +19,6 @@
 #define TABBAR_H
 
 #include "combotabbar.h"
-
-#include <QRect>
 
 #include "qzcommon.h"
 
@@ -49,33 +47,11 @@ public:
     void wheelEvent(QWheelEvent* event);
 
 signals:
-    void reloadTab(int index);
-    void stopTab(int index);
-    void closeAllButCurrent(int index);
-    void closeToRight(int index);
-    void closeToLeft(int index);
-    void duplicateTab(int index);
-    void detachTab(int index);
-
     void moveAddTabButton(int posX);
 
 private slots:
     void currentTabChanged(int index);
     void overflowChanged(bool overflowed);
-
-    void reloadTab() { emit reloadTab(m_clickedTab); }
-    void stopTab() { emit stopTab(m_clickedTab); }
-    void closeTab() { emit tabCloseRequested(m_clickedTab); }
-    void duplicateTab() { emit duplicateTab(m_clickedTab); }
-    void detachTab() { emit detachTab(m_clickedTab); }
-
-    void pinTab();
-    void muteTab();
-
-    void closeCurrentTab();
-    void closeAllButCurrent();
-    void closeToRight();
-    void closeToLeft();
     void closeTabFromButton();
 
 private:
@@ -106,7 +82,6 @@ private:
     bool m_hideTabBarWithOneTab;
 
     int m_showCloseOnInactive;
-    int m_clickedTab;
 
     mutable int m_normalTabWidth;
     mutable int m_activeTabWidth;
