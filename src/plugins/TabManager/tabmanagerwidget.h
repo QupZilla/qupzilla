@@ -114,6 +114,7 @@ public slots:
     void updateIcon();
     void setTitle(const QString& title);
     void setBold(bool bold);
+    void setAsSavedTab(bool saved);
 
 private:
     QTreeWidget* m_treeWidget;

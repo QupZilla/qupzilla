@@ -33,13 +33,14 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     QStyleOptionViewItem opt = option;
     initStyleOption(&opt, index);
 
+    const bool isSavedTab = index.data(Qt::UserRole + 1).toBool();
     const QWidget* w = opt.widget;
     const QStyle* style = w ? w->style() : QApplication::style();
     const Qt::LayoutDirection direction = w ? w->layoutDirection() : QApplication::layoutDirection();
 
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
 
-    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) && !isSavedTab ? QPalette::Normal : QPalette::Disabled;
     if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
     }
@@ -110,7 +111,7 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     if (!opt.text.isEmpty()) {
         const QString filterText = property("filterText").toString();
 
-        QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled
+        QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) && !isSavedTab
                               ? QPalette::Normal : QPalette::Disabled;
         if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active))
             cg = QPalette::Inactive;
@@ -124,6 +125,9 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
             painter->setPen(opt.palette.color(cg, QPalette::Text));
             painter->drawRect(textRect.adjusted(0, 0, -1, -1));
         }
+
+        if (isSavedTab)
+            opt.font.setItalic(true);
 
         painter->setFont(opt.font);
         viewItemDrawText(painter, &opt, textRect, opt.text, textPalette.color(colorRole), filterText);
