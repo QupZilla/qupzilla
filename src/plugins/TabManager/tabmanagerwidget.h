@@ -68,8 +68,8 @@ private:
     };
 
     QTreeWidgetItem* createEmptyItem(QTreeWidgetItem* parent = 0, bool addToTree = true);
-    void groupByDomainName(bool useHostName = false);
-    void groupByWindow();
+    QTreeWidgetItem* groupByDomainName(bool useHostName = false);
+    QTreeWidgetItem* groupByWindow();
     BrowserWindow* getQupZilla();
 
     void makeWebViewConnections(WebView *view);
