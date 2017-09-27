@@ -27,12 +27,13 @@
 #include "checkboxdialog.h"
 
 
-TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget)
+TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs)
     : QMenu()
     , m_clickedTab(index)
     , m_tabsOrientation(orientation)
     , m_window(window)
     , m_tabWidget(tabWidget)
+    , m_showCloseOtherTabs(showCloseOtherTabs)
 {
     setObjectName("tabcontextmenu");
 
@@ -129,10 +130,14 @@ void TabContextMenu::init()
         addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         addSeparator();
-        addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
-        addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Right") : tr("Close Tabs To The Bottom"), this, SLOT(closeToRight()));
-        addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Left") : tr("Close Tabs To The Top"), this, SLOT(closeToLeft()));
-        addSeparator();
+
+        if (m_showCloseOtherTabs) {
+            addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
+            addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Right") : tr("Close Tabs To The Bottom"), this, SLOT(closeToRight()));
+            addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Left") : tr("Close Tabs To The Top"), this, SLOT(closeToLeft()));
+            addSeparator();
+        }
+
         addAction(m_window->action(QSL("Other/RestoreClosedTab")));
         addAction(QIcon::fromTheme("window-close"), tr("Cl&ose Tab"), this, SLOT(closeTab()));
     } else {

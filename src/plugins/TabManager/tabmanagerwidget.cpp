@@ -30,7 +30,7 @@
 #include "tabmanagerplugin.h"
 #include "tldextractor/tldextractor.h"
 #include "tabmanagerdelegate.h"
-
+#include "tabcontextmenu.h"
 
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
@@ -261,7 +261,30 @@ bool TabManagerWidget::isTabSelected()
 
 void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
 {
-    QMenu menu;
+    QMenu* menu = nullptr;
+
+    QTreeWidgetItem* item = ui->treeWidget->itemAt(pos);
+
+    if (item) {
+        BrowserWindow* mainWindow = qobject_cast<BrowserWindow*>(qvariant_cast<QWidget*>(item->data(0, QupZillaPointerRole)));
+        QWidget* tabWidget = qvariant_cast<QWidget*>(item->data(0, WebTabPointerRole));
+
+        if (mainWindow && tabWidget) {
+            int index = mainWindow->tabWidget()->indexOf(tabWidget);
+
+            // if items are not grouped by Window then actions "Close Other Tabs",
+            // "Close Tabs To The Bottom" and "Close Tabs To The Top"
+            // are ambiguous and should be hidden.
+            menu = new TabContextMenu(index, Qt::Vertical, mainWindow, mainWindow->tabWidget(), m_groupType == GroupByWindow);
+            menu->addSeparator();
+        }
+    }
+
+    if (!menu)
+        menu = new QMenu;
+
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+
     QAction* action;
     QMenu groupTypeSubmenu(tr("Group by"));
     action = groupTypeSubmenu.addAction(tr("&Window"), this, SLOT(changeGroupType()));
@@ -279,21 +302,21 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
     action->setCheckable(true);
     action->setChecked(m_groupType == GroupByHost);
 
-    menu.addMenu(&groupTypeSubmenu);
+    menu->addMenu(&groupTypeSubmenu);
 
     if (m_isDefaultWidget) {
-        menu.addAction(QIcon(":/tabmanager/data/side-by-side.png"), tr("&Show side by side"), this, SIGNAL(showSideBySide()))->setObjectName("sideBySide");
+        menu->addAction(QIcon(":/tabmanager/data/side-by-side.png"), tr("&Show side by side"), this, SIGNAL(showSideBySide()))->setObjectName("sideBySide");
     }
 
-    menu.addSeparator();
+    menu->addSeparator();
 
     if (isTabSelected()) {
-        menu.addAction(QIcon(":/tabmanager/data/tab-detach.png"), tr("&Detach checked tabs"), this, SLOT(processActions()))->setObjectName("detachSelection");
-        menu.addAction(QIcon(":/tabmanager/data/tab-bookmark.png"), tr("Book&mark checked tabs"), this, SLOT(processActions()))->setObjectName("bookmarkSelection");
-        menu.addAction(QIcon(":/tabmanager/data/tab-close.png"), tr("&Close checked tabs"), this, SLOT(processActions()))->setObjectName("closeSelection");
+        menu->addAction(QIcon(":/tabmanager/data/tab-detach.png"), tr("&Detach checked tabs"), this, SLOT(processActions()))->setObjectName("detachSelection");
+        menu->addAction(QIcon(":/tabmanager/data/tab-bookmark.png"), tr("Book&mark checked tabs"), this, SLOT(processActions()))->setObjectName("bookmarkSelection");
+        menu->addAction(QIcon(":/tabmanager/data/tab-close.png"), tr("&Close checked tabs"), this, SLOT(processActions()))->setObjectName("closeSelection");
     }
 
-    menu.exec(ui->treeWidget->viewport()->mapToGlobal(pos));
+    menu->exec(ui->treeWidget->viewport()->mapToGlobal(pos));
 }
 
 void TabManagerWidget::filterChanged(const QString &filter, bool force)
