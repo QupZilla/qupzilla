@@ -514,6 +514,4 @@ void WebTab::togglePinned()
     m_isPinned = !m_isPinned;
 
     m_window->tabWidget()->pinUnPinTab(tabIndex(), title());
-
-    emit pinStateChanged(m_isPinned);
 }

@@ -152,6 +152,7 @@ void TabManagerPlugin::mainWindowCreated(BrowserWindow* window, bool refresh)
         }
 
         connect(window->tabWidget(), SIGNAL(currentChanged(int)), m_controller, SIGNAL(requestRefreshTree()));
+        connect(window->tabWidget(), SIGNAL(pinStateChanged(int,bool)), m_controller, SIGNAL(requestRefreshTree()));
     }
 
     if (refresh) {

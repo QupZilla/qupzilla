@@ -783,7 +783,6 @@ void TabItem::setWebTab(WebTab* webTab)
     connect(m_webTab->webView()->page(), SIGNAL(loadStarted()), this, SLOT(updateIcon()));
     connect(m_webTab->webView(), SIGNAL(titleChanged(QString)), this, SLOT(setTitle(QString)));
     connect(m_webTab->webView(), SIGNAL(iconChanged(QIcon)), this, SLOT(updateIcon()));
-    connect(m_webTab, SIGNAL(pinStateChanged(bool)), this, SLOT(updateIcon()));
 }
 
 void TabItem::updateIcon()
