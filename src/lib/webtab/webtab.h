@@ -102,6 +102,8 @@ public:
     void p_restoreTab(const SavedTab &tab);
     void p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel);
 
+    void tabActivated();
+
 private slots:
     void showNotification(QWidget* notif);
     void loadStarted();
@@ -111,7 +113,6 @@ private slots:
     void slotRestore();
 
 private:
-    void showEvent(QShowEvent* event);
     void resizeEvent(QResizeEvent *event) override;
 
     BrowserWindow* m_window;
@@ -127,8 +128,6 @@ private:
 
     SavedTab m_savedTab;
     bool m_isPinned;
-
-    static bool s_pinningTab;
 
 signals:
     void pinStateChanged(bool);

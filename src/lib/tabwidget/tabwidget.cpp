@@ -505,6 +505,8 @@ void TabWidget::currentTabChanged(int index)
     m_currentTabFresh = false;
 
     WebTab* webTab = weTab(index);
+    webTab->tabActivated();
+
     LocationBar* locBar = webTab->locationBar();
 
     if (locBar && m_locationBars->indexOf(locBar) != -1) {
