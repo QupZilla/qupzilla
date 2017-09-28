@@ -128,9 +128,6 @@ private:
 
     SavedTab m_savedTab;
     bool m_isPinned;
-
-signals:
-    void pinStateChanged(bool);
 };
 
 #endif // WEBTAB_H
