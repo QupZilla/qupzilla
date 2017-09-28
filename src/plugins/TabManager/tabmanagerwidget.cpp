@@ -611,7 +611,6 @@ QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
         // getQupZilla() instance is closing
         return nullptr;
     }
-    windows.move(currentWindowIdx, 0);
 
     QMap<QString, QTreeWidgetItem*> tabsGroupedByDomain;
 
@@ -679,6 +678,7 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
     for (int win = 0; win < windows.count(); ++win) {
         BrowserWindow* mainWin = windows.at(win);
         TabItem* winItem = new TabItem(ui->treeWidget);
+        winItem->setBrowserWindow(mainWin);
         winItem->setText(0, tr("Window %1").arg(QString::number(win + 1)));
         winItem->setToolTip(0, tr("Double click to switch"));
         winItem->setBold(win == currentWindowIdx);

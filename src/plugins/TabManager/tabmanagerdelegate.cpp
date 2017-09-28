@@ -111,11 +111,6 @@ void TabManagerDelegate::paint(QPainter* painter, const QStyleOptionViewItem &op
     if (!opt.text.isEmpty()) {
         const QString filterText = property("filterText").toString();
 
-        QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) && !isSavedTab
-                              ? QPalette::Normal : QPalette::Disabled;
-        if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active))
-            cg = QPalette::Inactive;
-
         if (opt.state & QStyle::State_Selected) {
             painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
         } else {
