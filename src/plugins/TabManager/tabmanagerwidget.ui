@@ -33,7 +33,7 @@
     <widget class="LineEdit" name="filterBar"/>
    </item>
    <item>
-    <widget class="QTreeWidget" name="treeWidget">
+    <widget class="TabTreeWidget" name="treeWidget">
      <attribute name="headerVisible">
       <bool>false</bool>
      </attribute>
@@ -51,6 +51,11 @@
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
    <header>lineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TabTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>tabmanagerwidget.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

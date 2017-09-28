@@ -35,6 +35,23 @@ class WebTab;
 class WebView;
 class TLDExtractor;
 
+class TabTreeWidget : public QTreeWidget
+{
+    Q_OBJECT
+
+public:
+    TabTreeWidget(QWidget* parent = 0);
+
+    Qt::DropActions supportedDropActions() const;
+    QStringList mimeTypes() const;
+    QMimeData* mimeData(const QList<QTreeWidgetItem*> items) const;
+    bool dropMimeData(QTreeWidgetItem *parent, int index, const QMimeData *data, Qt::DropAction action);
+
+signals:
+    void requestRefreshTree();
+
+};
+
 class TabManagerWidget : public QWidget
 {
     Q_OBJECT
@@ -102,13 +119,15 @@ class TabItem : public QObject, public QTreeWidgetItem
     Q_OBJECT
 
 public:
-    TabItem(QTreeWidget* treeWidget, QTreeWidgetItem* parent = 0, bool addToTree = true);
+    TabItem(QTreeWidget* treeWidget, bool supportDrag = true, bool isTab = true, QTreeWidgetItem* parent = 0, bool addToTree = true);
 
     BrowserWindow* window() const;
     void setBrowserWindow(BrowserWindow* window);
 
     WebTab* webTab() const;
     void setWebTab(WebTab* webTab);
+
+    bool isTab() const;
 
 public slots:
     void updateIcon();
@@ -120,6 +139,7 @@ private:
     QTreeWidget* m_treeWidget;
     BrowserWindow* m_window;
     WebTab* m_webTab;
+    bool m_isTab;
 };
 
 #endif // TABMANAGERWIDGET_H
