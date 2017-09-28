@@ -732,9 +732,9 @@ TabItem::TabItem(QTreeWidget* treeWidget, bool supportDrag, bool isTab, QTreeWid
     : QObject()
     , QTreeWidgetItem(addToTree ? (parent ? parent : treeWidget->invisibleRootItem()) : 0, 1)
     , m_treeWidget(treeWidget)
-    , m_isTab(isTab)
     , m_window(0)
     , m_webTab(0)
+    , m_isTab(isTab)
 {
     Qt::ItemFlags flgs = flags() | (parent ? Qt::ItemIsUserCheckable : Qt::ItemIsUserCheckable | Qt::ItemIsTristate);
 
