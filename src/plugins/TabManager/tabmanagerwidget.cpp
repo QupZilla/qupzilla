@@ -181,6 +181,8 @@ void TabManagerWidget::refreshTree()
     }
 
     ui->treeWidget->clear();
+    ui->treeWidget->setEnableDragTabs(m_groupType == GroupByWindow);
+
     QTreeWidgetItem* currentTabItem = nullptr;
 
     if (m_groupType == GroupByHost) {
@@ -843,11 +845,6 @@ bool TabItem::isTab() const
 TabTreeWidget::TabTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
 {
-    setDragEnabled(true);
-    setAcceptDrops(true);
-    viewport()->setAcceptDrops(true);
-    setDropIndicatorShown(true);
-
     invisibleRootItem()->setFlags(invisibleRootItem()->flags() & ~Qt::ItemIsDropEnabled);
 }
 
@@ -949,4 +946,12 @@ bool TabTreeWidget::dropMimeData(QTreeWidgetItem *parent, int index, const QMime
     }
 
     return true;
+}
+
+void TabTreeWidget::setEnableDragTabs(bool enable)
+{
+    setDragEnabled(enable);
+    setAcceptDrops(enable);
+    viewport()->setAcceptDrops(enable);
+    setDropIndicatorShown(enable);
 }

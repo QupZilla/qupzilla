@@ -47,6 +47,8 @@ public:
     QMimeData* mimeData(const QList<QTreeWidgetItem*> items) const;
     bool dropMimeData(QTreeWidgetItem *parent, int index, const QMimeData *data, Qt::DropAction action);
 
+    void setEnableDragTabs(bool enable);
+
 signals:
     void requestRefreshTree();
 
