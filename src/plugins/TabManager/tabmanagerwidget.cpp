@@ -635,7 +635,7 @@ QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
             if (!tabsGroupedByDomain.contains(domain)) {
                 TabItem* groupItem = new TabItem(ui->treeWidget, false, false, 0, false);
                 groupItem->setTitle(domain);
-                groupItem->setBold(true);
+                groupItem->setIsActiveOrCaption(true);
 
                 tabsGroupedByDomain.insert(domain, groupItem);
             }
@@ -647,7 +647,7 @@ QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
             tabItem->setWebTab(webTab);
 
             if (webTab == mainWin->weView()->webTab()) {
-                tabItem->setBold(true);
+                tabItem->setIsActiveOrCaption(true);
 
                 if (mainWin == getQupZilla())
                     currentTabItem = tabItem;
@@ -686,7 +686,7 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
         winItem->setBrowserWindow(mainWin);
         winItem->setText(0, tr("Window %1").arg(QString::number(win + 1)));
         winItem->setToolTip(0, tr("Double click to switch"));
-        winItem->setBold(win == currentWindowIdx);
+        winItem->setIsActiveOrCaption(win == currentWindowIdx);
 
         QList<WebTab*> tabs = mainWin->tabWidget()->allTabs();
 
@@ -701,7 +701,7 @@ QTreeWidgetItem* TabManagerWidget::groupByWindow()
             tabItem->setWebTab(webTab);
 
             if (webTab == mainWin->weView()->webTab()) {
-                tabItem->setBold(true);
+                tabItem->setIsActiveOrCaption(true);
 
                 if (mainWin == getQupZilla())
                     currentTabItem = tabItem;
@@ -771,9 +771,9 @@ void TabItem::setWebTab(WebTab* webTab)
     m_webTab = webTab;
 
     if (m_webTab->isRestored())
-        setBold(m_webTab->isCurrentTab());
+        setIsActiveOrCaption(m_webTab->isCurrentTab());
     else
-        setAsSavedTab(true);
+        setIsSavedTab(true);
 
     connect(m_webTab->webView()->page(), SIGNAL(audioMutedChanged(bool)), this, SLOT(updateIcon()));
     connect(m_webTab->webView()->page(), SIGNAL(loadFinished(bool)), this, SLOT(updateIcon()));
@@ -804,13 +804,13 @@ void TabItem::updateIcon()
         }
 
         if (m_webTab->isRestored())
-            setBold(m_webTab->isCurrentTab());
+            setIsActiveOrCaption(m_webTab->isCurrentTab());
         else
-            setAsSavedTab(true);
+            setIsSavedTab(true);
     }
     else {
         setIcon(0, QIcon(":tabmanager/data/tab-loading.png"));
-        setBold(m_webTab->isCurrentTab());
+        setIsActiveOrCaption(m_webTab->isCurrentTab());
     }
 }
 
@@ -820,21 +820,16 @@ void TabItem::setTitle(const QString &title)
     setToolTip(0, title);
 }
 
-void TabItem::setBold(bool bold)
+void TabItem::setIsActiveOrCaption(bool yes)
 {
-    QFont fnt(font(0));
-    fnt.setBold(bold);
-    setFont(0, fnt);
+    setData(0, ActiveOrCaptionRole, yes ? QVariant(true) : QVariant());
 
-    setAsSavedTab(false);
+    setIsSavedTab(false);
 }
 
-void TabItem::setAsSavedTab(bool saved)
+void TabItem::setIsSavedTab(bool yes)
 {
-    if (saved)
-        setData(0, Qt::UserRole + 1, QVariant(true));
-    else
-        setData(0, Qt::UserRole + 1, QVariant());
+    setData(0, SavedRole, yes ? QVariant(true) : QVariant());
 }
 
 bool TabItem::isTab() const

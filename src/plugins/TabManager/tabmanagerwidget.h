@@ -121,6 +121,11 @@ class TabItem : public QObject, public QTreeWidgetItem
     Q_OBJECT
 
 public:
+    enum StateRole {
+        ActiveOrCaptionRole = Qt::UserRole + 1,
+        SavedRole = Qt::UserRole + 2
+    };
+
     TabItem(QTreeWidget* treeWidget, bool supportDrag = true, bool isTab = true, QTreeWidgetItem* parent = 0, bool addToTree = true);
 
     BrowserWindow* window() const;
@@ -134,8 +139,8 @@ public:
 public slots:
     void updateIcon();
     void setTitle(const QString& title);
-    void setBold(bool bold);
-    void setAsSavedTab(bool saved);
+    void setIsActiveOrCaption(bool yes);
+    void setIsSavedTab(bool yes);
 
 private:
     QTreeWidget* m_treeWidget;
