@@ -273,52 +273,51 @@ bool RegisterQAppAssociation::showNativeDefaultAppSettingsUi()
         return false;
     }
 
-    if (isWin10OrNewer()) {
-        IApplicationActivationManager* pActivator;
-        HRESULT hr = CoCreateInstance(CLSID_ApplicationActivationManager,
-                                      nullptr,
-                                      CLSCTX_INPROC,
-                                      IID_IApplicationActivationManager,
-                                      (void**)&pActivator);
+#ifdef _WIN32_WINNT_WIN8
+    IApplicationActivationManager* pActivator;
+    HRESULT hr = CoCreateInstance(CLSID_ApplicationActivationManager,
+                                  nullptr,
+                                  CLSCTX_INPROC,
+                                  IID_IApplicationActivationManager,
+                                  (void**)&pActivator);
 
-        if (!SUCCEEDED(hr)) {
-            return false;
-        }
-
-        DWORD pid;
-        hr = pActivator->ActivateApplication(
-            L"windows.immersivecontrolpanel_cw5n1h2txyewy" // appUserModelId of "Settings"
-            L"!microsoft.windows.immersivecontrolpanel",   //  in Windows Store
-            L"page=SettingsPageAppsDefaults", AO_NONE, &pid);
-
-        if (!SUCCEEDED(hr)) {
-            return false;
-        }
-
-        // Do not check error because we could at least open
-        // the "Default apps" setting.
-        pActivator->ActivateApplication(
-            L"windows.immersivecontrolpanel_cw5n1h2txyewy"
-            L"!microsoft.windows.immersivecontrolpanel",
-            L"page=SettingsPageAppsDefaults"
-            L"&target=SystemSettings_DefaultApps_Browser", AO_NONE, &pid);
-
-        pActivator->Release();
+    if (!SUCCEEDED(hr)) {
+        return false;
     }
-    else {
-        IApplicationAssociationRegistrationUI* pAARUI = NULL;
 
-        HRESULT hr = CoCreateInstance(CLSID_ApplicationAssociationRegistrationUI,
-                                      NULL, CLSCTX_INPROC, __uuidof(IApplicationAssociationRegistrationUI),
-                                      reinterpret_cast< void** > (&pAARUI));
+    DWORD pid;
+    hr = pActivator->ActivateApplication(
+        L"windows.immersivecontrolpanel_cw5n1h2txyewy" // appUserModelId of "Settings"
+        L"!microsoft.windows.immersivecontrolpanel",   //  in Windows Store
+        L"page=SettingsPageAppsDefaults", AO_NONE, &pid);
 
-        if (!SUCCEEDED(hr)) {
-            return false;
-        }
-
-        hr = pAARUI->LaunchAdvancedAssociationUI(reinterpret_cast<LPCWSTR>(_appRegisteredName.utf16()));
-        pAARUI->Release();
+    if (!SUCCEEDED(hr)) {
+        return false;
     }
+
+    // Do not check error because we could at least open
+    // the "Default apps" setting.
+    pActivator->ActivateApplication(
+        L"windows.immersivecontrolpanel_cw5n1h2txyewy"
+        L"!microsoft.windows.immersivecontrolpanel",
+        L"page=SettingsPageAppsDefaults"
+        L"&target=SystemSettings_DefaultApps_Browser", AO_NONE, &pid);
+
+    pActivator->Release();
+#else // Vista or Win7
+    IApplicationAssociationRegistrationUI* pAARUI = NULL;
+
+    HRESULT hr = CoCreateInstance(CLSID_ApplicationAssociationRegistrationUI,
+                                  NULL, CLSCTX_INPROC, __uuidof(IApplicationAssociationRegistrationUI),
+                                  reinterpret_cast< void** > (&pAARUI));
+
+    if (!SUCCEEDED(hr)) {
+        return false;
+    }
+
+    hr = pAARUI->LaunchAdvancedAssociationUI(reinterpret_cast<LPCWSTR>(_appRegisteredName.utf16()));
+    pAARUI->Release();
+#endif // _WIN32_WINNT_WIN8
 
     return true;
 }
