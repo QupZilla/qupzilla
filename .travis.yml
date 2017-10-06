@@ -6,7 +6,7 @@ cache: ccache
 matrix:
   include:
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9
 
 env:
   - QT=qt58
