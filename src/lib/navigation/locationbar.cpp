@@ -209,14 +209,18 @@ LoadRequest LocationBar::createLoadRequest() const
         // would convert it to QUrl("http://WORD")
         if (!t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
             req.setUrl(QUrl(t));
-        }
-        else {
+        } else {
             const QUrl &guessed = QUrl::fromUserInput(t);
             if (!guessed.isEmpty())
                 req.setUrl(guessed);
             else
                 req.setUrl(QUrl::fromEncoded(t.toUtf8()));
         }
+    }
+
+    // Search when creating url failed
+    if (!req.url().isValid()) {
+        req = mApp->searchEnginesManager()->searchResult(t);
     }
 
     return req;

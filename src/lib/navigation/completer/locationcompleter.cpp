@@ -197,8 +197,6 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
 {
     Q_ASSERT(index.isValid());
 
-    QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
-
     bool ok;
     const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt(&ok);
 
@@ -215,11 +213,13 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
         bookmark->updateVisitCount();
     }
 
+    QString urlString = index.data(LocationCompleterModel::UrlRole).toString();
+
     if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
-        url = QUrl(m_originalText);
+        urlString = m_originalText;
     }
 
-    loadUrl(url);
+    loadString(urlString);
 }
 
 void LocationCompleter::indexCtrlActivated(const QModelIndex &index)
@@ -253,12 +253,12 @@ void LocationCompleter::indexShiftActivated(const QModelIndex &index)
         bookmark->updateVisitCount();
     }
 
-    const QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
+    const QString urlString = index.data(LocationCompleterModel::UrlRole).toString();
     const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
 
     // Load url (instead of switching to tab) with shift activation
     if (tabPos > -1) {
-        loadUrl(url);
+        loadString(urlString);
         return;
     }
 
@@ -268,7 +268,7 @@ void LocationCompleter::indexShiftActivated(const QModelIndex &index)
     emit clearCompletion();
 
     // Open new window
-    mApp->createWindow(Qz::BW_NewWindow, url);
+    mApp->createWindow(Qz::BW_NewWindow, QUrl(urlString));
 }
 
 void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
@@ -322,12 +322,12 @@ void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
     }
 }
 
-void LocationCompleter::loadUrl(const QUrl &url)
+void LocationCompleter::loadString(const QString &urlString)
 {
     closePopup();
 
     // Show url in locationbar
-    emit showCompletion(url.toString(), false);
+    emit showCompletion(urlString, false);
 
     // Load url
     emit loadCompletion();

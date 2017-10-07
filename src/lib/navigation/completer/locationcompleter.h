@@ -67,7 +67,7 @@ private slots:
 
 private:
     void switchToTab(BrowserWindow* window, int tab);
-    void loadUrl(const QUrl &url);
+    void loadString(const QString &url);
 
     void showPopup();
     void adjustPopupSize();
