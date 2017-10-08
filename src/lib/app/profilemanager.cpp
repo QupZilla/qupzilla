@@ -202,6 +202,11 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
         return;
     }
 
+    // No change in 2.2
+    if (prof < Updater::Version("2.2.99")) {
+        return;
+    }
+
     // Nothing for now
 }
 

@@ -1,3 +1,14 @@
+Version 2.2.0
+    * released 08 October 2017
+    * added back print element background option
+    * added back print preview dialog
+    * added session manager
+    * tab icon is now hidden when page has no icon
+    * improved locationbar completer with search suggestions
+    * improved handling of downloading dependencies in GreaseMonkey scripts
+    * various improvements in TabManager extension
+    * Linux: PulseAudio streams now have QupZilla app name and icon
+
 Version 2.1.2
     * released 15 March 2017
     * updated translations
