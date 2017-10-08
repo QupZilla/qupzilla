@@ -29,7 +29,7 @@ install:
               sudo apt-get update -qq;
               sudo apt-get install -qq qt58tools qt58script qt58webengine qt58webchannel qt58declarative qt58x11extras;
          elif [[ "$QT" == "qt59" ]]; then
-              sudo apt-add-repository -y ppa:beineri/opt-qt59-trusty;
+              sudo apt-add-repository -y ppa:beineri/opt-qt591-trusty;
               sudo apt-get update -qq;
               sudo apt-get install -qq qt59tools qt59script qt59webengine qt59webchannel qt59declarative qt59x11extras;
          fi
