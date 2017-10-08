@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -152,11 +152,11 @@ BookmarkItem* HtmlImporter::importBookmarks()
 
             start += posOfLink + rx.cap(0).size();
 
-            if (linkName.isEmpty() || url.isEmpty() || url.scheme() == QL1S("place") || url.scheme() == QL1S("about"))
+            if (url.isEmpty() || url.scheme() == QL1S("place") || url.scheme() == QL1S("about"))
                 continue;
 
             BookmarkItem* b = new BookmarkItem(BookmarkItem::Url, folders.isEmpty() ? root : folders.last());
-            b->setTitle(linkName);
+            b->setTitle(linkName.isEmpty() ? url.toString() : linkName);
             b->setUrl(url);
         }
     }
