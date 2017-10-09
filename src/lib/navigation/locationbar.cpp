@@ -204,7 +204,7 @@ LoadRequest LocationBar::createLoadRequest() const
         req.setUrl(item->url());
     }
 
-    if (req.isEmpty()) {
+    if (!req.isValid()) {
         // One word needs special handling, because QUrl::fromUserInput
         // would convert it to QUrl("http://WORD")
         if (t != QL1S("localhost") && !t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
@@ -219,7 +219,7 @@ LoadRequest LocationBar::createLoadRequest() const
     }
 
     // Search when creating url failed
-    if (!req.url().isValid()) {
+    if (!req.isValid()) {
         req = mApp->searchEnginesManager()->searchResult(t);
     }
 

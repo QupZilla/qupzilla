@@ -40,7 +40,7 @@ public:
 
     LoadRequest &operator=(const LoadRequest &other);
 
-    bool isEmpty() const;
+    bool isValid() const;
 
     QUrl url() const;
     void setUrl(const QUrl &url);

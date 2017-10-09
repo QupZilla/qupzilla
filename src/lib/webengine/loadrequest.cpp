@@ -44,9 +44,9 @@ LoadRequest &LoadRequest::operator=(const LoadRequest &other)
     return *this;
 }
 
-bool LoadRequest::isEmpty() const
+bool LoadRequest::isValid() const
 {
-    return m_url.isEmpty();
+    return m_url.isValid();
 }
 
 QUrl LoadRequest::url() const
