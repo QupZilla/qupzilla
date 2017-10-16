@@ -68,7 +68,7 @@ void ClearPrivateData::clearLocalStorage()
 {
     const QString profile = DataPaths::currentProfilePath();
 
-    QzTools::removeDir(profile + "/LocalStorage");
+    QzTools::removeDir(profile + "/Local Storage");
 }
 
 void ClearPrivateData::clearWebDatabases()
