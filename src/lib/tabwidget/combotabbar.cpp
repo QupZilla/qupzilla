@@ -1022,8 +1022,8 @@ void TabBarHelper::removeTab(int index)
 {
     // Removing tab in inactive tabbar will change current index and thus
     // changing active tabbar, which is really not wanted.
-    if (!m_activeTabBar)
-        m_comboTabBar->m_blockCurrentChangedSignal = true;
+    // Also removing tab will cause a duplicate call to ComboTabBar::slotCurrentChanged()
+    m_comboTabBar->m_blockCurrentChangedSignal = true;
 
     QTabBar::removeTab(index);
 
