@@ -48,7 +48,7 @@
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
 #include <QScrollBar>
-#include <QPrintPreviewDialog>
+#include <QPrintDialog>
 #include <QPrinter>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
@@ -398,19 +398,26 @@ void WebView::printPage()
 {
     Q_ASSERT(m_page);
 
-    QPrintPreviewDialog* dialog = new QPrintPreviewDialog(this);
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->resize(800, 750);
+    QPrintDialog* dialog = new QPrintDialog(this);
+    dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
+#ifndef Q_OS_WIN
+    dialog->setOption(QAbstractPrintDialog::PrintPageRange);
+    dialog->setOption(QAbstractPrintDialog::PrintCollateCopies);
+#endif
     dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(m_page->url()));
+    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(url()));
 
-    connect(dialog, &QPrintPreviewDialog::paintRequested, this, [=](QPrinter *printer) {
-        QApplication::setOverrideCursor(Qt::WaitCursor);
-        m_page->execPrintPage(printer, 10 * 1000);
-        QApplication::restoreOverrideCursor();
-    });
-
-    dialog->open();
+    if (dialog->exec() == QDialog::Accepted) {
+        if (dialog->printer()->outputFormat() == QPrinter::PdfFormat) {
+            m_page->printToPdf(dialog->printer()->outputFileName(), dialog->printer()->pageLayout());
+            delete dialog;
+        } else {
+            m_page->print(dialog->printer(), [=](bool success) {
+                Q_UNUSED(success);
+                delete dialog;
+            });
+        }
+    }
 }
 
 void WebView::slotLoadStarted()
