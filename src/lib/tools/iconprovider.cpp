@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -225,7 +225,7 @@ QImage IconProvider::imageForDomain(const QUrl &url, bool allowNull)
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
 
     query.addBindValue(QString("*%1*").arg(QzTools::escapeSqlGlobString(url.host())));
-    query.exec();
+    SqlDatabase::instance()->exec(query);
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
