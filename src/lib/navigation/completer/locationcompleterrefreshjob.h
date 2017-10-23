@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ public:
     // Timestamp when the job was created
     qint64 timestamp() const;
     QString searchString() const;
+    bool isCanceled() const;
 
     QList<QStandardItem*> completions() const;
     QString domainCompletion() const;

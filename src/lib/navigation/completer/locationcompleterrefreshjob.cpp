@@ -54,6 +54,11 @@ QString LocationCompleterRefreshJob::searchString() const
     return m_searchString;
 }
 
+bool LocationCompleterRefreshJob::isCanceled() const
+{
+    return m_jobCancelled;
+}
+
 QList<QStandardItem*> LocationCompleterRefreshJob::completions() const
 {
     return m_items;
@@ -104,17 +109,23 @@ void LocationCompleterRefreshJob::runJob()
         item->setData(IconProvider::imageForUrl(url), LocationCompleterModel::ImageRole);
     }
 
+    if (m_jobCancelled) {
+        return;
+    }
+
     // Get domain completion
     if (!m_searchString.isEmpty() && qzSettings->useInlineCompletion) {
         QSqlQuery domainQuery = LocationCompleterModel::createDomainQuery(m_searchString);
-        if (domainQuery.lastQuery().isEmpty()) {
-            return;
+        if (!domainQuery.lastQuery().isEmpty()) {
+            SqlDatabase::instance()->exec(domainQuery);
+            if (domainQuery.next()) {
+                m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
+            }
         }
+    }
 
-        SqlDatabase::instance()->exec(domainQuery);
-        if (domainQuery.next()) {
-            m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
-        }
+    if (m_jobCancelled) {
+        return;
     }
 
     // Add search/visit item

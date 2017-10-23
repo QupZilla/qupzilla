@@ -105,7 +105,7 @@ void LocationCompleter::refreshJobFinished()
 
     // Don't show results of older jobs
     // Also don't open the popup again when it was already closed
-    if (job->timestamp() > m_lastRefreshTimestamp && !m_popupClosed) {
+    if (!job->isCanceled() && job->timestamp() > m_lastRefreshTimestamp && !m_popupClosed) {
         s_model->setCompletions(job->completions());
         m_lastRefreshTimestamp = job->timestamp();
 
