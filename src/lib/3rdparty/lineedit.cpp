@@ -163,10 +163,8 @@ void LineEdit::init()
     // Connections to update edit actions
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(updateActions()));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(updateActions()));
-    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(updatePasteActions()));
 
     updateActions();
-    updatePasteActions();
 }
 
 bool LineEdit::event(QEvent* event)
@@ -205,11 +203,11 @@ QMenu* LineEdit::createContextMenu()
     popup->addAction(m_editActions[Copy]);
 
     if (!isReadOnly()) {
+        updatePasteActions();
         popup->addAction(m_editActions[Paste]);
-
-        if (!m_editActions[PasteAndGo]->text().isEmpty())
+        if (!m_editActions[PasteAndGo]->text().isEmpty()) {
             popup->addAction(m_editActions[PasteAndGo]);
-
+        }
         popup->addAction(m_editActions[Delete]);
         popup->addAction(m_editActions[ClearAll]);
     }
@@ -238,6 +236,8 @@ void LineEdit::updateActions()
     m_editActions[Copy]->setEnabled(hasSelectedText() && echoMode() == QLineEdit::Normal);
     m_editActions[Delete]->setEnabled(!isReadOnly() && hasSelectedText());
     m_editActions[SelectAll]->setEnabled(!text().isEmpty() && selectedText() != text());
+    m_editActions[Paste]->setEnabled(true);
+    m_editActions[PasteAndGo]->setEnabled(true);
 }
 
 void LineEdit::updatePasteActions()
