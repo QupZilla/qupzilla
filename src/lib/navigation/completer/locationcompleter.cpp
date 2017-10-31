@@ -95,6 +95,7 @@ void LocationCompleter::complete(const QString &string)
 
 void LocationCompleter::showMostVisited()
 {
+    m_locationBar->setFocus();
     complete(QString());
 }
 
@@ -166,8 +167,9 @@ void LocationCompleter::addSuggestions(const QStringList &suggestions)
     }
 
     s_model->addCompletions(items);
-    adjustPopupSize();
     m_oldSuggestions = suggestions;
+
+    showPopup();
 }
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
@@ -295,7 +297,7 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
         closePopup();
     }
     else {
-        adjustPopupSize();
+        showPopup();
     }
 }
 
@@ -337,7 +339,7 @@ void LocationCompleter::showPopup()
 {
     Q_ASSERT(m_locationBar);
 
-    if (s_model->rowCount() == 0) {
+    if (!m_locationBar->hasFocus() || s_model->rowCount() == 0) {
         s_view->close();
         return;
     }
