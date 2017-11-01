@@ -11,7 +11,7 @@
 ; http://nsis.sourceforge.net/Registry_plug-in
 
 !ifndef CUSTOM
-  !define VERSION 2.2.0
+  !define VERSION 2.2.1
   !define ARCH x86
   !define MSVC_VER 140
   !define OPENSSL_BIN_DIR .

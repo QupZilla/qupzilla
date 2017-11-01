@@ -1,4 +1,4 @@
-version: 2.1.99.{build}-{branch}
+version: 2.2.1.{build}-{branch}
 shallow_clone: true
 
 cache:
@@ -20,7 +20,7 @@ branches:
 
 environment:
   global:
-    QZ_VER: 2.1.99
+    QZ_VER: 2.2.1
     VSVER: 14
     ARCH: x86
     QMAKESPEC: win32-msvc
