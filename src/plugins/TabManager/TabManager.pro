@@ -39,6 +39,7 @@ TRANSLATIONS += \
     translations/lt.ts \
     translations/lv_LV.ts \
     translations/nl_NL.ts \
+    translations/nb_NO.ts \
     translations/pl_PL.ts \
     translations/pt_PT.ts \
     translations/ru_RU.ts \

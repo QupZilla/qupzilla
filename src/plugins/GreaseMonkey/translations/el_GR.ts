@@ -63,12 +63,12 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="197"/>
+        <location filename="../gm_manager.cpp" line="203"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="261"/>
+        <location filename="../gm_manager.cpp" line="267"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>Το «%1» είναι ήδη εγκατεστημένο</translation>
     </message>

@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="32"/>
+        <location filename="../sbi_imagesicon.cpp" line="33"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>修改图像载入设置（逐站点及全局）</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="56"/>
+        <location filename="../sbi_imagesicon.cpp" line="57"/>
         <source>Current Page Settings</source>
         <translation>当前页面设置</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="59"/>
+        <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Disable loading images (temporarily)</source>
         <translation>禁止载入图片（临时）</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="62"/>
+        <location filename="../sbi_imagesicon.cpp" line="63"/>
         <source>Enable loading images (temporarily)</source>
         <translation>允许载入图片（临时）</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="67"/>
         <source>Global Settings</source>
         <translation>全局设置</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="68"/>
+        <location filename="../sbi_imagesicon.cpp" line="69"/>
         <source>Automatically load images</source>
         <translation>自动载入图片</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="33"/>
+        <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>修改 JavaScript 设置（逐站点及全局）</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Current Page Settings</source>
         <translation>当前页面设置</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="53"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>禁止 JavaScript（临时）</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="56"/>
+        <location filename="../sbi_javascripticon.cpp" line="57"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>允许 JavaScript（临时）</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Global Settings</source>
         <translation>全局设置</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="66"/>
+        <location filename="../sbi_javascripticon.cpp" line="67"/>
         <source>Manage JavaScript settings</source>
         <translation>管理 JavaScript 设置</translation>
     </message>
@@ -68,52 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="64"/>
+        <location filename="../sbi_networkicon.cpp" line="65"/>
         <source>Proxy Configuration</source>
         <translation>代理服务器配置</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <location filename="../sbi_networkicon.cpp" line="67"/>
         <source>Select proxy</source>
         <translation>选择代理服务器</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="80"/>
+        <location filename="../sbi_networkicon.cpp" line="81"/>
         <source>Empty</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="85"/>
         <source>Manage proxies</source>
         <translation>管理代理的使用</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="97"/>
+        <location filename="../sbi_networkicon.cpp" line="98"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>显示网络状态和代理服务器&lt;br/&gt;&lt;br/&gt;&lt;b&gt;网络：&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;代理服务器：&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="100"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Connected</source>
         <translation>联机</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="103"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Offline</source>
         <translation>离线</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="108"/>
+        <location filename="../sbi_networkicon.cpp" line="109"/>
         <source>System proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="113"/>
         <source>No proxy</source>
         <translation>无代理服务器</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="117"/>
         <source>User defined</source>
         <translation>用户定义</translation>
     </message>
@@ -251,7 +251,7 @@
 <context>
     <name>SBI_ZoomWidget</name>
     <message>
-        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <location filename="../sbi_zoomwidget.cpp" line="48"/>
         <source>Zoom: %1%</source>
         <translation>缩放：%1%</translation>
     </message>

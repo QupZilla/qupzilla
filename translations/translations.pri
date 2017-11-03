@@ -26,6 +26,7 @@ TRANSLATIONS += \
     $$PWD/lg.ts \
     $$PWD/lt.ts \
     $$PWD/lv_LV.ts \
+    $$PWD/nb_NO.ts \
     $$PWD/nl_NL.ts \
     $$PWD/nqo.ts \
     $$PWD/pl_PL.ts \

@@ -31,6 +31,7 @@ TRANSLATIONS += \
     translations/is.ts \
     translations/it_IT.ts \
     translations/lt.ts \
+    translations/nb_NO.ts \
     translations/nl_NL.ts \
     translations/pt_PT.ts \
     translations/ru_RU.ts \

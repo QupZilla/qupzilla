@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="32"/>
+        <location filename="../sbi_imagesicon.cpp" line="33"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Keisti paveikslų įkėlimo nustatymus atskirai puslapiui ir visuotinai</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="56"/>
+        <location filename="../sbi_imagesicon.cpp" line="57"/>
         <source>Current Page Settings</source>
         <translation>Esamo puslapio nustatymai</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="59"/>
+        <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Išjungti paveikslų įkėlimą (laikinai)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="62"/>
+        <location filename="../sbi_imagesicon.cpp" line="63"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Įjungti paveikslų įkėlimą (laikinai)</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="67"/>
         <source>Global Settings</source>
         <translation>Visuotiniai nustatymai</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="68"/>
+        <location filename="../sbi_imagesicon.cpp" line="69"/>
         <source>Automatically load images</source>
         <translation>Automatiškai įkelti paveikslus</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="33"/>
+        <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Keisti JavaScript nustatymus atskirai puslapiui ir visuotinai</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Current Page Settings</source>
         <translation>Esamo puslapio nustatymai</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="53"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Išjungti JavaScript (laikinai)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="56"/>
+        <location filename="../sbi_javascripticon.cpp" line="57"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Įjungti JavaScript (laikinai)</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Global Settings</source>
         <translation>Visuotiniai nustatymai</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="66"/>
+        <location filename="../sbi_javascripticon.cpp" line="67"/>
         <source>Manage JavaScript settings</source>
         <translation>Tvarkyti JavaScript nustatymus</translation>
     </message>
@@ -68,52 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="64"/>
+        <location filename="../sbi_networkicon.cpp" line="65"/>
         <source>Proxy Configuration</source>
         <translation>Įgaliotojo serverio konfigūracija</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <location filename="../sbi_networkicon.cpp" line="67"/>
         <source>Select proxy</source>
         <translation>Pasirinkti įgaliotąjį serverį</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="80"/>
+        <location filename="../sbi_networkicon.cpp" line="81"/>
         <source>Empty</source>
         <translation>Tuščia</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="85"/>
         <source>Manage proxies</source>
         <translation>Tvarkyti įgaliotuosius serverius</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="97"/>
+        <location filename="../sbi_networkicon.cpp" line="98"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation>Rodo tinklo būseną ir tvarko įgaliotuosius serverius&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Tinklas:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Įgaliotasis serveris:&lt;/b&gt;&lt;br/&gt;%2</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="100"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Connected</source>
         <translation>Prisijungta</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="103"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Offline</source>
         <translation>Atsijungta</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="108"/>
+        <location filename="../sbi_networkicon.cpp" line="109"/>
         <source>System proxy</source>
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="113"/>
         <source>No proxy</source>
         <translation>Nėra įgaliotojo serverio</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="117"/>
         <source>User defined</source>
         <translation>Apibrėžta naudotojo</translation>
     </message>
@@ -251,7 +251,7 @@
 <context>
     <name>SBI_ZoomWidget</name>
     <message>
-        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <location filename="../sbi_zoomwidget.cpp" line="48"/>
         <source>Zoom: %1%</source>
         <translation>Mastelis: %1%</translation>
     </message>

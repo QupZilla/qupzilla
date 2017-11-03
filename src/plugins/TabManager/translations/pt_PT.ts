@@ -45,77 +45,77 @@
         <translation>Gestor de separadores</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="98"/>
+        <location filename="../tabmanagerwidget.cpp" line="106"/>
         <source>Local File System:</source>
         <translation>Sistema de ficheiros local:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="101"/>
+        <location filename="../tabmanagerwidget.cpp" line="109"/>
         <source>QupZilla:</source>
         <translation>QupZilla:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="104"/>
+        <location filename="../tabmanagerwidget.cpp" line="112"/>
         <source> [FTP]</source>
         <translation> [FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="250"/>
+        <location filename="../tabmanagerwidget.cpp" line="266"/>
         <source>Group by</source>
         <translation>Agrupar por</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="251"/>
+        <location filename="../tabmanagerwidget.cpp" line="267"/>
         <source>&amp;Window</source>
         <translation>&amp;Janela</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="272"/>
         <source>&amp;Domain</source>
         <translation>&amp;Domínio</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="261"/>
+        <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Host</source>
         <translation>Ser&amp;vidor</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="269"/>
+        <location filename="../tabmanagerwidget.cpp" line="285"/>
         <source>&amp;Show side by side</source>
         <translation>Mo&amp;strar lado a lado</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="275"/>
+        <location filename="../tabmanagerwidget.cpp" line="291"/>
         <source>&amp;Detach checked tabs</source>
         <translation>S&amp;eparar separadores assinalados</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="276"/>
+        <location filename="../tabmanagerwidget.cpp" line="292"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>Criar &amp;marcador para os separadores assinalados</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="293"/>
         <source>&amp;Close checked tabs</source>
         <translation>Fe&amp;char os separadores assinalados</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="528"/>
+        <location filename="../tabmanagerwidget.cpp" line="547"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Escolha a pasta para os marcadores:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="529"/>
+        <location filename="../tabmanagerwidget.cpp" line="548"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Criar marcador para os separadores selecionados</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="646"/>
+        <location filename="../tabmanagerwidget.cpp" line="665"/>
         <source>Window %1</source>
         <translation>Janela %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="647"/>
+        <location filename="../tabmanagerwidget.cpp" line="666"/>
         <source>Double click to switch</source>
         <translation>Duplo clique para trocar</translation>
     </message>

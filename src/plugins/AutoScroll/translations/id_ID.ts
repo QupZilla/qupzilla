@@ -7,17 +7,17 @@
         <translation>Pengaturan AutoScroll</translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="72"/>
+        <location filename="../autoscrollsettings.ui" line="68"/>
         <source>&lt;h1&gt;AutoScroll&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;AutoScroll&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="109"/>
+        <location filename="../autoscrollsettings.ui" line="105"/>
         <source>Scroll Divider:</source>
         <translation>Pemisah Scroll:</translation>
     </message>
     <message>
-        <location filename="../autoscrollsettings.ui" line="138"/>
+        <location filename="../autoscrollsettings.ui" line="134"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Setting higher divider will slow down scrolling</source>
         <translation>&lt;b&gt;Catatan:&lt;/b&gt; Penetapan pemisah yang tinggi dapat memperlambat scrolling</translation>
     </message>

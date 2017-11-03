@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="32"/>
+        <location filename="../sbi_imagesicon.cpp" line="33"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>Muokkaa kuvian lataamisen asetuksia sivukohtaisesti ja globaalisti</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="56"/>
+        <location filename="../sbi_imagesicon.cpp" line="57"/>
         <source>Current Page Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="59"/>
+        <location filename="../sbi_imagesicon.cpp" line="60"/>
         <source>Disable loading images (temporarily)</source>
         <translation>Poista kuvien lataaminen käytöstä tilapäisesti</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="62"/>
+        <location filename="../sbi_imagesicon.cpp" line="63"/>
         <source>Enable loading images (temporarily)</source>
         <translation>Lataa kuvat tilapäisesti</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="66"/>
+        <location filename="../sbi_imagesicon.cpp" line="67"/>
         <source>Global Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="68"/>
+        <location filename="../sbi_imagesicon.cpp" line="69"/>
         <source>Automatically load images</source>
         <translation>Lataa kuvat automaattisesti</translation>
     </message>
@@ -35,32 +35,32 @@
 <context>
     <name>SBI_JavaScriptIcon</name>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="33"/>
+        <location filename="../sbi_javascripticon.cpp" line="34"/>
         <source>Modify JavaScript settings per-site and globally</source>
         <translation>Muuta JavaScriptien asetuksia sivukohtaisesti ja globaalisti</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="50"/>
+        <location filename="../sbi_javascripticon.cpp" line="51"/>
         <source>Current Page Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="53"/>
+        <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Disable JavaScript (temporarily)</source>
         <translation>Poista JavaScriptit käytöstä väliaikaisesti</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="56"/>
+        <location filename="../sbi_javascripticon.cpp" line="57"/>
         <source>Enable JavaScript (temporarily)</source>
         <translation>Salli JavaScriptit väliaikaisesti</translation>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="65"/>
+        <location filename="../sbi_javascripticon.cpp" line="66"/>
         <source>Global Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_javascripticon.cpp" line="66"/>
+        <location filename="../sbi_javascripticon.cpp" line="67"/>
         <source>Manage JavaScript settings</source>
         <translation>Muuta JavaScriptien asetuksia</translation>
     </message>
@@ -68,52 +68,52 @@
 <context>
     <name>SBI_NetworkIcon</name>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="64"/>
+        <location filename="../sbi_networkicon.cpp" line="65"/>
         <source>Proxy Configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="66"/>
+        <location filename="../sbi_networkicon.cpp" line="67"/>
         <source>Select proxy</source>
         <translation>Valitse välityspalvelin</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="80"/>
+        <location filename="../sbi_networkicon.cpp" line="81"/>
         <source>Empty</source>
         <translation>Tyhjä</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="84"/>
+        <location filename="../sbi_networkicon.cpp" line="85"/>
         <source>Manage proxies</source>
         <translation>Muokkaa välityspalvelimia</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="97"/>
+        <location filename="../sbi_networkicon.cpp" line="98"/>
         <source>Shows network status and manages proxy&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Network:&lt;/b&gt;&lt;br/&gt;%1&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Proxy:&lt;/b&gt;&lt;br/&gt;%2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="100"/>
+        <location filename="../sbi_networkicon.cpp" line="101"/>
         <source>Connected</source>
         <translation>Yhdistetty</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="103"/>
+        <location filename="../sbi_networkicon.cpp" line="104"/>
         <source>Offline</source>
         <translation>Offline</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="108"/>
+        <location filename="../sbi_networkicon.cpp" line="109"/>
         <source>System proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="112"/>
+        <location filename="../sbi_networkicon.cpp" line="113"/>
         <source>No proxy</source>
         <translation>Ei välityspalvelinta</translation>
     </message>
     <message>
-        <location filename="../sbi_networkicon.cpp" line="116"/>
+        <location filename="../sbi_networkicon.cpp" line="117"/>
         <source>User defined</source>
         <translation type="unfinished"/>
     </message>
@@ -251,7 +251,7 @@
 <context>
     <name>SBI_ZoomWidget</name>
     <message>
-        <location filename="../sbi_zoomwidget.cpp" line="47"/>
+        <location filename="../sbi_zoomwidget.cpp" line="48"/>
         <source>Zoom: %1%</source>
         <translation type="unfinished"/>
     </message>

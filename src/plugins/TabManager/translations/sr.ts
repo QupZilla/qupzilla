@@ -45,77 +45,77 @@
         <translation>Менаџер језичака</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="98"/>
+        <location filename="../tabmanagerwidget.cpp" line="106"/>
         <source>Local File System:</source>
         <translation>Локални фајл систем:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="101"/>
+        <location filename="../tabmanagerwidget.cpp" line="109"/>
         <source>QupZilla:</source>
         <translation>Капзила:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="104"/>
+        <location filename="../tabmanagerwidget.cpp" line="112"/>
         <source> [FTP]</source>
         <translation>[ФТП]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="250"/>
+        <location filename="../tabmanagerwidget.cpp" line="266"/>
         <source>Group by</source>
         <translation>Групиши по</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="251"/>
+        <location filename="../tabmanagerwidget.cpp" line="267"/>
         <source>&amp;Window</source>
         <translation>&amp;прозору</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="272"/>
         <source>&amp;Domain</source>
         <translation>&amp;домену</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="261"/>
+        <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Host</source>
         <translation>до&amp;маћину</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="269"/>
+        <location filename="../tabmanagerwidget.cpp" line="285"/>
         <source>&amp;Show side by side</source>
         <translation>Прикажи &amp;један уз други</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="275"/>
+        <location filename="../tabmanagerwidget.cpp" line="291"/>
         <source>&amp;Detach checked tabs</source>
         <translation>&amp;Откачи означене језичке</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="276"/>
+        <location filename="../tabmanagerwidget.cpp" line="292"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>О&amp;бележи означене језичке</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="293"/>
         <source>&amp;Close checked tabs</source>
         <translation>&amp;Затвори означене језичке</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="528"/>
+        <location filename="../tabmanagerwidget.cpp" line="547"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Одредите фасциклу за обележиваче:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="529"/>
+        <location filename="../tabmanagerwidget.cpp" line="548"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Обележи изабране језичке</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="646"/>
+        <location filename="../tabmanagerwidget.cpp" line="665"/>
         <source>Window %1</source>
         <translation>Прозор %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="647"/>
+        <location filename="../tabmanagerwidget.cpp" line="666"/>
         <source>Double click to switch</source>
         <translation>Двоклик за пребацивање</translation>
     </message>

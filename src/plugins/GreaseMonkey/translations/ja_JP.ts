@@ -7,47 +7,47 @@
         <translation>GreaseMonkeyのインストール</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.ui" line="51"/>
+        <location filename="../gm_addscriptdialog.ui" line="45"/>
         <source>&lt;h3&gt;GreaseMonkey Installation&lt;/h3&gt;</source>
         <translation>&lt;h3&gt;GreaseMonkeyのインストール&lt;h3&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.ui" line="73"/>
+        <location filename="../gm_addscriptdialog.ui" line="67"/>
         <source>You are about to install this userscript into GreaseMonkey:</source>
         <translation>あなたはこのスクリプトをGreaseMonkeyにインストールしようとしています:</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.ui" line="86"/>
+        <location filename="../gm_addscriptdialog.ui" line="80"/>
         <source>&lt;b&gt;You should only install scripts from sources you trust!&lt;/b&gt;</source>
         <translation>&lt;b&gt;信頼できるソースからのみインストールしてください！&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.ui" line="96"/>
+        <location filename="../gm_addscriptdialog.ui" line="90"/>
         <source>Are you sure you want to install it?</source>
         <translation>本当にインストールしますか？</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.ui" line="114"/>
+        <location filename="../gm_addscriptdialog.ui" line="108"/>
         <source>Show source code of script</source>
         <translation>スクリプトのソースコードを表示</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="49"/>
+        <location filename="../gm_addscriptdialog.cpp" line="50"/>
         <source>&lt;p&gt;runs at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;実行するページ&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="53"/>
+        <location filename="../gm_addscriptdialog.cpp" line="54"/>
         <source>&lt;p&gt;does not run at&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;実行しないページ&lt;br/&gt;&lt;i&gt;%1&lt;/i&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="83"/>
+        <location filename="../gm_addscriptdialog.cpp" line="84"/>
         <source>Cannot install script</source>
         <translation>スクリプトのインストールに失敗しました</translation>
     </message>
     <message>
-        <location filename="../gm_addscriptdialog.cpp" line="86"/>
+        <location filename="../gm_addscriptdialog.cpp" line="87"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos;のインストールに成功しました</translation>
     </message>
@@ -63,12 +63,12 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="206"/>
+        <location filename="../gm_manager.cpp" line="203"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="270"/>
+        <location filename="../gm_manager.cpp" line="267"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation type="unfinished"/>
     </message>
@@ -76,22 +76,22 @@
 <context>
     <name>GM_Notification</name>
     <message>
-        <location filename="../gm_notification.ui" line="45"/>
+        <location filename="../gm_notification.ui" line="39"/>
         <source>This script can be installed with the GreaseMonkey plugin.</source>
         <translation>このスクリプトをGreasemonkeyでインストールできます。</translation>
     </message>
     <message>
-        <location filename="../gm_notification.ui" line="65"/>
+        <location filename="../gm_notification.ui" line="59"/>
         <source>Install</source>
         <translation>インストール</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="50"/>
+        <location filename="../gm_notification.cpp" line="51"/>
         <source>Cannot install script</source>
         <translation>スクリプトをインストールできません</translation>
     </message>
     <message>
-        <location filename="../gm_notification.cpp" line="58"/>
+        <location filename="../gm_notification.cpp" line="59"/>
         <source>&apos;%1&apos; installed successfully</source>
         <translation>&apos;%1&apos;のインストールに成功しました</translation>
     </message>
@@ -104,47 +104,47 @@
         <translation>GreaseMonkey スクリプト</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.ui" line="51"/>
+        <location filename="../settings/gm_settings.ui" line="48"/>
         <source>&lt;h3&gt;GreaseMonkey Scripts&lt;/h3&gt;</source>
         <translation>&lt;h3&gt;GreaseMonkey スクリプト&lt;/h3&gt;</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.ui" line="73"/>
+        <location filename="../settings/gm_settings.ui" line="70"/>
         <source>Double clicking script will show additional information</source>
         <translation>スクリプトをダブルクリックすると詳細が表示されます</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.ui" line="153"/>
+        <location filename="../settings/gm_settings.ui" line="150"/>
         <source>More scripts can be downloaded from</source>
         <translation>さらに多くのスクリプトが以下からインストールできます</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.ui" line="196"/>
+        <location filename="../settings/gm_settings.ui" line="193"/>
         <source>Open scripts directory</source>
         <translation>スクリプトの保存されたフォルダを開く</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.ui" line="203"/>
+        <location filename="../settings/gm_settings.ui" line="200"/>
         <source>New user script</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="90"/>
+        <location filename="../settings/gm_settings.cpp" line="91"/>
         <source>Remove script</source>
         <translation>スクリプトを削除する</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="91"/>
+        <location filename="../settings/gm_settings.cpp" line="92"/>
         <source>Are you sure you want to remove &apos;%1&apos;?</source>
         <translation>本当&apos;%1&apos;を削除してよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Add script</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../settings/gm_settings.cpp" line="121"/>
+        <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Choose name for script:</source>
         <translation type="unfinished"/>
     </message>

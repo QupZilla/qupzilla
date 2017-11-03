@@ -45,77 +45,77 @@
         <translation>分頁管理員</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="98"/>
+        <location filename="../tabmanagerwidget.cpp" line="106"/>
         <source>Local File System:</source>
         <translation>本地檔案系統：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="101"/>
+        <location filename="../tabmanagerwidget.cpp" line="109"/>
         <source>QupZilla:</source>
         <translation>QupZilla：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="104"/>
+        <location filename="../tabmanagerwidget.cpp" line="112"/>
         <source> [FTP]</source>
         <translation> [FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="250"/>
+        <location filename="../tabmanagerwidget.cpp" line="266"/>
         <source>Group by</source>
         <translation>分組按照</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="251"/>
+        <location filename="../tabmanagerwidget.cpp" line="267"/>
         <source>&amp;Window</source>
         <translation>視窗（&amp;W）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="272"/>
         <source>&amp;Domain</source>
         <translation>域名（&amp;D）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="261"/>
+        <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Host</source>
         <translation>主機（&amp;H）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="269"/>
+        <location filename="../tabmanagerwidget.cpp" line="285"/>
         <source>&amp;Show side by side</source>
         <translation>並排顯示（&amp;S）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="275"/>
+        <location filename="../tabmanagerwidget.cpp" line="291"/>
         <source>&amp;Detach checked tabs</source>
         <translation>所選分頁移往新視窗（&amp;D）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="276"/>
+        <location filename="../tabmanagerwidget.cpp" line="292"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>所選分頁加入到書籤（&amp;M）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="293"/>
         <source>&amp;Close checked tabs</source>
         <translation>關閉所選分頁（&amp;C）</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="528"/>
+        <location filename="../tabmanagerwidget.cpp" line="547"/>
         <source>Choose folder for bookmarks:</source>
         <translation>選取書籤資料夾：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="529"/>
+        <location filename="../tabmanagerwidget.cpp" line="548"/>
         <source>Bookmark Selected Tabs</source>
         <translation>所選分頁加入到書籤</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="646"/>
+        <location filename="../tabmanagerwidget.cpp" line="665"/>
         <source>Window %1</source>
         <translation>視窗%1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="647"/>
+        <location filename="../tabmanagerwidget.cpp" line="666"/>
         <source>Double click to switch</source>
         <translation>按兩下切換</translation>
     </message>

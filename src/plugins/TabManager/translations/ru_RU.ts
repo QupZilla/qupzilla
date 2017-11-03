@@ -45,77 +45,77 @@
         <translation>Менеджер вкладок</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="98"/>
+        <location filename="../tabmanagerwidget.cpp" line="106"/>
         <source>Local File System:</source>
         <translation>Локальная файловая система:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="101"/>
+        <location filename="../tabmanagerwidget.cpp" line="109"/>
         <source>QupZilla:</source>
         <translation>QupZilla:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="104"/>
+        <location filename="../tabmanagerwidget.cpp" line="112"/>
         <source> [FTP]</source>
         <translation> [FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="250"/>
+        <location filename="../tabmanagerwidget.cpp" line="266"/>
         <source>Group by</source>
         <translation>Группа</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="251"/>
+        <location filename="../tabmanagerwidget.cpp" line="267"/>
         <source>&amp;Window</source>
         <translation>&amp;Окно</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="272"/>
         <source>&amp;Domain</source>
         <translation>&amp;Домен</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="261"/>
+        <location filename="../tabmanagerwidget.cpp" line="277"/>
         <source>&amp;Host</source>
         <translation>&amp;Хост</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="269"/>
+        <location filename="../tabmanagerwidget.cpp" line="285"/>
         <source>&amp;Show side by side</source>
         <translation>&amp;Показать бок о бок</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="275"/>
+        <location filename="../tabmanagerwidget.cpp" line="291"/>
         <source>&amp;Detach checked tabs</source>
         <translation>&amp;Отделить проверенные вкладки</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="276"/>
+        <location filename="../tabmanagerwidget.cpp" line="292"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>&amp;Добавить проверенные вкладки в закладки</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="293"/>
         <source>&amp;Close checked tabs</source>
         <translation>&amp;Закрыть проверенные вкладки</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="528"/>
+        <location filename="../tabmanagerwidget.cpp" line="547"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Выберите папку для закладок:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="529"/>
+        <location filename="../tabmanagerwidget.cpp" line="548"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Закладка для выбранной кладки</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="646"/>
+        <location filename="../tabmanagerwidget.cpp" line="665"/>
         <source>Window %1</source>
         <translation>Окно %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="647"/>
+        <location filename="../tabmanagerwidget.cpp" line="666"/>
         <source>Double click to switch</source>
         <translation>Переключить двойным кликом</translation>
     </message>
