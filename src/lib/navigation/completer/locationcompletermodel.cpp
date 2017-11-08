@@ -77,7 +77,7 @@ QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
         query.append(QLatin1String("url LIKE ? OR url LIKE ? OR "));
     }
 
-    query.append(QLatin1String("(url LIKE ? OR url LIKE ?) LIMIT 1"));
+    query.append(QLatin1String("(url LIKE ? OR url LIKE ?) ORDER BY date DESC LIMIT 1"));
 
     QSqlQuery sqlQuery;
     sqlQuery.prepare(query);
