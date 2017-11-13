@@ -259,7 +259,7 @@ void IconProvider::saveIconsToDatabase()
         buffer.open(QIODevice::WriteOnly);
         ic.second.save(&buffer, "PNG");
         query.bindValue(0, buffer.data());
-        query.bindValue(1, encodeUrl(ic.first));
+        query.bindValue(1, QString::fromUtf8(encodeUrl(ic.first)));
 
         SqlDatabase::instance()->execAsync(query);
     }
