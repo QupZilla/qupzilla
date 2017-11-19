@@ -133,6 +133,7 @@ notRunning:
   File "${QZ_BIN_DIR}\qt.conf"
   File "${OPENSSL_BIN_DIR}\libeay32.dll"
   File "${OPENSSL_BIN_DIR}\ssleay32.dll"
+  File /nonfatal "${OPENSSL_BIN_DIR}\msvcr*.dll"
   File "${MSVC_REDIST_DIR}\*"
   File "${ICU_BIN_DIR}\icudt54.dll"
   File "${ICU_BIN_DIR}\icuin54.dll"
