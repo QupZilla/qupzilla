@@ -18,6 +18,9 @@ branches:
     - v1.6
     - v1.8
 
+image:
+    - Visual Studio 2015
+
 environment:
   global:
     QZ_VER: 2.2.1
@@ -28,13 +31,11 @@ environment:
     TOOLSDIR: C:\Qt\Tools\QtCreator
 
   matrix:
-    - QTDIR: C:\Qt\5.9\msvc2015
-    - QTDIR: C:\Qt\5.8\msvc2015
-      QMAKESPEC: win32-msvc2015
+    - QTDIR: C:\Qt\5.9.2\msvc2015
     - ARCH: x64
-      QTDIR: C:\Qt\5.9\msvc2015_64
+      QTDIR: C:\Qt\5.9.2\msvc2015_64
     - PORTABLE_BUILD: "true"
-      QTDIR: C:\Qt\5.9\msvc2015
+      QTDIR: C:\Qt\5.9.2\msvc2015
 
 install:
   - set QZ_DIR=%CD%
