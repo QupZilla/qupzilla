@@ -24,6 +24,7 @@ LangString DESC_SecProtocols ${LANG_ENGLISH} "Associate QupZilla with http(s) an
 ;
 LangString MSG_RunningInstance ${LANG_ENGLISH} "QupZilla is already running! Do you want the installer try to terminate it?"
 LangString MSG_InstallationCanceled ${LANG_ENGLISH} "Process cancelled by user."
+LangString MSG_InvalidInstallPath ${LANG_ENGLISH} "Install path invalid!"
 
 ;;;;Arabic
 LangString PRODUCT_DESC  ${LANG_ARABIC} "كَبزيلّا متصفّح للوب جديد سريع وآمن ومفتوح المصدر. يُرخَّص استخدامه وفق الإصدار الثالث من رخصة جنو العمومية (GPL) أو أي إصدار أحدث من ذلك (اختر كما تشاء). يُبنى كَبزيلّا على محرّك العرض WebKitوإطار العمل Qt."
