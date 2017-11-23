@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,9 +21,11 @@
 #include "browserwindow.h"
 #include "iconprovider.h"
 #include "settings.h"
+#include "mainapplication.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QWebEngineProfile>
 
 History::History(QObject* parent)
     : QObject(parent)
@@ -244,6 +246,8 @@ void History::clearHistory()
     QSqlQuery query;
     query.exec(QSL("DELETE FROM history"));
     query.exec(QSL("VACUUM"));
+
+    mApp->webProfile()->clearAllVisitedLinks();
 
     emit resetHistory();
 }
