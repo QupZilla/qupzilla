@@ -49,22 +49,22 @@
         <location filename="../fcm_dialog.cpp" line="277"/>
         <location filename="../fcm_dialog.cpp" line="305"/>
         <source>Origin:</source>
-        <translation type="unfinished"/>
+        <translation>Izvor:</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="152"/>
         <source>Extracted latin1 strings:</source>
-        <translation type="unfinished"/>
+        <translation>Izvlečeni nizi latin1:</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="182"/>
         <source>These flash cookies are stored on your computer:</source>
-        <translation type="unfinished"/>
+        <translation>Ti flash piškotki so shranjeni na vašem računalniku:</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="202"/>
         <source>Origin</source>
-        <translation type="unfinished"/>
+        <translation>Izvor</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="227"/>
@@ -147,12 +147,12 @@
     <message>
         <location filename="../fcm_dialog.ui" line="510"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; This settings are just applied to flash cookies, to manage HTTP cookies use &lt;span style=&quot; font-weight:600;&quot;&gt;Cookies Manager&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Opomba:&lt;/span&gt; Te nastavitve se uveljavljajo samo na flash piškotkih. Za upravljanje HTTP piškotkov uporabite &lt;span style=&quot; font-weight:600;&quot;&gt;Upravljalnik Piškotkov&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="538"/>
         <source>Notification: User will be notified for every new flash cookie that is not in blacklist and whitelist.</source>
-        <translation type="unfinished"/>
+        <translation>Obvestilo: Uporabnik bo obveščen o vsakem novem flash piškotku, ki ni na črnem ali belem seznamu.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="565"/>
@@ -205,12 +205,12 @@
         <location filename="../fcm_dialog.cpp" line="289"/>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Že na belem seznamu!</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="289"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Strežnik &quot;%1&quot; je že na belem seznamu, najprej ga odstranite.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="305"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>The origin &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Strežnik &quot;%1&quot; je že na črnem seznamu, najprej ga odstranite.</translation>
     </message>
 </context>
 <context>

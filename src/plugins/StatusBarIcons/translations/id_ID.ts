@@ -29,7 +29,7 @@
     <message>
         <location filename="../sbi_imagesicon.cpp" line="69"/>
         <source>Automatically load images</source>
-        <translation>Otomatis muat gambar</translation>
+        <translation>Muat gambar otomatis</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../sbi_javascripticon.cpp" line="54"/>
         <source>Disable JavaScript (temporarily)</source>
-        <translation>Non-aktifkan JavaScript (sementara)</translation>
+        <translation>Nonaktifkan JavaScript (sementara)</translation>
     </message>
     <message>
         <location filename="../sbi_javascripticon.cpp" line="57"/>
@@ -70,12 +70,12 @@
     <message>
         <location filename="../sbi_networkicon.cpp" line="65"/>
         <source>Proxy Configuration</source>
-        <translation>Konfigurasi Proxy</translation>
+        <translation>Konfigurasi Proksi</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="67"/>
         <source>Select proxy</source>
-        <translation>Pilih proxy</translation>
+        <translation>Pilih proksi</translation>
     </message>
     <message>
         <location filename="../sbi_networkicon.cpp" line="81"/>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Are you sure you want to remove current proxy?</source>
-        <translation type="unfinished"/>
+        <translation>Anda yakin ingin menghapus proksi saat ini?</translation>
     </message>
 </context>
 <context>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <source>S&amp;ystem proxy configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurasi proksi s&amp;istem</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurasi &amp;manual</translation>
     </message>
 </context>
 <context>

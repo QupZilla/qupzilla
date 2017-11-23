@@ -19,7 +19,7 @@
     <message>
         <location filename="../testplugin.cpp" line="178"/>
         <source>Hello</source>
-        <translation type="unfinished"/>
+        <translation>Zdravo</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="178"/>

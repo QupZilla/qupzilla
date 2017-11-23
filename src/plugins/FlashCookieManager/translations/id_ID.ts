@@ -4,12 +4,12 @@
     <message>
         <location filename="../fcm_dialog.ui" line="14"/>
         <source>Flash Cookies</source>
-        <translation>Kuki Flash</translation>
+        <translation>Cookie Flash</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="24"/>
         <source>Stored Flash Cookies</source>
-        <translation>Kuki Flash Tersimpan</translation>
+        <translation>Cookie Flash Tersimpan</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="45"/>
@@ -32,7 +32,7 @@
     <message>
         <location filename="../fcm_dialog.ui" line="83"/>
         <source>Last Modified:</source>
-        <translation>Terakhir diubah:</translation>
+        <translation>Terakhir Diubah</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="96"/>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../fcm_dialog.ui" line="182"/>
         <source>These flash cookies are stored on your computer:</source>
-        <translation>Kuki flash berikut tersimpan pada komputer Anda:</translation>
+        <translation>Cookie flash berikut tersimpan pada komputer Anda:</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="202"/>
@@ -79,28 +79,28 @@
     <message>
         <location filename="../fcm_dialog.ui" line="253"/>
         <source>Click to open containing folder</source>
-        <translation>Klik untuk membuka folder yang berisi</translation>
+        <translation>Klik untuk membuka folder</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="276"/>
         <source>Remove all flash cookies</source>
-        <translation>Hapus semua kuki flash</translation>
+        <translation>Hapus semua cookie flash</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="283"/>
         <location filename="../fcm_dialog.cpp" line="156"/>
         <source>Remove flash cookies</source>
-        <translation>Hapus kuki flash</translation>
+        <translation>Hapus cookie flash</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="308"/>
         <source>Flash Cookies Filtering</source>
-        <translation>Penyaring Kuki Flash</translation>
+        <translation>Penyaring Cookie Flash</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="316"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Flash cookie whitelist&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Daftar putih kuki flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Daftar putih cookie flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="348"/>
@@ -117,17 +117,17 @@
     <message>
         <location filename="../fcm_dialog.ui" line="364"/>
         <source>Flash cookies from these origins will not be deleted automatically. (Also detection of them will not be notified to user.)</source>
-        <translation>Kuki flash dari asal berikut tidak akan dihapus secara otomatis. (Juga deteksi mereka tidak akan diberitahukan kepada pengguna.)</translation>
+        <translation>Cookie flash dari sumber berikut tidak akan dihapus secara otomatis. (Juga deteksi mereka tidak akan diberitahukan kepada pengguna.)</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="374"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Flash cookie blacklist&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Daftar hitam kuki flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Daftar hitam cookie flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="381"/>
         <source>Flash cookies from these origins will be deleted without any notification.</source>
-        <translation>Kuki flash dari asal berikut akan dihapus tanpa pemberitahuan apapun.</translation>
+        <translation>Cookie flash dari sumber berikut akan dihapus tanpa pemberitahuan apapun.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="442"/>
@@ -137,27 +137,27 @@
     <message>
         <location filename="../fcm_dialog.ui" line="453"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Flash Cookie Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pengaturan Kuki Flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pengaturan Cookie Flash&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="475"/>
         <source>Auto mode: The flash data directory will be checked regularly. and flash cookies in blacklist will be deleted automatically.</source>
-        <translation>Mode Otomatis: Direktori data fash akan diperiksa secara berkala dan kuki flash didalam daftar hitam akan dihapus secara otomatis.</translation>
+        <translation>Mode Otomatis: Direktori data fash akan diperiksa secara berkala dan cookie flash di daftar hitam akan dihapus secara otomatis.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="510"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; This settings are just applied to flash cookies, to manage HTTP cookies use &lt;span style=&quot; font-weight:600;&quot;&gt;Cookies Manager&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Catatan:&lt;/span&gt; Pengaturan ini hanya diterapkan pada kuki flash, untuk mengatur kuki HTTP gunakan &lt;span style=&quot; font-weight:600;&quot;&gt;Manajer Kuki&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Catatan:&lt;/span&gt; Pengaturan ini hanya diterapkan pada cookie flash, untuk mengatur cookie HTTP gunakan &lt;span style=&quot; font-weight:600;&quot;&gt;Manajer Cookie&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="538"/>
         <source>Notification: User will be notified for every new flash cookie that is not in blacklist and whitelist.</source>
-        <translation>Notifikasi: Pengguna akan diberitahukan untuk setiap kuki flash baru yang tidak tercantum dalam daftar hitam dan daftar putih.</translation>
+        <translation>Notifikasi: Pengguna akan diberitahu untuk setiap cookie flash baru yang tidak tercantum dalam daftar hitam dan daftar putih.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="565"/>
         <source>Delete all flash cookies on exit/start. (except those are in whitelist)</source>
-        <translation>Hapus semua kuki flash saat keluar/mulai. (kecuali yang berada dalam daftar putih)</translation>
+        <translation>Hapus semua cookie flash saat keluar/mulai. (kecuali yang berada dalam daftar putih)</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="76"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="94"/>
         <source>Are you sure you want to delete all flash cookies on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>Apakah Anda yakin ingin menghapus semua kuki flash pada komputer Anda?</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="166"/>
@@ -188,7 +188,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="175"/>
         <source>Remove flash cookie</source>
-        <translation>Hapus kuki flash</translation>
+        <translation>Hapus cookie flash</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="241"/>
@@ -205,12 +205,12 @@
         <location filename="../fcm_dialog.cpp" line="289"/>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Telah ada di daftar putih!</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="289"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Server &quot;%1&quot; ada di daftar hitam, hapus dahulu.</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="305"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>The origin &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>Server &quot;%1&quot; ada di daftar putih, hapus dahulu.</translation>
     </message>
 </context>
 <context>
@@ -229,7 +229,7 @@
     <message>
         <location filename="../fcm_notification.ui" line="45"/>
         <source>New flash cookie was detected!</source>
-        <translation>Kuki flash baru telah terdeteksi!</translation>
+        <translation>Cookie flash baru telah terdeteksi!</translation>
     </message>
     <message>
         <location filename="../fcm_notification.ui" line="52"/>
@@ -239,12 +239,12 @@
     <message>
         <location filename="../fcm_notification.cpp" line="34"/>
         <source>A new flash cookie was detected</source>
-        <translation>Sebuah kuki flash baru telah terdeteksi</translation>
+        <translation>Sebuah cookie flash baru telah terdeteksi</translation>
     </message>
     <message>
         <location filename="../fcm_notification.cpp" line="37"/>
         <source>%1 new flash cookies were detected</source>
-        <translation>%1 kuki flash baru telah terdeteksi</translation>
+        <translation>%1 cookie flash baru telah terdeteksi</translation>
     </message>
 </context>
 <context>
@@ -252,12 +252,12 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="129"/>
         <source>Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Manajer Kuki Flash</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="357"/>
         <source>Show Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Tampilkan Manajer Kuki Flash</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="439"/>

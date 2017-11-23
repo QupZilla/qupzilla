@@ -70,7 +70,7 @@
     <message>
         <location filename="../gm_manager.cpp" line="267"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; telah terpasang</translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="200"/>
         <source>New user script</source>
-        <translation type="unfinished"/>
+        <translation>Skrip pengguna baru</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="91"/>
@@ -141,12 +141,12 @@
     <message>
         <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Add script</source>
-        <translation type="unfinished"/>
+        <translation>Tambah skrip</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Choose name for script:</source>
-        <translation type="unfinished"/>
+        <translation>Pilih nama untuk skrip:</translation>
     </message>
 </context>
 <context>

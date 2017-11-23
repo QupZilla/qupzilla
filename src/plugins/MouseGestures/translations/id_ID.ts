@@ -69,7 +69,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="147"/>
         <source>Press and hold the mouse button and move your mouse in the indicated directions.</source>
-        <translation>Tekan dan tahan tombol mouse dan gerakan mouse Anda ke arah yang ditunjukkan.</translation>
+        <translation>Tekan dan tahan tombol mouse dan gerakan mouse anda ke arah yang ditunjukkan.</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="250"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Duplikasi&lt;/b&gt;&lt;br/&gt;Duplikasi tab saat ini</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

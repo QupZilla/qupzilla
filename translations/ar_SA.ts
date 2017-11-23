@@ -669,7 +669,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="341"/>
         <source>Are you sure you want to open all bookmarks from &apos;%1&apos; folder in tabs?</source>
-        <translation type="unfinished"/>
+        <translation>أمتأكد من فتح كل العلامات من مجلد ’%1‘ في ألسنة؟</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="435"/>
@@ -1772,12 +1772,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="303"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>صفحة HTML واحدة (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="304"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>صفحة HTML كاملة (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
@@ -2388,12 +2388,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="148"/>
         <source>Enter address or search with %1</source>
-        <translation type="unfinished"/>
+        <translation>أدخل عنوانا أو ابحث باستخدام %1</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="150"/>
         <source>Enter address</source>
-        <translation type="unfinished"/>
+        <translation>أدخل عنوانا</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2406,7 +2406,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="169"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>انتقل إلى اللسان</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="172"/>
@@ -3232,7 +3232,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="607"/>
         <source>Enable instant Bookmarks ToolBar</source>
-        <translation type="unfinished"/>
+        <translation>فعّل شريط أدوات العلامات الآني</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="616"/>
@@ -3483,7 +3483,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/preferences/preferences.ui" line="1114"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation type="unfinished"/>
+        <translation>اطبع خلفية العنصر</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1121"/>
@@ -3868,27 +3868,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2363"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>لمعلومات أكثر عن التدقيق الإملائي رجاء طالع &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;الويكي&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;خيارات التدقيق الإملائي&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>فعّل التدقيق الإملائي</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2419"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;أدلة القواميس&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
         <source>No languages found</source>
-        <translation type="unfinished"/>
+        <translation>لم يُعثر على لغات</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2484"/>
@@ -4680,12 +4680,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>Rename Session</source>
-        <translation type="unfinished"/>
+        <translation>غير اسم الجلسة</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Please enter a new name:</source>
-        <translation type="unfinished"/>
+        <translation>رجاء أدخل اسما جديدا:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
@@ -4694,14 +4694,14 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>خطأ</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
         <source>The session file &quot;%1&quot; exists. Please enter another name.</source>
-        <translation type="unfinished"/>
+        <translation>ملف الجلسة ”%1“ موجود. رجاء أدخل اسما آخرا.</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="142"/>
@@ -5443,7 +5443,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="404"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>كَبزيلا %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="679"/>

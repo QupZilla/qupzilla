@@ -34,6 +34,7 @@ TRANSLATIONS += \
     translations/fr_FR.ts \
     translations/he_IL.ts \
     translations/hr_HR.ts \
+    translations/id_ID.ts \
     translations/is.ts \
     translations/it_IT.ts \
     translations/lt.ts \
