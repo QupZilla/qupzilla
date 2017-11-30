@@ -47,3 +47,14 @@ unix:contains(DEFINES, "NO_SYSTEM_DATAPATH") {
    QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$${library_folder}
    message(QMAKE_LFLAGS: $$QMAKE_LFLAGS)
 }
+
+DISTFILES += \
+    manifest.xml
+
+win32 {
+    WINSDK_DIR = C:/Program Files (x86)/Windows Kits/10
+    WIN_PWD = $$replace(PWD, /, \\)
+    OUT_PWD_WIN = $$replace(DESTDIR, /, \\)
+    QMAKE_POST_LINK += \
+        "$$WINSDK_DIR/bin/x86/mt.exe -manifest $$quote($$WIN_PWD\\manifest.xml) -outputresource:$$quote($$OUT_PWD_WIN\\$$basename(TARGET).exe;1)"
+}

@@ -223,6 +223,7 @@ SOURCES += \
     webtab/searchtoolbar.cpp \
     webtab/tabbedwebview.cpp \
     webtab/webtab.cpp \
+    tools/qzsysinfo.cpp
 
 HEADERS  += \
     3rdparty/fancytabwidget.h \
@@ -409,6 +410,7 @@ HEADERS  += \
     webtab/searchtoolbar.h \
     webtab/tabbedwebview.h \
     webtab/webtab.h \
+    tools/qzsysinfo.h
 
 FORMS    += \
     adblock/adblockaddsubscriptiondialog.ui \
