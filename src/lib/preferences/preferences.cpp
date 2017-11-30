@@ -210,8 +210,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->showStatusbar->setChecked(settings.value("showStatusBar", false).toBool());
     // NOTE: instantBookmarksToolbar and showBookmarksToolbar cannot be both enabled at the same time
     ui->instantBookmarksToolbar->setChecked(settings.value("instantBookmarksToolbar", false).toBool());
-    ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", true).toBool());
-    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar", true).toBool());
+    ui->showBookmarksToolbar->setChecked(settings.value("showBookmarksToolbar", false).toBool());
+    ui->instantBookmarksToolbar->setDisabled(settings.value("showBookmarksToolbar", false).toBool());
     ui->showBookmarksToolbar->setDisabled(settings.value("instantBookmarksToolbar").toBool());
     connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
     connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
@@ -220,7 +220,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
     ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
     ui->showReloadStopButtons->setChecked(settings.value("showReloadButton", true).toBool());
-    ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
+    ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", false).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
 
@@ -233,7 +233,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->openPopupsInTabs->setChecked(settings.value("OpenPopupsInTabs", false).toBool());
     ui->alwaysSwitchTabsWithWheel->setChecked(settings.value("AlwaysSwitchTabsWithWheel", false).toBool());
     ui->switchToNewTabs->setChecked(settings.value("OpenNewTabsSelected", false).toBool());
-    ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", false).toBool());
+    ui->dontCloseOnLastTab->setChecked(settings.value("dontCloseWithOneTab", true).toBool());
     ui->askWhenClosingMultipleTabs->setChecked(settings.value("AskOnClosing", false).toBool());
     ui->showClosedTabsButton->setChecked(settings.value("showClosedTabsButton", false).toBool());
     ui->showCloseOnInactive->setCurrentIndex(settings.value("showCloseOnInactiveTabs", 0).toInt());
@@ -261,7 +261,7 @@ Preferences::Preferences(BrowserWindow* window)
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");
-    bool searchFromAB = settings.value("SearchFromAddressBar", true).toBool();
+    bool searchFromAB = settings.value("SearchFromAddressBar", false).toBool();
     ui->searchFromAddressBar->setChecked(searchFromAB);
     ui->searchWithDefaultEngine->setEnabled(searchFromAB);
     ui->searchWithDefaultEngine->setChecked(settings.value("SearchWithDefaultEngine", false).toBool());
@@ -325,7 +325,7 @@ Preferences::Preferences(BrowserWindow* window)
     //DOWNLOADS
     settings.beginGroup("DownloadManager");
     ui->downLoc->setText(settings.value("defaultDownloadPath", "").toString());
-    ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", false).toBool());
+    ui->closeDownManOnFinish->setChecked(settings.value("CloseManagerOnFinish", true).toBool());
     if (ui->downLoc->text().isEmpty()) {
         ui->askEverytime->setChecked(true);
     }

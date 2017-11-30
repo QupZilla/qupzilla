@@ -117,7 +117,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #define ADBLOCK_EASYLIST_URL "https://easylist-downloads.adblockplus.org/easylist.txt"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
-#define DEFAULT_THEME_NAME "windows"
+#define DEFAULT_THEME_NAME "chrome"
 #elif defined(Q_OS_MACOS)
 #define DEFAULT_THEME_NAME "mac"
 #elif defined(Q_OS_UNIX)
@@ -127,7 +127,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 #endif
 
 #ifdef Q_OS_WIN
-#define DISABLE_CHECK_UPDATES false
+#define DISABLE_CHECK_UPDATES true
 #else
 #define DISABLE_CHECK_UPDATES true
 #endif

@@ -434,8 +434,8 @@ void BrowserWindow::loadSettings()
     bool showHomeButton = settings.value("showHomeButton", true).toBool();
     bool showBackForwardButtons = settings.value("showBackForwardButtons", true).toBool();
     bool showAddTabButton = settings.value("showAddTabButton", false).toBool();
-    bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
-    bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
+    bool showWebSearchBar = settings.value("showWebSearchBar", false).toBool();
+    bool showBookmarksToolbar = settings.value("showBookmarksToolbar", false).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", false).toBool();
     m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
@@ -466,7 +466,7 @@ void BrowserWindow::loadSettings()
     }
     settings.endGroup();
 
-    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
+    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", false).toBool());
 
     statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);

@@ -40,7 +40,7 @@ void QzSettings::loadSettings()
     settings.beginGroup("SearchEngines");
     showSearchSuggestions = settings.value("showSuggestions", true).toBool();
     searchOnEngineChange = settings.value("SearchOnEngineChange", true).toBool();
-    searchFromAddressBar = settings.value("SearchFromAddressBar", true).toBool();
+    searchFromAddressBar = settings.value("SearchFromAddressBar", false).toBool();
     searchWithDefaultEngine = settings.value("SearchWithDefaultEngine", false).toBool();
     settings.endGroup();
 
@@ -53,7 +53,7 @@ void QzSettings::loadSettings()
 
     settings.beginGroup("Browser-Tabs-Settings");
     newTabPosition = settings.value("OpenNewTabsSelected", false).toBool() ? Qz::NT_CleanSelectedTab : Qz::NT_CleanNotSelectedTab;
-    tabsOnTop = settings.value("TabsOnTop", true).toBool();
+    tabsOnTop = settings.value("TabsOnTop", false).toBool();
     openPopupsInTabs = settings.value("OpenPopupsInTabs", false).toBool();
     alwaysSwitchTabsWithWheel = settings.value("AlwaysSwitchTabsWithWheel", false).toBool();
     settings.endGroup();
