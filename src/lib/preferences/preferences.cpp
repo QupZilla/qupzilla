@@ -315,7 +315,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->deleteHtml5storageOnClose->setChecked(settings.value("deleteHTML5StorageOnClose", false).toBool());
     connect(ui->html5storage, SIGNAL(toggled(bool)), this, SLOT(allowHtml5storageChanged(bool)));
     // Other
-    ui->doNotTrack->setChecked(settings.value("DoNotTrack", false).toBool());
+    ui->doNotTrack->setChecked(settings.value("DoNotTrack", true).toBool());
 
     //CSS Style
     ui->userStyleSheet->setText(settings.value("userStyleSheet", "").toString());
