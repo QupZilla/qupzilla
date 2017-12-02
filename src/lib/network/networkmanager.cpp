@@ -238,13 +238,28 @@ void NetworkManager::loadSettings()
 
     QNetworkProxy proxy;
     settings.beginGroup("Web-Proxy");
-    proxy.setType(QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt()));
+    const int proxyType = settings.value("ProxyType", 2).toInt();
     proxy.setHostName(settings.value("HostName", QString()).toString());
     proxy.setPort(settings.value("Port", 8080).toInt());
     proxy.setUser(settings.value("Username", QString()).toString());
     proxy.setPassword(settings.value("Password", QString()).toString());
     settings.endGroup();
-    QNetworkProxy::setApplicationProxy(proxy);
+
+    if (proxyType == 0) {
+        proxy.setType(QNetworkProxy::NoProxy);
+    } else if (proxyType == 3) {
+        proxy.setType(QNetworkProxy::HttpProxy);
+    } else if (proxyType == 4) {
+        proxy.setType(QNetworkProxy::Socks5Proxy);
+    }
+
+    if (proxyType == 2) {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy());
+        QNetworkProxyFactory::setUseSystemConfiguration(true);
+    } else {
+        QNetworkProxy::setApplicationProxy(proxy);
+        QNetworkProxyFactory::setUseSystemConfiguration(false);
+    }
 
     m_urlInterceptor->loadSettings();
 }
