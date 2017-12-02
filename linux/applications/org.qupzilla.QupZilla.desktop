@@ -78,6 +78,7 @@ GenericName[fa]=مرورگر وب
 GenericName[ar]=متصفح وِب
 GenericName[fi]=WWW-selain
 Exec=qupzilla %u
+StartupWMClass=QupZilla
 MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;application/x-mimearchive;
 Terminal=false
 Actions=NewTab;NewWindow;PrivateBrowsing;
