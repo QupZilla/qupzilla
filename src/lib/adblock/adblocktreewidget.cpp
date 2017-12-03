@@ -192,14 +192,14 @@ void AdBlockTreeWidget::subscriptionError(const QString &message)
 void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockRule* rule)
 {
     if (!rule->isEnabled()) {
-        QFont font;
-        font.setItalic(true);
         item->setForeground(0, QColor(Qt::gray));
 
         if (!rule->isComment()) {
+            QFont f = font();
+            f.setItalic(true);
             item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
             item->setCheckState(0, Qt::Unchecked);
-            item->setFont(0, font);
+            item->setFont(0, f);
         }
 
         return;
@@ -207,6 +207,8 @@ void AdBlockTreeWidget::adjustItemFeatures(QTreeWidgetItem* item, const AdBlockR
 
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(0, Qt::Checked);
+    item->setForeground(0, palette().foreground());
+    item->setFont(0, font());
 
     if (rule->isException()) {
         item->setForeground(0, QColor(Qt::darkGreen));
