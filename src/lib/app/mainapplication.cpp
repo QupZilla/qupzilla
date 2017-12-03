@@ -452,15 +452,11 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
     window->setUpdatesEnabled(true);
 
-    processEvents();
-
     foreach (const RestoreManager::WindowData &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
         window->setUpdatesEnabled(false);
         window->restoreWindowState(data);
         window->setUpdatesEnabled(true);
-
-        processEvents();
     }
 
     restoreOverrideCursor();
