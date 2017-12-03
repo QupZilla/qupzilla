@@ -45,10 +45,13 @@ UserAgentDialog::UserAgentDialog(QWidget* parent)
         os.prepend(QL1S("Wayland; "));
 #endif
 
+    QRegularExpression chromeRx(QSL("Chrome/([^\\s]+)"));
+    const QString chromeVersion = chromeRx.match(m_manager->defaultUserAgent()).captured(1);
+
     m_knownUserAgents << QString("Opera/9.80 (%1) Presto/2.12.388 Version/12.16").arg(os)
-                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36").arg(os)
+                      << QString("Mozilla/5.0 (%1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/%2 Safari/537.36").arg(os, chromeVersion)
                       << QString("Mozilla/5.0 (%1) AppleWebKit/602.3.12 (KHTML, like Gecko) Version/10.0.2 Safari/602.3.12").arg(os)
-                      << QString("Mozilla/5.0 (%1; rv:50.0) Gecko/20100101 Firefox/50.0").arg(os);
+                      << QString("Mozilla/5.0 (%1; rv:57.0) Gecko/20100101 Firefox/57.0").arg(os);
 
     ui->globalComboBox->addItems(m_knownUserAgents);
 
