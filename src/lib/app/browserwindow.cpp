@@ -664,10 +664,9 @@ void BrowserWindow::loadAddress(const QUrl &url)
     if (weView()->webTab()->isPinned()) {
         int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
         weView(index)->setFocus();
-    }
-    else {
-        weView()->setFocus();
+    } else {
         weView()->load(url);
+        weView()->setFocus();
     }
 }
 
@@ -1292,12 +1291,14 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
                 number = m_tabWidget->count();
             }
             m_tabWidget->setCurrentIndex(number - 1);
+            event->accept();
             return;
         }
         if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
             const QUrl url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
                 loadAddress(url);
+                event->accept();
                 return;
             }
         }
