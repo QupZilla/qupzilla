@@ -123,13 +123,6 @@ bool AutoScroller::mouseMove(QObject* obj, QMouseEvent* event)
             ylength = event->globalPos().y() - rect.bottom();
         }
 
-        if (!m_indicator->orientations().testFlag(Qt::Vertical)) {
-            ylength = 0;
-        }
-        if (!m_indicator->orientations().testFlag(Qt::Horizontal)) {
-            xlength = 0;
-        }
-
         m_frameScroller->startScrolling(xlength, ylength);
     }
 
