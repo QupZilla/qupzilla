@@ -684,6 +684,10 @@ void MainApplication::quitApplication()
 
     m_isClosing = true;
 
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        window->close();
+    }
+
     // Saving settings in saveSettings() slot called from quit() so
     // everything gets saved also when quitting application in other
     // way than clicking Quit action in File menu or closing last window

@@ -1342,6 +1342,7 @@ void BrowserWindow::keyReleaseEvent(QKeyEvent* event)
 void BrowserWindow::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
+        saveSettings();
         return;
     }
 
