@@ -230,16 +230,7 @@ void BrowserWindow::postLaunch()
 
     raise();
     activateWindow();
-
-    QTimer::singleShot(0, this, [this]() {
-        // Scroll to current tab
-        tabWidget()->tabBar()->ensureVisible();
-        // Update focus
-        if (!m_startPage && LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
-            locationBar()->setFocus();
-        else
-            weView()->setFocus();
-    });
+    updateStartupFocus();
 }
 
 void BrowserWindow::setupUi()
@@ -381,6 +372,19 @@ void BrowserWindow::setupMenu()
 
     QShortcut* inspectorAction = new QShortcut(QKeySequence(QSL("F12")), this);
     connect(inspectorAction, SIGNAL(activated()), this, SLOT(toggleWebInspector()));
+}
+
+void BrowserWindow::updateStartupFocus()
+{
+    QTimer::singleShot(500, this, [this]() {
+        // Scroll to current tab
+        tabWidget()->tabBar()->ensureVisible();
+        // Update focus
+        if (!m_startPage && LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
+            locationBar()->setFocus();
+        else
+            weView()->setFocus();
+    });
 }
 
 QAction* BrowserWindow::createEncodingAction(const QString &codecName,
@@ -884,6 +888,7 @@ void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 {
     restoreState(d.windowState);
     m_tabWidget->restoreState(d.tabsState, d.currentTab);
+    updateStartupFocus();
 }
 
 void BrowserWindow::createToolbarsMenu(QMenu* menu)

@@ -170,6 +170,7 @@ private:
 
     void setupUi();
     void setupMenu();
+    void updateStartupFocus();
 
     QAction *createEncodingAction(const QString &codecName, const QString &activeCodecName,
                                   QMenu *menu);
