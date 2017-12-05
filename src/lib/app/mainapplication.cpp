@@ -452,15 +452,11 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
     window->setUpdatesEnabled(true);
 
-    processEvents();
-
     foreach (const RestoreManager::WindowData &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
         window->setUpdatesEnabled(false);
         window->restoreWindowState(data);
         window->setUpdatesEnabled(true);
-
-        processEvents();
     }
 
     restoreOverrideCursor();
@@ -687,6 +683,10 @@ void MainApplication::quitApplication()
     }
 
     m_isClosing = true;
+
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        window->close();
+    }
 
     // Saving settings in saveSettings() slot called from quit() so
     // everything gets saved also when quitting application in other

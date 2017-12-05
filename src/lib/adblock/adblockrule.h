@@ -104,6 +104,7 @@ public:
     bool matchObjectSubrequest(const QWebEngineUrlRequestInfo &request) const;
     bool matchPing(const QWebEngineUrlRequestInfo &request) const;
     bool matchMedia(const QWebEngineUrlRequestInfo &request) const;
+    bool matchFont(const QWebEngineUrlRequestInfo &request) const;
     bool matchOther(const QWebEngineUrlRequestInfo &request) const;
 
 protected:
@@ -136,11 +137,12 @@ private:
         ObjectSubrequestOption = 256,
         PingOption = 512,
         MediaOption = 1024,
-        OtherOption = 2048,
+        FontOption = 2048,
+        OtherOption = 4096,
 
         // Exception only options
-        DocumentOption = 4096,
-        ElementHideOption = 8192
+        DocumentOption = 8192,
+        ElementHideOption = 16384
     };
 
     Q_DECLARE_FLAGS(RuleOptions, RuleOption)

@@ -270,6 +270,11 @@ bool AdBlockRule::networkMatch(const QWebEngineUrlRequestInfo &request, const QS
         if (hasOption(MediaOption) && !matchMedia(request)) {
             return false;
         }
+
+        // Check font restriction
+        if (hasOption(FontOption) && !matchFont(request)) {
+            return false;
+        }
     }
 
     return matched;
@@ -391,6 +396,13 @@ bool AdBlockRule::matchMedia(const QWebEngineUrlRequestInfo &request) const
     return hasException(MediaOption) ? !match : match;
 }
 
+bool AdBlockRule::matchFont(const QWebEngineUrlRequestInfo &request) const
+{
+    bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeFontResource;
+
+    return hasException(FontOption) ? !match : match;
+}
+
 bool AdBlockRule::matchOther(const QWebEngineUrlRequestInfo &request) const
 {
     bool match = request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeFontResource
@@ -506,6 +518,11 @@ void AdBlockRule::parseFilter()
             else if (option.endsWith(QL1S("media"))) {
                 setOption(MediaOption);
                 setException(MediaOption, option.startsWith(QL1C('~')));
+                ++handledOptions;
+            }
+            else if (option.endsWith(QL1S("font"))) {
+                setOption(FontOption);
+                setException(FontOption, option.startsWith(QL1C('~')));
                 ++handledOptions;
             }
             else if (option.endsWith(QL1S("other"))) {

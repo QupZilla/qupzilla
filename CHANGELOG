@@ -1,3 +1,19 @@
+Version 2.2.2
+    * released 05 December 2017
+    * updated available user agent strings
+    * added support for "font" option in AdBlock
+    * fix build with Qt 5.10
+    * fix build on macOS < 10.12
+    * fix showing irrelevant domain completions in locationbar
+    * fix showing site icons on some systems
+    * fix clearing visited links when clearing history
+    * fix using system network proxy configuration
+    * fix saving window geometry when closing app with Ctrl+Q shortcut
+    * fix various issues with web page not being focused after restoring session
+    * fix AutoScroll plugin not being able to scroll to all directions in some cases
+    * Linux: add StartupWMClass to desktop file
+    * Windows: fix possible isssue with uninstaller removing more files than it should
+
 Version 2.2.1
     * released 01 November 2017
     * fix build with Qt 5.10

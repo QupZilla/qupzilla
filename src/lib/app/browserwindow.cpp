@@ -230,16 +230,7 @@ void BrowserWindow::postLaunch()
 
     raise();
     activateWindow();
-
-    QTimer::singleShot(0, this, [this]() {
-        // Scroll to current tab
-        tabWidget()->tabBar()->ensureVisible();
-        // Update focus
-        if (!m_startPage && LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
-            locationBar()->setFocus();
-        else
-            weView()->setFocus();
-    });
+    updateStartupFocus();
 }
 
 void BrowserWindow::setupUi()
@@ -381,6 +372,19 @@ void BrowserWindow::setupMenu()
 
     QShortcut* inspectorAction = new QShortcut(QKeySequence(QSL("F12")), this);
     connect(inspectorAction, SIGNAL(activated()), this, SLOT(toggleWebInspector()));
+}
+
+void BrowserWindow::updateStartupFocus()
+{
+    QTimer::singleShot(500, this, [this]() {
+        // Scroll to current tab
+        tabWidget()->tabBar()->ensureVisible();
+        // Update focus
+        if (!m_startPage && LocationBar::convertUrlToText(weView()->page()->requestedUrl()).isEmpty())
+            locationBar()->setFocus();
+        else
+            weView()->setFocus();
+    });
 }
 
 QAction* BrowserWindow::createEncodingAction(const QString &codecName,
@@ -664,10 +668,9 @@ void BrowserWindow::loadAddress(const QUrl &url)
     if (weView()->webTab()->isPinned()) {
         int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
         weView(index)->setFocus();
-    }
-    else {
-        weView()->setFocus();
+    } else {
         weView()->load(url);
+        weView()->setFocus();
     }
 }
 
@@ -885,6 +888,7 @@ void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 {
     restoreState(d.windowState);
     m_tabWidget->restoreState(d.tabsState, d.currentTab);
+    updateStartupFocus();
 }
 
 void BrowserWindow::createToolbarsMenu(QMenu* menu)
@@ -1292,12 +1296,14 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
                 number = m_tabWidget->count();
             }
             m_tabWidget->setCurrentIndex(number - 1);
+            event->accept();
             return;
         }
         if (event->modifiers() & Qt::ControlModifier && m_useSpeedDialNumberShortcuts) {
             const QUrl url = mApp->plugins()->speedDial()->urlForShortcut(number - 1);
             if (url.isValid()) {
                 loadAddress(url);
+                event->accept();
                 return;
             }
         }
@@ -1336,6 +1342,7 @@ void BrowserWindow::keyReleaseEvent(QKeyEvent* event)
 void BrowserWindow::closeEvent(QCloseEvent* event)
 {
     if (mApp->isClosing()) {
+        saveSettings();
         return;
     }
 

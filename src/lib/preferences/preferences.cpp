@@ -498,15 +498,17 @@ Preferences::Preferences(BrowserWindow* window)
 
     // Proxy Configuration
     settings.beginGroup("Web-Proxy");
-    QNetworkProxy::ProxyType proxyType = QNetworkProxy::ProxyType(settings.value("ProxyType", QNetworkProxy::NoProxy).toInt());
-
-    ui->systemProxy->setChecked(proxyType == QNetworkProxy::NoProxy);
-    ui->manualProxy->setChecked(proxyType != QNetworkProxy::NoProxy);
-    if (proxyType == QNetworkProxy::Socks5Proxy) {
-        ui->proxyType->setCurrentIndex(1);
-    }
-    else {
+    int proxyType = settings.value("ProxyType", 1).toInt();
+    if (proxyType == 0) {
+        ui->noProxy->setChecked(true);
+    } else if (proxyType == 2) {
+        ui->systemProxy->setChecked(true);
+    } else if (proxyType == 3) {
+        ui->manualProxy->setChecked(true);
         ui->proxyType->setCurrentIndex(0);
+    } else {
+        ui->manualProxy->setChecked(true);
+        ui->proxyType->setCurrentIndex(1);
     }
 
     ui->proxyServer->setText(settings.value("HostName", "").toString());
@@ -515,8 +517,7 @@ Preferences::Preferences(BrowserWindow* window)
     ui->proxyPassword->setText(settings.value("Password", "").toString());
     settings.endGroup();
 
-    setManualProxyConfigurationEnabled(proxyType != QNetworkProxy::NoProxy);
-
+    setManualProxyConfigurationEnabled(ui->manualProxy->isChecked());
     connect(ui->manualProxy, SIGNAL(toggled(bool)), this, SLOT(setManualProxyConfigurationEnabled(bool)));
 
     //CONNECTS
@@ -1046,15 +1047,15 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     //Proxy Configuration
-    QNetworkProxy::ProxyType proxyType;
-    if (ui->systemProxy->isChecked()) {
-        proxyType = QNetworkProxy::NoProxy;
-    }
-    else if (ui->proxyType->currentIndex() == 0) {
-        proxyType = QNetworkProxy::HttpProxy;
-    }
-    else {
-        proxyType = QNetworkProxy::Socks5Proxy;
+    int proxyType;
+    if (ui->noProxy->isChecked()) {
+        proxyType = 0;
+    } else if (ui->systemProxy->isChecked()) {
+        proxyType = 2;
+    } else if (ui->proxyType->currentIndex() == 0) { // Http
+        proxyType = 3;
+    } else { // Socks5
+        proxyType = 4;
     }
 
     settings.beginGroup("Web-Proxy");
