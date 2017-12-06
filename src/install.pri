@@ -47,7 +47,7 @@ mac {
     bashcompletion.path = $$share_folder/bash-completion/completions
 
     appdata.files = $$PWD/../linux/appdata/org.qupzilla.QupZilla.appdata.xml
-    appdata.path = $$share_folder/appdata
+    appdata.path = $$share_folder/metainfo
 
 
     INSTALLS += target target1 target2 target3
