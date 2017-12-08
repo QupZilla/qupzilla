@@ -47,9 +47,6 @@ hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "
       fi
     done
 
-    # iconutil will only pick what it needs
-    iconutil -c icns "$ICONSETDIR" -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
-
     echo "Creating application reference folder…"
     mkdir "$TMP/$VOLUME_TEMPLATE/QupZilla.app"
 
@@ -61,7 +58,9 @@ hdiutil create -size 200m "$TMP/$WORK_TEMPLATE" -type SPARSE -fs HFS+ -volname "
 
     sleep 5
 
-    echo "Registering that a custom icon has been set…"
+    echo "Registering that a custom icon is being set…"
+    # iconutil will only pick what it needs
+    iconutil -c icns "$ICONSETDIR" -o "$TMP/$VOLUME_TEMPLATE/.VolumeIcon.icns"
     SetFile -a C "$TMP/$VOLUME_TEMPLATE"
 
     echo "Copying application bundle contents…"
