@@ -19,6 +19,7 @@
 #include "aesinterface.h"
 
 #include <QtTest/QtTest>
+#include <QSqlQuery>
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QDBusMessage>
