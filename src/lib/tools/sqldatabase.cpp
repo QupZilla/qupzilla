@@ -49,8 +49,6 @@ QSqlDatabase SqlDatabase::database()
         s_databases.setLocalData(db);
     }
 
-    qDebug() << "For" << QThread::currentThread() << "got" << s_databases.localData().connectionName();
-
     return s_databases.localData();
 }
 
