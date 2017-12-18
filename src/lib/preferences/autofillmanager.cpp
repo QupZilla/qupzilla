@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,11 +23,11 @@
 #include "mainapplication.h"
 #include "settings.h"
 #include "qztools.h"
+#include "sqldatabase.h"
 
 #include <QUrl>
 #include <QMenu>
 #include <QTimer>
-#include <QSqlQuery>
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QFileDialog>
@@ -97,7 +97,7 @@ void AutoFillManager::loadPasswords()
         ui->treePass->addTopLevelItem(item);
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("SELECT server, id FROM autofill_exceptions");
     ui->treeExcept->clear();
     while (query.next()) {
@@ -275,7 +275,7 @@ void AutoFillManager::removeExcept()
         return;
     }
     QString id = curItem->data(0, Qt::UserRole + 10).toString();
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("DELETE FROM autofill_exceptions WHERE id=?");
     query.addBindValue(id);
     query.exec();
@@ -285,7 +285,7 @@ void AutoFillManager::removeExcept()
 
 void AutoFillManager::removeAllExcept()
 {
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("DELETE FROM autofill_exceptions");
 
     ui->treeExcept->clear();

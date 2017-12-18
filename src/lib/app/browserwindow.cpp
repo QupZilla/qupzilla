@@ -68,7 +68,6 @@
 #include <QTimer>
 #include <QShortcut>
 #include <QStackedWidget>
-#include <QSqlQuery>
 #include <QTextCodec>
 #include <QFileDialog>
 #include <QDesktopServices>

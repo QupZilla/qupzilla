@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,9 +22,9 @@
 #include "mainapplication.h"
 #include "webpage.h"
 #include "tabbedwebview.h"
+#include "sqldatabase.h"
 
 #include <QToolTip>
-#include <QSqlQuery>
 
 SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
     : LocationBarPopup(parent)
@@ -48,9 +48,9 @@ SiteInfoWidget::SiteInfoWidget(BrowserWindow* window, QWidget* parent)
     }
 
     QString scheme = view->url().scheme();
-    QSqlQuery query;
     QString host = view->url().host();
 
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("SELECT sum(count) FROM history WHERE url LIKE ?");
     query.addBindValue(QString("%1://%2%").arg(scheme, host));
     query.exec();

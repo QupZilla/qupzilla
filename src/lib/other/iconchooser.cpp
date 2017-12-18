@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,9 +20,9 @@
 #include "mainapplication.h"
 #include "proxystyle.h"
 #include "qztools.h"
+#include "sqldatabase.h"
 
 #include <QFileDialog>
-#include <QSqlQuery>
 
 IconChooser::IconChooser(QWidget* parent)
     : QDialog(parent),
@@ -64,7 +64,7 @@ void IconChooser::searchIcon(const QString &string)
 
     ui->iconList->clear();
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 20"));
     query.addBindValue(QString(QL1S("*%1*")).arg(QzTools::escapeSqlGlobString(string)));
     query.exec();

@@ -32,7 +32,6 @@
 #include <QXmlStreamReader>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
-
 #include <QUrlQuery>
 
 AutoFill::AutoFill(QObject* parent)
@@ -85,7 +84,7 @@ bool AutoFill::isStoringEnabled(const QUrl &url)
         server = url.toString();
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("SELECT count(id) FROM autofill_exceptions WHERE server=?");
     query.addBindValue(server);
     query.exec();
@@ -104,7 +103,7 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
         server = url.toString();
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
     query.addBindValue(server);
 
@@ -260,8 +259,9 @@ QByteArray AutoFill::exportPasswords()
         stream.writeEndElement();
     }
 
-    QSqlQuery query;
-    query.exec("SELECT server FROM autofill_exceptions");
+    QSqlQuery query(SqlDatabase::instance()->database());
+    query.prepare("SELECT server FROM autofill_exceptions");
+    query.exec();
     while (query.next()) {
         stream.writeStartElement("exception");
         stream.writeTextElement("server", query.value(0).toString());
@@ -336,7 +336,7 @@ bool AutoFill::importPasswords(const QByteArray &data)
                 }
 
                 if (!server.isEmpty()) {
-                    QSqlQuery query;
+                    QSqlQuery query(SqlDatabase::instance()->database());
                     query.prepare("SELECT id FROM autofill_exceptions WHERE server=?");
                     query.addBindValue(server);
                     query.exec();

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,10 +25,10 @@
 #include "qztools.h"
 #include "history.h"
 #include "qzsettings.h"
+#include "sqldatabase.h"
 
 #include <QApplication>
 #include <QWebEngineHistory>
-#include <QSqlQuery>
 
 HistoryMenu::HistoryMenu(QWidget* parent)
     : Menu(parent)
@@ -90,7 +90,7 @@ void HistoryMenu::aboutToShow()
 
     addSeparator();
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec(QSL("SELECT title, url FROM history ORDER BY date DESC LIMIT 10"));
 
     while (query.next()) {

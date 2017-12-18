@@ -192,10 +192,10 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowNull)
         }
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
     query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(encodedUrl))));
-    SqlDatabase::instance()->exec(query);
+    query.exec();
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
@@ -221,11 +221,10 @@ QImage IconProvider::imageForDomain(const QUrl &url, bool allowNull)
         }
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
-
     query.addBindValue(QString("*%1*").arg(QzTools::escapeSqlGlobString(url.host())));
-    SqlDatabase::instance()->exec(query);
+    query.exec();
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
@@ -242,7 +241,7 @@ IconProvider* IconProvider::instance()
 void IconProvider::saveIconsToDatabase()
 {
     foreach (const BufferedIcon &ic, m_iconBuffer) {
-        QSqlQuery query;
+        QSqlQuery query(SqlDatabase::instance()->database());
         query.prepare("SELECT id FROM icons WHERE url = ?");
         query.bindValue(0, ic.first.toEncoded(QUrl::RemoveFragment));
         query.exec();
@@ -272,13 +271,15 @@ void IconProvider::clearOldIconsInDatabase()
     // Delete icons for entries older than 6 months
     const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("DELETE FROM icons WHERE url IN (SELECT url FROM history WHERE date < ?)"));
     query.addBindValue(date.toMSecsSinceEpoch());
     query.exec();
 
     query.clear();
-    query.exec(QSL("VACUUM"));
+
+    query.prepare(QSL("VACUUM"));
+    SqlDatabase::instance()->exec(query);
 }
 
 QIcon IconProvider::iconFromImage(const QImage &image)

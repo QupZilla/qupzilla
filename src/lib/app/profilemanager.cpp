@@ -22,7 +22,7 @@
 #include "qztools.h"
 
 #include <QDir>
-#include <QSqlQuery>
+#include <QSqlDatabase>
 #include <QMessageBox>
 #include <QSettings>
 #include <iostream>

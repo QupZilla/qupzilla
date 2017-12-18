@@ -20,9 +20,9 @@
 
 #include <QDir>
 #include <QVariant>
-#include <QSqlQuery>
 #include <QSqlError>
 #include <QFileDialog>
+#include <QSqlQuery>
 #include <QSqlDatabase>
 
 #define CONNECTION "firefox-places-import"
@@ -89,7 +89,8 @@ BookmarkItem* FirefoxImporter::importBookmarks()
     root->setTitle("Firefox Import");
 
     QSqlQuery query(QSqlDatabase::database(CONNECTION));
-    query.exec("SELECT id, parent, type, title, fk FROM moz_bookmarks WHERE fk NOT NULL OR type = 3");
+    query.prepare("SELECT id, parent, type, title, fk FROM moz_bookmarks WHERE fk NOT NULL OR type = 3");
+    query.exec();
 
     while (query.next()) {
         Item item;

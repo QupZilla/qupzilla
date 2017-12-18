@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,8 +23,6 @@
 #include <QFuture>
 #include <QSqlQuery>
 
-#include <QVariant> // Fix build with Qt 4.7
-
 #include "qzcommon.h"
 
 class QUPZILLA_EXPORT SqlDatabase : public QObject
@@ -35,8 +33,8 @@ public:
     explicit SqlDatabase(QObject* parent = 0);
     ~SqlDatabase();
 
-    // Returns database connection for thread, creates new connection if not exists
-    QSqlDatabase databaseForThread(QThread* thread);
+    // Returns database connection for current thread
+    QSqlDatabase database();
 
     // Executes query using correct database for current thread
     QSqlQuery exec(QSqlQuery &query);
@@ -45,10 +43,6 @@ public:
     QFuture<QSqlQuery> execAsync(const QSqlQuery &query);
 
     static SqlDatabase* instance();
-
-private:
-    QHash<QThread*, QSqlDatabase> m_databases;
-    QMutex m_mutex;
 };
 
 #endif // SQLDATABASE_H

@@ -117,7 +117,7 @@ void LocationCompleterRefreshJob::runJob()
     if (!m_searchString.isEmpty() && qzSettings->useInlineCompletion) {
         QSqlQuery domainQuery = LocationCompleterModel::createDomainQuery(m_searchString);
         if (!domainQuery.lastQuery().isEmpty()) {
-            SqlDatabase::instance()->exec(domainQuery);
+            domainQuery.exec();
             if (domainQuery.next()) {
                 m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
             }
@@ -178,7 +178,7 @@ void LocationCompleterRefreshJob::completeFromHistory()
     if (showType == HistoryAndBookmarks || showType == History) {
         const int historyLimit = 20;
         QSqlQuery query = LocationCompleterModel::createHistoryQuery(m_searchString, historyLimit);
-        SqlDatabase::instance()->exec(query);
+        query.exec();
 
         while (query.next()) {
             const QUrl url = query.value(1).toUrl();
@@ -203,8 +203,8 @@ void LocationCompleterRefreshJob::completeFromHistory()
 
 void LocationCompleterRefreshJob::completeMostVisited()
 {
-    QSqlQuery query(QSL("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15"));
-    SqlDatabase::instance()->exec(query);
+    QSqlQuery query(SqlDatabase::instance()->database());
+    query.exec(QSL("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15"));
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();

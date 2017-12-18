@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,10 +26,10 @@
 #include "settings.h"
 #include "qzsettings.h"
 #include "webview.h"
+#include "sqldatabase.h"
 
 #include <QNetworkReply>
 #include <QMessageBox>
-#include <QSqlQuery>
 #include <QBuffer>
 
 #include <QUrlQuery>
@@ -82,7 +82,7 @@ void SearchEnginesManager::loadSettings()
 {
     m_settingsLoaded = true;
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("SELECT name, icon, url, shortcut, suggestionsUrl, suggestionsParameters, postData FROM search_engines");
 
     while (query.next()) {
@@ -449,7 +449,7 @@ void SearchEnginesManager::removeEngine(const Engine &engine)
         return;
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("DELETE FROM search_engines WHERE name=? AND url=?");
     query.bindValue(0, engine.name);
     query.bindValue(1, engine.url);
@@ -493,7 +493,7 @@ void SearchEnginesManager::saveSettings()
     //
     // But as long as user is not playing with search engines every run it is acceptable.
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("DELETE FROM search_engines");
 
     foreach (const Engine &en, m_allEngines) {

@@ -23,8 +23,7 @@
 #include "qzsettings.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
-
-#include <QSqlQuery>
+#include "sqldatabase.h"
 
 LocationCompleterModel::LocationCompleterModel(QObject* parent)
     : QStandardItemModel(parent)
@@ -64,7 +63,7 @@ QList<QStandardItem*> LocationCompleterModel::suggestionItems() const
 QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
 {
     if (text.isEmpty() || text == QLatin1String("www.")) {
-        return QSqlQuery();
+        return QSqlQuery(SqlDatabase::instance()->database());
     }
 
     bool withoutWww = text.startsWith(QLatin1Char('w')) && !text.startsWith(QLatin1String("www."));
@@ -79,7 +78,7 @@ QSqlQuery LocationCompleterModel::createDomainQuery(const QString &text)
 
     query.append(QLatin1String("(url LIKE ? OR url LIKE ?) ORDER BY date DESC LIMIT 1"));
 
-    QSqlQuery sqlQuery;
+    QSqlQuery sqlQuery(SqlDatabase::instance()->database());
     sqlQuery.prepare(query);
 
     if (withoutWww) {
@@ -119,7 +118,7 @@ QSqlQuery LocationCompleterModel::createHistoryQuery(const QString &searchString
 
     query.append(QLatin1String("ORDER BY date DESC LIMIT ?"));
 
-    QSqlQuery sqlQuery;
+    QSqlQuery sqlQuery(SqlDatabase::instance()->database());
     sqlQuery.prepare(query);
 
     if (exactMatch) {
