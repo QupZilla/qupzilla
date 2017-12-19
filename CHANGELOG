@@ -1,3 +1,8 @@
+Version 2.2.3
+    * released 19 December 2017
+    * fix crashes with Qt 5.10
+    * fix default proxy configuration type in preferences
+
 Version 2.2.2
     * released 05 December 2017
     * updated available user agent strings
