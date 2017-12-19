@@ -1514,7 +1514,11 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="proxyPassword"/>
+                  <widget class="QLineEdit" name="proxyPassword">
+                   <property name="echoMode">
+                    <enum>QLineEdit::Password</enum>
+                   </property>
+                  </widget>
                  </item>
                  <item>
                   <spacer name="horizontalSpacer_3">
