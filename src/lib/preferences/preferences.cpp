@@ -498,7 +498,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     // Proxy Configuration
     settings.beginGroup("Web-Proxy");
-    int proxyType = settings.value("ProxyType", 1).toInt();
+    int proxyType = settings.value("ProxyType", 2).toInt();
     if (proxyType == 0) {
         ui->noProxy->setChecked(true);
     } else if (proxyType == 2) {
