@@ -36,12 +36,6 @@ public:
     // Returns database connection for current thread
     QSqlDatabase database();
 
-    // Executes query using correct database for current thread
-    QSqlQuery exec(QSqlQuery &query);
-
-    // Executes query asynchronously on one thread from QThreadPool
-    QFuture<QSqlQuery> execAsync(const QSqlQuery &query);
-
     static SqlDatabase* instance();
 };
 

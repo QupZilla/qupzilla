@@ -259,8 +259,7 @@ void IconProvider::saveIconsToDatabase()
         ic.second.save(&buffer, "PNG");
         query.bindValue(0, buffer.data());
         query.bindValue(1, QString::fromUtf8(encodeUrl(ic.first)));
-
-        SqlDatabase::instance()->execAsync(query);
+        query.exec();
     }
 
     m_iconBuffer.clear();
@@ -277,9 +276,7 @@ void IconProvider::clearOldIconsInDatabase()
     query.exec();
 
     query.clear();
-
-    query.prepare(QSL("VACUUM"));
-    SqlDatabase::instance()->exec(query);
+    query.exec(QSL("VACUUM"));
 }
 
 QIcon IconProvider::iconFromImage(const QImage &image)

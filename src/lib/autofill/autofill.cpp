@@ -106,8 +106,7 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
     QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
     query.addBindValue(server);
-
-    SqlDatabase::instance()->execAsync(query);
+    query.exec();
 }
 
 QVector<PasswordEntry> AutoFill::getFormData(const QUrl &url)

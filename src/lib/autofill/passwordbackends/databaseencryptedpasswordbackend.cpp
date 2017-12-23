@@ -466,14 +466,14 @@ void DatabaseEncryptedPasswordBackend::updateSampleData(const QByteArray &passwo
 
         query.addBindValue(QString::fromUtf8(m_someDataStoredOnDataBase));
         query.addBindValue(INTERNAL_SERVER_ID);
-        SqlDatabase::instance()->exec(query);
+        query.exec();
 
         m_stateOfMasterPassword = PasswordIsSetted;
     }
     else if (query.next()) {
         query.prepare("DELETE FROM autofill_encrypted WHERE server = ?");
         query.addBindValue(INTERNAL_SERVER_ID);
-        SqlDatabase::instance()->exec(query);
+        query.exec();
 
         m_stateOfMasterPassword = PasswordIsNotSetted;
         m_someDataStoredOnDataBase.clear();

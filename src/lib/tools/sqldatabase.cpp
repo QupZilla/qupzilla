@@ -52,26 +52,6 @@ QSqlDatabase SqlDatabase::database()
     return s_databases.localData();
 }
 
-QSqlQuery SqlDatabase::exec(QSqlQuery &query)
-{
-    QSqlQuery out(database());
-    out.prepare(query.lastQuery());
-
-    const QList<QVariant> boundValues = query.boundValues().values();
-
-    foreach (const QVariant &variant, boundValues) {
-        out.addBindValue(variant);
-    }
-
-    out.exec();
-    return query = out;
-}
-
-QFuture<QSqlQuery> SqlDatabase::execAsync(const QSqlQuery &query)
-{
-    return QtConcurrent::run(this, &SqlDatabase::exec, query);
-}
-
 // instance
 SqlDatabase* SqlDatabase::instance()
 {
