@@ -889,6 +889,7 @@ void BrowserWindow::addDeleteOnCloseWidget(QWidget* widget)
 void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
 {
     restoreState(d.windowState);
+    show(); // Window has to be visible before adding QWebEngineView's
     m_tabWidget->restoreState(d.tabsState, d.currentTab);
     updateStartupFocus();
 }
