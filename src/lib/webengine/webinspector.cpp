@@ -24,6 +24,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QNetworkReply>
+#include <QWebEngineSettings>
 
 QList<QWebEngineView*> WebInspector::s_views;
 
@@ -85,7 +86,13 @@ void WebInspector::inspectElement()
 
 bool WebInspector::isEnabled()
 {
-    return qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING");
+    if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
+        return false;
+    }
+    if (!QWebEngineSettings::defaultSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled)) {
+        return false;
+    }
+    return true;
 }
 
 void WebInspector::pushView(QWebEngineView *view)
