@@ -47,6 +47,10 @@ WebInspector::WebInspector(QWidget *parent)
 
 WebInspector::~WebInspector()
 {
+    if (m_view && hasFocus()) {
+        m_view->setFocus();
+    }
+
     unregisterView(this);
 
     if (isWindow()) {
