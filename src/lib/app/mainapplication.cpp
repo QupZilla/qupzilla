@@ -472,6 +472,10 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
 
 void MainApplication::destroyRestoreManager()
 {
+    // Restore JavaScript settings
+    const bool jsEnabled = Settings().value(QSL("Web-Browser-Settings/allowJavaScript"), true).toBool();
+    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, jsEnabled);
+
     delete m_restoreManager;
     m_restoreManager = 0;
 }

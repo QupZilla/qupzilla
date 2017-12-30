@@ -178,6 +178,9 @@ void BrowserWindow::postLaunch()
         if (mApp->isStartingAfterCrash()) {
             addTab = false;
             startUrl.clear();
+            // qupzilla:restore needs JavaScript enabled
+            // correct value is then restored in MainApplication::destroyRestoreManager
+            QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
             m_tabWidget->addView(QUrl("qupzilla:restore"), Qz::NT_CleanSelectedTabAtTheEnd);
         }
         else if ((mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) && mApp->restoreManager()) {
