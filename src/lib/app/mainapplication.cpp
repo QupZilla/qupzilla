@@ -1081,6 +1081,7 @@ void MainApplication::checkDefaultWebBrowser()
 
     if (!associationManager()->isDefaultForAllCapabilities()) {
         CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, getWindow());
+        dialog.setDefaultButton(QMessageBox::Yes);
         dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
         dialog.setDefaultCheckState(Qt::Checked);

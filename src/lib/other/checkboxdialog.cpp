@@ -17,6 +17,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "checkboxdialog.h"
+
 #include <QCheckBox>
 
 CheckBoxDialog::CheckBoxDialog(const QMessageBox::StandardButtons &buttons, QWidget* parent)

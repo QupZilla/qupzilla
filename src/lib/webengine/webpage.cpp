@@ -266,6 +266,7 @@ void WebPage::handleUnknownProtocol(const QUrl &url)
     }
 
     CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, view());
+    dialog.setDefaultButton(QMessageBox::Yes);
 
     const QString wrappedUrl = QzTools::alignTextToWidth(url.toString(), "<br/>", dialog.fontMetrics(), 450);
     const QString text = tr("QupZilla cannot handle <b>%1:</b> links. The requested link "
@@ -540,6 +541,7 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
     }
 
     CheckBoxDialog dialog(QMessageBox::Ok, view());
+    dialog.setDefaultButton(QMessageBox::Ok);
     dialog.setWindowTitle(title);
     dialog.setText(msg);
     dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));

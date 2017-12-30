@@ -1357,6 +1357,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
 
     if (askOnClose && m_tabWidget->normalTabsCount() > 1) {
         CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, this);
+        dialog.setDefaultButton(QMessageBox::No);
         dialog.setText(tr("There are still %n open tabs and your session won't be stored. \nAre you sure you want to close this window?", "", m_tabWidget->count()));
         dialog.setCheckBoxText(tr("Don't ask again"));
         dialog.setWindowTitle(tr("There are still open tabs"));
