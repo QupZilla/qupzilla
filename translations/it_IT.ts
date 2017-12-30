@@ -311,7 +311,7 @@
         <location filename="../src/lib/tools/aesinterface.cpp" line="147"/>
         <source>Data has been encrypted with a newer version of QupZilla.
 Please install latest version of QupZilla.</source>
-        <translation>I dati sono stati criptati con una versione di QupZilla più recente.
+        <translation>I dati sono stati crittati con una versione di QupZilla più recente.
 Installa l&apos;ultima versione di QupZilla.
 </translation>
     </message>
@@ -321,7 +321,7 @@ Installa l&apos;ultima versione di QupZilla.
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="243"/>
         <source>Database (encrypted)</source>
-        <translation>Database (criptato)</translation>
+        <translation>Database (crittato)</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
@@ -665,12 +665,12 @@ Installa l&apos;ultima versione di QupZilla.
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="340"/>
         <source>Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Conferma</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="341"/>
         <source>Are you sure you want to open all bookmarks from &apos;%1&apos; folder in tabs?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro che vuoi aprire tutti i segnalibri dalle &apos;%1&apos; cartelle nelle schede</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="435"/>
@@ -2393,12 +2393,12 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="148"/>
         <source>Enter address or search with %1</source>
-        <translation type="unfinished"/>
+        <translation>Inserisci l&apos;indirizzo o cerca con %1</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="150"/>
         <source>Enter address</source>
-        <translation type="unfinished"/>
+        <translation>Inserisci l&apos;indirizzo</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2411,17 +2411,17 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="169"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>Passa alla scheda</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="172"/>
         <source>Visit</source>
-        <translation type="unfinished"/>
+        <translation>Visita</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="174"/>
         <source>Search with %1</source>
-        <translation type="unfinished"/>
+        <translation>Cerca con %1</translation>
     </message>
 </context>
 <context>
@@ -2468,7 +2468,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
         <location filename="../src/lib/app/mainmenu.cpp" line="84"/>
         <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
         <source>Sessions</source>
-        <translation type="unfinished"/>
+        <translation>Sessioni</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
@@ -2523,7 +2523,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
         <source>Session Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestione sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
@@ -2945,7 +2945,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
         <source>&amp;Print...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Stampa</translation>
     </message>
     <message>
         <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
@@ -3132,7 +3132,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="323"/>
         <source>Select session</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="331"/>
@@ -3488,7 +3488,7 @@ Sei sicuro di voler chiudere questa finestra?</numerusform></translation>
         <location filename="../src/lib/preferences/preferences.ui" line="1114"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
-        <translation type="unfinished"/>
+        <translation>Stampa elemento in background</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1121"/>
@@ -4670,27 +4670,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="125"/>
         <source>_cloned</source>
-        <translation type="unfinished"/>
+        <translation>_clonato</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="125"/>
         <source>_renamed</source>
-        <translation type="unfinished"/>
+        <translation>_rinominato</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>Clone Session</source>
-        <translation type="unfinished"/>
+        <translation>Clona sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>Rename Session</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Please enter a new name:</source>
-        <translation type="unfinished"/>
+        <translation>Per favore inserisci un nuovo nome:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
@@ -4699,99 +4699,99 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>Errore!</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
         <source>The session file &quot;%1&quot; exists. Please enter another name.</source>
-        <translation type="unfinished"/>
+        <translation>La sessione file &quot;%1&quot; esiste. Per favore inserisci un altro nome.</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="142"/>
         <source>An error occurred when cloning session file.</source>
-        <translation type="unfinished"/>
+        <translation>Si è verificato un errore nella clonazione del file di sessione.</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="147"/>
         <source>An error occurred when renaming session file.</source>
-        <translation type="unfinished"/>
+        <translation>Si è verificato un errore per rinominare il file di sessione.</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="160"/>
         <source>Save Session</source>
-        <translation type="unfinished"/>
+        <translation>Salva sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="161"/>
         <source>Please enter a name to save session:</source>
-        <translation type="unfinished"/>
+        <translation>Per favore inserisci un nome per salvare la sessione:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="162"/>
         <source>Saved Session (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Salva sessione (%1)</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="179"/>
         <source>Restore Backup</source>
-        <translation type="unfinished"/>
+        <translation>Recupera backup</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="179"/>
         <source>Are you sure you want to replace current session?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro che vuoi sostituire la sessione corrente?</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="198"/>
         <source>Delete Session</source>
-        <translation type="unfinished"/>
+        <translation>Cancella sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="198"/>
         <source>Are you sure you want to delete session &apos;%1&apos;?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro che vuoi eliminare la sessione &apos;%1&apos;?</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="208"/>
         <source>New Session</source>
-        <translation type="unfinished"/>
+        <translation>Nuova sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="209"/>
         <source>Please enter a name to create new session:</source>
-        <translation type="unfinished"/>
+        <translation>Per favore inserisci un nome per creare la nuova sessione:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="210"/>
         <source>New Session (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Nuova sessione (%1)</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="242"/>
         <source>Backup 1</source>
-        <translation type="unfinished"/>
+        <translation>Backup 1</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="249"/>
         <source>Backup 2</source>
-        <translation type="unfinished"/>
+        <translation>Backup 2</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="291"/>
         <source>Default Session</source>
-        <translation type="unfinished"/>
+        <translation>Sessione predefinita</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="386"/>
         <source>Please select the startup session:</source>
-        <translation type="unfinished"/>
+        <translation>Per favore seleziona la sessione da avviare:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="405"/>
         <source>%1 (last session)</source>
-        <translation type="unfinished"/>
+        <translation>%1 (ultima sessione)</translation>
     </message>
 </context>
 <context>
@@ -4799,52 +4799,52 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="14"/>
         <source>Session Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestore di sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="24"/>
         <source>Session</source>
-        <translation type="unfinished"/>
+        <translation>Sessione</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="29"/>
         <source>Last Modified</source>
-        <translation type="unfinished"/>
+        <translation>Ultima modifica</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="39"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="46"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="53"/>
         <source>Clone</source>
-        <translation type="unfinished"/>
+        <translation>Clona</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="60"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Cancella</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="67"/>
         <source>Switch to</source>
-        <translation type="unfinished"/>
+        <translation>Passa a</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.cpp" line="140"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>Recupera</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.cpp" line="140"/>
         <source>Switch To</source>
-        <translation type="unfinished"/>
+        <translation>Passa a</translation>
     </message>
 </context>
 <context>
@@ -5064,7 +5064,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="140"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"/>
+        <translation>Non chiedermelo di nuovo</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabbar.cpp" line="157"/>
@@ -5448,7 +5448,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="404"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="679"/>

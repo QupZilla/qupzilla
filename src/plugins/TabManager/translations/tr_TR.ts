@@ -24,7 +24,7 @@
     <message>
         <location filename="../tabmanagersettings.ui" line="40"/>
         <source>Window</source>
-        <translation>Pencere</translation>
+        <translation>Pencer</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="47"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="266"/>
         <source>Group by</source>
-        <translation>Şuna Göre Grupla:</translation>
+        <translation>Grupla:</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="267"/>

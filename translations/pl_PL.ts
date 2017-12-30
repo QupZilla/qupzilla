@@ -664,7 +664,7 @@ Należy zainstalować najnowszą wersję tej przeglądarki.</translation>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="340"/>
         <source>Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Potwierdzenie</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="341"/>
