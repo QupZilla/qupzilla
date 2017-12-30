@@ -467,23 +467,26 @@ void WebTab::slotRestore()
 {
     Q_ASSERT(m_tabBar);
 
-    p_restoreTab(m_savedTab);
-    m_savedTab.clear();
+    if (isRestored()) {
+        return;
+    }
 
+    p_restoreTab(m_savedTab);
     m_tabBar->restoreTabTextColor(tabIndex());
+    m_savedTab.clear();
 }
 
 void WebTab::tabActivated()
 {
+    if (isRestored()) {
+        return;
+    }
 
-    if (!isRestored()) {
-        // When session is being restored, restore the tab immediately
-        if (mApp->isRestoring()) {
-            slotRestore();
-        }
-        else {
-            QTimer::singleShot(0, this, SLOT(slotRestore()));
-        }
+    // When session is being restored, restore the tab immediately
+    if (mApp->isRestoring()) {
+        slotRestore();
+    } else {
+        QTimer::singleShot(0, this, SLOT(slotRestore()));
     }
 }
 
