@@ -455,7 +455,9 @@ function disableCentering()
 </head>
 
 <body>
-<div id="quickdial"></div>
+<div id="quickdial">
+<noscript>%JAVASCRIPT-DISABLED%</noscript>
+</div>
 <a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
 <a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
@@ -504,6 +506,7 @@ function init()
 }
 
 </script>
+
 <div id="fadeOverlay2" class="overlay" style="display:none;">
   <div id="settingsBox">
     <div class="togop">

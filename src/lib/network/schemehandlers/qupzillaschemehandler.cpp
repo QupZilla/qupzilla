@@ -282,6 +282,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TITLE-WARN%"), tr("Are you sure you want to remove this speed dial?"));
         dPage.replace(QLatin1String("%TITLE-WARN-REL%"), tr("Are you sure you want to reload all speed dials?"));
         dPage.replace(QLatin1String("%TITLE-FETCHTITLE%"), tr("Load title from page"));
+        dPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("SpeedDial requires JavaScript enabled."));
         dPage.replace(QLatin1String("%URL%"), tr("Url"));
         dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
         dPage.replace(QLatin1String("%APPLY%"), tr("Apply"));
