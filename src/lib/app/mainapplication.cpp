@@ -323,9 +323,6 @@ MainApplication::MainApplication(int &argc, char** argv)
             m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
-            } else {
-                // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
-                QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
             }
         }
     }
@@ -429,7 +426,6 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
         //
         // Don't restore tabs in current window as user already opened
         // some new tabs.
-        // Instead create new one and restore pinned tabs there
         BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
         newWin->restoreWindowState(restoreData.at(0));
         restoreData.remove(0);
