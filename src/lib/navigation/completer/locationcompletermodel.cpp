@@ -141,7 +141,9 @@ void LocationCompleterModel::setTabPosition(QStandardItem* item) const
 {
     Q_ASSERT(item);
 
-    if (!qzSettings->showSwitchTab) {
+    item->setData(-1, TabPositionTabRole);
+
+    if (!qzSettings->showSwitchTab || item->data(VisitSearchItemRole).toBool()) {
         return;
     }
 
@@ -159,10 +161,6 @@ void LocationCompleterModel::setTabPosition(QStandardItem* item) const
             }
         }
     }
-
-    // Tab wasn't found
-    item->setData(QVariant::fromValue<void*>(static_cast<void*>(0)), TabPositionWindowRole);
-    item->setData(-1, TabPositionTabRole);
 }
 
 void LocationCompleterModel::refreshTabPositions() const
