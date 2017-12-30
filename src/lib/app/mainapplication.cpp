@@ -421,8 +421,6 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (!window)
         window = createWindow(Qz::BW_OtherRestoredWindow);
 
-    window->setUpdatesEnabled(false);
-
     if (m_isRestoring)
         window->tabWidget()->closeRecoveryTab();
 
@@ -433,9 +431,7 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
         // some new tabs.
         // Instead create new one and restore pinned tabs there
         BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
-        newWin->setUpdatesEnabled(false);
         newWin->restoreWindowState(restoreData.at(0));
-        newWin->setUpdatesEnabled(true);
         restoreData.remove(0);
     }
     else {
@@ -450,13 +446,9 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
         window->restoreWindowState(data);
     }
 
-    window->setUpdatesEnabled(true);
-
     foreach (const RestoreManager::WindowData &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
-        window->setUpdatesEnabled(false);
         window->restoreWindowState(data);
-        window->setUpdatesEnabled(true);
     }
 
     restoreOverrideCursor();

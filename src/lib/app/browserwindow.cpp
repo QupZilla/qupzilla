@@ -171,6 +171,8 @@ void BrowserWindow::postLaunch()
         break;
     }
 
+    show();
+
     switch (m_windowType) {
     case Qz::BW_FirstAppWindow:
         if (mApp->isStartingAfterCrash()) {
@@ -192,8 +194,6 @@ void BrowserWindow::postLaunch()
         addTab = false;
         break;
     }
-
-    show();
 
     if (!m_startUrl.isEmpty()) {
         startUrl = m_startUrl;
