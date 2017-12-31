@@ -65,32 +65,6 @@ void AddTabButton::mouseReleaseEvent(QMouseEvent* event)
     ToolButton::mouseReleaseEvent(event);
 }
 
-void AddTabButton::dragEnterEvent(QDragEnterEvent* event)
-{
-    const QMimeData* mime = event->mimeData();
-
-    if (mime->hasUrls()) {
-        event->acceptProposedAction();
-        return;
-    }
-
-    ToolButton::dragEnterEvent(event);
-}
-
-void AddTabButton::dropEvent(QDropEvent* event)
-{
-    const QMimeData* mime = event->mimeData();
-
-    if (!mime->hasUrls()) {
-        ToolButton::dropEvent(event);
-        return;
-    }
-
-    foreach (const QUrl &url, mime->urls()) {
-        m_tabWidget->addView(url, Qz::NT_SelectedNewEmptyTab);
-    }
-}
-
 void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::MiddleButton) {

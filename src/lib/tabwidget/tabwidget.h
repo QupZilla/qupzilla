@@ -44,8 +44,6 @@ public:
 private:
     void wheelEvent(QWheelEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
-    void dragEnterEvent(QDragEnterEvent* event);
-    void dropEvent(QDropEvent* event);
 
     TabBar* m_tabBar;
     TabWidget* m_tabWidget;
