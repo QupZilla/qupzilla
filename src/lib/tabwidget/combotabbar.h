@@ -52,6 +52,11 @@ public:
         ExtraReservedWidth
     };
 
+    enum DropIndicatorPosition {
+        BeforeTab,
+        AfterTab
+    };
+
     explicit ComboTabBar(QWidget* parent = 0);
 
     int addTab(const QString &text);
@@ -135,6 +140,9 @@ public:
 
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
+
+    void showDropIndicator(int index, DropIndicatorPosition position);
+    void clearDropIndicator();
 
     bool isDragInProgress() const;
     bool isScrollInProgress() const;
@@ -234,6 +242,9 @@ public:
     void setScrollArea(QScrollArea* scrollArea);
     void useFastTabSizeHint(bool enabled);
 
+    void showDropIndicator(int index, ComboTabBar::DropIndicatorPosition position);
+    void clearDropIndicator();
+
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
     bool isDragInProgress() const;
 
@@ -266,6 +277,8 @@ private:
     bool m_activeTabBar;
     bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;
+    int m_dropIndicatorIndex = -1;
+    ComboTabBar::DropIndicatorPosition m_dropIndicatorPosition;
 };
 
 class QUPZILLA_EXPORT TabScrollBar : public QScrollBar

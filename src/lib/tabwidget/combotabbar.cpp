@@ -801,6 +801,17 @@ void ComboTabBar::setUsesScrollButtons(bool useButtons)
     m_mainTabBarWidget->setUsesScrollButtons(useButtons);
 }
 
+void ComboTabBar::showDropIndicator(int index, DropIndicatorPosition position)
+{
+    localTabBar(index)->showDropIndicator(toLocalIndex(index), position);
+}
+
+void ComboTabBar::clearDropIndicator()
+{
+    m_mainTabBar->clearDropIndicator();
+    m_pinnedTabBar->clearDropIndicator();
+}
+
 bool ComboTabBar::isDragInProgress() const
 {
     return m_mainTabBar->isDragInProgress() || m_pinnedTabBar->isDragInProgress();
@@ -1046,6 +1057,19 @@ void TabBarHelper::useFastTabSizeHint(bool enabled)
     m_useFastTabSizeHint = enabled;
 }
 
+void TabBarHelper::showDropIndicator(int index, ComboTabBar::DropIndicatorPosition position)
+{
+    m_dropIndicatorIndex = index;
+    m_dropIndicatorPosition = position;
+    update();
+}
+
+void TabBarHelper::clearDropIndicator()
+{
+    m_dropIndicatorIndex = -1;
+    update();
+}
+
 bool TabBarHelper::isDisplayedOnViewPort(int globalLeft, int globalRight)
 {
     bool isVisible = true;
@@ -1213,6 +1237,18 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         }
 
         p.drawControl(QStyle::CE_TabBarTab, tab);
+    }
+
+    // Draw drop indicator
+    if (m_dropIndicatorIndex != -1) {
+        p.setPen(QPen(palette().text(), 3));
+        QRect r = tabRect(m_dropIndicatorIndex);
+        if (m_dropIndicatorPosition == ComboTabBar::BeforeTab) {
+            r.moveLeft(r.x() - 1);
+            p.drawLine(r.topLeft(), r.bottomLeft());
+        } else {
+            p.drawLine(r.topRight(), r.bottomRight());
+        }
     }
 }
 
