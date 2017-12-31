@@ -151,17 +151,19 @@ int ComboTabBar::insertTab(int index, const QIcon &icon, const QString &text, bo
 
 void ComboTabBar::removeTab(int index)
 {
-    if (validIndex(index)) {
-        setUpdatesEnabled(false);
-
-        localTabBar(index)->removeTab(toLocalIndex(index));
-        updatePinnedTabBarVisibility();
-        tabRemoved(index);
-        setMinimumWidths();
-
-        setUpdatesEnabled(true);
-        updateTabBars();
+    if (!validIndex(index)) {
+        return;
     }
+
+    setUpdatesEnabled(false);
+
+    localTabBar(index)->removeTab(toLocalIndex(index));
+    updatePinnedTabBarVisibility();
+    tabRemoved(index);
+    setMinimumWidths();
+
+    setUpdatesEnabled(true);
+    updateTabBars();
 }
 
 void ComboTabBar::moveTab(int from, int to)
@@ -1020,14 +1022,17 @@ void TabBarHelper::setActiveTabBar(bool activate)
 
 void TabBarHelper::removeTab(int index)
 {
-    // Removing tab in inactive tabbar will change current index and thus
-    // changing active tabbar, which is really not wanted.
-    // Also removing tab will cause a duplicate call to ComboTabBar::slotCurrentChanged()
+    // Removing tab may cause a duplicate call to ComboTabBar::slotCurrentChanged()
+    const int current = m_comboTabBar->currentIndex();
     m_comboTabBar->m_blockCurrentChangedSignal = true;
 
     QTabBar::removeTab(index);
 
     m_comboTabBar->m_blockCurrentChangedSignal = false;
+
+    if (current != m_comboTabBar->currentIndex()) {
+        emit currentChanged(currentIndex());
+    }
 }
 
 void TabBarHelper::setScrollArea(QScrollArea* scrollArea)
