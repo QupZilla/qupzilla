@@ -90,6 +90,8 @@ void LocationCompleter::complete(const QString &string)
         m_openSearchEngine->setSuggestionsParameters(LocationBar::searchEngine().suggestionsParameters);
         m_suggestionsTerm = trimmedStr;
         m_openSearchEngine->requestSuggestions(m_suggestionsTerm);
+    } else {
+        m_oldSuggestions.clear();
     }
 }
 
