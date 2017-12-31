@@ -555,7 +555,11 @@ void TabBar::dropEvent(QDropEvent* event)
     else {
         WebTab* tab = m_window->weView(index)->webTab();
         if (tab->isRestored()) {
-            tab->webView()->load(mime->urls().at(0));
+            if (mime->hasUrls()) {
+                tab->webView()->load(mime->urls().at(0));
+            } else if (mime->hasText()) {
+                tab->webView()->load(mApp->searchEnginesManager()->searchResult(mime->text()));
+            }
         }
     }
 }
