@@ -70,6 +70,8 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);
+    void dragLeaveEvent(QDragLeaveEvent *event);
+    void dragMoveEvent(QDragMoveEvent *event);
     void dropEvent(QDropEvent* event);
 
     QSize tabSizeHint(int index, bool fast) const;

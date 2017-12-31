@@ -330,6 +330,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     }
 
     WebTab* webTab = new WebTab(m_window);
+    webTab->setPinned(pinned);
     webTab->locationBar()->showUrl(url);
     m_locationBars->addWidget(webTab->locationBar());
 

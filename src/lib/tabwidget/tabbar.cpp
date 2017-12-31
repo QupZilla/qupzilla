@@ -521,6 +521,32 @@ void TabBar::wheelEvent(QWheelEvent* event)
     ComboTabBar::wheelEvent(event);
 }
 
+enum TabDropAction {
+    NoAction,
+    SelectTab,
+    PrependTab,
+    AppendTab
+};
+
+static TabDropAction tabDropAction(const QPoint &pos, const QRect &tabRect)
+{
+    if (!tabRect.contains(pos)) {
+        return NoAction;
+    }
+
+    const QPoint c = tabRect.center();
+    const QSize csize = QSize(tabRect.width() * 0.7, tabRect.height() * 0.7);
+    const QRect center(c.x() - csize.width() / 2, c.y() - csize.height() / 2, csize.width(), csize.height());
+
+    if (center.contains(pos)) {
+        return SelectTab;
+    } else if (pos.x() < c.x()) {
+        return PrependTab;
+    } else {
+        return AppendTab;
+    }
+}
+
 void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     const QMimeData* mime = event->mimeData();
@@ -533,8 +559,38 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
     ComboTabBar::dragEnterEvent(event);
 }
 
+void TabBar::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    clearDropIndicator();
+
+    ComboTabBar::dragLeaveEvent(event);
+}
+
+void TabBar::dragMoveEvent(QDragMoveEvent *event)
+{
+    const int index = tabAt(event->pos());
+    if (index == -1) {
+        ComboTabBar::dragMoveEvent(event);
+        return;
+    }
+
+    switch (tabDropAction(event->pos(), tabRect(index))) {
+    case PrependTab:
+        showDropIndicator(index, BeforeTab);
+        break;
+    case AppendTab:
+        showDropIndicator(index, AfterTab);
+        break;
+    default:
+        clearDropIndicator();
+        break;
+    }
+}
+
 void TabBar::dropEvent(QDropEvent* event)
 {
+    clearDropIndicator();
+
     const QMimeData* mime = event->mimeData();
 
     if (!mime->hasText() && !mime->hasUrls()) {
@@ -553,13 +609,21 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     }
     else {
+        LoadRequest req;
         WebTab* tab = m_window->weView(index)->webTab();
-        if (tab->isRestored()) {
-            if (mime->hasUrls()) {
-                tab->webView()->load(mime->urls().at(0));
-            } else if (mime->hasText()) {
-                tab->webView()->load(mApp->searchEnginesManager()->searchResult(mime->text()));
+        TabDropAction action = tabDropAction(event->pos(), tabRect(index));
+        if (mime->hasUrls()) {
+            req = mime->urls().at(0);
+        } else if (mime->hasText()) {
+            req = mApp->searchEnginesManager()->searchResult(mime->text());
+        }
+        if (action == SelectTab) {
+            if (tab->isRestored()) {
+                tab->webView()->load(req);
             }
+        } else if (action == PrependTab || action == AppendTab) {
+            const int newIndex = action == PrependTab ? index : index + 1;
+            m_tabWidget->addView(req, QString(), Qz::NT_SelectedNewEmptyTab, false, newIndex, index <= pinnedTabsCount());
         }
     }
 }
