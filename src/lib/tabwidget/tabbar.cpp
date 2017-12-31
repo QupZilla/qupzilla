@@ -26,6 +26,7 @@
 #include "pluginproxy.h"
 #include "iconprovider.h"
 #include "tabcontextmenu.h"
+#include "searchenginesmanager.h"
 
 #include <QMenu>
 #include <QMimeData>
@@ -524,7 +525,7 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     const QMimeData* mime = event->mimeData();
 
-    if (mime->hasUrls()) {
+    if (mime->hasText() || mime->hasUrls()) {
         event->acceptProposedAction();
         return;
     }
@@ -536,15 +537,19 @@ void TabBar::dropEvent(QDropEvent* event)
 {
     const QMimeData* mime = event->mimeData();
 
-    if (!mime->hasUrls()) {
+    if (!mime->hasText() && !mime->hasUrls()) {
         ComboTabBar::dropEvent(event);
         return;
     }
 
     int index = tabAt(event->pos());
     if (index == -1) {
-        foreach (const QUrl &url, mime->urls()) {
-            m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
+        if (mime->hasUrls()) {
+            foreach (const QUrl &url, mime->urls()) {
+                m_tabWidget->addView(url, Qz::NT_SelectedTabAtTheEnd);
+            }
+        } else if (mime->hasText()) {
+            m_tabWidget->addView(mApp->searchEnginesManager()->searchResult(mime->text()), Qz::NT_SelectedNewEmptyTab);
         }
     }
     else {
