@@ -80,7 +80,7 @@ void LocationCompleter::complete(const QString &string)
     connect(job, SIGNAL(finished()), this, SLOT(refreshJobFinished()));
     connect(this, SIGNAL(cancelRefreshJob()), job, SLOT(jobCancelled()));
 
-    if (qzSettings->searchFromAddressBar && qzSettings->showABSearchSuggestions && trimmedStr.length() > 2) {
+    if (qzSettings->searchFromAddressBar && qzSettings->showABSearchSuggestions && trimmedStr.length() >= 2) {
         if (!m_openSearchEngine) {
             m_openSearchEngine = new OpenSearchEngine(this);
             m_openSearchEngine->setNetworkAccessManager(mApp->networkManager());
