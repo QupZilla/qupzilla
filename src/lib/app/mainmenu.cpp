@@ -80,11 +80,13 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/NewWindow")]);
     superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
-    superMenu->addSeparator();
-    QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
-    connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
-    superMenu->addMenu(sessionsSubmenu);
-    superMenu->addAction(m_actions[QSL("File/SessionManager")]);
+    if (!mApp->isPrivate()) {
+        superMenu->addSeparator();
+        QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
+        connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
+        superMenu->addMenu(sessionsSubmenu);
+        superMenu->addAction(m_actions[QSL("File/SessionManager")]);
+    }
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("File/SendLink")]);
     superMenu->addAction(m_actions[QSL("File/Print")]);
