@@ -223,18 +223,19 @@ QRect ComboTabBar::tabRect(int index) const
 int ComboTabBar::tabAt(const QPoint &pos) const
 {
     QWidget* w = QApplication::widgetAt(mapToGlobal(pos));
-    if (!qobject_cast<TabBarHelper*>(w) && !qobject_cast<TabIcon*>(w))
+    if (!qobject_cast<TabBarHelper*>(w) && !qobject_cast<TabIcon*>(w) && !qobject_cast<CloseButton*>(w))
         return -1;
 
-    int index = m_pinnedTabBarWidget->tabAt(m_pinnedTabBarWidget->mapFromParent(pos));
-    if (index != -1)
+    if (m_pinnedTabBarWidget->geometry().contains(pos)) {
+        return m_pinnedTabBarWidget->tabAt(m_pinnedTabBarWidget->mapFromParent(pos));
+    } else if (m_mainTabBarWidget->geometry().contains(pos)) {
+        int index = m_mainTabBarWidget->tabAt(m_mainTabBarWidget->mapFromParent(pos));
+        if (index != -1)
+            index += pinnedTabsCount();
         return index;
+    }
 
-    index = m_mainTabBarWidget->tabAt(m_mainTabBarWidget->mapFromParent(pos));
-    if (index != -1)
-        index += pinnedTabsCount();
-
-    return index;
+    return -1;
 }
 
 bool ComboTabBar::emptyArea(const QPoint &pos) const
