@@ -929,6 +929,13 @@
                 </widget>
                </item>
                <item>
+                <widget class="QCheckBox" name="showABSearchSuggestions">
+                 <property name="text">
+                  <string>Show search suggestions</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <spacer name="verticalSpacer_16">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>

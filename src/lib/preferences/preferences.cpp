@@ -265,6 +265,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->searchFromAddressBar->setChecked(searchFromAB);
     ui->searchWithDefaultEngine->setEnabled(searchFromAB);
     ui->searchWithDefaultEngine->setChecked(settings.value("SearchWithDefaultEngine", false).toBool());
+    ui->showABSearchSuggestions->setEnabled(searchFromAB);
+    ui->showABSearchSuggestions->setChecked(settings.value("showSearchSuggestions", true).toBool());
     connect(ui->searchFromAddressBar, SIGNAL(toggled(bool)), this, SLOT(searchFromAddressBarChanged(bool)));
     settings.endGroup();
 
@@ -701,6 +703,7 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
 void Preferences::searchFromAddressBarChanged(bool stat)
 {
     ui->searchWithDefaultEngine->setEnabled(stat);
+    ui->showABSearchSuggestions->setEnabled(stat);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -1039,6 +1042,7 @@ void Preferences::saveSettings()
     settings.beginGroup("SearchEngines");
     settings.setValue("SearchFromAddressBar", ui->searchFromAddressBar->isChecked());
     settings.setValue("SearchWithDefaultEngine", ui->searchWithDefaultEngine->isChecked());
+    settings.setValue("showSearchSuggestions", ui->showABSearchSuggestions->isChecked());
     settings.endGroup();
 
     //Languages

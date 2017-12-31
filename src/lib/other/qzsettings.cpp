@@ -38,10 +38,11 @@ void QzSettings::loadSettings()
     settings.endGroup();
 
     settings.beginGroup("SearchEngines");
-    showSearchSuggestions = settings.value("showSuggestions", true).toBool();
     searchOnEngineChange = settings.value("SearchOnEngineChange", true).toBool();
     searchFromAddressBar = settings.value("SearchFromAddressBar", true).toBool();
     searchWithDefaultEngine = settings.value("SearchWithDefaultEngine", false).toBool();
+    showABSearchSuggestions = settings.value("showSearchSuggestions", true).toBool();
+    showWSBSearchSuggestions = settings.value("showSuggestions", true).toBool();
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
