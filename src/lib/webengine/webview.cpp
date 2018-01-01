@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -558,7 +558,7 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
             engine = act->data().value<SearchEngine>();
@@ -571,7 +571,7 @@ void WebView::searchSelectedText()
 
 void WebView::searchSelectedTextInBackgroundTab()
 {
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
             engine = act->data().value<SearchEngine>();
@@ -888,7 +888,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
     // KDE is displaying newlines in menu actions ... weird -,-
     selectedText.replace(QLatin1Char('\n'), QLatin1Char(' ')).replace(QLatin1Char('\t'), QLatin1Char(' '));
 
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));
     connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
     connect(act, SIGNAL(ctrlTriggered()), this, SLOT(searchSelectedTextInBackgroundTab()));
