@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,6 @@ TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWi
     connect(this, SIGNAL(closeToRight(int)), m_tabWidget, SLOT(closeToRight(int)));
     connect(this, SIGNAL(closeToLeft(int)), m_tabWidget, SLOT(closeToLeft(int)));
     connect(this, SIGNAL(duplicateTab(int)), m_tabWidget, SLOT(duplicateTab(int)));
-    connect(this, SIGNAL(detachTab(int)), m_tabWidget, SLOT(detachTab(int)));
 
     init();
 }
@@ -119,10 +118,6 @@ void TabContextMenu::init()
         }
 
         addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
-
-        if (m_tabWidget->count() > 1 && !webTab->isPinned()) {
-            addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
-        }
 
         addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));

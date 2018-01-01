@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,6 @@ class QUPZILLA_EXPORT TabContextMenu : public QMenu
 public:
     explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs = true);
 
-
 signals:
     void reloadTab(int index);
     void stopTab(int index);
@@ -40,14 +39,12 @@ signals:
     void closeToRight(int index);
     void closeToLeft(int index);
     void duplicateTab(int index);
-    void detachTab(int index);
 
 private slots:
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
     void closeTab() { emit tabCloseRequested(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
-    void detachTab() { emit detachTab(m_clickedTab); }
 
     void pinTab();
     void muteTab();
