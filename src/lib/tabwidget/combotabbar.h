@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -75,6 +75,7 @@ public:
     void setTabTextColor(int index, const QColor &color);
 
     QRect tabRect(int index) const;
+    QPixmap tabPixmap(int index) const;
 
     // Returns tab index at pos, or -1
     int tabAt(const QPoint &pos) const;
@@ -233,6 +234,8 @@ public:
 
     QSize tabSizeHint(int index) const;
     QSize baseClassTabSizeHint(int index) const;
+
+    QPixmap tabPixmap(int index) const;
 
     bool isActiveTabBar();
     void setActiveTabBar(bool activate);

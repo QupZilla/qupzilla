@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -218,6 +218,11 @@ QRect ComboTabBar::tabRect(int index) const
     }
 
     return rect;
+}
+
+QPixmap ComboTabBar::tabPixmap(int index) const
+{
+    return localTabBar(index)->tabPixmap(toLocalIndex(index));
 }
 
 int ComboTabBar::tabAt(const QPoint &pos) const
@@ -1007,6 +1012,40 @@ QSize TabBarHelper::tabSizeHint(int index) const
 QSize TabBarHelper::baseClassTabSizeHint(int index) const
 {
     return QTabBar::tabSizeHint(index);
+}
+
+QPixmap TabBarHelper::tabPixmap(int index) const
+{
+    QStyleOptionTab tab;
+    initStyleOption(&tab, index);
+
+    tab.state &= ~QStyle::State_MouseOver;
+    tab.leftButtonSize = QSize();
+    tab.rightButtonSize = QSize();
+
+    QWidget *iconButton = tabButton(index, m_comboTabBar->iconButtonPosition());
+    QWidget *closeButton = tabButton(index, m_comboTabBar->closeButtonPosition());
+
+    if (iconButton) {
+        const QPixmap pix = iconButton->grab();
+        tab.icon = pix;
+        tab.iconSize = pix.size();
+    }
+
+    if (closeButton) {
+        const int width = tab.fontMetrics.width(tab.text) + closeButton->width();
+        tab.text = tab.fontMetrics.elidedText(tabText(index), Qt::ElideRight, width);
+    }
+
+    QPixmap out(tab.rect.size());
+    out.fill(Qt::transparent);
+    tab.rect = QRect(QPoint(0, 0), out.size());
+
+    QPainter p(&out);
+    style()->drawControl(QStyle::CE_TabBarTab, &tab, &p, this);
+    p.end();
+
+    return out;
 }
 
 bool TabBarHelper::isActiveTabBar()
