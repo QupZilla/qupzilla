@@ -271,6 +271,7 @@ void WebTab::setZoomLevel(int level)
 
 void WebTab::detach()
 {
+    Q_ASSERT(m_window);
     Q_ASSERT(m_tabBar);
 
     // Remove icon from tab
@@ -278,6 +279,7 @@ void WebTab::detach()
     m_tabIcon->setParent(this);
 
     // Remove the tab from tabbar
+    m_window->tabWidget()->removeTab(tabIndex());
     setParent(0);
     // Remove the locationbar from window
     m_locationBar->setParent(this);
