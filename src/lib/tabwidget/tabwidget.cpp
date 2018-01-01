@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -378,17 +378,34 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     return index;
 }
 
-int TabWidget::addView(WebTab* tab)
+int TabWidget::addView(WebTab *tab, const Qz::NewTabPositionFlags &openFlags)
+{
+    return insertView(count() + 1, tab, openFlags);
+}
+
+int TabWidget::insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags &openFlags)
 {
     m_locationBars->addWidget(tab->locationBar());
-    int index = addTab(tab, QString());
+    int newIndex = insertTab(index, tab, QString());
     tab->attach(m_window);
+
+    if (openFlags.testFlag(Qz::NT_SelectedTab)) {
+        setCurrentIndex(newIndex);
+    } else {
+        m_lastBackgroundTabIndex = index;
+    }
 
     connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
-    return index;
+    // Make sure user notice opening new background tabs
+    if (!(openFlags & Qz::NT_SelectedTab)) {
+        m_tabBar->ensureVisible(index);
+    }
+
+    emit changed();
+    return newIndex;
 }
 
 void TabWidget::addTabFromClipboard()

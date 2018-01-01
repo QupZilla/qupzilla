@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -100,7 +100,8 @@ public:
 public slots:
     int addView(const LoadRequest &req, const Qz::NewTabPositionFlags &openFlags, bool selectLine = false, bool pinned = false);
     int addView(const LoadRequest &req, const QString &title = tr("New tab"), const Qz::NewTabPositionFlags &openFlags = Qz::NT_SelectedTab, bool selectLine = false, int position = -1, bool pinned = false);
-    int addView(WebTab* tab);
+    int addView(WebTab *tab, const Qz::NewTabPositionFlags &openFlags);
+    int insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags &openFlags);
 
     void addTabFromClipboard();
     int duplicateTab(int index);

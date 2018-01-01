@@ -1,6 +1,7 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C)      2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -545,7 +546,7 @@ static void detachTabsTo(BrowserWindow* targetWindow, const QHash<BrowserWindow*
                 mainWindow = 0;
             }
 
-            targetWindow->tabWidget()->addView(webTab);
+            targetWindow->tabWidget()->addView(webTab, Qz::NT_NotSelectedTab);
         }
     }
 }
