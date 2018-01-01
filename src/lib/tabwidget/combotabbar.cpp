@@ -803,6 +803,7 @@ void ComboTabBar::setUsesScrollButtons(bool useButtons)
 
 void ComboTabBar::showDropIndicator(int index, DropIndicatorPosition position)
 {
+    clearDropIndicator();
     localTabBar(index)->showDropIndicator(toLocalIndex(index), position);
 }
 
