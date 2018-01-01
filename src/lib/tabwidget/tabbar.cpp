@@ -88,7 +88,7 @@ void TabBar::loadSettings()
     settings.endGroup();
 
     setSelectionBehaviorOnRemove(activateLastTab ? QTabBar::SelectPreviousTab : QTabBar::SelectRightTab);
-    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+    setVisible(!(count() <= 1 && m_hideTabBarWithOneTab));
 
     setUpLayout();
 }
@@ -107,7 +107,7 @@ void TabBar::setVisible(bool visible)
 
     // Make sure to honor user preference
     if (visible) {
-        visible = !(count() == 1 && m_hideTabBarWithOneTab);
+        visible = !(count() <= 1 && m_hideTabBarWithOneTab);
     }
 
     ComboTabBar::setVisible(visible);
@@ -416,7 +416,7 @@ void TabBar::tabInserted(int index)
 {
     Q_UNUSED(index)
 
-    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+    setVisible(!(count() <= 1 && m_hideTabBarWithOneTab));
 }
 
 void TabBar::tabRemoved(int index)
@@ -424,7 +424,7 @@ void TabBar::tabRemoved(int index)
     Q_UNUSED(index)
 
     showCloseButton(currentIndex());
-    setVisible(!(count() == 1 && m_hideTabBarWithOneTab));
+    setVisible(!(count() <= 1 && m_hideTabBarWithOneTab));
 
     // Make sure to move add tab button to correct position when there are no normal tabs
     if (normalTabsCount() == 0) {
