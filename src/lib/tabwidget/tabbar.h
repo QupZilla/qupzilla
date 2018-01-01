@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -70,8 +70,8 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);
-    void dragLeaveEvent(QDragLeaveEvent *event);
     void dragMoveEvent(QDragMoveEvent *event);
+    void dragLeaveEvent(QDragLeaveEvent *event);
     void dropEvent(QDropEvent* event);
 
     QSize tabSizeHint(int index, bool fast) const;

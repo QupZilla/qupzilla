@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,6 @@
 #include "tabcontextmenu.h"
 #include "searchenginesmanager.h"
 
-#include <QMenu>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QStyleOption>
@@ -38,6 +37,9 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QHBoxLayout>
+#include <QDrag>
+
+#define MIMETYPE QSL("application/qupzilla.tabbar.tab")
 
 TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     : ComboTabBar()
@@ -454,9 +456,8 @@ void TabBar::mousePressEvent(QMouseEvent* event)
     }
 
     if (event->buttons() == Qt::LeftButton && !emptyArea(event->pos())) {
-        m_dragStartPosition = mapFromGlobal(event->globalPos());
-    }
-    else {
+        m_dragStartPosition = event->pos();
+    } else {
         m_dragStartPosition = QPoint();
     }
 
@@ -469,10 +470,36 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         return;
     }
 
-    if (!m_dragStartPosition.isNull() && m_tabWidget->buttonAddTab()->isVisible()) {
-        int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
-        if (manhattanLength > QApplication::startDragDistance()) {
-            m_tabWidget->buttonAddTab()->hide();
+    if (!m_dragStartPosition.isNull()) {
+        if (m_tabWidget->buttonAddTab()->isVisible()) {
+            int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
+            if (manhattanLength > QApplication::startDragDistance()) {
+                m_tabWidget->buttonAddTab()->hide();
+            }
+        }
+        int offset = 0;
+        const int eventY = event->pos().y();
+        if (eventY < 0) {
+            offset = qAbs(eventY);
+        } else if (eventY > height()) {
+            offset = eventY - height();
+        }
+        if (count() > 1 && offset > QApplication::startDragDistance()) {
+            const QPoint global = mapToGlobal(m_dragStartPosition);
+            QWidget *w = QApplication::widgetAt(global);
+            if (w) {
+                QMouseEvent mouse(QEvent::MouseButtonRelease, w->mapFromGlobal(global), Qt::LeftButton, Qt::LeftButton, event->modifiers());
+                QApplication::sendEvent(w, &mouse);
+            }
+            QDrag *drag = new QDrag(this);
+            QMimeData *mime = new QMimeData;
+            mime->setData(MIMETYPE, QByteArray());
+            drag->setMimeData(mime);
+            drag->setPixmap(tabPixmap(currentIndex()));
+            if (drag->exec() == Qt::IgnoreAction) {
+                m_tabWidget->detachTab(currentIndex());
+            }
+            return;
         }
     }
 
@@ -528,7 +555,7 @@ enum TabDropAction {
     AppendTab
 };
 
-static TabDropAction tabDropAction(const QPoint &pos, const QRect &tabRect)
+static TabDropAction tabDropAction(const QPoint &pos, const QRect &tabRect, bool allowSelect)
 {
     if (!tabRect.contains(pos)) {
         return NoAction;
@@ -538,7 +565,7 @@ static TabDropAction tabDropAction(const QPoint &pos, const QRect &tabRect)
     const QSize csize = QSize(tabRect.width() * 0.7, tabRect.height() * 0.7);
     const QRect center(c.x() - csize.width() / 2, c.y() - csize.height() / 2, csize.width(), csize.height());
 
-    if (center.contains(pos)) {
+    if (allowSelect && center.contains(pos)) {
         return SelectTab;
     } else if (pos.x() < c.x()) {
         return PrependTab;
@@ -551,7 +578,7 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     const QMimeData* mime = event->mimeData();
 
-    if (mime->hasText() || mime->hasUrls()) {
+    if (mime->hasText() || mime->hasUrls() || mime->hasFormat(MIMETYPE)) {
         event->acceptProposedAction();
         return;
     }
@@ -559,22 +586,17 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
     ComboTabBar::dragEnterEvent(event);
 }
 
-void TabBar::dragLeaveEvent(QDragLeaveEvent *event)
-{
-    clearDropIndicator();
-
-    ComboTabBar::dragLeaveEvent(event);
-}
-
 void TabBar::dragMoveEvent(QDragMoveEvent *event)
 {
     const int index = tabAt(event->pos());
-    if (index == -1) {
+    const QMimeData* mime = event->mimeData();
+
+    if (index == -1 || (mime->hasFormat(MIMETYPE) && event->source() == this)) {
         ComboTabBar::dragMoveEvent(event);
         return;
     }
 
-    switch (tabDropAction(event->pos(), tabRect(index))) {
+    switch (tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE))) {
     case PrependTab:
         showDropIndicator(index, BeforeTab);
         break;
@@ -587,16 +609,31 @@ void TabBar::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
+void TabBar::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    clearDropIndicator();
+
+    ComboTabBar::dragLeaveEvent(event);
+}
+
 void TabBar::dropEvent(QDropEvent* event)
 {
     clearDropIndicator();
 
     const QMimeData* mime = event->mimeData();
 
-    if (!mime->hasText() && !mime->hasUrls()) {
+    if (!mime->hasText() && !mime->hasUrls() && !mime->hasFormat(MIMETYPE)) {
         ComboTabBar::dropEvent(event);
         return;
     }
+
+    event->acceptProposedAction();
+
+    if (mime->hasFormat(MIMETYPE) && event->source() == this) {
+        return;
+    }
+
+    TabBar *sourceTabBar = qobject_cast<TabBar*>(event->source());
 
     int index = tabAt(event->pos());
     if (index == -1) {
@@ -606,24 +643,39 @@ void TabBar::dropEvent(QDropEvent* event)
             }
         } else if (mime->hasText()) {
             m_tabWidget->addView(mApp->searchEnginesManager()->searchResult(mime->text()), Qz::NT_SelectedNewEmptyTab);
+        } else if (mime->hasFormat(MIMETYPE) && sourceTabBar) {
+            WebTab *tab = sourceTabBar->webTab();
+            if (tab) {
+                sourceTabBar->m_tabWidget->detachTab(tab);
+                tab->setPinned(false);
+                m_tabWidget->addView(tab, Qz::NT_SelectedTab);
+            }
         }
-    }
-    else {
+    } else {
         LoadRequest req;
         WebTab* tab = m_window->weView(index)->webTab();
-        TabDropAction action = tabDropAction(event->pos(), tabRect(index));
+        TabDropAction action = tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE));
         if (mime->hasUrls()) {
             req = mime->urls().at(0);
         } else if (mime->hasText()) {
             req = mApp->searchEnginesManager()->searchResult(mime->text());
         }
         if (action == SelectTab) {
-            if (tab->isRestored()) {
+            if (tab->isRestored() && !req.isEmpty()) {
                 tab->webView()->load(req);
             }
         } else if (action == PrependTab || action == AppendTab) {
             const int newIndex = action == PrependTab ? index : index + 1;
-            m_tabWidget->addView(req, QString(), Qz::NT_SelectedNewEmptyTab, false, newIndex, index <= pinnedTabsCount());
+            if (!req.isEmpty()) {
+                m_tabWidget->addView(req, QString(), Qz::NT_SelectedNewEmptyTab, false, newIndex, index < pinnedTabsCount());
+            } else if (mime->hasFormat(MIMETYPE) && sourceTabBar) {
+                WebTab *tab = sourceTabBar->webTab();
+                if (tab) {
+                    sourceTabBar->m_tabWidget->detachTab(tab);
+                    tab->setPinned(index < pinnedTabsCount());
+                    m_tabWidget->insertView(newIndex, tab, Qz::NT_SelectedTab);
+                }
+            }
         }
     }
 }

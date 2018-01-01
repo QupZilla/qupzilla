@@ -386,7 +386,7 @@ int TabWidget::addView(WebTab *tab, const Qz::NewTabPositionFlags &openFlags)
 int TabWidget::insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags &openFlags)
 {
     m_locationBars->addWidget(tab->locationBar());
-    int newIndex = insertTab(index, tab, QString());
+    int newIndex = insertTab(index, tab, QString(), tab->isPinned());
     tab->attach(m_window);
 
     if (openFlags.testFlag(Qz::NT_SelectedTab)) {
@@ -659,11 +659,12 @@ void TabWidget::detachTab(int index)
 {
     WebTab* tab = weTab(index);
 
-    if (tab->isPinned() || count() == 1) {
+    if (count() < 2) {
         return;
     }
 
     detachTab(tab);
+    tab->setPinned(false);
 
     BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
     window->setStartTab(tab);
