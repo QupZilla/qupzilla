@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -207,7 +207,7 @@ LoadRequest LocationBar::createLoadRequest() const
     if (req.isEmpty()) {
         // One word needs special handling, because QUrl::fromUserInput
         // would convert it to QUrl("http://WORD")
-        if (!t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
+        if (t != QL1S("localhost") && !t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
             req.setUrl(QUrl(t));
         } else {
             const QUrl &guessed = QUrl::fromUserInput(t);
