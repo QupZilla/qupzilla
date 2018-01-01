@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -145,13 +145,11 @@ void HistoryMenu::aboutToShowClosedTabs()
 
     TabWidget* tabWidget = m_window->tabWidget();
 
-    int i = 0;
-    const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
-
-    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
-        const QString title = QzTools::truncatedText(tab.title, 40);
-        QAction* act = m_menuClosedTabs->addAction(tab.icon, title, tabWidget, SLOT(restoreClosedTab()));
-        act->setData(i++);
+    const auto closedTabs = tabWidget->closedTabsManager()->closedTabs();
+    for (int i = 0; i < closedTabs.count(); ++i) {
+        const ClosedTabsManager::Tab tab = closedTabs.at(i);
+        const QString title = QzTools::truncatedText(tab.tabState.title, 40);
+        m_menuClosedTabs->addAction(tab.tabState.icon, title, tabWidget, SLOT(restoreClosedTab()))->setData(i);
     }
 
     if (m_menuClosedTabs->isEmpty()) {

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,18 +16,16 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "closedtabsmanager.h"
-#include "webtab.h"
-#include "qztools.h"
 #include "mainapplication.h"
+#include "qztools.h"
 
 #include <QWebEngineHistory>
-#include <QWebEngineSettings>
 
 ClosedTabsManager::ClosedTabsManager()
 {
 }
 
-void ClosedTabsManager::saveTab(WebTab* tab, int position)
+void ClosedTabsManager::saveTab(WebTab *tab)
 {
     if (mApp->isPrivate()) {
         return;
@@ -39,17 +37,12 @@ void ClosedTabsManager::saveTab(WebTab* tab, int position)
     }
 
     Tab closedTab;
-    closedTab.url = tab->url();
-    closedTab.title = tab->title();
-    closedTab.icon = tab->icon();
-    closedTab.position = position;
-    closedTab.history = tab->historyData();
-    closedTab.zoomLevel = tab->zoomLevel();
-
+    closedTab.position = tab->tabIndex();
+    closedTab.tabState = WebTab::SavedTab(tab);
     m_closedTabs.prepend(closedTab);
 }
 
-bool ClosedTabsManager::isClosedTabAvailable()
+bool ClosedTabsManager::isClosedTabAvailable() const
 {
     return !m_closedTabs.isEmpty();
 }
@@ -57,40 +50,27 @@ bool ClosedTabsManager::isClosedTabAvailable()
 ClosedTabsManager::Tab ClosedTabsManager::takeLastClosedTab()
 {
     Tab tab;
-    tab.position = -1;
-
-    if (m_closedTabs.count() > 0) {
+    if (!m_closedTabs.isEmpty()) {
         tab = m_closedTabs.takeFirst();
     }
-
     return tab;
 }
 
 ClosedTabsManager::Tab ClosedTabsManager::takeTabAt(int index)
 {
     Tab tab;
-    tab.position = -1;
-
-    QLinkedList<Tab>::iterator it;
-    int i = 0;
-
-    for (it = m_closedTabs.begin(); it != m_closedTabs.end(); ++it, ++i) {
-        if (i == index) {
-            tab = *it;
-            m_closedTabs.erase(it);
-            break;
-        }
+    if (QzTools::containsIndex(m_closedTabs, index)) {
+        tab = m_closedTabs.takeAt(index);
     }
-
     return tab;
 }
 
-QLinkedList<ClosedTabsManager::Tab> ClosedTabsManager::allClosedTabs()
+QVector<ClosedTabsManager::Tab> ClosedTabsManager::closedTabs() const
 {
     return m_closedTabs;
 }
 
-void ClosedTabsManager::clearList()
+void ClosedTabsManager::clearClosedTabs()
 {
     m_closedTabs.clear();
 }

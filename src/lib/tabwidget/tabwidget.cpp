@@ -267,13 +267,11 @@ void TabWidget::aboutToShowClosedTabsMenu()
 {
     m_menuClosedTabs->clear();
 
-    int i = 0;
-    const QLinkedList<ClosedTabsManager::Tab> closedTabs = closedTabsManager()->allClosedTabs();
-
-    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
-        const QString title = QzTools::truncatedText(tab.title, 40);
-        QAction* act = m_menuClosedTabs->addAction(tab.icon, title, this, SLOT(restoreClosedTab()));
-        act->setData(i++);
+    const auto closedTabs = closedTabsManager()->closedTabs();
+    for (int i = 0; i < closedTabs.count(); ++i) {
+        const ClosedTabsManager::Tab tab = closedTabs.at(i);
+        const QString title = QzTools::truncatedText(tab.tabState.title, 40);
+        m_menuClosedTabs->addAction(tab.tabState.icon, title, this, SLOT(restoreClosedTab()))->setData(i);
     }
 
     if (m_menuClosedTabs->isEmpty()) {
@@ -430,8 +428,9 @@ void TabWidget::closeTab(int index)
     TabbedWebView *webView = webTab->webView();
 
     // Save tab url and history
-    if (webView->url().toString() != QL1S("qupzilla:restore"))
-        m_closedTabsManager->saveTab(webTab, index);
+    if (webView->url().toString() != QL1S("qupzilla:restore")) {
+        m_closedTabsManager->saveTab(webTab);
+    }
 
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -702,9 +701,9 @@ void TabWidget::restoreClosedTab(QObject* obj)
         return;
     }
 
-    int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab, false, tab.position);
+    int index = addView(QUrl(), tab.tabState.title, Qz::NT_CleanSelectedTab, false, tab.position);
     WebTab* webTab = weTab(index);
-    webTab->p_restoreTab(tab.url, tab.history, tab.zoomLevel);
+    webTab->p_restoreTab(tab.tabState);
 
     updateClosedTabsButton();
 }
@@ -715,12 +714,11 @@ void TabWidget::restoreAllClosedTabs()
         return;
     }
 
-    const QLinkedList<ClosedTabsManager::Tab> &closedTabs = m_closedTabsManager->allClosedTabs();
-
-    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
-        int index = addView(QUrl(), tab.title, Qz::NT_CleanSelectedTab);
+    const auto closedTabs = m_closedTabsManager->closedTabs();
+    for (const ClosedTabsManager::Tab &tab : closedTabs) {
+        int index = addView(QUrl(), tab.tabState.title, Qz::NT_CleanSelectedTab);
         WebTab* webTab = weTab(index);
-        webTab->p_restoreTab(tab.url, tab.history, tab.zoomLevel);
+        webTab->p_restoreTab(tab.tabState);
     }
 
     clearClosedTabsList();
@@ -728,7 +726,7 @@ void TabWidget::restoreAllClosedTabs()
 
 void TabWidget::clearClosedTabsList()
 {
-    m_closedTabsManager->clearList();
+    m_closedTabsManager->clearClosedTabs();
     updateClosedTabsButton();
 }
 
