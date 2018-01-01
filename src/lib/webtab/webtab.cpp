@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -274,7 +274,8 @@ void WebTab::detach()
     Q_ASSERT(m_tabBar);
 
     // Remove icon from tab
-    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), 0);
+    m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), nullptr);
+    m_tabIcon->setParent(this);
 
     // Remove the tab from tabbar
     setParent(0);

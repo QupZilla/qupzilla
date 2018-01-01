@@ -484,7 +484,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         } else if (eventY > height()) {
             offset = eventY - height();
         }
-        if (count() > 1 && offset > QApplication::startDragDistance()) {
+        if (offset > QApplication::startDragDistance()) {
             const QPoint global = mapToGlobal(m_dragStartPosition);
             QWidget *w = QApplication::widgetAt(global);
             if (w) {

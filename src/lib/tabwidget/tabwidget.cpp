@@ -648,16 +648,15 @@ void TabWidget::detachTab(WebTab* tab)
     disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
     tab->detach();
+
+    if (count() == 0) {
+        m_window->close();
+    }
 }
 
 void TabWidget::detachTab(int index)
 {
     WebTab* tab = weTab(index);
-
-    if (count() <= 1) {
-        return;
-    }
-
     detachTab(tab);
     tab->setPinned(false);
 
