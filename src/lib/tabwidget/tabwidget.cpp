@@ -440,11 +440,6 @@ void TabWidget::closeTab(int index)
 
     m_lastBackgroundTabIndex = -1;
 
-    if (m_menuTabs->isVisible()) {
-        QAction* labelAction = m_menuTabs->actions().last();
-        labelAction->setText(tr("Currently you have %n opened tab(s)", "", count() - 1));
-    }
-
     removeTab(index);
     webTab->deleteLater();
 
