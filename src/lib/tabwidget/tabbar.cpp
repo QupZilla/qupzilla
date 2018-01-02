@@ -661,12 +661,12 @@ void TabBar::dropEvent(QDropEvent* event)
             req = mApp->searchEnginesManager()->searchResult(mime->text());
         }
         if (action == SelectTab) {
-            if (tab->isRestored() && !req.isValid()) {
+            if (tab->isRestored() && req.isValid()) {
                 tab->webView()->load(req);
             }
         } else if (action == PrependTab || action == AppendTab) {
             const int newIndex = action == PrependTab ? index : index + 1;
-            if (!req.isValid()) {
+            if (req.isValid()) {
                 m_tabWidget->addView(req, QString(), Qz::NT_SelectedNewEmptyTab, false, newIndex, index < pinnedTabsCount());
             } else if (mime->hasFormat(MIMETYPE) && sourceTabBar) {
                 WebTab *tab = sourceTabBar->webTab();
