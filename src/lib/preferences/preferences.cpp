@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -760,7 +760,7 @@ void Preferences::newTabChanged(int value)
 
 void Preferences::afterLaunchChanged(int value)
 {
-    ui->dontLoadTabsUntilSelected->setEnabled(value == 3);
+    ui->dontLoadTabsUntilSelected->setEnabled(value == 3 || value == 4);
 }
 
 void Preferences::changeCachePathClicked()
