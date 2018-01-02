@@ -282,8 +282,8 @@ void BrowserWindow::postLaunch()
             QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
             m_tabWidget->addView(QUrl("qupzilla:restore"), Qz::NT_CleanSelectedTabAtTheEnd);
         }
-        else if ((mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) && mApp->restoreManager()) {
-            addTab = !mApp->restoreSession(this, mApp->restoreManager()->restoreData());
+        else if (mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) {
+            addTab = m_tabWidget->count() <= 0;
         }
         break;
 
@@ -322,7 +322,7 @@ void BrowserWindow::postLaunch()
     }
 
     // Something went really wrong .. add one tab
-    if (m_tabWidget->tabBar()->normalTabsCount() <= 0) {
+    if (m_tabWidget->count() <= 0) {
         m_tabWidget->addView(m_homepage, Qz::NT_SelectedTabAtTheEnd);
     }
 

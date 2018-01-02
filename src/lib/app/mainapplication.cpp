@@ -308,7 +308,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     connect(this, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged()));
 
-
     if (!isPrivate()) {
 #ifndef DISABLE_CHECK_UPDATES
         Settings settings;
@@ -323,7 +322,9 @@ MainApplication::MainApplication(int &argc, char** argv)
 
         if (m_isStartingAfterCrash || afterLaunch() == RestoreSession) {
             m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
-            if (!m_restoreManager->isValid()) {
+            if (m_restoreManager->isValid()) {
+                restoreSession(window, m_restoreManager->restoreData());
+            } else {
                 destroyRestoreManager();
             }
         }
