@@ -1,3 +1,16 @@
+Version 2.2.4
+    * released X
+    * added option to disable search suggestions from locationbar
+    * added support for detaching and moving tabs to other windows with drag&drop
+    * added support for dropping text/url on tabbar to create new tabs
+    * closed windows can now be restored using history menu or Ctrl+Shit+N shortcut
+    * multiple windows in session now each restore its geometry, state and settings
+    * fix restore session page with disabled JavaScript
+    * fix showing close button in Web Inspector
+    * fix tabs not being restored when activated in some cases
+    * fix loading "localhost" from locationbar
+    * fix applying web settings when in private mode
+
 Version 2.2.3
     * released 19 December 2017
     * fix crashes with Qt 5.10
