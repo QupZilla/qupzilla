@@ -85,6 +85,8 @@
 #include <xcb/xcb_atom.h>
 #endif
 
+static const int savedWindowVersion = 1;
+
 BrowserWindow::SavedWindow::SavedWindow()
 {
 }
@@ -135,55 +137,43 @@ void BrowserWindow::SavedWindow::clear()
 
 QDataStream &operator<<(QDataStream &stream, const BrowserWindow::SavedWindow &window)
 {
-    QByteArray tabsState;
-    QByteArray windowState;
+    stream << savedWindowVersion;
+    stream << window.windowState;
+    stream << window.windowGeometry;
+    stream << window.virtualDesktop;
+    stream << window.currentTab;
+    stream << window.tabs.count();
 
-#ifdef QZ_WS_X11
-    QDataStream stream1(&windowState, QIODevice::WriteOnly);
-    stream1 << window.windowState;
-    stream1 << window.virtualDesktop;
-#else
-    windowState = window.windowState;
-#endif
-
-    QDataStream stream2(&tabsState, QIODevice::WriteOnly);
-    stream2 << window.tabs.count();
-    for (const WebTab::SavedTab &tab : qAsConst(window.tabs)) {
-        stream2 << tab;
+    for (int i = 0; i < window.tabs.count(); ++i) {
+        stream << window.tabs.at(i);
     }
-    stream2 << window.currentTab;
 
-    stream << tabsState;
-    stream << windowState;
     return stream;
 }
 
 QDataStream &operator>>(QDataStream &stream, BrowserWindow::SavedWindow &window)
 {
-    QByteArray tabsState;
-    QByteArray windowState;
+    int version;
+    stream >> version;
 
-    stream >> tabsState;
-    stream >> windowState;
+    if (version < 1) {
+        return stream;
+    }
 
-#ifdef QZ_WS_X11
-    QDataStream stream1(&windowState, QIODevice::ReadOnly);
-    stream1 >> window.windowState;
-    stream1 >> window.virtualDesktop;
-#else
-    window.windowState = windowState;
-#endif
+    stream >> window.windowState;
+    stream >> window.windowGeometry;
+    stream >> window.virtualDesktop;
+    stream >> window.currentTab;
 
     int tabsCount = -1;
-    QDataStream stream2(&tabsState, QIODevice::ReadOnly);
-    stream2 >> tabsCount;
+    stream >> tabsCount;
     window.tabs.reserve(tabsCount);
+
     for (int i = 0; i < tabsCount; ++i) {
         WebTab::SavedTab tab;
-        stream2 >> tab;
+        stream >> tab;
         window.tabs.append(tab);
     }
-    stream2 >> window.currentTab;
 
     return stream;
 }

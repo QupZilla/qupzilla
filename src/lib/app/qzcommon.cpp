@@ -19,8 +19,7 @@
 
 namespace Qz
 {
-const int sessionVersion = 0x0003;
-const int sessionVersionQt5 = 0x0003 | 0x050000;
+const int sessionVersion = 0x0004;
 const int bookmarksVersion = 1;
 
 QUPZILLA_EXPORT const char* APPNAME = "QupZilla";

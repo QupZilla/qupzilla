@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,8 +51,6 @@ namespace Qz
 {
 // Version of session.dat file
 extern const int sessionVersion;
-// Backwards compatibility (used to be different for Qt4 and Qt5)
-extern const int sessionVersionQt5;
 
 // Version of bookmarks.json file
 extern const int bookmarksVersion;

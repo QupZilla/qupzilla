@@ -49,6 +49,58 @@ QObject *RestoreManager::recoveryObject(WebPage *page)
     return m_recoveryObject;
 }
 
+static void loadCurrentVersion(QDataStream &stream, RestoreData &data)
+{
+    int windowCount;
+    stream >> windowCount;
+    data.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        BrowserWindow::SavedWindow window;
+        stream >> window;
+        data.append(window);
+    }
+}
+
+static void loadVersion3(QDataStream &stream, RestoreData &data)
+{
+    int windowCount;
+    stream >> windowCount;
+    data.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        QByteArray tabsState;
+        QByteArray windowState;
+
+        stream >> tabsState;
+        stream >> windowState;
+
+        BrowserWindow::SavedWindow window;
+
+#ifdef QZ_WS_X11
+        QDataStream stream1(&windowState, QIODevice::ReadOnly);
+        stream1 >> window.windowState;
+        stream1 >> window.virtualDesktop;
+#else
+        window.windowState = windowState;
+#endif
+
+        int tabsCount = -1;
+        QDataStream stream2(&tabsState, QIODevice::ReadOnly);
+        stream2 >> tabsCount;
+        window.tabs.reserve(tabsCount);
+        for (int i = 0; i < tabsCount; ++i) {
+            WebTab::SavedTab tab;
+            stream2 >> tab;
+            window.tabs.append(tab);
+        }
+        stream2 >> window.currentTab;
+
+        data.append(window);
+    }
+}
+
+// static
 void RestoreManager::createFromFile(const QString &file, RestoreData &data)
 {
     if (!QFile::exists(file)) {
@@ -62,18 +114,12 @@ void RestoreManager::createFromFile(const QString &file, RestoreData &data)
     int version;
     stream >> version;
 
-    if (version != Qz::sessionVersion && version != Qz::sessionVersionQt5) {
-        return;
-    }
-
-    int windowCount;
-    stream >> windowCount;
-    data.reserve(windowCount);
-
-    for (int i = 0; i < windowCount; ++i) {
-        BrowserWindow::SavedWindow window;
-        stream >> window;
-        data.append(window);
+    if (version == Qz::sessionVersion) {
+        loadCurrentVersion(stream, data);
+    } else if (version == 0x0003 || version == (0x0003 | 0x050000)) {
+        loadVersion3(stream, data);
+    } else {
+        qWarning() << "Unsupported session file version" << version;
     }
 }
 
