@@ -184,6 +184,7 @@ SOURCES += \
     tools/certificateinfowidget.cpp \
     tools/clickablelabel.cpp \
     tools/closedtabsmanager.cpp \
+    tools/closedwindowsmanager.cpp \
     tools/colors.cpp \
     tools/delayedfilewatcher.cpp \
     tools/docktitlebarwidget.cpp \
@@ -370,6 +371,7 @@ HEADERS  += \
     tools/certificateinfowidget.h \
     tools/clickablelabel.h \
     tools/closedtabsmanager.h \
+    tools/closedwindowsmanager.h \
     tools/colors.h \
     tools/delayedfilewatcher.h \
     tools/docktitlebarwidget.h \

@@ -40,7 +40,7 @@
 #include "iconprovider.h"
 #include "progressbar.h"
 #include "adblockicon.h"
-#include "closedtabsmanager.h"
+#include "closedwindowsmanager.h"
 #include "statusbarmessage.h"
 #include "browsinglibrary.h"
 #include "navigationbar.h"
@@ -476,6 +476,9 @@ void BrowserWindow::setupMenu()
 
     QShortcut* inspectorAction = new QShortcut(QKeySequence(QSL("F12")), this);
     connect(inspectorAction, SIGNAL(activated()), this, SLOT(toggleWebInspector()));
+
+    QShortcut* restoreClosedWindow = new QShortcut(QKeySequence(QSL("Ctrl+Shift+N")), this);
+    connect(restoreClosedWindow, &QShortcut::activated, mApp->closedWindowsManager(), &ClosedWindowsManager::restoreClosedWindow);
 }
 
 void BrowserWindow::updateStartupFocus()
@@ -1481,6 +1484,7 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
     }
 
     saveSettings();
+    mApp->closedWindowsManager()->saveWindow(this);
 
     #ifndef Q_OS_MACOS
         if (mApp->windowCount() == 1)

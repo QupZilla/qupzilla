@@ -47,6 +47,7 @@
 #include "html5permissions/html5permissionsmanager.h"
 #include "scripts.h"
 #include "sessionmanager.h"
+#include "closedwindowsmanager.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -96,6 +97,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_downloadManager(0)
     , m_userAgentManager(0)
     , m_searchEnginesManager(0)
+    , m_closedWindowsManager(0)
     , m_html5PermissionsManager(0)
     , m_desktopNotifications(0)
     , m_webProfile(0)
@@ -575,6 +577,14 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
         m_searchEnginesManager = new SearchEnginesManager(this);
     }
     return m_searchEnginesManager;
+}
+
+ClosedWindowsManager* MainApplication::closedWindowsManager()
+{
+    if (!m_closedWindowsManager) {
+        m_closedWindowsManager = new ClosedWindowsManager(this);
+    }
+    return m_closedWindowsManager;
 }
 
 HTML5PermissionsManager* MainApplication::html5PermissionsManager()

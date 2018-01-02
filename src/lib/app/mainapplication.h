@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,6 +50,7 @@ class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
 class ProxyStyle;
 class SessionManager;
+class ClosedWindowsManager;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -107,6 +108,7 @@ public:
     DownloadManager* downloadManager();
     UserAgentManager* userAgentManager();
     SearchEnginesManager* searchEnginesManager();
+    ClosedWindowsManager* closedWindowsManager();
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
     QWebEngineProfile* webProfile() const;
@@ -178,6 +180,7 @@ private:
     DownloadManager* m_downloadManager;
     UserAgentManager* m_userAgentManager;
     SearchEnginesManager* m_searchEnginesManager;
+    ClosedWindowsManager* m_closedWindowsManager;
     HTML5PermissionsManager* m_html5PermissionsManager;
     DesktopNotificationsFactory* m_desktopNotifications;
     QWebEngineProfile* m_webProfile;

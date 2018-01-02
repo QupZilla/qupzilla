@@ -26,6 +26,7 @@
 #include "history.h"
 #include "qzsettings.h"
 #include "sqldatabase.h"
+#include "closedwindowsmanager.h"
 
 #include <QApplication>
 #include <QWebEngineHistory>
@@ -79,8 +80,8 @@ void HistoryMenu::aboutToShow()
         actions().at(1)->setEnabled(view->history()->canGoForward());
     }
 
-    while (actions().count() != 7) {
-        QAction* act = actions().at(7);
+    while (actions().count() != 8) {
+        QAction* act = actions().at(8);
         if (act->menu()) {
             act->menu()->clear();
         }
@@ -162,6 +163,34 @@ void HistoryMenu::aboutToShowClosedTabs()
     }
 }
 
+void HistoryMenu::aboutToShowClosedWindows()
+{
+    m_menuClosedWindows->clear();
+
+    ClosedWindowsManager *manager = mApp->closedWindowsManager();
+
+    const auto closedWindows = manager->closedWindows();
+    for (int i = 0; i < closedWindows.count(); ++i) {
+        const ClosedWindowsManager::Window window = closedWindows.at(i);
+        const QString title = QzTools::truncatedText(window.title, 40);
+        QAction *act = m_menuClosedWindows->addAction(window.icon, title, manager, SLOT(restoreClosedWindow()));
+        if (i == 0) {
+            act->setShortcut(QKeySequence(QSL("Ctrl+Shift+N")));
+            act->setShortcutContext(Qt::WidgetShortcut);
+        } else {
+            act->setData(i);
+        }
+    }
+
+    if (m_menuClosedWindows->isEmpty()) {
+        m_menuClosedWindows->addAction(tr("Empty"))->setEnabled(false);
+    } else {
+        m_menuClosedWindows->addSeparator();
+        m_menuClosedWindows->addAction(tr("Restore All Closed Windows"), manager, SLOT(restoreAllClosedWindows()));
+        m_menuClosedWindows->addAction(tr("Clear list"), manager, SLOT(clearClosedWindows()));
+    }
+}
+
 void HistoryMenu::historyEntryActivated()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
@@ -229,6 +258,10 @@ void HistoryMenu::init()
     m_menuClosedTabs = new Menu(tr("Closed Tabs"));
     connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabs()));
 
+    m_menuClosedWindows = new Menu(tr("Closed Windows"));
+    connect(m_menuClosedWindows, &QMenu::aboutToShow, this, &HistoryMenu::aboutToShowClosedWindows);
+
     addMenu(m_menuMostVisited);
     addMenu(m_menuClosedTabs);
+    addMenu(m_menuClosedWindows);
 }
