@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -93,7 +93,7 @@ bool WebInspector::isEnabled()
     if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
         return false;
     }
-    if (!QWebEngineSettings::defaultSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled)) {
+    if (!mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled)) {
         return false;
     }
     return true;

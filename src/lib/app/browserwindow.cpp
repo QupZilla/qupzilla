@@ -279,7 +279,7 @@ void BrowserWindow::postLaunch()
             startUrl.clear();
             // qupzilla:restore needs JavaScript enabled
             // correct value is then restored in MainApplication::destroyRestoreManager
-            QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+            mApp->webSettings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
             m_tabWidget->addView(QUrl("qupzilla:restore"), Qz::NT_CleanSelectedTabAtTheEnd);
         }
         else if (mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) {
@@ -522,7 +522,7 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
     });
 
     QMenu* subMenu = new QMenu(name, menu);
-    const QString activeCodecName = QWebEngineSettings::defaultSettings()->defaultTextEncoding();
+    const QString activeCodecName = mApp->webSettings()->defaultTextEncoding();
 
     foreach (const QString &codecName, codecNames) {
         subMenu->addAction(createEncodingAction(codecName, activeCodecName, subMenu));
@@ -738,7 +738,7 @@ void BrowserWindow::changeEncoding()
 {
     if (QAction* action = qobject_cast<QAction*>(sender())) {
         const QString encoding = action->data().toString();
-        QWebEngineSettings::defaultSettings()->setDefaultTextEncoding(encoding);
+        mApp->webSettings()->setDefaultTextEncoding(encoding);
 
         Settings settings;
         settings.setValue("Web-Browser-Settings/DefaultEncoding", encoding);
@@ -1073,7 +1073,7 @@ void BrowserWindow::createSidebarsMenu(QMenu* menu)
 
 void BrowserWindow::createEncodingMenu(QMenu* menu)
 {
-    const QString activeCodecName = QWebEngineSettings::defaultSettings()->defaultTextEncoding();
+    const QString activeCodecName = mApp->webSettings()->defaultTextEncoding();
 
     QStringList isoCodecs;
     QStringList utfCodecs;

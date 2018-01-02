@@ -29,6 +29,7 @@
 
 class QMenu;
 class QWebEngineProfile;
+class QWebEngineSettings;
 class QNetworkAccessManager;
 class QWebEngineDownloadItem;
 
@@ -112,6 +113,7 @@ public:
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
     QWebEngineProfile* webProfile() const;
+    QWebEngineSettings *webSettings() const;
 
     QByteArray saveState() const;
 
