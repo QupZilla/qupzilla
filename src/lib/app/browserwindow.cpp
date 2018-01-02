@@ -338,37 +338,31 @@ void BrowserWindow::setupUi()
 
     Settings settings;
     settings.beginGroup("Browser-View-Settings");
-    if (settings.value("WindowMaximised", false).toBool()) {
+
+    // Let the WM decides where to put new browser window
+    if (m_windowType != Qz::BW_FirstAppWindow && m_windowType != Qz::BW_MacFirstWindow && mApp->getWindow()) {
+#ifdef Q_WS_WIN
+        // Windows WM places every new window in the middle of screen .. for some reason
+        QPoint p = mApp->getWindow()->geometry().topLeft();
+        p.setX(p.x() + 30);
+        p.setY(p.y() + 30);
+
+        if (!desktop->availableGeometry(mApp->getWindow()).contains(p)) {
+            p.setX(desktop->availableGeometry(mApp->getWindow()).x() + 30);
+            p.setY(desktop->availableGeometry(mApp->getWindow()).y() + 30);
+        }
+
+        setGeometry(QRect(p, mApp->getWindow()->size()));
+#else
+        resize(mApp->getWindow()->size());
+#endif
+    } else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
+#ifdef Q_WS_WIN
+        setGeometry(QRect(desktop->availableGeometry(mApp->getWindow()).x() + 30,
+                          desktop->availableGeometry(mApp->getWindow()).y() + 30, windowWidth, windowHeight));
+#else
         resize(windowWidth, windowHeight);
-        setWindowState(Qt::WindowMaximized);
-    }
-    else {
-        // Let the WM decides where to put new browser window
-        if ((m_windowType != Qz::BW_FirstAppWindow && m_windowType != Qz::BW_MacFirstWindow) && mApp->getWindow()) {
-#ifdef Q_WS_WIN
-            // Windows WM places every new window in the middle of screen .. for some reason
-            QPoint p = mApp->getWindow()->geometry().topLeft();
-            p.setX(p.x() + 30);
-            p.setY(p.y() + 30);
-
-            if (!desktop->availableGeometry(mApp->getWindow()).contains(p)) {
-                p.setX(desktop->availableGeometry(mApp->getWindow()).x() + 30);
-                p.setY(desktop->availableGeometry(mApp->getWindow()).y() + 30);
-            }
-
-            setGeometry(QRect(p, mApp->getWindow()->size()));
-#else
-            resize(mApp->getWindow()->size());
 #endif
-        }
-        else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
-#ifdef Q_WS_WIN
-            setGeometry(QRect(desktop->availableGeometry(mApp->getWindow()).x() + 30,
-                              desktop->availableGeometry(mApp->getWindow()).y() + 30, windowWidth, windowHeight));
-#else
-            resize(windowWidth, windowHeight);
-#endif
-        }
     }
 
     locationBarWidth = settings.value("LocationBarWidth", 480).toInt();
@@ -1505,13 +1499,11 @@ void BrowserWindow::saveSettings()
     if (!mApp->isPrivate()) {
         Settings settings;
         settings.beginGroup("Browser-View-Settings");
-        settings.setValue("WindowMaximised", windowState().testFlag(Qt::WindowMaximized));
         settings.setValue("LocationBarWidth", m_navigationToolbar->splitter()->sizes().at(0));
         settings.setValue("WebSearchBarWidth", m_navigationToolbar->splitter()->sizes().at(1));
         settings.setValue("SideBarWidth", m_sideBarWidth);
         settings.setValue("WebViewWidth", m_webViewWidth);
-        if (!isFullScreen())
-            settings.setValue("WindowGeometry", saveGeometry());
+        settings.setValue("WindowGeometry", saveGeometry());
         settings.endGroup();
     }
 }
