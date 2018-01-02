@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -92,6 +92,11 @@ SideBarManager::SideBarManager(BrowserWindow* parent)
 {
 }
 
+QString SideBarManager::activeSideBar() const
+{
+    return m_activeBar;
+}
+
 void SideBarManager::createMenu(QMenu* menu)
 {
     m_window->removeActions(menu->actions());
@@ -145,7 +150,7 @@ void SideBarManager::slotShowSideBar()
 
 void SideBarManager::showSideBar(const QString &id, bool toggle)
 {
-    if (id == QLatin1String("None")) {
+    if (id.isEmpty() || id == QL1S("None")) {
         return;
     }
 
@@ -158,10 +163,8 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
             return;
         }
         m_sideBar.data()->close();
-        m_activeBar = "None";
-
-        Settings settings;
-        settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
+        m_activeBar.clear();
+        m_window->saveSideBarSettings();
         return;
     }
 
@@ -183,9 +186,7 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
     }
 
     m_activeBar = id;
-
-    Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
+    m_window->saveSideBarSettings();
 }
 
 void SideBarManager::sideBarRemoved(const QString &id)
@@ -201,10 +202,7 @@ void SideBarManager::closeSideBar()
     if (mApp->isClosing()) {
         return;
     }
-    m_activeBar = "None";
 
-    Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
-
-    m_window->saveSideBarWidth();
+    m_activeBar.clear();
+    m_window->saveSideBarSettings();
 }

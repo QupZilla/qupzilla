@@ -375,7 +375,8 @@ void BrowserWindow::setupUi()
         QSL("LocationBarWidth"),
         QSL("WebSearchBarWidth"),
         QSL("SideBarWidth"),
-        QSL("WebViewWidth")
+        QSL("WebViewWidth"),
+        QSL("SideBar")
     };
     for (const QString &key : keys) {
         if (settings.contains(key)) {
@@ -532,13 +533,14 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
 
 QHash<QString, QVariant> BrowserWindow::saveUiState()
 {
-    saveSideBarWidth();
+    saveSideBarSettings();
 
     QHash<QString, QVariant> state;
     state[QSL("LocationBarWidth")] = m_navigationToolbar->splitter()->sizes().at(0);
     state[QSL("WebSearchBarWidth")] = m_navigationToolbar->splitter()->sizes().at(1);
     state[QSL("SideBarWidth")] = m_sideBarWidth;
     state[QSL("WebViewWidth")] = m_webViewWidth;
+    state[QSL("SideBar")] = m_sideBarManager->activeSideBar();
     return state;
 }
 
@@ -550,6 +552,16 @@ void BrowserWindow::restoreUiState(const QHash<QString, QVariant> &state)
 
     m_sideBarWidth = state.value(QSL("SideBarWidth"), 250).toInt();
     m_webViewWidth = state.value(QSL("WebViewWidth"), 2000).toInt();
+    if (m_sideBar) {
+        m_mainSplitter->setSizes({m_sideBarWidth, m_webViewWidth});
+    }
+
+    const QString activeSideBar = state.value(QSL("SideBar")).toString();
+    if (activeSideBar.isEmpty() && m_sideBar) {
+        m_sideBar->close();
+    } else {
+        m_sideBarManager->showSideBar(activeSideBar, false);
+    }
 }
 
 void BrowserWindow::loadSettings()
@@ -572,7 +584,6 @@ void BrowserWindow::loadSettings()
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", false).toBool();
-    const QString activeSideBar = settings.value("SideBar", "None").toString();
 
     // Make sure both menubar and navigationbar are not hidden
     // Fixes #781
@@ -615,8 +626,6 @@ void BrowserWindow::loadSettings()
     m_navigationToolbar->buttonForward()->setVisible(showBackForwardButtons);
     m_navigationToolbar->webSearchBar()->setVisible(showWebSearchBar);
     m_navigationToolbar->buttonAddTab()->setVisible(showAddTabButton);
-
-    m_sideBarManager->showSideBar(activeSideBar, false);
 }
 
 void BrowserWindow::goForward()
@@ -833,21 +842,21 @@ SideBar* BrowserWindow::addSideBar()
 
     m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
-    m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
+    m_mainSplitter->setSizes({m_sideBarWidth, m_webViewWidth});
 
     return m_sideBar.data();
 }
 
-void BrowserWindow::saveSideBarWidth()
+void BrowserWindow::saveSideBarSettings()
 {
-    if (!m_sideBar) {
-        return;
+    if (m_sideBar) {
+        // That +1 is important here, without it, the sidebar width would
+        // decrease by 1 pixel every close
+        m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
+        m_webViewWidth = width() - m_sideBarWidth;
     }
 
-    // That +1 is important here, without it, the sidebar width would
-    // decrease by 1 pixel every close
-    m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
-    m_webViewWidth = width() - m_sideBarWidth;
+    Settings().setValue(QSL("Browser-View-Settings/SideBar"), m_sideBarManager->activeSideBar());
 }
 
 void BrowserWindow::toggleShowMenubar()

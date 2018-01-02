@@ -101,7 +101,7 @@ public:
     void removeActions(const QList<QAction*> &actions);
 
     SideBar* addSideBar();
-    void saveSideBarWidth();
+    void saveSideBarSettings();
 
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
