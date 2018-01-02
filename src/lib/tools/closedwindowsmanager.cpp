@@ -39,7 +39,7 @@ QVector<ClosedWindowsManager::Window> ClosedWindowsManager::closedWindows() cons
 
 void ClosedWindowsManager::saveWindow(BrowserWindow *window)
 {
-    if (mApp->isPrivate()) {
+    if (mApp->isPrivate() || !window->weView()) {
         return;
     }
 
