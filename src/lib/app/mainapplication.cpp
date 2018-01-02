@@ -322,11 +322,13 @@ MainApplication::MainApplication(int &argc, char** argv)
 
         if (m_isStartingAfterCrash || afterLaunch() == RestoreSession) {
             m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
-            if (m_restoreManager->isValid()) {
-                restoreSession(window, m_restoreManager->restoreData());
-            } else {
+            if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
             }
+        }
+
+        if (!m_isStartingAfterCrash && m_restoreManager) {
+            restoreSession(window, m_restoreManager->restoreData());
         }
     }
 
