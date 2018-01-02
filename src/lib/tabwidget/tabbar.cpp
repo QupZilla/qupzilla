@@ -578,7 +578,7 @@ void TabBar::dragEnterEvent(QDragEnterEvent* event)
 {
     const QMimeData* mime = event->mimeData();
 
-    if (mime->hasText() || mime->hasUrls() || mime->hasFormat(MIMETYPE)) {
+    if (mime->hasText() || mime->hasUrls() || (mime->hasFormat(MIMETYPE) && event->source())) {
         event->acceptProposedAction();
         return;
     }
