@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -102,15 +102,10 @@ private slots:
     void restoreClosedTab();
 
     void aboutToShowFileMenu();
-    void aboutToHideFileMenu();
     void aboutToShowViewMenu();
-    void aboutToHideViewMenu();
     void aboutToShowEditMenu();
-    void aboutToHideEditMenu();
     void aboutToShowToolsMenu();
-    void aboutToHideToolsMenu();
     void aboutToShowSuperMenu();
-    void aboutToHideSuperMenu();
 
     void aboutToShowToolbarsMenu();
     void aboutToShowSidebarsMenu();
