@@ -310,10 +310,16 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 
 void SessionManager::loadSettings()
 {
+    QDir sessionsDir(DataPaths::path(DataPaths::Sessions));
+
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_lastActiveSessionPath = settings.value("lastActiveSessionPath", defaultSessionPath()).toString();
     settings.endGroup();
+
+    if (QDir::isRelativePath(m_lastActiveSessionPath)) {
+        m_lastActiveSessionPath = sessionsDir.absoluteFilePath(m_lastActiveSessionPath);
+    }
 
     // fallback to default session
     if (!QFile::exists(m_lastActiveSessionPath))
@@ -322,9 +328,11 @@ void SessionManager::loadSettings()
 
 void SessionManager::saveSettings()
 {
+    QDir sessionsDir(DataPaths::path(DataPaths::Sessions));
+
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("lastActiveSessionPath", m_lastActiveSessionPath);
+    settings.setValue("lastActiveSessionPath", sessionsDir.relativeFilePath(m_lastActiveSessionPath));
     settings.endGroup();
 }
 
