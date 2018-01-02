@@ -269,8 +269,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     m_webProfile = isPrivate() ? new QWebEngineProfile(this) : QWebEngineProfile::defaultProfile();
     connect(m_webProfile, &QWebEngineProfile::downloadRequested, this, &MainApplication::downloadRequested);
 
-    m_webProfile->settings()->setAttribute(QWebEngineSettings::FullScreenSupportEnabled, true);
-
     m_networkManager = new NetworkManager(this);
 
     // Setup QWebChannel userscript
