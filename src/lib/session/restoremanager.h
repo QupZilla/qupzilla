@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - WebKit based browser
 * Copyright (C) 2010-2014 Franz Fellner <alpine.art.de@googlemail.com>
-*                         David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,40 +19,32 @@
 #ifndef RESTOREMANAGER_H
 #define RESTOREMANAGER_H
 
-#include "webtab.h"
 #include "qzcommon.h"
+#include "browserwindow.h"
 
 class WebPage;
 class RecoveryJsObject;
 
+using RestoreData = QVector<BrowserWindow::SavedWindow>;
+
 class QUPZILLA_EXPORT RestoreManager
 {
 public:
-    struct WindowData {
-        int currentTab;
-        QByteArray windowState;
-        QVector<WebTab::SavedTab> tabsState;
-    };
-
     explicit RestoreManager(const QString &file);
     virtual ~RestoreManager();
 
     bool isValid() const;
-    QVector<RestoreManager::WindowData> restoreData() const;
+    RestoreData restoreData() const;
 
     QObject *recoveryObject(WebPage *page);
 
-    static void createFromFile(const QString &file, QVector<RestoreManager::WindowData> &data);
+    static void createFromFile(const QString &file, RestoreData &data);
+
 private:
     void createFromFile(const QString &file);
 
     RecoveryJsObject *m_recoveryObject;
-    QVector<RestoreManager::WindowData> m_data;
+    RestoreData m_data;
 };
-
-typedef QVector<RestoreManager::WindowData> RestoreData;
-
-// Hint to QVector to use std::realloc on item moving
-Q_DECLARE_TYPEINFO(RestoreManager::WindowData, Q_MOVABLE_TYPE);
 
 #endif // RESTOREMANAGER_H

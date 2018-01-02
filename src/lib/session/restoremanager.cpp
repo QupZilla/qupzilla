@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2010-2014 Franz Fellner <alpine.art.de@googlemail.com>
-*                         David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ QObject *RestoreManager::recoveryObject(WebPage *page)
     return m_recoveryObject;
 }
 
-void RestoreManager::createFromFile(const QString &file, QVector<WindowData> &data)
+void RestoreManager::createFromFile(const QString &file, RestoreData &data)
 {
     if (!QFile::exists(file)) {
         return;
@@ -68,40 +68,12 @@ void RestoreManager::createFromFile(const QString &file, QVector<WindowData> &da
 
     int windowCount;
     stream >> windowCount;
+    data.reserve(windowCount);
 
-    for (int win = 0; win < windowCount; ++win) {
-        QByteArray tabState;
-        QByteArray windowState;
-        stream >> tabState;
-        stream >> windowState;
-
-        WindowData wd;
-        wd.windowState = windowState;
-
-        QDataStream tabStream(tabState);
-        if (tabStream.atEnd()) {
-            continue;
-        }
-
-        QVector<WebTab::SavedTab> tabs;
-        int tabListCount = 0;
-        tabStream >> tabListCount;
-        for (int i = 0; i < tabListCount; ++i) {
-            WebTab::SavedTab tab;
-            tabStream >> tab;
-            tabs.append(tab);
-        }
-
-        if (tabs.count() == 0)
-            continue;
-
-        wd.tabsState = tabs;
-
-        int currentTab;
-        tabStream >> currentTab;
-        wd.currentTab = currentTab;
-
-        data.append(wd);
+    for (int i = 0; i < windowCount; ++i) {
+        BrowserWindow::SavedWindow window;
+        stream >> window;
+        data.append(window);
     }
 }
 

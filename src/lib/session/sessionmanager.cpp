@@ -1,6 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2017  Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017 Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -86,7 +87,7 @@ void SessionManager::openSession(QString sessionFilePath, SessionFlags flags)
         return;
     }
 
-    QVector<RestoreManager::WindowData> sessionData;
+    RestoreData sessionData;
     RestoreManager::createFromFile(sessionFilePath, sessionData);
 
     if (sessionData.isEmpty())
@@ -278,7 +279,7 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 
     for (int i = 0; i < sessionFiles.size(); ++i) {
         const QFileInfo &fileInfo = sessionFiles.at(i);
-        QVector<RestoreManager::WindowData> data;
+        RestoreData data;
         RestoreManager::createFromFile(fileInfo.absoluteFilePath(), data);
 
         if (data.isEmpty())

@@ -765,40 +765,6 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
     return allTabs;
 }
 
-QByteArray TabWidget::saveState()
-{
-    int currentTabIndex = 0;
-    QVector<WebTab::SavedTab> tabList;
-
-    for (int i = 0; i < count(); ++i) {
-        WebTab* webTab = weTab(i);
-        if (!webTab)
-            continue;
-
-        WebTab::SavedTab tab(webTab);
-        if (!tab.isValid())
-            continue;
-
-        tabList.append(tab);
-
-        if (webTab->isCurrentTab())
-            currentTabIndex = tabList.size() - 1;
-    }
-
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
-
-    stream << tabList.count();
-
-    foreach (const WebTab::SavedTab &tab, tabList) {
-        stream << tab;
-    }
-
-    stream << currentTabIndex;
-
-    return data;
-}
-
 bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
     for (int i = 0; i < tabs.size(); ++i) {

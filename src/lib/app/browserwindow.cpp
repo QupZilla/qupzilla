@@ -51,7 +51,6 @@
 #include "navigationcontainer.h"
 #include "settings.h"
 #include "qzsettings.h"
-#include "webtab.h"
 #include "speeddial.h"
 #include "menubar.h"
 #include "bookmarkstools.h"
@@ -85,6 +84,109 @@
 #include <xcb/xcb.h>
 #include <xcb/xcb_atom.h>
 #endif
+
+BrowserWindow::SavedWindow::SavedWindow()
+{
+}
+
+BrowserWindow::SavedWindow::SavedWindow(BrowserWindow *window)
+{
+    windowState = window->isFullScreen() ? QByteArray() : window->saveState();
+    windowGeometry = window->saveGeometry();
+#ifdef QZ_WS_X11
+    virtualDesktop = window->getCurrentVirtualDesktop();
+#endif
+
+    const int tabsCount = window->tabWidget()->count();
+    tabs.reserve(tabsCount);
+    for (int i = 0; i < tabsCount; ++i) {
+        TabbedWebView *webView = window->weView(i);
+        if (!webView) {
+            continue;
+        }
+        WebTab* webTab = webView->webTab();
+        if (!webTab) {
+            continue;
+        }
+        WebTab::SavedTab tab(webTab);
+        if (!tab.isValid()) {
+            continue;
+        }
+        if (webTab->isCurrentTab()) {
+            currentTab = tabs.size();
+        }
+        tabs.append(tab);
+    }
+}
+
+bool BrowserWindow::SavedWindow::isValid() const
+{
+    return currentTab > -1;
+}
+
+void BrowserWindow::SavedWindow::clear()
+{
+    windowState.clear();
+    windowGeometry.clear();
+    virtualDesktop = -1;
+    currentTab = -1;
+    tabs.clear();
+}
+
+QDataStream &operator<<(QDataStream &stream, const BrowserWindow::SavedWindow &window)
+{
+    QByteArray tabsState;
+    QByteArray windowState;
+
+#ifdef QZ_WS_X11
+    QDataStream stream1(&windowState, QIODevice::WriteOnly);
+    stream1 << window.windowState;
+    stream1 << window.virtualDesktop;
+#else
+    windowState = window.windowState;
+#endif
+
+    QDataStream stream2(&tabsState, QIODevice::WriteOnly);
+    stream2 << window.tabs.count();
+    for (const WebTab::SavedTab &tab : qAsConst(window.tabs)) {
+        stream2 << tab;
+    }
+    stream2 << window.currentTab;
+
+    stream << tabsState;
+    stream << windowState;
+    return stream;
+}
+
+QDataStream &operator>>(QDataStream &stream, BrowserWindow::SavedWindow &window)
+{
+    QByteArray tabsState;
+    QByteArray windowState;
+
+    stream >> tabsState;
+    stream >> windowState;
+
+#ifdef QZ_WS_X11
+    QDataStream stream1(&windowState, QIODevice::ReadOnly);
+    stream1 >> window.windowState;
+    stream1 >> window.virtualDesktop;
+#else
+    window.windowState = windowState;
+#endif
+
+    int tabsCount = -1;
+    QDataStream stream2(&tabsState, QIODevice::ReadOnly);
+    stream2 >> tabsCount;
+    window.tabs.reserve(tabsCount);
+    for (int i = 0; i < tabsCount; ++i) {
+        WebTab::SavedTab tab;
+        stream2 >> tab;
+        window.tabs.append(tab);
+    }
+    stream2 >> window.currentTab;
+
+    return stream;
+}
 
 BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     : QMainWindow(0)
@@ -886,11 +988,15 @@ void BrowserWindow::addDeleteOnCloseWidget(QWidget* widget)
     }
 }
 
-void BrowserWindow::restoreWindowState(const RestoreManager::WindowData &d)
+void BrowserWindow::restoreWindow(const SavedWindow &window)
 {
-    restoreState(d.windowState);
+    restoreState(window.windowState);
+    restoreGeometry(window.windowGeometry);
+#ifdef QZ_WS_X11
+    moveToVirtualDesktop(window.virtualDesktop);
+#endif
     show(); // Window has to be visible before adding QWebEngineView's
-    m_tabWidget->restoreState(d.tabsState, d.currentTab);
+    m_tabWidget->restoreState(window.tabs, window.currentTab);
     updateStartupFocus();
 }
 
@@ -1422,39 +1528,6 @@ void BrowserWindow::closeTab()
     if (weView() && !weView()->webTab()->isPinned()) {
         m_tabWidget->requestCloseTab();
     }
-}
-
-QByteArray BrowserWindow::saveState(int version) const
-{
-#ifdef QZ_WS_X11
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
-
-    stream << QMainWindow::saveState(version);
-    stream << getCurrentVirtualDesktop();
-
-    return data;
-#else
-    return QMainWindow::saveState(version);
-#endif
-}
-
-bool BrowserWindow::restoreState(const QByteArray &state, int version)
-{
-#ifdef QZ_WS_X11
-    QByteArray windowState;
-    int desktopId = -1;
-
-    QDataStream stream(state);
-    stream >> windowState;
-    stream >> desktopId;
-
-    moveToVirtualDesktop(desktopId);
-
-    return QMainWindow::restoreState(windowState, version);
-#else
-    return QMainWindow::restoreState(state, version);
-#endif
 }
 
 #ifdef QZ_WS_X11

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -423,28 +423,15 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
     if (window->tabWidget()->normalTabsCount() > 1) {
         // This can only happen when recovering crashed session!
-        //
-        // Don't restore tabs in current window as user already opened
-        // some new tabs.
-        BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
-        newWin->restoreWindowState(restoreData.at(0));
-        restoreData.remove(0);
-    }
-    else {
-        // QTabWidget::count() - count of tabs is not updated after closing
-        // recovery tab ...
-        // update: it seems with ComboTabBar QTabWidget::count() is updated,
-        // we add pinnedTabCounts to currentTab!
-        int tabCount = window->tabWidget()->pinnedTabsCount();
-        RestoreManager::WindowData data = restoreData.at(0);
-        data.currentTab += tabCount;
-        restoreData.remove(0);
-        window->restoreWindowState(data);
+        // Don't restore tabs in current window as user already opened some new tabs.
+        createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.takeAt(0));
+    } else {
+        window->restoreWindow(restoreData.takeAt(0));
     }
 
-    foreach (const RestoreManager::WindowData &data, restoreData) {
+    foreach (const BrowserWindow::SavedWindow &data, restoreData) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
-        window->restoreWindowState(data);
+        window->restoreWindow(data);
     }
 
     restoreOverrideCursor();
@@ -725,14 +712,8 @@ QByteArray MainApplication::saveState() const
     stream << Qz::sessionVersion;
     stream << m_windows.count();
 
-    foreach (BrowserWindow* w, m_windows) {
-        stream << w->tabWidget()->saveState();
-        if (w->isFullScreen()) {
-            stream << QByteArray();
-        }
-        else {
-            stream << w->saveState();
-        }
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        stream << BrowserWindow::SavedWindow(window);
     }
 
     return data;

@@ -69,7 +69,6 @@ public:
     explicit TabWidget(BrowserWindow* mainclass, QWidget* parent = 0);
     ~TabWidget();
 
-    QByteArray saveState();
     bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
     void closeRecoveryTab();
 

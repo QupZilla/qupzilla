@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 #include <QPointer>
 #include <QUrl>
 
-#include "restoremanager.h"
+#include "webtab.h"
 #include "qzcommon.h"
 
 class QLabel;
@@ -41,8 +41,8 @@ class BookmarksMenu;
 class BookmarksToolbar;
 class AutoFill;
 class MainApplication;
-class WebTab;
 class WebView;
+class WebPage;
 class AdBlockIcon;
 class SideBar;
 class SideBarManager;
@@ -58,13 +58,30 @@ class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    struct SavedWindow {
+        QByteArray windowState;
+        QByteArray windowGeometry;
+        int virtualDesktop = -1;
+        int currentTab = -1;
+        QVector<WebTab::SavedTab> tabs;
+
+        SavedWindow();
+        SavedWindow(BrowserWindow *window);
+
+        bool isValid() const;
+        void clear();
+
+        friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const SavedWindow &window);
+        friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedWindow &window);
+    };
+
     explicit BrowserWindow(Qz::BrowserWindowType type, const QUrl &url = QUrl());
     ~BrowserWindow();
 
     void setStartTab(WebTab* tab);
     void setStartPage(WebPage* page);
 
-    void restoreWindowState(const RestoreManager::WindowData &d);
+    void restoreWindow(const SavedWindow &window);
     void saveSideBarWidth();
 
     bool fullScreenNavigationVisible() const;
@@ -84,9 +101,6 @@ public:
     void removeActions(const QList<QAction*> &actions);
 
     SideBar* addSideBar();
-
-    QByteArray saveState(int version = 0) const;
-    bool restoreState(const QByteArray &state, int version = 0);
 
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
