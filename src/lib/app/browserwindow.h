@@ -61,6 +61,7 @@ public:
     struct SavedWindow {
         QByteArray windowState;
         QByteArray windowGeometry;
+        QHash<QString, QVariant> windowUiState;
         int virtualDesktop = -1;
         int currentTab = -1;
         QVector<WebTab::SavedTab> tabs;
@@ -82,7 +83,6 @@ public:
     void setStartPage(WebPage* page);
 
     void restoreWindow(const SavedWindow &window);
-    void saveSideBarWidth();
 
     bool fullScreenNavigationVisible() const;
     void showNavigationWithFullScreen();
@@ -101,6 +101,7 @@ public:
     void removeActions(const QList<QAction*> &actions);
 
     SideBar* addSideBar();
+    void saveSideBarWidth();
 
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
@@ -186,9 +187,11 @@ private:
     void setupMenu();
     void updateStartupFocus();
 
-    QAction *createEncodingAction(const QString &codecName, const QString &activeCodecName,
-                                  QMenu *menu);
+    QAction *createEncodingAction(const QString &codecName, const QString &activeCodecName, QMenu *menu);
     void createEncodingSubMenu(const QString &name, QStringList &codecNames, QMenu *menu);
+
+    QHash<QString, QVariant> saveUiState();
+    void restoreUiState(const QHash<QString, QVariant> &state);
 
     QUrl m_startUrl;
     QUrl m_homepage;

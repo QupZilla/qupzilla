@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,11 @@ void Settings::syncSettings()
         return;
 
     s_settings->sync();
+}
+
+bool Settings::contains(const QString &key) const
+{
+    return s_settings->contains(key);
 }
 
 void Settings::setValue(const QString &key, const QVariant &defaultValue)

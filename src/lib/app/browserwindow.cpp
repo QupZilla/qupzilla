@@ -85,7 +85,7 @@
 #include <xcb/xcb_atom.h>
 #endif
 
-static const int savedWindowVersion = 1;
+static const int savedWindowVersion = 2;
 
 BrowserWindow::SavedWindow::SavedWindow()
 {
@@ -95,6 +95,7 @@ BrowserWindow::SavedWindow::SavedWindow(BrowserWindow *window)
 {
     windowState = window->isFullScreen() ? QByteArray() : window->saveState();
     windowGeometry = window->saveGeometry();
+    windowUiState = window->saveUiState();
 #ifdef QZ_WS_X11
     virtualDesktop = window->getCurrentVirtualDesktop();
 #endif
@@ -148,6 +149,8 @@ QDataStream &operator<<(QDataStream &stream, const BrowserWindow::SavedWindow &w
         stream << window.tabs.at(i);
     }
 
+    stream << window.windowUiState;
+
     return stream;
 }
 
@@ -173,6 +176,10 @@ QDataStream &operator>>(QDataStream &stream, BrowserWindow::SavedWindow &window)
         WebTab::SavedTab tab;
         stream >> tab;
         window.tabs.append(tab);
+    }
+
+    if (version >= 2) {
+        stream >> window.windowUiState;
     }
 
     return stream;
@@ -329,8 +336,7 @@ void BrowserWindow::postLaunch()
 
 void BrowserWindow::setupUi()
 {
-    int locationBarWidth;
-    int websearchBarWidth;
+    QHash<QString, QVariant> uiState;
 
     QDesktopWidget* desktop = mApp->desktop();
     int windowWidth = desktop->availableGeometry().width() / 1.3;
@@ -365,8 +371,18 @@ void BrowserWindow::setupUi()
 #endif
     }
 
-    locationBarWidth = settings.value("LocationBarWidth", 480).toInt();
-    websearchBarWidth = settings.value("WebSearchBarWidth", 140).toInt();
+    const QStringList keys = {
+        QSL("LocationBarWidth"),
+        QSL("WebSearchBarWidth"),
+        QSL("SideBarWidth"),
+        QSL("WebViewWidth")
+    };
+    for (const QString &key : keys) {
+        if (settings.contains(key)) {
+            uiState[key] = settings.value(key);
+        }
+    }
+
     settings.endGroup();
 
     QWidget* widget = new QWidget(this);
@@ -381,7 +397,6 @@ void BrowserWindow::setupUi()
     m_tabWidget = new TabWidget(this);
     m_superMenu = new QMenu(this);
     m_navigationToolbar = new NavigationBar(this);
-    m_navigationToolbar->setSplitterSizes(locationBarWidth, websearchBarWidth);
     m_bookmarksToolbar = new BookmarksToolbar(this);
 
     m_navigationContainer = new NavigationContainer(this);
@@ -413,6 +428,8 @@ void BrowserWindow::setupUi()
     col.setAlpha(0);
     pal.setColor(QPalette::Window, col);
     QToolTip::setPalette(pal);
+
+    restoreUiState(uiState);
 
     // Set some sane minimum width
     setMinimumWidth(300);
@@ -513,6 +530,28 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
     menu->addMenu(subMenu);
 }
 
+QHash<QString, QVariant> BrowserWindow::saveUiState()
+{
+    saveSideBarWidth();
+
+    QHash<QString, QVariant> state;
+    state[QSL("LocationBarWidth")] = m_navigationToolbar->splitter()->sizes().at(0);
+    state[QSL("WebSearchBarWidth")] = m_navigationToolbar->splitter()->sizes().at(1);
+    state[QSL("SideBarWidth")] = m_sideBarWidth;
+    state[QSL("WebViewWidth")] = m_webViewWidth;
+    return state;
+}
+
+void BrowserWindow::restoreUiState(const QHash<QString, QVariant> &state)
+{
+    const int locationBarWidth = state.value(QSL("LocationBarWidth"), 480).toInt();
+    const int websearchBarWidth = state.value(QSL("WebSearchBarWidth"), 140).toInt();
+    m_navigationToolbar->setSplitterSizes(locationBarWidth, websearchBarWidth);
+
+    m_sideBarWidth = state.value(QSL("SideBarWidth"), 250).toInt();
+    m_webViewWidth = state.value(QSL("WebViewWidth"), 2000).toInt();
+}
+
 void BrowserWindow::loadSettings()
 {
     Settings settings;
@@ -533,8 +572,6 @@ void BrowserWindow::loadSettings()
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", false).toBool();
-    m_sideBarWidth = settings.value("SideBarWidth", 250).toInt();
-    m_webViewWidth = settings.value("WebViewWidth", 2000).toInt();
     const QString activeSideBar = settings.value("SideBar", "None").toString();
 
     // Make sure both menubar and navigationbar are not hidden
@@ -796,7 +833,6 @@ SideBar* BrowserWindow::addSideBar()
 
     m_mainSplitter->insertWidget(0, m_sideBar.data());
     m_mainSplitter->setCollapsible(0, false);
-
     m_mainSplitter->setSizes(QList<int>() << m_sideBarWidth << m_webViewWidth);
 
     return m_sideBar.data();
@@ -804,9 +840,12 @@ SideBar* BrowserWindow::addSideBar()
 
 void BrowserWindow::saveSideBarWidth()
 {
+    if (!m_sideBar) {
+        return;
+    }
+
     // That +1 is important here, without it, the sidebar width would
     // decrease by 1 pixel every close
-
     m_sideBarWidth = m_mainSplitter->sizes().at(0) + 1;
     m_webViewWidth = width() - m_sideBarWidth;
 }
@@ -979,6 +1018,7 @@ void BrowserWindow::restoreWindow(const SavedWindow &window)
 {
     restoreState(window.windowState);
     restoreGeometry(window.windowGeometry);
+    restoreUiState(window.windowUiState);
 #ifdef QZ_WS_X11
     moveToVirtualDesktop(window.virtualDesktop);
 #endif
@@ -1492,20 +1532,20 @@ void BrowserWindow::closeWindow()
 
 void BrowserWindow::saveSettings()
 {
-    if (m_sideBar) {
-        saveSideBarWidth();
+    if (mApp->isPrivate()) {
+        return;
     }
 
-    if (!mApp->isPrivate()) {
-        Settings settings;
-        settings.beginGroup("Browser-View-Settings");
-        settings.setValue("LocationBarWidth", m_navigationToolbar->splitter()->sizes().at(0));
-        settings.setValue("WebSearchBarWidth", m_navigationToolbar->splitter()->sizes().at(1));
-        settings.setValue("SideBarWidth", m_sideBarWidth);
-        settings.setValue("WebViewWidth", m_webViewWidth);
-        settings.setValue("WindowGeometry", saveGeometry());
-        settings.endGroup();
+    Settings settings;
+    settings.beginGroup("Browser-View-Settings");
+    settings.setValue("WindowGeometry", saveGeometry());
+
+    const auto state = saveUiState();
+    for (auto it = state.constBegin(); it != state.constEnd(); ++it) {
+        settings.setValue(it.key(), it.value());
     }
+
+    settings.endGroup();
 }
 
 void BrowserWindow::closeTab()
