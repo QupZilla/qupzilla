@@ -284,10 +284,11 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
     if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
         BookmarkItem* bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
         mApp->bookmarks()->removeBookmark(bookmark);
-    }
-    else {
+    } else if (index.data(LocationCompleterModel::HistoryRole).toBool()) {
         int id = index.data(LocationCompleterModel::IdRole).toInt();
         mApp->history()->deleteHistoryEntry(id);
+    } else {
+        return;
     }
 
     s_view->setUpdatesEnabled(false);
