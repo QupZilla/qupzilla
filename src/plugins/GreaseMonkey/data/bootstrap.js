@@ -84,10 +84,6 @@ function GM_setClipboard(text) {
     external.extra.greasemonkey.setClipboard(text);
 }
 
-// Define unsafe window
-var unsafeWindow = window;
-window.wrappedJSObject = unsafeWindow;
-
 // GM_registerMenuCommand not supported
 function GM_registerMenuCommand(caption, commandFunc, accessKey) { }
 
