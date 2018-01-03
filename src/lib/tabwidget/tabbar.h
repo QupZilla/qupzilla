@@ -42,7 +42,6 @@ public:
     void restoreTabTextColor(int index);
 
     void setTabText(int index, const QString &text);
-    void updatePinnedTabCloseButton(int index);
 
     void wheelEvent(QWheelEvent* event);
 
@@ -62,6 +61,7 @@ private:
 
     void hideCloseButton(int index);
     void showCloseButton(int index);
+    void updatePinnedTabCloseButton(int index);
 
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
