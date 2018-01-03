@@ -36,6 +36,35 @@ var asyncCall = (func) => {
     }
 };
 
+var decode = (val) => {
+    val = String(val);
+    if (!val.length) {
+        return val;
+    }
+    var v = val.substr(1);
+    if (val[0] == "b") {
+        return Boolean(v == "true" ? true : false);
+    } else if (val[0] == "i") {
+        return Number(v);
+    } else if (val[0] == "s") {
+        return v;
+    } else {
+        return undefined;
+    }
+};
+
+var encode = (val) => {
+    if (typeof val == "boolean") {
+        return "b" + (val ? "true" : "false");
+    } else if (typeof val == "number") {
+        return "i" + String(val);
+    } else if (typeof val == "string") {
+        return "s" + val;
+    } else {
+        return "";
+    }
+};
+
 GM.deleteValue = function(name) {
     return new Promise((resolve, reject) => {
         asyncCall(() => {
@@ -53,7 +82,9 @@ GM.deleteValue = function(name) {
 GM.getValue = function(name, value) {
     return new Promise((resolve) => {
         asyncCall(() => {
-            external.extra.greasemonkey.getValue("%1", name, value, resolve);
+            external.extra.greasemonkey.getValue("%1", name, encode(value), (res) => {
+                resolve(decode(res));
+            });
         });
     });
 };
@@ -61,7 +92,7 @@ GM.getValue = function(name, value) {
 GM.setValue = function(name, value) {
     return new Promise((resolve, reject) => {
         asyncCall(() => {
-            external.extra.greasemonkey.setValue("%1", name, value, (res) => {
+            external.extra.greasemonkey.setValue("%1", name, encode(value), (res) => {
                 if (res) {
                     resolve();
                 } else {

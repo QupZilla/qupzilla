@@ -36,7 +36,7 @@ void GM_JSObject::setSettingsFile(const QString &name)
     m_settings = new QSettings(name, QSettings::IniFormat);
 }
 
-QVariant GM_JSObject::getValue(const QString &nspace, const QString &name, const QVariant &dValue)
+QString GM_JSObject::getValue(const QString &nspace, const QString &name, const QString &dValue)
 {
     QString valueName = QString("GreaseMonkey-%1/%2").arg(nspace, name);
     QString savedValue = m_settings->value(valueName, dValue).toString();
@@ -45,58 +45,13 @@ QVariant GM_JSObject::getValue(const QString &nspace, const QString &name, const
         return dValue;
     }
 
-    QString actualValue = savedValue.mid(1).trimmed();
-    if (actualValue.isEmpty()) {
-        return dValue;
-    }
-
-    switch (savedValue.at(0).toLatin1()) {
-    case 'b':
-        return QVariant(actualValue == QLatin1String("true"));
-
-    case 'i': {
-        bool ok;
-        int val = actualValue.toInt(&ok);
-        return ok ? QVariant(val) : dValue;
-    }
-
-    case 's':
-        return actualValue;
-
-    default:
-        break;
-    }
-
-    return dValue;
+    return savedValue;
 }
 
-bool GM_JSObject::setValue(const QString &nspace, const QString &name, const QVariant &value)
+bool GM_JSObject::setValue(const QString &nspace, const QString &name, const QString &value)
 {
-    QString savedValue;
-
-    switch (value.type()) {
-    case QVariant::Bool:
-        savedValue = value.toBool() ? "btrue" : "bfalse";
-        break;
-
-    case QVariant::Int:
-    case QVariant::UInt:
-    case QVariant::LongLong:
-    case QVariant::ULongLong:
-    case QVariant::Double:
-        savedValue = "i" + QString::number(value.toInt());
-        break;
-
-    case QVariant::String:
-        savedValue = "s" + value.toString();
-        break;
-
-    default:
-        return false;
-    }
-
     QString valueName = QString("GreaseMonkey-%1/%2").arg(nspace, name);
-    m_settings->setValue(valueName, savedValue);
+    m_settings->setValue(valueName, value);
     return true;
 }
 

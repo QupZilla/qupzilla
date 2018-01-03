@@ -33,8 +33,8 @@ public:
     void setSettingsFile(const QString &name);
 
 public slots:
-    QVariant getValue(const QString &nspace, const QString &name, const QVariant &dValue);
-    bool setValue(const QString &nspace, const QString &name, const QVariant &value);
+    QString getValue(const QString &nspace, const QString &name, const QString &dValue);
+    bool setValue(const QString &nspace, const QString &name, const QString &value);
     bool deleteValue(const QString &nspace, const QString &name);
     QStringList listValues(const QString &nspace);
 
