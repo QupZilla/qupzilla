@@ -81,7 +81,7 @@ function GM_openInTab(url) {
 }
 
 function GM_setClipboard(text) {
-    window.external.extra.greasemonkey.setClipboard(text);
+    external.extra.greasemonkey.setClipboard(text);
 }
 
 // Define unsafe window

@@ -267,11 +267,6 @@ function addTab(winId, tab)
 
 function init()
 {
-    if (!external.recovery) {
-        setTimeout(init, 50);
-        return;
-    }
-
     var data = external.recovery.restoreData;
     for (var i = 0; i < data.length; ++i) {
         var win = data[i];
@@ -316,7 +311,7 @@ function init()
 <script type="text/javascript">
 
 // Initialize
-if (window.external) {
+if (window._qupzilla_external) {
     init();
 } else {
     document.addEventListener("_qupzilla_external_created", init);

@@ -29,7 +29,7 @@ function GM_setValue(aKey, aVal) {
 
 // GreaseMonkey 4.0 support
 var asyncCall = (func) => {
-    if (window.external.extra) {
+    if (window._qupzilla_external) {
         func();
     } else {
         document.addEventListener("_qupzilla_external_created", func);
@@ -39,7 +39,7 @@ var asyncCall = (func) => {
 GM.deleteValue = function(name) {
     return new Promise((resolve, reject) => {
         asyncCall(() => {
-            window.external.extra.greasemonkey.deleteValue("%1", name, (res) => {
+            external.extra.greasemonkey.deleteValue("%1", name, (res) => {
                 if (res) {
                     resolve();
                 } else {
@@ -53,7 +53,7 @@ GM.deleteValue = function(name) {
 GM.getValue = function(name, value) {
     return new Promise((resolve) => {
         asyncCall(() => {
-            window.external.extra.greasemonkey.getValue("%1", name, value, resolve);
+            external.extra.greasemonkey.getValue("%1", name, value, resolve);
         });
     });
 };
@@ -61,7 +61,7 @@ GM.getValue = function(name, value) {
 GM.setValue = function(name, value) {
     return new Promise((resolve, reject) => {
         asyncCall(() => {
-            window.external.extra.greasemonkey.setValue("%1", name, value, (res) => {
+            external.extra.greasemonkey.setValue("%1", name, value, (res) => {
                 if (res) {
                     resolve();
                 } else {
@@ -75,7 +75,7 @@ GM.setValue = function(name, value) {
 GM.listValues = function() {
     return new Promise((resolve) => {
         asyncCall(() => {
-            window.external.extra.greasemonkey.listValues("%1", resolve);
+            external.extra.greasemonkey.listValues("%1", resolve);
         });
     });
 };

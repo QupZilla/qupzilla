@@ -40,7 +40,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts";
-    spec.version = "0.9.0";
+    spec.version = "0.9.1";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QIcon(":gm/data/icon.svg").pixmap(32);
     spec.hasSettings = true;
