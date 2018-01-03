@@ -279,10 +279,8 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 
     for (int i = 0; i < sessionFiles.size(); ++i) {
         const QFileInfo &fileInfo = sessionFiles.at(i);
-        RestoreData data;
-        RestoreManager::createFromFile(fileInfo.absoluteFilePath(), data);
 
-        if (data.isEmpty())
+        if (!RestoreManager::validateFile(fileInfo.absoluteFilePath()))
             continue;
 
         SessionMetaData metaData;
@@ -321,8 +319,8 @@ void SessionManager::loadSettings()
         m_lastActiveSessionPath = sessionsDir.absoluteFilePath(m_lastActiveSessionPath);
     }
 
-    // fallback to default session
-    if (!QFile::exists(m_lastActiveSessionPath))
+    // Fallback to default session
+    if (!RestoreManager::validateFile(m_lastActiveSessionPath))
         m_lastActiveSessionPath = defaultSessionPath();
 }
 

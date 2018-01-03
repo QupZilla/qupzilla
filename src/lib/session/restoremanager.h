@@ -38,6 +38,7 @@ public:
 
     QObject *recoveryObject(WebPage *page);
 
+    static bool validateFile(const QString &file);
     static void createFromFile(const QString &file, RestoreData &data);
 
 private:

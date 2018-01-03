@@ -101,6 +101,32 @@ static void loadVersion3(QDataStream &stream, RestoreData &data)
 }
 
 // static
+bool RestoreManager::validateFile(const QString &file)
+{
+    if (!QFile::exists(file)) {
+        return false;
+    }
+
+    QFile recoveryFile(file);
+    if (!recoveryFile.open(QIODevice::ReadOnly)) {
+        return false;
+    }
+
+    QDataStream stream(&recoveryFile);
+
+    int version;
+    stream >> version;
+
+    if (version == Qz::sessionVersion || version == 0x0003 || version == (0x0003 | 0x050000)) {
+        int windowCount;
+        stream >> windowCount;
+        return windowCount > 0;
+    }
+
+    return false;
+}
+
+// static
 void RestoreManager::createFromFile(const QString &file, RestoreData &data)
 {
     if (!QFile::exists(file)) {
@@ -108,7 +134,10 @@ void RestoreManager::createFromFile(const QString &file, RestoreData &data)
     }
 
     QFile recoveryFile(file);
-    recoveryFile.open(QIODevice::ReadOnly);
+    if (!recoveryFile.open(QIODevice::ReadOnly)) {
+        return;
+    }
+
     QDataStream stream(&recoveryFile);
 
     int version;
