@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -378,8 +378,10 @@ void LocationCompleter::adjustPopupSize()
     const int maxItemsCount = 12;
     const int popupHeight = s_view->sizeHintForRow(0) * qMin(maxItemsCount, s_model->rowCount()) + 2 * s_view->frameWidth();
 
-    m_originalText = m_locationBar->text();
-    s_view->setOriginalText(m_originalText);
+    if (s_view->currentIndex().row() == 0) {
+        m_originalText = m_locationBar->text();
+        s_view->setOriginalText(m_originalText);
+    }
 
     s_view->resize(s_view->width(), popupHeight);
     s_view->show();
