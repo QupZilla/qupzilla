@@ -25,7 +25,7 @@ class AutoFillJsObject;
 
 class QWebChannel;
 
-class ExternalJsObject : public QObject
+class QUPZILLA_EXPORT ExternalJsObject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
