@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
 #include "gm_manager.h"
 #include "gm_script.h"
 #include "gm_downloader.h"
+#include "gm_jsobject.h"
 #include "gm_icon.h"
 #include "gm_addscriptdialog.h"
 #include "settings/gm_settings.h"
@@ -28,6 +29,7 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
+#include "javascript/externaljsobject.h"
 
 #include <QTimer>
 #include <QDir>
@@ -39,8 +41,14 @@
 GM_Manager::GM_Manager(const QString &sPath, QObject* parent)
     : QObject(parent)
     , m_settingsPath(sPath)
+    , m_jsObject(new GM_JSObject(this))
 {
-    QTimer::singleShot(0, this, SLOT(load()));
+    load();
+}
+
+GM_Manager::~GM_Manager()
+{
+    ExternalJsObject::unregisterExtraObject(QSL("greasemonkey"));
 }
 
 void GM_Manager::showSettings(QWidget* parent)
@@ -239,6 +247,9 @@ void GM_Manager::load()
             mApp->webProfile()->scripts()->insert(script->webScript());
         }
     }
+
+    m_jsObject->setSettingsFile(m_settingsPath + QSL("/greasemonkey/values.ini"));
+    ExternalJsObject::registerExtraObject(QSL("greasemonkey"), m_jsObject);
 }
 
 void GM_Manager::scriptChanged()

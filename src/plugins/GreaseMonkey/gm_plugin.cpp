@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ PluginSpec GM_Plugin::pluginSpec()
     spec.name = "GreaseMonkey";
     spec.info = "Userscripts for QupZilla";
     spec.description = "Provides support for userscripts";
-    spec.version = "0.8.0";
+    spec.version = "0.9.0";
     spec.author = "David Rosca <nowrep@gmail.com>";
     spec.icon = QIcon(":gm/data/icon.svg").pixmap(32);
     spec.hasSettings = true;

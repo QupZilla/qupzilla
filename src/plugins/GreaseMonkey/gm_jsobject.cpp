@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -70,7 +70,7 @@ QVariant GM_JSObject::getValue(const QString &nspace, const QString &name, const
     return dValue;
 }
 
-void GM_JSObject::setValue(const QString &nspace, const QString &name, const QVariant &value)
+bool GM_JSObject::setValue(const QString &nspace, const QString &name, const QVariant &value)
 {
     QString savedValue;
 
@@ -92,17 +92,19 @@ void GM_JSObject::setValue(const QString &nspace, const QString &name, const QVa
         break;
 
     default:
-        break;
+        return false;
     }
 
     QString valueName = QString("GreaseMonkey-%1/%2").arg(nspace, name);
     m_settings->setValue(valueName, savedValue);
+    return true;
 }
 
-void GM_JSObject::deleteValue(const QString &nspace, const QString &name)
+bool GM_JSObject::deleteValue(const QString &nspace, const QString &name)
 {
     QString valueName = QString("GreaseMonkey-%1/%2").arg(nspace, name);
     m_settings->remove(valueName);
+    return true;
 }
 
 QStringList GM_JSObject::listValues(const QString &nspace)
