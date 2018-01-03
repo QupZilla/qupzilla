@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -243,7 +243,7 @@ void IconProvider::saveIconsToDatabase()
     foreach (const BufferedIcon &ic, m_iconBuffer) {
         QSqlQuery query(SqlDatabase::instance()->database());
         query.prepare("SELECT id FROM icons WHERE url = ?");
-        query.bindValue(0, ic.first.toEncoded(QUrl::RemoveFragment));
+        query.bindValue(0, encodeUrl(ic.first));
         query.exec();
 
         if (query.next()) {
