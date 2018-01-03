@@ -20,6 +20,8 @@
 
 #include <QObject>
 
+#include "qzcommon.h"
+
 class WebPage;
 class AutoFillJsObject;
 
