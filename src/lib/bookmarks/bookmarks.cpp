@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -294,9 +294,9 @@ void Bookmarks::saveBookmarks()
     }
 
     QSaveFile file(DataPaths::currentProfilePath() + QLatin1String("/bookmarks.json"));
-
     if (!file.open(QFile::WriteOnly)) {
         qWarning() << "Bookmarks::saveBookmarks() Error opening bookmarks file for writing!";
+        return;
     }
 
     file.write(data);
