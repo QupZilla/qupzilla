@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,8 @@
 class WebPage;
 class AutoFillJsObject;
 
+class QWebChannel;
+
 class ExternalJsObject : public QObject
 {
     Q_OBJECT
@@ -34,6 +36,11 @@ public:
     explicit ExternalJsObject(WebPage *page);
 
     WebPage *page() const;
+
+    static void setupWebChannel(QWebChannel *webChannel, WebPage *page);
+
+    static void registerExtraObject(const QString &id, QObject *object);
+    static void unregisterExtraObject(const QString &id);
 
 public slots:
     void AddSearchProvider(const QString &engineUrl);

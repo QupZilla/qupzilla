@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ WebPage::WebPage(QObject* parent)
     , m_secureStatus(false)
 {
     QWebChannel *channel = new QWebChannel(this);
-    channel->registerObject(QSL("qz_object"), new ExternalJsObject(this));
+    ExternalJsObject::setupWebChannel(channel, this);
     setWebChannel(channel);
 
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);

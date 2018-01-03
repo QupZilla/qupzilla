@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -48,7 +48,14 @@ QString Scripts::setupWebChannel()
                            "function registerWebChannel() {"
                            "    try {"
                            "        new QWebChannel(qt.webChannelTransport, function(channel) {"
-                           "            registerExternal(channel.objects.qz_object);"
+                           "            var external = channel.objects.qz_object;"
+                           "            external.extra = {};"
+                           "            for (var key in channel.objects) {"
+                           "                if (key != 'qz_object' && key.startsWith('qz_')) {"
+                           "                    external.extra[key.substr(3)] = channel.objects[key];"
+                           "                }"
+                           "            }"
+                           "            registerExternal(external);"
                            "        });"
                            "    } catch (e) {"
                            "        setTimeout(registerWebChannel, 100);"
