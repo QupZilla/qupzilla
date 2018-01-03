@@ -22,6 +22,48 @@
 
 #include <QFile>
 
+static const int restoreDataVersion = 0;
+
+bool RestoreData::isValid() const
+{
+    return !windows.isEmpty();
+}
+
+void RestoreData::clear()
+{
+    windows.clear();
+}
+
+QDataStream &operator<<(QDataStream &stream, const RestoreData &data)
+{
+    stream << data.windows.count();
+    for (const BrowserWindow::SavedWindow &window : qAsConst(data.windows)) {
+        stream << window;
+    }
+
+    stream << restoreDataVersion;
+
+    return stream;
+}
+
+QDataStream &operator>>(QDataStream &stream, RestoreData &data)
+{
+    int windowCount;
+    stream >> windowCount;
+    data.windows.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        BrowserWindow::SavedWindow window;
+        stream >> window;
+        data.windows.append(window);
+    }
+
+    int version;
+    stream >> version;
+
+    return stream;
+}
+
 RestoreManager::RestoreManager(const QString &file)
     : m_recoveryObject(new RecoveryJsObject(this))
 {
@@ -40,7 +82,7 @@ RestoreData RestoreManager::restoreData() const
 
 bool RestoreManager::isValid() const
 {
-    return !m_data.isEmpty();
+    return m_data.isValid();
 }
 
 QObject *RestoreManager::recoveryObject(WebPage *page)
@@ -51,22 +93,14 @@ QObject *RestoreManager::recoveryObject(WebPage *page)
 
 static void loadCurrentVersion(QDataStream &stream, RestoreData &data)
 {
-    int windowCount;
-    stream >> windowCount;
-    data.reserve(windowCount);
-
-    for (int i = 0; i < windowCount; ++i) {
-        BrowserWindow::SavedWindow window;
-        stream >> window;
-        data.append(window);
-    }
+    stream >> data;
 }
 
 static void loadVersion3(QDataStream &stream, RestoreData &data)
 {
     int windowCount;
     stream >> windowCount;
-    data.reserve(windowCount);
+    data.windows.reserve(windowCount);
 
     for (int i = 0; i < windowCount; ++i) {
         QByteArray tabsState;
@@ -96,7 +130,7 @@ static void loadVersion3(QDataStream &stream, RestoreData &data)
         }
         stream2 >> window.currentTab;
 
-        data.append(window);
+        data.windows.append(window);
     }
 }
 

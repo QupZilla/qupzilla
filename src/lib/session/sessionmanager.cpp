@@ -90,7 +90,7 @@ void SessionManager::openSession(QString sessionFilePath, SessionFlags flags)
     RestoreData sessionData;
     RestoreManager::createFromFile(sessionFilePath, sessionData);
 
-    if (sessionData.isEmpty())
+    if (!sessionData.isValid())
         return;
 
     BrowserWindow* window = mApp->getWindow();

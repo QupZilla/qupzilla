@@ -45,7 +45,7 @@ QJsonArray RecoveryJsObject::restoreData() const
     QJsonArray out;
 
     int i = 0;
-    Q_FOREACH (const BrowserWindow::SavedWindow &w, m_manager->restoreData()) {
+    Q_FOREACH (const BrowserWindow::SavedWindow &w, m_manager->restoreData().windows) {
         int j = 0;
         QJsonArray tabs;
         Q_FOREACH (const WebTab::SavedTab &t, w.tabs) {
@@ -93,17 +93,17 @@ void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStri
         int win = excludeWin.at(i).toInt();
         int tab = excludeTab.at(i).toInt();
 
-        if (!QzTools::containsIndex(data, win) || !QzTools::containsIndex(data.at(win).tabs, tab))
+        if (!QzTools::containsIndex(data.windows, win) || !QzTools::containsIndex(data.windows.at(win).tabs, tab))
             continue;
 
-        BrowserWindow::SavedWindow &wd = data[win];
+        BrowserWindow::SavedWindow &wd = data.windows[win];
 
         wd.tabs.remove(tab);
         if (wd.currentTab >= tab)
             --wd.currentTab;
 
         if (wd.tabs.isEmpty()) {
-            data.remove(win);
+            data.windows.remove(win);
             continue;
         }
 

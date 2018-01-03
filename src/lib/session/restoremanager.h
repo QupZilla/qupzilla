@@ -25,7 +25,16 @@
 class WebPage;
 class RecoveryJsObject;
 
-using RestoreData = QVector<BrowserWindow::SavedWindow>;
+struct QUPZILLA_EXPORT RestoreData
+{
+    QVector<BrowserWindow::SavedWindow> windows;
+
+    bool isValid() const;
+    void clear();
+
+    friend QUPZILLA_EXPORT QDataStream &operator<<(QDataStream &stream, const RestoreData &data);
+    friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, RestoreData &data);
+};
 
 class QUPZILLA_EXPORT RestoreManager
 {

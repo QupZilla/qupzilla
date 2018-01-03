@@ -429,12 +429,12 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (window->tabWidget()->normalTabsCount() > 1) {
         // This can only happen when recovering crashed session!
         // Don't restore tabs in current window as user already opened some new tabs.
-        createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.takeAt(0));
+        createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.windows.takeAt(0));
     } else {
-        window->restoreWindow(restoreData.takeAt(0));
+        window->restoreWindow(restoreData.windows.takeAt(0));
     }
 
-    foreach (const BrowserWindow::SavedWindow &data, restoreData) {
+    foreach (const BrowserWindow::SavedWindow &data, restoreData.windows) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
         window->restoreWindow(data);
     }
@@ -444,7 +444,7 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
 bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
 {
-    if (m_isPrivate || restoreData.isEmpty()) {
+    if (m_isPrivate || !restoreData.isValid()) {
         return false;
     }
 
@@ -724,15 +724,17 @@ void MainApplication::postLaunch()
 
 QByteArray MainApplication::saveState() const
 {
+    RestoreData restoreData;
+    restoreData.windows.reserve(m_windows.count());
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        restoreData.windows.append(BrowserWindow::SavedWindow(window));
+    }
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
     stream << Qz::sessionVersion;
-    stream << m_windows.count();
-
-    for (BrowserWindow *window : qAsConst(m_windows)) {
-        stream << BrowserWindow::SavedWindow(window);
-    }
+    stream << restoreData;
 
     return data;
 }
