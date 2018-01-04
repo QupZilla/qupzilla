@@ -346,7 +346,7 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
         m_lastBackgroundTabIndex = index;
     }
 
-    connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(requestCloseTab(int)));
+    connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(webTab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(webTab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
     connect(webTab->webView(), &WebView::urlChanged, this, [this](const QUrl &url) {
@@ -393,7 +393,7 @@ int TabWidget::insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags 
         m_lastBackgroundTabIndex = index;
     }
 
-    connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(requestCloseTab(int)));
+    connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     connect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     connect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
@@ -425,11 +425,17 @@ void TabWidget::closeTab(int index)
     if (!webTab || !validIndex(index))
         return;
 
+    // This is already handled in requestCloseTab
+    if (count() <= 1) {
+        requestCloseTab(index);
+        return;
+    }
+
     m_closedTabsManager->saveTab(webTab);
 
     TabbedWebView *webView = webTab->webView();
     m_locationBars->removeWidget(webView->webTab()->locationBar());
-    disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(requestCloseTab(int)));
+    disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
@@ -634,7 +640,7 @@ void TabWidget::detachTab(WebTab* tab)
     Q_ASSERT(tab);
 
     m_locationBars->removeWidget(tab->locationBar());
-    disconnect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(requestCloseTab(int)));
+    disconnect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 

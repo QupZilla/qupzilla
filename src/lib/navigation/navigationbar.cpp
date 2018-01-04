@@ -317,7 +317,7 @@ void NavigationBar::reloadLayout()
         QSL("locationbar")
     };
 
-    QStringList ids = Settings().value(QSL("NavigationBar/layout"), defaultIds).toStringList();
+    QStringList ids = Settings().value(QSL("NavigationBar/Layout"), defaultIds).toStringList();
     ids.removeDuplicates();
     if (!ids.contains(QSL("locationbar"))) {
         ids.append(QSL("locationbar"));
