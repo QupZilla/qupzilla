@@ -524,8 +524,12 @@ void BrowserWindow::createEncodingSubMenu(const QString &name, QStringList &code
     QMenu* subMenu = new QMenu(name, menu);
     const QString activeCodecName = mApp->webSettings()->defaultTextEncoding();
 
+    QActionGroup *group = new QActionGroup(subMenu);
+
     foreach (const QString &codecName, codecNames) {
-        subMenu->addAction(createEncodingAction(codecName, activeCodecName, subMenu));
+        QAction *act = createEncodingAction(codecName, activeCodecName, subMenu);
+        group->addAction(act);
+        subMenu->addAction(act);
     }
 
     menu->addMenu(subMenu);
@@ -1095,8 +1099,6 @@ void BrowserWindow::createEncodingMenu(QMenu* menu)
             isciiCodecs.append(codecName);
         else if (codecName.startsWith(QLatin1String("IBM")))
             ibmCodecs.append(codecName);
-        else if (codecName == QLatin1String("System"))
-            menu->addAction(createEncodingAction(codecName, activeCodecName, menu));
         else
             otherCodecs.append(codecName);
     }
