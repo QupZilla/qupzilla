@@ -70,7 +70,6 @@ public:
     ~TabWidget();
 
     bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
-    void closeRecoveryTab();
 
     void setCurrentIndex(int index);
 

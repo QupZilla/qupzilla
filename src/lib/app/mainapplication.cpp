@@ -449,11 +449,10 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
 bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
 {
-    if (!window || m_isPrivate || !restoreData.isValid()) {
+    if (m_isPrivate || !restoreData.isValid()) {
         return false;
     }
 
-    window->tabWidget()->closeRecoveryTab();
     openSession(window, restoreData);
 
     m_restoreManager->clearRestoreData();

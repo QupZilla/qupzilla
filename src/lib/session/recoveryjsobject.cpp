@@ -23,6 +23,7 @@
 #include "browserwindow.h"
 #include "qztools.h"
 #include "iconprovider.h"
+#include "tabwidget.h"
 
 #include <QJsonObject>
 
@@ -72,11 +73,7 @@ QJsonArray RecoveryJsObject::restoreData() const
 
 void RecoveryJsObject::startNewSession()
 {
-    BrowserWindow *window = getBrowserWindow();
-    if (!window)
-        return;
-
-    m_page->load(window->homepageUrl());
+    closeTab();
 
     mApp->restoreManager()->clearRestoreData();
     mApp->destroyRestoreManager();
@@ -112,16 +109,23 @@ void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStri
             wd.currentTab = wd.tabs.size() - 1;
     }
 
-    BrowserWindow *window = getBrowserWindow();
-    if (!window)
-        return;
-
-    if (!mApp->restoreSession(window, data))
+    if (mApp->restoreSession(nullptr, data)) {
+        closeTab();
+    } else {
         startNewSession();
+    }
 }
 
-BrowserWindow *RecoveryJsObject::getBrowserWindow() const
+void RecoveryJsObject::closeTab()
 {
     TabbedWebView *view = qobject_cast<TabbedWebView*>(m_page->view());
-    return view ? view->browserWindow() : Q_NULLPTR;
+    if (!view) {
+        return;
+    }
+
+    if (view->browserWindow()->tabWidget()->count() > 1) {
+        view->closeView();
+    } else {
+        view->browserWindow()->close();
+    }
 }

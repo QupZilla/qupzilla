@@ -472,9 +472,6 @@ void TabManagerWidget::processActions()
             }
 
             if (command == "closeSelection") {
-                if (webTab->url().toString() == "qupzilla:restore") {
-                    continue;
-                }
                 selectedTabs.insertMulti(mainWindow, webTab);
             }
             else if (command == "detachSelection" || command == "bookmarkSelection") {

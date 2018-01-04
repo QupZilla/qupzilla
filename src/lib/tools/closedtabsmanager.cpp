@@ -36,11 +36,6 @@ void ClosedTabsManager::saveTab(WebTab *tab)
         return;
     }
 
-    // Don't save restore tab
-    if (tab->url().toString() == QL1S("qupzilla:restore")) {
-        return;
-    }
-
     Tab closedTab;
     closedTab.position = tab->tabIndex();
     closedTab.tabState = WebTab::SavedTab(tab);
