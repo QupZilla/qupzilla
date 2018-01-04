@@ -78,6 +78,7 @@ void RecoveryJsObject::startNewSession()
 
     m_page->load(window->homepageUrl());
 
+    mApp->restoreManager()->clearRestoreData();
     mApp->destroyRestoreManager();
 }
 

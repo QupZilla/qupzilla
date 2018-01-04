@@ -28,6 +28,7 @@ class RecoveryJsObject;
 struct QUPZILLA_EXPORT RestoreData
 {
     QVector<BrowserWindow::SavedWindow> windows;
+    QByteArray crashedSession;
 
     bool isValid() const;
     void clear();
@@ -44,6 +45,7 @@ public:
 
     bool isValid() const;
     RestoreData restoreData() const;
+    void clearRestoreData();
 
     QObject *recoveryObject(WebPage *page);
 

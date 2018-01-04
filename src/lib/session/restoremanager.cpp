@@ -22,7 +22,7 @@
 
 #include <QFile>
 
-static const int restoreDataVersion = 0;
+static const int restoreDataVersion = 1;
 
 bool RestoreData::isValid() const
 {
@@ -42,6 +42,7 @@ QDataStream &operator<<(QDataStream &stream, const RestoreData &data)
     }
 
     stream << restoreDataVersion;
+    stream << data.crashedSession;
 
     return stream;
 }
@@ -61,6 +62,10 @@ QDataStream &operator>>(QDataStream &stream, RestoreData &data)
     int version;
     stream >> version;
 
+    if (version >= 1) {
+        stream >> data.crashedSession;
+    }
+
     return stream;
 }
 
@@ -78,6 +83,14 @@ RestoreManager::~RestoreManager()
 RestoreData RestoreManager::restoreData() const
 {
     return m_data;
+}
+
+void RestoreManager::clearRestoreData()
+{
+    m_data.clear();
+
+    QDataStream stream(&m_data.crashedSession, QIODevice::ReadOnly);
+    stream >> m_data;
 }
 
 bool RestoreManager::isValid() const

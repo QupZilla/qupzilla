@@ -767,6 +767,10 @@ QList<WebTab*> TabWidget::allTabs(bool withPinned)
 
 bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab)
 {
+    if (tabs.isEmpty()) {
+        return false;
+    }
+
     for (int i = 0; i < tabs.size(); ++i) {
         WebTab::SavedTab tab = tabs.at(i);
         int index = addView(QUrl(), Qz::NT_CleanSelectedTab, false, tab.isPinned);

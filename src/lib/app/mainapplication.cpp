@@ -426,7 +426,7 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (m_isRestoring)
         window->tabWidget()->closeRecoveryTab();
 
-    if (window->tabWidget()->normalTabsCount() > 1) {
+    if (window->tabWidget()->count() != 0) {
         // This can only happen when recovering crashed session!
         // Don't restore tabs in current window as user already opened some new tabs.
         createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.windows.takeAt(0));
@@ -452,6 +452,7 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
 
     openSession(window, restoreData);
 
+    m_restoreManager->clearRestoreData();
     destroyRestoreManager();
     m_isRestoring = false;
 
@@ -460,6 +461,10 @@ bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreD
 
 void MainApplication::destroyRestoreManager()
 {
+    if (m_restoreManager && m_restoreManager->isValid()) {
+        return;
+    }
+
     // Restore JavaScript settings
     const bool jsEnabled = Settings().value(QSL("Web-Browser-Settings/allowJavaScript"), true).toBool();
     m_webProfile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, jsEnabled);
@@ -728,6 +733,11 @@ QByteArray MainApplication::saveState() const
     restoreData.windows.reserve(m_windows.count());
     for (BrowserWindow *window : qAsConst(m_windows)) {
         restoreData.windows.append(BrowserWindow::SavedWindow(window));
+    }
+
+    if (m_restoreManager && m_restoreManager->isValid()) {
+        QDataStream stream(&restoreData.crashedSession, QIODevice::WriteOnly);
+        stream << m_restoreManager->restoreData();
     }
 
     QByteArray data;

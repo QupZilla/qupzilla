@@ -377,7 +377,7 @@ void SessionManager::openSessionManagerDialog()
 
 void SessionManager::autoSaveLastSession()
 {
-    if (mApp->isPrivate() || mApp->isRestoring() || mApp->windowCount() == 0 || mApp->restoreManager()) {
+    if (mApp->isPrivate() || mApp->isRestoring() || mApp->windowCount() == 0) {
         return;
     }
 
