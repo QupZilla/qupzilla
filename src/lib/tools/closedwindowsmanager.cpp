@@ -39,7 +39,7 @@ QVector<ClosedWindowsManager::Window> ClosedWindowsManager::closedWindows() cons
 
 void ClosedWindowsManager::saveWindow(BrowserWindow *window)
 {
-    if (mApp->isPrivate() || !window->weView()) {
+    if (mApp->isPrivate() || mApp->windowCount() == 1 || !window->weView()) {
         return;
     }
 
@@ -96,4 +96,50 @@ void ClosedWindowsManager::restoreAllClosedWindows()
 void ClosedWindowsManager::clearClosedWindows()
 {
     m_closedWindows.clear();
+}
+
+static const int closedWindowsVersion = 1;
+
+QByteArray ClosedWindowsManager::saveState() const
+{
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    stream << closedWindowsVersion;
+    stream << m_closedWindows.count();
+
+    for (const Window &window : qAsConst(m_closedWindows)) {
+        stream << window.windowState;
+    }
+
+    return data;
+}
+
+void ClosedWindowsManager::restoreState(const QByteArray &state)
+{
+    QDataStream stream(state);
+
+    int version;
+    stream >> version;
+
+    if (version < 1) {
+        return;
+    }
+
+    m_closedWindows.clear();
+
+    int windowCount;
+    stream >> windowCount;
+    m_closedWindows.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        Window window;
+        stream >> window.windowState;
+        if (!window.isValid()) {
+            continue;
+        }
+        window.icon = window.windowState.tabs.at(0).icon;
+        window.title = window.windowState.tabs.at(0).title;
+        m_closedWindows.append(window);
+    }
 }

@@ -22,7 +22,7 @@
 
 #include <QFile>
 
-static const int restoreDataVersion = 1;
+static const int restoreDataVersion = 2;
 
 bool RestoreData::isValid() const
 {
@@ -43,6 +43,7 @@ QDataStream &operator<<(QDataStream &stream, const RestoreData &data)
 
     stream << restoreDataVersion;
     stream << data.crashedSession;
+    stream << data.closedWindows;
 
     return stream;
 }
@@ -64,6 +65,10 @@ QDataStream &operator>>(QDataStream &stream, RestoreData &data)
 
     if (version >= 1) {
         stream >> data.crashedSession;
+    }
+
+    if (version >= 2) {
+        stream >> data.closedWindows;
     }
 
     return stream;

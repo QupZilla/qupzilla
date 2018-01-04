@@ -50,6 +50,9 @@ public:
     // Takes window at given index
     Window takeClosedWindowAt(int index);
 
+    QByteArray saveState() const;
+    void restoreState(const QByteArray &state);
+
 public slots:
     void restoreClosedWindow();
     void restoreAllClosedWindows();

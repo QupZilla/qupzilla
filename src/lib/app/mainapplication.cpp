@@ -442,6 +442,8 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
         window->restoreWindow(data);
     }
 
+    m_closedWindowsManager->restoreState(restoreData.closedWindows);
+
     restoreOverrideCursor();
 }
 
@@ -740,6 +742,8 @@ QByteArray MainApplication::saveState() const
         QDataStream stream(&restoreData.crashedSession, QIODevice::WriteOnly);
         stream << m_restoreManager->restoreData();
     }
+
+    restoreData.closedWindows = m_closedWindowsManager->saveState();
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);

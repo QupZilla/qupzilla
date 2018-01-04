@@ -29,6 +29,7 @@ struct QUPZILLA_EXPORT RestoreData
 {
     QVector<BrowserWindow::SavedWindow> windows;
     QByteArray crashedSession;
+    QByteArray closedWindows;
 
     bool isValid() const;
     void clear();
