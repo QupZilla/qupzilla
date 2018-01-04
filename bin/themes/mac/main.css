@@ -97,11 +97,6 @@
     qproperty-multiIcon: url(images/navigation-supermenu.png);
 }
 
-#navigation-button-exitfullscreen
-{
-    qproperty-themeIcon: "view-restore";
-}
-
 /*TabWidget*/
 #tabbar-button-right
 {

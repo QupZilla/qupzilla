@@ -53,11 +53,6 @@
     qproperty-fallbackIcon: url(images/menu.svg);
 }
 
-#navigation-button-exitfullscreen
-{
-    qproperty-themeIcon: "view-restore";
-}
-
 /*TabWidget*/
 #tabbar-button-right
 {

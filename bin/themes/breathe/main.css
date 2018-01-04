@@ -52,11 +52,6 @@
     qproperty-icon: url(images/menu.png);
 }
 
-#navigation-button-exitfullscreen
-{
-    qproperty-icon: url(images/restore);
-}
-
 /*TabWidget*/
 #tabbar::tab
 {

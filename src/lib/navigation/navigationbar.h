@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,7 +51,6 @@ public:
     ToolButton* buttonForward() { return m_buttonForward; }
     ToolButton* buttonHome() { return m_buttonHome; }
     ToolButton* buttonAddTab() { return m_buttonAddTab; }
-    ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
     ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
     WebSearchBar* webSearchBar() { return m_searchLine; }
     QSplitter* splitter() { return m_navigationSplitter; }
@@ -102,7 +101,6 @@ private:
     ToolButton* m_buttonHome;
     ToolButton* m_buttonAddTab;
     ToolButton* m_supMenu;
-    ToolButton* m_exitFullscreen;
     ReloadStopButton* m_reloadStop;
 
     Menu* m_menuBack;

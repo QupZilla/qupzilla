@@ -96,11 +96,6 @@
     qproperty-multiIcon: url(images/navigation-supermenu.png);
 }
 
-#navigation-button-exitfullscreen
-{
-    qproperty-themeIcon: "view-restore";
-}
-
 ToolButton[toolbar-look="true"]
 {
     qproperty-iconSize: 16px 16px;

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -119,21 +119,11 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
     m_navigationSplitter->setCollapsible(0, false);
 
-    m_exitFullscreen = new ToolButton(this);
-    m_exitFullscreen->setObjectName("navigation-button-exitfullscreen");
-    m_exitFullscreen->setToolTip(tr("Exit Fullscreen"));
-    m_exitFullscreen->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_exitFullscreen->setToolbarButtonLook(true);
-    m_exitFullscreen->setFocusPolicy(Qt::NoFocus);
-    m_exitFullscreen->setAutoRaise(true);
-    m_exitFullscreen->setVisible(false);
-
     m_layout->addLayout(backNextLayout);
     m_layout->addWidget(m_reloadStop);
     m_layout->addWidget(m_buttonHome);
     m_layout->addWidget(m_buttonAddTab);
     m_layout->addWidget(m_navigationSplitter);
-    m_layout->addWidget(m_exitFullscreen);
     m_layout->addWidget(m_supMenu);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -153,7 +143,6 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(m_buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
     connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
     connect(m_buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
-    connect(m_exitFullscreen, SIGNAL(clicked(bool)), m_window, SLOT(toggleFullScreen()));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
