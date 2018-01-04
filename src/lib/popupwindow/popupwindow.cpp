@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -39,10 +39,16 @@ PopupWindow::PopupWindow(PopupWebView* view)
 {
     m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->setSpacing(2);
+    m_layout->setSpacing(0);
 
     m_locationBar = new PopupLocationBar(this);
     m_locationBar->setView(m_view);
+
+    QWidget *locationWidget = new QWidget(this);
+    QVBoxLayout *llayout = new QVBoxLayout();
+    llayout->setContentsMargins(3, 3, 3, 5);
+    llayout->addWidget(m_locationBar);
+    locationWidget->setLayout(llayout);
 
     m_statusBar = new QStatusBar(this);
     m_statusBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
@@ -64,6 +70,13 @@ PopupWindow::PopupWindow(PopupWebView* view)
     nlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
     nlayout->setContentsMargins(0, 0, 0, 0);
     nlayout->setSpacing(1);
+
+    QWidget *viewSpacer = new QWidget(this);
+    pal = viewSpacer->palette();
+    pal.setColor(QPalette::Background, pal.window().color().darker(125));
+    viewSpacer->setPalette(pal);
+    viewSpacer->setFixedHeight(1);
+    viewSpacer->setAutoFillBackground(true);
 
     m_menuBar = new QMenuBar(this);
 
@@ -117,7 +130,8 @@ PopupWindow::PopupWindow(PopupWebView* view)
     viewWidget->setLayout(l);
 
     m_layout->insertWidget(0, m_menuBar);
-    m_layout->addWidget(m_locationBar);
+    m_layout->addWidget(locationWidget);
+    m_layout->addWidget(viewSpacer);
     m_layout->addWidget(viewWidget);
     m_layout->addWidget(m_statusBar);
     setLayout(m_layout);
