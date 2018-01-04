@@ -106,10 +106,13 @@ QByteArray ClosedWindowsManager::saveState() const
     QDataStream stream(&data, QIODevice::WriteOnly);
 
     stream << closedWindowsVersion;
-    stream << m_closedWindows.count();
 
-    for (const Window &window : qAsConst(m_closedWindows)) {
-        stream << window.windowState;
+    // Only save last 3 windows
+    const int windowCount = qBound(0, m_closedWindows.count(), 3);
+    stream << windowCount;
+
+    for (int i = 0; i < windowCount; ++i) {
+        stream << m_closedWindows.at(i).windowState;
     }
 
     return data;
