@@ -70,7 +70,6 @@ public:
     ~MainApplication();
 
     bool isClosing() const;
-    bool isRestoring() const;
     bool isPrivate() const;
     bool isPortable() const;
     bool isStartingAfterCrash() const;
@@ -165,7 +164,6 @@ private:
     bool m_isPrivate;
     bool m_isPortable;
     bool m_isClosing;
-    bool m_isRestoring;
     bool m_isStartingAfterCrash;
 
     History* m_history;

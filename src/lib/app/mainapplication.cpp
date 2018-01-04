@@ -83,7 +83,6 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_isPrivate(false)
     , m_isPortable(false)
     , m_isClosing(false)
-    , m_isRestoring(false)
     , m_isStartingAfterCrash(false)
     , m_history(0)
     , m_bookmarks(0)
@@ -355,11 +354,6 @@ bool MainApplication::isClosing() const
     return m_isClosing;
 }
 
-bool MainApplication::isRestoring() const
-{
-    return m_isRestoring;
-}
-
 bool MainApplication::isPrivate() const
 {
     return m_isPrivate;
@@ -423,9 +417,6 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (!window)
         window = createWindow(Qz::BW_OtherRestoredWindow);
 
-    if (m_isRestoring)
-        window->tabWidget()->closeRecoveryTab();
-
     if (window->tabWidget()->count() != 0) {
         // This can only happen when recovering crashed session!
         // Don't restore tabs in current window as user already opened some new tabs.
@@ -444,17 +435,15 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
 
 bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
 {
-    if (m_isPrivate || !restoreData.isValid()) {
+    if (!window || m_isPrivate || !restoreData.isValid()) {
         return false;
     }
 
-    m_isRestoring = true;
-
+    window->tabWidget()->closeRecoveryTab();
     openSession(window, restoreData);
 
     m_restoreManager->clearRestoreData();
     destroyRestoreManager();
-    m_isRestoring = false;
 
     return true;
 }

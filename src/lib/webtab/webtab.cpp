@@ -481,12 +481,7 @@ void WebTab::tabActivated()
         return;
     }
 
-    // When session is being restored, restore the tab immediately
-    if (mApp->isRestoring()) {
-        slotRestore();
-    } else {
-        QTimer::singleShot(0, this, SLOT(slotRestore()));
-    }
+    QTimer::singleShot(0, this, SLOT(slotRestore()));
 }
 
 void WebTab::resizeEvent(QResizeEvent *event)
