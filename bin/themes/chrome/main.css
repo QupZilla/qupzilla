@@ -91,6 +91,11 @@
     qproperty-multiIcon: url(images/navigation-addtab.png);
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-right-double";
+}
+
 #navigation-button-supermenu
 {
     qproperty-multiIcon: url(images/navigation-supermenu.png);

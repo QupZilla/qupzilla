@@ -74,12 +74,14 @@ public slots:
 private slots:
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryBackMenu();
+    void aboutToShowToolsMenu();
 
     void loadHistoryIndex();
     void loadHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
     void contextMenuRequested(const QPoint &pos);
+    void openConfigurationDialog();
 
 private:
     void reloadLayout();
@@ -90,13 +92,14 @@ private:
     QHBoxLayout* m_layout;
     QSplitter* m_navigationSplitter;
     WebSearchBar* m_searchLine;
-    ToolButton* m_supMenu;
 
     Menu* m_menuBack;
     Menu* m_menuForward;
     ToolButton* m_buttonBack;
     ToolButton* m_buttonForward;
     ReloadStopButton* m_reloadStop;
+    Menu *m_menuTools;
+    ToolButton* m_supMenu;
 
     QHash<QString, QWidget*> m_widgets;
 };

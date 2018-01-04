@@ -47,6 +47,12 @@
     qproperty-themeIcon: "list-add";
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-right-double";
+    qproperty-fallbackIcon: url(images/tools.svg);
+}
+
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "application-menu";

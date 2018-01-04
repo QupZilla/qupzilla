@@ -15,7 +15,7 @@
         <file>breeze-fallback/16x16/process-stop.svg</file>
         <file>breeze-fallback/16x16/user-trash-full.svg</file>
         <file>breeze-fallback/16x16/view-refresh.svg</file>
-        <file>breeze-fallback/16x16/view-restore.svg</file>
+        <file>breeze-fallback/16x16/arrow-right-double.svg</file>
         <file>breeze-fallback/22x22/configure.svg</file>
         <file>breeze-fallback/22x22/edit-find.svg</file>
         <file>breeze-fallback/22x22/go-down.svg</file>
@@ -28,7 +28,7 @@
         <file>breeze-fallback/22x22/process-stop.svg</file>
         <file>breeze-fallback/22x22/user-trash-full.svg</file>
         <file>breeze-fallback/22x22/view-refresh.svg</file>
-        <file>breeze-fallback/22x22/view-restore.svg</file>
+        <file>breeze-fallback/22x22/arrow-right-double.svg</file>
         <file>breeze-fallback/32x32/preferences-system-network.svg</file>
         <file>breeze-fallback/16x16/window-close.svg</file>
     </qresource>

@@ -576,7 +576,6 @@ void BrowserWindow::loadSettings()
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", false).toBool();
-    bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", false).toBool();

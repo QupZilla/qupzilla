@@ -121,6 +121,19 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_buttonForward->setMenu(m_menuForward);
     connect(m_buttonForward, SIGNAL(aboutToShowMenu()), this, SLOT(aboutToShowHistoryNextMenu()));
 
+    ToolButton *buttonTools = new ToolButton(this);
+    buttonTools->setObjectName("navigation-button-tools");
+    buttonTools->setPopupMode(QToolButton::InstantPopup);
+    buttonTools->setToolbarButtonLook(true);
+    buttonTools->setToolTip(tr("Tools"));
+    buttonTools->setAutoRaise(true);
+    buttonTools->setFocusPolicy(Qt::NoFocus);
+    buttonTools->setShowMenuInside(true);
+
+    m_menuTools = new Menu(this);
+    buttonTools->setMenu(m_menuTools);
+    connect(buttonTools, &ToolButton::aboutToShowMenu, this, &NavigationBar::aboutToShowToolsMenu);
+
     m_supMenu = new ToolButton(this);
     m_supMenu->setObjectName("navigation-button-supermenu");
     m_supMenu->setPopupMode(QToolButton::InstantPopup);
@@ -145,6 +158,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     addWidget(buttonHome, QSL("button-home"));
     addWidget(buttonAddTab, QSL("button-addtab"));
     addWidget(m_navigationSplitter, QSL("locationbar"));
+    addWidget(buttonTools, QSL("button-tools"));
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
@@ -224,6 +238,7 @@ void NavigationBar::addWidget(QWidget *widget, const QString &id)
 void NavigationBar::removeWidget(const QString &id)
 {
     m_widgets.remove(id);
+    reloadLayout();
 }
 
 void NavigationBar::aboutToShowHistoryBackMenu()
@@ -294,6 +309,17 @@ void NavigationBar::aboutToShowHistoryNextMenu()
     m_menuForward->addAction(tr("Clear history"), this, SLOT(clearHistory()));
 }
 
+void NavigationBar::aboutToShowToolsMenu()
+{
+    m_menuTools->clear();
+
+    m_window->createToolbarsMenu(m_menuTools->addMenu(tr("Toolbars")));
+    m_window->createSidebarsMenu(m_menuTools->addMenu(tr("Sidebars")));
+    m_menuTools->addSeparator();
+
+    m_menuTools->addAction(IconProvider::settingsIcon(), tr("Configure Toolbar"), this, SLOT(openConfigurationDialog()));
+}
+
 void NavigationBar::clearHistory()
 {
     QWebEngineHistory* history = m_window->weView()->page()->history();
@@ -308,13 +334,18 @@ void NavigationBar::contextMenuRequested(const QPoint &pos)
     menu.exec(mapToGlobal(pos));
 }
 
+void NavigationBar::openConfigurationDialog()
+{
+}
+
 void NavigationBar::reloadLayout()
 {
     const QStringList defaultIds = {
         QSL("button-backforward"),
         QSL("button-reloadstop"),
         QSL("button-home"),
-        QSL("locationbar")
+        QSL("locationbar"),
+        QSL("button-tools")
     };
 
     QStringList ids = Settings().value(QSL("NavigationBar/Layout"), defaultIds).toStringList();

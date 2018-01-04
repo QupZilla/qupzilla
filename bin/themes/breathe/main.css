@@ -47,6 +47,11 @@
     qproperty-icon: url(images/add.png);
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-right-double";
+}
+
 #navigation-button-supermenu
 {
     qproperty-icon: url(images/menu.png);

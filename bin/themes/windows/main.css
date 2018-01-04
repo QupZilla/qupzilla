@@ -101,6 +101,11 @@
     qproperty-iconSize: 23px 22px;
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-right-double";
+}
+
 #navigation-button-supermenu
 {
     qproperty-icon: url(images/navigation-supermenu.png);
