@@ -285,8 +285,20 @@ MainApplication::MainApplication(int &argc, char** argv)
         connect(m_autoSaver, SIGNAL(save()), m_sessionManager, SLOT(autoSaveLastSession()));
 
         Settings settings;
-        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-        settings.setValue("SessionRestore/isRunning", true);
+        settings.beginGroup(QSL("SessionRestore"));
+        const bool wasRunning = settings.value(QSL("isRunning"), false).toBool();
+        const bool wasRestoring = settings.value(QSL("isRestoring"), false).toBool();
+        settings.setValue(QSL("isRunning"), true);
+        settings.setValue(QSL("isRestoring"), wasRunning);
+        settings.endGroup();
+
+        m_isStartingAfterCrash = wasRunning && wasRestoring;
+
+        if (wasRunning) {
+            QTimer::singleShot(60 * 1000, this, [this]() {
+                Settings().setValue(QSL("SessionRestore/isRestoring"), false);
+            });
+        }
 
         // we have to ask about startup session before creating main window
         if (!m_isStartingAfterCrash && afterLaunch() == SelectSession)
@@ -749,6 +761,7 @@ void MainApplication::saveSettings()
     Settings settings;
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning", false);
+    settings.setValue("isRestoring", false);
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
