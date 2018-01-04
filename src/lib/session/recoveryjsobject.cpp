@@ -23,7 +23,6 @@
 #include "browserwindow.h"
 #include "qztools.h"
 #include "iconprovider.h"
-#include "tabwidget.h"
 
 #include <QJsonObject>
 
@@ -123,7 +122,7 @@ void RecoveryJsObject::closeTab()
         return;
     }
 
-    if (view->browserWindow()->tabWidget()->count() > 1) {
+    if (view->browserWindow()->tabCount() > 1) {
         view->closeView();
     } else {
         view->browserWindow()->close();

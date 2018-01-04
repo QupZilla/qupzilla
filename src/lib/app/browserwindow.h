@@ -103,6 +103,7 @@ public:
     SideBar* addSideBar();
     void saveSideBarSettings();
 
+    int tabCount() const;
     TabbedWebView* weView() const;
     TabbedWebView* weView(int index) const;
 

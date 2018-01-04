@@ -538,7 +538,7 @@ static void detachTabsTo(BrowserWindow* targetWindow, const QHash<BrowserWindow*
         foreach (WebTab* webTab, tabs) {
             mainWindow->tabWidget()->detachTab(webTab);
 
-            if (mainWindow && mainWindow->tabWidget()->count() == 0) {
+            if (mainWindow && mainWindow->tabCount() == 0) {
                 mainWindow->close();
                 mainWindow = 0;
             }
@@ -552,7 +552,7 @@ void TabManagerWidget::detachSelectedTabs(const QHash<BrowserWindow*, WebTab*> &
 {
     if (tabsHash.isEmpty() ||
             (tabsHash.uniqueKeys().size() == 1 &&
-             tabsHash.size() == tabsHash.keys().at(0)->tabWidget()->count())) {
+             tabsHash.size() == tabsHash.keys().at(0)->tabCount())) {
         return;
     }
 

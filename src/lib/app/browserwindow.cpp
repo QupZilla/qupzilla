@@ -100,7 +100,7 @@ BrowserWindow::SavedWindow::SavedWindow(BrowserWindow *window)
     virtualDesktop = window->getCurrentVirtualDesktop();
 #endif
 
-    const int tabsCount = window->tabWidget()->count();
+    const int tabsCount = window->tabCount();
     tabs.reserve(tabsCount);
     for (int i = 0; i < tabsCount; ++i) {
         TabbedWebView *webView = window->weView(i);
@@ -646,6 +646,11 @@ void BrowserWindow::reloadBypassCache()
 void BrowserWindow::goBack()
 {
     weView()->back();
+}
+
+int BrowserWindow::tabCount() const
+{
+    return m_tabWidget->count();
 }
 
 TabbedWebView* BrowserWindow::weView() const

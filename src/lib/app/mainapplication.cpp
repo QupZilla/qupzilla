@@ -429,7 +429,7 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (!window)
         window = createWindow(Qz::BW_OtherRestoredWindow);
 
-    if (window->tabWidget()->count() != 0) {
+    if (window->tabCount() != 0) {
         // This can only happen when recovering crashed session!
         // Don't restore tabs in current window as user already opened some new tabs.
         createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.windows.takeAt(0));
