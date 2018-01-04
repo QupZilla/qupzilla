@@ -576,10 +576,6 @@ void BrowserWindow::loadSettings()
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", false).toBool();
-    bool showReloadButton = settings.value("showReloadButton", true).toBool();
-    bool showHomeButton = settings.value("showHomeButton", true).toBool();
-    bool showBackForwardButtons = settings.value("showBackForwardButtons", true).toBool();
-    bool showAddTabButton = settings.value("showAddTabButton", false).toBool();
     bool showWebSearchBar = settings.value("showWebSearchBar", true).toBool();
     bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
@@ -620,12 +616,6 @@ void BrowserWindow::loadSettings()
 #endif
 
     m_navigationToolbar->setSuperMenuVisible(!showMenuBar);
-    m_navigationToolbar->buttonReloadStop()->setVisible(showReloadButton);
-    m_navigationToolbar->buttonHome()->setVisible(showHomeButton);
-    m_navigationToolbar->buttonBack()->setVisible(showBackForwardButtons);
-    m_navigationToolbar->buttonForward()->setVisible(showBackForwardButtons);
-    m_navigationToolbar->webSearchBar()->setVisible(showWebSearchBar);
-    m_navigationToolbar->buttonAddTab()->setVisible(showAddTabButton);
 }
 
 void BrowserWindow::goForward()

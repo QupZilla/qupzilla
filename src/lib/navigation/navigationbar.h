@@ -47,11 +47,6 @@ public:
     void showReloadButton();
     void showStopButton();
 
-    ToolButton* buttonBack() { return m_buttonBack; }
-    ToolButton* buttonForward() { return m_buttonForward; }
-    ToolButton* buttonHome() { return m_buttonHome; }
-    ToolButton* buttonAddTab() { return m_buttonAddTab; }
-    ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
     WebSearchBar* webSearchBar() { return m_searchLine; }
     QSplitter* splitter() { return m_navigationSplitter; }
 
@@ -63,7 +58,8 @@ public:
     int layoutSpacing() const;
     void setLayoutSpacing(int spacing);
 
-signals:
+    void addWidget(QWidget *widget, const QString &id);
+    void removeWidget(const QString &id);
 
 public slots:
     void refreshHistory();
@@ -86,27 +82,23 @@ private slots:
     void contextMenuRequested(const QPoint &pos);
 
 private:
-    QString titleForUrl(QString title, const QUrl &url);
-    QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
-
+    void reloadLayout();
     void loadHistoryItem(const QWebEngineHistoryItem &item);
     void loadHistoryItemInNewTab(const QWebEngineHistoryItem &item);
 
     BrowserWindow* m_window;
-
     QHBoxLayout* m_layout;
     QSplitter* m_navigationSplitter;
-    ToolButton* m_buttonBack;
-    ToolButton* m_buttonForward;
-    ToolButton* m_buttonHome;
-    ToolButton* m_buttonAddTab;
+    WebSearchBar* m_searchLine;
     ToolButton* m_supMenu;
-    ReloadStopButton* m_reloadStop;
 
     Menu* m_menuBack;
     Menu* m_menuForward;
+    ToolButton* m_buttonBack;
+    ToolButton* m_buttonForward;
+    ReloadStopButton* m_reloadStop;
 
-    WebSearchBar* m_searchLine;
+    QHash<QString, QWidget*> m_widgets;
 };
 
 #endif // NAVIGATIONBAR_H

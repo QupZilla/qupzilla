@@ -37,6 +37,25 @@
 #include <QMouseEvent>
 #include <QStyleOption>
 
+static QString titleForUrl(QString title, const QUrl &url)
+{
+    if (title.isEmpty()) {
+        title = url.toString(QUrl::RemoveFragment);
+    }
+    if (title.isEmpty()) {
+        return NavigationBar::tr("Empty Page");
+    }
+    return QzTools::truncatedText(title, 40);
+}
+
+static QIcon iconForPage(const QUrl &url, const QIcon &sIcon)
+{
+    QIcon icon;
+    icon.addPixmap(url.scheme() == QL1S("qupzilla") ? QIcon(QSL(":icons/qupzilla.png")).pixmap(16) : IconProvider::iconForUrl(url).pixmap(16));
+    icon.addPixmap(sIcon.pixmap(16), QIcon::Active);
+    return icon;
+}
+
 NavigationBar::NavigationBar(BrowserWindow* window)
     : QWidget(window)
     , m_window(window)
@@ -71,24 +90,26 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     backNextLayout->setSpacing(0);
     backNextLayout->addWidget(m_buttonBack);
     backNextLayout->addWidget(m_buttonForward);
+    QWidget *backNextWidget = new QWidget(this);
+    backNextWidget->setLayout(backNextLayout);
 
     m_reloadStop = new ReloadStopButton(this);
 
-    m_buttonHome = new ToolButton(this);
-    m_buttonHome->setObjectName("navigation-button-home");
-    m_buttonHome->setToolTip(tr("Home"));
-    m_buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_buttonHome->setToolbarButtonLook(true);
-    m_buttonHome->setAutoRaise(true);
-    m_buttonHome->setFocusPolicy(Qt::NoFocus);
+    ToolButton *buttonHome = new ToolButton(this);
+    buttonHome->setObjectName("navigation-button-home");
+    buttonHome->setToolTip(tr("Home"));
+    buttonHome->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    buttonHome->setToolbarButtonLook(true);
+    buttonHome->setAutoRaise(true);
+    buttonHome->setFocusPolicy(Qt::NoFocus);
 
-    m_buttonAddTab = new ToolButton(this);
-    m_buttonAddTab->setObjectName("navigation-button-addtab");
-    m_buttonAddTab->setToolTip(tr("New Tab"));
-    m_buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_buttonAddTab->setToolbarButtonLook(true);
-    m_buttonAddTab->setAutoRaise(true);
-    m_buttonAddTab->setFocusPolicy(Qt::NoFocus);
+    ToolButton *buttonAddTab = new ToolButton(this);
+    buttonAddTab->setObjectName("navigation-button-addtab");
+    buttonAddTab->setToolTip(tr("New Tab"));
+    buttonAddTab->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    buttonAddTab->setToolbarButtonLook(true);
+    buttonAddTab->setAutoRaise(true);
+    buttonAddTab->setFocusPolicy(Qt::NoFocus);
 
     m_menuBack = new Menu(this);
     m_menuBack->setCloseOnMiddleClick(true);
@@ -119,12 +140,11 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
     m_navigationSplitter->setCollapsible(0, false);
 
-    m_layout->addLayout(backNextLayout);
-    m_layout->addWidget(m_reloadStop);
-    m_layout->addWidget(m_buttonHome);
-    m_layout->addWidget(m_buttonAddTab);
-    m_layout->addWidget(m_navigationSplitter);
-    m_layout->addWidget(m_supMenu);
+    addWidget(backNextWidget, QSL("button-backforward"));
+    addWidget(m_reloadStop, QSL("button-reloadstop"));
+    addWidget(buttonHome, QSL("button-home"));
+    addWidget(buttonAddTab, QSL("button-addtab"));
+    addWidget(m_navigationSplitter, QSL("locationbar"));
 
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
@@ -138,11 +158,11 @@ NavigationBar::NavigationBar(BrowserWindow* window)
 
     connect(m_reloadStop, SIGNAL(stopClicked()), this, SLOT(stop()));
     connect(m_reloadStop, SIGNAL(reloadClicked()), this, SLOT(reload()));
-    connect(m_buttonHome, SIGNAL(clicked()), m_window, SLOT(goHome()));
-    connect(m_buttonHome, SIGNAL(middleMouseClicked()), m_window, SLOT(goHomeInNewTab()));
-    connect(m_buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
-    connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
-    connect(m_buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
+    connect(buttonHome, SIGNAL(clicked()), m_window, SLOT(goHome()));
+    connect(buttonHome, SIGNAL(middleMouseClicked()), m_window, SLOT(goHomeInNewTab()));
+    connect(buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
+    connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
+    connect(buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
@@ -193,6 +213,17 @@ int NavigationBar::layoutSpacing() const
 void NavigationBar::setLayoutSpacing(int spacing)
 {
     m_layout->setSpacing(spacing);
+}
+
+void NavigationBar::addWidget(QWidget *widget, const QString &id)
+{
+    m_widgets[id] = widget;
+    reloadLayout();
+}
+
+void NavigationBar::removeWidget(const QString &id)
+{
+    m_widgets.remove(id);
 }
 
 void NavigationBar::aboutToShowHistoryBackMenu()
@@ -277,6 +308,48 @@ void NavigationBar::contextMenuRequested(const QPoint &pos)
     menu.exec(mapToGlobal(pos));
 }
 
+void NavigationBar::reloadLayout()
+{
+    const QStringList defaultIds = {
+        QSL("button-backforward"),
+        QSL("button-reloadstop"),
+        QSL("button-home"),
+        QSL("locationbar")
+    };
+
+    QStringList ids = Settings().value(QSL("NavigationBar/layout"), defaultIds).toStringList();
+    ids.removeDuplicates();
+    if (!ids.contains(QSL("locationbar"))) {
+        ids.append(QSL("locationbar"));
+    }
+
+    while (m_layout->count() != 0) {
+        QLayoutItem *item = m_layout->takeAt(0);
+        if (!item) {
+            continue;
+        }
+        QWidget *widget = item->widget();
+        if (!widget) {
+            continue;
+        }
+        widget->setParent(nullptr);
+    }
+
+    for (QWidget *widget : m_widgets) {
+        widget->hide();
+    }
+
+    for (const QString &id : qAsConst(ids)) {
+        QWidget *widget = m_widgets.value(id);
+        if (widget) {
+            m_layout->addWidget(widget);
+            widget->show();
+        }
+    }
+
+    m_layout->addWidget(m_supMenu);
+}
+
 void NavigationBar::loadHistoryIndex()
 {
     QWebEngineHistory* history = m_window->weView()->page()->history();
@@ -353,27 +426,6 @@ void NavigationBar::goForwardInNewTab()
     }
 
     loadHistoryItemInNewTab(history->forwardItem());
-}
-
-QString NavigationBar::titleForUrl(QString title, const QUrl &url)
-{
-    if (title.isEmpty()) {
-        title = url.toString(QUrl::RemoveFragment);
-    }
-
-    if (title.isEmpty()) {
-        return tr("Empty Page");
-    }
-
-    return QzTools::truncatedText(title, 40);
-}
-
-QIcon NavigationBar::iconForPage(const QUrl &url, const QIcon &sIcon)
-{
-    QIcon icon;
-    icon.addPixmap(url.scheme() == QL1S("qupzilla") ? QIcon(QSL(":icons/qupzilla.png")).pixmap(16) : IconProvider::iconForUrl(url).pixmap(16));
-    icon.addPixmap(sIcon.pixmap(16), QIcon::Active);
-    return icon;
 }
 
 void NavigationBar::loadHistoryItem(const QWebEngineHistoryItem &item)
