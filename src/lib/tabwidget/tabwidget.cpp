@@ -425,13 +425,9 @@ void TabWidget::closeTab(int index)
     if (!webTab || !validIndex(index))
         return;
 
+    m_closedTabsManager->saveTab(webTab);
+
     TabbedWebView *webView = webTab->webView();
-
-    // Save tab url and history
-    if (webView->url().toString() != QL1S("qupzilla:restore")) {
-        m_closedTabsManager->saveTab(webTab);
-    }
-
     m_locationBars->removeWidget(webView->webTab()->locationBar());
     disconnect(webView, SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(webView, SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
