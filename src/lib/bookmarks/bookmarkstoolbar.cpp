@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -40,10 +40,9 @@ BookmarksToolbar::BookmarksToolbar(BrowserWindow* window, QWidget* parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
 
     m_layout = new QHBoxLayout(this);
-    m_layout->setMargin(1);
-#ifndef Q_OS_MACOS
-    m_layout->setSpacing(0);
-#endif
+    m_layout->setMargin(style()->pixelMetric(QStyle::PM_ToolBarItemMargin, 0, this)
+                          + style()->pixelMetric(QStyle::PM_ToolBarFrameWidth, 0, this));
+    m_layout->setSpacing(style()->pixelMetric(QStyle::PM_ToolBarItemSpacing, 0, this));
     setLayout(m_layout);
 
     // Set some sane value, will be updated to correct value on first added button
