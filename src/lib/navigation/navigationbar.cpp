@@ -28,6 +28,8 @@
 #include "webpage.h"
 #include "qzsettings.h"
 #include "qztools.h"
+#include "abstractbuttoninterface.h"
+#include "navigationbartoolbutton.h"
 
 #include <QTimer>
 #include <QSplitter>
@@ -153,13 +155,6 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
     m_navigationSplitter->setCollapsible(0, false);
 
-    addWidget(backNextWidget, QSL("button-backforward"));
-    addWidget(m_reloadStop, QSL("button-reloadstop"));
-    addWidget(buttonHome, QSL("button-home"));
-    addWidget(buttonAddTab, QSL("button-addtab"));
-    addWidget(m_navigationSplitter, QSL("locationbar"));
-    addWidget(buttonTools, QSL("button-tools"));
-
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
@@ -177,6 +172,16 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
     connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
     connect(buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
+
+    loadSettings();
+    connect(mApp, &MainApplication::settingsReloaded, this, &NavigationBar::loadSettings);
+
+    addWidget(backNextWidget, QSL("button-backforward"), tr("Back and Forward buttons"));
+    addWidget(m_reloadStop, QSL("button-reloadstop"), tr("Reload button"));
+    addWidget(buttonHome, QSL("button-home"), tr("Home button"));
+    addWidget(buttonAddTab, QSL("button-addtab"), tr("Add tab button"));
+    addWidget(m_navigationSplitter, QSL("locationbar"), tr("Address and Search Bar"));
+    addWidget(buttonTools, QSL("button-tools"), tr("Tools button"));
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
@@ -192,6 +197,15 @@ void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
     }
 
     m_navigationSplitter->setSizes(sizes);
+}
+
+void NavigationBar::setCurrentView(TabbedWebView *view)
+{
+    for (const WidgetData &data : qAsConst(m_widgets)) {
+        if (data.button) {
+            data.button->setWebPage(view->page());
+        }
+    }
 }
 
 void NavigationBar::showReloadButton()
@@ -229,16 +243,54 @@ void NavigationBar::setLayoutSpacing(int spacing)
     m_layout->setSpacing(spacing);
 }
 
-void NavigationBar::addWidget(QWidget *widget, const QString &id)
+void NavigationBar::addWidget(QWidget *widget, const QString &id, const QString &name)
 {
-    m_widgets[id] = widget;
+    if (!widget || id.isEmpty() || name.isEmpty()) {
+        return;
+    }
+
+    WidgetData data;
+    data.id = id;
+    data.name = name;
+    data.widget = widget;
+    m_widgets[id] = data;
+
     reloadLayout();
 }
 
 void NavigationBar::removeWidget(const QString &id)
 {
+    if (!m_widgets.contains(id)) {
+        return;
+    }
+
     m_widgets.remove(id);
     reloadLayout();
+}
+
+void NavigationBar::addToolButton(AbstractButtonInterface *button)
+{
+    if (!button || !button->isValid()) {
+        return;
+    }
+
+    WidgetData data;
+    data.id = button->id();
+    data.name = button->name();
+    data.widget = new NavigationBarToolButton(button, this);
+    data.button = button;
+    m_widgets[data.id] = data;
+
+    reloadLayout();
+}
+
+void NavigationBar::removeToolButton(AbstractButtonInterface *button)
+{
+    if (!button || !m_widgets.contains(button->id())) {
+        return;
+    }
+
+    delete m_widgets.take(button->id()).widget;
 }
 
 void NavigationBar::aboutToShowHistoryBackMenu()
@@ -317,6 +369,14 @@ void NavigationBar::aboutToShowToolsMenu()
     m_window->createSidebarsMenu(m_menuTools->addMenu(tr("Sidebars")));
     m_menuTools->addSeparator();
 
+    for (const WidgetData &data : qAsConst(m_widgets)) {
+        AbstractButtonInterface *button = data.button;
+        if (button && !m_layoutIds.contains(data.id)) {
+            m_menuTools->addAction(button->icon(), button->title(), this, &NavigationBar::toolActionActivated)->setData(data.id);
+        }
+    }
+
+    m_menuTools->addSeparator();
     m_menuTools->addAction(IconProvider::settingsIcon(), tr("Configure Toolbar"), this, SLOT(openConfigurationDialog()));
 }
 
@@ -338,7 +398,42 @@ void NavigationBar::openConfigurationDialog()
 {
 }
 
-void NavigationBar::reloadLayout()
+void NavigationBar::toolActionActivated()
+{
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (!act) {
+        return;
+    }
+    const QString id = act->data().toString();
+    if (!m_widgets.contains(id)) {
+        return;
+    }
+    WidgetData data = m_widgets.value(id);
+    if (!data.button) {
+        return;
+    }
+    ToolButton *buttonTools = qobject_cast<ToolButton*>(m_widgets.value(QSL("button-tools")).widget);
+    if (!buttonTools) {
+        return;
+    }
+
+    AbstractButtonInterface::ClickController c;
+    c.visualParent = buttonTools;
+    c.popupPosition = [=](const QSize &size) {
+        QPoint pos = buttonTools->mapToGlobal(buttonTools->rect().bottomRight());
+        if (QApplication::isRightToLeft()) {
+            pos.setX(pos.x() - buttonTools->rect().width());
+        } else {
+            pos.setX(pos.x() - size.width());
+        }
+        return pos;
+    };
+    buttonTools->setDown(true);
+    emit data.button->clicked(&c);
+    buttonTools->setDown(false);
+}
+
+void NavigationBar::loadSettings()
 {
     const QStringList defaultIds = {
         QSL("button-backforward"),
@@ -348,12 +443,20 @@ void NavigationBar::reloadLayout()
         QSL("button-tools")
     };
 
-    QStringList ids = Settings().value(QSL("NavigationBar/Layout"), defaultIds).toStringList();
-    ids.removeDuplicates();
-    if (!ids.contains(QSL("locationbar"))) {
-        ids.append(QSL("locationbar"));
-    }
+    Settings settings;
+    settings.beginGroup(QSL("NavigationBar"));
+    m_layoutIds = settings.value(QSL("Layout"), defaultIds).toStringList();
+    settings.endGroup();
 
+    m_layoutIds.removeDuplicates();
+    if (!m_layoutIds.contains(QSL("locationbar"))) {
+        m_layoutIds.append(QSL("locationbar"));
+    }
+}
+
+void NavigationBar::reloadLayout()
+{
+    // Clear layout
     while (m_layout->count() != 0) {
         QLayoutItem *item = m_layout->takeAt(0);
         if (!item) {
@@ -366,15 +469,17 @@ void NavigationBar::reloadLayout()
         widget->setParent(nullptr);
     }
 
-    for (QWidget *widget : m_widgets) {
-        widget->hide();
+    // Hide all widgets
+    for (const WidgetData &data : m_widgets) {
+        data.widget->hide();
     }
 
-    for (const QString &id : qAsConst(ids)) {
-        QWidget *widget = m_widgets.value(id);
-        if (widget) {
-            m_layout->addWidget(widget);
-            widget->show();
+    // Add widgets to layout
+    for (const QString &id : qAsConst(m_layoutIds)) {
+        const WidgetData data = m_widgets.value(id);
+        if (data.widget) {
+            m_layout->addWidget(data.widget);
+            data.widget->show();
         }
     }
 

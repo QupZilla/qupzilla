@@ -983,6 +983,7 @@ void BrowserWindow::currentTabChanged()
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 
+    m_navigationToolbar->setCurrentView(view);
     updateLoadingActions();
 
     // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)

@@ -22,6 +22,7 @@
 
 #include "qzcommon.h"
 
+class QUrl;
 class QHBoxLayout;
 class QSplitter;
 class QWebEngineHistoryItem;
@@ -31,19 +32,21 @@ class WebSearchBar;
 class BrowserWindow;
 class ReloadStopButton;
 class Menu;
-class QUrl;
+class AbstractButtonInterface;
+class TabbedWebView;
 
 class QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
-public:
-    explicit NavigationBar(BrowserWindow* window);
-
     Q_PROPERTY(int layoutMargin READ layoutMargin WRITE setLayoutMargin)
     Q_PROPERTY(int layoutSpacing READ layoutSpacing WRITE setLayoutSpacing)
 
+public:
+    explicit NavigationBar(BrowserWindow* window);
+
     void setSplitterSizes(int locationBar, int websearchBar);
 
+    void setCurrentView(TabbedWebView *view);
     void showReloadButton();
     void showStopButton();
 
@@ -58,8 +61,11 @@ public:
     int layoutSpacing() const;
     void setLayoutSpacing(int spacing);
 
-    void addWidget(QWidget *widget, const QString &id);
+    void addWidget(QWidget *widget, const QString &id, const QString &name);
     void removeWidget(const QString &id);
+
+    void addToolButton(AbstractButtonInterface *button);
+    void removeToolButton(AbstractButtonInterface *button);
 
 public slots:
     void refreshHistory();
@@ -82,8 +88,10 @@ private slots:
     void clearHistory();
     void contextMenuRequested(const QPoint &pos);
     void openConfigurationDialog();
+    void toolActionActivated();
 
 private:
+    void loadSettings();
     void reloadLayout();
     void loadHistoryItem(const QWebEngineHistoryItem &item);
     void loadHistoryItemInNewTab(const QWebEngineHistoryItem &item);
@@ -101,7 +109,15 @@ private:
     Menu *m_menuTools;
     ToolButton* m_supMenu;
 
-    QHash<QString, QWidget*> m_widgets;
+    struct WidgetData {
+        QString id;
+        QString name;
+        QWidget *widget = nullptr;
+        AbstractButtonInterface *button = nullptr;
+    };
+
+    QStringList m_layoutIds;
+    QHash<QString, WidgetData> m_widgets;
 };
 
 #endif // NAVIGATIONBAR_H

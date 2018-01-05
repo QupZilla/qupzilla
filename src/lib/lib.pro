@@ -119,6 +119,7 @@ SOURCES += \
     navigation/locationbar.cpp \
     navigation/locationbarpopup.cpp \
     navigation/navigationbar.cpp \
+    navigation/navigationbartoolbutton.cpp \
     navigation/navigationcontainer.cpp \
     navigation/reloadstopbutton.cpp \
     navigation/siteicon.cpp \
@@ -177,6 +178,7 @@ SOURCES += \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
     tabwidget/tabcontextmenu.cpp \
+    tools/abstractbuttoninterface.cpp \
     tools/aesinterface.cpp \
     tools/animatedwidget.cpp \
     tools/buttonwithmenu.cpp \
@@ -302,6 +304,7 @@ HEADERS  += \
     navigation/locationbar.h \
     navigation/locationbarpopup.h \
     navigation/navigationbar.h \
+    navigation/navigationbartoolbutton.h \
     navigation/navigationcontainer.h \
     navigation/reloadstopbutton.h \
     navigation/siteicon.h \
@@ -363,6 +366,7 @@ HEADERS  += \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
     tabwidget/tabcontextmenu.h \
+    tools/abstractbuttoninterface.h \
     tools/aesinterface.h \
     tools/animatedwidget.h \
     tools/buttonwithmenu.h \
