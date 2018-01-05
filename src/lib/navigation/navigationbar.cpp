@@ -74,6 +74,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_buttonBack->setToolTip(tr("Back"));
     m_buttonBack->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonBack->setToolbarButtonLook(true);
+    m_buttonBack->setShowMenuOnRightClick(true);
     m_buttonBack->setAutoRaise(true);
     m_buttonBack->setEnabled(false);
     m_buttonBack->setFocusPolicy(Qt::NoFocus);
@@ -83,6 +84,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_buttonForward->setToolTip(tr("Forward"));
     m_buttonForward->setToolButtonStyle(Qt::ToolButtonIconOnly);
     m_buttonForward->setToolbarButtonLook(true);
+    m_buttonForward->setShowMenuOnRightClick(true);
     m_buttonForward->setAutoRaise(true);
     m_buttonForward->setEnabled(false);
     m_buttonForward->setFocusPolicy(Qt::NoFocus);

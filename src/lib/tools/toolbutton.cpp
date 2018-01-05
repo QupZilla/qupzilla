@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -117,6 +117,16 @@ void ToolButton::setShowMenuInside(bool enable)
         m_options &= ~ShowMenuInsideOption;
 }
 
+bool ToolButton::showMenuOnRightClick() const
+{
+    return m_options & ShowMenuOnRightClick;
+}
+
+void ToolButton::setShowMenuOnRightClick(bool enable)
+{
+    m_options.setFlag(ShowMenuOnRightClick, enable);
+}
+
 bool ToolButton::toolbarButtonLook() const
 {
     return m_options & ToolBarLookOption;
@@ -172,14 +182,14 @@ void ToolButton::showMenu()
 
 void ToolButton::mousePressEvent(QMouseEvent* e)
 {
-    if (popupMode() == QToolButton::DelayedPopup)
+    if (e->buttons() == Qt::LeftButton && popupMode() == QToolButton::DelayedPopup)
         m_pressTimer.start();
 
     if (e->buttons() == Qt::LeftButton && menu() && popupMode() == QToolButton::InstantPopup) {
         setDown(true);
         showMenu();
     }
-    else if (e->buttons() == Qt::RightButton && menu()) {
+    else if (e->buttons() == Qt::RightButton && menu() && m_options & ShowMenuOnRightClick) {
         setDown(true);
         showMenu();
     } else {
@@ -217,7 +227,7 @@ void ToolButton::mouseDoubleClickEvent(QMouseEvent* e)
 void ToolButton::contextMenuEvent(QContextMenuEvent *e)
 {
     // Block to prevent showing both context menu and button menu
-    if (menu())
+    if (menu() && m_options & ShowMenuOnRightClick)
         return;
 
     QToolButton::contextMenuEvent(e);
