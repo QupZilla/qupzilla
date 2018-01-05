@@ -29,6 +29,7 @@ public:
 
 private:
     void clicked();
+    void updateIcon();
 
     AbstractButtonInterface *m_button;
 };

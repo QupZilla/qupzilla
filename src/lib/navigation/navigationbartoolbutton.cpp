@@ -29,10 +29,11 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
     setFocusPolicy(Qt::NoFocus);
 
     setToolTip(button->toolTip());
-    setIcon(button->icon());
+    updateIcon();
 
-    connect(button, &AbstractButtonInterface::iconChanged, this, &ToolButton::setIcon);
-    connect(button, &AbstractButtonInterface::toolTipChanged, this, &ToolButton::setToolTip);
+    connect(button, &AbstractButtonInterface::iconChanged, this, &NavigationBarToolButton::updateIcon);
+    connect(button, &AbstractButtonInterface::activeChanged, this, &NavigationBarToolButton::updateIcon);
+    connect(button, &AbstractButtonInterface::toolTipChanged, this, &NavigationBarToolButton::setToolTip);
     connect(this, &ToolButton::clicked, this, &NavigationBarToolButton::clicked);
 }
 
@@ -52,4 +53,11 @@ void NavigationBarToolButton::clicked()
     setDown(true);
     emit m_button->clicked(&c);
     setDown(false);
+}
+
+void NavigationBarToolButton::updateIcon()
+{
+    const QIcon::Mode mode = m_button->isActive() ? QIcon::Normal : QIcon::Disabled;
+    const QImage img = m_button->icon().pixmap(iconSize(), mode).toImage();
+    setIcon(QPixmap::fromImage(img, Qt::MonoOnly));
 }
