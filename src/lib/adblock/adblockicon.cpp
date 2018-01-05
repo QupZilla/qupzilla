@@ -124,13 +124,13 @@ void AdBlockIcon::webPageChanged(WebPage *page)
     updateState();
 
     if (m_page) {
-        disconnect(m_page, &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
+        disconnect(m_page.data(), &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
     }
 
     m_page = page;
 
     if (m_page) {
-        connect(m_page, &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
+        connect(m_page.data(), &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
     }
 }
 
