@@ -216,7 +216,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
     connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
     ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
-    ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", true).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
 
@@ -902,7 +901,6 @@ void Preferences::saveSettings()
     settings.setValue("instantBookmarksToolbar", ui->instantBookmarksToolbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
-    settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
     settings.endGroup();
 
     //TABS
