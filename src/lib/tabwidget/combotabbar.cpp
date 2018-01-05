@@ -1276,13 +1276,25 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
 
     // Draw drop indicator
     if (m_dropIndicatorIndex != -1) {
-        p.setPen(QPen(palette().text(), 3));
-        QRect r = tabRect(m_dropIndicatorIndex);
+        const QRect tr = tabRect(m_dropIndicatorIndex);
+        QRect r;
         if (m_dropIndicatorPosition == ComboTabBar::BeforeTab) {
-            r.moveLeft(r.x() - 1);
-            p.drawLine(r.topLeft(), r.bottomLeft());
+            r = QRect(qMax(0, tr.left() - 1), tr.top(), 3, tr.height());
         } else {
-            p.drawLine(r.topRight(), r.bottomRight());
+            r = QRect(tr.right(), tr.top() - 3, 3, tr.height());
+        }
+        // Modified code from KFilePlacesView
+        QColor color = palette().brush(QPalette::Normal, QPalette::Highlight).color();
+        const int x = (r.left() + r.right()) / 2;
+        const int thickness = qRound(r.width() / 2.0);
+        int alpha = 255;
+        const int alphaDec = alpha / (thickness + 1);
+        for (int i = 0; i < thickness; i++) {
+            color.setAlpha(alpha);
+            alpha -= alphaDec;
+            p.setPen(color);
+            p.drawLine(x - i, r.top(), x - i, r.bottom());
+            p.drawLine(x + i, r.top(), x + i, r.bottom());
         }
     }
 }
