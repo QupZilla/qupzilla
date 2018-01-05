@@ -18,12 +18,12 @@
 #ifndef ADBLOCKICON_H
 #define ADBLOCKICON_H
 
+#include <QPointer>
+
 #include "qzcommon.h"
 #include "abstractbuttoninterface.h"
 
 class QUrl;
-class QMenu;
-class QAction;
 
 class AdBlockRule;
 
@@ -39,27 +39,17 @@ public:
     QString name() const override;
 
     void popupBlocked(const QString &ruleString, const QUrl &url);
-    QAction* menuAction();
-
-public slots:
-    void setEnabled(bool enabled);
-    void createMenu(QMenu* menu = 0);
 
 private slots:
     void toggleCustomFilter();
-    void animateIcon();
-    void stopAnimation();
 
 private:
+    void updateState();
+    void webPageChanged(WebPage *page);
     void clicked(ClickController *controller);
 
-    QAction* m_menuAction;
-
+    QPointer<WebPage> m_page;
     QVector<QPair<AdBlockRule*, QUrl> > m_blockedPopups;
-    QTimer* m_flashTimer;
-
-    int m_timerTicks;
-    bool m_enabled;
 };
 
 #endif // ADBLOCKICON_H
