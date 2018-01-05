@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -165,7 +165,7 @@ void ButtonWithMenu::generateMenu()
 
 void ButtonWithMenu::mousePressEvent(QMouseEvent *event)
 {
-    if (parentWidget() && parentWidget()->parentWidget()) {
+    if (event->buttons() == Qt::LeftButton && parentWidget() && parentWidget()->parentWidget()) {
         emit aboutToShowMenu();
         QWidget *w = parentWidget()->parentWidget();
         m_menu->popup(w->mapToGlobal(w->rect().bottomLeft()));
