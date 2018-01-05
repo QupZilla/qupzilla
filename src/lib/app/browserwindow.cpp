@@ -336,40 +336,9 @@ void BrowserWindow::postLaunch()
 
 void BrowserWindow::setupUi()
 {
-    QHash<QString, QVariant> uiState;
-
-    QDesktopWidget* desktop = mApp->desktop();
-    int windowWidth = desktop->availableGeometry().width() / 1.3;
-    int windowHeight = desktop->availableGeometry().height() / 1.3;
-
     Settings settings;
     settings.beginGroup("Browser-View-Settings");
-
-    // Let the WM decides where to put new browser window
-    if (m_windowType != Qz::BW_FirstAppWindow && m_windowType != Qz::BW_MacFirstWindow && mApp->getWindow()) {
-#ifdef Q_WS_WIN
-        // Windows WM places every new window in the middle of screen .. for some reason
-        QPoint p = mApp->getWindow()->geometry().topLeft();
-        p.setX(p.x() + 30);
-        p.setY(p.y() + 30);
-
-        if (!desktop->availableGeometry(mApp->getWindow()).contains(p)) {
-            p.setX(desktop->availableGeometry(mApp->getWindow()).x() + 30);
-            p.setY(desktop->availableGeometry(mApp->getWindow()).y() + 30);
-        }
-
-        setGeometry(QRect(p, mApp->getWindow()->size()));
-#else
-        resize(mApp->getWindow()->size());
-#endif
-    } else if (!restoreGeometry(settings.value("WindowGeometry").toByteArray())) {
-#ifdef Q_WS_WIN
-        setGeometry(QRect(desktop->availableGeometry(mApp->getWindow()).x() + 30,
-                          desktop->availableGeometry(mApp->getWindow()).y() + 30, windowWidth, windowHeight));
-#else
-        resize(windowWidth, windowHeight);
-#endif
-    }
+    const QByteArray windowGeometry = settings.value(QSL("WindowGeometry")).toByteArray();
 
     const QStringList keys = {
         QSL("LocationBarWidth"),
@@ -378,12 +347,12 @@ void BrowserWindow::setupUi()
         QSL("WebViewWidth"),
         QSL("SideBar")
     };
+    QHash<QString, QVariant> uiState;
     for (const QString &key : keys) {
         if (settings.contains(key)) {
             uiState[key] = settings.value(key);
         }
     }
-
     settings.endGroup();
 
     QWidget* widget = new QWidget(this);
@@ -422,6 +391,36 @@ void BrowserWindow::setupUi()
     statusBar()->addPermanentWidget(m_ipLabel);
 
     m_navigationToolbar->addToolButton(new AdBlockIcon(this));
+
+    QDesktopWidget* desktop = mApp->desktop();
+    int windowWidth = desktop->availableGeometry().width() / 1.3;
+    int windowHeight = desktop->availableGeometry().height() / 1.3;
+
+    // Let the WM decides where to put new browser window
+    if (m_windowType != Qz::BW_FirstAppWindow && m_windowType != Qz::BW_MacFirstWindow && mApp->getWindow()) {
+#ifdef Q_WS_WIN
+        // Windows WM places every new window in the middle of screen .. for some reason
+        QPoint p = mApp->getWindow()->geometry().topLeft();
+        p.setX(p.x() + 30);
+        p.setY(p.y() + 30);
+
+        if (!desktop->availableGeometry(mApp->getWindow()).contains(p)) {
+            p.setX(desktop->availableGeometry(mApp->getWindow()).x() + 30);
+            p.setY(desktop->availableGeometry(mApp->getWindow()).y() + 30);
+        }
+
+        setGeometry(QRect(p, mApp->getWindow()->size()));
+#else
+        resize(mApp->getWindow()->size());
+#endif
+    } else if (!restoreGeometry(windowGeometry)) {
+#ifdef Q_WS_WIN
+        setGeometry(QRect(desktop->availableGeometry(mApp->getWindow()).x() + 30,
+                          desktop->availableGeometry(mApp->getWindow()).y() + 30, windowWidth, windowHeight));
+#else
+        resize(windowWidth, windowHeight);
+#endif
+    }
 
     // Workaround for Oxygen tooltips not having transparent background
     QPalette pal = QToolTip::palette();
