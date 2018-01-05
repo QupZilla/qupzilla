@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,6 @@
 #include "iconprovider.h"
 #include "searchenginesmanager.h"
 #include "enhancedmenu.h"
-#include "adblockicon.h"
 #include "locationbar.h"
 #include "webhittestresult.h"
 #include "webinspector.h"
@@ -198,10 +197,6 @@ void TabbedWebView::_contextMenuEvent(QContextMenuEvent *event)
 
     WebHitTestResult hitTest = page()->hitTestContent(event->pos());
     createContextMenu(m_menu, hitTest);
-
-    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
-        m_menu->addAction(m_window->adBlockIcon()->menuAction());
-    }
 
     if (WebInspector::isEnabled()) {
         m_menu->addSeparator();

@@ -115,7 +115,6 @@ public:
     NavigationBar* navigationBar() const;
     SideBarManager* sideBarManager() const;
     QLabel* ipLabel() const;
-    AdBlockIcon* adBlockIcon() const;
     QMenu* superMenu() const;
 
     QUrl homepageUrl() const;
@@ -202,8 +201,6 @@ private:
 
     QVBoxLayout* m_mainLayout;
     QSplitter* m_mainSplitter;
-
-    AdBlockIcon* m_adblockIcon;
 
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;

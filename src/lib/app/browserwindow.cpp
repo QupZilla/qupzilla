@@ -414,14 +414,14 @@ void BrowserWindow::setupUi()
     statusBar()->setObjectName("mainwindow-statusbar");
     statusBar()->setCursor(Qt::ArrowCursor);
     m_progressBar = new ProgressBar(statusBar());
-    m_adblockIcon = new AdBlockIcon(this);
     m_ipLabel = new QLabel(this);
     m_ipLabel->setObjectName("statusbar-ip-label");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
 
     statusBar()->addPermanentWidget(m_progressBar);
     statusBar()->addPermanentWidget(m_ipLabel);
-    statusBar()->addPermanentWidget(m_adblockIcon);
+
+    m_navigationToolbar->addToolButton(new AdBlockIcon(this));
 
     // Workaround for Oxygen tooltips not having transparent background
     QPalette pal = QToolTip::palette();
@@ -608,8 +608,6 @@ void BrowserWindow::loadSettings()
     }
     settings.endGroup();
 
-    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", true).toBool());
-
     statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);
@@ -694,11 +692,6 @@ SideBarManager* BrowserWindow::sideBarManager() const
 QLabel* BrowserWindow::ipLabel() const
 {
     return m_ipLabel;
-}
-
-AdBlockIcon* BrowserWindow::adBlockIcon() const
-{
-    return m_adblockIcon;
 }
 
 QMenu* BrowserWindow::superMenu() const
