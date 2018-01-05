@@ -30,6 +30,7 @@
 #include "qztools.h"
 #include "abstractbuttoninterface.h"
 #include "navigationbartoolbutton.h"
+#include "navigationbarconfigdialog.h"
 
 #include <QTimer>
 #include <QSplitter>
@@ -176,15 +177,16 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
     connect(buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
 
-    loadSettings();
     connect(mApp, &MainApplication::settingsReloaded, this, &NavigationBar::loadSettings);
 
     addWidget(backNextWidget, QSL("button-backforward"), tr("Back and Forward buttons"));
     addWidget(m_reloadStop, QSL("button-reloadstop"), tr("Reload button"));
     addWidget(buttonHome, QSL("button-home"), tr("Home button"));
     addWidget(buttonAddTab, QSL("button-addtab"), tr("Add tab button"));
-    addWidget(m_navigationSplitter, QSL("locationbar"), tr("Address and Search Bar"));
+    addWidget(m_navigationSplitter, QSL("locationbar"), tr("Address and Search bar"));
     addWidget(buttonTools, QSL("button-tools"), tr("Tools button"));
+
+    loadSettings();
 }
 
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
@@ -398,11 +400,15 @@ void NavigationBar::contextMenuRequested(const QPoint &pos)
 {
     QMenu menu;
     m_window->createToolbarsMenu(&menu);
+    menu.addSeparator();
+    menu.addAction(IconProvider::settingsIcon(), tr("Configure Toolbar"), this, SLOT(openConfigurationDialog()));
     menu.exec(mapToGlobal(pos));
 }
 
 void NavigationBar::openConfigurationDialog()
 {
+    NavigationBarConfigDialog *dialog = new NavigationBarConfigDialog(this);
+    dialog->show();
 }
 
 void NavigationBar::toolActionActivated()
@@ -453,16 +459,25 @@ void NavigationBar::loadSettings()
     Settings settings;
     settings.beginGroup(QSL("NavigationBar"));
     m_layoutIds = settings.value(QSL("Layout"), defaultIds).toStringList();
+    m_searchLine->setVisible(settings.value(QSL("ShowSearchBar"), true).toBool());
     settings.endGroup();
 
     m_layoutIds.removeDuplicates();
     if (!m_layoutIds.contains(QSL("locationbar"))) {
         m_layoutIds.append(QSL("locationbar"));
     }
+
+    reloadLayout();
 }
 
 void NavigationBar::reloadLayout()
 {
+    if (m_widgets.isEmpty()) {
+        return;
+    }
+
+    setUpdatesEnabled(false);
+
     // Clear layout
     while (m_layout->count() != 0) {
         QLayoutItem *item = m_layout->takeAt(0);
@@ -491,6 +506,8 @@ void NavigationBar::reloadLayout()
     }
 
     m_layout->addWidget(m_supMenu);
+
+    setUpdatesEnabled(true);
 }
 
 void NavigationBar::loadHistoryIndex()

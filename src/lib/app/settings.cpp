@@ -51,6 +51,11 @@ bool Settings::contains(const QString &key) const
     return s_settings->contains(key);
 }
 
+void Settings::remove(const QString &key)
+{
+    s_settings->remove(key);
+}
+
 void Settings::setValue(const QString &key, const QVariant &defaultValue)
 {
     s_settings->setValue(key, defaultValue);

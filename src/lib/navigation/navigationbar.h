@@ -118,6 +118,8 @@ private:
 
     QStringList m_layoutIds;
     QHash<QString, WidgetData> m_widgets;
+
+    friend class NavigationBarConfigDialog;
 };
 
 #endif // NAVIGATIONBAR_H

@@ -119,6 +119,7 @@ SOURCES += \
     navigation/locationbar.cpp \
     navigation/locationbarpopup.cpp \
     navigation/navigationbar.cpp \
+    navigation/navigationbarconfigdialog.cpp \
     navigation/navigationbartoolbutton.cpp \
     navigation/navigationcontainer.cpp \
     navigation/reloadstopbutton.cpp \
@@ -304,6 +305,7 @@ HEADERS  += \
     navigation/locationbar.h \
     navigation/locationbarpopup.h \
     navigation/navigationbar.h \
+    navigation/navigationbarconfigdialog.h \
     navigation/navigationbartoolbutton.h \
     navigation/navigationcontainer.h \
     navigation/reloadstopbutton.h \
@@ -430,6 +432,7 @@ FORMS    += \
     downloads/downloadoptionsdialog.ui \
     history/historymanager.ui \
     network/sslerrordialog.ui \
+    navigation/navigationbarconfigdialog.ui \
     notifications/desktopnotification.ui \
     opensearch/editsearchengine.ui \
     opensearch/searchenginesdialog.ui \

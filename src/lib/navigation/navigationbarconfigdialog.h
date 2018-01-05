@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,44 +15,33 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#pragma once
 
-#include <QVariant>
+#include <QDialog>
 
 #include "qzcommon.h"
 
-class QSettings;
+class QAbstractButton;
 
-class QzSettings;
+class NavigationBar;
 
-class QUPZILLA_EXPORT Settings
+namespace Ui
+{
+class NavigationBarConfigDialog;
+}
+
+class QUPZILLA_EXPORT NavigationBarConfigDialog : public QDialog
 {
 public:
-    explicit Settings();
-    ~Settings();
-
-    static void createSettings(const QString &fileName);
-    static void syncSettings();
-
-    static QSettings* globalSettings();
-    static QzSettings* staticSettings();
-
-    bool contains(const QString &key) const;
-    void remove(const QString &key);
-
-    void setValue(const QString &key, const QVariant &defaultValue = QVariant());
-    QVariant value(const QString &key, const QVariant &defaultValue = QVariant());
-
-    void beginGroup(const QString &prefix);
-    void endGroup();
+    explicit NavigationBarConfigDialog(NavigationBar *navigationBar);
 
 private:
-    static QSettings* s_settings;
-    static QzSettings* s_qzSettings;
+    void loadSettings();
+    void saveSettings();
+    void resetToDefaults();
 
-    QString m_openedGroup;
+    void buttonClicked(QAbstractButton *button);
 
+    Ui::NavigationBarConfigDialog* ui;
+    NavigationBar *m_navigationBar;
 };
-
-#endif // SETTINGS_H
