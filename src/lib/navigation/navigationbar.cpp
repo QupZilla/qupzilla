@@ -281,6 +281,10 @@ void NavigationBar::addToolButton(AbstractButtonInterface *button)
     data.button = button;
     m_widgets[data.id] = data;
 
+    if (m_window->weView()) {
+        data.button->setWebPage(m_window->weView()->page());
+    }
+
     reloadLayout();
 }
 

@@ -28,13 +28,13 @@
 #include "qztools.h"
 #include "mainapplication.h"
 #include "networkmanager.h"
+#include "navigationbar.h"
 #include "desktopnotificationsfactory.h"
 #include "javascript/externaljsobject.h"
 
 #include <QTimer>
 #include <QDir>
 #include <QSettings>
-#include <QStatusBar>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
 
@@ -294,14 +294,13 @@ bool GM_Manager::canRunOnScheme(const QString &scheme)
 
 void GM_Manager::mainWindowCreated(BrowserWindow* window)
 {
-    GM_Icon* icon = new GM_Icon(this, window);
-    window->statusBar()->addPermanentWidget(icon);
+    GM_Icon *icon = new GM_Icon(this);
+    window->navigationBar()->addToolButton(icon);
     m_windows[window] = icon;
 }
 
 void GM_Manager::mainWindowDeleted(BrowserWindow* window)
 {
-    window->statusBar()->removeWidget(m_windows[window]);
-    delete m_windows[window];
-    m_windows.remove(window);
+    window->navigationBar()->removeToolButton(m_windows[window]);
+    delete m_windows.take(window);
 }

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,24 +18,25 @@
 #ifndef GM_ICON_H
 #define GM_ICON_H
 
-#include "clickablelabel.h"
+#include "abstractbuttoninterface.h"
 
-class BrowserWindow;
 class GM_Manager;
 
-class GM_Icon : public ClickableLabel
+class GM_Icon : public AbstractButtonInterface
 {
     Q_OBJECT
 
 public:
-    explicit GM_Icon(GM_Manager* manager, BrowserWindow* window);
+    explicit GM_Icon(GM_Manager *manager);
+
+    QString id() const override;
+    QString name() const override;
 
 private slots:
     void openSettings();
 
 private:
-    GM_Manager* m_manager;
-    BrowserWindow* m_window;
+    GM_Manager *m_manager;
 };
 
 #endif // GM_ICON_H
