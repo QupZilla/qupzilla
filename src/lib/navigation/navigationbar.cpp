@@ -382,8 +382,8 @@ void NavigationBar::aboutToShowToolsMenu()
         AbstractButtonInterface *button = data.button;
         if (button && !m_layoutIds.contains(data.id)) {
             QString title = button->title();
-            if (!button->badgeLabelText().isEmpty()) {
-                title.append(QSL(" (%1)").arg(button->badgeLabelText()));
+            if (!button->badgeText().isEmpty()) {
+                title.append(QSL(" (%1)").arg(button->badgeText()));
             }
             m_menuTools->addAction(button->icon(), title, this, &NavigationBar::toolActionActivated)->setData(data.id);
         }

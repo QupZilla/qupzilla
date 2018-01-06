@@ -83,19 +83,19 @@ void AbstractButtonInterface::setIcon(const QIcon &icon)
     emit iconChanged(icon);
 }
 
-QString AbstractButtonInterface::badgeLabelText() const
+QString AbstractButtonInterface::badgeText() const
 {
-    return m_badgeLabelText;
+    return m_badgeText;
 }
 
-void AbstractButtonInterface::setBadgeLabelText(const QString &badgeLabelText)
+void AbstractButtonInterface::setBadgeText(const QString &badgeText)
 {
-    if (m_badgeLabelText == badgeLabelText) {
+    if (m_badgeText == badgeText) {
         return;
     }
 
-    m_badgeLabelText = badgeLabelText;
-    emit badgeLabelTextChanged(m_badgeLabelText);
+    m_badgeText = badgeText;
+    emit badgeTextChanged(m_badgeText);
 }
 
 WebPage *AbstractButtonInterface::webPage() const

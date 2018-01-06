@@ -55,8 +55,8 @@ public:
     QIcon icon() const;
     void setIcon(const QIcon &icon);
 
-    QString badgeLabelText() const;
-    void setBadgeLabelText(const QString &badgeLabelText);
+    QString badgeText() const;
+    void setBadgeText(const QString &badgeText);
 
     WebPage *webPage() const;
     void setWebPage(WebPage *page);
@@ -66,7 +66,7 @@ signals:
     void titleChanged(const QString &title);
     void toolTipChanged(const QString &toolTip);
     void iconChanged(const QIcon &icon);
-    void badgeLabelTextChanged(const QString &badgeLabelText);
+    void badgeTextChanged(const QString &badgeText);
     void webPageChanged(WebPage *page);
     void clicked(ClickController *controller);
 
@@ -75,6 +75,6 @@ private:
     QString m_title;
     QString m_toolTip;
     QIcon m_icon;
-    QString m_badgeLabelText;
+    QString m_badgeText;
     WebPage *m_page = nullptr;
 };

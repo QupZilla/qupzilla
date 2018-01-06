@@ -43,7 +43,7 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
     connect(button, &AbstractButtonInterface::iconChanged, this, &NavigationBarToolButton::updateIcon);
     connect(button, &AbstractButtonInterface::activeChanged, this, &NavigationBarToolButton::updateIcon);
     connect(button, &AbstractButtonInterface::toolTipChanged, this, &NavigationBarToolButton::setToolTip);
-    connect(button, &AbstractButtonInterface::badgeLabelTextChanged, this, &NavigationBarToolButton::updateBadge);
+    connect(button, &AbstractButtonInterface::badgeTextChanged, this, &NavigationBarToolButton::updateBadge);
     connect(this, &ToolButton::clicked, this, &NavigationBarToolButton::clicked);
 }
 
@@ -74,10 +74,10 @@ void NavigationBarToolButton::updateIcon()
 
 void NavigationBarToolButton::updateBadge()
 {
-    if (m_button->badgeLabelText().isEmpty()) {
+    if (m_button->badgeText().isEmpty()) {
         m_badgeLabel->hide();
     } else {
-        m_badgeLabel->setText(m_button->badgeLabelText());
+        m_badgeLabel->setText(m_button->badgeText());
         m_badgeLabel->resize(m_badgeLabel->sizeHint());
         m_badgeLabel->move(width() - m_badgeLabel->width(), 0);
         m_badgeLabel->show();
