@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2015  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,8 +33,6 @@ public:
     explicit UserAgentManager(QObject* parent = 0);
 
     void loadSettings();
-
-    QString userAgentForUrl(const QUrl &url) const;
 
     QString globalUserAgent() const;
     QString defaultUserAgent() const;

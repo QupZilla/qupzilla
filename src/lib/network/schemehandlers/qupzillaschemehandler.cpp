@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,12 +26,12 @@
 #include "settings.h"
 #include "datapaths.h"
 #include "iconprovider.h"
-#include "useragentmanager.h"
 #include "sessionmanager.h"
 
 #include <QTimer>
 #include <QSettings>
 #include <QUrlQuery>
+#include <QWebEngineProfile>
 #include <QWebEngineUrlRequestJob>
 
 static QString authorString(const char* name, const QString &mail)
@@ -409,7 +409,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace(QLatin1String("%USER-AGENT%"), mApp->userAgentManager()->userAgentForUrl(QUrl()));
+    page.replace(QLatin1String("%USER-AGENT%"), mApp->webProfile()->httpUserAgent());
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();

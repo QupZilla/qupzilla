@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@ class UrlInterceptor : public QObject
 {
 public:
     explicit UrlInterceptor(QObject *parent = Q_NULLPTR) : QObject(parent) { }
+
+    // Runs on IO thread!
     virtual void interceptRequest(QWebEngineUrlRequestInfo &info) = 0;
 };
 

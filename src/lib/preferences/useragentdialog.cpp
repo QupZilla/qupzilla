@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "qztools.h"
 #include "mainapplication.h"
 #include "settings.h"
+#include "networkmanager.h"
 
 #include <QFormLayout>
 #include <QLineEdit>
@@ -177,6 +178,7 @@ void UserAgentDialog::accept()
     settings.endGroup();
 
     m_manager->loadSettings();
+    mApp->networkManager()->loadSettings();
     close();
 }
 

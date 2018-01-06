@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,26 +54,6 @@ void UserAgentManager::loadSettings()
 
     const QString userAgent = m_globalUserAgent.isEmpty() ? m_defaultUserAgent : m_globalUserAgent;
     QWebEngineProfile::defaultProfile()->setHttpUserAgent(userAgent);
-}
-
-QString UserAgentManager::userAgentForUrl(const QUrl &url) const
-{
-    const QString host = url.host();
-
-    if (m_usePerDomainUserAgent) {
-        if (m_userAgentsList.contains(host)) {
-            return m_userAgentsList.value(host);
-        }
-        QHashIterator<QString, QString> i(m_userAgentsList);
-        while (i.hasNext()) {
-            i.next();
-            if (host.endsWith(i.key())) {
-                return i.value();
-            }
-        }
-    }
-
-    return QWebEngineProfile::defaultProfile()->httpUserAgent();
 }
 
 QString UserAgentManager::globalUserAgent() const
