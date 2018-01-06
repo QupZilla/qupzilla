@@ -120,6 +120,17 @@ li {padding: 5px;}
     vertical-align: top;
 }
 
+#listview td.js-disabled
+{
+    text-align: center;
+    height: 150px;
+}
+
+#listview tbody tr.js-disabled:hover
+{
+    background-color: transparent;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -299,11 +310,18 @@ function init()
           </tr>
         </thead>
         <tbody id="recovery-items">
+          <noscript>
+            <tr class="js-disabled">
+              <td class="js-disabled">%JAVASCRIPT-DISABLED%</td>
+            </tr>
+          </noscript>
         </tbody>
       </table>
 
-      <input class="button" type="button" id="start-new-session-button" value="%BUTTON-START-NEW%" onclick="startNewSession();">
-      <input class="button" type="button" id="restore-session-button" value="   %BUTTON-RESTORE%   " onclick="restoreSession();">
+      <form>
+      <input class="button" type="submit" id="start-new-session-button" name="new-session" value="%BUTTON-START-NEW%" onclick="startNewSession();return false;">
+      <input class="button" type="submit" id="restore-session-button" name="restore-session" value="   %BUTTON-RESTORE%   " onclick="restoreSession();return false;">
+      </form>
     </div>
   </div>
 </body>

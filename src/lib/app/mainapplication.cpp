@@ -468,10 +468,6 @@ void MainApplication::destroyRestoreManager()
         return;
     }
 
-    // Restore JavaScript settings
-    const bool jsEnabled = Settings().value(QSL("Web-Browser-Settings/allowJavaScript"), true).toBool();
-    m_webProfile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, jsEnabled);
-
     delete m_restoreManager;
     m_restoreManager = 0;
 }

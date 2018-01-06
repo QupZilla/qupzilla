@@ -27,6 +27,7 @@
 #include "datapaths.h"
 #include "iconprovider.h"
 #include "sessionmanager.h"
+#include "restoremanager.h"
 
 #include <QTimer>
 #include <QSettings>
@@ -46,6 +47,10 @@ QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
 
 void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
+    if (handleRequest(job)) {
+        return;
+    }
+
     QStringList knownPages;
     knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore" << "adblock";
 
@@ -53,6 +58,25 @@ void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
         job->reply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
     else
         job->fail(QWebEngineUrlRequestJob::UrlInvalid);
+}
+
+bool QupZillaSchemeHandler::handleRequest(QWebEngineUrlRequestJob *job)
+{
+    QUrlQuery query(job->requestUrl());
+    if (!query.isEmpty() && job->requestUrl().path() == QL1S("restore")) {
+        if (mApp->restoreManager()) {
+            if (query.hasQueryItem(QSL("new-session"))) {
+                mApp->restoreManager()->clearRestoreData();
+            } else if (query.hasQueryItem(QSL("restore-session"))) {
+                mApp->restoreSession(nullptr, mApp->restoreManager()->restoreData());
+            }
+        }
+        mApp->destroyRestoreManager();
+        job->redirect(QUrl(QSL("qupzilla:start")));
+        return true;
+    }
+
+    return false;
 }
 
 QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)
@@ -282,7 +306,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TITLE-WARN%"), tr("Are you sure you want to remove this speed dial?"));
         dPage.replace(QLatin1String("%TITLE-WARN-REL%"), tr("Are you sure you want to reload all speed dials?"));
         dPage.replace(QLatin1String("%TITLE-FETCHTITLE%"), tr("Load title from page"));
-        dPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("SpeedDial requires JavaScript enabled."));
+        dPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("SpeedDial requires enabled JavaScript."));
         dPage.replace(QLatin1String("%URL%"), tr("Url"));
         dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
         dPage.replace(QLatin1String("%APPLY%"), tr("Apply"));
@@ -333,6 +357,7 @@ QString QupZillaSchemeReply::restorePage()
         rPage.replace(QLatin1String("%WINDOWS-AND-TABS%"), tr("Windows and Tabs"));
         rPage.replace(QLatin1String("%BUTTON-START-NEW%"), tr("Start New Session"));
         rPage.replace(QLatin1String("%BUTTON-RESTORE%"), tr("Restore"));
+        rPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("Requires enabled JavaScript."));
         rPage = QzTools::applyDirectionToPage(rPage);
     }
 
