@@ -172,6 +172,7 @@ SOURCES += \
     tools/abstractbuttoninterface.cpp \
     tools/aesinterface.cpp \
     tools/animatedwidget.cpp \
+    tools/buttonbox.cpp \
     tools/buttonwithmenu.cpp \
     tools/certificateinfowidget.cpp \
     tools/clickablelabel.cpp \
@@ -351,6 +352,7 @@ HEADERS  += \
     tools/abstractbuttoninterface.h \
     tools/aesinterface.h \
     tools/animatedwidget.h \
+    tools/buttonbox.h \
     tools/buttonwithmenu.h \
     tools/certificateinfowidget.h \
     tools/clickablelabel.h \
