@@ -56,7 +56,7 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
 
 bool WebTab::SavedTab::isValid() const
 {
-    return !url.isEmpty();
+    return !url.isEmpty() || !history.isEmpty();
 }
 
 void WebTab::SavedTab::clear()
