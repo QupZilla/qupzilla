@@ -48,6 +48,8 @@
 #include <QPushButton>
 #endif
 
+#include <iostream>
+
 #include <QDir>
 #include <QMouseEvent>
 #include <QWebChannel>
@@ -62,6 +64,8 @@
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
+
+static const bool kEnableJsOutput = qEnvironmentVariableIsSet("QUPZILLA_ENABLE_JS_OUTPUT");
 
 WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
@@ -560,6 +564,29 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
 
     view()->setFocus();
 #endif
+}
+
+void WebPage::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID)
+{
+    if (!kEnableJsOutput) {
+        return;
+    }
+
+    switch (level) {
+    case InfoMessageLevel:
+        std::cout << "[I] ";
+        break;
+
+    case WarningMessageLevel:
+        std::cout << "[W] ";
+        break;
+
+    case ErrorMessageLevel:
+        std::cout << "[E] ";
+        break;
+    }
+
+    std::cout << qPrintable(sourceID) << ":" << lineNumber << " " << qPrintable(message);
 }
 
 void WebPage::setJavaScriptEnabled(bool enabled)
