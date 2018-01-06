@@ -34,7 +34,6 @@
 #include "autofill.h"
 #include "mainapplication.h"
 #include "checkboxdialog.h"
-#include "adblockmanager.h"
 #include "clickablelabel.h"
 #include "docktitlebarwidget.h"
 #include "iconprovider.h"

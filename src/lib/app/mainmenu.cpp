@@ -26,7 +26,6 @@
 #include "bookmarksmenu.h"
 #include "tabbedwebview.h"
 #include "browserwindow.h"
-#include "adblockmanager.h"
 #include "downloadmanager.h"
 #include "mainapplication.h"
 #include "clearprivatedata.h"
@@ -315,11 +314,6 @@ void MainMenu::showCookieManager()
     m->raise();
 }
 
-void MainMenu::showAdBlockDialog()
-{
-    AdBlockManager::instance()->showDialog();
-}
-
 void MainMenu::toggleWebInspector()
 {
     callSlot("toggleWebInspector");
@@ -580,7 +574,6 @@ void MainMenu::init()
     m_menuTools->addSeparator();
     ADD_ACTION("Tools/DownloadManager", m_menuTools, QIcon(), tr("&Download Manager"), SLOT(showDownloadManager()), "Ctrl+Y");
     ADD_ACTION("Tools/CookiesManager", m_menuTools, QIcon(), tr("&Cookies Manager"), SLOT(showCookieManager()), "");
-    ADD_ACTION("Tools/AdBlock", m_menuTools, QIcon(), tr("&AdBlock"), SLOT(showAdBlockDialog()), "");
     ADD_ACTION("Tools/WebInspector", m_menuTools, QIcon(), tr("Web In&spector"), SLOT(toggleWebInspector()), "Ctrl+Shift+I");
     ADD_ACTION("Tools/ClearRecentHistory", m_menuTools, QIcon::fromTheme(QSL("edit-clear")), tr("Clear Recent &History"), SLOT(showClearRecentHistoryDialog()), "Ctrl+Shift+Del");
 
