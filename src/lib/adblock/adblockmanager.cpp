@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -387,9 +387,8 @@ bool AdBlockManager::isEnabled() const
 
 bool AdBlockManager::canRunOnScheme(const QString &scheme) const
 {
-    return !(scheme == QLatin1String("file") || scheme == QLatin1String("qrc")
-             || scheme == QLatin1String("qupzilla") || scheme == QLatin1String("data")
-             || scheme == QLatin1String("abp"));
+    return !(scheme == QL1S("file") || scheme == QL1S("qrc") || scheme == QL1S("view-source")
+             || scheme == QL1S("qupzilla") || scheme == QL1S("data") || scheme == QL1S("abp"));
 }
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const
