@@ -68,27 +68,13 @@ Available Defines
     $ export NAME="value"
 
  General:
-   PORTABLE_BUILD         QupZilla won't write any data outside of path of execution.
+
+    PORTABLE_BUILD        QupZilla won't write any data outside of path of execution.
                           It will also disable plugins by default.
                           (disabled by default)
 
                           example:
                           $ export PORTABLE_BUILD="true"
-
-
-   NONBLOCK_JS_DIALOGS    Enable non-blocking JavaScript dialogs from alert() prompt()
-                          and confirm() functions. They are shown inside page and are not
-                          blocking application window.
-                          However, due to synchronous API, there is a possible crash when
-                          closing browser windows with opened dialogs.
-                          If you can take this risk and/or make sure you aren't closing browser
-                          with opened dialogs, you may enable this option.
-                          These dialogs are much more beautiful than normal QDialogs.
-                          (disabled by default)
-
-                          example:
-                          $ export NONBLOCK_JS_DIALOGS="true"
-
 
  Windows specific defines:
 

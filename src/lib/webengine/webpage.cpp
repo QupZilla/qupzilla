@@ -39,14 +39,9 @@
 #include "networkmanager.h"
 #include "webhittestresult.h"
 #include "adblock/adblockmanager.h"
-
-#ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
-
-#include <QPushButton>
-#endif
 
 #include <iostream>
 
@@ -60,12 +55,14 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QAuthenticator>
+#include <QPushButton>
 
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
 QTime WebPage::s_lastUnsupportedUrlTime;
 
 static const bool kEnableJsOutput = qEnvironmentVariableIsSet("QUPZILLA_ENABLE_JS_OUTPUT");
+static const bool kEnableJsNonBlockDialogs = qEnvironmentVariableIsSet("QUPZILLA_ENABLE_JS_NONBLOCK_DIALOGS");
 
 WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
@@ -429,11 +426,10 @@ QVector<PasswordEntry> WebPage::autoFillData() const
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)
 {
-    Q_UNUSED(securityOrigin)
+    if (!kEnableJsNonBlockDialogs) {
+        return QWebEnginePage::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
+    }
 
-#ifndef NONBLOCK_JS_DIALOGS
-    return QWebEnginePage::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
-#else
     if (m_runningLoop) {
         return false;
     }
@@ -469,16 +465,14 @@ bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, c
     view()->setFocus();
 
     return _result;
-#endif
 }
 
 bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
 {
-    Q_UNUSED(securityOrigin)
+    if (!kEnableJsNonBlockDialogs) {
+        return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
+    }
 
-#ifndef NONBLOCK_JS_DIALOGS
-    return QWebEnginePage::javaScriptConfirm(securityOrigin, msg);
-#else
     if (m_runningLoop) {
         return false;
     }
@@ -510,7 +504,6 @@ bool WebPage::javaScriptConfirm(const QUrl &securityOrigin, const QString &msg)
     view()->setFocus();
 
     return result;
-#endif
 }
 
 void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
@@ -521,22 +514,24 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
         return;
     }
 
-#ifndef NONBLOCK_JS_DIALOGS
-    QString title = tr("JavaScript alert");
-    if (!url().host().isEmpty()) {
-        title.append(QString(" - %1").arg(url().host()));
+    if (!kEnableJsNonBlockDialogs) {
+        QString title = tr("JavaScript alert");
+        if (!url().host().isEmpty()) {
+            title.append(QString(" - %1").arg(url().host()));
+        }
+
+        CheckBoxDialog dialog(QMessageBox::Ok, view());
+        dialog.setDefaultButton(QMessageBox::Ok);
+        dialog.setWindowTitle(title);
+        dialog.setText(msg);
+        dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
+        dialog.setIcon(QMessageBox::Information);
+        dialog.exec();
+
+        m_blockAlerts = dialog.isChecked();
+        return;
     }
 
-    CheckBoxDialog dialog(QMessageBox::Ok, view());
-    dialog.setDefaultButton(QMessageBox::Ok);
-    dialog.setWindowTitle(title);
-    dialog.setText(msg);
-    dialog.setCheckBoxText(tr("Prevent this page from creating additional dialogs"));
-    dialog.setIcon(QMessageBox::Information);
-    dialog.exec();
-
-    m_blockAlerts = dialog.isChecked();
-#else
     ResizableFrame* widget = new ResizableFrame(view()->overlayWidget());
 
     widget->setObjectName("jsFrame");
@@ -563,7 +558,6 @@ void WebPage::javaScriptAlert(const QUrl &securityOrigin, const QString &msg)
     delete widget;
 
     view()->setFocus();
-#endif
 }
 
 void WebPage::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID)
