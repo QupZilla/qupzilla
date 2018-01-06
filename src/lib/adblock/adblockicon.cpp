@@ -58,25 +58,6 @@ QString AdBlockIcon::name() const
     return tr("AdBlock Icon");
 }
 
-void AdBlockIcon::popupBlocked(const QString &ruleString, const QUrl &url)
-{
-    int index = ruleString.lastIndexOf(QLatin1String(" ("));
-
-    const QString subscriptionName = ruleString.left(index);
-    const QString filter = ruleString.mid(index + 2, ruleString.size() - index - 3);
-    AdBlockSubscription* subscription = AdBlockManager::instance()->subscriptionByName(subscriptionName);
-    if (filter.isEmpty() || !subscription) {
-        return;
-    }
-
-    QPair<AdBlockRule*, QUrl> pair;
-    pair.first = new AdBlockRule(filter, subscription);
-    pair.second = url;
-    m_blockedPopups.append(pair);
-
-    mApp->desktopNotifications()->showNotification(QPixmap(":html/adblock_big.png"), tr("Blocked popup window"), tr("AdBlock blocked unwanted popup window."));
-}
-
 void AdBlockIcon::toggleCustomFilter()
 {
     QAction* action = qobject_cast<QAction*>(sender());
