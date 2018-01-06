@@ -52,6 +52,8 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_matcher(new AdBlockMatcher(this))
     , m_interceptor(new AdBlockUrlInterceptor(this))
 {
+    qRegisterMetaType<AdBlockedRequest>();
+
     load();
 }
 
@@ -96,7 +98,7 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
     return m_subscriptions;
 }
 
-bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
+bool AdBlockManager::block(QWebEngineUrlRequestInfo &request, QString &ruleFilter)
 {
     QMutexLocker locker(&m_mutex);
 
@@ -116,12 +118,10 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
         return false;
     }
 
-    bool res = false;
     const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
 
     if (blockedRule) {
-        res = true;
-
+        ruleFilter = blockedRule->filter();
         if (request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMainFrame) {
             QUrl url(QSL("qupzilla:adblock"));
             QUrlQuery query;
@@ -129,8 +129,7 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
             query.addQueryItem(QSL("subscription"), blockedRule->subscription()->title());
             url.setQuery(query);
             request.redirect(url);
-        }
-        else {
+        } else {
             request.block(true);
         }
 
@@ -143,7 +142,19 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
     qDebug() << timer.elapsed() << request.requestUrl();
 #endif
 
-    return res;
+    return blockedRule;
+}
+
+QVector<AdBlockedRequest> AdBlockManager::blockedRequestsForUrl(const QUrl &url) const
+{
+    return m_blockedRequests.value(url);
+}
+
+void AdBlockManager::clearBlockedRequestsForUrl(const QUrl &url)
+{
+    if (m_blockedRequests.remove(url)) {
+        emit blockedRequestsChanged(url);
+    }
 }
 
 QStringList AdBlockManager::disabledRules() const
@@ -340,6 +351,11 @@ void AdBlockManager::load()
 
     m_matcher->update();
     m_loaded = true;
+
+    connect(m_interceptor, &AdBlockUrlInterceptor::requestBlocked, this, [this](const AdBlockedRequest &request) {
+        m_blockedRequests[request.firstPartyUrl].append(request);
+        emit blockedRequestsChanged(request.firstPartyUrl);
+    });
 
     mApp->networkManager()->installUrlInterceptor(m_interceptor);
 }

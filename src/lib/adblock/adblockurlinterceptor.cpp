@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 * ============================================================ */
 
 #include "adblockurlinterceptor.h"
-#include "adblockmanager.h"
+#include "adblockrule.h"
 
 AdBlockUrlInterceptor::AdBlockUrlInterceptor(AdBlockManager *manager)
     : UrlInterceptor(manager)
@@ -25,8 +25,19 @@ AdBlockUrlInterceptor::AdBlockUrlInterceptor(AdBlockManager *manager)
 {
 }
 
-void AdBlockUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
+void AdBlockUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &request)
 {
-    if (m_manager->block(info))
-        info.block(true);
+    QString ruleFilter;
+    if (!m_manager->block(request, ruleFilter)) {
+        return;
+    }
+
+    AdBlockedRequest r;
+    r.requestUrl = request.requestUrl();
+    r.firstPartyUrl = request.firstPartyUrl();
+    r.requestMethod = request.requestMethod();
+    r.resourceType = request.resourceType();
+    r.navigationType = request.navigationType();
+    r.rule = ruleFilter;
+    emit requestBlocked(r);
 }

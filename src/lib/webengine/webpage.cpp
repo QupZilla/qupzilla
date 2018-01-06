@@ -368,8 +368,13 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
         return false;
 
     // AdBlock
-    if (url.scheme() == QL1S("abp") && AdBlockManager::instance()->addSubscriptionFromUrl(url))
+    AdBlockManager *manager = AdBlockManager::instance();
+    if (isMainFrame) {
+        manager->clearBlockedRequestsForUrl(WebPage::url());
+    }
+    if (url.scheme() == QL1S("abp") && AdBlockManager::instance()->addSubscriptionFromUrl(url)) {
         return false;
+    }
 
     return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 }

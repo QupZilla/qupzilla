@@ -40,12 +40,7 @@ AdBlockIcon::AdBlockIcon(QObject *parent)
     connect(this, &AbstractButtonInterface::clicked, this, &AdBlockIcon::clicked);
     connect(this, &AbstractButtonInterface::webPageChanged, this, &AdBlockIcon::webPageChanged);
     connect(AdBlockManager::instance(), &AdBlockManager::enabledChanged, this, &AdBlockIcon::updateState);
-}
-
-AdBlockIcon::~AdBlockIcon()
-{
-    for (int i = 0; i < m_blockedPopups.count(); ++i)
-        delete m_blockedPopups.at(i).first;
+    connect(AdBlockManager::instance(), &AdBlockManager::blockedRequestsChanged, this, &AdBlockIcon::blockedRequestsChanged);
 }
 
 QString AdBlockIcon::id() const
@@ -84,20 +79,39 @@ void AdBlockIcon::updateState()
     if (!page) {
         setActive(false);
         setToolTip(name());
+        setBadgeText(QString());
         return;
     }
     if (!AdBlockManager::instance()->isEnabled()) {
         setActive(false);
         setToolTip(tr("AdBlock is disabled"));
+        setBadgeText(QString());
         return;
     }
     if (!AdBlockManager::instance()->canRunOnScheme(page->url().scheme())) {
         setActive(false);
         setToolTip(tr("AdBlock is disabled on this site "));
+        setBadgeText(QString());
         return;
     }
+
     setActive(true);
     setToolTip(tr("AdBlock is active"));
+    updateBadgeText();
+}
+
+void AdBlockIcon::updateBadgeText()
+{
+    WebPage *page = webPage();
+    if (!page) {
+        return;
+    }
+    const int count = AdBlockManager::instance()->blockedRequestsForUrl(page->url()).count();
+    if (count > 0) {
+        setBadgeText(QString::number(count));
+    } else {
+        setBadgeText(QString());
+    }
 }
 
 void AdBlockIcon::webPageChanged(WebPage *page)
@@ -151,18 +165,14 @@ void AdBlockIcon::clicked(ClickController *controller)
         menu.addSeparator();
     }
 
-    if (!m_blockedPopups.isEmpty()) {
-        menu.addAction(tr("Blocked Popup Windows"))->setEnabled(false);
-        for (int i = 0; i < m_blockedPopups.count(); i++) {
-            const QPair<AdBlockRule*, QUrl> &pair = m_blockedPopups.at(i);
-
-            QString address = pair.second.toString().right(55);
-            QString actionText = tr("%1 with (%2)").arg(address, pair.first->filter()).replace(QLatin1Char('&'), QLatin1String("&&"));
-
-            QAction* action = menu.addAction(actionText, manager, SLOT(showRule()));
-            action->setData(QVariant::fromValue((void*)pair.first));
-        }
-    }
-
     menu.exec(controller->popupPosition(menu.sizeHint()));
+}
+
+void AdBlockIcon::blockedRequestsChanged(const QUrl &url)
+{
+    WebPage *page = webPage();
+    if (!page || url != page->url()) {
+        return;
+    }
+    updateState();
 }
