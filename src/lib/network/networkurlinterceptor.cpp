@@ -21,6 +21,8 @@
 #include "mainapplication.h"
 #include "useragentmanager.h"
 
+#include <QMutexLocker>
+
 NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
     , m_sendDNT(false)
@@ -29,7 +31,7 @@ NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
 
 void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-    m_mutex.lock();
+    QMutexLocker lock(&m_mutex);
 
     if (m_sendDNT) {
         info.setHttpHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
@@ -56,8 +58,6 @@ void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         }
     }
 
-    m_mutex.unlock();
-
     foreach (UrlInterceptor *interceptor, m_interceptors) {
         interceptor->interceptRequest(info);
     }
@@ -65,18 +65,23 @@ void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 
 void NetworkUrlInterceptor::installUrlInterceptor(UrlInterceptor *interceptor)
 {
-    if (!m_interceptors.contains(interceptor))
+    QMutexLocker lock(&m_mutex);
+
+    if (!m_interceptors.contains(interceptor)) {
         m_interceptors.append(interceptor);
+    }
 }
 
 void NetworkUrlInterceptor::removeUrlInterceptor(UrlInterceptor *interceptor)
 {
+    QMutexLocker lock(&m_mutex);
+
     m_interceptors.removeOne(interceptor);
 }
 
 void NetworkUrlInterceptor::loadSettings()
 {
-    m_mutex.lock();
+    QMutexLocker lock(&m_mutex);
 
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
@@ -85,6 +90,4 @@ void NetworkUrlInterceptor::loadSettings()
 
     m_usePerDomainUserAgent = mApp->userAgentManager()->usePerDomainUserAgents();
     m_userAgentsList = mApp->userAgentManager()->perDomainUserAgentsList();
-
-    m_mutex.unlock();
 }
