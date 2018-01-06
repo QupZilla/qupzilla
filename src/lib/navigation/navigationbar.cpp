@@ -381,7 +381,11 @@ void NavigationBar::aboutToShowToolsMenu()
     for (const WidgetData &data : qAsConst(m_widgets)) {
         AbstractButtonInterface *button = data.button;
         if (button && !m_layoutIds.contains(data.id)) {
-            m_menuTools->addAction(button->icon(), button->title(), this, &NavigationBar::toolActionActivated)->setData(data.id);
+            QString title = button->title();
+            if (!button->badgeLabelText().isEmpty()) {
+                title.append(QSL(" (%1)").arg(button->badgeLabelText()));
+            }
+            m_menuTools->addAction(button->icon(), title, this, &NavigationBar::toolActionActivated)->setData(data.id);
         }
     }
 

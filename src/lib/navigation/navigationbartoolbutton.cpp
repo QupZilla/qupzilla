@@ -18,6 +18,7 @@
 #include "navigationbartoolbutton.h"
 #include "abstractbuttoninterface.h"
 
+#include <QLabel>
 #include <QApplication>
 
 NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button, QWidget *parent)
@@ -28,12 +29,21 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
     setToolbarButtonLook(true);
     setFocusPolicy(Qt::NoFocus);
 
+    m_badgeLabel = new QLabel(this);
+    m_badgeLabel->setObjectName(QSL("navigation-toolbutton-badge"));
+    QFont f = m_badgeLabel->font();
+    f.setPixelSize(m_badgeLabel->height() / 2.5);
+    m_badgeLabel->setFont(f);
+    m_badgeLabel->hide();
+
     setToolTip(button->toolTip());
     updateIcon();
+    updateBadge();
 
     connect(button, &AbstractButtonInterface::iconChanged, this, &NavigationBarToolButton::updateIcon);
     connect(button, &AbstractButtonInterface::activeChanged, this, &NavigationBarToolButton::updateIcon);
     connect(button, &AbstractButtonInterface::toolTipChanged, this, &NavigationBarToolButton::setToolTip);
+    connect(button, &AbstractButtonInterface::badgeLabelTextChanged, this, &NavigationBarToolButton::updateBadge);
     connect(this, &ToolButton::clicked, this, &NavigationBarToolButton::clicked);
 }
 
@@ -60,4 +70,16 @@ void NavigationBarToolButton::updateIcon()
     const QIcon::Mode mode = m_button->isActive() ? QIcon::Normal : QIcon::Disabled;
     const QImage img = m_button->icon().pixmap(iconSize(), mode).toImage();
     setIcon(QPixmap::fromImage(img, Qt::MonoOnly));
+}
+
+void NavigationBarToolButton::updateBadge()
+{
+    if (m_button->badgeLabelText().isEmpty()) {
+        m_badgeLabel->hide();
+    } else {
+        m_badgeLabel->setText(m_button->badgeLabelText());
+        m_badgeLabel->resize(m_badgeLabel->sizeHint());
+        m_badgeLabel->move(width() - m_badgeLabel->width(), 0);
+        m_badgeLabel->show();
+    }
 }

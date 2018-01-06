@@ -59,6 +59,13 @@
     qproperty-fallbackIcon: url(images/menu.svg);
 }
 
+#navigation-toolbutton-badge
+{
+    background: palette(dark);
+    color: palette(bright-text);
+    margin: 0px 1px;
+}
+
 /*TabWidget*/
 #tabbar-button-right
 {

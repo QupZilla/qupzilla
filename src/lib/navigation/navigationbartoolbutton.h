@@ -20,6 +20,8 @@
 #include "qzcommon.h"
 #include "toolbutton.h"
 
+class QLabel;
+
 class AbstractButtonInterface;
 
 class QUPZILLA_EXPORT NavigationBarToolButton : public ToolButton
@@ -30,6 +32,8 @@ public:
 private:
     void clicked();
     void updateIcon();
+    void updateBadge();
 
     AbstractButtonInterface *m_button;
+    QLabel *m_badgeLabel = nullptr;
 };

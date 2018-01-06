@@ -101,6 +101,13 @@
     qproperty-multiIcon: url(images/navigation-supermenu.png);
 }
 
+#navigation-toolbutton-badge
+{
+    background: palette(dark);
+    color: palette(bright-text);
+    margin: 0px 1px;
+}
+
 ToolButton[toolbar-look="true"]
 {
     qproperty-iconSize: 16px 16px;

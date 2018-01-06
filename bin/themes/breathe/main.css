@@ -57,6 +57,13 @@
     qproperty-icon: url(images/menu.png);
 }
 
+#navigation-toolbutton-badge
+{
+    background: palette(dark);
+    color: palette(bright-text);
+    margin: 0px 1px;
+}
+
 /*TabWidget*/
 #tabbar::tab
 {
