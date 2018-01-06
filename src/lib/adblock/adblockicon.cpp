@@ -33,7 +33,7 @@ AdBlockIcon::AdBlockIcon(QObject *parent)
     : AbstractButtonInterface(parent)
 {
     setTitle(tr("AdBlock"));
-    setIcon(QIcon(QSL(":icons/other/adblock.png")));
+    setIcon(QIcon(QSL(":adblock/data/adblock.png")));
 
     updateState();
 

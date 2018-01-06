@@ -28,7 +28,6 @@
 #include "autofill.h"
 #include "popupwebview.h"
 #include "popupwindow.h"
-#include "adblockmanager.h"
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "useragentmanager.h"
@@ -37,9 +36,9 @@
 #include "html5permissions/html5permissionsmanager.h"
 #include "javascript/externaljsobject.h"
 #include "tabwidget.h"
-#include "scripts.h"
 #include "networkmanager.h"
 #include "webhittestresult.h"
+#include "adblock/adblockmanager.h"
 
 #ifdef NONBLOCK_JS_DIALOGS
 #include "ui_jsconfirm.h"
@@ -232,9 +231,6 @@ void WebPage::finished()
         m_fileWatcher->removePaths(m_fileWatcher->files());
     }
 
-    // AdBlock
-    cleanBlockedObjects();
-
     // AutoFill
     m_passwordEntries = mApp->autoFill()->completePage(this, url());
 }
@@ -420,24 +416,6 @@ bool WebPage::hasMultipleUsernames() const
 QVector<PasswordEntry> WebPage::autoFillData() const
 {
     return m_passwordEntries;
-}
-
-void WebPage::cleanBlockedObjects()
-{
-    AdBlockManager* manager = AdBlockManager::instance();
-    if (!manager->isEnabled()) {
-        return;
-    }
-
-    // Apply global element hiding rules
-    const QString elementHiding = manager->elementHidingRules(url());
-    if (!elementHiding.isEmpty())
-        runJavaScript(Scripts::setCss(elementHiding), WebPage::SafeJsWorld);
-
-    // Apply domain-specific element hiding rules
-    const QString siteElementHiding = manager->elementHidingRulesForDomain(url());
-    if (!siteElementHiding.isEmpty())
-        runJavaScript(Scripts::setCss(siteElementHiding), WebPage::SafeJsWorld);
 }
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)

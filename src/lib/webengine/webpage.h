@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -77,7 +77,6 @@ protected slots:
     void finished();
 
 private slots:
-    void cleanBlockedObjects();
     void urlChanged(const QUrl &url);
     void watchedFileChanged(const QString &file);
     void windowCloseRequested();

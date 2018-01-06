@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>html/adblock_big.png</file>
-        <file>html/adblock.html</file>
         <file>html/about.html</file>
         <file>html/copyright</file>
         <file>html/reportbug.html</file>

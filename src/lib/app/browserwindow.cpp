@@ -38,7 +38,6 @@
 #include "docktitlebarwidget.h"
 #include "iconprovider.h"
 #include "progressbar.h"
-#include "adblockicon.h"
 #include "closedwindowsmanager.h"
 #include "statusbarmessage.h"
 #include "browsinglibrary.h"
@@ -388,8 +387,6 @@ void BrowserWindow::setupUi()
 
     statusBar()->addPermanentWidget(m_progressBar);
     statusBar()->addPermanentWidget(m_ipLabel);
-
-    m_navigationToolbar->addToolButton(new AdBlockIcon(this));
 
     QDesktopWidget* desktop = mApp->desktop();
     int windowWidth = desktop->availableGeometry().width() / 1.3;

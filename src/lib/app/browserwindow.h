@@ -43,7 +43,6 @@ class AutoFill;
 class MainApplication;
 class WebView;
 class WebPage;
-class AdBlockIcon;
 class SideBar;
 class SideBarManager;
 class ProgressBar;

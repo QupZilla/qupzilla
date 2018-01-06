@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/adblock">
+        <file>data/adblock.png</file>
+        <file>data/adblock_big.png</file>
+        <file>data/adblock.html</file>
+    </qresource>
+</RCC>

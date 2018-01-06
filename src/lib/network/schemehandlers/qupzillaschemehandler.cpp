@@ -476,9 +476,9 @@ QString QupZillaSchemeReply::adblockPage()
     static QString aPage;
 
     if (aPage.isEmpty()) {
-        aPage.append(QzTools::readAllFileContents(":html/adblock.html"));
-        aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
-        aPage.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
+        aPage.append(QzTools::readAllFileContents(":adblock/data/adblock.html"));
+        aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:adblock/data/adblock_big.png"));
+        aPage.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:adblock/data/adblock_big.png"));
         aPage.replace(QLatin1String("%TITLE%"), tr("Blocked content"));
         aPage = QzTools::applyDirectionToPage(aPage);
     }

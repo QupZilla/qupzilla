@@ -10,13 +10,13 @@ CONFIG += c++14
 include(../defines.pri)
 include(../../translations/translations.pri)
 include(3rdparty/qtsingleapplication/qtsingleapplication.pri)
+include(adblock/adblock.pri)
 
 CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
 INCLUDEPATH += 3rdparty \
-               adblock \
                app \
                autofill \
                bookmarks \
@@ -48,16 +48,6 @@ SOURCES += \
     3rdparty/squeezelabelv1.cpp \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/stylehelper.cpp \
-    adblock/adblockaddsubscriptiondialog.cpp \
-    adblock/adblockurlinterceptor.cpp \
-    adblock/adblockdialog.cpp \
-    adblock/adblockicon.cpp \
-    adblock/adblockmanager.cpp \
-    adblock/adblockmatcher.cpp \
-    adblock/adblockrule.cpp \
-    adblock/adblocksearchtree.cpp \
-    adblock/adblocksubscription.cpp \
-    adblock/adblocktreewidget.cpp \
     app/autosaver.cpp \
     app/browserwindow.cpp \
     app/commandlineoptions.cpp \
@@ -234,16 +224,6 @@ HEADERS  += \
     3rdparty/squeezelabelv1.h \
     3rdparty/squeezelabelv2.h \
     3rdparty/stylehelper.h \
-    adblock/adblockaddsubscriptiondialog.h \
-    adblock/adblockurlinterceptor.h \
-    adblock/adblockdialog.h \
-    adblock/adblockicon.h \
-    adblock/adblockmanager.h \
-    adblock/adblockmatcher.h \
-    adblock/adblockrule.h \
-    adblock/adblocksearchtree.h \
-    adblock/adblocksubscription.h \
-    adblock/adblocktreewidget.h \
     app/autosaver.h \
     app/browserwindow.h \
     app/commandlineoptions.h \
@@ -417,8 +397,6 @@ HEADERS  += \
     webtab/webtab.h \
 
 FORMS    += \
-    adblock/adblockaddsubscriptiondialog.ui \
-    adblock/adblockdialog.ui \
     autofill/autofillnotification.ui \
     autofill/autofillwidget.ui \
     autofill/passwordbackends/masterpassworddialog.ui \
