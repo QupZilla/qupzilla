@@ -32,6 +32,7 @@ AdBlockPlugin::AdBlockPlugin(QObject *parent)
 {
     connect(mApp, &MainApplication::aboutToQuit, AdBlockManager::instance(), &AdBlockManager::save);
     connect(mApp->plugins(), &PluginProxy::webPageCreated, this, &AdBlockPlugin::webPageCreated);
+    connect(mApp->plugins(), &PluginProxy::webPageDeleted, this, &AdBlockPlugin::webPageDeleted);
     connect(mApp->plugins(), &PluginProxy::mainWindowCreated, this, &AdBlockPlugin::mainWindowCreated);
 }
 
@@ -53,6 +54,11 @@ void AdBlockPlugin::webPageCreated(WebPage *page)
             page->runJavaScript(Scripts::setCss(siteElementHiding), WebPage::SafeJsWorld);
         }
     });
+}
+
+void AdBlockPlugin::webPageDeleted(WebPage *page)
+{
+    AdBlockManager::instance()->clearBlockedRequestsForUrl(page->url());
 }
 
 void AdBlockPlugin::mainWindowCreated(BrowserWindow *window)

@@ -29,5 +29,6 @@ public:
 
 private:
     void webPageCreated(WebPage *page);
+    void webPageDeleted(WebPage *page);
     void mainWindowCreated(BrowserWindow *window);
 };
