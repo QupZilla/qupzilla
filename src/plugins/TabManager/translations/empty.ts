@@ -102,22 +102,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="585"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="586"/>
+        <location filename="../tabmanagerwidget.cpp" line="583"/>
         <source>Bookmark Selected Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="688"/>
+        <location filename="../tabmanagerwidget.cpp" line="685"/>
         <source>Window %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="689"/>
+        <location filename="../tabmanagerwidget.cpp" line="686"/>
         <source>Double click to switch</source>
         <translation type="unfinished"></translation>
     </message>

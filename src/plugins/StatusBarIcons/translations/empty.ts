@@ -4,32 +4,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="33"/>
+        <location filename="../sbi_imagesicon.cpp" line="34"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="57"/>
+        <location filename="../sbi_imagesicon.cpp" line="58"/>
         <source>Current Page Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="61"/>
         <source>Disable loading images (temporarily)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="64"/>
         <source>Enable loading images (temporarily)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="67"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Global Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="69"/>
+        <location filename="../sbi_imagesicon.cpp" line="70"/>
         <source>Automatically load images</source>
         <translation type="unfinished"></translation>
     </message>

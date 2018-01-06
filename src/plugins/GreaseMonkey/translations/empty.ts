@@ -58,19 +58,29 @@
     <name>GM_Icon</name>
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
+        <source>GreaseMonkey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="30"/>
         <source>Open GreaseMonkey settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="42"/>
+        <source>GreaseMonkey Icon</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="203"/>
+        <location filename="../gm_manager.cpp" line="211"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="267"/>
+        <location filename="../gm_manager.cpp" line="278"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation type="unfinished"></translation>
     </message>
