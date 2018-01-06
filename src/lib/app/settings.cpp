@@ -76,6 +76,11 @@ void Settings::endGroup()
     s_settings->endGroup();
 }
 
+void Settings::sync()
+{
+    s_settings->sync();
+}
+
 QSettings* Settings::globalSettings()
 {
     return s_settings;

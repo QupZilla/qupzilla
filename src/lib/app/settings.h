@@ -47,6 +47,8 @@ public:
     void beginGroup(const QString &prefix);
     void endGroup();
 
+    void sync();
+
 private:
     static QSettings* s_settings;
     static QzSettings* s_qzSettings;

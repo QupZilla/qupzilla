@@ -291,6 +291,7 @@ MainApplication::MainApplication(int &argc, char** argv)
         settings.setValue(QSL("isRunning"), true);
         settings.setValue(QSL("isRestoring"), wasRunning);
         settings.endGroup();
+        settings.sync();
 
         m_isStartingAfterCrash = wasRunning && wasRestoring;
 
