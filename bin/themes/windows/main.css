@@ -130,7 +130,6 @@
     qproperty-fixedsize: 22px 28px;
 }
 
-/*TabWidget*/
 #tabbar
 {
     min-height: 30px;
@@ -221,6 +220,16 @@
 }
 
 #tabbar::tab:selected:only-one
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:!selected:only-one
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:!selected:hover:only-one
 {
     margin-left: 0;
 }

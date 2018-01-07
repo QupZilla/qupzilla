@@ -66,3 +66,13 @@
 {
     margin-right: 0;
 }
+
+#tabbar::tab:!selected:only-one
+{
+    margin-right: 0;
+}
+
+#tabbar::tab:!selected:hover:only-one
+{
+    margin-right: 0;
+}
