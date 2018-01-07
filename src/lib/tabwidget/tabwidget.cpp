@@ -112,6 +112,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
 
     // AddTab button displayed next to last tab
     m_buttonAddTab = new AddTabButton(this, m_tabBar);
+    m_buttonAddTab->setProperty("outside-tabbar", false);
     connect(m_buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
 
     // AddTab button displayed outside tabbar (as corner widget)
