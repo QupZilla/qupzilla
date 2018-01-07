@@ -96,6 +96,11 @@
     qproperty-themeIcon: "arrow-right-double";
 }
 
+#navigation-button-tools
+{
+    qproperty-icon: url(images/navigation-tools.png);
+}
+
 #navigation-button-supermenu
 {
     qproperty-multiIcon: url(images/navigation-supermenu.png);
@@ -110,7 +115,7 @@
 
 ToolButton[toolbar-look="true"]
 {
-    qproperty-iconSize: 16px 16px;
+    qproperty-iconSize: 19px 19px;
     qproperty-fixedsize: 31px 29px;
     border-image: url(images/toolbutton.png);
 }
@@ -150,8 +155,7 @@ ToolButton[toolbar-look="true"]:pressed
 
 #tabwidget-button-closedtabs
 {
-    qproperty-themeIcon: "user-trash-full";
-    qproperty-fixedsize: 22px 25px;
+    qproperty-multiIcon: url(images/tabs-closed-button.png);
 }
 
 #tabwidget-button-addtab
@@ -205,7 +209,6 @@ IconProvider
 
 #locationbar-goicon
 {
-    margin-bottom:2px;
     qproperty-pixmap: url(images/gotoaddress.png);
 }
 
@@ -249,7 +252,7 @@ IconProvider
 
 #websearchbar-searchbutton
 {
-    margin-bottom:2px;
+    margin-top: 2px;
     margin-right: 2px;
     qproperty-pixmap: url(images/search-icon.png);
 }
