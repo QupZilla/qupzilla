@@ -94,7 +94,7 @@
 
 #navigation-button-tools
 {
-    qproperty-themeIcon: "arrow-right-double";
+    qproperty-icon: url(images/navigation-tools.png);
 }
 
 #navigation-button-supermenu
@@ -107,6 +107,23 @@
     background: palette(dark);
     color: palette(bright-text);
     margin: 0px 1px;
+}
+
+ToolButton[toolbar-look="true"]
+{
+    qproperty-iconSize: 16px 16px;
+    qproperty-fixedsize: 36px 23px;
+    border-image: url(images/toolbutton.png);
+}
+
+ToolButton[toolbar-look="true"]:hover
+{
+    border-image: url(images/toolbutton-h.png);
+}
+
+ToolButton[toolbar-look="true"]:pressed
+{
+    border-image: url(images/toolbutton-a.png);
 }
 
 /*TabWidget*/
@@ -129,8 +146,7 @@
 
 #tabwidget-button-closedtabs
 {
-    qproperty-themeIcon: "user-trash-full";
-    qproperty-fixedsize: 22px 25px;
+    qproperty-multiIcon: url(images/tabs-closed-button.png);
 }
 
 #tabwidget-button-addtab
@@ -184,6 +200,7 @@ IconProvider
 
 #locationbar-goicon
 {
+    margin-top: 2px;
     qproperty-pixmap: url(images/gotoaddress.png);
 }
 
