@@ -208,7 +208,7 @@ void NavigationBar::setCurrentView(TabbedWebView *view)
 {
     for (const WidgetData &data : qAsConst(m_widgets)) {
         if (data.button) {
-            data.button->setWebPage(view->page());
+            data.button->setWebView(view);
         }
     }
 }
@@ -286,9 +286,7 @@ void NavigationBar::addToolButton(AbstractButtonInterface *button)
     data.button = button;
     m_widgets[data.id] = data;
 
-    if (m_window->weView()) {
-        data.button->setWebPage(m_window->weView()->page());
-    }
+    data.button->setWebView(m_window->weView());
 
     reloadLayout();
 }

@@ -98,17 +98,17 @@ void AbstractButtonInterface::setBadgeText(const QString &badgeText)
     emit badgeTextChanged(m_badgeText);
 }
 
-WebPage *AbstractButtonInterface::webPage() const
+WebView *AbstractButtonInterface::webView() const
 {
-    return m_page;
+    return m_view;
 }
 
-void AbstractButtonInterface::setWebPage(WebPage *page)
+void AbstractButtonInterface::setWebView(WebView *view)
 {
-    if (m_page == page) {
+    if (m_view == view) {
         return;
     }
 
-    m_page = page;
-    emit webPageChanged(m_page);
+    m_view = view;
+    emit webViewChanged(m_view);
 }

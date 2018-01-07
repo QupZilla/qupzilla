@@ -165,6 +165,7 @@ void WebView::setPage(WebPage *page)
     // Scrollbars must be added only after QWebEnginePage is set
     WebScrollBarManager::instance()->addWebView(this);
 
+    emit pageChanged(m_page);
     mApp->plugins()->emitWebPageCreated(m_page);
 }
 

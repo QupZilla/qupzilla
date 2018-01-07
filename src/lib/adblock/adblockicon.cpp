@@ -21,7 +21,7 @@
 #include "adblocksubscription.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
-#include "webpage.h"
+#include "webview.h"
 #include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
@@ -38,7 +38,7 @@ AdBlockIcon::AdBlockIcon(QObject *parent)
     updateState();
 
     connect(this, &AbstractButtonInterface::clicked, this, &AdBlockIcon::clicked);
-    connect(this, &AbstractButtonInterface::webPageChanged, this, &AdBlockIcon::webPageChanged);
+    connect(this, &AbstractButtonInterface::webViewChanged, this, &AdBlockIcon::webViewChanged);
     connect(AdBlockManager::instance(), &AdBlockManager::enabledChanged, this, &AdBlockIcon::updateState);
     connect(AdBlockManager::instance(), &AdBlockManager::blockedRequestsChanged, this, &AdBlockIcon::blockedRequestsChanged);
 }
@@ -75,8 +75,8 @@ void AdBlockIcon::toggleCustomFilter()
 
 void AdBlockIcon::updateState()
 {
-    WebPage *page = webPage();
-    if (!page) {
+    WebView *view = webView();
+    if (!view) {
         setActive(false);
         setToolTip(name());
         setBadgeText(QString());
@@ -88,7 +88,7 @@ void AdBlockIcon::updateState()
         setBadgeText(QString());
         return;
     }
-    if (!AdBlockManager::instance()->canRunOnScheme(page->url().scheme())) {
+    if (!AdBlockManager::instance()->canRunOnScheme(view->url().scheme())) {
         setActive(false);
         setToolTip(tr("AdBlock is disabled on this site "));
         setBadgeText(QString());
@@ -102,11 +102,11 @@ void AdBlockIcon::updateState()
 
 void AdBlockIcon::updateBadgeText()
 {
-    WebPage *page = webPage();
-    if (!page) {
+    WebView *view = webView();
+    if (!view) {
         return;
     }
-    const int count = AdBlockManager::instance()->blockedRequestsForUrl(page->url()).count();
+    const int count = AdBlockManager::instance()->blockedRequestsForUrl(view->url()).count();
     if (count > 0) {
         setBadgeText(QString::number(count));
     } else {
@@ -114,39 +114,39 @@ void AdBlockIcon::updateBadgeText()
     }
 }
 
-void AdBlockIcon::webPageChanged(WebPage *page)
+void AdBlockIcon::webViewChanged(WebView *view)
 {
     updateState();
 
-    if (m_page) {
-        disconnect(m_page.data(), &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
+    if (m_view) {
+        disconnect(m_view.data(), &WebView::urlChanged, this, &AdBlockIcon::updateState);
     }
 
-    m_page = page;
+    m_view = view;
 
-    if (m_page) {
-        connect(m_page.data(), &QWebEnginePage::urlChanged, this, &AdBlockIcon::updateState);
+    if (m_view) {
+        connect(m_view.data(), &WebView::urlChanged, this, &AdBlockIcon::updateState);
     }
 }
 
 void AdBlockIcon::clicked(ClickController *controller)
 {
-    WebPage *page = webPage();
-    if (!page) {
+    WebView *view = webView();
+    if (!view) {
         return;
     }
 
     AdBlockManager* manager = AdBlockManager::instance();
     AdBlockCustomList* customList = manager->customList();
 
-    const QUrl pageUrl = page->url();
+    const QUrl pageUrl = view->url();
 
     QMenu menu;
     menu.addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
     menu.addSeparator();
 
     if (!pageUrl.host().isEmpty() && manager->isEnabled() && manager->canRunOnScheme(pageUrl.scheme())) {
-        const QString host = page->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
+        const QString host = view->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
         const QString hostFilter = QString("@@||%1^$document").arg(host);
         const QString pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
 
@@ -170,8 +170,8 @@ void AdBlockIcon::clicked(ClickController *controller)
 
 void AdBlockIcon::blockedRequestsChanged(const QUrl &url)
 {
-    WebPage *page = webPage();
-    if (!page || url != page->url()) {
+    WebView *view = webView();
+    if (!view || url != view->url()) {
         return;
     }
     updateState();

@@ -18,7 +18,6 @@
 #include "gm_icon.h"
 #include "gm_manager.h"
 
-#include "webpage.h"
 #include "webview.h"
 
 GM_Icon::GM_Icon(GM_Manager *manager)
@@ -44,5 +43,5 @@ QString GM_Icon::name() const
 
 void GM_Icon::openSettings()
 {
-    m_manager->showSettings(webPage() ? webPage()->view() : nullptr);
+    m_manager->showSettings(webView());
 }

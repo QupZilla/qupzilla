@@ -39,11 +39,11 @@ private slots:
 private:
     void updateState();
     void updateBadgeText();
-    void webPageChanged(WebPage *page);
+    void webViewChanged(WebView *view);
     void clicked(ClickController *controller);
     void blockedRequestsChanged(const QUrl &url);
 
-    QPointer<WebPage> m_page;
+    QPointer<WebView> m_view;
 };
 
 #endif // ADBLOCKICON_H

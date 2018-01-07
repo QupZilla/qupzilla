@@ -24,7 +24,7 @@
 
 #include "qzcommon.h"
 
-class WebPage;
+class WebView;
 
 class QUPZILLA_EXPORT AbstractButtonInterface : public QObject
 {
@@ -58,8 +58,8 @@ public:
     QString badgeText() const;
     void setBadgeText(const QString &badgeText);
 
-    WebPage *webPage() const;
-    void setWebPage(WebPage *page);
+    WebView *webView() const;
+    void setWebView(WebView *view);
 
 signals:
     void activeChanged(bool active);
@@ -67,7 +67,7 @@ signals:
     void toolTipChanged(const QString &toolTip);
     void iconChanged(const QIcon &icon);
     void badgeTextChanged(const QString &badgeText);
-    void webPageChanged(WebPage *page);
+    void webViewChanged(WebView *view);
     void clicked(ClickController *controller);
 
 private:
@@ -76,5 +76,5 @@ private:
     QString m_toolTip;
     QIcon m_icon;
     QString m_badgeText;
-    WebPage *m_page = nullptr;
+    WebView *m_view = nullptr;
 };

@@ -960,6 +960,8 @@ void BrowserWindow::refreshHistory()
 void BrowserWindow::currentTabChanged()
 {
     TabbedWebView* view = weView();
+    m_navigationToolbar->setCurrentView(view);
+
     if (!view) {
         return;
     }
@@ -968,7 +970,6 @@ void BrowserWindow::currentTabChanged()
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 
-    m_navigationToolbar->setCurrentView(view);
     updateLoadingActions();
 
     // Setting correct tab order (LocationBar -> WebSearchBar -> WebView)
