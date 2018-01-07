@@ -43,6 +43,7 @@ class QUPZILLA_EXPORT NavigationBar : public QWidget
 
 public:
     explicit NavigationBar(BrowserWindow* window);
+    ~NavigationBar();
 
     void setSplitterSizes(int locationBar, int websearchBar);
 

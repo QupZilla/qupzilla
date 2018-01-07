@@ -189,6 +189,11 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     loadSettings();
 }
 
+NavigationBar::~NavigationBar()
+{
+    setCurrentView(nullptr);
+}
+
 void NavigationBar::setSplitterSizes(int locationBar, int websearchBar)
 {
     QList<int> sizes;
