@@ -340,6 +340,7 @@ void LocationCompleter::loadString(const QString &urlString)
 
 void LocationCompleter::showPopup()
 {
+    Q_ASSERT(m_window);
     Q_ASSERT(m_locationBar);
 
     if (!m_locationBar->hasFocus() || s_model->rowCount() == 0) {
@@ -366,10 +367,8 @@ void LocationCompleter::showPopup()
     connect(s_view, SIGNAL(indexDeleteRequested(QModelIndex)), this, SLOT(indexDeleteRequested(QModelIndex)));
     connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
 
-    if (m_locationBar->nativeParentWidget()) {
-        s_view->createWinId();
-        s_view->windowHandle()->setTransientParent(m_locationBar->nativeParentWidget()->windowHandle());
-    }
+    s_view->createWinId();
+    s_view->windowHandle()->setTransientParent(m_window->windowHandle());
 
     adjustPopupSize();
 }
