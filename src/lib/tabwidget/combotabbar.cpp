@@ -1018,6 +1018,7 @@ QPixmap TabBarHelper::tabPixmap(int index) const
     initStyleOption(&tab, index);
 
     tab.state &= ~QStyle::State_MouseOver;
+    tab.position = QStyleOptionTab::OnlyOneTab;
     tab.leftButtonSize = QSize();
     tab.rightButtonSize = QSize();
 
