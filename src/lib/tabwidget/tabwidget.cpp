@@ -192,11 +192,7 @@ bool TabWidget::validIndex(int index) const
 
 void TabWidget::updateClosedTabsButton()
 {
-    if (!m_showClosedTabsButton) {
-        m_buttonClosedTabs->hide();
-    }
-
-    m_buttonClosedTabs->setEnabled(canRestoreTab());
+    m_buttonClosedTabs->setVisible(m_showClosedTabsButton && canRestoreTab());
 }
 
 bool TabWidget::isCurrentTabFresh() const
@@ -217,7 +213,6 @@ void TabWidget::tabBarOverFlowChanged(bool overflowed)
     // Show buttons displayed outside tabbar (corner widgets)
     m_buttonAddTab2->setVisible(overflowed);
     m_buttonListTabs->setVisible(overflowed);
-    m_buttonClosedTabs->setVisible(m_showClosedTabsButton);
 }
 
 void TabWidget::moveAddTabButton(int posX)
