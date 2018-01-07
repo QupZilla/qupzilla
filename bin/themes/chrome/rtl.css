@@ -8,6 +8,11 @@
     qproperty-multiIcon: url(images/navigation-forward.png);
 }
 
+#navigation-button-tools
+{
+    qproperty-icon: url(images/navigation-tools-rtl.png);
+}
+
 #tabbar-button-right
 {
     qproperty-icon: url(images/tab-left-arrow.png);

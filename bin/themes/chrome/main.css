@@ -93,11 +93,6 @@
 
 #navigation-button-tools
 {
-    qproperty-themeIcon: "arrow-right-double";
-}
-
-#navigation-button-tools
-{
     qproperty-icon: url(images/navigation-tools.png);
 }
 

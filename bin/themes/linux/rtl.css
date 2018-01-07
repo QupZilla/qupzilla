@@ -8,6 +8,12 @@
     qproperty-themeIcon: "go-next";
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-left-double";
+    qproperty-fallbackIcon: url(images/tools-rtl.svg);
+}
+
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-left";
