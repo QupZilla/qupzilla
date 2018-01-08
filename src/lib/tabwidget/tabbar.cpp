@@ -41,6 +41,49 @@
 
 #define MIMETYPE QSL("application/qupzilla.tabbar.tab")
 
+class TabBarTabMetrics : public QWidget
+{
+    Q_OBJECT
+    Q_PROPERTY(int normalMaxWidth READ normalMaxWidth WRITE setNormalMaxWidth)
+    Q_PROPERTY(int normalMinWidth READ normalMinWidth WRITE setNormalMinWidth)
+    Q_PROPERTY(int activeMinWidth READ activeMinWidth WRITE setActiveMinWidth)
+    Q_PROPERTY(int overflowedWidth READ overflowedWidth WRITE setOverflowedWidth)
+    Q_PROPERTY(int pinnedWidth READ pinnedWidth WRITE setPinnedWidth)
+
+public:
+    void init(TabBar *t)
+    {
+        if (!m_metrics.isEmpty()) {
+            return;
+        }
+        m_metrics[0] = 250;
+        m_metrics[1] = 100;
+        m_metrics[2] = 100;
+        m_metrics[3] = 100;
+        m_metrics[4] = t->iconButtonSize().width() + t->style()->pixelMetric(QStyle::PM_TabBarTabHSpace, nullptr, t);
+    }
+
+    int normalMaxWidth() const { return m_metrics.value(0); }
+    void setNormalMaxWidth(int value) { m_metrics[0] = value; }
+
+    int normalMinWidth() const { return m_metrics.value(1); }
+    void setNormalMinWidth(int value) { m_metrics[1] = value; }
+
+    int activeMinWidth() const { return m_metrics.value(2); }
+    void setActiveMinWidth(int value) { m_metrics[2] = value; }
+
+    int overflowedWidth() const { return m_metrics.value(3); }
+    void setOverflowedWidth(int value) { m_metrics[3] = value; }
+
+    int pinnedWidth() const { return m_metrics.value(4); }
+    void setPinnedWidth(int value) { m_metrics[4] = value; }
+
+private:
+    QHash<int, int> m_metrics;
+};
+
+Q_GLOBAL_STATIC(TabBarTabMetrics, tabMetrics)
+
 TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     : ComboTabBar()
     , m_window(window)
@@ -67,6 +110,8 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setUsesScrollButtons(true);
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overflowChanged(bool)));
+
+    tabMetrics()->init(this);
 
     if (mApp->isPrivate()) {
         QLabel* privateBrowsing = new QLabel(this);
@@ -247,15 +292,19 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 {
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
-        return iconButtonSize().width() + style()->pixelMetric(QStyle::PM_TabBarTabHSpace, 0, this);
+        return tabMetrics()->pinnedWidth();
 
     case ComboTabBar::ActiveTabMinimumWidth:
+        return tabMetrics()->activeMinWidth();
+
     case ComboTabBar::NormalTabMinimumWidth:
+        return tabMetrics()->normalMinWidth();
+
     case ComboTabBar::OverflowedTabWidth:
-        return 100;
+        return tabMetrics()->overflowedWidth();
 
     case ComboTabBar::NormalTabMaximumWidth:
-        return 250;
+        return tabMetrics()->normalMaxWidth();
 
     case ComboTabBar::ExtraReservedWidth:
         return m_tabWidget->extraReservedWidth();
@@ -659,3 +708,5 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     }
 }
+
+#include "tabbar.moc"
