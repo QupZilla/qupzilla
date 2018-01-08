@@ -226,9 +226,13 @@ private:
 class QUPZILLA_EXPORT TabBarHelper : public QTabBar
 {
     Q_OBJECT
+    Q_PROPERTY(int tabPadding READ tabPadding WRITE setTabPadding)
 
 public:
     explicit TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar);
+
+    int tabPadding() const;
+    void setTabPadding(int padding);
 
     void setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget);
 
@@ -274,6 +278,7 @@ private:
     ComboTabBar* m_comboTabBar;
     QScrollArea* m_scrollArea;
 
+    int m_tabPadding = -1;
     int m_pressedIndex;
     int m_pressedGlobalX;
     bool m_dragInProgress;

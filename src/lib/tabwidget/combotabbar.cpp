@@ -994,6 +994,16 @@ TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     connect(this, SIGNAL(tabMoved(int,int)), this, SLOT(tabWasMoved(int,int)));
 }
 
+int TabBarHelper::tabPadding() const
+{
+    return m_tabPadding;
+}
+
+void TabBarHelper::setTabPadding(int padding)
+{
+    m_tabPadding = padding;
+}
+
 void TabBarHelper::setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget)
 {
     QTabBar::setTabButton(index, position, widget);
@@ -1359,6 +1369,13 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
 {
     QTabBar::initStyleOption(option, tabIndex);
+
+    // Workaround zero padding when tabs are styled using style sheets
+    if (m_tabPadding > 0 && (tabIndex != currentIndex() || m_dragInProgress)) {
+        const QRect textRect = style()->subElementRect(QStyle::SE_TabBarTabText, option, this);
+        const int width = textRect.width() - 2 * m_tabPadding;
+        option->text = option->fontMetrics.elidedText(tabText(tabIndex), elideMode(), width, Qt::TextShowMnemonic);
+    }
 
     // Bespin doesn't highlight current tab when there is only one tab in tabbar
     static int isBespin = -1;
