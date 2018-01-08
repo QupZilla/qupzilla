@@ -1186,13 +1186,28 @@ void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBase *optTabBase, QTabB
 }
 
 // Adapted from qtabbar.cpp
-void TabBarHelper::paintEvent(QPaintEvent* event)
+// Note: doesn't support vertical tabs
+void TabBarHelper::paintEvent(QPaintEvent *event)
 {
-    // Note: this code doesn't support vertical tabs
     if (m_dragInProgress) {
+        // Still needs to be called because it updates movingTab geometry
         QTabBar::paintEvent(event);
-        return;
     }
+
+    // Hack to get dragOffset from QTabBar internals
+    auto dragOffset = [this](QStyleOptionTab *option, int index) {
+        QStyle::SubElement element = QStyle::SE_TabBarTabLeftButton;
+        QWidget *button = tabButton(index, QTabBar::LeftSide);
+        if (!button) {
+            element = QStyle::SE_TabBarTabRightButton;
+            button = tabButton(index, QTabBar::RightSide);
+        }
+        if (!button) {
+            return 0;
+        }
+        const QPoint p = style()->subElementRect(element, option, this).topLeft();
+        return button->pos().x() - p.x();
+    };
 
     QStyleOptionTabBarBase optTabBase;
     initStyleBaseOption(&optTabBase, this, size());
@@ -1208,7 +1223,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         optTabBase.selectedTabRect = tabRect(selected);
     }
 
-    if (drawBase()) {
+    if (!m_dragInProgress && drawBase()) {
         p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
     }
 
@@ -1216,11 +1231,16 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
     int indexUnderMouse = isDisplayedOnViewPort(cursorPos.x(), cursorPos.x()) ? tabAt(mapFromGlobal(cursorPos)) : -1;
 
     for (int i = 0; i < count(); ++i) {
+        if (i == selected) {
+            continue;
+        }
+
         QStyleOptionTab tab;
         initStyleOption(&tab, i);
 
-        if (i == selected) {
-            continue;
+        const int tabDragOffset = dragOffset(&tab, i);
+        if (tabDragOffset != 0) {
+            tab.rect.moveLeft(tab.rect.x() + tabDragOffset);
         }
 
         // Don't bother drawing a tab if the entire tab is outside of the visible tab bar.
@@ -1237,10 +1257,9 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         }
 
         // Update mouseover state when scrolling
-        if (i == indexUnderMouse) {
+        if (!m_dragInProgress && i == indexUnderMouse) {
             tab.state |= QStyle::State_MouseOver;
-        }
-        else {
+        } else {
             tab.state &= ~QStyle::State_MouseOver;
         }
 
@@ -1255,8 +1274,7 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
         // Update mouseover state when scrolling
         if (selected == indexUnderMouse) {
             tab.state |= QStyle::State_MouseOver;
-        }
-        else {
+        } else {
             tab.state &= ~QStyle::State_MouseOver;
         }
 
@@ -1272,7 +1290,9 @@ void TabBarHelper::paintEvent(QPaintEvent* event)
             tab.state = tab.state & ~QStyle::State_Selected;
         }
 
-        p.drawControl(QStyle::CE_TabBarTab, tab);
+        if (!m_dragInProgress) {
+            p.drawControl(QStyle::CE_TabBarTab, tab);
+        }
     }
 
     // Draw drop indicator
