@@ -126,6 +126,11 @@ ToolButton[toolbar-look="true"]:pressed
 }
 
 /*TabWidget*/
+#tabbar
+{
+    qproperty-tabPadding: -1;
+}
+
 #tabbar::scroller
 {
     width: 0px;

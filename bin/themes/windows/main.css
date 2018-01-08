@@ -134,6 +134,7 @@
 {
     min-height: 30px;
     max-height: 30px;
+    qproperty-tabPadding: 3;
 }
 
 #tab-icon

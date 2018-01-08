@@ -67,6 +67,11 @@
 }
 
 /*TabWidget*/
+#tabbar
+{
+    qproperty-tabPadding: -1;
+}
+
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-right";

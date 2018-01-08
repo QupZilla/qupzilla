@@ -127,6 +127,11 @@ ToolButton[toolbar-look="true"]:pressed
 }
 
 /*TabWidget*/
+#tabbar
+{
+    qproperty-tabPadding: -1;
+}
+
 #tabbar-button-right
 {
     qproperty-icon: url(images/tab-right-arrow.png);
