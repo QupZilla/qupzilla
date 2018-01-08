@@ -321,7 +321,6 @@ IconProvider
 {
     background: transparent;
     border: 1px solid #b2b2b2 solid;
-    min-height: 25px;
     qproperty-leftMargin: 27;
 }
 
