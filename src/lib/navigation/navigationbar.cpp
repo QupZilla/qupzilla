@@ -514,6 +514,12 @@ void NavigationBar::reloadLayout()
 
     m_layout->addWidget(m_supMenu);
 
+    // Make sure search bar is visible
+    if (m_searchLine->isVisible() && m_navigationSplitter->sizes().at(1) == 0) {
+        const int locationBarSize = m_navigationSplitter->sizes().at(0);
+        setSplitterSizes(locationBarSize - 50, 50);
+    }
+
     setUpdatesEnabled(true);
 }
 
