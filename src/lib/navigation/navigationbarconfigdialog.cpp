@@ -81,7 +81,10 @@ void NavigationBarConfigDialog::saveSettings()
     settings.setValue(QSL("ShowSearchBar"), ui->showSearchBar->isChecked());
     settings.endGroup();
 
-    mApp->reloadSettings();
+    const auto windows = mApp->windows();
+    for (BrowserWindow *window : windows) {
+        window->navigationBar()->loadSettings();
+    }
 }
 
 void NavigationBarConfigDialog::resetToDefaults()

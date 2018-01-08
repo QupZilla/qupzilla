@@ -33,7 +33,6 @@
 #include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "desktopnotification.h"
-#include "navigationbar.h"
 #include "thememanager.h"
 #include "acceptlanguage.h"
 #include "qztools.h"

@@ -187,8 +187,6 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
     connect(m_exitFullscreen, SIGNAL(clicked(bool)), m_window, SLOT(toggleFullScreen()));
 
-    connect(mApp, &MainApplication::settingsReloaded, this, &NavigationBar::loadSettings);
-
     addWidget(backNextWidget, QSL("button-backforward"), tr("Back and Forward buttons"));
     addWidget(m_reloadStop, QSL("button-reloadstop"), tr("Reload button"));
     addWidget(buttonHome, QSL("button-home"), tr("Home button"));
