@@ -90,6 +90,7 @@ SOURCES += \
     bookmarks/bookmarkswidget.cpp \
     cookies/cookiejar.cpp \
     cookies/cookiemanager.cpp \
+    downloads/downloadsbutton.cpp \
     downloads/downloaditem.cpp \
     downloads/downloadmanager.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -267,6 +268,7 @@ HEADERS  += \
     bookmarks/bookmarkswidget.h \
     cookies/cookiejar.h \
     cookies/cookiemanager.h \
+    downloads/downloadsbutton.h \
     downloads/downloaditem.h \
     downloads/downloadmanager.h \
     downloads/downloadoptionsdialog.h \

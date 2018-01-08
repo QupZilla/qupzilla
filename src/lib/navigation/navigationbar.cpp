@@ -308,6 +308,7 @@ void NavigationBar::addToolButton(AbstractButtonInterface *button)
     }
 
     NavigationBarToolButton *toolButton = new NavigationBarToolButton(button, this);
+    toolButton->setProperty("button-id", button->id());
     connect(toolButton, &NavigationBarToolButton::visibilityChangeRequested, this, [=]() {
         if (m_layout->indexOf(toolButton) != -1) {
             toolButton->updateVisibility();
@@ -498,6 +499,7 @@ void NavigationBar::loadSettings()
         QSL("button-reloadstop"),
         QSL("button-home"),
         QSL("locationbar"),
+        QSL("button-downloads"),
         QSL("button-tools")
     };
 

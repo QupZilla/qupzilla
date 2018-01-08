@@ -93,6 +93,11 @@
     margin: 0px 1px;
 }
 
+ToolButton[button-id="button-downloads"]
+{
+    qproperty-themeIcon: "edit-download";
+}
+
 /*TabWidget*/
 #tabbar-button-right
 {

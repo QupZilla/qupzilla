@@ -26,7 +26,6 @@
 #include "websearchbar.h"
 #include "pluginproxy.h"
 #include "sidebar.h"
-#include "downloadmanager.h"
 #include "cookiejar.h"
 #include "cookiemanager.h"
 #include "bookmarkstoolbar.h"
@@ -55,6 +54,7 @@
 #include "bookmarksmenu.h"
 #include "historymenu.h"
 #include "mainmenu.h"
+#include "downloadsbutton.h"
 
 #include <algorithm>
 
@@ -384,6 +384,8 @@ void BrowserWindow::setupUi()
 
     statusBar()->addPermanentWidget(m_progressBar);
     statusBar()->addPermanentWidget(m_ipLabel);
+
+    m_navigationToolbar->addToolButton(new DownloadsButton(this));
 
     QDesktopWidget* desktop = mApp->desktop();
     int windowWidth = desktop->availableGeometry().width() / 1.3;

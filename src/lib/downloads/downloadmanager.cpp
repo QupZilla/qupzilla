@@ -244,6 +244,7 @@ void DownloadManager::clearList()
         items.append(downItem);
     }
     qDeleteAll(items);
+    emit downloadsCountChanged();
 }
 
 void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
@@ -361,21 +362,39 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     listItem->setSizeHint(downItem->sizeHint());
     downItem->show();
 
-    show();
-    raise();
-    activateWindow();
+    m_activeDownloadsCount++;
+    emit downloadsCountChanged();
+}
+
+int DownloadManager::downloadsCount() const
+{
+    return ui->list->count();
+}
+
+int DownloadManager::activeDownloadsCount() const
+{
+    return m_activeDownloadsCount;
 }
 
 void DownloadManager::downloadFinished(bool success)
 {
+    m_activeDownloadsCount = 0;
     bool downloadingAllFilesFinished = true;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem || downItem->isCancelled() || !downItem->isDownloading()) {
+        if (!downItem) {
+            continue;
+        }
+        if (downItem->isDownloading()) {
+            m_activeDownloadsCount++;
+        }
+        if (downItem->isCancelled() || !downItem->isDownloading()) {
             continue;
         }
         downloadingAllFilesFinished = false;
     }
+
+    emit downloadsCountChanged();
 
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {

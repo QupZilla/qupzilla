@@ -113,6 +113,11 @@
     margin: 0px 1px;
 }
 
+ToolButton[button-id="button-downloads"]
+{
+    qproperty-icon: url(images/navigation-downloads.png);
+}
+
 ToolButton[toolbar-look="true"]
 {
     qproperty-iconSize: 19px 19px;
