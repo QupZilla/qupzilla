@@ -538,7 +538,7 @@ void MainMenu::init()
 
     QMenu* toolbarsMenu = new QMenu(tr("Toolbars"));
     connect(toolbarsMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowToolbarsMenu()));
-    QMenu* sidebarMenu = new QMenu(tr("Sidebars"));
+    QMenu* sidebarMenu = new QMenu(tr("Sidebar"));
     connect(sidebarMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowSidebarsMenu()));
     QMenu* encodingMenu = new QMenu(tr("Character &Encoding"));
     connect(encodingMenu, SIGNAL(aboutToShow()), this, SLOT(aboutToShowEncodingMenu()));

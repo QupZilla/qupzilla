@@ -378,7 +378,7 @@ void NavigationBar::aboutToShowToolsMenu()
     m_menuTools->clear();
 
     m_window->createToolbarsMenu(m_menuTools->addMenu(tr("Toolbars")));
-    m_window->createSidebarsMenu(m_menuTools->addMenu(tr("Sidebars")));
+    m_window->createSidebarsMenu(m_menuTools->addMenu(tr("Sidebar")));
     m_menuTools->addSeparator();
 
     for (const WidgetData &data : qAsConst(m_widgets)) {
