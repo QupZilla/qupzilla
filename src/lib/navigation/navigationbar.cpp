@@ -510,6 +510,7 @@ void NavigationBar::loadSettings()
     settings.endGroup();
 
     m_layoutIds.removeDuplicates();
+    m_layoutIds.removeAll(QString());
     if (!m_layoutIds.contains(QSL("locationbar"))) {
         m_layoutIds.append(QSL("locationbar"));
     }

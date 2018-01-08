@@ -55,7 +55,12 @@ void NavigationBarConfigDialog::loadSettings()
 
     ui->currentItems->clear();
     for (const QString &id : qAsConst(m_navigationBar->m_layoutIds)) {
-        ui->currentItems->addItem(createItem(m_navigationBar->m_widgets.value(id)));
+        NavigationBar::WidgetData data = m_navigationBar->m_widgets.value(id);
+        if (data.id.isEmpty()) {
+            data.id = id;
+            data.name = id;
+        }
+        ui->currentItems->addItem(createItem(data));
     }
 
     ui->availableItems->clear();
