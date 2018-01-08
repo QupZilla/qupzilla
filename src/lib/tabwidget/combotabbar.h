@@ -261,7 +261,6 @@ public slots:
     void setCurrentIndex(int index);
 
 private slots:
-    void resetDragState();
     void tabWasMoved(int from, int to);
 
 private:
@@ -280,7 +279,6 @@ private:
 
     int m_tabPadding = -1;
     int m_pressedIndex;
-    int m_pressedGlobalX;
     bool m_dragInProgress;
     bool m_activeTabBar;
     bool m_isPinnedTabBar;

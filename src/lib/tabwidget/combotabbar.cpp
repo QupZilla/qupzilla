@@ -985,7 +985,6 @@ TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     , m_comboTabBar(comboTabBar)
     , m_scrollArea(0)
     , m_pressedIndex(-1)
-    , m_pressedGlobalX(-1)
     , m_dragInProgress(false)
     , m_activeTabBar(false)
     , m_isPinnedTabBar(isPinnedTabBar)
@@ -1202,6 +1201,9 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
     if (m_dragInProgress) {
         // Still needs to be called because it updates movingTab geometry
         QTabBar::paintEvent(event);
+
+        QPainter p(this);
+        p.fillRect(rect(), palette().color(QPalette::Background));
     }
 
     // Hack to get dragOffset from QTabBar internals
@@ -1233,7 +1235,7 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
         optTabBase.selectedTabRect = tabRect(selected);
     }
 
-    if (!m_dragInProgress && drawBase()) {
+    if (drawBase()) {
         p.drawPrimitive(QStyle::PE_FrameTabBarBase, optTabBase);
     }
 
@@ -1280,6 +1282,11 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
     if (selected >= 0) {
         QStyleOptionTab tab;
         initStyleOption(&tab, selected);
+
+        const int tabDragOffset = dragOffset(&tab, selected);
+        if (tabDragOffset != 0) {
+            tab.rect.moveLeft(tab.rect.x() + tabDragOffset);
+        }
 
         // Update mouseover state when scrolling
         if (selected == indexUnderMouse) {
@@ -1337,7 +1344,6 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
     if (event->buttons() == Qt::LeftButton) {
         m_pressedIndex = tabAt(event->pos());
         if (m_pressedIndex != -1) {
-            m_pressedGlobalX = event->globalX();
             m_dragInProgress = true;
             // virtualize selecting tab by click
             if (m_pressedIndex == currentIndex() && !m_activeTabBar) {
@@ -1352,18 +1358,13 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
 void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 {
     event->ignore();
-    if (event->button() != Qt::LeftButton) {
-        return;
-    }
+
+    m_pressedIndex = -1;
+    m_dragInProgress = false;
 
     QTabBar::mouseReleaseEvent(event);
 
-    if (m_pressedIndex >= 0 && m_pressedIndex < count()) {
-        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), this, &TabBarHelper::resetDragState);
-
-        m_pressedIndex = -1;
-        m_pressedGlobalX = -1;
-    }
+    update();
 }
 
 void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
@@ -1398,14 +1399,6 @@ void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
     }
     else {
         option->position = QStyleOptionTab::OnlyOneTab;
-    }
-}
-
-void TabBarHelper::resetDragState()
-{
-    if (m_pressedIndex == -1) {
-        m_dragInProgress = false;
-        update();
     }
 }
 
