@@ -70,6 +70,7 @@
 #tabbar
 {
     qproperty-tabPadding: -1;
+    qproperty-baseColor: 0;
 }
 
 #tabbar-button-right
