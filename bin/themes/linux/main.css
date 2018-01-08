@@ -112,6 +112,11 @@ IconProvider
 }
 
 /*LocationBar*/
+#locationbar
+{
+    qproperty-leftMargin: 25;
+}
+
 #locationbar-bookmarkicon
 {
     qproperty-themeIcon: "rating-unrated";
@@ -128,9 +133,9 @@ IconProvider
 
 #locationbar-siteicon
 {
-    margin-left: 5px;
     border-image: url(images/transp.png);
-    qproperty-fixedsize: 21px 16px;
+    padding-left: 5px;
+    qproperty-fixedsize: 25px 16px;
 }
 
 #locationbar-goicon
@@ -155,6 +160,11 @@ IconProvider
 }
 
 /*WebSearchBar*/
+#websearchbar
+{
+    qproperty-leftMargin: 25;
+}
+
 #websearchbar-searchbutton
 {
     qproperty-fixedsize: 22px 16px;
@@ -163,10 +173,9 @@ IconProvider
 
 #websearchbar-searchprovider-comobobox
 {
-    border-image: url(images/websearch-bg.png);
-    padding-right: 6px;
-    padding-left: 2px;
-    qproperty-fixedsize: 32px 16px;
+    border-image: url(images/transp.png);
+    padding-left: 5px;
+    qproperty-fixedsize: 25px 16px;
 }
 
 /*BookmarksToolbar*/
