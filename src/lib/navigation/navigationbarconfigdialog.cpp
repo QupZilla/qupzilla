@@ -100,7 +100,10 @@ void NavigationBarConfigDialog::resetToDefaults()
     settings.remove(QSL("ShowSearchBar"));
     settings.endGroup();
 
-    mApp->reloadSettings();
+    const auto windows = mApp->windows();
+    for (BrowserWindow *window : windows) {
+        window->navigationBar()->loadSettings();
+    }
 }
 
 void NavigationBarConfigDialog::buttonClicked(QAbstractButton *button)
