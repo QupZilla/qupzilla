@@ -289,14 +289,14 @@ QString QupZillaSchemeReply::speeddialPage()
 
     if (dPage.isEmpty()) {
         dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
-        dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
-        dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.png"));
-        dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.png"));
-        dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.png"));
+        dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.svg"));
+        dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.svg"));
+        dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.svg"));
+        dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.svg"));
         dPage.replace(QLatin1String("%JQUERY%"), QLatin1String("qrc:html/jquery.js"));
         dPage.replace(QLatin1String("%JQUERY-UI%"), QLatin1String("qrc:html/jquery-ui.js"));
         dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
-        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.png"));
+        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.svg"));
 
         dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
         dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));
