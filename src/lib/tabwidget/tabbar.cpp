@@ -470,7 +470,7 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         } else if (eventY > height()) {
             offset = eventY - height();
         }
-        if (offset > QApplication::startDragDistance()) {
+        if (offset > QApplication::startDragDistance() * 3) {
             const QPoint global = mapToGlobal(m_dragStartPosition);
             QWidget *w = QApplication::widgetAt(global);
             if (w) {
@@ -498,10 +498,6 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
 
     if (mApp->plugins()->processMouseRelease(Qz::ON_TabBar, this, event)) {
         return;
-    }
-
-    if (m_tabWidget->buttonAddTab()->isHidden() && !isMainBarOverflowed()) {
-        QTimer::singleShot(ComboTabBar::slideAnimationDuration(), m_tabWidget->buttonAddTab(), &AddTabButton::show);
     }
 
     if (!rect().contains(event->pos())) {
