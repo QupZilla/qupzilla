@@ -105,13 +105,13 @@
 #tabwidget-button-opentabs
 {
     qproperty-themeIcon: "go-down";
-    qproperty-fixedsize: 22px 28px;
+    qproperty-fixedsize: 22px 29px;
 }
 
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
-    qproperty-fixedsize: 22px 28px;
+    qproperty-fixedsize: 22px 29px;
 }
 
 #tabwidget-button-addtab[outside-tabbar="false"]
@@ -120,14 +120,14 @@
     border: 1px solid #b2b2b2;
     border-bottom: none;
     border-left: none;
-    qproperty-fixedsize: 28px 28px;
+    qproperty-fixedsize: 29px 29px;
     qproperty-themeIcon: "list-add";
 }
 
 #tabwidget-button-addtab[outside-tabbar="true"]
 {
     qproperty-themeIcon: "list-add";
-    qproperty-fixedsize: 22px 28px;
+    qproperty-fixedsize: 22px 29px;
 }
 
 #tabbar
