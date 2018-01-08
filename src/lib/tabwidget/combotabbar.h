@@ -229,12 +229,16 @@ class QUPZILLA_EXPORT TabBarHelper : public QTabBar
 {
     Q_OBJECT
     Q_PROPERTY(int tabPadding READ tabPadding WRITE setTabPadding)
+    Q_PROPERTY(QColor baseColor READ baseColor WRITE setBaseColor)
 
 public:
     explicit TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar);
 
     int tabPadding() const;
     void setTabPadding(int padding);
+
+    QColor baseColor() const;
+    void setBaseColor(const QColor &color);
 
     void setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget);
 
@@ -277,6 +281,7 @@ private:
     QScrollArea* m_scrollArea;
 
     int m_tabPadding = -1;
+    QColor m_baseColor;
     int m_pressedIndex;
     bool m_dragInProgress;
     QPoint m_dragStartPosition;

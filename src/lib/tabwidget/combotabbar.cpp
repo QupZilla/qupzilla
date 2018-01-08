@@ -1015,6 +1015,16 @@ void TabBarHelper::setTabPadding(int padding)
     m_tabPadding = padding;
 }
 
+QColor TabBarHelper::baseColor() const
+{
+    return m_baseColor;
+}
+
+void TabBarHelper::setBaseColor(const QColor &color)
+{
+    m_baseColor = color;
+}
+
 void TabBarHelper::setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget)
 {
     QTabBar::setTabButton(index, position, widget);

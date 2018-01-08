@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "proxystyle.h"
+#include "combotabbar.h"
+
+#include <QPainter>
+#include <QStyleOption>
 
 ProxyStyle::ProxyStyle()
     : QProxyStyle()
@@ -54,6 +58,20 @@ int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, cons
     default:
         return QProxyStyle::pixelMetric(metric, option, widget);
     }
+}
+
+void ProxyStyle::drawPrimitive(PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
+{
+    if (element == PE_FrameTabBarBase) {
+        TabBarHelper *tabBar = qobject_cast<TabBarHelper*>(option->styleObject);
+        if (tabBar && tabBar->baseColor().isValid()) {
+            painter->setPen(QPen(tabBar->baseColor(), 0));
+            painter->drawLine(option->rect.topLeft(), option->rect.topRight());
+            return;
+        }
+    }
+
+    QProxyStyle::drawPrimitive(element, option, painter, widget);
 }
 
 QString ProxyStyle::name() const
