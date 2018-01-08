@@ -293,6 +293,10 @@ void TabBar::showCloseButton(int index)
 
 void TabBar::contextMenuEvent(QContextMenuEvent* event)
 {
+    if (isDragInProgress()) {
+        return;
+    }
+
     int index = tabAt(event->pos());
 
     TabContextMenu menu(index, Qt::Horizontal, m_window, m_tabWidget);
