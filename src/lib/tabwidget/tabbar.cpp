@@ -437,6 +437,8 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent* event)
 
 void TabBar::mousePressEvent(QMouseEvent* event)
 {
+    ComboTabBar::mousePressEvent(event);
+
     if (mApp->plugins()->processMousePress(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -446,12 +448,12 @@ void TabBar::mousePressEvent(QMouseEvent* event)
     } else {
         m_dragStartPosition = QPoint();
     }
-
-    ComboTabBar::mousePressEvent(event);
 }
 
 void TabBar::mouseMoveEvent(QMouseEvent* event)
 {
+    ComboTabBar::mouseMoveEvent(event);
+
     if (mApp->plugins()->processMouseMove(Qz::ON_TabBar, this, event)) {
         return;
     }
@@ -488,12 +490,12 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
             return;
         }
     }
-
-    ComboTabBar::mouseMoveEvent(event);
 }
 
 void TabBar::mouseReleaseEvent(QMouseEvent* event)
 {
+    ComboTabBar::mouseReleaseEvent(event);
+
     m_dragStartPosition = QPoint();
 
     if (mApp->plugins()->processMouseRelease(Qz::ON_TabBar, this, event)) {
@@ -521,8 +523,6 @@ void TabBar::mouseReleaseEvent(QMouseEvent* event)
             return;
         }
     }
-
-    ComboTabBar::mouseReleaseEvent(event);
 }
 
 void TabBar::wheelEvent(QWheelEvent* event)
