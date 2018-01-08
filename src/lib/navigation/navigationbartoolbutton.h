@@ -41,6 +41,8 @@ private:
     void updateIcon();
     void updateBadge();
 
+    void mouseReleaseEvent(QMouseEvent *e) override;
+
     AbstractButtonInterface *m_button;
     QLabel *m_badgeLabel = nullptr;
 };

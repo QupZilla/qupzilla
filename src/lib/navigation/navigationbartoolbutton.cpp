@@ -19,6 +19,7 @@
 #include "abstractbuttoninterface.h"
 
 #include <QLabel>
+#include <QMouseEvent>
 #include <QApplication>
 
 NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button, QWidget *parent)
@@ -45,7 +46,6 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
     connect(button, &AbstractButtonInterface::toolTipChanged, this, &NavigationBarToolButton::setToolTip);
     connect(button, &AbstractButtonInterface::badgeTextChanged, this, &NavigationBarToolButton::updateBadge);
     connect(button, &AbstractButtonInterface::visibleChanged, this, &NavigationBarToolButton::visibilityChangeRequested);
-    connect(this, &ToolButton::clicked, this, &NavigationBarToolButton::clicked);
 }
 
 void NavigationBarToolButton::updateVisibility()
@@ -95,5 +95,28 @@ void NavigationBarToolButton::updateBadge()
         m_badgeLabel->resize(m_badgeLabel->sizeHint());
         m_badgeLabel->move(width() - m_badgeLabel->width(), 0);
         m_badgeLabel->show();
+    }
+}
+
+void NavigationBarToolButton::mouseReleaseEvent(QMouseEvent *e)
+{
+    // Prevent flickering due to mouse release event restoring Down state
+
+    bool popupOpened = false;
+
+    if (e->button() == Qt::LeftButton && rect().contains(e->pos())) {
+        clicked();
+        popupOpened = isDown();
+    }
+
+    if (popupOpened) {
+        setUpdatesEnabled(false);
+    }
+
+    ToolButton::mouseReleaseEvent(e);
+
+    if (popupOpened) {
+        setDown(true);
+        setUpdatesEnabled(true);
     }
 }
