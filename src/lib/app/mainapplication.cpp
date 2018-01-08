@@ -1008,6 +1008,8 @@ void MainApplication::loadTheme(const QString &name)
         qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/rtl.css")));
     }
 
+    qss.append(QzTools::readAllFileContents(DataPaths::currentProfilePath() + QL1S("/userChrome.css")));
+
     QString relativePath = QDir::current().relativeFilePath(activeThemePath);
     qss.replace(QzRegExp(QSL("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)"), Qt::CaseSensitive), QString("url(%1/\\1)").arg(relativePath));
     setStyleSheet(qss);
