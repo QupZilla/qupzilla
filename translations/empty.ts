@@ -1117,62 +1117,62 @@ Please install latest version of QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="967"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="969"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1031"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1032"/>
         <source>&amp;Menu Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1036"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1037"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1040"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1041"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1046"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1047"/>
         <source>&amp;Tabs on Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1100"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1101"/>
         <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1137"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>HTML files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1137"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>Image files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1137"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>Text files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1137"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1139"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Open file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1484"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1485"/>
         <source>There are still %n open tabs and your session won&apos;t be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished">
@@ -1181,12 +1181,12 @@ Are you sure you want to close this window?</source>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1485"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1486"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1486"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1487"/>
         <source>There are still open tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2607,7 +2607,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
-        <source>Sidebars</source>
+        <source>Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2875,24 +2875,24 @@ Are you sure you want to close this window?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="336"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="370"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="339"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="373"/>
         <source>Clear history</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="377"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="380"/>
         <source>Toolbars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="378"/>
-        <source>Sidebars</source>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="381"/>
+        <source>Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="393"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="408"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="396"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="411"/>
         <source>Configure Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5272,27 +5272,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="128"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="129"/>
         <source>Closed tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="139"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="140"/>
         <source>List of tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="278"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="274"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="282"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="278"/>
         <source>Restore All Closed Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="283"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="279"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5522,252 +5522,252 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="407"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="408"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="686"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="687"/>
         <source>No suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="737"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="738"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="741"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>&amp;Forward</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="748"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Configure Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>Reload All Dials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="771"/>
         <source>Book&amp;mark page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="771"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
         <source>&amp;Copy page link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="774"/>
         <source>Send page link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="775"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>Select &amp;all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Validate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="784"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
         <source>Translate page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="788"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Show so&amp;urce code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="791"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
         <source>Show info ab&amp;out site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="797"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="798"/>
         <source>Open link in new &amp;tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Open link in new &amp;window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="804"/>
         <source>Open link in &amp;private window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="809"/>
         <source>B&amp;ookmark link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="810"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
         <source>&amp;Save link as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
         <source>Send link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="813"/>
         <source>&amp;Copy link address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="824"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="825"/>
         <source>Show i&amp;mage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="829"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>Copy image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="831"/>
         <source>Copy image ad&amp;dress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="832"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
         <source>&amp;Save image as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
         <source>Send image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="852"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="853"/>
         <source>Send text...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="857"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="858"/>
         <source>Google Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="863"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
         <source>Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="878"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="879"/>
         <source>Go to &amp;web address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="892"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="893"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
         <source>Search with...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="919"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
         <source>&amp;Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="919"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Un&amp;mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>&amp;Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="922"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="923"/>
         <source>&amp;Copy Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="923"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Send Media Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
         <source>Save Media To &amp;Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="943"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
         <source>Create Search Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="984"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="985"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="990"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="991"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="996"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="997"/>
         <source>&amp;Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1002"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1003"/>
         <source>&amp;Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1008"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1009"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1014"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1015"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1020"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1021"/>
         <source>&amp;Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1024"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1025"/>
         <source>S&amp;top</source>
         <translation type="unfinished"></translation>
     </message>
