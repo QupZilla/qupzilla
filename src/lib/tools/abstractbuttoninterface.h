@@ -48,6 +48,9 @@ public:
     bool isActive() const;
     void setActive(bool active);
 
+    bool isVisible() const;
+    void setVisible(bool visible);
+
     QString title() const;
     void setTitle(const QString &text);
 
@@ -65,6 +68,7 @@ public:
 
 signals:
     void activeChanged(bool active);
+    void visibleChanged(bool visible);
     void titleChanged(const QString &title);
     void toolTipChanged(const QString &toolTip);
     void iconChanged(const QIcon &icon);
@@ -74,6 +78,7 @@ signals:
 
 private:
     bool m_active = true;
+    bool m_visible = true;
     QString m_title;
     QString m_toolTip;
     QIcon m_icon;

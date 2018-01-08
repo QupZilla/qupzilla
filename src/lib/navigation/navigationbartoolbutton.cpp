@@ -44,7 +44,13 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
     connect(button, &AbstractButtonInterface::activeChanged, this, &NavigationBarToolButton::updateIcon);
     connect(button, &AbstractButtonInterface::toolTipChanged, this, &NavigationBarToolButton::setToolTip);
     connect(button, &AbstractButtonInterface::badgeTextChanged, this, &NavigationBarToolButton::updateBadge);
+    connect(button, &AbstractButtonInterface::visibleChanged, this, &NavigationBarToolButton::visibilityChangeRequested);
     connect(this, &ToolButton::clicked, this, &NavigationBarToolButton::clicked);
+}
+
+void NavigationBarToolButton::updateVisibility()
+{
+    setVisible(m_button->isVisible());
 }
 
 void NavigationBarToolButton::clicked()
@@ -68,6 +74,8 @@ void NavigationBarToolButton::clicked()
     emit m_button->clicked(c);
     if (c->popupOpened) {
         setDown(true);
+    } else {
+        c->popupClosed();
     }
 }
 

@@ -307,10 +307,17 @@ void NavigationBar::addToolButton(AbstractButtonInterface *button)
         return;
     }
 
+    NavigationBarToolButton *toolButton = new NavigationBarToolButton(button, this);
+    connect(toolButton, &NavigationBarToolButton::visibilityChangeRequested, this, [=]() {
+        if (m_layout->indexOf(toolButton) != -1) {
+            toolButton->updateVisibility();
+        }
+    });
+
     WidgetData data;
     data.id = button->id();
     data.name = button->name();
-    data.widget = new NavigationBarToolButton(button, this);
+    data.widget = toolButton;
     data.button = button;
     m_widgets[data.id] = data;
 
@@ -406,7 +413,7 @@ void NavigationBar::aboutToShowToolsMenu()
 
     for (const WidgetData &data : qAsConst(m_widgets)) {
         AbstractButtonInterface *button = data.button;
-        if (button && !m_layoutIds.contains(data.id)) {
+        if (button && (!button->isVisible() || !m_layoutIds.contains(data.id))) {
             QString title = button->title();
             if (!button->badgeText().isEmpty()) {
                 title.append(QSL(" (%1)").arg(button->badgeText()));
@@ -460,20 +467,28 @@ void NavigationBar::toolActionActivated()
         return;
     }
 
-    AbstractButtonInterface::ClickController c;
-    c.visualParent = buttonTools;
-    c.popupPosition = [=](const QSize &size) {
+    AbstractButtonInterface::ClickController *c = new AbstractButtonInterface::ClickController;
+    c->visualParent = buttonTools;
+    c->popupPosition = [=](const QSize &size) {
         QPoint pos = buttonTools->mapToGlobal(buttonTools->rect().bottomRight());
         if (QApplication::isRightToLeft()) {
             pos.setX(pos.x() - buttonTools->rect().width());
         } else {
             pos.setX(pos.x() - size.width());
         }
+        c->popupOpened = true;
         return pos;
     };
-    buttonTools->setDown(true);
-    emit data.button->clicked(&c);
-    buttonTools->setDown(false);
+    c->popupClosed = [=]() {
+        buttonTools->setDown(false);
+        delete c;
+    };
+    emit data.button->clicked(c);
+    if (c->popupOpened) {
+        buttonTools->setDown(true);
+    } else {
+        c->popupClosed();
+    }
 }
 
 void NavigationBar::loadSettings()
@@ -531,7 +546,12 @@ void NavigationBar::reloadLayout()
         const WidgetData data = m_widgets.value(id);
         if (data.widget) {
             m_layout->addWidget(data.widget);
-            data.widget->show();
+            NavigationBarToolButton *button = qobject_cast<NavigationBarToolButton*>(data.widget);
+            if (button) {
+                button->updateVisibility();
+            } else {
+                data.widget->show();
+            }
         }
     }
 

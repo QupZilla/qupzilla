@@ -42,6 +42,21 @@ void AbstractButtonInterface::setActive(bool active)
     emit activeChanged(m_active);
 }
 
+bool AbstractButtonInterface::isVisible() const
+{
+    return m_visible;
+}
+
+void AbstractButtonInterface::setVisible(bool visible)
+{
+    if (m_visible == visible) {
+        return;
+    }
+
+    m_visible = visible;
+    emit visibleChanged(m_visible);
+}
+
 QString AbstractButtonInterface::title() const
 {
     return m_title;

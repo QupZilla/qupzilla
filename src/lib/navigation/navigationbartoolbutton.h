@@ -26,8 +26,15 @@ class AbstractButtonInterface;
 
 class QUPZILLA_EXPORT NavigationBarToolButton : public ToolButton
 {
+    Q_OBJECT
+
 public:
     explicit NavigationBarToolButton(AbstractButtonInterface *button, QWidget *parent = nullptr);
+
+    void updateVisibility();
+
+signals:
+    void visibilityChangeRequested();
 
 private:
     void clicked();
