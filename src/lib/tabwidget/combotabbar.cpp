@@ -1403,6 +1403,28 @@ void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
             }
         }
     }
+
+    // Don't allow to move tabs outside of tabbar
+    if (m_dragInProgress && m_movingTab) {
+        QRect r = tabRect(m_pressedIndex);
+        r.moveLeft(r.x() + (event->pos().x() - m_dragStartPosition.x()));
+        bool sendEvent = false;
+        int diff = r.topRight().x() - tabRect(count() - 1).topRight().x();
+        if (diff > 0) {
+            sendEvent = true;
+        } else {
+            diff = r.topLeft().x() - tabRect(0).topLeft().x();
+            if (diff < 0) {
+                sendEvent = true;
+            }
+        }
+        if (sendEvent) {
+            QPoint pos = event->pos();
+            pos.setX(pos.x() - diff);
+            QMouseEvent ev(event->type(), pos, event->button(), event->buttons(), event->modifiers());
+            QTabBar::mouseMoveEvent(&ev);
+        }
+    }
 }
 
 void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
