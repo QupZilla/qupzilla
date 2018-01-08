@@ -75,6 +75,7 @@ public:
     void setTabTextColor(int index, const QColor &color);
 
     QRect tabRect(int index) const;
+    QRect draggedTabRect() const;
     QPixmap tabPixmap(int index) const;
 
     // Returns tab index at pos, or -1
@@ -197,6 +198,7 @@ private:
     TabBarHelper* localTabBar(int index = -1) const;
 
     int toLocalIndex(int globalIndex) const;
+    QRect mapFromLocalTabRect(const QRect &rect, QWidget *tabBar) const;
     void updatePinnedTabBarVisibility();
 
     QHBoxLayout* m_mainLayout;
@@ -239,6 +241,7 @@ public:
     QSize tabSizeHint(int index) const;
     QSize baseClassTabSizeHint(int index) const;
 
+    QRect draggedTabRect() const;
     QPixmap tabPixmap(int index) const;
 
     bool isActiveTabBar();
@@ -269,6 +272,7 @@ private:
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
 
+    int dragOffset(QStyleOptionTab *option, int tabIndex) const;
     void initStyleOption(QStyleOptionTab* option, int tabIndex) const;
 
     void tabInserted(int index);

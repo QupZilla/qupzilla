@@ -196,26 +196,16 @@ void ComboTabBar::setTabTextColor(int index, const QColor &color)
 
 QRect ComboTabBar::tabRect(int index) const
 {
-    QRect rect;
-    if (index != -1) {
-        bool mainTabBar = index >= pinnedTabsCount();
-        rect = localTabBar(index)->tabRect(toLocalIndex(index));
+    return mapFromLocalTabRect(localTabBar(index)->tabRect(toLocalIndex(index)), localTabBar(index));
+}
 
-        if (mainTabBar) {
-            rect.moveLeft(rect.x() + mapFromGlobal(m_mainTabBar->mapToGlobal(QPoint(0, 0))).x());
-            QRect widgetRect = m_mainTabBarWidget->scrollArea()->viewport()->rect();
-            widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_mainTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
-            rect = rect.intersected(widgetRect);
-        }
-        else {
-            rect.moveLeft(rect.x() + mapFromGlobal(m_pinnedTabBar->mapToGlobal(QPoint(0, 0))).x());
-            QRect widgetRect = m_pinnedTabBarWidget->scrollArea()->viewport()->rect();
-            widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_pinnedTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
-            rect = rect.intersected(widgetRect);
-        }
+QRect ComboTabBar::draggedTabRect() const
+{
+    const QRect r = m_pinnedTabBar->draggedTabRect();
+    if (r.isValid()) {
+        return mapFromLocalTabRect(r, m_pinnedTabBar);
     }
-
-    return rect;
+    return mapFromLocalTabRect(m_mainTabBar->draggedTabRect(), m_mainTabBar);
 }
 
 QPixmap ComboTabBar::tabPixmap(int index) const
@@ -931,6 +921,29 @@ int ComboTabBar::toLocalIndex(int globalIndex) const
     }
 }
 
+QRect ComboTabBar::mapFromLocalTabRect(const QRect &rect, QWidget *tabBar) const
+{
+    if (!rect.isValid()) {
+        return rect;
+    }
+
+    QRect r = rect;
+
+    if (tabBar == m_mainTabBar) {
+        r.moveLeft(r.x() + mapFromGlobal(m_mainTabBar->mapToGlobal(QPoint(0, 0))).x());
+        QRect widgetRect = m_mainTabBarWidget->scrollArea()->viewport()->rect();
+        widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_mainTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
+        r = r.intersected(widgetRect);
+    } else {
+        r.moveLeft(r.x() + mapFromGlobal(m_pinnedTabBar->mapToGlobal(QPoint(0, 0))).x());
+        QRect widgetRect = m_pinnedTabBarWidget->scrollArea()->viewport()->rect();
+        widgetRect.moveLeft(widgetRect.x() + mapFromGlobal(m_pinnedTabBarWidget->scrollArea()->viewport()->mapToGlobal(QPoint(0, 0))).x());
+        r = r.intersected(widgetRect);
+    }
+
+    return r;
+}
+
 void ComboTabBar::updatePinnedTabBarVisibility()
 {
     m_pinnedTabBarWidget->setVisible(pinnedTabsCount() > 0);
@@ -1019,6 +1032,22 @@ QSize TabBarHelper::tabSizeHint(int index) const
 QSize TabBarHelper::baseClassTabSizeHint(int index) const
 {
     return QTabBar::tabSizeHint(index);
+}
+
+QRect TabBarHelper::draggedTabRect() const
+{
+    if (!m_dragInProgress) {
+        return QRect();
+    }
+
+    QStyleOptionTab tab;
+    initStyleOption(&tab, currentIndex());
+
+    const int tabDragOffset = dragOffset(&tab, currentIndex());
+    if (tabDragOffset != 0) {
+        tab.rect.moveLeft(tab.rect.x() + tabDragOffset);
+    }
+    return tab.rect;
 }
 
 QPixmap TabBarHelper::tabPixmap(int index) const
@@ -1160,6 +1189,22 @@ bool TabBarHelper::event(QEvent* ev)
     return false;
 }
 
+// Hack to get dragOffset from QTabBar internals
+int TabBarHelper::dragOffset(QStyleOptionTab *option, int tabIndex) const
+{
+    QStyle::SubElement element = QStyle::SE_TabBarTabLeftButton;
+    QWidget *button = tabButton(tabIndex, QTabBar::LeftSide);
+    if (!button) {
+        element = QStyle::SE_TabBarTabRightButton;
+        button = tabButton(tabIndex, QTabBar::RightSide);
+    }
+    if (!button) {
+        return 0;
+    }
+    const QPoint p = style()->subElementRect(element, option, this).topLeft();
+    return button->pos().x() - p.x();
+}
+
 // Taken from qtabbar.cpp
 void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBase *optTabBase, QTabBar* tabbar, QSize size)
 {
@@ -1205,21 +1250,6 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
         QPainter p(this);
         p.fillRect(rect(), palette().color(QPalette::Background));
     }
-
-    // Hack to get dragOffset from QTabBar internals
-    auto dragOffset = [this](QStyleOptionTab *option, int index) {
-        QStyle::SubElement element = QStyle::SE_TabBarTabLeftButton;
-        QWidget *button = tabButton(index, QTabBar::LeftSide);
-        if (!button) {
-            element = QStyle::SE_TabBarTabRightButton;
-            button = tabButton(index, QTabBar::RightSide);
-        }
-        if (!button) {
-            return 0;
-        }
-        const QPoint p = style()->subElementRect(element, option, this).topLeft();
-        return button->pos().x() - p.x();
-    };
 
     QStyleOptionTabBarBase optTabBase;
     initStyleBaseOption(&optTabBase, this, size());
