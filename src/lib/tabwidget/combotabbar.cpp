@@ -1302,7 +1302,8 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
         if (m_dropIndicatorPosition == ComboTabBar::BeforeTab) {
             r = QRect(qMax(0, tr.left() - 1), tr.top(), 3, tr.height());
         } else {
-            r = QRect(tr.right(), tr.top() - 3, 3, tr.height());
+            const int rightOffset = m_dropIndicatorIndex == count() - 1 ? -2 : 0;
+            r = QRect(tr.right() + rightOffset, tr.top(), 3, tr.height());
         }
         // Modified code from KFilePlacesView
         QColor color = palette().brush(QPalette::Normal, QPalette::Highlight).color();
