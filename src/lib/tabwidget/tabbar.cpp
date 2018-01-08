@@ -381,20 +381,6 @@ void TabBar::currentTabChanged(int index)
     m_tabWidget->currentTabChanged(index);
 }
 
-void TabBar::overrideTabTextColor(int index, QColor color)
-{
-    if (!m_originalTabTextColor.isValid()) {
-        m_originalTabTextColor = tabTextColor(index);
-    }
-
-    setTabTextColor(index, color);
-}
-
-void TabBar::restoreTabTextColor(int index)
-{
-    setTabTextColor(index, m_originalTabTextColor);
-}
-
 void TabBar::setTabText(int index, const QString &text)
 {
     QString tabText = text;

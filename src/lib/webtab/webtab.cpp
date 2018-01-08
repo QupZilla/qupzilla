@@ -380,19 +380,6 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
         m_tabBar->setTabText(index, tab.title);
         m_locationBar->showUrl(tab.url);
         m_tabIcon->updateIcon();
-
-        if (!tab.url.isEmpty()) {
-            QColor col = m_tabBar->palette().text().color();
-            QColor newCol = col.lighter(250);
-
-            // It won't work for black color because (V) = 0
-            // It won't also work for white, as white won't get any lighter
-            if (col == Qt::black || col == Qt::white) {
-                newCol = Qt::gray;
-            }
-
-            m_tabBar->overrideTabTextColor(index, newCol);
-        }
     }
     else {
         // This is called only on restore session and restoring tabs immediately
@@ -471,7 +458,6 @@ void WebTab::slotRestore()
     }
 
     p_restoreTab(m_savedTab);
-    m_tabBar->restoreTabTextColor(tabIndex());
     m_savedTab.clear();
 }
 

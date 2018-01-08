@@ -38,9 +38,6 @@ public:
     void setVisible(bool visible);
     void setForceHidden(bool hidden);
 
-    void overrideTabTextColor(int index, QColor color);
-    void restoreTabTextColor(int index);
-
     void setTabText(int index, const QString &text);
 
     void wheelEvent(QWheelEvent* event);
@@ -88,7 +85,6 @@ private:
     mutable int m_normalTabWidth;
     mutable int m_activeTabWidth;
 
-    QColor m_originalTabTextColor;
     QPoint m_dragStartPosition;
 
     bool m_forceHidden;
