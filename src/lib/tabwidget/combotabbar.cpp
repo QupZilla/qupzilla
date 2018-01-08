@@ -1455,7 +1455,7 @@ void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
     QTabBar::initStyleOption(option, tabIndex);
 
     // Workaround zero padding when tabs are styled using style sheets
-    if (m_tabPadding > 0 && (tabIndex != currentIndex() || m_dragInProgress)) {
+    if (m_tabPadding) {
         const QRect textRect = style()->subElementRect(QStyle::SE_TabBarTabText, option, this);
         const int width = textRect.width() - 2 * m_tabPadding;
         option->text = option->fontMetrics.elidedText(tabText(tabIndex), elideMode(), width, Qt::TextShowMnemonic);
