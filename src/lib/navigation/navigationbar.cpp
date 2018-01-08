@@ -159,6 +159,15 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     m_navigationSplitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
     m_navigationSplitter->setCollapsible(0, false);
 
+    m_exitFullscreen = new ToolButton(this);
+    m_exitFullscreen->setObjectName("navigation-button-exitfullscreen");
+    m_exitFullscreen->setToolTip(tr("Exit Fullscreen"));
+    m_exitFullscreen->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_exitFullscreen->setToolbarButtonLook(true);
+    m_exitFullscreen->setFocusPolicy(Qt::NoFocus);
+    m_exitFullscreen->setAutoRaise(true);
+    m_exitFullscreen->setVisible(false);
+
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequested(QPoint)));
 
@@ -176,6 +185,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     connect(buttonHome, SIGNAL(controlClicked()), m_window, SLOT(goHomeInNewTab()));
     connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
     connect(buttonAddTab, SIGNAL(middleMouseClicked()), m_window->tabWidget(), SLOT(addTabFromClipboard()));
+    connect(m_exitFullscreen, SIGNAL(clicked(bool)), m_window, SLOT(toggleFullScreen()));
 
     connect(mApp, &MainApplication::settingsReloaded, this, &NavigationBar::loadSettings);
 
@@ -185,6 +195,7 @@ NavigationBar::NavigationBar(BrowserWindow* window)
     addWidget(buttonAddTab, QSL("button-addtab"), tr("Add tab button"));
     addWidget(m_navigationSplitter, QSL("locationbar"), tr("Address and Search bar"));
     addWidget(buttonTools, QSL("button-tools"), tr("Tools button"));
+    addWidget(m_exitFullscreen, QSL("button-exitfullscreen"), tr("Exit Fullscreen button"));
 
     loadSettings();
 }
@@ -226,6 +237,20 @@ void NavigationBar::showReloadButton()
 void NavigationBar::showStopButton()
 {
     m_reloadStop->showStopButton();
+}
+
+void NavigationBar::enterFullScreen()
+{
+    if (m_layout->indexOf(m_exitFullscreen) != -1) {
+        m_exitFullscreen->show();
+    }
+}
+
+void NavigationBar::leaveFullScreen()
+{
+    if (m_layout->indexOf(m_exitFullscreen) != -1) {
+        m_exitFullscreen->hide();
+    }
 }
 
 void NavigationBar::setSuperMenuVisible(bool visible)
@@ -518,6 +543,12 @@ void NavigationBar::reloadLayout()
     if (m_searchLine->isVisible() && m_navigationSplitter->sizes().at(1) == 0) {
         const int locationBarSize = m_navigationSplitter->sizes().at(0);
         setSplitterSizes(locationBarSize - 50, 50);
+    }
+
+    if (m_window->isFullScreen()) {
+        enterFullScreen();
+    } else {
+        leaveFullScreen();
     }
 
     setUpdatesEnabled(true);

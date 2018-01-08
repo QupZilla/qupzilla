@@ -48,8 +48,12 @@ public:
     void setSplitterSizes(int locationBar, int websearchBar);
 
     void setCurrentView(TabbedWebView *view);
+
     void showReloadButton();
     void showStopButton();
+
+    void enterFullScreen();
+    void leaveFullScreen();
 
     WebSearchBar* webSearchBar() { return m_searchLine; }
     QSplitter* splitter() { return m_navigationSplitter; }
@@ -109,6 +113,7 @@ private:
     ReloadStopButton* m_reloadStop;
     Menu *m_menuTools;
     ToolButton* m_supMenu;
+    ToolButton *m_exitFullscreen;
 
     struct WidgetData {
         QString id;

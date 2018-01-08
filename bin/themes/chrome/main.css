@@ -96,6 +96,11 @@
     qproperty-icon: url(images/navigation-tools.png);
 }
 
+#navigation-button-exitfullscreen
+{
+    qproperty-icon: url(images/navigation-exit-fullscreen.png);
+}
+
 #navigation-button-supermenu
 {
     qproperty-multiIcon: url(images/navigation-supermenu.png);

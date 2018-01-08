@@ -74,6 +74,12 @@
     qproperty-fallbackIcon: url(images/tools.svg);
 }
 
+#navigation-button-exitfullscreen
+{
+    qproperty-themeIcon: "view-restore";
+    qproperty-fallbackIcon: url(images/exit-fullscreen.svg);
+}
+
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "application-menu";

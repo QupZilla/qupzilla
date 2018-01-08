@@ -1207,6 +1207,7 @@ bool BrowserWindow::event(QEvent* event)
             statusBar()->hide();
 
             m_navigationContainer->hide();
+            m_navigationToolbar->enterFullScreen();
         }
         else if (m_oldWindowState & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
@@ -1217,6 +1218,7 @@ bool BrowserWindow::event(QEvent* event)
 
             m_navigationContainer->show();
             m_navigationToolbar->setSuperMenuVisible(!m_menuBarVisible);
+            m_navigationToolbar->leaveFullScreen();
             m_isHtmlFullScreen = false;
         }
 
