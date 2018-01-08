@@ -34,6 +34,8 @@ public:
     struct ClickController {
         QWidget *visualParent;
         std::function<QPoint(QSize)> popupPosition;
+        bool popupOpened = false;
+        std::function<void()> popupClosed;
     };
 
     explicit AbstractButtonInterface(QObject *parent = nullptr);

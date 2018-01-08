@@ -141,31 +141,34 @@ void AdBlockIcon::clicked(ClickController *controller)
 
     const QUrl pageUrl = view->url();
 
-    QMenu menu;
-    menu.addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
-    menu.addSeparator();
+    QMenu *menu = new QMenu();
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+    menu->addAction(tr("Show AdBlock &Settings"), manager, SLOT(showDialog()));
+    menu->addSeparator();
 
     if (!pageUrl.host().isEmpty() && manager->isEnabled() && manager->canRunOnScheme(pageUrl.scheme())) {
         const QString host = view->url().host().contains(QLatin1String("www.")) ? pageUrl.host().mid(4) : pageUrl.host();
         const QString hostFilter = QString("@@||%1^$document").arg(host);
         const QString pageFilter = QString("@@|%1|$document").arg(pageUrl.toString());
 
-        QAction* act = menu.addAction(tr("Disable on %1").arg(host));
+        QAction* act = menu->addAction(tr("Disable on %1").arg(host));
         act->setCheckable(true);
         act->setChecked(customList->containsFilter(hostFilter));
         act->setData(hostFilter);
         connect(act, SIGNAL(triggered()), this, SLOT(toggleCustomFilter()));
 
-        act = menu.addAction(tr("Disable only on this page"));
+        act = menu->addAction(tr("Disable only on this page"));
         act->setCheckable(true);
         act->setChecked(customList->containsFilter(pageFilter));
         act->setData(pageFilter);
         connect(act, SIGNAL(triggered()), this, SLOT(toggleCustomFilter()));
-
-        menu.addSeparator();
     }
 
-    menu.exec(controller->popupPosition(menu.sizeHint()));
+    connect(menu, &QMenu::aboutToHide, this, [=]() {
+        controller->popupClosed();
+    });
+
+    menu->popup(controller->popupPosition(menu->sizeHint()));
 }
 
 void AdBlockIcon::blockedRequestsChanged(const QUrl &url)

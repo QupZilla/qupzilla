@@ -49,20 +49,26 @@ NavigationBarToolButton::NavigationBarToolButton(AbstractButtonInterface *button
 
 void NavigationBarToolButton::clicked()
 {
-    AbstractButtonInterface::ClickController c;
-    c.visualParent = this;
-    c.popupPosition = [this](const QSize &size) {
+    AbstractButtonInterface::ClickController *c = new AbstractButtonInterface::ClickController;
+    c->visualParent = this;
+    c->popupPosition = [=](const QSize &size) {
         QPoint pos = mapToGlobal(rect().bottomRight());
         if (QApplication::isRightToLeft()) {
             pos.setX(pos.x() - rect().width());
         } else {
             pos.setX(pos.x() - size.width());
         }
+        c->popupOpened = true;
         return pos;
     };
-    setDown(true);
-    emit m_button->clicked(&c);
-    setDown(false);
+    c->popupClosed = [=]() {
+        setDown(false);
+        delete c;
+    };
+    emit m_button->clicked(c);
+    if (c->popupOpened) {
+        setDown(true);
+    }
 }
 
 void NavigationBarToolButton::updateIcon()
