@@ -263,20 +263,15 @@ public:
 public slots:
     void setCurrentIndex(int index);
 
-private slots:
-    void tabWasMoved(int from, int to);
-
 private:
     bool event(QEvent* ev);
     void paintEvent(QPaintEvent* event);
     void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent* event);
 
     int dragOffset(QStyleOptionTab *option, int tabIndex) const;
     void initStyleOption(QStyleOptionTab* option, int tabIndex) const;
-
-    void tabInserted(int index);
-    void tabRemoved(int index);
 
     ComboTabBar* m_comboTabBar;
     QScrollArea* m_scrollArea;
@@ -284,6 +279,8 @@ private:
     int m_tabPadding = -1;
     int m_pressedIndex;
     bool m_dragInProgress;
+    QPoint m_dragStartPosition;
+    QWidget *m_movingTab = nullptr;
     bool m_activeTabBar;
     bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;

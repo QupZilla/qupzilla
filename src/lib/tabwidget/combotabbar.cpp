@@ -1003,7 +1003,6 @@ TabBarHelper::TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar)
     , m_isPinnedTabBar(isPinnedTabBar)
     , m_useFastTabSizeHint(false)
 {
-    connect(this, SIGNAL(tabMoved(int,int)), this, SLOT(tabWasMoved(int,int)));
 }
 
 int TabBarHelper::tabPadding() const
@@ -1241,16 +1240,8 @@ void TabBarHelper::initStyleBaseOption(QStyleOptionTabBarBase *optTabBase, QTabB
 
 // Adapted from qtabbar.cpp
 // Note: doesn't support vertical tabs
-void TabBarHelper::paintEvent(QPaintEvent *event)
+void TabBarHelper::paintEvent(QPaintEvent *)
 {
-    if (m_dragInProgress) {
-        // Still needs to be called because it updates movingTab geometry
-        QTabBar::paintEvent(event);
-
-        QPainter p(this);
-        p.fillRect(rect(), palette().color(QPalette::Background));
-    }
-
     QStyleOptionTabBarBase optTabBase;
     initStyleBaseOption(&optTabBase, this, size());
 
@@ -1337,8 +1328,11 @@ void TabBarHelper::paintEvent(QPaintEvent *event)
             tab.state = tab.state & ~QStyle::State_Selected;
         }
 
-        if (!m_dragInProgress) {
+        if (!m_movingTab || !m_movingTab->isVisible()) {
             p.drawControl(QStyle::CE_TabBarTab, tab);
+        } else {
+            int taboverlap = style()->pixelMetric(QStyle::PM_TabBarTabOverlap, nullptr, this);
+            m_movingTab->setGeometry(tab.rect.adjusted(-taboverlap, 0, taboverlap, 0));
         }
     }
 
@@ -1374,7 +1368,7 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
     if (event->buttons() == Qt::LeftButton) {
         m_pressedIndex = tabAt(event->pos());
         if (m_pressedIndex != -1) {
-            m_dragInProgress = true;
+            m_dragStartPosition = event->pos();
             // virtualize selecting tab by click
             if (m_pressedIndex == currentIndex() && !m_activeTabBar) {
                 emit currentChanged(currentIndex());
@@ -1385,12 +1379,39 @@ void TabBarHelper::mousePressEvent(QMouseEvent* event)
     QTabBar::mousePressEvent(event);
 }
 
+void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!m_dragInProgress && m_pressedIndex != -1) {
+        if ((event->pos() - m_dragStartPosition).manhattanLength() > QApplication::startDragDistance()) {
+            m_dragInProgress = true;
+        }
+    }
+
+    QTabBar::mouseMoveEvent(event);
+
+    // Hack to find QMovableTabWidget
+    if (m_dragInProgress && !m_movingTab) {
+        const auto objects = children();
+        const int taboverlap = style()->pixelMetric(QStyle::PM_TabBarTabOverlap, nullptr, this);
+        QRect grabRect = tabRect(currentIndex());
+        grabRect.adjust(-taboverlap, 0, taboverlap, 0);
+        for (QObject *object : objects) {
+            QWidget *widget = qobject_cast<QWidget*>(object);
+            if (widget && widget->geometry() == grabRect) {
+                m_movingTab = widget;
+                break;
+            }
+        }
+    }
+}
+
 void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 {
     event->ignore();
 
     m_pressedIndex = -1;
     m_dragInProgress = false;
+    m_dragStartPosition = QPoint();
 
     QTabBar::mouseReleaseEvent(event);
 
@@ -1429,42 +1450,6 @@ void TabBarHelper::initStyleOption(QStyleOptionTab* option, int tabIndex) const
     }
     else {
         option->position = QStyleOptionTab::OnlyOneTab;
-    }
-}
-
-void TabBarHelper::tabWasMoved(int from, int to)
-{
-    if (m_pressedIndex != -1) {
-        if (m_pressedIndex == from) {
-            m_pressedIndex = to;
-        }
-        else {
-            const int start = qMin(from, to);
-            const int end = qMax(from, to);
-
-            if (m_pressedIndex >= start && m_pressedIndex <= end) {
-                m_pressedIndex += (from < to) ? -1 : 1;
-            }
-        }
-    }
-}
-
-void TabBarHelper::tabInserted(int index)
-{
-    if (m_pressedIndex != -1 && index <= m_pressedIndex) {
-        ++m_pressedIndex;
-    }
-}
-
-void TabBarHelper::tabRemoved(int index)
-{
-    if (m_pressedIndex != -1) {
-        if (index < m_pressedIndex) {
-            --m_pressedIndex;
-        }
-        else if (index == m_pressedIndex) {
-            m_pressedIndex = -1;
-        }
     }
 }
 
