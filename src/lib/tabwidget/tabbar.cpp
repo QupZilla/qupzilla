@@ -463,12 +463,6 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
     }
 
     if (!m_dragStartPosition.isNull()) {
-        if (m_tabWidget->buttonAddTab()->isVisible()) {
-            int manhattanLength = (event->pos() - m_dragStartPosition).manhattanLength();
-            if (manhattanLength > QApplication::startDragDistance()) {
-                m_tabWidget->buttonAddTab()->hide();
-            }
-        }
         int offset = 0;
         const int eventY = event->pos().y();
         if (eventY < 0) {
