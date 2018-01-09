@@ -61,8 +61,6 @@ public:
     void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
     void javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) override;
 
-    void setJavaScriptEnabled(bool enabled);
-
     bool hasMultipleUsernames() const;
     QVector<PasswordEntry> autoFillData() const;
 

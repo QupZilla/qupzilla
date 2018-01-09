@@ -583,11 +583,6 @@ void WebPage::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, cons
     std::cout << qPrintable(sourceID) << ":" << lineNumber << " " << qPrintable(message);
 }
 
-void WebPage::setJavaScriptEnabled(bool enabled)
-{
-    settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, enabled);
-}
-
 QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
 {
     TabbedWebView *tView = qobject_cast<TabbedWebView*>(view());
