@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,12 @@
 #ifndef ADBLOCKTREEWIDGET_H
 #define ADBLOCKTREEWIDGET_H
 
-#include "qzcommon.h"
 #include "treewidget.h"
 
 class AdBlockSubscription;
 class AdBlockRule;
 
-class QUPZILLA_EXPORT AdBlockTreeWidget : public TreeWidget
+class AdBlockTreeWidget : public TreeWidget
 {
     Q_OBJECT
 public:

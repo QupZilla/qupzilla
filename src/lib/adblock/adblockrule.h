@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,7 +50,6 @@
 #include <QStringList>
 #include <QStringMatcher>
 
-#include "qzcommon.h"
 #include "qzregexp.h"
 
 class QUrl;
@@ -58,7 +57,7 @@ class QWebEngineUrlRequestInfo;
 
 class AdBlockSubscription;
 
-class QUPZILLA_EXPORT AdBlockRule
+class AdBlockRule
 {
     Q_DISABLE_COPY(AdBlockRule)
 

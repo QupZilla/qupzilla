@@ -1,7 +1,6 @@
 include(defines.pri)
 
 INCLUDEPATH += $$PWD/lib/3rdparty \
-               $$PWD/lib/adblock \
                $$PWD/lib/app \
                $$PWD/lib/autofill \
                $$PWD/lib/bookmarks \

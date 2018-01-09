@@ -19,13 +19,12 @@
 #ifndef ADBLOCKURLINTERCEPTOR_H
 #define ADBLOCKURLINTERCEPTOR_H
 
-#include "qzcommon.h"
 #include "urlinterceptor.h"
 #include "adblockmanager.h"
 
 class AdBlockManager;
 
-class QUPZILLA_EXPORT AdBlockUrlInterceptor : public UrlInterceptor
+class AdBlockUrlInterceptor : public UrlInterceptor
 {
     Q_OBJECT
 

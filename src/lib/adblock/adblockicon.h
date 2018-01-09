@@ -20,10 +20,9 @@
 
 #include <QPointer>
 
-#include "qzcommon.h"
 #include "abstractbuttoninterface.h"
 
-class QUPZILLA_EXPORT AdBlockIcon : public AbstractButtonInterface
+class AdBlockIcon : public AbstractButtonInterface
 {
     Q_OBJECT
 

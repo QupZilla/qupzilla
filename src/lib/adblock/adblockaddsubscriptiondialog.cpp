@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "adblockaddsubscriptiondialog.h"
 #include "ui_adblockaddsubscriptiondialog.h"
+#include "adblockmanager.h"
 
 AdBlockAddSubscriptionDialog::AdBlockAddSubscriptionDialog(QWidget* parent)
     : QDialog(parent)
