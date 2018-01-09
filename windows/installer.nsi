@@ -223,13 +223,6 @@ SectionGroup $(TITLE_SecThemes) SecThemes
   SetOutPath "$INSTDIR\themes\mac\images"
   File "${QZ_BIN_DIR}\themes\mac\images\*"
   SectionEnd
-
-  Section Breathe SecBreathe
-  SetOutPath "$INSTDIR\themes\breathe"
-  File "${QZ_BIN_DIR}\themes\breathe\*"
-  SetOutPath "$INSTDIR\themes\breathe\images"
-  File "${QZ_BIN_DIR}\themes\breathe\images\*"
-  SectionEnd
 SectionGroupEnd
 
 Section $(TITLE_SecTranslations) SecTranslations
