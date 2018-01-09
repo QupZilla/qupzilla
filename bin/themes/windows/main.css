@@ -155,6 +155,7 @@ ToolButton[button-id="button-downloads"]
     padding-left: 3px;
     min-width: 16px;
     max-width: 16px;
+    background: transparent;
 }
 
 #combotabbar_tabs_close_button
