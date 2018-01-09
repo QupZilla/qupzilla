@@ -1066,7 +1066,6 @@ void Preferences::saveSettings()
     mApp->cookieJar()->loadSettings();
     mApp->history()->loadSettings();
     mApp->reloadSettings();
-    mApp->plugins()->c2f_saveSettings();
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
     mApp->networkManager()->loadSettings();
