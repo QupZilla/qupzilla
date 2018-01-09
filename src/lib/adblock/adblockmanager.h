@@ -25,6 +25,8 @@
 #include <QUrl>
 #include <QWebEngineUrlRequestInfo>
 
+#include "qzcommon.h"
+
 #define ADBLOCK_EASYLIST_URL "https://easylist-downloads.adblockplus.org/easylist.txt"
 
 class AdBlockRule;
@@ -45,7 +47,7 @@ struct AdBlockedRequest
 };
 Q_DECLARE_METATYPE(AdBlockedRequest)
 
-class AdBlockManager : public QObject
+class QUPZILLA_EXPORT AdBlockManager : public QObject
 {
     Q_OBJECT
 

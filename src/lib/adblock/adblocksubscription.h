@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - Qt web browser
-* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
+* QupZilla - WebKit based browser
+* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,13 +49,14 @@
 #include <QVector>
 #include <QUrl>
 
+#include "qzcommon.h"
 #include "adblockrule.h"
 #include "adblocksearchtree.h"
 
 class QUrl;
 class QNetworkReply;
 
-class AdBlockSubscription : public QObject
+class QUPZILLA_EXPORT AdBlockSubscription : public QObject
 {
     Q_OBJECT
 public:

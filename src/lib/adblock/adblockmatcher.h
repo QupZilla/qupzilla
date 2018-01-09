@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,16 +19,16 @@
 #define ADBLOCKMATCHER_H
 
 #include <QUrl>
-#include <QVector>
 #include <QObject>
 
+#include "qzcommon.h"
 #include "adblocksearchtree.h"
 
 class QWebEngineUrlRequestInfo;
 
 class AdBlockManager;
 
-class AdBlockMatcher : public QObject
+class QUPZILLA_EXPORT AdBlockMatcher : public QObject
 {
     Q_OBJECT
 
