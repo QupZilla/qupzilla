@@ -3,9 +3,15 @@ Version 2.2.4
     * added option to disable search suggestions from locationbar
     * added support for detaching and moving tabs to other windows with drag&drop
     * added support for dropping text/url on tabbar to create new tabs
+    * added support for GreaseMonkey 4.0 API in userscripts
+    * added support for customizing navigation bar layout and widgets
+    * added support for loading userChrome.css stylesheet from profile to configure interface
+    * added new buttons to navigation bar: Tools, Downloads, GreaseMonkey and AdBlock
+    * added new Windows theme and improve every other theme
     * closed windows can now be restored using history menu or Ctrl+Shit+N shortcut
     * multiple windows in session now each restore its geometry, state and settings
-    * fix restore session page with disabled JavaScript
+    * number of fixes and improvements in tabbar
+    * fix internal pages not working when JavaScript is disabled
     * fix showing close button in Web Inspector
     * fix tabs not being restored when activated in some cases
     * fix loading "localhost" from locationbar
