@@ -1050,9 +1050,9 @@ QRect TabBarHelper::draggedTabRect() const
     }
 
     QStyleOptionTab tab;
-    initStyleOption(&tab, currentIndex());
+    initStyleOption(&tab, m_pressedIndex);
 
-    const int tabDragOffset = dragOffset(&tab, currentIndex());
+    const int tabDragOffset = dragOffset(&tab, m_pressedIndex);
     if (tabDragOffset != 0) {
         tab.rect.moveLeft(tab.rect.x() + tabDragOffset);
     }
