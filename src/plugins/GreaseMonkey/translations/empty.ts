@@ -57,17 +57,17 @@
 <context>
     <name>GM_Icon</name>
     <message>
-        <location filename="../gm_icon.cpp" line="29"/>
+        <location filename="../gm_icon.cpp" line="28"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_icon.cpp" line="30"/>
+        <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_icon.cpp" line="42"/>
+        <location filename="../gm_icon.cpp" line="41"/>
         <source>GreaseMonkey Icon</source>
         <translation type="unfinished"></translation>
     </message>
