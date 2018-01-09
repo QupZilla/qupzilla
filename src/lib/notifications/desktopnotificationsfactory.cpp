@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,8 @@
 #include "desktopnotification.h"
 #include "datapaths.h"
 #include "settings.h"
+#include "mainapplication.h"
+#include "browserwindow.h"
 
 #include <QFile>
 #include <QDir>
@@ -100,19 +102,12 @@ void DesktopNotificationsFactory::showNotification(const QPixmap &icon, const QS
 
 void DesktopNotificationsFactory::nativeNotificationPreview()
 {
-#if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
-    QDBusInterface dbus("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
-    QVariantList args;
-    args.append(QLatin1String("qupzilla"));
-    args.append(m_uint);
-    args.append(QString());
-    args.append(QObject::tr("Native System Notification"));
-    args.append(QString());
-    args.append(QStringList());
-    args.append(QVariantMap());
-    args.append(m_timeout);
-    dbus.callWithCallback("Notify", args, this, SLOT(updateLastId(QDBusMessage)), SLOT(error(QDBusError)));
-#endif
+    Type type = m_notifType;
+
+    m_notifType = DesktopNative;
+    const QPixmap icon = mApp->getWindow()->windowIcon().pixmap(64);
+    showNotification(icon, QObject::tr("Native System Notification"), tr("Preview"));
+    m_notifType = type;
 }
 
 #if defined(Q_OS_UNIX) && !defined(DISABLE_DBUS)
