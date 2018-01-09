@@ -279,18 +279,6 @@ IconProvider
     qproperty-fixedsize: 42px 23px;
 }
 
-/*SourceViewer*/
-#sourceviewer-textedit
-{
-    border:none;
-}
-
-/*SourceViewerSearch*/
-SourceViewerSearch #lineEdit[notfound="true"]
-{
-    background:#ff6666;
-}
-
 /*SearchToolbar*/
 SearchToolBar #lineEdit[notfound="true"]
 {
@@ -300,31 +288,35 @@ SearchToolBar #lineEdit[notfound="true"]
 /*AboutDialog*/
 AboutDialog #label
 {
-    background:white;
+    background: palette(window);
 }
 
 AboutDialog #textBrowser
 {
-    border:none;
-    margin-top: -2px; /* Workarounding rounded border on KDE */
+    background: palette(window);
 }
 
 /*DesktopNotification*/
 DesktopNotification
 {
-    background: transparent;
+    background: #31363b;
 }
+
 DesktopNotification #frame
 {
-    border: 2px solid darkblue;
-    border-radius: 20px;
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 #d3e5f1);
+    border: 1px solid #696d71;
+    padding: 10px;
 }
 
 DesktopNotification #heading
 {
     font: bold;
-    font-size: 13pt;
+    color: #c2c7c7;
+}
+
+DesktopNotification #text
+{
+    color: #e7ebeb;
 }
 
 /*BrowsingLibrary*/
@@ -336,17 +328,6 @@ BrowsingLibrary #tabs
 BrowsingLibrary #frame
 {
     background: url(images/library-bg.png);
-}
-
-/*Downloads*/
-DownloadItem #fileName
-{
-    font-size: 13pt;
-}
-
-DownloadManager #list
-{
-    border: none;
 }
 
 /*JavaScript Dialogs*/
