@@ -377,7 +377,15 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
         return false;
     }
 
-    return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+    const bool result = QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+
+    if (result && isMainFrame) {
+        const bool isWeb = url.scheme() == QL1S("http") || url.scheme() == QL1S("https");
+        const bool globalJsEnabled = mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
+        settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, isWeb ? globalJsEnabled : true);
+    }
+
+    return result;
 }
 
 bool WebPage::certificateError(const QWebEngineCertificateError &error)
