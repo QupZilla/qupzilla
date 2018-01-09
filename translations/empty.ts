@@ -223,17 +223,17 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="193"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="183"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="195"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="185"/>
         <source>AdBlock Subscription</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="325"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="315"/>
         <source>EasyList</source>
         <translation type="unfinished"></translation>
     </message>
@@ -276,6 +276,19 @@
     <message>
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="188"/>
         <source>%1 (Error: %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockUrlInterceptor</name>
+    <message>
+        <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="44"/>
+        <source>Blocked content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="45"/>
+        <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2464,37 +2477,37 @@ Are you sure you want to close this window?</source>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1096"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1094"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1097"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1095"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1099"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1097"/>
         <source>Default Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1187"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1185"/>
         <source>Open new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1188"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1186"/>
         <source>Open new window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1189"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1187"/>
         <source>Open new private window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1204"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1202"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4109,7 +4122,7 @@ Are you sure you want to close this window?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1101"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1100"/>
         <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4175,433 +4188,423 @@ Are you sure you want to close this window?</source>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Report Issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
         <source>Your E-mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
         <source>Issue type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="162"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="159"/>
         <source>Issue description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="164"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="166"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
         <source>Please fill out all required fields!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="194"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
         <source>Start Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
         <source>Search on Web</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="193"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="215"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="212"/>
         <source>About QupZilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="213"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>Information about version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
         <source>Copyright</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="227"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="224"/>
         <source>Main developer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="229"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="226"/>
         <source>Contributors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="238"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Speed Dial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Add New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Are you sure you want to remove this speed dial?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Are you sure you want to reload all speed dials?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Load title from page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>SpeedDial requires enabled JavaScript.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>New Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Speed Dial settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Placement: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
         <source>Fit Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
         <source>Fit Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
         <source>Use background image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
         <source>Select image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
         <source>Maximum pages in a row:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
         <source>Change size of pages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
         <source>Center speed dials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <source>Restore Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Oops, QupZilla crashed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Or you can start completely new session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Windows and Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Start New Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Requires enabled JavaScript.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Configuration Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Browser Identification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Paths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Build Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Application version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Qt version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
         <source>Platform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>Profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
         <source>Saved session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <source>Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="415"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
         <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="427"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
         <source>Debug build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
         <source>Windows 7 API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
         <source>Portable build</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="449"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="446"/>
         <source>No available extensions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="507"/>
-        <source>Blocked content</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="516"/>
-        <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5449,58 +5452,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="269"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="268"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="274"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="273"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="274"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
         <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
         <source>Failed loading page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
         <source>Something went wrong while loading this page.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
         <source>Reload page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="407"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="397"/>
         <source>Choose file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="411"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="401"/>
         <source>Choose files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="526"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="516"/>
         <source>JavaScript alert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="535"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="525"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation type="unfinished"></translation>
     </message>
