@@ -27,13 +27,34 @@
 #include "navigationbar.h"
 #include "mainapplication.h"
 
-AdBlockPlugin::AdBlockPlugin(QObject *parent)
-    : QObject(parent)
+AdBlockPlugin::AdBlockPlugin()
+    : QObject()
 {
+}
+
+PluginSpec AdBlockPlugin::pluginSpec()
+{
+    return PluginSpec();
+}
+
+void AdBlockPlugin::init(InitState state, const QString &settingsPath)
+{
+    Q_UNUSED(settingsPath)
+    Q_ASSERT(state == StartupInitState);
+
     connect(mApp, &MainApplication::aboutToQuit, AdBlockManager::instance(), &AdBlockManager::save);
     connect(mApp->plugins(), &PluginProxy::webPageCreated, this, &AdBlockPlugin::webPageCreated);
     connect(mApp->plugins(), &PluginProxy::webPageDeleted, this, &AdBlockPlugin::webPageDeleted);
     connect(mApp->plugins(), &PluginProxy::mainWindowCreated, this, &AdBlockPlugin::mainWindowCreated);
+}
+
+void AdBlockPlugin::unload()
+{
+}
+
+bool AdBlockPlugin::testPlugin()
+{
+    return true;
 }
 
 void AdBlockPlugin::webPageCreated(WebPage *page)
@@ -64,4 +85,18 @@ void AdBlockPlugin::webPageDeleted(WebPage *page)
 void AdBlockPlugin::mainWindowCreated(BrowserWindow *window)
 {
     window->navigationBar()->addToolButton(new AdBlockIcon(window));
+}
+
+bool AdBlockPlugin::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
+{
+    Q_UNUSED(type)
+
+    AdBlockManager *manager = AdBlockManager::instance();
+    if (isMainFrame) {
+        manager->clearBlockedRequestsForUrl(page->url());
+    }
+    if (url.scheme() == QL1S("abp") && AdBlockManager::instance()->addSubscriptionFromUrl(url)) {
+        return false;
+    }
+    return true;
 }

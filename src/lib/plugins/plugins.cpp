@@ -21,6 +21,7 @@
 #include "speeddial.h"
 #include "settings.h"
 #include "datapaths.h"
+#include "adblock/adblockplugin.h"
 
 #include <iostream>
 #include <QPluginLoader>
@@ -134,15 +135,19 @@ void Plugins::loadPlugins()
 
         if (plugin.isLoaded()) {
             plugin.pluginSpec = iPlugin->pluginSpec();
-
-            m_loadedPlugins.append(plugin.instance);
             m_availablePlugins.append(plugin);
         }
     }
 
+    // Internal plugins
+    AdBlockPlugin *adBlock = new AdBlockPlugin();
+    if (initPlugin(PluginInterface::StartupInitState, adBlock, nullptr)) {
+        m_internalPlugins.append(adBlock);
+    }
+
     refreshLoadedPlugins();
 
-    std::cout << "QupZilla: " << m_loadedPlugins.count() << " extensions loaded"  << std::endl;
+    std::cout << "QupZilla: " << (m_loadedPlugins.count() - m_internalPlugins.count()) << " extensions loaded"  << std::endl;
 }
 
 void Plugins::loadAvailablePlugins()
@@ -200,7 +205,9 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
 
     if (!pluginInterface->testPlugin()) {
         pluginInterface->unload();
-        loader->unload();
+        if (loader) {
+            loader->unload();
+        }
 
         emit pluginUnloaded(pluginInterface);
 
@@ -214,7 +221,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
 
 void Plugins::refreshLoadedPlugins()
 {
-    m_loadedPlugins.clear();
+    m_loadedPlugins = m_internalPlugins;
 
     foreach (const Plugin &plugin, m_availablePlugins) {
         if (plugin.isLoaded()) {

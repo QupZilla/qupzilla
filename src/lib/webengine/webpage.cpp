@@ -38,7 +38,6 @@
 #include "tabwidget.h"
 #include "networkmanager.h"
 #include "webhittestresult.h"
-#include "adblock/adblockmanager.h"
 #include "ui_jsconfirm.h"
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
@@ -367,15 +366,6 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
 {
     if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
         return false;
-
-    // AdBlock
-    AdBlockManager *manager = AdBlockManager::instance();
-    if (isMainFrame) {
-        manager->clearBlockedRequestsForUrl(WebPage::url());
-    }
-    if (url.scheme() == QL1S("abp") && AdBlockManager::instance()->addSubscriptionFromUrl(url)) {
-        return false;
-    }
 
     const bool result = QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 

@@ -47,7 +47,6 @@
 #include "scripts.h"
 #include "sessionmanager.h"
 #include "closedwindowsmanager.h"
-#include "adblock/adblockplugin.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -311,7 +310,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     m_plugins = new PluginProxy;
     m_autoFill = new AutoFill(this);
-    new AdBlockPlugin(this);
 
     if (!noAddons)
         m_plugins->loadPlugins();

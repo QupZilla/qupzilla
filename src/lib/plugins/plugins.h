@@ -94,6 +94,7 @@ private:
     bool m_pluginsLoaded;
 
     SpeedDial* m_speedDial;
+    QList<PluginInterface*> m_internalPlugins;
 };
 
 Q_DECLARE_METATYPE(Plugins::Plugin)

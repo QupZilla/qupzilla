@@ -17,18 +17,26 @@
 * ============================================================ */
 #pragma once
 
-#include <QObject>
+#include "plugininterface.h"
 
 class WebPage;
 class BrowserWindow;
 
-class AdBlockPlugin : public QObject
+class AdBlockPlugin : public QObject, public PluginInterface
 {
+    Q_OBJECT
+
 public:
-    explicit AdBlockPlugin(QObject *parent = nullptr);
+    explicit AdBlockPlugin();
+    PluginSpec pluginSpec();
+    void init(InitState state, const QString &settingsPath);
+    void unload();
+    bool testPlugin();
 
 private:
     void webPageCreated(WebPage *page);
     void webPageDeleted(WebPage *page);
     void mainWindowCreated(BrowserWindow *window);
+    bool acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) override;
+
 };
