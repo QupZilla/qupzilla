@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="40"/>
         <source>Testing Sidebar</source>
-        <translation>tester sidefane</translation>
+        <translation>Testsidestolpe</translation>
     </message>
 </context>
 </TS>

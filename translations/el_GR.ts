@@ -178,65 +178,60 @@
 <context>
     <name>AdBlockIcon</name>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="42"/>
-        <source>AdBlock lets you block unwanted content on web pages</source>
-        <translation>Το AdBlock σας επιτρέπει να φράζετε  ανεπιθύμητο περιεχόμενο σε ιστοσελίδες</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
-        <source>Blocked popup window</source>
-        <translation>Φραγμένο αναδυόμενο παράθυρο</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="71"/>
-        <source>AdBlock blocked unwanted popup window.</source>
-        <translation>Το AdBlock έφραξε ένα ανεπιθύμητο αναδυόμενο παράθυρο.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="90"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="35"/>
         <source>AdBlock</source>
         <translation>AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="117"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="53"/>
+        <source>AdBlock Icon</source>
+        <translation>Εικονίδιο AdBlock</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="87"/>
+        <source>AdBlock is disabled</source>
+        <translation>Το AdBlock είναι απενεργοποιημένο</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="93"/>
+        <source>AdBlock is disabled on this site </source>
+        <translation>Το AdBlock έχει απενεργοποιηθεί για αυτόν τον ιστοχώρο </translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="99"/>
+        <source>AdBlock is active</source>
+        <translation>Το AdBlock είναι ενεργό</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="145"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>Εμφάνιση &amp;ρυθμίσεων Adblock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="125"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
         <source>Disable on %1</source>
         <translation>Απενεργοποίηση σε %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="131"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="159"/>
         <source>Disable only on this page</source>
         <translation>Απενεργοποίηση σε αυτή τη σελίδα μόνο</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="141"/>
-        <source>Blocked Popup Windows</source>
-        <translation>Φραγμένα αναδυόμενα παράθυρα</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
-        <source>%1 with (%2)</source>
-        <translation>%1 με (%2)</translation>
     </message>
 </context>
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="182"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="193"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
         <translation>Θέλετε να προσθέσετε τη συνδρομή &lt;b&gt;%1&lt;/b&gt;;</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="184"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="195"/>
         <source>AdBlock Subscription</source>
         <translation>Συνδρομή AdBlock</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="314"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="325"/>
         <source>EasyList</source>
         <translation>EasyList</translation>
     </message>
@@ -318,32 +313,32 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>AutoFill</name>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="243"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="240"/>
         <source>Database (encrypted)</source>
         <translation>Βάση Δεδομένων (κρυπτογραφημένη)</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="568"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="561"/>
         <source>Warning!</source>
         <translation>Προσοχή!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="569"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation>Αυτό το σύστημα υποστήριξης (backend) χρειάζεται να οριστεί ένας κύριος κωδικός! Το QupZilla απλά αλλάζει στο προεπιλεγμένο σύστημα υποστήριξης του</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="659"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="652"/>
         <source>Enter Master Password</source>
         <translation>Εισαγωγή κύριου κωδικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="663"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="656"/>
         <source>Permission is required, please enter Master Password:</source>
         <translation>Εξουσιοδότηση απαιτείται, παρακαλώ εισάγετε κύριο κωδικό:</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="669"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="662"/>
         <source>Entered password is wrong!</source>
         <translation>Ο εισαγμένος κωδικός είναι λανθασμένος!</translation>
     </message>
@@ -1039,37 +1034,37 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BookmarksToolbar</name>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="72"/>
         <source>Open in new tab</source>
         <translation>Άνοιγμα σε νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="73"/>
         <source>Open in new window</source>
         <translation>Άνοιγμα σε νέο παράθυρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="75"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
         <source>Open in new private window</source>
         <translation>Άνοιγμα σε νέο ιδιωτικό παράθυρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="76"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="78"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="77"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="80"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="79"/>
         <source>Show Only Icons</source>
         <translation>Εμφάνιση μόνο εικονιδίων</translation>
     </message>
     <message>
-        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="84"/>
+        <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Show Only Text</source>
         <translation>Εμφάνιση μόνο κειμένου</translation>
     </message>
@@ -1106,77 +1101,77 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="105"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="201"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="325"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="383"/>
         <source>IP Address of current page</source>
         <translation>Διεύθυνση IP της τρέχουσας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="590"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="714"/>
         <source> (Private Browsing)</source>
         <translation>(Ιδιωτική περιήγηση)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="826"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="969"/>
         <source>%1 - QupZilla</source>
         <translation>%1 QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="882"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1032"/>
         <source>&amp;Menu Bar</source>
         <translation>Μπάρα &amp;μενού</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="887"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1037"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Ερ&amp;γαλειοθήκη πλοήγησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="891"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1041"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Ερ&amp;γαλειοθήκη σελιδοδεικτών</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="897"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1047"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Καρτέλες στην κορυφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="953"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1101"/>
         <source>Other</source>
         <translation>Άλλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="990"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>HTML files</source>
         <translation>Αρχεία HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="990"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>Image files</source>
         <translation>Αρχεία εικόνων</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="990"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>Text files</source>
         <translation>Αρχεία κειμένου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="990"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
         <source>All files</source>
         <translation>Όλα τα αρχεία</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="992"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Open file...</source>
         <translation>Άνοιγμα αρχείου...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1338"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1485"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Υπάρχουν ακόμα %n ανοιχτές καρτέλες και η συνεδρία σας δεν θα αποθηκευθεί. 
@@ -1184,17 +1179,17 @@ Are you sure you want to close this window?</source>
 Είστε σίγουρος-η ότι θέλετε να κλείσετε το παράθυρο;</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1339"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1486"/>
         <source>Don&apos;t ask again</source>
         <translation>Μην ρωτήσεις ξανά</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1340"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1487"/>
         <source>There are still open tabs</source>
         <translation>Υπάρχουν ανοιχτές καρτέλες</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="66"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="68"/>
         <source>Close Tab</source>
         <translation>Κλείσιμο καρτέλας</translation>
     </message>
@@ -1371,17 +1366,17 @@ Are you sure you want to close this window?</source>
         <translation>Βάση δεδομένων</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="155"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="154"/>
         <source>Done</source>
         <translation>Ολοκληρώθηκε</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="172"/>
         <source>Database Optimized</source>
         <translation>Βελτιστοποιήθηκε η βάση δεδομένων</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/clearprivatedata.cpp" line="173"/>
+        <location filename="../src/lib/other/clearprivatedata.cpp" line="172"/>
         <source>Database successfully optimized.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Database Size Before: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Database Size After: &lt;/b&gt;%2</source>
         <translation>Βελτιστοποιήθηκε επιτυχώς η βάση δεδομένων. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Μέγεθος βάσης δεδομένων πριν: &lt;/b&gt;%1&lt;br/&gt;&lt;b&gt;Μέγεθος βάσης δεδομένων μετά: &lt;/b&gt;%2</translation>
     </message>
@@ -1790,8 +1785,8 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="382"/>
-        <source>Download Finished</source>
-        <translation>Ολοκληρώθηκε η λήψη</translation>
+        <source>QupZilla: Download Finished</source>
+        <translation>QupZilla: Η λήψη ολοκληρώθηκε</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="382"/>
@@ -2024,67 +2019,67 @@ Are you sure you want to close this window?</source>
 <context>
     <name>History</name>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="84"/>
+        <location filename="../src/lib/history/history.cpp" line="85"/>
         <source>Empty Page</source>
         <translation>Άδεια σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="265"/>
+        <location filename="../src/lib/history/history.cpp" line="270"/>
         <source>January</source>
         <translation>Ιανουάριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="267"/>
+        <location filename="../src/lib/history/history.cpp" line="272"/>
         <source>February</source>
         <translation>Φεβρουάριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="269"/>
+        <location filename="../src/lib/history/history.cpp" line="274"/>
         <source>March</source>
         <translation>Μάρτιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="271"/>
+        <location filename="../src/lib/history/history.cpp" line="276"/>
         <source>April</source>
         <translation>Απρίλιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="273"/>
+        <location filename="../src/lib/history/history.cpp" line="278"/>
         <source>May</source>
         <translation>Μάϊος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="275"/>
+        <location filename="../src/lib/history/history.cpp" line="280"/>
         <source>June</source>
         <translation>Ιούνιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="277"/>
+        <location filename="../src/lib/history/history.cpp" line="282"/>
         <source>July</source>
         <translation>Ιούλιος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="279"/>
+        <location filename="../src/lib/history/history.cpp" line="284"/>
         <source>August</source>
         <translation>Αύγουστος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="281"/>
+        <location filename="../src/lib/history/history.cpp" line="286"/>
         <source>September</source>
         <translation>Σεπτέμβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="283"/>
+        <location filename="../src/lib/history/history.cpp" line="288"/>
         <source>October</source>
         <translation>Οκτώβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="285"/>
+        <location filename="../src/lib/history/history.cpp" line="290"/>
         <source>November</source>
         <translation>Νοέμβριος</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/history.cpp" line="287"/>
+        <location filename="../src/lib/history/history.cpp" line="292"/>
         <source>December</source>
         <translation>Δεκέμβριος</translation>
     </message>
@@ -2146,55 +2141,67 @@ Are you sure you want to close this window?</source>
 <context>
     <name>HistoryMenu</name>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="134"/>
-        <location filename="../src/lib/history/historymenu.cpp" line="158"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="135"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="157"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="186"/>
         <source>Empty</source>
         <translation>Άδειο</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="162"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="161"/>
         <source>Restore All Closed Tabs</source>
         <translation>Επαναφορά όλων των κλεισμένων καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="163"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="162"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="190"/>
         <source>Clear list</source>
         <translation>Εκκαθάριση λίστας</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="209"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="189"/>
+        <source>Restore All Closed Windows</source>
+        <translation>Επαναφορά όλων των κλειστών παραθύρων</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="236"/>
         <source>Hi&amp;story</source>
         <translation>&amp;Ιστορικό</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="211"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="238"/>
         <source>&amp;Back</source>
         <translation>&amp;Πίσω</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="214"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="241"/>
         <source>&amp;Forward</source>
         <translation>&amp;Μπροστά</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="217"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="244"/>
         <source>&amp;Home</source>
         <translation>&amp;Αρχική σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="220"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="247"/>
         <source>Show &amp;All History</source>
         <translation>Εμφάνιση &amp;ολόκληρου του ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="228"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="255"/>
         <source>Most Visited</source>
         <translation>Επισκεφτήκατε περισσότερο</translation>
     </message>
     <message>
-        <location filename="../src/lib/history/historymenu.cpp" line="231"/>
+        <location filename="../src/lib/history/historymenu.cpp" line="258"/>
         <source>Closed Tabs</source>
         <translation>Κλεισμένες καρτέλες</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/history/historymenu.cpp" line="261"/>
+        <source>Closed Windows</source>
+        <translation>Κλειστά παράθυρα</translation>
     </message>
 </context>
 <context>
@@ -2408,55 +2415,55 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationCompleterDelegate</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="169"/>
-        <source>Switch to tab</source>
-        <translation>Εναλλαγή σε καρτέλα</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="172"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="149"/>
         <source>Visit</source>
         <translation>Επίσκεψη</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="174"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="160"/>
         <source>Search with %1</source>
         <translation>Αναζήτηση με %1</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="192"/>
+        <source>Switch to tab</source>
+        <translation>Εναλλαγή σε καρτέλα</translation>
     </message>
 </context>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1088"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1094"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>Ο QupZilla δεν είναι αυτή τη στιγμή ο προεπιλεγμένος περιηγητής ιστού σας. Θα θέλατε να τον κάνετε τον προεπιλεγμένο σας περιηγητή ιστού;</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1089"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1095"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Να γίνεται πάντα αυτός ο έλεγχος κατά την έναρξη του QupZilla.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1091"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1097"/>
         <source>Default Browser</source>
         <translation>Προεπιλεγμένος περιηγητής ιστού</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1178"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1185"/>
         <source>Open new tab</source>
         <translation>Άνοιγμα νέας καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1179"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1186"/>
         <source>Open new window</source>
         <translation>Άνοιγμα νέου παραθύρου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1180"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1187"/>
         <source>Open new private window</source>
         <translation>Άνοιγμα νέου ιδιωτικού παραθύρου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1195"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1202"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>Το QupZilla είναι ένας νέος, γρήγορος και ασφαλής ανοιχτού κώδικα περιηγητής ιστού. Ο QupZilla είναι αδειοδοτημένος με GPL έκδοση 3 ή (στην περίπτωση σας) οποιαδήποτε νεότερη. Είναι βασισμένος στον πυρήνα WebKit και στο Qt Framework.</translation>
     </message>
@@ -2465,252 +2472,247 @@ Are you sure you want to close this window?</source>
     <name>MainMenu</name>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="84"/>
-        <location filename="../src/lib/app/mainmenu.cpp" line="537"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="497"/>
         <source>Sessions</source>
         <translation>Συνεδρίες</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="506"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="467"/>
         <source>&amp;About QupZilla</source>
         <translation>Πε&amp;ρί QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="511"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="472"/>
         <source>Pr&amp;eferences</source>
         <translation>Προτι&amp;μήσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="478"/>
         <source>Quit</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="485"/>
         <source>&amp;File</source>
         <translation>&amp;Αρχείο</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="528"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="488"/>
         <source>New Tab</source>
         <translation>Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="489"/>
         <source>&amp;New Window</source>
         <translation>&amp;Νέο παράθυρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="530"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="490"/>
         <source>New &amp;Private Window</source>
         <translation>Νέο παράθυρο ι&amp;διωτικής περιήγησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="491"/>
         <source>Open Location</source>
         <translation>Άνοιγμα τοποθεσίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="532"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="492"/>
         <source>Open &amp;File...</source>
         <translation>Άνοιγμα &amp;αρχείου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="533"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="493"/>
         <source>Close Window</source>
         <translation>Κλείσιμο παραθύρου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="540"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="500"/>
         <source>Session Manager</source>
         <translation>Διαχειριστής συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="547"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="507"/>
         <source>&amp;Save Page As...</source>
         <translation>&amp;Αποθήκευση της σελίδας ως...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="548"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
         <source>Send Link...</source>
         <translation>Αποστολή συνδέσμου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="549"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="509"/>
         <source>&amp;Print...</source>
         <translation>Ε&amp;κτύπωση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="514"/>
         <source>&amp;Edit</source>
         <translation>&amp;Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="558"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="517"/>
         <source>&amp;Undo</source>
         <translation>Αναί&amp;ρεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="519"/>
         <source>&amp;Redo</source>
         <translation>Ακύρωση α&amp;ναίρεσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="561"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="522"/>
         <source>&amp;Cut</source>
         <translation>Απο&amp;κοπή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="562"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="524"/>
         <source>C&amp;opy</source>
         <translation>Αντι&amp;γραφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="526"/>
         <source>&amp;Paste</source>
         <translation>Ε&amp;πικόλληση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="529"/>
         <source>Select &amp;All</source>
         <translation>Επι&amp;λογή όλων</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="566"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="531"/>
         <source>&amp;Find</source>
         <translation>Εύ&amp;ρεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="570"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="536"/>
         <source>&amp;View</source>
         <translation>Π&amp;ροβολή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="574"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="539"/>
         <source>Toolbars</source>
         <translation>Εργαλειοθήκες</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
         <source>Sidebar</source>
         <translation>Πλευρική στήλη</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
         <source>Character &amp;Encoding</source>
         <translation>&amp;Κωδικοποίηση χαρακτήρων</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="587"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="552"/>
         <source>Sta&amp;tus Bar</source>
         <translation>Μπάρα κα&amp;τάστασης</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="554"/>
         <source>&amp;Stop</source>
         <translation>&amp;Διακοπή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="590"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="555"/>
         <source>&amp;Reload</source>
         <translation>&amp;Ανανέωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="557"/>
         <source>Zoom &amp;In</source>
         <translation>Ε&amp;στίαση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="593"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="558"/>
         <source>Zoom &amp;Out</source>
         <translation>Σμίκρ&amp;υνση</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="594"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="559"/>
         <source>Reset</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="563"/>
         <source>&amp;Page Source</source>
         <translation>Κώδ&amp;ικας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="565"/>
         <source>&amp;FullScreen</source>
         <translation>&amp;Πλήρης Οθόνη</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="602"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="568"/>
         <source>&amp;Tools</source>
         <translation>Ερ&amp;γαλεία</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="606"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="571"/>
         <source>&amp;Web Search</source>
         <translation>&amp;Αναζήτηση διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="607"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="572"/>
         <source>Site &amp;Info</source>
         <translation>&amp;Πληροφορίες σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="609"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="575"/>
         <source>&amp;Download Manager</source>
         <translation>Διαχειριστής &amp;Λήψεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="610"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="576"/>
         <source>&amp;Cookies Manager</source>
         <translation>Δια&amp;χειριστής Cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="611"/>
-        <source>&amp;AdBlock</source>
-        <translation>Ad&amp;Block</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="577"/>
         <source>Web In&amp;spector</source>
         <translation>Επι&amp;θεωρητής διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="613"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="578"/>
         <source>Clear Recent &amp;History</source>
         <translation>Εκκαθάρ&amp;ιση πρόσφατου ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="618"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="583"/>
         <source>&amp;Extensions</source>
         <translation>&amp;Επεκτάσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="624"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="589"/>
         <source>&amp;Help</source>
         <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="627"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="592"/>
         <source>About &amp;Qt</source>
         <translation>&amp;Περί Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="632"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="597"/>
         <source>Information about application</source>
         <translation>Πληροφορίες για την εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="633"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="598"/>
         <source>Configuration Information</source>
         <translation>Πληροφορίες διαμόρφωσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="634"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="599"/>
         <source>Report &amp;Issue</source>
         <translation>Αναφορά προ&amp;βλήματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainmenu.cpp" line="647"/>
+        <location filename="../src/lib/app/mainmenu.cpp" line="612"/>
         <source>Restore &amp;Closed Tab</source>
         <translation>Επαναφορά κλε&amp;ισμένης καρτέλας</translation>
     </message>
@@ -2768,30 +2770,30 @@ Are you sure you want to close this window?</source>
         <translation>&lt;b&gt;Σημείωση:&lt;/b&gt; Ο κύριος κωδικός δεν επαναφέρεται. Παρακαλώ, μην τον ξεχάσετε.</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="529"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="534"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="583"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="626"/>
         <source>Warning!</source>
         <translation>Προσοχή!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="536"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="529"/>
         <source>You entered a wrong password!</source>
         <translation>Εισάγατε λάθος κωδικό!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="541"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="534"/>
         <source>New/Confirm password fields do not match!</source>
         <translation>Τα πεδία νέος/επιβεβαιωμένος κωδικός δεν ταιριάζουν!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="590"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="583"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
         <translation>Επιθυμείτε σίγουρα την εκκαθάριση του κύριου κωδικού πρόσβασης και την αποκρυπτογράφηση των δεδομένων;</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="633"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="626"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
         <translation>Κάποια δεδομένα δεν αποκρυπτογραφήθηκαν. Ο κύριος κωδικός δεν εκαθαρίστηκε!</translation>
     </message>
@@ -2799,45 +2801,114 @@ Are you sure you want to close this window?</source>
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="53"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="49"/>
+        <source>Empty Page</source>
+        <translation>Άδεια σελίδα</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="76"/>
         <source>Back</source>
         <translation>Πίσω</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="62"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="86"/>
         <source>Forward</source>
         <translation>Μπροστά</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="79"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="106"/>
         <source>Home</source>
         <translation>Αρχική σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="87"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="114"/>
         <source>New Tab</source>
         <translation>Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="107"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="134"/>
+        <source>Tools</source>
+        <translation>Εργαλεία</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="147"/>
         <source>Main Menu</source>
         <translation>Αρχικό μενού</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="124"/>
-        <source>Exit Fullscreen</source>
-        <translation>Έξοδος από τη λειτουργία πλήρους οθόνης</translation>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="182"/>
+        <source>Back and Forward buttons</source>
+        <translation>Κουμπιά Πίσω και Μπροστά</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="240"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="274"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="183"/>
+        <source>Reload button</source>
+        <translation>Κουμπί επαναφόρτωσης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="184"/>
+        <source>Home button</source>
+        <translation>Κουμπί οικοσελίδας</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="185"/>
+        <source>Add tab button</source>
+        <translation>Κουμπί προσθήκης καρτέλας</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="186"/>
+        <source>Address and Search bar</source>
+        <translation>Γραμμή διευθύνσεων και αναζήτησης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="187"/>
+        <source>Tools button</source>
+        <translation>Κουμπί εργαλείων</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="339"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="373"/>
         <source>Clear history</source>
         <translation>Εκκαθάριση ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="376"/>
-        <source>Empty Page</source>
-        <translation>Άδεια σελίδα</translation>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="380"/>
+        <source>Toolbars</source>
+        <translation>Εργαλειοθήκες</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="381"/>
+        <source>Sidebar</source>
+        <translation>Πλευρική στήλη</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="396"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="411"/>
+        <source>Configure Toolbar</source>
+        <translation>Διαμόρφωση της εργαλειοθήκης</translation>
+    </message>
+</context>
+<context>
+    <name>NavigationBarConfigDialog</name>
+    <message>
+        <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="14"/>
+        <source>Configure Toolbar</source>
+        <translation>Διαμόρφωση της εργαλειοθήκης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="62"/>
+        <source>Show search bar</source>
+        <translation>Εμφάνιση της γραμμής αναζήτησης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="82"/>
+        <source>Available items:</source>
+        <translation>Διαθέσιμα αντικείμενα:</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="89"/>
+        <source>Current items:</source>
+        <translation>Τρέχοντα αντικείμενα:</translation>
     </message>
 </context>
 <context>
@@ -2877,7 +2948,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation>Αποθήκευση του ονόματος χρήστη και του κωδικού πρόσβασης στην ιστοσελίδα</translation>
+        <translation>Αποθήκευση του ονόματος χρήστη και του κωδικού πρόσβασης της ιστοσελίδας</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
@@ -2932,72 +3003,72 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PopupWindow</name>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="70"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="83"/>
         <source>File</source>
         <translation>Αρχείο</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="71"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="84"/>
         <source>Send Link...</source>
         <translation>Αποστολή συνδέσμου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="72"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="85"/>
         <source>&amp;Print...</source>
         <translation>&amp;Εκτύπωση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="74"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="87"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="77"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="86"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="99"/>
         <source>Find</source>
         <translation>Εύρεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="89"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="102"/>
         <source>View</source>
         <translation>Προβολή</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="90"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="103"/>
         <source>&amp;Stop</source>
         <translation>&amp;Διακοπή</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="92"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="105"/>
         <source>&amp;Reload</source>
         <translation>&amp;Ανανέωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="95"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="108"/>
         <source>Zoom &amp;In</source>
         <translation>Ε&amp;στίαση</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="96"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="109"/>
         <source>Zoom &amp;Out</source>
         <translation>Σμίκρ&amp;υνση</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="97"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="110"/>
         <source>Reset</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="99"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="112"/>
         <source>&amp;Page Source</source>
         <translation>Κώδ&amp;ικας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="252"/>
+        <location filename="../src/lib/popupwindow/popupwindow.cpp" line="266"/>
         <source>%1 - QupZilla</source>
         <translation>%1 QupZilla</translation>
     </message>
@@ -3082,7 +3153,7 @@ Are you sure you want to close this window?</source>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="227"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="845"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="846"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Σημείωση: Δεν μπορείτε να διαγράψετε το ενεργό προφίλ.</translation>
     </message>
@@ -3214,729 +3285,709 @@ Are you sure you want to close this window?</source>
         <translation>Προχωρημένες επιλογές</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="548"/>
-        <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Παράθυρο περιηγητή&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="586"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="550"/>
         <source>Show StatusBar on start</source>
         <translation>Εμφάνιση μπάρας κατάστασης κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="593"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="557"/>
         <source>Show Bookmarks ToolBar on start</source>
         <translation>Εμφάνιση εργαλειοθήκης σελιδοδεικτών κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="600"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="564"/>
         <source>Show Navigation ToolBar on start</source>
         <translation>Εμφάνιση εργαλειοθήκης πλοήγησης κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="607"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="571"/>
         <source>Enable instant Bookmarks ToolBar</source>
         <translation>Ενεργοποίηση της στιγμιαίας εργαλειοθήκης σελιδοδεικτών</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="616"/>
-        <source>&lt;b&gt;Navigation ToolBar&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Εργαλειοθήκη πλοήγησης&lt;/b&gt;</translation>
+        <location filename="../src/lib/preferences/preferences.ui" line="593"/>
+        <source>&lt;b&gt;Browser Window&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Παράθυρο περιηγητή&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="623"/>
-        <source>Show Home button</source>
-        <translation>Εμφάνιση κουμπιού Αρχικής σελίδας</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="630"/>
-        <source>Show Back / Forward buttons</source>
-        <translation>Εμφάνιση κουμπιών Πίσω / Μπροστά</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="650"/>
-        <source>Show Add Tab button</source>
-        <translation>Εμφάνιση κουμπιού Προσθήκης καρτέλας</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="657"/>
-        <source>Show web search bar</source>
-        <translation>Εμφάνιση μπάρας αναζήτησης</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="664"/>
-        <source>Show Reload / Stop buttons</source>
-        <translation>Εμφάνιση κουμπιών Ανανέωση / Διακοπή</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="683"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="641"/>
         <source>Tabs behaviour</source>
         <translation>Συμπεριφορά καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="689"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="647"/>
         <source>Hide tabs when there is only one tab</source>
         <translation>Απόκρυψη καρτελών όταν υπάρχει μόνο μία καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="696"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="654"/>
         <source>Activate last tab when closing active tab</source>
         <translation>Ενεργοποίηση τελευταίας καρτέλας στο κλείσιμο ενεργής καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="703"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="661"/>
         <source>Open new tabs after active tab</source>
         <translation>Άνοιγμα νέων καρτελών μετά την τρέχουσα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="710"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="668"/>
         <source>Open new empty tabs after active tab</source>
         <translation>Άνοιγμα νέων κενών καρτελών μετά την τρέχουσα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="717"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="675"/>
         <source>Open popup windows in tabs</source>
         <translation>Άνοιγμα των αναδυόμενων παραθύρων σε καρτέλες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="724"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="682"/>
         <source>Always switch between tabs with mouse wheel</source>
         <translation>Πάντα να γίνετε η εναλλαγή μεταξύ καρτελών με τη ροδέλα του ποντικιού</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="731"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="689"/>
         <source>Automatically switch to newly opened tab</source>
         <translation>Αυτόματη μετάβαση στη νεα ανοιγμένη καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="738"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="696"/>
         <source>Don&apos;t close window upon closing last tab</source>
         <translation>Να μη γίνεται κλείσιμο παραθύρου κατά το κλείσιμο της τελευταίας καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="745"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="703"/>
         <source>Ask when closing multiple tabs</source>
         <translation>Ερώτηση στο κλείσιμο πολλαπλών καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="752"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="710"/>
         <source>Show closed tabs button</source>
         <translation>Εμφάνιση κουμπιού Κλεισμένων καρτέλων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="719"/>
         <source>Show close buttons on inactive tabs:</source>
         <translation>Εμφάνιση πλήκτρων κλεισίματος σε ανενεργές καρτέλες:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="769"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="727"/>
         <source>Automatic</source>
         <translation>Αυτόματο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="774"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="732"/>
         <source>Always</source>
         <translation>Πάντα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="779"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="737"/>
         <source>Never</source>
         <translation>Ποτέ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="819"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="777"/>
         <source>Address Bar behaviour</source>
         <translation>Συμπεριφορά μπάρας διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="827"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="785"/>
         <source>Suggest when typing into address bar:</source>
         <translation>Προτάσεις όταν πληκτρολογείτε στην μπάρα διευθύνσεων:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="841"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="799"/>
         <source>History and Bookmarks</source>
         <translation>Ιστορικό και Σελιδοδεικτες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="846"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="804"/>
         <source>History</source>
         <translation>Ιστορικό</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="851"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="809"/>
         <source>Bookmarks</source>
         <translation>Σελιδοδείκτες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="856"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="814"/>
         <source>Nothing</source>
         <translation>Τίποτα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="882"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="840"/>
         <source>Enable inline suggestions</source>
         <translation>Ενεργοποίηση εμβόλιμων προτάσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="889"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="847"/>
         <source>Press &quot;Shift&quot; to not switch the tab but load the url in the current tab</source>
         <translation>Πατήστε &quot;Shift&quot; για να μην αλλάξετε την καρτέλα αλλά να φορτώσετε τον σύνδεσμο στην τρέχουσα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="850"/>
         <source>Propose to switch tab if completed url is already loaded</source>
         <translation>Να προτείνεται η αλλαγή καρτέλας αν ο ολοκληρωμένος σύνδεσμος έχει ήδη φορτωθεί</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="899"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="857"/>
         <source>Always show go icon</source>
         <translation>Να γίνεται πάντα εμφάνιση του εικονιδίου μετάβασης</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="906"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="864"/>
         <source>Select all text by double clicking in address bar</source>
         <translation>Επιλογή ολόκληρου του κειμένου κάνοντας διπλό κλικ στην μπάρα διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="913"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="871"/>
         <source>Select all text by clicking in address bar</source>
         <translation>Επιλογή ολόκληρου του κειμένου κάνοντας κλικ στην μπάρα διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="920"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="878"/>
         <source>Enable automatic searching from the address bar</source>
         <translation>Ενεργοποίηση της αυτόματης αναζήτησης από την γραμμή διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="927"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="885"/>
         <source>Search with Default Engine</source>
         <translation>Αναζήτηση με προεπιλεγμένη μηχανή</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="950"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="892"/>
+        <source>Show search suggestions</source>
+        <translation>Εμφάνιση προτάσεων αναζήτησης</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="915"/>
         <source>Show loading progress in address bar</source>
         <translation>Εμφάνιση προόδου φόρτωσης στην μπάρα διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="983"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="948"/>
         <source>Fill</source>
         <translation>Γέμισμα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="988"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="953"/>
         <source>Bottom</source>
         <translation>Πάτος</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="993"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="958"/>
         <source>Top</source>
         <translation>Κορυφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1001"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="966"/>
         <source>Custom color:</source>
         <translation>Προσαρμοσμένο χρώμα:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1017"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="982"/>
         <source>Select color</source>
         <translation>Επιλογή χρώματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1020"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1298"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1821"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="1918"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2508"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="985"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1263"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1797"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1894"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2484"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1027"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="992"/>
         <source>Reset</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1078"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1043"/>
         <source>Web Configuration</source>
         <translation>Ρυθμίσεις διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1086"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1051"/>
         <source>Allow Pepper Plugins (Flash plugin)</source>
         <translation>Να επιτρέπονται τα πρόσθετα Pepper (Flash)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1093"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1058"/>
         <source>Allow JavaScript</source>
         <translation>Να επιτρέπεται το JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1100"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1065"/>
         <source>Include links in focus chain</source>
         <translation>Συμπερίληψη συνδέσμων στην αλυσίδα εστίασης</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1107"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1072"/>
         <source>Enable XSS Auditing</source>
         <extracomment>try to detect possible XSS attacks when executing javascript</extracomment>
         <translation>Ενεργοποίηση ελεγκτικών XSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1114"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1079"/>
         <source>Print element background</source>
         <extracomment>when you are printing page (on printer), it determine whether to also print background (color, image) of html elements</extracomment>
         <translation>Εκτύπωση του παρασκηνίου του αντικειμένου</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1121"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1086"/>
         <source>Animated scrolling</source>
         <translation>Animated κύλιση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1128"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1093"/>
         <source>Enable spatial navigation</source>
         <translation>Ενεργοποίηση χωρικής πλοήγησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1135"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1100"/>
         <source>Use native scrollbars</source>
         <translation>Χρήση των εγγενών γραμμών κύλισης</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1152"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1117"/>
         <source>Mouse wheel scrolls</source>
         <translation>Κύλιση ροδέλας ποντικιού</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1172"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1137"/>
         <source>lines on page</source>
         <translation>γραμμές στη σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1183"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1148"/>
         <source>Default zoom on pages: </source>
         <translation>Προκαθορισμένο ζουμ στις σελίδες: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1222"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1187"/>
         <source>Local Storage</source>
         <translation>Τοπική αποθήκευση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1230"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1195"/>
         <source>Allow storing network cache on disk</source>
         <translation>Να επιτρέπεται η αποθήκευση της μνήμης cache του δικτύου στο δίσκο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1253"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1218"/>
         <source>Delete cache on close</source>
         <translation>Διαγραφή της κρυφής μνήμης κατά την έξοδο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1260"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1225"/>
         <source>Maximum:</source>
         <translation>Μέγιστο:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1267"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1232"/>
         <source> MB</source>
         <translation> MB</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1283"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1248"/>
         <source>Store cache in:</source>
         <translation>Αποθήκευση μνήμης cache σε:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1311"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1276"/>
         <source>Allow saving history</source>
         <translation>Να επιτρέπεται η αποθήκευση ιστορικού</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1318"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1283"/>
         <source>Delete history on close</source>
         <translation>Διαγραφή ιστορικού στο κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1341"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1306"/>
         <source>Allow local storage of HTML5 web content</source>
         <translation>Να επιτρέπεται η τοπική αποθήκευση περιεχομένου HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1348"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1313"/>
         <source>Delete locally stored HTML5 web content on close</source>
         <translation>Διαγραφή τοπικά αποθηκευμένου περιεχομένου HTML5 κατά το κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1374"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1339"/>
         <source>Delete now</source>
         <translation>Διαγραφή τώρα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1413"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1378"/>
         <source>Proxy Configuration</source>
         <translation>Ρυθμίσεις proxy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1432"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1397"/>
         <source>System proxy configuration</source>
         <translation>Ρύθμιση proxy συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1455"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1420"/>
         <source>Manual configuration</source>
         <translation>Χειροκίνητη ρύθμιση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1465"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1430"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1470"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1435"/>
         <source>SOCKS5</source>
         <translation>SOCKSS</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1481"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1446"/>
         <source>Port:</source>
         <translation>Θύρα:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1502"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1467"/>
         <source>Username:</source>
         <translation>Όνομα χρήστη:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1512"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1477"/>
         <source>Password:</source>
         <translation>Κωδικός:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1545"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1506"/>
+        <source>No proxy</source>
+        <translation>Χωρίς διαμεσολαβητή</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1521"/>
         <source>&lt;b&gt;Font Families&lt;/b&gt;</source>
         <translation>&lt;b&gt;Οικογένειες γραμματοσειρών&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1558"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1534"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1565"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1541"/>
         <source>Fixed</source>
         <translation>Σταθερό</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1575"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1551"/>
         <source>Serif</source>
         <translation>Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1585"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1561"/>
         <source>Sans Serif</source>
         <translation>Sans Serif</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1595"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1571"/>
         <source>Cursive</source>
         <translation>Cursive</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1647"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1623"/>
         <source>Fantasy</source>
         <translation>Fantasy</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1654"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1630"/>
         <source>&lt;b&gt;Font Sizes&lt;/b&gt;</source>
         <translation>&lt;b&gt;Μεγέθη γραμματοσειρών&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1663"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1639"/>
         <source>Fixed Font Size</source>
         <translation>Σταθερο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1670"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1646"/>
         <source>Default Font Size</source>
         <translation>Προεπιλεγμένο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1697"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1673"/>
         <source>Minimum Font Size</source>
         <translation>Ελάχιστο μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1704"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1680"/>
         <source>Minimum Logical Font Size</source>
         <translation>Ελάχιστο λογικό μέγεθος γραμματοσειράς</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1713"/>
         <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation>&lt;b&gt;Συντομεύσεις&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1720"/>
         <source>Switch to tabs with Alt + number of tab</source>
         <translation>Αλλαγή καρτελών με Alt + αριθμό καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1751"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1727"/>
         <source>Load speed dials with Ctrl + number of speed dial</source>
         <translation>Φόρτωση γρήγορων κλήσεων με Ctrl + αριθμό γρήγορης κλήσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1758"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
         <translation>Υπάρχουσες συντομεύσεις πληκτρολογίου:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - προηγούμενη καρτέλα&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - επόμενη καρτέλα&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - αναζήτηση στη σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1761"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
         <source>Use single key shortcuts</source>
         <translation>Χρήση συντομεύσεων πληκτρολογίου με ένα πλήκτρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1768"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
         <translation>Μη επιλεγμένο, αποτρέπει την έξοδο κατά λάθος από την εφαρμογή αν πατηθεί η συντόμευση πληκτρολογίου Ctrl-W.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1771"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1747"/>
         <source>Close application with Ctrl-Q</source>
         <translation>Κλείσιμο της εφαρμογής με Ctrl-Q</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1795"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1771"/>
         <source>&lt;b&gt;Download Location&lt;/b&gt;</source>
         <translation>&lt;b&gt;Τοποθεσία λήψεων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1802"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1778"/>
         <source>Ask everytime for download location</source>
         <translation>Ερώτηση για τοποθεσία λήψεων κάθε φορά</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1809"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1785"/>
         <source>Use defined location: </source>
         <translation>Χρήση καθορισμένης τοποθεσίας: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1859"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1835"/>
         <source>&lt;b&gt;Download Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές λήψεων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1866"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1842"/>
         <source>Close download manager when downloading finishes</source>
         <translation>Κλείσιμο διαχειριστή λήψεων όταν τελειώσουν οι λήψεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1873"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1849"/>
         <source>&lt;b&gt;External download manager&lt;/b&gt;</source>
         <translation>&lt;b&gt;Εξωτερικός διαχειριστής λήψεων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1880"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1856"/>
         <source>Use external download manager</source>
         <translation>Χρήση εξωτερικού διαχειριστή λήψεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1892"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1868"/>
         <source>Executable:</source>
         <translation>Εκτελέσιμο:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1899"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1875"/>
         <source>Arguments:</source>
         <translation>Παράμετροι:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1906"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1882"/>
         <source>Leave blank if unsure</source>
         <translation>Αφήστε κενό αν δεν είστε σίγουροι</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1927"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1903"/>
         <source>&lt;b&gt;%d&lt;/b&gt; will be replaced with URL to be downloaded</source>
         <translation>Το &lt;b&gt;%d&lt;/b&gt; θα αντικατασταθεί με το URL προς λήψη</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1953"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1929"/>
         <source>&lt;b&gt;AutoFill options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές αυτόματης συμπλήρωσης&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1960"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1936"/>
         <source>Allow saving passwords from sites</source>
         <translation>Να επιτρέπεται η αποθήκευση κωδικών από σελίδες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2015"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Cookies&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2022"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1998"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Άλλο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2048"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
         <source>JavaScript options</source>
         <translation>Επιλογές JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2058"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2034"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2071"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
         <source>Cookies Manager</source>
         <translation>Διαχειριστής Cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2081"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2057"/>
         <source>Manage JavaScript privacy options</source>
         <translation>Διαχείριση επιλογών ιδιωτικότητας JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2104"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2080"/>
         <source>Manage HTML5 permissions</source>
         <translation>Διαχείριση δικαιωμάτων HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2111"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2087"/>
         <source>Manage Cookies</source>
         <translation>Διαχείριση Cookies</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2131"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2107"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Δικαιώματα HTML5&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2144"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2120"/>
         <source>HTML5 Permissions</source>
         <translation>Δικαιώματα HTML5</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2151"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2127"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Αποστολή κεφαλίδας Do Not Track (Μην εντοπίζεις) στους διακομηστές</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2177"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2153"/>
         <source>Expiration timeout:</source>
         <translation>Χρονικό όριο λήξης:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2190"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2166"/>
         <source> seconds</source>
         <translation> δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2212"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2188"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ειδοποιήσεις&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2235"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2211"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Χρήση εγγενών ειδοποιήσεων συστήματος (μόνο σε Linux)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2242"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2218"/>
         <source>Do not use Notifications</source>
         <translation>Να μην χρησιμοποιούνται ειδοποιήσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2265"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2241"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Σημείωση: &lt;/b&gt; Μπορείτε να αλλάξετε τη θέση των OSD ενημερώσεων σέρνοντας τo στην οθόνη.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2291"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2267"/>
         <source>Use OSD Notifications</source>
         <translation>Χρήση ειδοποιήσεων OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2298"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2274"/>
         <source>Preview</source>
         <translation>Προεπισκόπηση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2363"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2339"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
         <translation>Για περισσότερες πληροφορίες σχετικά με τον ορθογραφικό έλεγχο, παρακαλώ ανατρέξτε στο &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2405"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές ορθογραφικού ελέγχου&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2412"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2388"/>
         <source>Enable Spell Check</source>
         <translation>Ενεργοποίηση του ορθογραφικού ελέγχου</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2419"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2395"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
         <translation>&lt;b&gt;Κατάλογοι λεξικών&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2473"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
         <source>No languages found</source>
         <translation>Δεν βρέθηκαν γλώσσες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2484"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Διαχείριση μηχανών αναζήτησης&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2491"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2467"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Style Sheet χρήστη&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2498"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2474"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation>Style Sheet που φορτώνεται αυτόματα με όλες τις σελίδες: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2528"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2504"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Προτιμώμενη γλώσσα για ιστοσελίδες&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2548"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2524"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Αλλαγή αναγνωριστικού περιηγητή&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2573"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2549"/>
         <source>User Agent Manager</source>
         <translation>Διαχειριστής πράκτορα χρήστη</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2613"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2589"/>
         <source>Languages</source>
         <translation>Γλώσσες</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2653"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2629"/>
         <source>Search Engines Manager</source>
         <translation>Διαχειριστής μηχανών αναζήτησης</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="615"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="612"/>
         <source>Default</source>
         <translation>Προεπιλογή</translation>
     </message>
@@ -3946,17 +3997,17 @@ Are you sure you want to close this window?</source>
         <translation>Ορισμός προεπιλογής</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="556"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="554"/>
         <source>Choose executable location...</source>
         <translation>Επιλογή τοποθεσίας εκτελέσιμου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="600"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
         <source>OSD Notification</source>
         <translation>Ειδοποίηση OSD</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="601"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Μετακινήστε το στην οθόνη για να το τοποθετήσετε όπου θέλετε.</translation>
     </message>
@@ -3976,48 +4027,48 @@ Are you sure you want to close this window?</source>
         <translation>Διαγράφηκε</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="762"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="763"/>
         <source>Choose cache path...</source>
         <translation>Επιλογή διαδρομής μνήμης cache...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
         <source>New Profile</source>
         <translation>Νέο προφίλ</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Εισάγετε την ονομασία του νέου προφίλ:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="819"/>
         <source>Error!</source>
         <translation>Σφάλμα!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
         <source>This profile already exists!</source>
         <translation>Αυτό το προφίλ υπάρχει ήδη!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="819"/>
         <source>Cannot create profile directory!</source>
         <translation>Αδυναμία δημιουργίας καταλόγου προφίλ!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="831"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Επιθυμείτε σίγουρα την μόνιμη διαγραφή του προφίλ «%1»; Αυτή η ενέργεια είναι μη αναστρέψιμη!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1105"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1102"/>
         <source>Select Color</source>
         <translation>Επιλογή χρώματος</translation>
     </message>
@@ -4083,427 +4134,432 @@ Are you sure you want to close this window?</source>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="132"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="133"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
         <source>Report Issue</source>
         <translation>Αναφορά προβλήματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="134"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Αν αντιμετωπίζετε προβλήματα με το QupZilla, παρακαλώ δοκιμάστε να απενεργοποιήσετε όλα τα πρόσθετα πρώτα. &lt;br/&gt;Αν αυτό δεν βοηθήσει, τότε παρακαλώ συμπληρώστε αυτή τη φόρμα: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="136"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
         <source>Your E-mail</source>
         <translation>Το e-mail σας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="137"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
         <source>Issue type</source>
         <translation>Τύπος προβλήματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="138"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="162"/>
         <source>Issue description</source>
         <translation>Περιγραφή προβλήματος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="139"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
         <source>Send</source>
         <translation>Αποστολή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="140"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="164"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>Το e-mail είναι προαιρετικό&lt;br/&gt;&lt;b&gt;Σημείωση:&lt;/b&gt;Παρακαλώ διαβάστε πως να κάνετε μια αναφορά σφάλματος &lt;a href=%1&gt;εδώ&lt;/a&gt; πρώτα.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="142"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="166"/>
         <source>Please fill out all required fields!</source>
         <translation>Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="170"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="194"/>
         <source>Start Page</source>
         <translation>Αρχική σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="171"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
         <source>Search on Web</source>
         <translation>Αναζήτηση στο διαδίκτυο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="172"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Αναζήτηση αποτελεσμάτων από το DuckDuckGo</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="174"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="190"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="215"/>
         <source>About QupZilla</source>
         <translation>Περί QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="175"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Ιδιωτική Περιήγηση&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Information about version</source>
         <translation>Πληροφορίες έκδοσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="193"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
         <source>Copyright</source>
         <translation>Πνευματικά δικαιώματα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="361"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
         <source>Version</source>
         <translation>Έκδοση</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="203"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="227"/>
         <source>Main developer</source>
         <translation>Βασικός προγραμματιστής</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="205"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="229"/>
         <source>Contributors</source>
         <translation>Συντελεστές</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="241"/>
         <source>Translators</source>
         <translation>Μεταφραστές</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="277"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Speed Dial</source>
         <translation>Γρήγορη κλήση</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="278"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Add New Page</source>
         <translation>Προσθήκη νέας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="279"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="280"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Remove</source>
         <translation>Αφαίρεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="281"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Reload</source>
         <translation>Ανανέωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="282"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>Are you sure you want to remove this speed dial?</source>
         <translation>Επιθυμείτε σίγουρα την αφαίρεση της γρήγορης κλήσης;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="283"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Are you sure you want to reload all speed dials?</source>
         <translation>Επιθυμείτε σίγουρα την επαναφόρτωση όλων των γρήγορων κλήσεων;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="284"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Load title from page</source>
         <translation>Φόρτωση τίτλου από σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="285"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <source>SpeedDial requires enabled JavaScript.</source>
+        <translation>Η γρήγορη κλήση απαιτεί την ενεργοποίηση της JavaScript.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Url</source>
         <translation>Url</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="286"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>Title</source>
         <translation>Τίτλος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="287"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Apply</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="288"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="289"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>New Page</source>
         <translation>Νέα σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="290"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Speed Dial settings</source>
         <translation>Ρυθμίσεις γρήγορης κλήσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="291"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Placement: </source>
         <translation>Τοποθέτηση: </translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="292"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
         <source>Auto</source>
         <translation>Αυτόματα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="293"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
         <source>Cover</source>
         <translation>Κάλυψη</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="294"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
         <source>Fit</source>
         <translation>Προσαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="295"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
         <source>Fit Width</source>
         <translation>Προσαρμογή στο πλάτος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="296"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
         <source>Fit Height</source>
         <translation>Προσαρμογή στο Ύψος</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="297"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
         <source>Use background image</source>
         <translation>Χρήση εικόνας παρασκηνίου</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
         <source>Select image</source>
         <translation>Επιλογή εικόνας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
         <source>Maximum pages in a row:</source>
         <translation>Μέγιστες σελίδες στη σειρά:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
         <source>Change size of pages:</source>
         <translation>Αλλαγή μεγέθους σελιδών:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
         <source>Center speed dials</source>
         <translation>Γρήγορες κλήσεις στο κέντρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>Restore Session</source>
         <translation>Επαναφορά συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="327"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Ουπς, το QupZilla κατέρρευσε.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="328"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Ζητάμε συγνώμη. Θα θέλατε να επαναφέρετε την ποιο πρόσφατα αποθηκευμένη κατάσταση;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="329"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Προσπαθήστε να αφαιρέσετε μία ή περισσότερες καρτέλες που νομίζετε ότι προκαλούν προβλήματα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="330"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Or you can start completely new session</source>
         <translation>Ή μπορείτε να ξεκινήσετε μια εντελώς νέα συνεδρία</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="331"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Window</source>
         <translation>Παράθυρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="332"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Windows and Tabs</source>
         <translation>Παράθυρα και καρτέλες</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="333"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
         <source>Start New Session</source>
         <translation>Έναρξη νέας συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="334"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
         <source>Restore</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
+        <source>Requires enabled JavaScript.</source>
+        <translation>Απαιτείται η ενεργοποίηση της JavaScript.</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Configuration Information</source>
         <translation>Πληροφορίες διαμόρφωσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Η σελίδα αυτή περιέχει πληροφορίες για τη ρύθμιση του τρέχων QupZilla - σχετική για την επίλυση προβλημάτων. Παρακαλώ συμπεριλάβετε τις πληροφορίες αυτές όταν αποστέλλετε αναφορές σφαλμάτων.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Browser Identification</source>
         <translation>Αναγνωριστικό περιηγητή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Paths</source>
         <translation>Διαδρομές</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Build Configuration</source>
         <translation>Ρυθμίσεις κατασκευής</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Preferences</source>
         <translation>Προτιμήσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Option</source>
         <translation>Επιλογή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>Value</source>
         <translation>Τιμή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <source>Extensions</source>
         <translation>Επεκτάσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Name</source>
         <translation>Ονομασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="362"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
         <source>Author</source>
         <translation>Συγγραφέας</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="363"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Description</source>
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="366"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
         <source>Application version</source>
         <translation>Έκδοση εφαρμογής</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
         <source>Qt version</source>
         <translation>Έκδοση Qt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>Platform</source>
         <translation>Πλατφόρμα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Profile</source>
         <translation>Προφίλ</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Saved session</source>
         <translation>Αποθηκευμένη συνεδρία</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
-        <source>Pinned tabs</source>
-        <translation>Καρφιτσωμένες καρτέλες</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
         <source>Data</source>
         <translation>Δεδομένα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
         <source>Themes</source>
         <translation>Θέματα</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Translations</source>
         <translation>Μεταφράσεις</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="393"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ενεργοποιημένο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="395"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="427"/>
         <source>Debug build</source>
         <translation>Build αποσφαλμάτωσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
         <source>Portable build</source>
         <translation>Portable build</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="449"/>
         <source>No available extensions.</source>
         <translation>Δεν υπάρχουν διαθέσιμες επεκτάσεις.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="482"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="507"/>
         <source>Blocked content</source>
         <translation>Φραγμένο περιεχόμενο</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="491"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="516"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
         <translation>Φραγμένο από &lt;i&gt;%1 (%2)&lt;/i&gt;</translation>
     </message>
@@ -4641,7 +4697,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>SearchToolBar</name>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="121"/>
+        <location filename="../src/lib/webtab/searchtoolbar.cpp" line="127"/>
         <source>No results found.</source>
         <translation>Δεν βρέθηκαν αποτελέσματα.</translation>
     </message>
@@ -4659,7 +4715,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Αναζήτηση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/searchtoolbar.ui" line="94"/>
+        <location filename="../src/lib/webtab/searchtoolbar.ui" line="88"/>
         <source>&amp;Match Case</source>
         <translation>&amp;Ταίριασμα πεζών/κεφαλαίων</translation>
     </message>
@@ -4667,128 +4723,128 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>SessionManager</name>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="125"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>_cloned</source>
         <translation>_κλωνοποιημένη</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="125"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>_renamed</source>
         <translation>_μετονομασμένη</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Clone Session</source>
         <translation>Κλωνοποίηση της συνεδρίας </translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Rename Session</source>
         <translation>Μετονομασία της συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="128"/>
         <source>Please enter a new name:</source>
         <translation>Παρακαλώ εισαγάγετε ένα νέο όνομα:</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="142"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="147"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="136"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="143"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="148"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="170"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="218"/>
         <source>Error!</source>
         <translation>Σφάλμα!</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="135"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="169"/>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="217"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="136"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="170"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="218"/>
         <source>The session file &quot;%1&quot; exists. Please enter another name.</source>
         <translation>Το αρχείο συνεδρίας «%1» υπάρχει ήδη. Παρακαλώ εισαγάγετε ένα άλλο όνομα.</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="142"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="143"/>
         <source>An error occurred when cloning session file.</source>
         <translation>Παρουσιάστηκε ένα σφάλμα κατά την κλωνοποίηση του αρχείου συνεδρίας.</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="147"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="148"/>
         <source>An error occurred when renaming session file.</source>
         <translation>Παρουσιάστηκε ένα σφάλμα κατά την μετονομασία του αρχείου συνεδρίας.</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="160"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="161"/>
         <source>Save Session</source>
         <translation>Αποθήκευση της συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="161"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="162"/>
         <source>Please enter a name to save session:</source>
         <translation>Παρακαλώ εισαγάγετε ένα όνομα για να αποθηκεύσετε την συνεδρία:</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="162"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="163"/>
         <source>Saved Session (%1)</source>
         <translation>Αποθηκευμένη συνεδρία (%1)</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="179"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="180"/>
         <source>Restore Backup</source>
         <translation>Επαναφορά από αντίγραφο ασφαλείας</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="179"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="180"/>
         <source>Are you sure you want to replace current session?</source>
         <translation>Είστε σίγουρος-η ότι θέλετε να αντικαταστήσετε την τρέχουσα συνεδρία;</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="198"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="199"/>
         <source>Delete Session</source>
         <translation>Διαγραφή της συνεδρίας</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="198"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="199"/>
         <source>Are you sure you want to delete session &apos;%1&apos;?</source>
         <translation>Είστε σίγουρος-η ότι θέλετε να διαγράψετε την συνεδρία &apos;%1;</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="208"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="209"/>
         <source>New Session</source>
         <translation>Νέα συνεδρία</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="209"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="210"/>
         <source>Please enter a name to create new session:</source>
         <translation>Παρακαλώ, καταχωρίστε ένα όνομα για την δημιουργία της νέας συνεδρίας:</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="210"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="211"/>
         <source>New Session (%1)</source>
         <translation>Νέα συνεδρία (%1)</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="242"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="243"/>
         <source>Backup 1</source>
         <translation>Αντίγραφο ασφαλείας 1</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="249"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="250"/>
         <source>Backup 2</source>
         <translation>Αντίγραφο ασφαλείας 2</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="291"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="290"/>
         <source>Default Session</source>
         <translation>Συνεδρία εξ ορισμού</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="386"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="393"/>
         <source>Please select the startup session:</source>
         <translation>Παρακαλώ επιλέξτε την συνεδρία έναρξης:</translation>
     </message>
     <message>
-        <location filename="../src/lib/session/sessionmanager.cpp" line="405"/>
+        <location filename="../src/lib/session/sessionmanager.cpp" line="412"/>
         <source>%1 (last session)</source>
         <translation>%1 (τελευταία συνεδρία)</translation>
     </message>
@@ -4850,13 +4906,13 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <name>SideBar</name>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="65"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="100"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="107"/>
         <source>Bookmarks</source>
         <translation>Σελιδοδείκτες</translation>
     </message>
     <message>
         <location filename="../src/lib/sidebar/sidebar.cpp" line="72"/>
-        <location filename="../src/lib/sidebar/sidebar.cpp" line="106"/>
+        <location filename="../src/lib/sidebar/sidebar.cpp" line="114"/>
         <source>History</source>
         <translation>Ιστορικό</translation>
     </message>
@@ -5061,112 +5117,130 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="140"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="61"/>
         <source>Don&apos;t ask again</source>
         <translation>Να μην ξαναγίνει η ερώτηση</translation>
     </message>
+</context>
+<context>
+    <name>TabContextMenu</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="157"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="164"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="171"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="89"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="100"/>
         <source>Close Tabs</source>
-        <translation>Κλείσιμο Καρτελών</translation>
+        <translation>Κλείσιμο των καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="157"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
         <source>Do you really want to close other tabs?</source>
-        <translation>Είστε σίγουροι ότι θέλετε να κλείσετε τις υπόλοιπες καρτέλες;</translation>
+        <translation>Επιθυμείτε πραγματικά το κλείσιμο των άλλων καρτελών;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="164"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="86"/>
         <source>Do you really want to close all tabs to the right?</source>
-        <translation>Θέλετε πράγματι να κλείσετε όλες τις καρτέλες στα δεξιά;</translation>
+        <translation>Επιθυμείτε πραγματικά το κλείσιμο όλων των καρτελών στα δεξιά;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="171"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
+        <source>Do you really want to close all tabs to the bottom?</source>
+        <translation>Επιθυμείτε πραγματικά το κλείσιμο όλων των καρτελών προς την βάση;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="97"/>
         <source>Do you really want to close all tabs to the left?</source>
-        <translation>Θέλετε πράγματι να κλείσετε όλες τις καρτέλες στα αριστερά;</translation>
+        <translation>Επιθυμείτε πραγματικά το κλείσιμο όλων των καρτελών στα αριστερά;</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="351"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
+        <source>Do you really want to close all tabs to the top?</source>
+        <translation>Επιθυμείτε πραγματικά το κλείσιμο όλων των καρτελών προς την κορυφή;</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="114"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Διακοπή καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="354"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="117"/>
         <source>&amp;Reload Tab</source>
-        <translation>&amp;Ανανέωση καρτέλας</translation>
+        <translation>&amp;Επαναφόρτωση καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="357"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="120"/>
         <source>&amp;Duplicate Tab</source>
-        <translation>Διπλό&amp;τυπο καρτέλας</translation>
+        <translation>&amp;Αντίγραφο καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="360"/>
-        <source>D&amp;etach Tab</source>
-        <translation>Απο&amp;κόλληση καρτέλας</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="363"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
         <source>Un&amp;pin Tab</source>
         <translation>&amp;Ξεκαρφίτσωμα καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="363"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
         <source>&amp;Pin Tab</source>
-        <translation>Κα&amp;ρφίτσωμα καρτέλας</translation>
+        <translation>&amp;Καρφίτσωμα της καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>Un&amp;mute Tab</source>
         <translation>&amp;Αποσίγαση καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="364"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>&amp;Mute Tab</source>
         <translation>&amp;Σίγαση καρτέλας</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="366"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="125"/>
         <source>Re&amp;load All Tabs</source>
-        <translation>Α&amp;νανέωση όλων των καρτελών</translation>
+        <translation>Επανα&amp;φόρτωση όλων των καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="367"/>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="379"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="126"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="142"/>
         <source>Bookmark &amp;All Tabs</source>
-        <translation>Οι καρτέλες ως σελιδοδεί&amp;κτες</translation>
+        <translation>Όλες οι καρτέλες σε &amp;σελιδοδείκτη</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="369"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="130"/>
         <source>Close Ot&amp;her Tabs</source>
-        <translation>Κλείσιμο των άλλ&amp;ων καρτελών</translation>
+        <translation>Κλείσιμο των ά&amp;λλων καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="370"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
         <source>Close Tabs To The Right</source>
         <translation>Κλείσιμο των καρτελών στα δεξιά</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="371"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <source>Close Tabs To The Bottom</source>
+        <translation>Κλείσιμο των καρτελών προς την βάση</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
         <source>Close Tabs To The Left</source>
         <translation>Κλείσιμο των καρτελών στα αριστερά</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="374"/>
-        <source>Cl&amp;ose Tab</source>
-        <translation>Κ&amp;λείσιμο της καρτέλας</translation>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <source>Close Tabs To The Top</source>
+        <translation>Κλείσιμο των καρτελών προς την κορυφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="376"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
+        <source>Cl&amp;ose Tab</source>
+        <translation>Κλείσι&amp;μο καρτέλας</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="139"/>
         <source>&amp;New tab</source>
         <translation>&amp;Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="378"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="141"/>
         <source>Reloa&amp;d All Tabs</source>
-        <translation>Ανανέωσ&amp;η όλων των καρτελών</translation>
+        <translation>Επανα&amp;φόρτωση όλων των καρτελών</translation>
     </message>
 </context>
 <context>
@@ -5190,37 +5264,32 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Νέα καρτέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="161"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="129"/>
         <source>Closed tabs</source>
         <translation>Κλείσιμο καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="172"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="140"/>
         <source>List of tabs</source>
         <translation>Λίστα καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="313"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="274"/>
         <source>Empty</source>
         <translation>Άδειο</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="317"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="278"/>
         <source>Restore All Closed Tabs</source>
         <translation>Επαναφορά όλων των κλεισμένων καρτελών</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="318"/>
+        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="279"/>
         <source>Clear list</source>
         <translation>Εκκαθάριση λίστας</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/lib/tabwidget/tabwidget.cpp" line="460"/>
-        <source>Currently you have %n opened tab(s)</source>
-        <translation><numerusform>Αυτή τη στιγμή έχετε %n ανοιχτή καρτέλα</numerusform><numerusform>Αυτή τη στιγμή έχετε %n ανοιχτές καρτέλες</numerusform></translation>
-    </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabwidget.h" line="102"/>
+        <location filename="../src/lib/tabwidget/tabwidget.h" line="100"/>
         <source>New tab</source>
         <translation>Νέα καρτέλα</translation>
     </message>
@@ -5228,7 +5297,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabbedWebView</name>
     <message>
-        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="211"/>
+        <location filename="../src/lib/webtab/tabbedwebview.cpp" line="203"/>
         <source>Inspect Element</source>
         <translation>Επιθεώρηση στοιχείου</translation>
     </message>
@@ -5317,22 +5386,22 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="95"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="99"/>
         <source>Add new site</source>
         <translation>Προσθήκη νέας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="133"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="137"/>
         <source>Edit site</source>
         <translation>Επεξεργασια σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="211"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="216"/>
         <source>Site domain: </source>
         <translation>Διεύθυνση σελίδας: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/useragentdialog.cpp" line="212"/>
+        <location filename="../src/lib/preferences/useragentdialog.cpp" line="217"/>
         <source>User Agent: </source>
         <translation>Πράκτορας χρήστη: </translation>
     </message>
@@ -5340,58 +5409,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="271"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="269"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>Το QupZilla δεν μπορεί να χειριστεί &lt;b&gt;%1&lt;/b&gt; συνδέσμους. Ο αιτούμενος σύνδεσμος  ειναι &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Θέλετε το QupZilla να δοκιμάσει να ανοίξει το συνδεσμο αυτόν στην εφαρμογή συστήματος;</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="276"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="274"/>
         <source>Remember my choice for this protocol</source>
         <translation>Απομνημόνευση επιλογής για το πρωτόκολλο αυτό</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="277"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
         <source>External Protocol Request</source>
         <translation>Αίτημα εξωτερικού πρωτόκολλου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
         <source>Failed loading page</source>
         <translation>Αποτυχία φόρτωσης σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Κάτι πήγε στραβά κατά την φόρτωση της σελίδας.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="360"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Προσπαθήστε να επαναφορτώσετε την σελίδα ή να κλείσετε μερικές καρτέλες για να απελευθερώσετε περισσότερη μνήμη.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="361"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
         <source>Reload page</source>
         <translation>Επαναφόρτωση της σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="396"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
         <source>Choose file...</source>
         <translation>Επιλογή αρχείου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="400"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="403"/>
         <source>Choose files...</source>
         <translation>Επιλογή αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="537"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="518"/>
         <source>JavaScript alert</source>
         <translation>Ειδοποίηση JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="545"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="527"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Να εμποδιστεί αυτή η σελίδα να δημιουργεί επιπλέον διαλόγους</translation>
     </message>
@@ -5427,12 +5496,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="445"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="443"/>
         <source>Loading...</source>
         <translation>Φόρτωση...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="461"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="459"/>
         <source>%1 - QupZilla</source>
         <translation>%1 QupZilla</translation>
     </message>
@@ -5445,252 +5514,252 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <translation>Άδεια σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="404"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="408"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="679"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="687"/>
         <source>No suggestions</source>
         <translation>Καμία πρόταση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="730"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="738"/>
         <source>&amp;Back</source>
         <translation>&amp;Πίσω</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="734"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>&amp;Forward</source>
         <translation>&amp;Μπροστά</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="741"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>&amp;Add New Page</source>
         <translation>&amp;Προσθήκη νέας σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Ρύθμιση γρήγορης κλήσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="744"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>Reload All Dials</source>
         <translation>Ανανέωση όλων των κλήσεων</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="763"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="771"/>
         <source>Book&amp;mark page</source>
         <translation>Η σελίδα ως &amp;σελιδοδείκτης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="764"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Αποθήκευση της σελίδας ως...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="765"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
         <source>&amp;Copy page link</source>
         <translation>Α&amp;ντιγραφή συνδέσμου σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="766"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="774"/>
         <source>Send page link...</source>
         <translation>Αποστολή συνδέσμου σελίδας...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="768"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>Select &amp;all</source>
         <translation>Επι&amp;λογή όλων</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Validate page</source>
         <translation>Επικύρωση σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="777"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
         <source>Translate page</source>
         <translation>Μετάφραση σελίδας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Show so&amp;urce code</source>
         <translation>Εμφάνιση πη&amp;γαίου κώδικα</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="784"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
         <source>Show info ab&amp;out site</source>
         <translation>Εμφάνιση πληρο&amp;φοριών για τη σελίδα</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="790"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="798"/>
         <source>Open link in new &amp;tab</source>
         <translation>Άνοιγμα συνδέσμου σε νέα καρ&amp;τέλα</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="795"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Open link in new &amp;window</source>
         <translation>Άνοιγμα συνδέσμου σε νέο &amp;παράθυρο</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="796"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="804"/>
         <source>Open link in &amp;private window</source>
         <translation>Άνοιγμα συνδέσμου σε νέο παράθυρο ι&amp;διωτικής περιήγησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="801"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="809"/>
         <source>B&amp;ookmark link</source>
         <translation>Ο σύνδεσμος ως σελιδο&amp;δείκτης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
         <source>&amp;Save link as...</source>
         <translation>Απο&amp;θήκευση συνδέσμου ως...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="804"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
         <source>Send link...</source>
         <translation>Αποστολή συνδέσμου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="805"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="813"/>
         <source>&amp;Copy link address</source>
         <translation>Α&amp;ντιγραφή διεύθυνσης συνδέσμου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="817"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="825"/>
         <source>Show i&amp;mage</source>
         <translation>Εμφάνιση &amp;εικόνας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="822"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
         <source>Copy image</source>
         <translation>Αντιγραφή της εικόνας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="823"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="831"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Αντιγραφή διεύ&amp;θυνσης εικόνας</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="825"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
         <source>&amp;Save image as...</source>
         <translation>Απο&amp;θήκευση εικόνας ως...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="826"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
         <source>Send image...</source>
         <translation>Αποστολή εικόνας...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="845"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="853"/>
         <source>Send text...</source>
         <translation>Αποστολή κειμένου...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="850"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="858"/>
         <source>Google Translate</source>
         <translation>Μετάφραση Google</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="856"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
         <source>Dictionary</source>
         <translation>Λεξικό</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="871"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="879"/>
         <source>Go to &amp;web address</source>
         <translation>Μετάβαση στη διεύθυνση &amp;διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="885"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="893"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Αναζήτηση &quot;%1&quot; με %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="891"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
         <source>Search with...</source>
         <translation>Αναζήτηση με...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="912"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
         <source>&amp;Play</source>
         <translation>&amp;Αναπαραγωγή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="912"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
         <source>&amp;Pause</source>
         <translation>&amp;Πάυση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="913"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>Un&amp;mute</source>
         <translation>Ά&amp;ρση σίγασης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="913"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
         <source>&amp;Mute</source>
         <translation>&amp;Σίγαση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="915"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="923"/>
         <source>&amp;Copy Media Address</source>
         <translation>Α&amp;ντιγραφή διεύθυνσης πολυμέσου</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="916"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Send Media Address</source>
         <translation>Α&amp;ποστολή διεύθυνσης πολυμέσων</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="917"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Αποθήκευση πολυμέσου στο &amp;δίσκο</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="936"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
         <source>Create Search Engine</source>
         <translation>Δημιουργία μηχανής αναζήτησης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="977"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="985"/>
         <source>&amp;Undo</source>
         <translation>Αναί&amp;ρεση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="983"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="991"/>
         <source>&amp;Redo</source>
         <translation>Ακύρωση α&amp;ναίρεσης</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="989"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="997"/>
         <source>&amp;Cut</source>
         <translation>Απο&amp;κοπή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="995"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1003"/>
         <source>&amp;Copy</source>
         <translation>Αντι&amp;γραφή</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1001"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1009"/>
         <source>&amp;Paste</source>
         <translation>Ε&amp;πικόλληση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1015"/>
         <source>Select All</source>
         <translation>Επιλογή όλων</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1013"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1021"/>
         <source>&amp;Reload</source>
         <translation>&amp;Ανανέωση</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1017"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1025"/>
         <source>S&amp;top</source>
         <translation>&amp;Διακοπή</translation>
     </message>

@@ -19,7 +19,7 @@
     <message>
         <location filename="../tabmanagersettings.ui" line="33"/>
         <source>SideBar</source>
-        <translation>Sidefelt</translation>
+        <translation>Sidestolpe</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="40"/>
@@ -45,77 +45,77 @@
         <translation>Fanebehandler</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="106"/>
+        <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
         <translation>Lokalt filsystem:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="109"/>
+        <location filename="../tabmanagerwidget.cpp" line="113"/>
         <source>QupZilla:</source>
         <translation>QupZilla:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="112"/>
+        <location filename="../tabmanagerwidget.cpp" line="116"/>
         <source> [FTP]</source>
         <translation> [FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="266"/>
+        <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
         <translation>Grupper etter</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="267"/>
+        <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
         <translation>&amp;Vindu</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="272"/>
+        <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
         <translation>&amp;Domene</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
         <translation>&amp;Vert</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="285"/>
+        <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
         <translation>&amp;Vis side ved side</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="291"/>
+        <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
         <translation>&amp;Hekt av sjekkede faner</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="292"/>
+        <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>Bok&amp;merk sjekkede faner</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="293"/>
+        <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
         <translation>&amp;Lukk sjekkede faner</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="547"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Legg til mappe for bokmerker:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="548"/>
+        <location filename="../tabmanagerwidget.cpp" line="583"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Bokmerk valgte faner</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="665"/>
+        <location filename="../tabmanagerwidget.cpp" line="685"/>
         <source>Window %1</source>
         <translation>Vindu %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="666"/>
+        <location filename="../tabmanagerwidget.cpp" line="686"/>
         <source>Double click to switch</source>
         <translation>Dobbeltklikk for å bytte</translation>
     </message>
