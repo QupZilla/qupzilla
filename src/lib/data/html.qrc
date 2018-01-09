@@ -4,18 +4,21 @@
         <file>html/copyright</file>
         <file>html/reportbug.html</file>
         <file>html/start.html</file>
-        <file>html/close.png</file>
-        <file>html/edit.png</file>
         <file>html/speeddial.html</file>
         <file>html/jquery.js</file>
         <file>html/jquery-ui.js</file>
-        <file>html/plus.png</file>
         <file>html/loading.gif</file>
-        <file>html/reload.png</file>
         <file>html/broken-page.png</file>
-        <file>html/configure.png</file>
         <file>html/config.html</file>
         <file>html/restore.html</file>
         <file>html/tabcrash.html</file>
+        <file>html/close.svg</file>
+        <file>html/configure.svg</file>
+        <file>html/plus.svg</file>
+        <file>html/edit.svg</file>
+        <file>html/reload.svg</file>
+        <file>html/close_active.svg</file>
+        <file>html/reload_active.svg</file>
+        <file>html/edit_active.svg</file>
     </qresource>
 </RCC>
