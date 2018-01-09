@@ -98,7 +98,7 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
     return m_subscriptions;
 }
 
-bool AdBlockManager::block(QWebEngineUrlRequestInfo &request, QString &ruleFilter)
+bool AdBlockManager::block(QWebEngineUrlRequestInfo &request, QString &ruleFilter, QString &ruleSubscription)
 {
     QMutexLocker locker(&m_mutex);
 
@@ -122,17 +122,7 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request, QString &ruleFilte
 
     if (blockedRule) {
         ruleFilter = blockedRule->filter();
-        if (request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMainFrame) {
-            QUrl url(QSL("qupzilla:adblock"));
-            QUrlQuery query;
-            query.addQueryItem(QSL("rule"), blockedRule->filter());
-            query.addQueryItem(QSL("subscription"), blockedRule->subscription()->title());
-            url.setQuery(query);
-            request.redirect(url);
-        } else {
-            request.block(true);
-        }
-
+        ruleSubscription = blockedRule->subscription()->title();
 #ifdef ADBLOCK_DEBUG
         qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.requestUrl();
 #endif

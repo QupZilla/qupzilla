@@ -66,7 +66,7 @@ public:
     AdBlockSubscription* subscriptionByName(const QString &name) const;
     QList<AdBlockSubscription*> subscriptions() const;
 
-    bool block(QWebEngineUrlRequestInfo &request, QString &ruleFilter);
+    bool block(QWebEngineUrlRequestInfo &request, QString &ruleFilter, QString &ruleSubscription);
 
     QVector<AdBlockedRequest> blockedRequestsForUrl(const QUrl &url) const;
     void clearBlockedRequestsForUrl(const QUrl &url);

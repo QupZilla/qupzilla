@@ -18,6 +18,9 @@
 
 #include "adblockurlinterceptor.h"
 #include "adblockrule.h"
+#include "qztools.h"
+
+#include <QUrlQuery>
 
 AdBlockUrlInterceptor::AdBlockUrlInterceptor(AdBlockManager *manager)
     : UrlInterceptor(manager)
@@ -28,8 +31,22 @@ AdBlockUrlInterceptor::AdBlockUrlInterceptor(AdBlockManager *manager)
 void AdBlockUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &request)
 {
     QString ruleFilter;
-    if (!m_manager->block(request, ruleFilter)) {
+    QString ruleSubscription;
+    if (!m_manager->block(request, ruleFilter, ruleSubscription)) {
         return;
+    }
+
+    if (request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMainFrame) {
+        QString page;
+        page.append(QzTools::readAllFileContents(QSL(":adblock/data/adblock.html")));
+        page.replace(QSL("%FAVICON%"), QSL("qrc:adblock/data/adblock_big.png"));
+        page.replace(QSL("%IMAGE%"), QSL("qrc:adblock/data/adblock_big.png"));
+        page.replace(QSL("%TITLE%"), tr("Blocked content"));
+        page.replace(QSL("%RULE%"), tr("Blocked by <i>%1 (%2)</i>").arg(ruleFilter, ruleSubscription));
+        page = QzTools::applyDirectionToPage(page);
+        request.redirect(QUrl(QString::fromUtf8(QByteArray("data:text/html;base64,") + page.toUtf8().toBase64())));
+    } else {
+        request.block(true);
     }
 
     AdBlockedRequest r;
