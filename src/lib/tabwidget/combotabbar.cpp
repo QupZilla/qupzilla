@@ -1075,7 +1075,7 @@ QPixmap TabBarHelper::tabPixmap(int index) const
     if (iconButton) {
         const QPixmap pix = iconButton->grab();
         tab.icon = pix;
-        tab.iconSize = pix.size();
+        tab.iconSize = pix.size() / pix.devicePixelRatioF();
     }
 
     if (closeButton) {
@@ -1083,9 +1083,10 @@ QPixmap TabBarHelper::tabPixmap(int index) const
         tab.text = tab.fontMetrics.elidedText(tabText(index), Qt::ElideRight, width);
     }
 
-    QPixmap out(tab.rect.size());
+    QPixmap out(tab.rect.size() * devicePixelRatioF());
+    out.setDevicePixelRatio(devicePixelRatioF());
     out.fill(Qt::transparent);
-    tab.rect = QRect(QPoint(0, 0), out.size());
+    tab.rect = QRect(QPoint(0, 0), tab.rect.size());
 
     QPainter p(&out);
     style()->drawControl(QStyle::CE_TabBarTab, &tab, &p, this);
