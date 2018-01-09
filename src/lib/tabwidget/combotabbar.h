@@ -285,7 +285,7 @@ private:
     int m_pressedIndex;
     bool m_dragInProgress;
     QPoint m_dragStartPosition;
-    QWidget *m_movingTab = nullptr;
+    class QMovableTabWidget *m_movingTab = nullptr;
     bool m_activeTabBar;
     bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;

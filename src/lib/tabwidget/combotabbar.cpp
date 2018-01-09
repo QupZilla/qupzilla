@@ -36,6 +36,12 @@
 #include <QApplication>
 #include <QToolTip>
 
+class QMovableTabWidget : public QWidget
+{
+public:
+    QPixmap m_pixmap;
+};
+
 ComboTabBar::ComboTabBar(QWidget* parent)
     : QWidget(parent)
     , m_mainTabBar(0)
@@ -1344,6 +1350,21 @@ void TabBarHelper::paintEvent(QPaintEvent *)
         } else {
             int taboverlap = style()->pixelMetric(QStyle::PM_TabBarTabOverlap, nullptr, this);
             m_movingTab->setGeometry(tab.rect.adjusted(-taboverlap, 0, taboverlap, 0));
+
+            QRect grabRect = tabRect(selected);
+            grabRect.adjust(-taboverlap, 0, taboverlap, 0);
+            QPixmap grabImage(grabRect.size() * devicePixelRatioF());
+            grabImage.setDevicePixelRatio(devicePixelRatioF());
+            grabImage.fill(Qt::transparent);
+            QStylePainter p(&grabImage, this);
+            p.initFrom(this);
+            if (tabDragOffset != 0) {
+                tab.position = QStyleOptionTab::OnlyOneTab;
+            }
+            tab.rect.moveTopLeft(QPoint(taboverlap, 0));
+            p.drawControl(QStyle::CE_TabBarTab, tab);
+            m_movingTab->m_pixmap = grabImage;
+            m_movingTab->update();
         }
     }
 
@@ -1409,7 +1430,7 @@ void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
         for (QObject *object : objects) {
             QWidget *widget = qobject_cast<QWidget*>(object);
             if (widget && widget->geometry() == grabRect) {
-                m_movingTab = widget;
+                m_movingTab = static_cast<QMovableTabWidget*>(widget);
                 break;
             }
         }
