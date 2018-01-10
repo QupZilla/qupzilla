@@ -4,7 +4,7 @@
 
 <style type="text/css" media="screen">
 html {
-    background: #ececec url("%IMG_BACKGROUND%") no-repeat center center;
+    background: url("%IMG_BACKGROUND%") no-repeat center center, url("qrc:html/sd_bg.svg") no-repeat center center;
     background-size: %B_SIZE%;
     }
 
@@ -12,6 +12,7 @@ body {
     font-family: sans-serif;
     color: #eaeaea;
     direction: %DIRECTION%;
+    cursor: pointer;
     }
 
 body * {
@@ -19,16 +20,18 @@ body * {
     font-size: 100%;
     line-height: 1.6;
     margin: 0;
+    cursor: pointer;
     }
 
 .add
     { %RIGHT_STR%: 6px;
-    background: url(%IMG_PLUS%);
+    background: url(qrc:html/plus.svg);
+    background-size: contain;
     }
 
 .sett {
     %RIGHT_STR%: 40px;
-    background: url(%IMG_SETTINGS%);
+    background: url(qrc:html/configure.svg);
     }
 
 .add, .sett {
@@ -37,12 +40,12 @@ body * {
     top: 10px;
     width: 32px;
     height: 32px;
-    cursor: pointer;
     border-radius: 2px;
+    background-color: rgba(0,0,0, 0.5)
     }
 
 .add:hover, .sett:hover {
-    box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5);
+    box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
     }
 
 #quickdial {
@@ -103,35 +106,44 @@ span.boxTitle {
     }
 
 span.edit, span.close, span.reload {
-    width: 16px;
-    height: 16px;
+    width: 9%;
+    height: 13%;
     position: absolute;
     background-position: center;
-    border: 1px solid transparent;
+    background-repeat: no-repeat;
     display: none;
+    min-width: 16px;
+    min-height: 16px;
     }
 
 span.edit {
     %LEFT_STR%: 1px;
     bottom: 1px;
-    background: url(%IMG_EDIT%) no-repeat;
+    background: url(qrc:html/edit.svg);
     }
 
 span.close {
     %RIGHT_STR%: 1px;
     bottom: 1px;
-    background: url(%IMG_CLOSE%) no-repeat;
+    background: url(qrc:html/close.svg);
     }
 
 span.reload {
     %RIGHT_STR%: 1px;
     top: 1px;
-    background: url(%IMG_RELOAD%) no-repeat;
+    background: url(qrc:html/reload.svg);
     }
 
-span.edit:hover, span.close:hover, span.reload:hover {
-    border-color: #00aeff;
-    border-radius: 1px;
+span.edit:hover {
+    background: url(qrc:html/edit_active.svg);
+    }
+
+span.reload:hover {
+    background: url(qrc:html/reload_active.svg);
+    }
+
+span.close:hover {
+    background: url(qrc:html/close_active.svg)
     }
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
@@ -321,7 +333,6 @@ input[type=button], select {
     border: 6px;
     border-radius: 2px;
     color: #eaeaea;
-    cursor: pointer;
     width: 135px;
     height: 32px;
     font-weight: bold;
@@ -361,7 +372,6 @@ input[type=checkbox] {
     }
 
 .checkbox label {
-    cursor: pointer;
     position: absolute;
     width: 25px;
     height: 25px;
@@ -454,8 +464,7 @@ function configureSpeedDial()
     $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
     $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
     $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
-
-                                         // ======================== SHOW DIALOG ======================== //
+                                        // ======================== SHOW DIALOG ======================== //
     $('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
     $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
     $('#settingsBox').click(function(event) { event.stopPropagation(); });
@@ -509,8 +518,8 @@ function onEditClick(box) {
         '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
         '<tr><td></td><td><div class="checkbox"><input type="checkbox" id="fetchTitle" onclick="onFetchTitleClick(this)">' +
         '<label for="fetchTitle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ' + TITLE_FETCHTITLE + ' </div></td></tr>' +
-        '</table><p class="buttonbox"><input type="button" value=" %CLOSE% " onClick="hideEditBox();" />&nbsp;&nbsp;&nbsp;' +
-        '<input type="button" value="   ' + EDIT + '   " onClick="boxEdited()" /></p>' +
+        '</table><p class="buttonbox"><input type="button" value=" %CLOSE% " onClick="hideEditBox();">&nbsp;&nbsp;&nbsp;' +
+        '<input type="button" value="   ' + EDIT + '   " onClick="boxEdited()"></p>' +
         '</div></div>');
 
     $('#fadeOverlay').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
@@ -784,9 +793,12 @@ function disableCentering() {
 </head>
 
 <body>
+
 <noscript>%JAVASCRIPT-DISABLED%</noscript>
+
 <div id="quickdial">
 </div>
+
 <a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
 <a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
@@ -837,7 +849,7 @@ function init() {
       <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="checkbox">
-        <input type="checkbox" value="1" id="SdCntrToggle" name="sdcntrt"/>
+        <input type="checkbox" id="SdCntrToggle" name="sdcntrt"/>
         <label for="SdCntrToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_CNTRDLS%
     </div>
     <div class="checkbox">
@@ -851,7 +863,7 @@ function init() {
 
 <table><tr><td>
       <div class="checkbox">
-        <input type="checkbox" value="1" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
+        <input type="checkbox" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
         <label for="BgImgToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_NOTE%
       </div>
 </td></tr>

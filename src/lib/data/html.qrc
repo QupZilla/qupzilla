@@ -20,5 +20,6 @@
         <file>html/close_active.svg</file>
         <file>html/reload_active.svg</file>
         <file>html/edit_active.svg</file>
+        <file>html/sd_bg.svg</file>
     </qresource>
 </RCC>
