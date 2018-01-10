@@ -227,10 +227,10 @@ QUrl WebTab::url() const
     }
 }
 
-QString WebTab::title() const
+QString WebTab::title(bool allowEmpty) const
 {
     if (isRestored()) {
-        return m_webView->title();
+        return m_webView->title(allowEmpty);
     }
     else {
         return m_savedTab.title;
@@ -426,7 +426,7 @@ void WebTab::showNotification(QWidget* notif)
 
 void WebTab::loadStarted()
 {
-    if (m_tabBar && m_webView->isTitleEmpty()) {
+    if (m_tabBar && m_webView->title(/*allowEmpty*/true).isEmpty()) {
         m_tabBar->setTabText(tabIndex(), tr("Loading..."));
     }
 }

@@ -968,7 +968,12 @@ void BrowserWindow::currentTabChanged()
         return;
     }
 
-    setWindowTitle(tr("%1 - QupZilla").arg(view->webTab()->title()));
+    const QString title = view->webTab()->title(/*allowEmpty*/true);
+    if (title.isEmpty()) {
+        setWindowTitle(tr("QupZilla"));
+    } else {
+        setWindowTitle(tr("%1 - QupZilla").arg(title));
+    }
     m_ipLabel->setText(view->getIp());
     view->setFocus();
 

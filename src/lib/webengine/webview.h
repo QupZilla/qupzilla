@@ -38,9 +38,7 @@ public:
     ~WebView();
 
     QIcon icon(bool allowNull = false) const;
-
-    QString title() const;
-    bool isTitleEmpty() const;
+    QString title(bool allowEmpty = false) const;
 
     WebPage* page() const;
     void setPage(WebPage* page);

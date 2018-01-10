@@ -114,24 +114,23 @@ QIcon WebView::icon(bool allowNull) const
     return IconProvider::iconForUrl(url(), allowNull);
 }
 
-QString WebView::title() const
+QString WebView::title(bool allowEmpty) const
 {
     QString title = QWebEngineView::title();
+
+    if (allowEmpty) {
+        return title;
+    }
 
     if (title.isEmpty()) {
         title = url().toString(QUrl::RemoveFragment);
     }
 
-    if (title.isEmpty() || title == QLatin1String("about:blank")) {
+    if (title.isEmpty() || title == QL1S("about:blank")) {
         return tr("Empty Page");
     }
 
     return title;
-}
-
-bool WebView::isTitleEmpty() const
-{
-    return QWebEngineView::title().isEmpty();
 }
 
 WebPage* WebView::page() const
