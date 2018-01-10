@@ -23,28 +23,37 @@ body * {
     cursor: pointer;
 }
 
-.add
-{ %RIGHT_STR%: 6px;
+.add {
     background: url(qrc:html/plus.svg);
+    background-clip: padding-box;
+    background-color: rgba(0,0,0, 0.5);
     background-size: contain;
+    border: 1px solid rgba(0,0,0, 0.3);
+    border-radius: 2px;
+    float: %LEFT_STR%;
+    height: 80px;
+    margin: 5px;
+    position: relative;
+    width: 80px;
+    z-index: 0;
 }
 
 .sett {
-    %RIGHT_STR%: 40px;
+    %RIGHT_STR%: 6px;
     background: url(qrc:html/configure.svg);
-}
-
-.add, .sett {
+    height: 32px;
     outline: none;
     position: absolute;
     top: 10px;
     width: 32px;
-    height: 32px;
-    border-radius: 2px;
-    background-color: rgba(0,0,0, 0.5)
 }
 
-.add:hover, .sett:hover {
+.add:hover, {
+    box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
+}
+
+.sett:hover {
+    background-color: rgba(0,0,0, 0.5);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
 }
 
@@ -162,6 +171,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     box-shadow: 0 0 0 1px rgba(255,255,255, 0.6);
     padding: 15px;
     padding-bottom: 0;
+    z-index: 1;
 }
 
 #overlay-edit img {
@@ -206,6 +216,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     background-color: rgba(0,0,0, 0.6);
     border-radius: 1px;
     border: 1px solid rgba(255,255,255, 0.8);
+    z-index: 1;
 }
 
 #settingsBox .content {
@@ -308,7 +319,8 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     padding: 20px;
     padding-bottom: 130px;
     position: fixed;
-    %RIGHT_STR%: 0; top: 0;
+    %RIGHT_STR%: 0;
+    top: 0;
 }
 
 #ImgSelector {
@@ -518,7 +530,7 @@ function onEditClick(box) {
         '<input type="text" id="formTitle" value="' + boxTitle + '"></td></tr>' +
         '<tr><td></td><td><div class="checkbox"><input type="checkbox" id="fetchTitle" onclick="onFetchTitleClick(this)">' +
         '<label for="fetchTitle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ' + TITLE_FETCHTITLE + ' </div></td></tr>' +
-        '</table><p class="buttonbox"><input type="button" value=" %CLOSE% " onClick="hideEditBox();">&nbsp;&nbsp;&nbsp;' +
+        '</table><p class="buttonbox"><input type="button" value=" %CANCEL% " onClick="hideEditBox();location.reload();">&nbsp;&nbsp;&nbsp;' +
         '<input type="button" value="   ' + EDIT + '   " onClick="boxEdited()"></p>' +
         '</div></div>');
 
@@ -703,8 +715,8 @@ function alignPage() {
     $('head').append('<style>#quickdial img{height:auto;width:'+DIAL_WIDTH+'px}</style>');
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
         'height' : dialHeight  + 'px'});
-    var width = $(window).width();
-    var height = $(window).height();
+    var fullwidth = $(window).width();
+    var width = Math.floor(fullwidth - 76);    var height = $(window).height();
     var boxWidth = Math.floor(DIAL_WIDTH + 12);
     var boxHeight = dialHeight + 22;
     var maxBoxes = Math.floor(width / boxWidth);
@@ -801,7 +813,6 @@ function disableCentering() {
 </div>
 
 <a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
-<a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
 
@@ -890,12 +901,13 @@ function init() {
     </div>
 </td></tr></table>
     <p class="buttonbox">
-        <input type="button" value=" %CLOSE% " onClick="$('#fadeOverlay2').fadeOut('slow');" />
-        <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');"/>
+        <input type="button" value=" %CANCEL% " onClick="$('#fadeOverlay2').fadeOut('slow');location.reload();" />
+        <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');location.reload();"/>
     </p>
   </div>
 </div>
 </body>
+<a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
 
