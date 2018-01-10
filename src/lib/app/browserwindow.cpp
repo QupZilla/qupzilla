@@ -810,10 +810,10 @@ void BrowserWindow::showSource(WebView *view)
 
 void BrowserWindow::showNormal()
 {
+    QMainWindow::showNormal();
+
     if (m_normalWindowState & Qt::WindowMaximized) {
         QMainWindow::showMaximized();
-    } else {
-        QMainWindow::showNormal();
     }
 }
 
