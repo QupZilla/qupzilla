@@ -6,14 +6,14 @@
 html {
     background: url("%IMG_BACKGROUND%") no-repeat center center, url("qrc:html/sd_bg.svg") no-repeat center center;
     background-size: %B_SIZE%;
-    }
+}
 
 body {
     font-family: sans-serif;
     color: #eaeaea;
     direction: %DIRECTION%;
     cursor: pointer;
-    }
+}
 
 body * {
     -webkit-user-select: none;
@@ -21,18 +21,18 @@ body * {
     line-height: 1.6;
     margin: 0;
     cursor: pointer;
-    }
+}
 
 .add
-    { %RIGHT_STR%: 6px;
+{ %RIGHT_STR%: 6px;
     background: url(qrc:html/plus.svg);
     background-size: contain;
-    }
+}
 
 .sett {
     %RIGHT_STR%: 40px;
     background: url(qrc:html/configure.svg);
-    }
+}
 
 .add, .sett {
     outline: none;
@@ -42,17 +42,17 @@ body * {
     height: 32px;
     border-radius: 2px;
     background-color: rgba(0,0,0, 0.5)
-    }
+}
 
 .add:hover, .sett:hover {
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
-    }
+}
 
 #quickdial {
     outline: none;
     margin: auto;
     text-align: center;
-    }
+}
 
 #quickdial div.entry {
     background-color: rgba(0,0,0, 0.5);
@@ -62,27 +62,27 @@ body * {
     border-radius: 1px;
     border: 1px solid rgba(0,0,0, 0.3);
     background-clip: padding-box;
-    }
+}
 
 #quickdial div.entry:hover {
     box-shadow: 0 0 0 2px rgba(0,175,255, 0.5);
-    }
+}
 
 #quickdial img {
     display: block;
     margin: auto;
     border-radius: 0px 0px 0 0;
-    }
+}
 
 #quickdial img[src="%LOADING-IMG%"]{
     margin: 10% auto auto auto;
     height: 66%;
     width: 44%;
-    }
+}
 
 #quickdial img[src=""] {
     visibility: hidden;
-    }
+}
 
 #quickdial a {
     position: absolute;
@@ -90,7 +90,7 @@ body * {
     top: 0;
     width: 100%;
     height: 87%;
-    }
+}
 
 span.boxTitle {
     width: 80%;
@@ -103,7 +103,7 @@ span.boxTitle {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: default;
-    }
+}
 
 span.edit, span.close, span.reload {
     width: 9%;
@@ -114,41 +114,41 @@ span.edit, span.close, span.reload {
     display: none;
     min-width: 16px;
     min-height: 16px;
-    }
+}
 
 span.edit {
     %LEFT_STR%: 1px;
     bottom: 1px;
     background: url(qrc:html/edit.svg);
-    }
+}
 
 span.close {
     %RIGHT_STR%: 1px;
     bottom: 1px;
     background: url(qrc:html/close.svg);
-    }
+}
 
 span.reload {
     %RIGHT_STR%: 1px;
     top: 1px;
     background: url(qrc:html/reload.svg);
-    }
+}
 
 span.edit:hover {
     background: url(qrc:html/edit_active.svg);
-    }
+}
 
 span.reload:hover {
     background: url(qrc:html/reload_active.svg);
-    }
+}
 
 span.close:hover {
     background: url(qrc:html/close_active.svg)
-    }
+}
 
 div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     display: inline;
-    }
+}
 
 #overlay-edit {
     outline: none;
@@ -162,7 +162,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     box-shadow: 0 0 0 1px rgba(255,255,255, 0.6);
     padding: 15px;
     padding-bottom: 0;
-    }
+}
 
 #overlay-edit img {
     display: block;
@@ -170,30 +170,30 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     margin-%RIGHT_STR%: auto;
     max-width: 100%;
     max-height: auto;
-    }
+}
 
 #overlay-edit img[src="%LOADING-IMG%"] {
     width: 54px;
     height: 55px;
-    }
+}
 
 #overlay-edit .buttonbox input {
     margin-%RIGHT_STR%: 0;
     margin-%LEFT_STR%: 3px;
-    }
+}
 
 #overlay-edit table {
     width: 100%;
     margin-%LEFT_STR%: auto;
     margin-%RIGHT_STR%: auto;
-    }
+}
 
 #overlay-edit table input[type="text"] {
     width: 100%;
     -webkit-user-select: auto;
     background-color: #eeeeee;
     border-radius: 1px;
-    }
+}
 
 #settingsBox {
     outline: none;
@@ -206,7 +206,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     background-color: rgba(0,0,0, 0.6);
     border-radius: 1px;
     border: 1px solid rgba(255,255,255, 0.8);
-    }
+}
 
 #settingsBox .content {
     margin-%LEFT_STR%: auto;
@@ -214,7 +214,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     padding-bottom: 5px;
     border-bottom: 1px solid #888;
     text-align: center;
-    }
+}
 
 #settingsBox .thumbhold {
     margin-%LEFT_STR%: auto;
@@ -225,7 +225,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     width: 360px;
     height: 200px;
     background: #AAA;
-    }
+}
 
 #settingsBox .thumbhold p {
     padding: 0;
@@ -240,42 +240,42 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     top: 1px;
     line-height: 98px;
     cursor: default;
-    }
+}
 
 #settingsBox p label {
     margin: 2px;
     padding: 1px;
     text-align: center;
-    }
+}
 
 #settingsBox p select {
     margin: 2px;
     padding: 1px;
     text-align: center;
     width: auto;
-    }
+}
 
 #settingsBox p select option {
     text-align: center;
-    }
+}
 
 #settingsBox .togop {
     margin-bottom: 1px;
     padding-bottom: 2px;
-    }
+}
 
 #settingsBox .button {
     margin: 5px;
     padding: 1px;
     text-align:center;
     width: 98%;
-    }
+}
 
 #settingsBox .rowsel {
     margin: 2px;
     padding: 3px 0;
     border-bottom: 1px solid #888;
-    }
+}
 
 #settingsBox .rowsel input {
     background-color: rgba(0,0,0, 0.4);
@@ -284,7 +284,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     height: 12px;
     margin: 0;
     padding-bottom: 0;
-    }
+}
 
 #settingsBox .rowsel span {
     font-weight: bold;
@@ -293,12 +293,12 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     margin-%RIGHT_STR%: 7px;
     display: inline-block;
     width: 25px;
-    }
+}
 
 .buttonbox {
     margin: 7px 0;
     text-align: %RIGHT_STR%;
-    }
+}
 
 .overlay {
     background: rgba(128,128,128,0.8);
@@ -309,20 +309,20 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     padding-bottom: 130px;
     position: fixed;
     %RIGHT_STR%: 0; top: 0;
-    }
+}
 
 #ImgSelector {
     position:absolute;
     z-index: 1;
     width:360px;
-    height:200px;}
+height:200px;}
 
 #ImgSelectorMenu {
     position:relative;
     z-index: 2;
     bottom: -150px;
     right: -60px;
-    }
+}
 
 input[type=button], select {
     padding: 0px;
@@ -336,16 +336,16 @@ input[type=button], select {
     width: 135px;
     height: 32px;
     font-weight: bold;
-    }
+}
 
 input[type=button]:hover, input[type=text]:hover, select:hover {
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
-    }
+}
 
 input[type=button]:active, select:active {
     background: rgba(90,167,255, 0.8);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
-    }
+}
 
 input[type=text] {
     padding: 5px;
@@ -359,17 +359,17 @@ input[type=text] {
     color: #eaeaea;
     width: 135px;
     height: 32px;
-    }
+}
 
 input[type=checkbox] {
     visibility: hidden;
-    }
+}
 
 .checkbox {
     width: 340px;
     margin: 20px 3px;
     position: relative;
-    }
+}
 
 .checkbox label {
     position: absolute;
@@ -381,11 +381,11 @@ input[type=checkbox] {
     border: 1px;
     border-radius: 2px;
     background: #111111;
-    }
+}
 
 .checkbox label:hover {
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
-    }
+}
 
 .checkbox label:after {
     opacity: 0.1;
@@ -400,15 +400,15 @@ input[type=checkbox] {
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
-    }
+}
 
 .checkbox label:hover::after {
     opacity: 0.3;
-    }
+}
 
 .checkbox input[type=checkbox]:checked + label:after {
     opacity: 1;
-    }
+}
 </style>
 
 <script type="text/javascript" src="%JQUERY%"></script>
@@ -436,23 +436,23 @@ $(document).keyup(function(e) {
         boxEdited();
     else if (e.keyCode == 27)
         $('#fadeOverlay').click();
-    });
+});
 
 function emitChanged(pages)
-    {
-        ignoreNextChanged = true;
-        external.speedDial.changed(pages);
-    }
+{
+    ignoreNextChanged = true;
+    external.speedDial.changed(pages);
+}
 
 function addSpeedDial()
-    {
-        onEditClick(addBox('', NEW_PAGE, ''));
-        alignPage();
-    }
+{
+    onEditClick(addBox('', NEW_PAGE, ''));
+    alignPage();
+}
 
 function configureSpeedDial()
-    {
-                                        // ====================== LOAD SETTINGS ========================= //
+{
+    // ====================== LOAD SETTINGS ========================= //
     $('#PgInRow').val(MAX_PAGES_ROW);
     $('#sliderValuePg').html(MAX_PAGES_ROW);
     $('#SdSize').val(DIAL_WIDTH);
@@ -464,43 +464,43 @@ function configureSpeedDial()
     $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
     $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
     $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
-                                        // ======================== SHOW DIALOG ======================== //
+    // ======================== SHOW DIALOG ======================== //
     $('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
     $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
     $('#settingsBox').click(function(event) { event.stopPropagation(); });
-    }
+}
 
 function escapeTitle(title) {
     title = title.replace(/"/g, '&quot;');
     title = title.replace(/'/g, '&apos;');
     return title;
-    }
+}
 
 function unescapeTitle(title) {
     title = title.replace(/&quot;/g, '"');
     title = title.replace(/&apos;/g, '\'');
     return title;
-    }
+}
 
 function escapeUrl(url) {
     url = url.replace(/"/g, '');
     url = url.replace(/'/g, '');
     return url;
-    }
+}
 
 function onRemoveClick(box) {
     removeBox($(box).index());
-    }
+}
 
 function onFetchTitleClick(checkbox) {
     var displayStyle;
     checkbox.checked ? displayStyle = 'hidden' : displayStyle = 'visible';
     $('#titleLine').css({'visibility' : displayStyle });
-    }
+}
 
 function hideEditBox() {
     $('#fadeOverlay').fadeOut("slow", function() {$("#fadeOverlay").remove();});
-    }
+}
 
 function onEditClick(box) {
     editingId = $(box).index();
@@ -526,7 +526,7 @@ function onEditClick(box) {
     $('#fadeOverlay').click(function() {hideEditBox()});
     $('#overlay-edit').click(function(event) { event.stopPropagation(); });
     $('#formUrl').focus().val($('#formUrl').val()); // focus and move cursor to end
-    }
+}
 
 function onReloadClick(box) {
     var url = $(box).children('a').first().attr('href');
@@ -537,7 +537,7 @@ function onReloadClick(box) {
 
     $(img).attr('src', LOADING_IMAGE);
     external.speedDial.loadThumbnail(url, false);
-    }
+}
 
 function boxEdited() {
     if (editingId == -1)
@@ -566,8 +566,8 @@ function boxEdited() {
             hideEditBox();
         }
         emitChanged(pages);
-        });
-    }
+    });
+}
 
 function allPages() {
     var urls = $('a[class="boxUrl"]');
@@ -578,17 +578,17 @@ function allPages() {
         var title = $(this).children('span[class="boxTitle"]').first().text();
 
         value += 'url:"' + escapeUrl(url) + '"|title:"' + escapeTitle(title) + '";';
-        });
+    });
 
     return value;
-    }
+}
 
 function reloadAll() {
     if (confirm("%TITLE-WARN-REL%"))
-    $('div.entry').each(function(i) {
-        onReloadClick($(this));
+        $('div.entry').each(function(i) {
+            onReloadClick($(this));
         });
-    }
+}
 
 function addBox(url, title, img_source) {
     var div = document.createElement('div');
@@ -624,9 +624,9 @@ function addBox(url, title, img_source) {
     document.getElementById("quickdial").appendChild(div);
     if (img_source == LOADING_IMAGE) {
         external.speedDial.loadThumbnail(url, false);
-        }
-    return div;
     }
+    return div;
+}
 
 function setBoxImage(id, img_source) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
@@ -634,7 +634,7 @@ function setBoxImage(id, img_source) {
         return;
     var img = box.getElementsByTagName('img')[0];
     img.setAttribute('src', img_source + '?' + new Date());
-    }
+}
 
 function setTitleToUrl(url, title) {
     var changed = false;
@@ -653,11 +653,11 @@ function setTitleToUrl(url, title) {
         if (span.innerText != title) {
             changed = true;
             span.innerText = title;
-            }
         }
+    }
     if (changed)
         emitChanged(allPages());
-    }
+}
 
 function setImageToUrl(url, img_source) {
     var aElement = $('a[href="' + url + '"]');
@@ -667,8 +667,8 @@ function setImageToUrl(url, img_source) {
         if ($(imgElement).size() == 0)
             return;
         $(imgElement).attr('src', img_source/* + '?' + new Date()*/);
-        });
-    }
+    });
+}
 
 function setBoxUrl(id, url) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
@@ -676,7 +676,7 @@ function setBoxUrl(id, url) {
         return;
     var a = box.getElementsByTagName('a')[0];
     a.setAttribute('href', url);
-    }
+}
 
 function setBoxTitle(id, title) {
     var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
@@ -684,11 +684,11 @@ function setBoxTitle(id, title) {
         return;
     var span = box.getElementsByTagName('span')[0];
     span.innerText = title;
-    }
+}
 
 function removeBox(id) {
     if (confirm("%TITLE-WARN%"))
-    var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
+        var box = document.getElementById('quickdial').getElementsByTagName('div')[id];
     if (box === undefined)
         return;
     var url = box.getElementsByTagName('a')[0].getAttribute('href');
@@ -696,13 +696,13 @@ function removeBox(id) {
     alignPage();
     external.speedDial.removeImageForUrl(url);
     emitChanged(allPages());
-    }
+}
 
 function alignPage() {
     var dialHeight = Math.floor(Math.round(DIAL_WIDTH / 1.54));
     $('head').append('<style>#quickdial img{height:auto;width:'+DIAL_WIDTH+'px}</style>');
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
-                                   'height' : dialHeight  + 'px'});
+        'height' : dialHeight  + 'px'});
     var width = $(window).width();
     var height = $(window).height();
     var boxWidth = Math.floor(DIAL_WIDTH + 12);
@@ -722,16 +722,16 @@ function alignPage() {
         enableCentering();
     else
         disableCentering();
-    }
+}
 
 function bgImageSel() {
     external.speedDial.getOpenFileName(function(arr) {
         if (arr.length) {
             document.getElementById('BgImgHold').value = arr[0];
             document.getElementById('BgImgHoldUrl').value = arr[1];
-            }
-        });
-    }
+        }
+    });
+}
 
 function saveSettings() {
     MAX_PAGES_ROW = $('#PgInRow').val();
@@ -743,7 +743,7 @@ function saveSettings() {
     external.speedDial.setSdSize(DIAL_WIDTH);
     external.speedDial.setSdCentered(SD_CENTER);
     alignPage();
-    }
+}
 
 function bgImgToggle() {
     var check = document.getElementById('BgImgToggle');
@@ -754,7 +754,7 @@ function bgImgToggle() {
     BgImgHoldUrl.disabled = (check.checked ? false : true);
     BgImgSz.disabled = (check.checked ? false : true);
     BgImgHoldUrl.value = (check.checked ? "%URL_BACKGROUND%" : '');
-    }
+}
 
 function sdSizeToggle() {
     var check = document.getElementById('SdSizeToggle');
@@ -763,7 +763,7 @@ function sdSizeToggle() {
     SdSize.disabled = (check.checked ? false : true);
     SdSize.value = (check.checked ? SdSize.value : 240);
     SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 240);
-    }
+}
 
 function bgImgUpdate() {
     var imgUrl = document.getElementById('BgImgHold').value;
@@ -774,21 +774,21 @@ function bgImgUpdate() {
     imgThumb.style.backgroundSize = imgSize;
     document.documentElement.style.backgroundImage = 'url("' + imgUrl + '")';
     document.documentElement.style.backgroundSize = imgSize;
-    }
+}
 
 function enableCentering() {
     $('#quickdial div.entry').css({
         float: 'none',
         display: 'inline-block'
-        });
-    }
+    });
+}
 
 function disableCentering() {
     $('#quickdial div.entry').css({
         float: '%LEFT_STR%',
         display: 'block'
-        });
-    }
+    });
+}
 </script>
 </head>
 
@@ -810,9 +810,9 @@ function init() {
         if (ignoreNextChanged) {
             ignoreNextChanged = false;
             return;
-            }
+        }
         window.location.reload();
-        });
+    });
 
     external.speedDial.thumbnailLoaded.connect(setImageToUrl);
     external.speedDial.pageTitleLoaded.connect(setTitleToUrl);
@@ -826,27 +826,28 @@ function init() {
         distance: 40,
         start: function(event, ui) {
             disableCentering();
-            },
+        },
         stop: function(event, ui) {
             if (SD_CENTER)
                 enableCentering();
-            },
+        },
         update: function(event, ui) {
             emitChanged(allPages());
-            }
-        });
+        }
+    });
     alignPage();
-    }
+}
+
 </script>
 
 <div id="fadeOverlay2" class="overlay" style="display:none;">
-  <div id="settingsBox">
+<div id="settingsBox">
     <div class="togop">
-      <label for="PgInRow">%TXT_NRROWS%</label>
+        <label for="PgInRow">%TXT_NRROWS%</label>
     </div>
     <div class="rowsel">
-      <span id="sliderValuePg"></span>
-      <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
+        <span id="sliderValuePg"></span>
+        <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
     </div>
     <div class="checkbox">
         <input type="checkbox" id="SdCntrToggle" name="sdcntrt"/>
@@ -857,24 +858,24 @@ function init() {
         <label for="SdSizeToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_SDSIZE%
     </div>
     <div class="rowsel">
-      <span id="sliderValueSd"></span>
-      <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
+        <span id="sliderValueSd"></span>
+        <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
     </div>
 
 <table><tr><td>
-      <div class="checkbox">
-        <input type="checkbox" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
-        <label for="BgImgToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_NOTE%
-      </div>
-</td></tr>
-<tr><td  height="200px" align="center" valign="top">
+            <div class="checkbox">
+                <input type="checkbox" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
+                <label for="BgImgToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_NOTE%
+            </div>
+    </td></tr>
+    <tr><td  height="200px" align="center" valign="top">
     <div id="ImgSelector">
-    <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();bgImgUpdate();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
-    </div>
-      <p>
-        <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
-        <input id="BgImgHoldUrl" type="hidden" value="%URL_BACKGROUND%" />
-      </p>
+        <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();bgImgUpdate();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
+        </div>
+        <p>
+            <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
+            <input id="BgImgHoldUrl" type="hidden" value="%URL_BACKGROUND%" />
+        </p>
     </div>
     <div id="ImgSelectorMenu">
         <label for="BgImgSelSiz">%TXT_PLACEMENT%</label>
@@ -888,8 +889,8 @@ function init() {
     </div>
 </td></tr></table>
     <p class="buttonbox">
-      <input type="button" value=" %CLOSE% " onClick="$('#fadeOverlay2').fadeOut('slow');" />
-      <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');"/>
+        <input type="button" value=" %CLOSE% " onClick="$('#fadeOverlay2').fadeOut('slow');" />
+        <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');"/>
     </p>
   </div>
 </div>
@@ -897,11 +898,12 @@ function init() {
 
 <script type="text/javascript">
 
-                              // ============================ Initialize =============================== //
+// ============================ Initialize =============================== //
 if (window._qupzilla_external) {
     init();
-    } else {
-        document.addEventListener('_qupzilla_external_created', init);
-    }
+} else {
+    document.addEventListener('_qupzilla_external_created', init);
+}
+
 </script>
 </html>
