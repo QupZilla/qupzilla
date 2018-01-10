@@ -44,10 +44,6 @@ public:
     static void registerExtraObject(const QString &id, QObject *object);
     static void unregisterExtraObject(const QString &id);
 
-public slots:
-    void AddSearchProvider(const QString &engineUrl);
-    int IsSearchProviderInstalled(const QString &engineURL);
-
 private:
     QObject *speedDial() const;
     QObject *autoFill() const;
