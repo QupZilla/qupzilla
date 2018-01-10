@@ -729,6 +729,7 @@ function bgImageSel() {
         if (arr.length) {
             document.getElementById('BgImgHold').value = arr[0];
             document.getElementById('BgImgHoldUrl').value = arr[1];
+            bgImgUpdate();
         }
     });
 }
@@ -870,7 +871,7 @@ function init() {
     </td></tr>
     <tr><td  height="200px" align="center" valign="top">
     <div id="ImgSelector">
-        <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();bgImgUpdate();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
+        <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
         </div>
         <p>
             <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
