@@ -55,6 +55,7 @@
 #include <QFileDialog>
 #include <QAuthenticator>
 #include <QPushButton>
+#include <QUrlQuery>
 
 QString WebPage::s_lastUploadLocation = QDir::homePath();
 QUrl WebPage::s_lastUnsupportedUrl;
@@ -378,6 +379,12 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
 {
     if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
         return false;
+
+    if (url.scheme() == QL1S("qupzilla") && url.path() == QL1S("AddSearchProvider")) {
+        QUrlQuery query(url);
+        mApp->searchEnginesManager()->addEngine(QUrl(query.queryItemValue(QSL("url"))));
+        return false;
+    }
 
     const bool result = QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 

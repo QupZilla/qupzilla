@@ -30,6 +30,7 @@ class QUPZILLA_EXPORT Scripts
 public:
     static QString setupWebChannel(quint32 worldId);
     static QString setupFormObserver();
+    static QString setupWindowExternal();
 
     static QString setCss(const QString &css);
     static QString sendPostData(const QUrl &url, const QByteArray &data);

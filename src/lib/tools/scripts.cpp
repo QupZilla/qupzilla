@@ -143,6 +143,23 @@ QString Scripts::setupFormObserver()
     return source;
 }
 
+QString Scripts::setupWindowExternal()
+{
+    QString source = QL1S("(function() {"
+                          "var external = {};"
+                          "external.AddSearchProvider = function(url) {"
+                          "    window.location = 'qupzilla:AddSearchProvider?url=' + url;"
+                          "};"
+                          "external.IsSearchProviderInstalled = function(url) {"
+                          "    console.warn('NOT IMPLEMENTED: IsSearchProviderInstalled()');"
+                          "    return false;"
+                          "};"
+                          "window.external = external;"
+                          "})()");
+
+    return source;
+}
+
 QString Scripts::setCss(const QString &css)
 {
     QString source = QL1S("(function() {"

@@ -156,6 +156,7 @@ private:
 
     void translateApp();
 
+    void setupUserScripts();
     void setUserStyleSheet(const QString &filePath);
 
     void checkDefaultWebBrowser();
