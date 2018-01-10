@@ -465,6 +465,7 @@ void TabWidget::requestCloseTab(int index)
                 // to close the last tab multiple times
                 m_closedTabsManager->takeLastClosedTab();
             }
+            webView->zoomReset();
             webView->load(m_urlOnNewTab);
             return;
         }
