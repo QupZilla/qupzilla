@@ -39,6 +39,7 @@ class QUPZILLA_EXPORT WebPage : public QWebEnginePage
 
 public:
     enum JsWorld {
+        UnsafeJsWorld = QWebEngineScript::MainWorld,
         SafeJsWorld = QWebEngineScript::ApplicationWorld
     };
 
@@ -48,7 +49,7 @@ public:
     WebView *view() const;
 
     bool execPrintPage(QPrinter *printer, int timeout = 1000);
-    QVariant execJavaScript(const QString &scriptSource, quint32 worldId = QWebEngineScript::MainWorld, int timeout = 500);
+    QVariant execJavaScript(const QString &scriptSource, quint32 worldId = UnsafeJsWorld, int timeout = 500);
 
     QPointF mapToViewport(const QPointF &pos) const;
     WebHitTestResult hitTestContent(const QPoint &pos) const;
@@ -84,6 +85,7 @@ private slots:
     void renderProcessTerminated(RenderProcessTerminationStatus terminationStatus, int exitCode);
 
 private:
+    void setupWebChannelForUrl(const QUrl &url);
     bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) Q_DECL_OVERRIDE;
     bool certificateError(const QWebEngineCertificateError &error) Q_DECL_OVERRIDE;
     QStringList chooseFiles(FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) Q_DECL_OVERRIDE;

@@ -273,10 +273,18 @@ MainApplication::MainApplication(int &argc, char** argv)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_webchannel"));
     script.setInjectionPoint(QWebEngineScript::DocumentCreation);
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(true);
-    script.setSourceCode(Scripts::setupWebChannel());
+    script.setSourceCode(Scripts::setupWebChannel(script.worldId()));
     m_webProfile->scripts()->insert(script);
+
+    QWebEngineScript script2;
+    script2.setName(QSL("_qupzilla_webchannel2"));
+    script2.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script2.setWorldId(WebPage::UnsafeJsWorld);
+    script2.setRunsOnSubFrames(true);
+    script2.setSourceCode(Scripts::setupWebChannel(script2.worldId()));
+    m_webProfile->scripts()->insert(script2);
 
     if (!isPrivate()) {
         m_sessionManager = new SessionManager(this);

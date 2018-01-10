@@ -18,13 +18,17 @@
 
 #include "scripts.h"
 #include "qztools.h"
+#include "webpage.h"
 
 #include <QUrlQuery>
 
-QString Scripts::setupWebChannel()
+QString Scripts::setupWebChannel(quint32 worldId)
 {
-    QString source =  QL1S("(function() {"
-                           "%1"
+    QString source =  QL1S("// ==UserScript==\n"
+                           "// %1\n"
+                           "// ==/UserScript==\n\n"
+                           "(function() {"
+                           "%2"
                            ""
                            "function registerExternal(e) {"
                            "    window.external = e;"
@@ -66,7 +70,13 @@ QString Scripts::setupWebChannel()
                            ""
                            "})()");
 
-    return source.arg(QzTools::readAllFileContents(QSL(":/qtwebchannel/qwebchannel.js")));
+    QString match;
+    if (worldId == WebPage::SafeJsWorld) {
+        match = QSL("@exclude qupzilla:*");
+    } else {
+        match = QSL("@include qupzilla:*");
+    }
+    return source.arg(match, QzTools::readAllFileContents(QSL(":/qtwebchannel/qwebchannel.js")));
 }
 
 QString Scripts::setupFormObserver()

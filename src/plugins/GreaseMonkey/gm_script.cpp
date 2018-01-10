@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,9 +19,9 @@
 #include "gm_manager.h"
 #include "gm_downloader.h"
 
-#include "qzregexp.h"
 #include "delayedfilewatcher.h"
 #include "mainapplication.h"
+#include "webpage.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -131,7 +131,7 @@ QWebEngineScript GM_Script::webScript() const
     QWebEngineScript script;
     script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     script.setName(fullName());
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(!m_noframes);
     return script;
 }

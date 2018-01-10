@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include "passwordmanager.h"
 #include "qztools.h"
 #include "scripts.h"
+#include "webpage.h"
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
@@ -45,7 +46,7 @@ AutoFill::AutoFill(QObject* parent)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_autofill"));
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupFormObserver());
     mApp->webProfile()->scripts()->insert(script);

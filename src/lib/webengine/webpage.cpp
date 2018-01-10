@@ -71,9 +71,7 @@ WebPage::WebPage(QObject* parent)
     , m_blockAlerts(false)
     , m_secureStatus(false)
 {
-    QWebChannel *channel = new QWebChannel(this);
-    ExternalJsObject::setupWebChannel(channel, this);
-    setWebChannel(channel);
+    setupWebChannelForUrl(QUrl());
 
     connect(this, &QWebEnginePage::loadProgress, this, &WebPage::progress);
     connect(this, &QWebEnginePage::loadFinished, this, &WebPage::finished);
@@ -167,13 +165,13 @@ WebHitTestResult WebPage::hitTestContent(const QPoint &pos) const
 
 void WebPage::scroll(int x, int y)
 {
-    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y), WebPage::SafeJsWorld);
+    runJavaScript(QSL("window.scrollTo(window.scrollX + %1, window.scrollY + %2)").arg(x).arg(y), SafeJsWorld);
 }
 
 void WebPage::setScrollPosition(const QPointF &pos)
 {
     const QPointF v = mapToViewport(pos.toPoint());
-    runJavaScript(QSL("window.scrollTo(%1, %2)").arg(v.x()).arg(v.y()), WebPage::SafeJsWorld);
+    runJavaScript(QSL("window.scrollTo(%1, %2)").arg(v.x()).arg(v.y()), SafeJsWorld);
 }
 
 bool WebPage::isRunningLoop()
@@ -362,6 +360,20 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
     });
 }
 
+void WebPage::setupWebChannelForUrl(const QUrl &url)
+{
+    QWebChannel *channel = webChannel();
+    if (!channel) {
+        channel = new QWebChannel(this);
+        ExternalJsObject::setupWebChannel(channel, this);
+    }
+    if (url.scheme() == QL1S("qupzilla")) {
+        setWebChannel(channel, UnsafeJsWorld);
+    } else {
+        setWebChannel(channel, SafeJsWorld);
+    }
+}
+
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
     if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
@@ -373,6 +385,8 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
         const bool isWeb = url.scheme() == QL1S("http") || url.scheme() == QL1S("https");
         const bool globalJsEnabled = mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
         settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, isWeb ? globalJsEnabled : true);
+
+        setupWebChannelForUrl(url);
     }
 
     return result;
