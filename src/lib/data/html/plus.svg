@@ -36,9 +36,9 @@
      inkscape:window-height="776"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="28.954545"
-     inkscape:cx="12.28154"
-     inkscape:cy="11"
+     inkscape:zoom="14.477273"
+     inkscape:cx="4.8559181"
+     inkscape:cy="12.147385"
      inkscape:current-layer="svg2"
      inkscape:window-x="0"
      inkscape:window-y="24"
@@ -54,7 +54,7 @@
       </style>
   </defs>
   <path
-     style="color:#4d4d4d;fill:#eaeaea;fill-opacity:1;stroke:none;stroke-opacity:1;stroke-width:1.4;stroke-miterlimit:4;stroke-dasharray:none"
+     style="color:#4d4d4d;fill:#eaeaea;fill-opacity:1;stroke:#646464;stroke-opacity:1;stroke-width:1.4;stroke-miterlimit:4;stroke-dasharray:none"
      class="ColorScheme-Text"
      d="M 9.666667,3 C 9.420418,3 9.222222,3.1981956 9.222222,3.4444444 l 0,5.7777776 -5.7777776,0 C 3.1982222,9.222222 3,9.420444 3,9.666667 l 0,2.666666 c 0,0.246223 0.1982222,0.444445 0.4444444,0.444445 l 5.7777776,0 0,5.777778 C 9.222222,18.801804 9.420418,19 9.666667,19 l 2.666666,0 c 0.246249,0 0.444445,-0.198196 0.444445,-0.444444 l 0,-5.777778 5.777778,0 C 18.801778,12.777778 19,12.579556 19,12.333333 L 19,9.666667 C 19,9.420444 18.801778,9.222222 18.555556,9.222222 l -5.777778,0 0,-5.7777776 C 12.777778,3.1981956 12.579582,3 12.333333,3 L 9.666667,3 Z"
      id="path6"

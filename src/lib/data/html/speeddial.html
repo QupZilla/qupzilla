@@ -15,6 +15,28 @@ body {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 12px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,175,255, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,175,255, 0.1)
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,175,255, 0.6)
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
+}
+
 body * {
     -webkit-user-select: none;
     font-size: 100%;
@@ -24,18 +46,13 @@ body * {
 }
 
 .add {
+    %RIGHT_STR%: 6px;
     background: url(qrc:html/plus.svg);
-    background-clip: padding-box;
-    background-color: rgba(0,0,0, 0.5);
-    background-size: contain;
-    border: 1px solid rgba(0,0,0, 0.3);
-    border-radius: 2px;
-    float: %LEFT_STR%;
-    height: 80px;
-    margin: 5px;
-    position: relative;
-    width: 80px;
-    z-index: 0;
+    height: 32px;
+    outline: none;
+    position: absolute;
+    bottom: 10px;
+    width: 32px;
 }
 
 .sett {
@@ -48,7 +65,8 @@ body * {
     width: 32px;
 }
 
-.add:hover, {
+.add:hover {
+    background-color: rgba(0,0,0, 0.5);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
 }
 
@@ -171,7 +189,6 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     box-shadow: 0 0 0 1px rgba(255,255,255, 0.6);
     padding: 15px;
     padding-bottom: 0;
-    z-index: 1;
 }
 
 #overlay-edit img {
@@ -209,21 +226,24 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     outline: none;
     margin-%LEFT_STR%: auto;
     margin-%RIGHT_STR%: auto;
-    margin-top: 5%;
+    margin-top: 1%;
     width: 365px;
+    max-width: 377px;
     height: auto;
+    max-height: 120%;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 15px 20px 0;
     background-color: rgba(0,0,0, 0.6);
     border-radius: 1px;
-    border: 1px solid rgba(255,255,255, 0.8);
-    z-index: 1;
+    border: 1px solid rgba(0,0,0, 0.8);
 }
 
 #settingsBox .content {
     margin-%LEFT_STR%: auto;
     margin-%RIGHT_STR%: auto;
     padding-bottom: 5px;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #888888;
     text-align: center;
 }
 
@@ -235,7 +255,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     text-align: center;
     width: 360px;
     height: 200px;
-    background: #AAA;
+    background: #aaaaaa;
 }
 
 #settingsBox .thumbhold p {
@@ -249,7 +269,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     position: relative;
     %LEFT_STR%: 1px;
     top: 1px;
-    line-height: 98px;
+    line-height: 198px;
     cursor: default;
 }
 
@@ -285,7 +305,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
 #settingsBox .rowsel {
     margin: 2px;
     padding: 3px 0;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #888888;
 }
 
 #settingsBox .rowsel input {
@@ -306,8 +326,34 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     width: 25px;
 }
 
+#ImgSelector {
+    position:relative;
+    z-index: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 360px;
+    height: 200px;
+    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+}
+
+#ImgSelectorMenu {
+    position:relative;
+    z-index: 2;
+    bottom: 115px;
+    right: -120px;
+    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+}
+
+#ImgSelectorToggle {
+    position:relative;
+    z-index: 2;
+    left: 10px;
+    bottom: 210px;
+    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+}
+
 .buttonbox {
-    margin: 7px 0;
+    margin-bottom: 10px;
     text-align: %RIGHT_STR%;
 }
 
@@ -323,18 +369,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     top: 0;
 }
 
-#ImgSelector {
-    position:absolute;
-    z-index: 1;
-    width:360px;
-height:200px;}
 
-#ImgSelectorMenu {
-    position:relative;
-    z-index: 2;
-    bottom: -150px;
-    right: -60px;
-}
 
 input[type=button], select {
     padding: 0px;
@@ -813,6 +848,7 @@ function disableCentering() {
 </div>
 
 <a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
+<a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 
 <script type="text/javascript">
 
@@ -873,14 +909,6 @@ function init() {
         <span id="sliderValueSd"></span>
         <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
     </div>
-
-<table><tr><td>
-            <div class="checkbox">
-                <input type="checkbox" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
-                <label for="BgImgToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_NOTE%
-            </div>
-    </td></tr>
-    <tr><td  height="200px" align="center" valign="top">
     <div id="ImgSelector">
         <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
         </div>
@@ -888,27 +916,28 @@ function init() {
             <input id="BgImgHold" type="hidden" value="%IMG_BACKGROUND%" />
             <input id="BgImgHoldUrl" type="hidden" value="%URL_BACKGROUND%" />
         </p>
+        <div class="checkbox" id="ImgSelectorToggle">
+            <input type="checkbox" id="BgImgToggle" name="sdbackimg" onchange="bgImgToggle();bgImgUpdate()" />
+            <label for="BgImgToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_NOTE%
+        </div>
+        <div id="ImgSelectorMenu">
+            <label for="BgImgSelSiz">%TXT_PLACEMENT%</label>
+            <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
+                <option value="auto">&nbsp;&nbsp;%TXT_AUTO%</option>
+                <option value="cover">&nbsp;&nbsp;%TXT_COVER%</option>
+                <option value="contain">&nbsp;&nbsp;%TXT_FIT%</option>
+                <option value="100% auto">&nbsp;&nbsp;%TXT_FWIDTH%</option>
+                <option value="auto 100%">&nbsp;&nbsp;%TXT_FHEIGHT%</option>
+            </select>
+        </div>
     </div>
-    <div id="ImgSelectorMenu">
-        <label for="BgImgSelSiz">%TXT_PLACEMENT%</label>
-        <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
-            <option value="auto">&nbsp;&nbsp;%TXT_AUTO%</option>
-            <option value="cover">&nbsp;&nbsp;%TXT_COVER%</option>
-            <option value="contain">&nbsp;&nbsp;%TXT_FIT%</option>
-            <option value="100% auto">&nbsp;&nbsp;%TXT_FWIDTH%</option>
-            <option value="auto 100%">&nbsp;&nbsp;%TXT_FHEIGHT%</option>
-        </select>
-    </div>
-</td></tr></table>
-    <p class="buttonbox">
+    <div class="buttonbox">
         <input type="button" value=" %CANCEL% " onClick="$('#fadeOverlay2').fadeOut('slow');location.reload();" />
         <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');location.reload();"/>
-    </p>
+    </div>
   </div>
 </div>
 </body>
-<a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
-
 <script type="text/javascript">
 
 // ============================ Initialize =============================== //
