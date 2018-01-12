@@ -79,7 +79,7 @@ body * {
 }
 
 #quickdial div.entry {
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgba(0,0,0, 0.4);
     position: relative;
     float: %LEFT_STR%;
     margin: 5px;
@@ -420,7 +420,6 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 115%;
     height: 20px;
     cursor: pointer;
-    box-shadow: 1px 1px 1px rgba(80,85,90, 1.0);
     background: rgba(80,85,90, 1.0);
     border-radius: 14px;
 }
@@ -443,6 +442,7 @@ input[type=range]:disabled::-webkit-slider-thumb,
 input[type=range]:disabled:hover::-webkit-slider-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
     background: rgba(0,0,0, 0.0);
+    color: #f00;
 }
 
 input[type=checkbox] {
@@ -494,6 +494,7 @@ input[type=checkbox] {
 .checkbox input[type=checkbox]:checked + label:after {
     opacity: 1;
 }
+
 </style>
 
 <script type="text/javascript" src="%JQUERY%"></script>
@@ -549,12 +550,18 @@ function configureSpeedDial()
     $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
     $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
     $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
+    if ($('#BgImgToggle').prop('checked') != true) {
+        $('#ImgSelectorMenu').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
+        $('#BgImgSel').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
+        $('#BgImgSelSiz').css('visibility', 'hidden');
+        }
+    if ($('#SdSizeToggle').prop('checked') != true)
+        $('#SdSizeStateColor').css('color', 'rgba(0,0,0, 0.0)');
     // ======================== SHOW DIALOG ======================== //
     $('#fadeOverlay2').css({'filter' : 'alpha(opacity=100)'}).fadeIn();
     $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
     $('#settingsBox').click(function(event) { event.stopPropagation(); });
 }
-
 function escapeTitle(title) {
     title = title.replace(/"/g, '&quot;');
     title = title.replace(/'/g, '&apos;');
@@ -840,6 +847,15 @@ function bgImgToggle() {
     BgImgHoldUrl.disabled = (check.checked ? false : true);
     BgImgSz.disabled = (check.checked ? false : true);
     BgImgHoldUrl.value = (check.checked ? "%URL_BACKGROUND%" : '');
+    if ($('#BgImgToggle').prop('checked') != true) {
+        $('#ImgSelectorMenu').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
+        $('#BgImgSel').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
+        $('#BgImgSelSiz').css('visibility', 'hidden');
+    } else {
+        $('#ImgSelectorMenu').css({'color' : '#eaeaea', 'text-shadow' : '1px 1px 2px #000000, 0 0 1em #000000'});
+        $('#BgImgSel').css({'color' : '#eaeaea', 'text-shadow' : '1px 1px 2px #000000, 0 0 1em #000000'});
+        $('#BgImgSelSiz').css('visibility', 'visible');
+    };
 }
 
 function sdSizeToggle() {
@@ -848,7 +864,12 @@ function sdSizeToggle() {
     var SdSizeSl = document.getElementById('sliderValueSd');
     SdSize.disabled = (check.checked ? false : true);
     SdSize.value = (check.checked ? SdSize.value : 240);
-    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : ' ');
+    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 240);
+    if ($('#SdSizeToggle').prop('checked') != true) {
+        $('#SdSizeStateColor').css('color', 'rgba(0,0,0, 0.0)');
+    } else {
+    $('#SdSizeStateColor').css('color', '#eaeaea')
+    }
 }
 
 function bgImgUpdate() {
@@ -944,8 +965,10 @@ function init() {
         <label for="SdSizeToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_SDSIZE%
     </div>
     <div class="rowsel">
-        <span id="sliderValueSd"></span>
-        <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
+        <div id="SdSizeStateColor">
+            <span id="sliderValueSd" color="#f00"></span>
+            <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
+        </div>
     </div>
     <div id="ImgSelector">
         <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
