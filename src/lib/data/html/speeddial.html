@@ -25,16 +25,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0,175,255, 0.1)
+    background: rgba(0,175,255, 0.1);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0,175,255, 0.6)
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
 }
 
 body * {
@@ -82,7 +79,7 @@ body * {
 }
 
 #quickdial div.entry {
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0,0,0, 0.3);
     position: relative;
     float: %LEFT_STR%;
     margin: 5px;
@@ -305,7 +302,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
 #settingsBox .rowsel {
     margin: 2px;
     padding: 3px 0;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid rgba(135,135,135, 1.0);
 }
 
 #settingsBox .rowsel input {
@@ -358,8 +355,8 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
 }
 
 .overlay {
-    background: rgba(128,128,128,0.8);
-    background: -webkit-radial-gradient(rgba(127, 127, 127, 0.5),rgba(127, 127, 127, 0.5) 35%,rgba(0, 0, 0, 0.7));
+    background: rgba(128,128,128, 0.8);
+    background: -webkit-radial-gradient(rgba(127,127,127, 0.5), rgba(127,127,127, 0.5) 35%, rgba(0,0,0, 0.7));
     bottom: 0;
     %LEFT_STR%: 0;
     padding: 20px;
@@ -368,8 +365,6 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     %RIGHT_STR%: 0;
     top: 0;
 }
-
-
 
 input[type=button], select {
     padding: 0px;
@@ -387,10 +382,12 @@ input[type=button], select {
 
 input[type=button]:hover, input[type=text]:hover, select:hover {
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
+    background: rgba(0,175,255, 0.3);
+    transition: 0.1s;
 }
 
 input[type=button]:active, select:active {
-    background: rgba(90,167,255, 0.8);
+    background: rgba(90,165,255, 0.8);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
 }
 
@@ -403,9 +400,49 @@ input[type=text] {
     box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5);
     border: 6px;
     border-radius: 2px;
-    color: #eaeaea;
+    color: rgba(234,234,234, 1.0);
     width: 135px;
     height: 32px;
+}
+
+input[type=range] {
+    height: 26px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 115%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 115%;
+    height: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(80,85,90, 1.0);
+    background: rgba(80,85,90, 1.0);
+    border-radius: 14px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: none;
+  border: none;
+  height: 20px;
+  width: 40px;
+  border-radius: 12px;
+  background: rgba(0,175,255, 1.0);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(80,85,90, 1.0);
+}
+
+input[type=range]:disabled::-webkit-slider-thumb,
+input[type=range]:disabled:hover::-webkit-slider-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
+    background: rgba(0,0,0, 0.0);
 }
 
 input[type=checkbox] {
@@ -432,6 +469,7 @@ input[type=checkbox] {
 
 .checkbox label:hover {
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.8);
+    transition: 0.2s;
 }
 
 .checkbox label:after {
@@ -810,7 +848,7 @@ function sdSizeToggle() {
     var SdSizeSl = document.getElementById('sliderValueSd');
     SdSize.disabled = (check.checked ? false : true);
     SdSize.value = (check.checked ? SdSize.value : 240);
-    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : 240);
+    SdSizeSl.innerHTML = (check.checked ? DIAL_WIDTH : ' ');
 }
 
 function bgImgUpdate() {
@@ -890,16 +928,16 @@ function init() {
 
 <div id="fadeOverlay2" class="overlay" style="display:none;">
 <div id="settingsBox">
+    <div class="checkbox">
+        <input type="checkbox" id="SdCntrToggle" name="sdcntrt"/>
+        <label for="SdCntrToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_CNTRDLS%
+    </div>
     <div class="togop">
-        <label for="PgInRow">%TXT_NRROWS%</label>
+        <p align="center"><label for="PgInRow">%TXT_NRROWS%</label></p>
     </div>
     <div class="rowsel">
         <span id="sliderValuePg"></span>
         <input id="PgInRow" type="range" min="2" max="10" step="1" oninput="$('#sliderValuePg').html(this.value);" />
-    </div>
-    <div class="checkbox">
-        <input type="checkbox" id="SdCntrToggle" name="sdcntrt"/>
-        <label for="SdCntrToggle"></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%TXT_CNTRDLS%
     </div>
     <div class="checkbox">
         <input type="checkbox" id="SdSizeToggle" name="sdsizet" onchange="sdSizeToggle()" />
