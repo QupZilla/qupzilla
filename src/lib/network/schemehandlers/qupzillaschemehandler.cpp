@@ -317,7 +317,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TXT_FWIDTH%"), tr("Fit Width"));
         dPage.replace(QLatin1String("%TXT_FHEIGHT%"), tr("Fit Height"));
         dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use custom wallpaper"));
-        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Select image"));
+        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Click to select image"));
         dPage.replace(QLatin1String("%TXT_NRROWS%"), tr("Maximum pages in a row:"));
         dPage.replace(QLatin1String("%TXT_SDSIZE%"), tr("Change size of pages:"));
         dPage.replace(QLatin1String("%TXT_CNTRDLS%"), tr("Center speed dials"));
