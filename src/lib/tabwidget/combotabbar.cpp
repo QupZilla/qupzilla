@@ -1465,9 +1465,11 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 {
     event->ignore();
 
-    m_pressedIndex = -1;
-    m_dragInProgress = false;
-    m_dragStartPosition = QPoint();
+    if (event->button() == Qt::LeftButton) {
+        m_pressedIndex = -1;
+        m_dragInProgress = false;
+        m_dragStartPosition = QPoint();
+    }
 
     QTabBar::mouseReleaseEvent(event);
 
