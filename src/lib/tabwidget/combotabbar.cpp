@@ -1080,8 +1080,10 @@ QPixmap TabBarHelper::tabPixmap(int index) const
 
     if (iconButton) {
         const QPixmap pix = iconButton->grab();
-        tab.icon = pix;
-        tab.iconSize = pix.size() / pix.devicePixelRatioF();
+        if (!pix.isNull()) {
+            tab.icon = pix;
+            tab.iconSize = pix.size() / pix.devicePixelRatioF();
+        }
     }
 
     if (closeButton) {
