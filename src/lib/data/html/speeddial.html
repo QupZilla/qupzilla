@@ -1,11 +1,12 @@
-<html><head>
+<html id="html"><head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>%SITE-TITLE%</title>
 
 <style type="text/css" media="screen">
 html {
-    background: url("%IMG_BACKGROUND%") no-repeat center center, url("qrc:html/sd_bg.svg") no-repeat center center;
+    background: url("%IMG_BACKGROUND%") no-repeat center center, url("qrc:html/sd_bg.svg");
     background-size: %B_SIZE%;
+    background-attachment: fixed;
 }
 
 body {
@@ -47,7 +48,7 @@ body * {
     background: url(qrc:html/plus.svg);
     height: 32px;
     outline: none;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     width: 32px;
 }
@@ -57,7 +58,7 @@ body * {
     background: url(qrc:html/configure.svg);
     height: 32px;
     outline: none;
-    position: absolute;
+    position: fixed;
     top: 10px;
     width: 32px;
 }
@@ -515,6 +516,9 @@ var SD_CENTER = %SD-CENTER%;
 var editingId = -1;
 var ignoreNextChanged = false;
 
+if ("%IMG_BACKGROUND%" == '')
+    document.getElementById("html").style.backgroundSize = "cover";
+
 $(document).keyup(function(e) {
     if (editingId == -1)
         return;
@@ -814,6 +818,7 @@ function alignPage() {
         enableCentering();
     else
         disableCentering();
+    
 }
 
 function bgImageSel() {
@@ -984,9 +989,9 @@ function init() {
         <div id="ImgSelectorMenu">
             <label for="BgImgSelSiz">%TXT_PLACEMENT%</label>
             <select id="BgImgSelSiz" name="imgselsize" onchange="bgImgUpdate()">
+                <option value="contain">&nbsp;&nbsp;%TXT_FIT%</option>
                 <option value="auto">&nbsp;&nbsp;%TXT_AUTO%</option>
                 <option value="cover">&nbsp;&nbsp;%TXT_COVER%</option>
-                <option value="contain">&nbsp;&nbsp;%TXT_FIT%</option>
                 <option value="100% auto">&nbsp;&nbsp;%TXT_FWIDTH%</option>
                 <option value="auto 100%">&nbsp;&nbsp;%TXT_FHEIGHT%</option>
             </select>
