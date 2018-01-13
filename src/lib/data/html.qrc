@@ -8,7 +8,6 @@
         <file>html/jquery.js</file>
         <file>html/jquery-ui.js</file>
         <file>html/loading.gif</file>
-        <file>html/broken-page.png</file>
         <file>html/config.html</file>
         <file>html/restore.html</file>
         <file>html/tabcrash.html</file>
@@ -21,5 +20,6 @@
         <file>html/reload_active.svg</file>
         <file>html/edit_active.svg</file>
         <file>html/sd_bg.svg</file>
+        <file>html/broken-page.svg</file>
     </qresource>
 </RCC>

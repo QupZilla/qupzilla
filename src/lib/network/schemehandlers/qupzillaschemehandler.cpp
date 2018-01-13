@@ -307,7 +307,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%URL%"), tr("Url"));
         dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
         dPage.replace(QLatin1String("%APPLY%"), tr("Apply"));
-        dPage.replace(QLatin1String("%CLOSE%"), tr("Close"));
+        dPage.replace(QLatin1String("%CANCEL%"), tr("Cancel"));
         dPage.replace(QLatin1String("%NEW-PAGE%"), tr("New Page"));
         dPage.replace(QLatin1String("%SETTINGS-TITLE%"), tr("Speed Dial settings"));
         dPage.replace(QLatin1String("%TXT_PLACEMENT%"), tr("Placement: "));
@@ -316,8 +316,8 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TXT_FIT%"), tr("Fit"));
         dPage.replace(QLatin1String("%TXT_FWIDTH%"), tr("Fit Width"));
         dPage.replace(QLatin1String("%TXT_FHEIGHT%"), tr("Fit Height"));
-        dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use background image"));
-        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Select image"));
+        dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use custom wallpaper"));
+        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Click to select image"));
         dPage.replace(QLatin1String("%TXT_NRROWS%"), tr("Maximum pages in a row:"));
         dPage.replace(QLatin1String("%TXT_SDSIZE%"), tr("Change size of pages:"));
         dPage.replace(QLatin1String("%TXT_CNTRDLS%"), tr("Center speed dials"));

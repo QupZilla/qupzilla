@@ -284,7 +284,7 @@ void SpeedDial::removeImageForUrl(const QString &url)
 QStringList SpeedDial::getOpenFileName()
 {
     const QString fileTypes = QString("%3(*.png *.jpg *.jpeg *.bmp *.gif *.svg *.tiff)").arg(tr("Image files"));
-    const QString image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Select image..."), QDir::homePath(), fileTypes);
+    const QString image = QzTools::getOpenFileName("SpeedDial-GetOpenFileName", 0, tr("Click to select image..."), QDir::homePath(), fileTypes);
 
     if (image.isEmpty())
         return QStringList();
@@ -338,7 +338,7 @@ void SpeedDial::thumbnailCreated(const QPixmap &pixmap)
     QString fileName = m_thumbnailsDir + QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md4).toHex() + ".png";
 
     if (pixmap.isNull()) {
-        fileName = ":/html/broken-page.png";
+        fileName = ":/html/broken-page.svg";
         title = tr("Unable to load");
     }
     else {
