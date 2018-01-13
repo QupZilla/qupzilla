@@ -170,6 +170,10 @@ void WebView::setPage(WebPage *page)
 
 void WebView::load(const QUrl &url)
 {
+    if (m_page && !m_page->acceptNavigationRequest(url, QWebEnginePage::NavigationTypeTyped, true)) {
+        return;
+    }
+
     QWebEngineView::load(url);
 
     if (!m_firstLoad) {

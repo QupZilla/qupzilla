@@ -108,6 +108,8 @@ private:
     bool m_secureStatus;
 
     QMetaObject::Connection m_contentsResizedConnection;
+
+    friend class WebView;
 };
 
 #endif // WEBPAGE_H
