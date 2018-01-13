@@ -1080,8 +1080,10 @@ QPixmap TabBarHelper::tabPixmap(int index) const
 
     if (iconButton) {
         const QPixmap pix = iconButton->grab();
-        tab.icon = pix;
-        tab.iconSize = pix.size() / pix.devicePixelRatioF();
+        if (!pix.isNull()) {
+            tab.icon = pix;
+            tab.iconSize = pix.size() / pix.devicePixelRatioF();
+        }
     }
 
     if (closeButton) {
@@ -1208,17 +1210,19 @@ bool TabBarHelper::event(QEvent* ev)
 // Hack to get dragOffset from QTabBar internals
 int TabBarHelper::dragOffset(QStyleOptionTab *option, int tabIndex) const
 {
-    QStyle::SubElement element = QStyle::SE_TabBarTabLeftButton;
+    QRect rect;
     QWidget *button = tabButton(tabIndex, QTabBar::LeftSide);
-    if (!button) {
-        element = QStyle::SE_TabBarTabRightButton;
-        button = tabButton(tabIndex, QTabBar::RightSide);
+    if (button) {
+        rect = style()->subElementRect(QStyle::SE_TabBarTabLeftButton, option, this);
     }
-    if (!button) {
+    if (!rect.isValid()) {
+        button = tabButton(tabIndex, QTabBar::RightSide);
+        rect = style()->subElementRect(QStyle::SE_TabBarTabRightButton, option, this);
+    }
+    if (!button || !rect.isValid()) {
         return 0;
     }
-    const QPoint p = style()->subElementRect(element, option, this).topLeft();
-    return button->pos().x() - p.x();
+    return button->pos().x() - rect.topLeft().x();
 }
 
 // Taken from qtabbar.cpp
@@ -1463,9 +1467,11 @@ void TabBarHelper::mouseReleaseEvent(QMouseEvent* event)
 {
     event->ignore();
 
-    m_pressedIndex = -1;
-    m_dragInProgress = false;
-    m_dragStartPosition = QPoint();
+    if (event->button() == Qt::LeftButton) {
+        m_pressedIndex = -1;
+        m_dragInProgress = false;
+        m_dragStartPosition = QPoint();
+    }
 
     QTabBar::mouseReleaseEvent(event);
 
