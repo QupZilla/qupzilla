@@ -1138,13 +1138,13 @@ void MainApplication::setupUserScripts()
     script2.setSourceCode(Scripts::setupWebChannel(script2.worldId()));
     m_webProfile->scripts()->insert(script2);
 
-    // window.external support
+    // document.window object addons
     QWebEngineScript script3;
-    script3.setName(QSL("_qupzilla_window_external"));
+    script3.setName(QSL("_qupzilla_window_object"));
     script3.setInjectionPoint(QWebEngineScript::DocumentCreation);
     script3.setWorldId(WebPage::UnsafeJsWorld);
     script3.setRunsOnSubFrames(true);
-    script3.setSourceCode(Scripts::setupWindowExternal());
+    script3.setSourceCode(Scripts::setupWindowObject());
     m_webProfile->scripts()->insert(script3);
 }
 

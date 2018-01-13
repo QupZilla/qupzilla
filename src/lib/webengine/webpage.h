@@ -71,6 +71,7 @@ public:
 
 signals:
     void privacyChanged(bool status);
+    void printRequested();
 
 protected slots:
     void progress(int prog);

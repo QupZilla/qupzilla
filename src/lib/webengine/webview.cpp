@@ -153,7 +153,8 @@ void WebView::setPage(WebPage *page)
     m_page->setParent(this);
     QWebEngineView::setPage(m_page);
 
-    connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
+    connect(m_page, &WebPage::privacyChanged, this, &WebView::privacyChanged);
+    connect(m_page, &WebPage::printRequested, this, &WebView::printPage);
 
     // Set default zoom level
     zoomReset();

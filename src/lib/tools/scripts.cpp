@@ -143,7 +143,7 @@ QString Scripts::setupFormObserver()
     return source;
 }
 
-QString Scripts::setupWindowExternal()
+QString Scripts::setupWindowObject()
 {
     QString source = QL1S("(function() {"
                           "var external = {};"
@@ -155,6 +155,9 @@ QString Scripts::setupWindowExternal()
                           "    return false;"
                           "};"
                           "window.external = external;"
+                          "window.print = function() {"
+                          "    window.location = 'qupzilla:PrintPage';"
+                          "};"
                           "})()");
 
     return source;
