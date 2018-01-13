@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -136,7 +136,7 @@ void TabIcon::hide()
     }
 
     emit resized();
-    setFixedSize(0, 0);
+    setFixedSize(1, 16);
     QWidget::hide();
 }
 
