@@ -5,16 +5,11 @@ cache: ccache
 
 matrix:
   include:
+    - os: linux
+      env: QT=qt59
     - os: osx
       osx_image: xcode9.2
       env: QT=qt510
-  exclude:
-    - os: linux
-      env: QT=qt510
-
-env:
-  - QT=qt59
-  - QT=qt510
 
 before_install:
   - export QZ_VER=2.2.4
