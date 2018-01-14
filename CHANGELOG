@@ -8,9 +8,14 @@ Version 2.2.4
     * added support for loading userChrome.css stylesheet from profile to configure interface
     * added new buttons to navigation bar: Tools, Downloads, GreaseMonkey and AdBlock
     * added new Windows theme and improve every other theme
+    * added support for printing from JavaScript with window.print()
     * closed windows can now be restored using history menu or Ctrl+Shit+N shortcut
     * multiple windows in session now each restore its geometry, state and settings
     * number of fixes and improvements in tabbar
+    * greatly improved compatibility with various GreaseMonkey userscripts
+    * updated design for SpeedDial
+    * fix infinite loading animation on some sites with QtWebEngine 5.10
+    * fix restoring maximized state after leaving fullscreen
     * fix internal pages not working when JavaScript is disabled
     * fix showing close button in Web Inspector
     * fix tabs not being restored when activated in some cases

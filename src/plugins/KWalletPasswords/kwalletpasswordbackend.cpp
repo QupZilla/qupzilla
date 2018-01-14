@@ -22,11 +22,7 @@
 
 #include <QDateTime>
 
-#if QT_VERSION >= 0x050000
 #include <KWallet>
-#else
-#include <KDE/KWallet/Wallet>
-#endif
 
 static PasswordEntry decodeEntry(const QByteArray &data)
 {

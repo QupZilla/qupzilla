@@ -99,6 +99,15 @@ WebPage::WebPage(QObject* parent)
         }
         disconnect(m_contentsResizedConnection);
     });
+
+    // Workaround for broken load started/finished signals in QtWebEngine 5.10
+    if (qstrcmp(qVersion(), "5.10.0") == 0) {
+        connect(this, &QWebEnginePage::loadProgress, this, [this](int progress) {
+            if (progress == 100) {
+                emit loadFinished(true);
+            }
+        });
+    }
 }
 
 WebPage::~WebPage()
@@ -356,7 +365,6 @@ void WebPage::renderProcessTerminated(QWebEnginePage::RenderProcessTerminationSt
         page.replace(QL1S("%LI-2%"), tr("Try reloading the page or closing some tabs to make more memory available."));
         page.replace(QL1S("%RELOAD-PAGE%"), tr("Reload page"));
         page = QzTools::applyDirectionToPage(page);
-        load(url()); // Workaround for QtWebEngine crash
         setHtml(page.toUtf8(), url());
     });
 }

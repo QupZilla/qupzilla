@@ -1,6 +1,6 @@
 /* ============================================================
 * KWalletPasswords - KWallet support plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,3 @@ QTranslator* KWalletPlugin::getTranslator(const QString &locale)
     translator->load(locale, ":/kwp/locale/");
     return translator;
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(KWalletPasswords, KWalletPlugin)
-#endif
