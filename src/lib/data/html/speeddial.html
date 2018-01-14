@@ -9,13 +9,6 @@ html {
     background-attachment: fixed;
 }
 
-body {
-    font-family: sans-serif;
-    color: #eaeaea;
-    direction: %DIRECTION%;
-    cursor: pointer;
-}
-
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -35,12 +28,18 @@ body {
     background: rgba(0,175,255, 0.6)
 }
 
+body {
+    font-family: sans-serif;
+    color: #eaeaea;
+    direction: %DIRECTION%;
+    cursor: default;
+}
+
 body * {
     -webkit-user-select: none;
     font-size: 100%;
     line-height: 1.6;
     margin: 0;
-    cursor: pointer;
 }
 
 .add {
@@ -59,7 +58,7 @@ body * {
     height: 32px;
     outline: none;
     position: fixed;
-    top: 10px;
+    top: 45px;
     width: 32px;
 }
 
@@ -75,7 +74,7 @@ body * {
 
 #quickdial {
     outline: none;
-    margin: auto;
+    margin: 45px auto;
     text-align: center;
 }
 
@@ -127,7 +126,6 @@ span.boxTitle {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    cursor: default;
 }
 
 span.edit, span.close, span.reload {
@@ -231,7 +229,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     max-height: 120%;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 15px 20px 0;
+    padding: 0 20px 0;
     background-color: rgba(0,0,0, 0.6);
     border-radius: 1px;
     border: 1px solid rgba(0,0,0, 0.8);
@@ -268,7 +266,6 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     %LEFT_STR%: 1px;
     top: 1px;
     line-height: 198px;
-    cursor: default;
 }
 
 #settingsBox p label {
@@ -420,23 +417,22 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
     width: 115%;
     height: 20px;
-    cursor: pointer;
     background: rgba(80,85,90, 1.0);
     border-radius: 14px;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: none;
-  border: none;
-  height: 20px;
-  width: 40px;
-  border-radius: 12px;
-  background: rgba(0,175,255, 1.0);
-  cursor: pointer;
-  -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    height: 20px;
+    width: 40px;
+    border-radius: 12px;
+    background: rgba(0,175,255, 1.0);
+    -webkit-appearance: none;
 }
+
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(80,85,90, 1.0);
+    background: rgba(80,85,90, 1.0);
 }
 
 input[type=range]:disabled::-webkit-slider-thumb,
@@ -496,6 +492,16 @@ input[type=checkbox] {
     opacity: 1;
 }
 
+#SearchBar {
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0, 0.6);
+    position: fixed;
+    z-index: 2;
+}
+
 </style>
 
 <script type="text/javascript" src="%JQUERY%"></script>
@@ -528,20 +534,17 @@ $(document).keyup(function(e) {
         $('#fadeOverlay').click();
 });
 
-function emitChanged(pages)
-{
+function emitChanged(pages) {
     ignoreNextChanged = true;
     external.speedDial.changed(pages);
 }
 
-function addSpeedDial()
-{
+function addSpeedDial() {
     onEditClick(addBox('', NEW_PAGE, ''));
     alignPage();
 }
 
-function configureSpeedDial()
-{
+function configureSpeedDial() {
     // ====================== LOAD SETTINGS ========================= //
     $('#PgInRow').val(MAX_PAGES_ROW);
     $('#sliderValuePg').html(MAX_PAGES_ROW);
@@ -566,6 +569,7 @@ function configureSpeedDial()
     $('#fadeOverlay2').click(function() { $(this).fadeOut('slow'); });
     $('#settingsBox').click(function(event) { event.stopPropagation(); });
 }
+
 function escapeTitle(title) {
     title = title.replace(/"/g, '&quot;');
     title = title.replace(/'/g, '&apos;');
@@ -800,7 +804,8 @@ function alignPage() {
     $('#quickdial div.entry').css({'width' : DIAL_WIDTH + 'px',
         'height' : dialHeight  + 'px'});
     var fullwidth = $(window).width();
-    var width = Math.floor(fullwidth - 76);    var height = $(window).height();
+    var width = Math.floor(fullwidth - 76);
+    var height = $(window).height();
     var boxWidth = Math.floor(DIAL_WIDTH + 12);
     var boxHeight = dialHeight + 22;
     var maxBoxes = Math.floor(width / boxWidth);
@@ -903,16 +908,16 @@ function disableCentering() {
 }
 </script>
 </head>
-
 <body>
 
 <noscript>%JAVASCRIPT-DISABLED%</noscript>
-
-<div id="quickdial">
-</div>
+<div class="SearchBar" id="SearchBar"></div>
 
 <a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
 <a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
+<div id="quickdial">
+</div>
+
 
 <script type="text/javascript">
 
