@@ -4,7 +4,7 @@
 
 <style type="text/css" media="screen">
 html {
-    background: url("%IMG_BACKGROUND%") no-repeat center center, url("qrc:html/sd_bg.svg");
+    background: url("%IMG_BACKGROUND%") no-repeat center center, rgba(236,236,236, 1.0);
     background-size: %B_SIZE%;
     background-attachment: fixed;
 }
@@ -522,8 +522,10 @@ var SD_CENTER = %SD-CENTER%;
 var editingId = -1;
 var ignoreNextChanged = false;
 
-if ("%IMG_BACKGROUND%" == '')
+if ("%IMG_BACKGROUND%" == '') {
     document.getElementById("html").style.backgroundSize = "cover";
+    document.getElementById("html").style.background = 'url("qrc:html/sd_bg.svg")';
+}
 
 $(document).keyup(function(e) {
     if (editingId == -1)
