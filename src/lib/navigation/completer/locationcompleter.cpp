@@ -123,10 +123,10 @@ void LocationCompleter::refreshJobFinished()
 
         if (qzSettings->useInlineCompletion) {
             emit showDomainCompletion(job->domainCompletion());
-
-            m_originalText = m_locationBar->text();
-            s_view->setOriginalText(m_originalText);
         }
+
+        m_originalText = m_locationBar->text();
+        s_view->setOriginalText(m_originalText);
     }
 
     job->deleteLater();
