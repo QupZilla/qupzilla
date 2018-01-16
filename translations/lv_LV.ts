@@ -7,42 +7,42 @@
         <translation>Par QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.ui" line="54"/>
+        <location filename="../src/lib/other/aboutdialog.ui" line="60"/>
         <source>Authors</source>
         <translation>Autori</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="71"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="56"/>
         <source>Authors and Contributors</source>
         <translation>Autori un atbalstītāji</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="74"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="59"/>
         <source>&lt;p&gt;&lt;b&gt;Application version %1&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Lietotnes versija %1&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="66"/>
         <source>&lt;b&gt;QtWebEngine version %1&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;b&gt;QtWebEngine versija %1&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="93"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="78"/>
         <source>&lt; About QupZilla</source>
         <translation>&lt; Par QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="96"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="81"/>
         <source>&lt;p&gt;&lt;b&gt;Main developer:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Galvenais izstrādātājs:&lt;/b&gt;&lt;br/&gt;%1 &amp;lt;%2&amp;gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="97"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="82"/>
         <source>&lt;p&gt;&lt;b&gt;Contributors:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Atbalstītāji:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/other/aboutdialog.cpp" line="109"/>
+        <location filename="../src/lib/other/aboutdialog.cpp" line="94"/>
         <source>&lt;p&gt;&lt;b&gt;Translators:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;Tulkotāji:&lt;/b&gt;&lt;br/&gt;%1&lt;/p&gt;</translation>
     </message>
@@ -104,7 +104,7 @@
         <translation>Pievienot „AdBlock“ jaunu abonementu:</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="43"/>
+        <location filename="../src/lib/adblock/adblockaddsubscriptiondialog.cpp" line="44"/>
         <source>Other...</source>
         <translation>Citi...</translation>
     </message>
@@ -203,17 +203,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="145"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
         <source>Show AdBlock &amp;Settings</source>
         <translation>Parādīt „AdBlock“ &amp;Iestatījumus</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="153"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="154"/>
         <source>Disable on %1</source>
         <translation>Atspējot vietnē %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockicon.cpp" line="159"/>
+        <location filename="../src/lib/adblock/adblockicon.cpp" line="160"/>
         <source>Disable only on this page</source>
         <translation>Atspējot tikai šajā lapā</translation>
     </message>
@@ -221,17 +221,17 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="193"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="183"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
         <translation>Vai vēlaties pievienot abonementu &lt;b&gt;%1&lt;/b&gt;?</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="195"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="185"/>
         <source>AdBlock Subscription</source>
         <translation>„AdBlock“ abonements</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="325"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="315"/>
         <source>EasyList</source>
         <translation>„EasyList“</translation>
     </message>
@@ -275,6 +275,19 @@
         <location filename="../src/lib/adblock/adblocktreewidget.cpp" line="188"/>
         <source>%1 (Error: %2)</source>
         <translation>%1 (Kļūda: %2)</translation>
+    </message>
+</context>
+<context>
+    <name>AdBlockUrlInterceptor</name>
+    <message>
+        <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="44"/>
+        <source>Blocked content</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="45"/>
+        <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1102,6 +1115,7 @@ Lūdzu, uzstādiet jaunāko „QupZilla“ versiju.</translation>
     <name>BrowserWindow</name>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="201"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="966"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
@@ -1111,12 +1125,12 @@ Lūdzu, uzstādiet jaunāko „QupZilla“ versiju.</translation>
         <translation>Atvērtās lapas IP adrese</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="714"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="716"/>
         <source> (Private Browsing)</source>
         <translation>(Privātā pārlūkošana)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="969"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
         <source>%1 - QupZilla</source>
         <translation>%1 — QupZilla</translation>
     </message>
@@ -1171,7 +1185,7 @@ Lūdzu, uzstādiet jaunāko „QupZilla“ versiju.</translation>
         <translation>Atvērt datni...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1485"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1479"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Joprojām ir atvērtas %n cilnes. Šī sesija netiks saglabāta.
@@ -1180,17 +1194,17 @@ Vai tiešām vēlaties aizvērt šo logu?</numerusform><numerusform>Joprojām ir
 Vai tiešām vēlaties aizvērt šo logu?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1486"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1480"/>
         <source>Don&apos;t ask again</source>
         <translation>Vairāk nejautāt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1487"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
         <source>There are still open tabs</source>
         <translation>Dažas cilnes ir joprojām atvērtas</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabbar.cpp" line="68"/>
+        <location filename="../src/lib/tabwidget/tabbar.cpp" line="111"/>
         <source>Close Tab</source>
         <translation>Aizvērt cilni</translation>
     </message>
@@ -1607,6 +1621,14 @@ Vai tiešām vēlaties aizvērt šo logu?</numerusform></translation>
     </message>
 </context>
 <context>
+    <name>DesktopNotificationsFactory</name>
+    <message>
+        <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="109"/>
+        <source>Preview</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>DownloadItem</name>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="70"/>
@@ -1740,12 +1762,12 @@ netika atrasta!</translation>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.ui" line="20"/>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="177"/>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="389"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="408"/>
         <source>Download Manager</source>
         <translation>Lejupielāžu pārvaldnieks</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.ui" line="85"/>
+        <location filename="../src/lib/downloads/downloadmanager.ui" line="69"/>
         <source>Clear</source>
         <translation>Attīrīt</translation>
     </message>
@@ -1760,47 +1782,47 @@ netika atrasta!</translation>
         <translation>%1% — Lejupielāžu pārvaldnieks</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="292"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="293"/>
         <source>Save file as...</source>
         <translation>Saglabāt datni kā...</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="302"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="303"/>
         <source>MIME HTML Archive (*.mhtml)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="303"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="304"/>
         <source>HTML Page, single (*.html)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="304"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="305"/>
         <source>HTML Page, complete (*.html)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="308"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>Save page as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="382"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="401"/>
         <source>QupZilla: Download Finished</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="382"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="401"/>
         <source>All files have been successfully downloaded.</source>
         <translation>Visas datnes ir sekmīgi lejupielādētas.</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="450"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="469"/>
         <source>Warning</source>
         <translation>Uzmanību</translation>
     </message>
     <message>
-        <location filename="../src/lib/downloads/downloadmanager.cpp" line="451"/>
+        <location filename="../src/lib/downloads/downloadmanager.cpp" line="470"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
         <translation>Vai tiešām vēlaties iziet? Visas nepabeigtās lejupielādes tiks atceltas!</translation>
     </message>
@@ -1856,6 +1878,20 @@ netika atrasta!</translation>
         <location filename="../src/lib/downloads/downloadoptionsdialog.cpp" line="112"/>
         <source>Download link copied.</source>
         <translation>Lejupielādes adrese nokopēta.</translation>
+    </message>
+</context>
+<context>
+    <name>DownloadsButton</name>
+    <message>
+        <location filename="../src/lib/downloads/downloadsbutton.cpp" line="27"/>
+        <location filename="../src/lib/downloads/downloadsbutton.cpp" line="43"/>
+        <source>Downloads</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/downloads/downloadsbutton.cpp" line="28"/>
+        <source>Open Download Manager</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2434,37 +2470,37 @@ netika atrasta!</translation>
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1094"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1087"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>„QupZilla“ pašreiz nav Jūsu noklusētā pārlūkprogramma. Vai vēlaties, lai tā kļūtu par noklusēto pārlūkprogrammu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1095"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1088"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>Vienmēr veikt šo pārbaudi, kad tiek ieslēgta „QupZilla“.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1097"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1090"/>
         <source>Default Browser</source>
         <translation>Noklusētā pārlūkprogramma</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1185"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1208"/>
         <source>Open new tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1186"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1209"/>
         <source>Open new window</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1187"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1210"/>
         <source>Open new private window</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1202"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1225"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>„QupZilla“ ir jauna, ātra un droša atvērtā koda interneta pārlūkprogramma. „QupZilla“ ir licencēta ar GPL 3. versiju vai (pēc Jūsu vēlēšanās) jebkuru vēlāku versiju. Tā balstās uz „WebKit“ kodolu un Qt struktūru.</translation>
     </message>
@@ -2837,54 +2873,64 @@ netika atrasta!</translation>
         <translation>Galvenā izvēlne</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="182"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="164"/>
+        <source>Exit Fullscreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="190"/>
         <source>Back and Forward buttons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="183"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="191"/>
         <source>Reload button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="184"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="192"/>
         <source>Home button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="185"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="193"/>
         <source>Add tab button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="186"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="194"/>
         <source>Address and Search bar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="187"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="195"/>
         <source>Tools button</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="339"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="373"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="196"/>
+        <source>Exit Fullscreen button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="370"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="404"/>
         <source>Clear history</source>
         <translation>Dzēst vēsturi</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="380"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="411"/>
         <source>Toolbars</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="381"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="412"/>
         <source>Sidebar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="396"/>
-        <location filename="../src/lib/navigation/navigationbar.cpp" line="411"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="427"/>
+        <location filename="../src/lib/navigation/navigationbar.cpp" line="442"/>
         <source>Configure Toolbar</source>
         <translation type="unfinished"/>
     </message>
@@ -3154,7 +3200,7 @@ netika atrasta!</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="227"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="846"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="845"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Piezīme: Nevar izdzēst aktivizētu profilu.</translation>
     </message>
@@ -3987,89 +4033,89 @@ netika atrasta!</translation>
         <translation>Meklētājprogrammu pārvaldnieks</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="149"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="612"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="148"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="611"/>
         <source>Default</source>
         <translation>Noklusētā</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="153"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="152"/>
         <source>Set as default</source>
         <translation>Padarīt par noklusēto</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="554"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="553"/>
         <source>Choose executable location...</source>
         <translation>Izvēlieties izpildāmās programmas vietu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="597"/>
         <source>OSD Notification</source>
         <translation>OSD paziņojums</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="599"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Velciet to pa ekrānu un novietojiet, kur vēlaties.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="648"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="647"/>
         <source>Choose download location...</source>
         <translation>Izvēlieties lejupielāžu vietu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="662"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
         <source>Choose stylesheet location...</source>
         <translation>Izvēlieties stila lapas atrašanās vietu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="673"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="672"/>
         <source>Deleted</source>
         <translation>Izdzēsts</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="763"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="762"/>
         <source>Choose cache path...</source>
         <translation>Izvēlēties kešatmiņas ceļu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
         <source>New Profile</source>
         <translation>Jauns profils</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Ievadiet jaunā profila nosaukumu:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="819"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
         <source>Error!</source>
         <translation>Kļūda!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="814"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
         <source>This profile already exists!</source>
         <translation>Šis profils jau eksistē!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="819"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
         <source>Cannot create profile directory!</source>
         <translation>Neizdodas izveidot mapi profilam!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
         <source>Confirmation</source>
         <translation>Apstiprinājums</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="831"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>Vai tiešām vēlaties neatgriezeniski dzēst profilu „%1“? Šo darbību atsaukt nevarēs!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1102"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1100"/>
         <source>Select Color</source>
         <translation>Izvēlieties krāsu</translation>
     </message>
@@ -4135,434 +4181,424 @@ netika atrasta!</translation>
 <context>
     <name>QupZillaSchemeReply</name>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="156"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="153"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="154"/>
         <source>Report Issue</source>
         <translation>Ziņot par problēmu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="155"/>
         <source>If you are experiencing problems with QupZilla, please try to disable all extensions first. &lt;br/&gt;If this does not fix it, then please fill out this form: </source>
         <translation>Ja Jums, darbojoties ar „QupZilla“, rodas problēmas, lūdzu, mēģiniet no sākuma izslēgt visus paplašinājumus. &lt;br/&gt;Jas tas nepalīdz, tad, lūdzu, aizpildiet šo formu:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="157"/>
         <source>Your E-mail</source>
         <translation>Jūsu e-pasta adrese</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="158"/>
         <source>Issue type</source>
         <translation>Problēmas tips</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="162"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="159"/>
         <source>Issue description</source>
         <translation>Problēmas apraksts</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="160"/>
         <source>Send</source>
         <translation>Sūtīt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="164"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="161"/>
         <source>E-mail is optional&lt;br/&gt;&lt;b&gt;Note: &lt;/b&gt;Please read how to make a bug report &lt;a href=%1&gt;here&lt;/a&gt; first.</source>
         <translation>E-pasts nav obligāts&lt;br/&gt;&lt;b&gt;Piezīme: &lt;/b&gt;Lūdzu, no sākuma &lt;a href=%1&gt;te&lt;/a&gt; izlasiet, kā veidot kļūdas paziņojumu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="166"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="163"/>
         <source>Please fill out all required fields!</source>
         <translation>Lūdzu, aizpildiet visus pieprasītos lauciņus!</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="194"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="191"/>
         <source>Start Page</source>
         <translation>Sākumlapa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="192"/>
         <source>Search on Web</source>
         <translation>Meklēt tīmeklī</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="193"/>
         <source>Search results provided by DuckDuckGo</source>
         <translation>Meklēt, izmantojot „DuckDuckGo“</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="198"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="215"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="195"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="211"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="212"/>
         <source>About QupZilla</source>
         <translation>Par „QupZilla“</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="199"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="196"/>
         <source>&lt;h1&gt;Private Browsing&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Privātā pārlūkošana&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="216"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="213"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="374"/>
         <source>Information about version</source>
         <translation>Informācija par versiju</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="214"/>
         <source>Copyright</source>
         <translation>Autortiesības</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="220"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="387"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="217"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
         <source>Version</source>
         <translation>Versija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="227"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="224"/>
         <source>Main developer</source>
         <translation>Galvenais izstrādātājs</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="229"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="226"/>
         <source>Contributors</source>
         <translation>Atbalstītāji</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="241"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="238"/>
         <source>Translators</source>
         <translation>Tulkotāji</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="298"/>
         <source>Speed Dial</source>
         <translation>Ātrais zvans</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="299"/>
         <source>Add New Page</source>
         <translation>Pievienot jaunu lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="300"/>
         <source>Edit</source>
         <translation>Rediģēt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="301"/>
         <source>Remove</source>
         <translation>Noņemt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="302"/>
         <source>Reload</source>
         <translation>Pārlādēt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Are you sure you want to remove this speed dial?</source>
         <translation>Vai tiešām vēlaties noņemt ātro zvanu?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Are you sure you want to reload all speed dials?</source>
         <translation>Vai tiešām vēlaties pārlādēt visus ātros zvanus?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
         <source>Load title from page</source>
         <translation>Ielādēt nosaukumu no lapas</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>SpeedDial requires enabled JavaScript.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
         <source>Url</source>
         <translation>Adrese</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="308"/>
         <source>Title</source>
         <translation>Nosaukums</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="309"/>
         <source>Apply</source>
         <translation>Pielietot</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
-        <source>Close</source>
-        <translation>Aizvērt</translation>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
         <source>New Page</source>
         <translation>Jauna lapa</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="312"/>
         <source>Speed Dial settings</source>
         <translation>Ātrā zvana iestatījumi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="313"/>
         <source>Placement: </source>
         <translation>Novietojums:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="314"/>
         <source>Auto</source>
         <translation>Automātiski</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="315"/>
         <source>Cover</source>
         <translation>Nosegt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="316"/>
         <source>Fit</source>
         <translation>Aizpildīt</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="317"/>
         <source>Fit Width</source>
         <translation>Aizpildīt platumu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="318"/>
         <source>Fit Height</source>
         <translation>Aizpildīt augstumu</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
-        <source>Use background image</source>
-        <translation>Izmantot fona attēlu</translation>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
+        <source>Use custom wallpaper</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
-        <source>Select image</source>
-        <translation>Izvēlieties attēlu</translation>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
+        <source>Click to select image</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="324"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
         <source>Maximum pages in a row:</source>
         <translation>Maksimālais lapu skaits rindā:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="325"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="322"/>
         <source>Change size of pages:</source>
         <translation>Mainīt lapu izmēru:</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="326"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="323"/>
         <source>Center speed dials</source>
         <translation>Centrēt ātros zvanus</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="348"/>
         <source>Restore Session</source>
         <translation>Atjaunot sesiju</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="349"/>
         <source>Oops, QupZilla crashed.</source>
         <translation>Vai, „QupZilla“ avarēja.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="350"/>
         <source>We apologize for this. Would you like to restore the last saved state?</source>
         <translation>Mēs atvainojamies, ka tā gadījās. Vai Jūs vēlētos atjaunot pēdējo saglabāto stāvokli?</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="351"/>
         <source>Try removing one or more tabs that you think cause troubles</source>
         <translation>Mēģiniet izslēgt vienu vai vairākas cilnes, kas, Jūsuprāt, varēja radīt problēmas</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="352"/>
         <source>Or you can start completely new session</source>
         <translation>Vai arī Jūs varat sākt pilnīgi jaunu sesiju</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="353"/>
         <source>Window</source>
         <translation>Logs</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="354"/>
         <source>Windows and Tabs</source>
         <translation>Logi un cilnes</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="358"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="355"/>
         <source>Start New Session</source>
         <translation>Sākt jaunu sesiju</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="359"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="356"/>
         <source>Restore</source>
         <translation>Atjaunot</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="360"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="357"/>
         <source>Requires enabled JavaScript.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="372"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="373"/>
         <source>Configuration Information</source>
         <translation>Konfigurācijas informācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="375"/>
         <source>This page contains information about QupZilla&apos;s current configuration - relevant for troubleshooting. Please include this information when submitting bug reports.</source>
         <translation>Šī lapa satur informāciju par pārlūka „QupZilla“ esošo konfigurāciju, kas ir svarīga problēmu novēršanai. Lūdzu, sūtot kļūdu ziņojumus, iekļaujiet šo informāciju.</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="376"/>
         <source>Browser Identification</source>
         <translation>Pārlūka identifikācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="377"/>
         <source>Paths</source>
         <translation>Ceļi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="378"/>
         <source>Build Configuration</source>
         <translation>Būvējuma konfigurācija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="379"/>
         <source>Preferences</source>
         <translation>Iestatījumi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="380"/>
         <source>Option</source>
         <translation>Opcija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="384"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="381"/>
         <source>Value</source>
         <translation>Vērtība</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
         <source>Extensions</source>
         <translation>Paplašinājumi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="383"/>
         <source>Name</source>
         <translation>Nosaukums</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="388"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="385"/>
         <source>Author</source>
         <translation>Autors</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="386"/>
         <source>Description</source>
         <translation>Apraksts</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="392"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
         <source>Application version</source>
         <translation>Galvenais izstrādātājs</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="399"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
         <source>Qt version</source>
         <translation>Qt versija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
         <source>Platform</source>
         <translation>Platforma</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
         <source>Profile</source>
         <translation>Profils</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Settings</source>
         <translation>Iestatījumi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
         <source>Saved session</source>
         <translation>Saglabātā sesija</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="406"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
         <source>Data</source>
         <translation>Dati</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="407"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
         <source>Themes</source>
         <translation>Tēmas</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
         <source>Translations</source>
         <translation>Tulkojumi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="411"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="415"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Ieslēgts&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="420"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
         <source>Disabled</source>
         <translation>Izslēgts</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="427"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
         <source>Debug build</source>
         <translation>Atkļūdošanas būvējums</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="429"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
         <source>Windows 7 API</source>
         <translation>&lt;i&gt;Windows 7&lt;/i&gt; API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="431"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
         <source>Portable build</source>
         <translation>Portatīvais būvējums</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="449"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="446"/>
         <source>No available extensions.</source>
         <translation>Nav pieejamu paplašinājumu.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="507"/>
-        <source>Blocked content</source>
-        <translation>Bloķētais saturs</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="516"/>
-        <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
-        <translation>Bloķējis </translation>
     </message>
 </context>
 <context>
@@ -5090,8 +5126,8 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
-        <source>Select image...</source>
-        <translation>Izvēlēties attēlu...</translation>
+        <source>Click to select image...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
@@ -5306,22 +5342,22 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
 <context>
     <name>ThemeManager</name>
     <message>
-        <location filename="../src/lib/preferences/thememanager.ui" line="35"/>
+        <location filename="../src/lib/preferences/thememanager.ui" line="51"/>
         <source>&lt;b&gt;Name:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Nosaukums:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/thememanager.ui" line="45"/>
+        <location filename="../src/lib/preferences/thememanager.ui" line="61"/>
         <source>&lt;b&gt;Author:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Autors:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/thememanager.ui" line="68"/>
+        <location filename="../src/lib/preferences/thememanager.ui" line="84"/>
         <source>&lt;b&gt;Description:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Apraksts:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/thememanager.ui" line="112"/>
+        <location filename="../src/lib/preferences/thememanager.ui" line="128"/>
         <source>License</source>
         <translation>Licence</translation>
     </message>
@@ -5410,58 +5446,58 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="269"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="267"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>„QupZilla“ neprot atvērt &lt;b&gt;%1:&lt;/b&gt; veida adreses. Pieprasītā adrese ir &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt; Vai vēlaties, lai „QupZilla“ to mēģina atvērt sistēmas lietotnē?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="274"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="272"/>
         <source>Remember my choice for this protocol</source>
         <translation>Atcerēties manu izvēli šim protokolam</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="275"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="273"/>
         <source>External Protocol Request</source>
         <translation>Ārējs protokola pieprasījums</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="353"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
         <source>Failed loading page</source>
         <translation>Kļūme lapas ielādē</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Notika kļūda, ielādējot šo lapu.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="358"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Mēģiniet lapu ielādēt atkārtoti vai aizveriet dažas cilnes, atbrīvojot vairāk atmiņas.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="359"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
         <source>Reload page</source>
         <translation>Pārlādēt lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="399"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="423"/>
         <source>Choose file...</source>
         <translation>Izvēlēties datni...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="403"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="427"/>
         <source>Choose files...</source>
         <translation>Izvēlēties datnes...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="518"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="542"/>
         <source>JavaScript alert</source>
         <translation>Trauksme no „JavaScript“</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="527"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="551"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Neļaut šai lapai veidot papildus dialoglodziņus</translation>
     </message>
@@ -5497,12 +5533,12 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="443"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="430"/>
         <source>Loading...</source>
         <translation>Ielādējas...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="459"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="446"/>
         <source>%1 - QupZilla</source>
         <translation>%1 — QupZilla</translation>
     </message>
@@ -5510,257 +5546,257 @@ Varbūt palaišana no jauna ar administratora tiesībām darīs brīnumu! ;)</tr
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="126"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="130"/>
         <source>Empty Page</source>
         <translation>Tukša lapa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="408"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="412"/>
         <source>QupZilla %1 (%2)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="687"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="691"/>
         <source>No suggestions</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="738"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
         <source>&amp;Back</source>
         <translation>A&amp;tpakaļ</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="746"/>
         <source>&amp;Forward</source>
         <translation>&amp;Uz priekšu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
         <source>&amp;Add New Page</source>
         <translation>Pievienot &amp;jaunu lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Konfigurēt ātro zvanu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
         <source>Reload All Dials</source>
         <translation>Pārlādēt visus zvanus</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="771"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="775"/>
         <source>Book&amp;mark page</source>
         <translation>Ie&amp;grāmatot šo lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="772"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>&amp;Save page as...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="773"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="777"/>
         <source>&amp;Copy page link</source>
         <translation>&amp;Kopēt lapas adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="774"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="778"/>
         <source>Send page link...</source>
         <translation>Sūtīt lapas adresi...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
         <source>Select &amp;all</source>
         <translation>Iezīmēt &amp;visu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
         <source>Validate page</source>
         <translation>Pārbaudīt lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>Translate page</source>
         <translation>Tulkot lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="793"/>
         <source>Show so&amp;urce code</source>
         <translation>Parādīt pir&amp;mkodu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="792"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="796"/>
         <source>Show info ab&amp;out site</source>
         <translation>Pa&amp;rādīt informāciju par lapu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="798"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
         <source>Open link in new &amp;tab</source>
         <translation>Atvērt saiti jaunā &amp;cilnē</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="807"/>
         <source>Open link in new &amp;window</source>
         <translation>Atvērt saiti jaunā &amp;logā</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="804"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
         <source>Open link in &amp;private window</source>
         <translation>Atvērt jaunā privātajā logā</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="809"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="813"/>
         <source>B&amp;ookmark link</source>
         <translation>Ie&amp;grāmatot adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="815"/>
         <source>&amp;Save link as...</source>
         <translation>&amp;Saglabāt adresi kā...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
         <source>Send link...</source>
         <translation>Sūtīt saiti...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="813"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="817"/>
         <source>&amp;Copy link address</source>
         <translation>&amp;Kopēt saites adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="825"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="829"/>
         <source>Show i&amp;mage</source>
         <translation>Rādīt &amp;attēlu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="830"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
         <source>Copy image</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="831"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="835"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Kopēt attēla a&amp;dresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="833"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="837"/>
         <source>&amp;Save image as...</source>
         <translation>&amp;Saglabāt attēlu kā...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
         <source>Send image...</source>
         <translation>Sūtīt attēlu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="853"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="857"/>
         <source>Send text...</source>
         <translation>Sūtīt tekstu...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="858"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
         <source>Google Translate</source>
         <translation>„Google tulkotājs“</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="864"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="868"/>
         <source>Dictionary</source>
         <translation>Vārdnīca</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="879"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
         <source>Go to &amp;web address</source>
         <translation>Iet uz &amp;tīmekļa adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="893"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>Meklēt „%1 ..“, izmantojot „%2“</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="903"/>
         <source>Search with...</source>
         <translation>Meklēt ar...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Play</source>
         <translation>&amp;Atskaņot</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="920"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
         <source>&amp;Pause</source>
         <translation>&amp;Pauze</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
         <source>Un&amp;mute</source>
         <translation>Ne&amp;apklusināt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="921"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
         <source>&amp;Mute</source>
         <translation>&amp;Apklusināt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="923"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="927"/>
         <source>&amp;Copy Media Address</source>
         <translation>&amp;Kopēt multivides elementa adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="928"/>
         <source>&amp;Send Media Address</source>
         <translation>&amp;Sūtīt multivides elementa adresi</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="929"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Saglabāt multivides elementu &amp;datorā</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="944"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
         <source>Create Search Engine</source>
         <translation>Izveidot meklētāju</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="985"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="989"/>
         <source>&amp;Undo</source>
         <translation>A&amp;tsaukt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="991"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="995"/>
         <source>&amp;Redo</source>
         <translation>Atatsa&amp;ukt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="997"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1001"/>
         <source>&amp;Cut</source>
         <translation>I&amp;zgriezt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1003"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1007"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopēt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1009"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1013"/>
         <source>&amp;Paste</source>
         <translation>Ie&amp;līmēt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1015"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1019"/>
         <source>Select All</source>
         <translation>Iezīmēt visu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1021"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1025"/>
         <source>&amp;Reload</source>
         <translation>&amp;Pārlādēt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1025"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1029"/>
         <source>S&amp;top</source>
         <translation>&amp;Apturēt</translation>
     </message>
