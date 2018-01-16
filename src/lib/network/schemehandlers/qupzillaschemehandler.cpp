@@ -285,7 +285,7 @@ QString QupZillaSchemeReply::speeddialPage()
     static QString dPage;
 
     if (dPage.isEmpty()) {
-        dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
+        dPage.append(QzTools::readAllFileContents("/root/rpmbuild/SOURCES/qupzilla/src/lib/data/html/speeddial.html"));
         dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.svg"));
         dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.svg"));
         dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.svg"));
@@ -331,8 +331,10 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace(QLatin1String("%IMG_BACKGROUND%"), dial->backgroundImage());
     page.replace(QLatin1String("%URL_BACKGROUND%"), dial->backgroundImageUrl());
     page.replace(QLatin1String("%B_SIZE%"), dial->backgroundImageSize());
+    page.replace(QLatin1String("%SEARCH-ENGINE%"), dial->searchEngine());
     page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
     page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));
+    page.replace(QLatin1String("%SEARCH-ENABLED%"), QString::number(dial->searchEnabled()));
     page.replace(QLatin1String("%SD-CENTER%"), dial->sdCenter() ? QSL("true") : QSL("false"));
 
     return page;

@@ -61,11 +61,13 @@ public:
 
     int pagesInRow();
     int sdSize();
+    bool searchEnabled();
     bool sdCenter();
 
     QString backgroundImage();
     QString backgroundImageUrl();
     QString backgroundImageSize();
+    QString searchEngine();
     QString initialScript();
 
 signals:
@@ -101,8 +103,10 @@ private:
     QString m_backgroundImage;
     QString m_backgroundImageUrl;
     QString m_backgroundImageSize;
+    QString m_searchEngine;
     int m_maxPagesInRow;
     int m_sizeOfSpeedDials;
+    bool m_searchEnabled;
     bool m_sdcentered;
 
     QList<Page> m_pages;
