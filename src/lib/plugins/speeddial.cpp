@@ -32,8 +32,10 @@
 
 SpeedDial::SpeedDial(QObject* parent)
     : QObject(parent)
+    , m_searchEngine("ddg")
     , m_maxPagesInRow(4)
     , m_sizeOfSpeedDials(231)
+    , m_searchEnabled(true)
     , m_sdcentered(false)
     , m_loaded(false)
     , m_regenerateScript(true)
@@ -57,8 +59,10 @@ void SpeedDial::loadSettings()
     QString allPages = settings.value("pages", QString()).toString();
     setBackgroundImage(settings.value("background", QString()).toString());
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
+    m_searchEngine = settings.value("searchEngine", "ddg").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
+    m_searchEnabled = settings.value("searchEnabled", true).toBool();
     m_sdcentered = settings.value("sdcenter", false).toBool();
     settings.endGroup();
 
@@ -91,8 +95,10 @@ void SpeedDial::saveSettings()
     settings.setValue("pages", generateAllPages());
     settings.setValue("background", m_backgroundImageUrl);
     settings.setValue("backsize", m_backgroundImageSize);
+    settings.setValue("searchEngine", m_searchEngine);
     settings.setValue("pagesrow", m_maxPagesInRow);
     settings.setValue("sdsize", m_sizeOfSpeedDials);
+    settings.setValue("searchEnabled", m_searchEnabled);
     settings.setValue("sdcenter", m_sdcentered);
     settings.endGroup();
 }
@@ -172,6 +178,13 @@ int SpeedDial::sdSize()
     return m_sizeOfSpeedDials;
 }
 
+bool SpeedDial::searchEnabled()
+{
+    ENSURE_LOADED;
+
+    return m_searchEnabled;
+}
+
 bool SpeedDial::sdCenter()
 {
     ENSURE_LOADED;
@@ -196,6 +209,13 @@ QString SpeedDial::backgroundImageSize()
     ENSURE_LOADED;
 
     return m_backgroundImageSize;
+}
+
+QString SpeedDial::searchEngine()
+{
+    ENSURE_LOADED;
+
+    return m_searchEngine;
 }
 
 QString SpeedDial::initialScript()
@@ -308,6 +328,11 @@ void SpeedDial::setBackgroundImageSize(const QString &size)
     m_backgroundImageSize = size;
 }
 
+void SpeedDial::setsearchEngine(const QString &searchengine)
+{
+    m_searchEngine = searchengine;
+}
+
 void SpeedDial::setPagesInRow(int count)
 {
     m_maxPagesInRow = count;
@@ -316,6 +341,13 @@ void SpeedDial::setPagesInRow(int count)
 void SpeedDial::setSdSize(int count)
 {
     m_sizeOfSpeedDials = count;
+}
+
+void SpeedDial::setsearchEnabled(bool searchenabled)
+{
+    m_searchEnabled = searchenabled;
+
+    m_autoSaver->changeOccurred();
 }
 
 void SpeedDial::setSdCentered(bool centered)

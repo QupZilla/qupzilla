@@ -21,5 +21,9 @@
         <file>html/edit_active.svg</file>
         <file>html/sd_bg.svg</file>
         <file>html/broken-page.svg</file>
+        <file>html/search.svg</file>
+        <file>html/search_active.svg</file>
+        <file>html/arrow_left_active.svg</file>
+        <file>html/arrow_left.svg</file>
     </qresource>
 </RCC>

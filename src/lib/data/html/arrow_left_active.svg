@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="license" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+  <rdf:RDF>
+   <cc:Work rdf:about="arrow_left_active.svg">
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:date>2018-01-18</dc:date>
+    <dc:creator>Konstantin Savun</dc:creator>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/legalcode"/>
+    <cc:attributionName rdf:resource="Konstantin Savun"/>
+    <cc:attributionURL rdf:resource="diablopc@linuxforum.tech"/>
+   </cc:Work>
+  </rdf:RDF>
+</metadata>
+ <defs>
+  <style id="current-color-scheme" type="text/css">.ColorScheme-Text {
+        color:#bebebe;
+      }</style>
+ </defs>
+ <path style="color:#bebebe" fill="#00afff" d="m10.932 2c-0.26749 0-0.5343 0.10351-0.7385 0.31054l-5.2929 4.8719c-0.2206 0.2243-0.3191 0.5242-0.3009 0.8174-0.0181 0.2937 0.0802 0.5916 0.3009 0.8159l5.2919 4.8733c0.40842 0.41457 1.07 0.41457 1.4784 0 0.40842-0.41456 0.40842-1.0869 0-1.5014l-4.5486-4.1882 4.5486-4.1893c0.40842-0.41457 0.40842-1.0859 0-1.5-0.204-0.207-0.472-0.3105-0.739-0.3105z"/>
+</svg>
