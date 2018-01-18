@@ -61,11 +61,13 @@ public:
 
     int pagesInRow();
     int sdSize();
+    bool searchEnabled();
     bool sdCenter();
 
     QString backgroundImage();
     QString backgroundImageUrl();
     QString backgroundImageSize();
+    QString searchEngine();
     QString initialScript();
 
 signals:
@@ -82,8 +84,10 @@ public slots:
     QString urlFromUserInput(const QString &url);
     void setBackgroundImage(const QString &image);
     void setBackgroundImageSize(const QString &size);
+    void setsearchEngine(const QString &searchEngine);
     void setPagesInRow(int count);
     void setSdSize(int count);
+    void setsearchEnabled(bool searchenabled);
     void setSdCentered(bool centered);
 
 private slots:
@@ -101,8 +105,10 @@ private:
     QString m_backgroundImage;
     QString m_backgroundImageUrl;
     QString m_backgroundImageSize;
+    QString m_searchEngine;
     int m_maxPagesInRow;
     int m_sizeOfSpeedDials;
+    bool m_searchEnabled;
     bool m_sdcentered;
 
     QList<Page> m_pages;
