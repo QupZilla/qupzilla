@@ -4,7 +4,7 @@
     <message>
         <location filename="../akn_settings.ui" line="14"/>
         <source>Access Keys Navigation</source>
-        <translation>Navigasi Tombol Akses</translation>
+        <translation>&lt;h1&gt;Navigasi Tombol Akses&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../akn_settings.ui" line="20"/>
