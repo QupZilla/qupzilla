@@ -1,7 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
 * Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018  David Rosca <nowrep@gmail.com>
 *
 * some codes and ideas are taken from cookiemanager.cpp and cookiemanager.ui
 *

@@ -1,6 +1,6 @@
 /* ============================================================
 * Copyright (C) 2012-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* This file is part of QupZilla - WebKit based browser 2010-2014
+* This file is part of QupZilla - Qt web browser 2010-2014
 * by  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
