@@ -1,5 +1,5 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2010-2018  Franz Fellner <alpine.art.de@googlemail.com>
 *                          David Rosca <nowrep@gmail.com>
 *
