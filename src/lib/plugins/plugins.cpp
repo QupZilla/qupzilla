@@ -84,7 +84,7 @@ void Plugins::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    m_pluginsEnabled = settings.value("EnablePlugins", !mApp->isPortable()).toBool();
+    m_pluginsEnabled = settings.value("EnablePlugins", true).toBool();
     m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
