@@ -328,6 +328,11 @@ void SpeedDial::setBackgroundImageSize(const QString &size)
     m_backgroundImageSize = size;
 }
 
+void SpeedDial::setsearchEngine(const QString &searchengine)
+{
+    m_searchEngine = searchengine;
+}
+
 void SpeedDial::setPagesInRow(int count)
 {
     m_maxPagesInRow = count;
@@ -336,6 +341,13 @@ void SpeedDial::setPagesInRow(int count)
 void SpeedDial::setSdSize(int count)
 {
     m_sizeOfSpeedDials = count;
+}
+
+void SpeedDial::setsearchEnabled(bool searchenabled)
+{
+    m_searchEnabled = searchenabled;
+
+    m_autoSaver->changeOccurred();
 }
 
 void SpeedDial::setSdCentered(bool centered)

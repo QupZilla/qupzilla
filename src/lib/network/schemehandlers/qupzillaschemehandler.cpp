@@ -285,7 +285,7 @@ QString QupZillaSchemeReply::speeddialPage()
     static QString dPage;
 
     if (dPage.isEmpty()) {
-        dPage.append(QzTools::readAllFileContents("/root/rpmbuild/SOURCES/qupzilla/src/lib/data/html/speeddial.html"));
+        dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
         dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.svg"));
         dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.svg"));
         dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.svg"));
@@ -294,7 +294,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%JQUERY-UI%"), QLatin1String("qrc:html/jquery-ui.js"));
         dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
         dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.svg"));
-
+        dPage.replace(QLatin1String("%SEARCH-TITLE%"), tr("Search Engine"));
         dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
         dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));
         dPage.replace(QLatin1String("%TITLE-EDIT%"), tr("Edit"));

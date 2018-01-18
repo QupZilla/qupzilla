@@ -84,8 +84,10 @@ public slots:
     QString urlFromUserInput(const QString &url);
     void setBackgroundImage(const QString &image);
     void setBackgroundImageSize(const QString &size);
+    void setsearchEngine(const QString &searchEngine);
     void setPagesInRow(int count);
     void setSdSize(int count);
+    void setsearchEnabled(bool searchenabled);
     void setSdCentered(bool centered);
 
 private slots:

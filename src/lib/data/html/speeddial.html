@@ -30,7 +30,7 @@ html {
 
 body {
     font-family: sans-serif;
-    color: #eaeaea;
+    color: rgba(236,236,236, 1.0);
     direction: %DIRECTION%;
     cursor: default;
 }
@@ -63,12 +63,12 @@ body * {
 }
 
 .add:hover {
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(65,65,65, 0.5);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
 }
 
 .sett:hover {
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(65,65,65, 0.5);
     box-shadow: 0 0 1px 2px rgba(0,175,255, 0.5);
 }
 
@@ -98,7 +98,7 @@ body * {
     border-radius: 0px 0px 0 0;
 }
 
-#quickdial img[src="%LOADING-IMG%"]{
+#quickdial img[src="%LOADING-IMG%"] {
     margin: 10% auto auto auto;
     height: 66%;
     width: 44%;
@@ -214,7 +214,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
 #overlay-edit table input[type="text"] {
     width: 100%;
     -webkit-user-select: auto;
-    background-color: #eeeeee;
+    background-color: rgba(236,236,236, 1.0);
     border-radius: 1px;
 }
 
@@ -239,7 +239,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     margin-%LEFT_STR%: auto;
     margin-%RIGHT_STR%: auto;
     padding-bottom: 5px;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid rgba(136,136,136, 1.0);
     text-align: center;
 }
 
@@ -251,7 +251,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     text-align: center;
     width: 360px;
     height: 200px;
-    background: #aaaaaa;
+    background: rgba(170,170,170, 1.0);
 }
 
 #settingsBox .thumbhold p {
@@ -321,6 +321,14 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     width: 25px;
 }
 
+.sesel {
+    margin: 2px;
+    padding: 3px 0;
+    height: 45px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(135,135,135, 1.0);
+}
+
 #ImgSelector {
     position:relative;
     z-index: 1;
@@ -328,7 +336,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     margin-bottom: 10px;
     width: 360px;
     height: 200px;
-    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+    text-shadow: 1px 1px 2px rgba(0,0,0, 1.0), 0 0 1em rgba(0,0,0, 1.0);
 }
 
 #ImgSelectorMenu {
@@ -336,7 +344,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     z-index: 2;
     bottom: 115px;
     right: -120px;
-    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+    text-shadow: 1px 1px 2px rgba(0,0,0, 1.0), 0 0 1em rgba(0,0,0, 1.0);
 }
 
 #ImgSelectorToggle {
@@ -344,7 +352,7 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     z-index: 2;
     left: 10px;
     bottom: 210px;
-    text-shadow: 1px 1px 2px #000000, 0 0 1em #000000;
+    text-shadow: 1px 1px 2px rgba(0,0,0, 1.0), 0 0 1em rgba(0,0,0, 1.0);
 }
 
 .buttonbox {
@@ -372,7 +380,7 @@ input[type=button], select {
     box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5);
     border: 6px;
     border-radius: 2px;
-    color: #eaeaea;
+    color: rgba(236,236,236, 1.0);
     width: 135px;
     height: 32px;
     font-weight: bold;
@@ -439,7 +447,6 @@ input[type=range]:disabled::-webkit-slider-thumb,
 input[type=range]:disabled:hover::-webkit-slider-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(255,255,255, 0.5);
     background: rgba(0,0,0, 0.0);
-    color: #f00;
 }
 
 input[type=checkbox] {
@@ -461,7 +468,7 @@ input[type=checkbox] {
     box-shadow: 0 0 1px 2px rgba(255,255,255, 0.5);
     border: 1px;
     border-radius: 2px;
-    background: #111111;
+    background: rgba(20,20,20, 1.0);
 }
 
 .checkbox label:hover {
@@ -478,7 +485,7 @@ input[type=checkbox] {
     background: transparent;
     top: 6px;
     left: 7px;
-    border: 3px solid #dddddd;
+    border: 3px solid rgba(221,221,221, 1.0);
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
@@ -492,14 +499,83 @@ input[type=checkbox] {
     opacity: 1;
 }
 
+.SearchBar {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    max-height: 40px;
+}
+
 #SearchBar {
     width: 100%;
-    height: 40px;
     top: 0px;
     left: 0px;
-    background: rgba(0,0,0, 0.6);
+    background: rgba(65,65,65, 0.9);
     position: fixed;
     z-index: 2;
+    transition: 0.3s;
+}
+
+#SearchBar:hover {
+    background: rgba(65,65,65, 1.0);
+    transition: 0.3s;
+}
+
+#SearchBarToggle {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    margin-top: 4px;
+    margin-left: 4px;
+    background: url("qrc:html/arrow_left.svg") no-repeat center center;
+    background-size: 32px 32px;
+    transition: 0.3s;
+    border: 0;
+}
+
+#SearchBarToggle:hover {
+    background: url("qrc:html/arrow_left_active.svg") no-repeat center center;
+    transition: 0.3s;
+}
+
+#SearchForm {
+    width: 50%;
+    height: 30px;
+    margin: auto;
+    border: 1px solid rgba(127,127,127, 1.0);
+    background: rgba(65,65,65, 1.0);
+    border-radius: 5px;
+    outline: none;
+    display: block;
+}
+
+#SearchInput {
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(65,65,65, 1.0);
+    font-weight: bolder;
+    color: rgba(236,236,236, 1.0);
+}
+
+.submit {
+    width: 30px;
+    height: 30px;
+    background: url("qrc:html/search.svg") no-repeat center center, rgba(65,65,65, 0.0);
+    background-size: 30px 30px;
+    transition: 0.3s;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    float: right;
+}
+
+.submit:hover {
+    background: url("qrc:html/search_active.svg") no-repeat center center;
 }
 
 </style>
@@ -522,11 +598,6 @@ var SD_CENTER = %SD-CENTER%;
 var editingId = -1;
 var ignoreNextChanged = false;
 
-if ("%IMG_BACKGROUND%" == '') {
-    document.getElementById("html").style.backgroundSize = "cover";
-    document.getElementById("html").style.background = 'url("qrc:html/sd_bg.svg")';
-}
-
 $(document).keyup(function(e) {
     if (editingId == -1)
         return;
@@ -535,6 +606,20 @@ $(document).keyup(function(e) {
     else if (e.keyCode == 27)
         $('#fadeOverlay').click();
 });
+
+function searchToggle() {
+    if ("%SEARCH-ENABLED%" == '1') {
+        external.speedDial.setsearchEnabled(false);
+    } else {
+        external.speedDial.setsearchEnabled(true);
+    };
+    location.reload();
+}
+
+function setEngine() {
+    engine = $('#SearchEngineSel').val()
+    external.speedDial.setsearchEngine(engine);
+}
 
 function emitChanged(pages) {
     ignoreNextChanged = true;
@@ -559,6 +644,7 @@ function configureSpeedDial() {
     $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
     $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
     $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
+    $('#SearchEngineSel').val('%SEARCH-ENGINE%').attr('selected', 'selected');
     if ($('#BgImgToggle').prop('checked') != true) {
         $('#ImgSelectorMenu').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
         $('#BgImgSel').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
@@ -847,7 +933,10 @@ function saveSettings() {
     external.speedDial.setPagesInRow(MAX_PAGES_ROW);
     external.speedDial.setSdSize(DIAL_WIDTH);
     external.speedDial.setSdCentered(SD_CENTER);
+    setEngine();
     alignPage();
+    $('#fadeOverlay2').fadeOut('slow');
+    location.reload();
 }
 
 function bgImgToggle() {
@@ -880,7 +969,7 @@ function sdSizeToggle() {
     if ($('#SdSizeToggle').prop('checked') != true) {
         $('#SdSizeStateColor').css('color', 'rgba(0,0,0, 0.0)');
     } else {
-    $('#SdSizeStateColor').css('color', '#eaeaea')
+        $('#SdSizeStateColor').css('color', '#eaeaea')
     }
 }
 
@@ -913,15 +1002,56 @@ function disableCentering() {
 <body>
 
 <noscript>%JAVASCRIPT-DISABLED%</noscript>
-<div class="SearchBar" id="SearchBar"></div>
 
-<a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett"></a>
+<div class="SearchBar" id="SearchBar">
+    <div class="SearchBar" id="SearchBarToggle" onClick="searchToggle()">
+    </div>
+        <form id="SearchForm" action="" method="GET">
+            <input id="SearchInput" name="">
+            <input class="submit" type="submit" value="">
+        </form>
+     <div style="width: 36px"></div>
+</div>
+
+<a onClick="configureSpeedDial()" title="%SETTINGS-TITLE%" class="sett" id="sett"></a>
 <a onClick="addSpeedDial()" title="%ADD-TITLE%" class="add"></a>
 <div id="quickdial">
 </div>
 
 
 <script type="text/javascript">
+
+if ("%IMG_BACKGROUND%" == '') {
+    document.getElementById("html").style.background = 'url("qrc:html/sd_bg.svg")';
+    document.getElementById("html").style.backgroundSize = 'cover';
+}
+
+if ("%SEARCH-ENABLED%" == '0') {
+    document.getElementById('quickdial').style.margin = '10px auto';
+    document.getElementById('SearchBar').style.width = '40px';
+    document.getElementById('SearchBar').style.background = 'rgba(0,0,0, 0.0)';
+    document.getElementById('sett').style.top = '4px';
+    document.getElementById('SearchBarToggle').style.background = 'url("qrc:html/search.svg") no-repeat center center, rgba(65,65,65, 0.0)';
+    document.getElementById('SearchForm').style.visibility = 'hidden';
+}
+
+if ("%SEARCH-ENGINE%" == 'yandex') {
+    document.getElementById('SearchForm').action = 'http://yandex.fr/search/';
+    document.getElementById('SearchInput').name = 'text';
+} else if ("%SEARCH-ENGINE%" == 'yahoo') {
+    document.getElementById('SearchForm').action = 'https://search.yahoo.com/search';
+    document.getElementById('SearchInput').name = 'p';
+} else if ("%SEARCH-ENGINE%" == 'wiki') {
+    document.getElementById('SearchForm').action = 'https://en.wikipedia.org/wiki/Search';
+    document.getElementById('SearchInput').name = 'search';
+} else if ("%SEARCH-ENGINE%" == 'google') {
+    document.getElementById('SearchForm').action = 'https://google.com/';
+    document.getElementById('SearchInput').name = 'q';
+} else if ("%SEARCH-ENGINE%" == 'ddg') {
+    document.getElementById('SearchForm').action = 'https://duckduckgo.com/';
+    document.getElementById('SearchInput').name = 'q';
+}
+
 
 function init() {
     %INITIAL-SCRIPT%
@@ -982,6 +1112,16 @@ function init() {
             <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
         </div>
     </div>
+    <div class="sesel" >
+    <label for="SearchEngineSel">&nbsp;%SEARCH-TITLE%</label>
+    <select id="SearchEngineSel"  style="float: right; margin-right: 5px;" onchange="setEngine()">
+        <option value="ddg">&nbsp;&nbsp;Duck Duck Go&nbsp;&nbsp;</option>
+        <option value="yandex">&nbsp;&nbsp;Yandex&nbsp;&nbsp;</option>
+        <option value="google">&nbsp;&nbsp;Google&nbsp;&nbsp;</option>
+        <option value="wiki">&nbsp;&nbsp;Wikipedia&nbsp;&nbsp;</option>
+        <option value="yahoo">&nbsp;&nbsp;Yahoo&nbsp;&nbsp;</option>
+    </select>
+    </div>
     <div id="ImgSelector">
         <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>
         </div>
@@ -1006,7 +1146,7 @@ function init() {
     </div>
     <div class="buttonbox">
         <input type="button" value=" %CANCEL% " onClick="$('#fadeOverlay2').fadeOut('slow');location.reload();" />
-        <input type="button" value="   %APPLY%   " onClick="saveSettings();$('#fadeOverlay2').fadeOut('slow');location.reload();"/>
+        <input type="button" value="   %APPLY%   " onClick="saveSettings()"/>
     </div>
   </div>
 </div>
