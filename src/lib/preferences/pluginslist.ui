@@ -24,13 +24,6 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QCheckBox" name="allowAppPlugins">
-     <property name="text">
-      <string>Allow Application Extensions to be loaded</string>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QListWidget" name="list">
      <property name="alternatingRowColors">
       <bool>true</bool>

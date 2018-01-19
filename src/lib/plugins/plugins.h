@@ -90,7 +90,6 @@ private:
     QList<Plugin> m_availablePlugins;
     QStringList m_allowedPlugins;
 
-    bool m_pluginsEnabled;
     bool m_pluginsLoaded;
 
     SpeedDial* m_speedDial;

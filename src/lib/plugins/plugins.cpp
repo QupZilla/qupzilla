@@ -84,7 +84,6 @@ void Plugins::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    m_pluginsEnabled = settings.value("EnablePlugins", true).toBool();
     m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
@@ -109,10 +108,6 @@ void Plugins::shutdown()
 
 void Plugins::loadPlugins()
 {
-    if (!m_pluginsEnabled) {
-        return;
-    }
-
     QDir settingsDir(DataPaths::currentProfilePath() + "/extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());

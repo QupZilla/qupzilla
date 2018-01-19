@@ -44,13 +44,11 @@ PluginsManager::PluginsManager(QWidget* parent)
     bool appPluginsEnabled = settings.value("EnablePlugins", true).toBool();
     settings.endGroup();
 
-    ui->allowAppPlugins->setChecked(appPluginsEnabled);
     ui->list->setEnabled(appPluginsEnabled);
 
     connect(ui->butSettings, SIGNAL(clicked()), this, SLOT(settingsClicked()));
     connect(ui->list, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentChanged(QListWidgetItem*)));
     connect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
-    connect(ui->allowAppPlugins, SIGNAL(clicked(bool)), this, SLOT(allowAppPluginsChanged(bool)));
 
     ui->list->setItemDelegate(new PluginListDelegate(ui->list));
 }
@@ -90,34 +88,12 @@ void PluginsManager::save()
 
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    settings.setValue("EnablePlugins", ui->allowAppPlugins->isChecked());
     settings.setValue("AllowedPlugins", allowedPlugins);
     settings.endGroup();
 }
 
-void PluginsManager::allowAppPluginsChanged(bool state)
-{
-    ui->list->setEnabled(state);
-
-    if (!state) {
-        for (int i = 0; i < ui->list->count(); i++) {
-            QListWidgetItem* item = ui->list->item(i);
-
-            if (item->checkState() == Qt::Checked) {
-                item->setCheckState(Qt::Unchecked);
-            }
-        }
-    }
-
-    refresh();
-}
-
 void PluginsManager::refresh()
 {
-    if (!ui->allowAppPlugins->isChecked()) {
-        return;
-    }
-
     ui->list->clear();
     ui->butSettings->setEnabled(false);
     disconnect(ui->list, SIGNAL(itemChanged(QListWidgetItem*)), this, SLOT(itemChanged(QListWidgetItem*)));
