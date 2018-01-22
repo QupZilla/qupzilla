@@ -123,7 +123,7 @@ void SessionManager::renameSession(QString sessionFilePath, SessionFlags flags)
     }
 
     bool ok;
-    const QString suggestedName = QFileInfo(sessionFilePath).baseName() + (flags.testFlag(CloneSession) ? tr("_cloned") : tr("_renamed"));
+    const QString suggestedName = QFileInfo(sessionFilePath).completeBaseName() + (flags.testFlag(CloneSession) ? tr("_cloned") : tr("_renamed"));
     QString newName = QInputDialog::getText(mApp->activeWindow(), (flags.testFlag(CloneSession) ? tr("Clone Session") : tr("Rename Session")),
                                             tr("Please enter a new name:"), QLineEdit::Normal,
                                             suggestedName, &ok);
@@ -197,7 +197,7 @@ void SessionManager::cloneSession(const QString &filePath)
 void SessionManager::deleteSession(const QString &filePath)
 {
     QMessageBox::StandardButton result = QMessageBox::information(mApp->activeWindow(), tr("Delete Session"), tr("Are you sure you want to delete session '%1'?")
-                                                                  .arg(QFileInfo(filePath).baseName()), QMessageBox::Yes | QMessageBox::No);
+                                                                  .arg(QFileInfo(filePath).completeBaseName()), QMessageBox::Yes | QMessageBox::No);
     if (result == QMessageBox::Yes) {
         QFile::remove(filePath);
     }
@@ -284,15 +284,15 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
             continue;
 
         SessionMetaData metaData;
-        metaData.name = fileInfo.baseName();
+        metaData.name = fileInfo.completeBaseName();
 
         if (fileInfo == QFileInfo(defaultSessionPath())) {
             metaData.name = tr("Default Session");
             metaData.isDefault = true;
-        } else if (fileNames.contains(fileInfo.baseName())) {
+        } else if (fileNames.contains(fileInfo.completeBaseName())) {
             metaData.name = fileInfo.fileName();
         } else {
-            metaData.name = fileInfo.baseName();
+            metaData.name = fileInfo.completeBaseName();
         }
 
         if (isActive(fileInfo)) {
