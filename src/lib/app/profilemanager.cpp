@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #include "datapaths.h"
 #include "updater.h"
 #include "qztools.h"
+#include "restoremanager.h"
 
 #include <QDir>
 #include <QSqlDatabase>
@@ -187,6 +188,11 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
 
     Updater::Version prof(profile);
 
+    if (prof > Updater::Version(Qz::VERSION)) {
+        copyDataToProfile();
+        return;
+    }
+
     if (prof < Updater::Version("1.9.0")) {
         std::cout << "QupZilla: Using profile from QupZilla " << qPrintable(profile) << " is not supported!" << std::endl;
         return;
@@ -226,6 +232,17 @@ void ProfileManager::copyDataToProfile()
             const QString settingsBackup = QzTools::ensureUniqueFilename(profileDir.filePath(QSL("settings-backup.ini")));
             settings.copy(settingsBackup);
             settings.remove();
+        }
+
+        QFile sessionFile(profileDir.filePath(QSL("session.dat")));
+        if (sessionFile.exists() && !RestoreManager::validateFile(sessionFile.fileName())) {
+            QString oldVersion = QzTools::readAllFileContents(profileDir.filePath(QSL("version"))).trimmed();
+            if (oldVersion.isEmpty()) {
+                oldVersion = QSL("unknown-version");
+            }
+            const QString sessionBackup = QzTools::ensureUniqueFilename(profileDir.filePath(QSL("sessions/backup-%1.dat").arg(oldVersion)));
+            sessionFile.copy(sessionBackup);
+            sessionFile.remove();
         }
 
         const QString text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
