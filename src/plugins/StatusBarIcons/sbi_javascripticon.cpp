@@ -82,13 +82,21 @@ void SBI_JavaScriptIcon::updateIcon()
 
 void SBI_JavaScriptIcon::toggleJavaScript()
 {
-    if (!currentPage()) {
+    WebPage *page = currentPage();
+    if (!page) {
         return;
-
     }
 
     bool current = testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled);
     setCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled, !current);
+
+    m_settings[page] = !current;
+
+    connect(page, &WebPage::navigationRequestAccepted, this, [=](const QUrl &, WebPage::NavigationType, bool isMainFrame) {
+        if (isMainFrame) {
+            page->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, m_settings[page]);
+        }
+    });
 
     m_window->weView()->reload();
 
