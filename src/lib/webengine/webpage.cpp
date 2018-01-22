@@ -401,12 +401,15 @@ bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::Navigatio
 
     const bool result = QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 
-    if (result && isMainFrame) {
-        const bool isWeb = url.scheme() == QL1S("http") || url.scheme() == QL1S("https") || url.scheme() == QL1S("file");
-        const bool globalJsEnabled = mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
-        settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, isWeb ? globalJsEnabled : true);
+    if (result) {
+        if (isMainFrame) {
+            const bool isWeb = url.scheme() == QL1S("http") || url.scheme() == QL1S("https") || url.scheme() == QL1S("file");
+            const bool globalJsEnabled = mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled);
+            settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, isWeb ? globalJsEnabled : true);
 
-        setupWebChannelForUrl(url);
+            setupWebChannelForUrl(url);
+        }
+        emit navigationRequestAccepted(url, type, isMainFrame);
     }
 
     return result;

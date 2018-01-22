@@ -72,6 +72,7 @@ public:
 signals:
     void privacyChanged(bool status);
     void printRequested();
+    void navigationRequestAccepted(const QUrl &url, NavigationType type, bool isMainFrame);
 
 protected slots:
     void progress(int prog);
