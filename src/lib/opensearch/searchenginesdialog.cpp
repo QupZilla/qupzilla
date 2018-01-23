@@ -22,7 +22,6 @@
 #include "removeitemfocusdelegate.h"
 
 #include <QMessageBox>
-#include <iostream>
 
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     : QDialog(parent)
@@ -323,7 +322,6 @@ void SearchEnginesDialog::accept()
         if (isDefaultEngine(item)) {
             m_manager->setDefaultEngine(engine);
         }
-
     }
 
     m_manager->setAllEngines(allEngines);

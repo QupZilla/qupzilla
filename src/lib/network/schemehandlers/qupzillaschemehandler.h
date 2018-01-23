@@ -21,7 +21,6 @@
 #include <QBuffer>
 #include <QIODevice>
 #include <QWebEngineUrlSchemeHandler>
-#include <QIcon>
 
 #include "qzcommon.h"
 
