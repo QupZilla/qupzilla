@@ -311,14 +311,21 @@ QByteArray WebTab::historyData() const
     }
 }
 
+void WebTab::stop()
+{
+    m_webView->stop();
+}
+
 void WebTab::reload()
 {
     m_webView->reload();
 }
 
-void WebTab::stop()
+void WebTab::unload()
 {
-    m_webView->stop();
+    m_savedTab = SavedTab(this);
+    m_webView->history()->clear();
+    m_webView->setUrl(QUrl(QSL("about:blank")));
 }
 
 bool WebTab::isLoading() const
@@ -426,6 +433,10 @@ void WebTab::showNotification(QWidget* notif)
 
 void WebTab::loadStarted()
 {
+    if (!isRestored()) {
+        return;
+    }
+
     if (m_tabBar && m_webView->title(/*allowEmpty*/true).isEmpty()) {
         m_tabBar->setTabText(tabIndex(), tr("Loading..."));
     }
@@ -433,12 +444,16 @@ void WebTab::loadStarted()
 
 void WebTab::loadFinished()
 {
-    titleChanged(m_webView->title());
+    if (isRestored()) {
+        titleChanged(m_webView->title());
+    } else if (m_webView->url().toString() == QL1S("about:blank")) {
+        m_webView->history()->clear();
+    }
 }
 
 void WebTab::titleChanged(const QString &title)
 {
-    if (!m_tabBar || !m_window || title.isEmpty()) {
+    if (!m_tabBar || !m_window || title.isEmpty() || !isRestored()) {
         return;
     }
 
@@ -449,25 +464,19 @@ void WebTab::titleChanged(const QString &title)
     m_tabBar->setTabText(tabIndex(), title);
 }
 
-void WebTab::slotRestore()
-{
-    Q_ASSERT(m_tabBar);
-
-    if (isRestored()) {
-        return;
-    }
-
-    p_restoreTab(m_savedTab);
-    m_savedTab.clear();
-}
-
 void WebTab::tabActivated()
 {
     if (isRestored()) {
         return;
     }
 
-    QTimer::singleShot(0, this, SLOT(slotRestore()));
+    QTimer::singleShot(0, this, [this]() {
+        if (isRestored()) {
+            return;
+        }
+        p_restoreTab(m_savedTab);
+        m_savedTab.clear();
+    });
 }
 
 void WebTab::resizeEvent(QResizeEvent *event)

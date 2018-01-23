@@ -672,6 +672,15 @@ int TabWidget::duplicateTab(int index)
     return id;
 }
 
+void TabWidget::unloadTab(int index)
+{
+    if (!validIndex(index)) {
+        return;
+    }
+
+    weTab(index)->unload();
+}
+
 void TabWidget::restoreClosedTab(QObject* obj)
 {
     if (!obj) {

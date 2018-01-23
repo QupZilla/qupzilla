@@ -77,6 +77,7 @@ public:
 
     void stop();
     void reload();
+    void unload();
     bool isLoading() const;
 
     bool isPinned() const;
@@ -109,8 +110,6 @@ private slots:
     void loadStarted();
     void loadFinished();
     void titleChanged(const QString &title);
-
-    void slotRestore();
 
 private:
     void resizeEvent(QResizeEvent *event) override;

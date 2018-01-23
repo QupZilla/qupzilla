@@ -44,6 +44,7 @@ TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWi
     connect(this, SIGNAL(closeToRight(int)), m_tabWidget, SLOT(closeToRight(int)));
     connect(this, SIGNAL(closeToLeft(int)), m_tabWidget, SLOT(closeToLeft(int)));
     connect(this, SIGNAL(duplicateTab(int)), m_tabWidget, SLOT(duplicateTab(int)));
+    connect(this, SIGNAL(unloadTab(int)), m_tabWidget, SLOT(unloadTab(int)));
 
     init();
 }
@@ -121,6 +122,11 @@ void TabContextMenu::init()
 
         addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));
+
+        if (webTab->isRestored()) {
+            addAction(tr("Unload Tab"), this, SLOT(unloadTab()));
+        }
+
         addSeparator();
         addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
         addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));

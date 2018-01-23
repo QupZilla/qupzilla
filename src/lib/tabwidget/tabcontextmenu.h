@@ -39,12 +39,14 @@ signals:
     void closeToRight(int index);
     void closeToLeft(int index);
     void duplicateTab(int index);
+    void unloadTab(int index);
 
 private slots:
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
     void closeTab() { emit tabCloseRequested(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
+    void unloadTab() { emit unloadTab(m_clickedTab); }
 
     void pinTab();
     void muteTab();
