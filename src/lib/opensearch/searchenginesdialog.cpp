@@ -22,6 +22,7 @@
 #include "removeitemfocusdelegate.h"
 
 #include <QMessageBox>
+#include <iostream>
 
 SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     : QDialog(parent)
@@ -35,6 +36,7 @@ SearchEnginesDialog::SearchEnginesDialog(QWidget* parent)
     connect(ui->add, SIGNAL(clicked()), this, SLOT(addEngine()));
     connect(ui->remove, SIGNAL(clicked()), this, SLOT(removeEngine()));
     connect(ui->edit, SIGNAL(clicked()), this, SLOT(editEngine()));
+    connect(ui->setForSpeeddial, SIGNAL(clicked()), this, SLOT(setSpeeddialEngine()));
     connect(ui->setAsDefault, SIGNAL(clicked()), this, SLOT(setDefaultEngine()));
     connect(ui->defaults, SIGNAL(clicked()), this, SLOT(defaults()));
     connect(ui->moveUp, SIGNAL(clicked()), this, SLOT(moveUp()));
@@ -70,6 +72,7 @@ void SearchEnginesDialog::addEngine()
     QTreeWidgetItem* item = new QTreeWidgetItem();
     setEngine(item, engine);
 
+    changeItemToSpeeddial(item, false);
     changeItemToDefault(item, false);
     item->setIcon(0, engine.icon);
     item->setText(1, engine.shortcut);
@@ -82,6 +85,13 @@ void SearchEnginesDialog::removeEngine()
     QTreeWidgetItem* item = ui->treeWidget->currentItem();
     if (!item || ui->treeWidget->topLevelItemCount() == 1) {
         return;
+    }
+
+    if (isSpeeddialEngine(item)) {
+        SearchEngine en = getEngine(item);
+        QMessageBox::warning(this, tr("Remove Engine"),
+                             tr("You can't remove the speeddial search engine.<br>"
+                                "Set a different engine for speeddial before removing %1.").arg(en.name));
     }
 
     if (isDefaultEngine(item)) {
@@ -128,9 +138,31 @@ void SearchEnginesDialog::editEngine()
 
     setEngine(item, engine);
 
+    changeItemToSpeeddial(item, isSpeeddialEngine(item));
     changeItemToDefault(item, isDefaultEngine(item));
     item->setIcon(0, engine.icon);
     item->setText(1, engine.shortcut);
+}
+
+void SearchEnginesDialog::setSpeeddialEngine()
+{
+    QTreeWidgetItem* item = ui->treeWidget->currentItem();
+    if (!item) {
+        return;
+    }
+
+    for (int j = 0; j < ui->treeWidget->topLevelItemCount(); ++j) {
+        QTreeWidgetItem* i = ui->treeWidget->topLevelItem(j);
+        if (isSpeeddialEngine(i)) {
+            if (i == item) {
+                return;
+            }
+            changeItemToSpeeddial(i, false);
+            break;
+        }
+    }
+
+    changeItemToSpeeddial(item, true);
 }
 
 void SearchEnginesDialog::setDefaultEngine()
@@ -160,6 +192,11 @@ void SearchEnginesDialog::defaults()
     reloadEngines();
 }
 
+bool SearchEnginesDialog::isSpeeddialEngine(QTreeWidgetItem* item)
+{
+    return item->data(0, SpeeddialRole).toBool();
+}
+
 bool SearchEnginesDialog::isDefaultEngine(QTreeWidgetItem* item)
 {
     return item->data(0, DefaultRole).toBool();
@@ -176,6 +213,16 @@ void SearchEnginesDialog::setEngine(QTreeWidgetItem* item, SearchEngine engine)
     v.setValue<SearchEngine>(engine);
     item->setData(0, EngineRole, v);
     item->setText(0, engine.name);
+}
+
+void SearchEnginesDialog::changeItemToSpeeddial(QTreeWidgetItem* item, bool isSpeeddial)
+{
+    QFont font = item->font(0);
+    font.setItalic(isSpeeddial);
+
+    item->setFont(0, font);
+    item->setFont(1, font);
+    item->setData(0, SpeeddialRole, isSpeeddial);
 }
 
 void SearchEnginesDialog::changeItemToDefault(QTreeWidgetItem* item, bool isDefault)
@@ -220,10 +267,12 @@ void SearchEnginesDialog::reloadEngines()
 {
     ui->treeWidget->clear();
     const SearchEngine defaultEngine = mApp->searchEnginesManager()->defaultEngine();
+    const SearchEngine speeddialEngine = mApp->searchEnginesManager()->speeddialEngine();
 
     foreach (const SearchEngine &en, m_manager->allEngines()) {
         QTreeWidgetItem* item = new QTreeWidgetItem();
         setEngine(item, en);
+        changeItemToSpeeddial(item, en == speeddialEngine);
         changeItemToDefault(item, en == defaultEngine);
         item->setIcon(0, en.icon);
         item->setText(1, en.shortcut);
@@ -267,9 +316,14 @@ void SearchEnginesDialog::accept()
         SearchEngine engine = getEngine(item);
         allEngines.append(engine);
 
+        if (isSpeeddialEngine(item)) {
+            m_manager->setSpeeddialEngine(engine);
+        }
+
         if (isDefaultEngine(item)) {
             m_manager->setDefaultEngine(engine);
         }
+
     }
 
     m_manager->setAllEngines(allEngines);

@@ -321,14 +321,6 @@ div.entry:hover .edit, div.entry:hover .close, div.entry:hover .reload {
     width: 25px;
 }
 
-.sesel {
-    margin: 2px;
-    padding: 3px 0;
-    height: 45px;
-    vertical-align: middle;
-    border-bottom: 1px solid rgba(135,135,135, 1.0);
-}
-
 #ImgSelector {
     position:relative;
     z-index: 1;
@@ -561,10 +553,10 @@ input[type=checkbox] {
     outline: none;
     background: rgba(65,65,65, 1.0);
     font-weight: bolder;
-    color: rgba(236,236,236, 1.0);
+    color: rgba(118,118,118, 1.0);
 }
 
-.submit {
+#submit {
     width: 30px;
     height: 30px;
     background: url("qrc:html/search.svg") no-repeat center center;
@@ -573,9 +565,12 @@ input[type=checkbox] {
     border: 0;
     outline: none;
     float: right;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
 }
 
-.submit:hover {
+#submit:hover {
     background: url("qrc:html/search_active.svg") no-repeat center center;
 }
 
@@ -609,17 +604,12 @@ $(document).keyup(function(e) {
 });
 
 function searchToggle() {
-    if ("%SEARCH-ENABLED%" == '1') {
-        external.speedDial.setsearchEnabled(false);
+    if ("%SEARCH-ENABLED%" == 'true') {
+        external.speedDial.setSearchEnabled(false);
     } else {
-        external.speedDial.setsearchEnabled(true);
+        external.speedDial.setSearchEnabled(true);
     };
     location.reload();
-}
-
-function setEngine() {
-    engine = $('#SearchEngineSel').val()
-    external.speedDial.setsearchEngine(engine);
 }
 
 function emitChanged(pages) {
@@ -645,7 +635,6 @@ function configureSpeedDial() {
     $('#BgImgToggle').is(':checked') ? $('#BgImgSel').removeAttr('disabled') : $('#BgImgSel').attr('disabled', 'disabled');
     $('#BgImgToggle').is(':checked') ? $('#BgImgSelSiz').removeAttr('disabled') : $('#BgImgSelSiz').attr('disabled', 'disabled');
     $('#SdSizeToggle').is(':checked') ? $('#SdSize').removeAttr('disabled') : $('#SdSize').attr('disabled', 'disabled');
-    $('#SearchEngineSel').val('%SEARCH-ENGINE%').attr('selected', 'selected');
     if ($('#BgImgToggle').prop('checked') != true) {
         $('#ImgSelectorMenu').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
         $('#BgImgSel').css({'color' : 'rgba(0,0,0, 0.0)', 'text-shadow' : 'none'});
@@ -934,7 +923,6 @@ function saveSettings() {
     external.speedDial.setPagesInRow(MAX_PAGES_ROW);
     external.speedDial.setSdSize(DIAL_WIDTH);
     external.speedDial.setSdCentered(SD_CENTER);
-    setEngine();
     alignPage();
     $('#fadeOverlay2').fadeOut('slow');
     location.reload();
@@ -1007,10 +995,10 @@ function disableCentering() {
 <div class="SearchBar" id="SearchBar">
     <div class="SearchBar" id="SearchBarToggle" onClick="searchToggle()">
     </div>
-        <form id="SearchForm" action="" method="GET">
-            <input id="SearchInput" name="">
-            <input class="submit" type="submit" value="">
-        </form>
+        <div id="SearchForm">
+            <input id="SearchInput" name="" value="%SEARCH-HINT%" onfocus="searchFocus()" onfocusout="searchRelease()">
+            <input id="submit" type="button" value="" onClick="Search()">
+        </div>
      <div style="width: 36px"></div>
 </div>
 
@@ -1027,7 +1015,7 @@ if ("%IMG_BACKGROUND%" == '') {
     document.getElementById("html").style.backgroundSize = 'cover';
 }
 
-if ("%SEARCH-ENABLED%" == '0') {
+if (!%SEARCH-ENABLED%) {
     document.getElementById('quickdial').style.margin = '10px auto';
     document.getElementById('SearchBar').style.width = '40px';
     document.getElementById('SearchBar').style.background = 'rgba(0,0,0, 0.0)';
@@ -1036,23 +1024,31 @@ if ("%SEARCH-ENABLED%" == '0') {
     document.getElementById('SearchForm').style.visibility = 'hidden';
 }
 
-if ("%SEARCH-ENGINE%" == 'yandex') {
-    document.getElementById('SearchForm').action = 'http://yandex.fr/search/';
-    document.getElementById('SearchInput').name = 'text';
-} else if ("%SEARCH-ENGINE%" == 'yahoo') {
-    document.getElementById('SearchForm').action = 'https://search.yahoo.com/search';
-    document.getElementById('SearchInput').name = 'p';
-} else if ("%SEARCH-ENGINE%" == 'wiki') {
-    document.getElementById('SearchForm').action = 'https://en.wikipedia.org/wiki/Search';
-    document.getElementById('SearchInput').name = 'search';
-} else if ("%SEARCH-ENGINE%" == 'google') {
-    document.getElementById('SearchForm').action = 'https://google.com/';
-    document.getElementById('SearchInput').name = 'q';
-} else if ("%SEARCH-ENGINE%" == 'ddg') {
-    document.getElementById('SearchForm').action = 'https://duckduckgo.com/';
-    document.getElementById('SearchInput').name = 'q';
+function searchFocus() {
+    document.getElementById('SearchInput').style.color = 'rgba(236,236,236, 1.0)';
+    document.getElementById('SearchInput').value = '';
 }
 
+function searchRelease() {
+    document.getElementById('SearchInput').style.color = 'rgba(118,118,118, 1.0)';
+    document.getElementById('SearchInput').value = "%SEARCH-HINT%";
+}
+
+function Search() {
+    if (document.getElementById('SearchInput').value == "%SEARCH-HINT%") {
+        value = ''
+    } else {
+        value = document.getElementById('SearchInput').value
+    }
+    var url = '%SEARCH-URL%'.replace('%s', value);
+    this.location.href = url;
+}
+
+document.getElementById('SearchInput').onkeypress = function(e){
+    if (!e) e = window.event;
+    if (e.keyCode == '13')
+      Search();
+  }
 
 function init() {
     %INITIAL-SCRIPT%
@@ -1112,16 +1108,6 @@ function init() {
             <span id="sliderValueSd" color="#f00"></span>
             <input id="SdSize" type="range" min="100" max="500" step="1" oninput="$('#sliderValueSd').html(this.value);" />
         </div>
-    </div>
-    <div class="sesel" >
-    <label for="SearchEngineSel">&nbsp;%SEARCH-TITLE%</label>
-    <select id="SearchEngineSel"  style="float: right; margin-right: 5px;" onchange="setEngine()">
-        <option value="ddg">&nbsp;&nbsp;Duck Duck Go&nbsp;&nbsp;</option>
-        <option value="yandex">&nbsp;&nbsp;Yandex&nbsp;&nbsp;</option>
-        <option value="google">&nbsp;&nbsp;Google&nbsp;&nbsp;</option>
-        <option value="wiki">&nbsp;&nbsp;Wikipedia&nbsp;&nbsp;</option>
-        <option value="yahoo">&nbsp;&nbsp;Yahoo&nbsp;&nbsp;</option>
-    </select>
     </div>
     <div id="ImgSelector">
         <div id="BgImgSel" class="thumbhold" onclick="if($('#BgImgSelSiz').attr('disabled')!='disabled') {bgImageSel();}" disabled="disabled"><p id="thumb">%TXT_SELECTIMAGE%</p>

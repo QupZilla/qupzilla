@@ -45,6 +45,7 @@ private slots:
     void addEngine();
     void removeEngine();
     void editEngine();
+    void setSpeeddialEngine();
     void setDefaultEngine();
 
     void moveUp();
@@ -53,12 +54,14 @@ private slots:
     void defaults();
 
 private:
-    enum TreeRole { EngineRole = Qt::UserRole, DefaultRole = Qt::UserRole + 1 };
+    enum TreeRole { EngineRole = Qt::UserRole, DefaultRole = Qt::UserRole + 1, SpeeddialRole = Qt::UserRole + 2 };
 
+    bool isSpeeddialEngine(QTreeWidgetItem* item);
     bool isDefaultEngine(QTreeWidgetItem* item);
     SearchEngine getEngine(QTreeWidgetItem* item);
 
     void setEngine(QTreeWidgetItem* item, SearchEngine engine);
+    void changeItemToSpeeddial(QTreeWidgetItem* item, bool isSpeeddial);
     void changeItemToDefault(QTreeWidgetItem* item, bool isDefault);
 
     void reloadEngines();

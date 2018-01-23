@@ -69,6 +69,9 @@ public:
     void setActiveEngine(const Engine &engine);
     Engine activeEngine() const { return m_activeEngine; }
 
+    void setSpeeddialEngine(const Engine &sdengine);
+    Engine speeddialEngine() const { return m_speeddialEngine; }
+
     void setDefaultEngine(const Engine &engine);
     Engine defaultEngine() const { return m_defaultEngine; }
 
@@ -89,6 +92,7 @@ public:
 signals:
     void enginesChanged();
     void activeEngineChanged();
+    void speeddialEngineChanged();
     void defaultEngineChanged();
 
 public slots:
@@ -108,9 +112,11 @@ private:
     bool m_saveScheduled;
 
     QString m_startingEngineName;
+    QString m_speeddialEngineName;
     QString m_defaultEngineName;
     QVector<Engine> m_allEngines;
     Engine m_activeEngine;
+    Engine m_speeddialEngine;
     Engine m_defaultEngine;
 };
 
