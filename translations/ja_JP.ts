@@ -185,22 +185,22 @@
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="53"/>
         <source>AdBlock Icon</source>
-        <translation type="unfinished"/>
+        <translation>AdBlock アイコン</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="87"/>
         <source>AdBlock is disabled</source>
-        <translation type="unfinished"/>
+        <translation>AdBlock は無効です</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="93"/>
         <source>AdBlock is disabled on this site </source>
-        <translation type="unfinished"/>
+        <translation>AdBlock はこのサイトでは無効です </translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="99"/>
         <source>AdBlock is active</source>
-        <translation type="unfinished"/>
+        <translation>AdBlock は有効です</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockicon.cpp" line="146"/>
@@ -282,12 +282,12 @@
     <message>
         <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="44"/>
         <source>Blocked content</source>
-        <translation type="unfinished"/>
+        <translation>ブロックされたコンテンツ</translation>
     </message>
     <message>
         <location filename="../src/lib/adblock/adblockurlinterceptor.cpp" line="45"/>
         <source>Blocked by &lt;i&gt;%1 (%2)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ルール &lt;i&gt;%1 (%2)&lt;/i&gt; によりブロックされました</translation>
     </message>
 </context>
 <context>
@@ -477,7 +477,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="233"/>
         <source>Are you sure you want to delete all passwords on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターのすべてのパスワードを本当に削除しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/autofillmanager.cpp" line="252"/>
@@ -647,22 +647,22 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="237"/>
         <source>Title:</source>
-        <translation>題名:</translation>
+        <translation>ページ名:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="240"/>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>アドレス:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="242"/>
         <source>Keyword:</source>
-        <translation type="unfinished"/>
+        <translation>キーワード:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="245"/>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>説明:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="250"/>
@@ -672,12 +672,12 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="340"/>
         <source>Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>確認</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="341"/>
         <source>Are you sure you want to open all bookmarks from &apos;%1&apos; folder in tabs?</source>
-        <translation type="unfinished"/>
+        <translation>本当に &apos;%1&apos; フォルダのすべてのブックマークをタブで開きますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstools.cpp" line="435"/>
@@ -710,7 +710,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="73"/>
         <source>Output File:</source>
-        <translation>アウトプットファイル:</translation>
+        <translation>出力ファイル:</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarksexport/bookmarksexportdialog.ui" line="89"/>
@@ -1059,7 +1059,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="74"/>
         <source>Open in new private window</source>
-        <translation type="unfinished"/>
+        <translation>新しいプライベートウィンドウで開く</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="76"/>
@@ -1079,7 +1079,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkstoolbar.cpp" line="83"/>
         <source>Show Only Text</source>
-        <translation type="unfinished"/>
+        <translation>ページ名のみを表示</translation>
     </message>
 </context>
 <context>
@@ -1087,7 +1087,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="20"/>
         <source>Add to Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークに追加</translation>
     </message>
     <message>
         <location filename="../src/lib/bookmarks/bookmarkswidget.ui" line="33"/>
@@ -1127,7 +1127,7 @@ Please install latest version of QupZilla.</source>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="716"/>
         <source> (Private Browsing)</source>
-        <translation>(プライベートブラウジング)</translation>
+        <translation> (プライベートブラウジング)</translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
@@ -1188,7 +1188,8 @@ Please install latest version of QupZilla.</source>
         <location filename="../src/lib/app/browserwindow.cpp" line="1479"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のタブが開かれており、セッションは保存されません。 
+本当にこのウィンドウを閉じますか?</numerusform></translation>
     </message>
     <message>
         <location filename="../src/lib/app/browserwindow.cpp" line="1480"/>
@@ -1529,7 +1530,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="404"/>
         <source>Filter 3rd party cookies</source>
-        <translation>第三者のcookieを選別</translation>
+        <translation>サードパーティ Cookie をフィルタする</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="411"/>
@@ -1549,7 +1550,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.ui" line="432"/>
         <source>Delete cookies on close</source>
-        <translation type="unfinished"/>
+        <translation>終了時に Cookie を削除する</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="81"/>
@@ -1564,7 +1565,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="104"/>
         <source>Are you sure you want to delete all cookies on your computer?</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターのすべての Cookie を本当に削除しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="166"/>
@@ -1594,12 +1595,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>Already blacklisted!</source>
-        <translation type="unfinished"/>
+        <translation>既にブラックリストに追加済みです!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="181"/>
         <source>The server &quot;%1&quot; is already in blacklist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>サーバー &quot;%1&quot; は既にブラックリストに含まれています。先に削除してください。</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="197"/>
@@ -1609,12 +1610,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>既にホワイトリストに追加済みです!</translation>
     </message>
     <message>
         <location filename="../src/lib/cookies/cookiemanager.cpp" line="208"/>
         <source>The server &quot;%1&quot; is already in whitelist, please remove it first.</source>
-        <translation type="unfinished"/>
+        <translation>サーバー &quot;%1&quot; は既にホワイトリストに含まれています。先に削除してください。</translation>
     </message>
 </context>
 <context>
@@ -1622,7 +1623,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/notifications/desktopnotificationsfactory.cpp" line="109"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>プレビュー</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1641,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="128"/>
         <source>Error - %1</source>
-        <translation type="unfinished"/>
+        <translation>エラー - %1</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloaditem.cpp" line="132"/>
@@ -1786,27 +1787,27 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="303"/>
         <source>MIME HTML Archive (*.mhtml)</source>
-        <translation type="unfinished"/>
+        <translation>MIME HTML アーカイブ (*.mhtml)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="304"/>
         <source>HTML Page, single (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML ページ, 単一ファイル (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="305"/>
         <source>HTML Page, complete (*.html)</source>
-        <translation type="unfinished"/>
+        <translation>HTML ページ, 完全 (*.html)</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="309"/>
         <source>Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>名前を付けてページを保存...</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="401"/>
         <source>QupZilla: Download Finished</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla: ダウンロード完了</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="401"/>
@@ -1821,7 +1822,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadmanager.cpp" line="470"/>
         <source>Are you sure you want to quit? All uncompleted downloads will be cancelled!</source>
-        <translation type="unfinished"/>
+        <translation>本当に終了しますか? すべての未完了のダウンロードはキャンセルされます!</translation>
     </message>
 </context>
 <context>
@@ -1849,7 +1850,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="165"/>
         <source>which is:</source>
-        <translation type="unfinished"/>
+        <translation>種類:</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadoptionsdialog.ui" line="215"/>
@@ -1883,12 +1884,12 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/downloads/downloadsbutton.cpp" line="27"/>
         <location filename="../src/lib/downloads/downloadsbutton.cpp" line="43"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロード</translation>
     </message>
     <message>
         <location filename="../src/lib/downloads/downloadsbutton.cpp" line="28"/>
         <source>Open Download Manager</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードマネージャを開く</translation>
     </message>
 </context>
 <context>
@@ -1954,7 +1955,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="79"/>
         <source>Permission for:</source>
-        <translation type="unfinished"/>
+        <translation>許可項目:</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="87"/>
@@ -1969,7 +1970,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="97"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>マイク</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="102"/>
@@ -1979,12 +1980,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="107"/>
         <source>Microphone and Camera</source>
-        <translation type="unfinished"/>
+        <translation>マイクとカメラ</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.ui" line="112"/>
         <source>Hide Pointer</source>
-        <translation type="unfinished"/>
+        <translation>ポインタを隠す</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsdialog.cpp" line="59"/>
@@ -2032,22 +2033,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="51"/>
         <source>Allow %1 to use your microphone?</source>
-        <translation type="unfinished"/>
+        <translation>%1 がマイクを使用するのを許可しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="55"/>
         <source>Allow %1 to use your camera?</source>
-        <translation type="unfinished"/>
+        <translation>%1 がカメラを使用するのを許可しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="59"/>
         <source>Allow %1 to use your microphone and camera?</source>
-        <translation type="unfinished"/>
+        <translation>%1 がマイクとカメラを使用するのを許可しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/tools/html5permissions/html5permissionsnotification.cpp" line="63"/>
         <source>Allow %1 to hide your pointer?</source>
-        <translation type="unfinished"/>
+        <translation>%1 がポインタを隠すのを許可しますか?</translation>
     </message>
 </context>
 <context>
@@ -2144,7 +2145,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="79"/>
         <source>Are you sure you want to delete all history?</source>
-        <translation type="unfinished"/>
+        <translation>本当にすべての履歴を削除しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymanager.cpp" line="145"/>
@@ -2195,7 +2196,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="189"/>
         <source>Restore All Closed Windows</source>
-        <translation type="unfinished"/>
+        <translation>閉じたウィンドウをすべて開く</translation>
     </message>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="236"/>
@@ -2235,7 +2236,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/history/historymenu.cpp" line="261"/>
         <source>Closed Windows</source>
-        <translation type="unfinished"/>
+        <translation>最近閉じたウィンドウ</translation>
     </message>
 </context>
 <context>
@@ -2433,12 +2434,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="148"/>
         <source>Enter address or search with %1</source>
-        <translation type="unfinished"/>
+        <translation>アドレスを入力するか %1 で検索します</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/locationbar.cpp" line="150"/>
         <source>Enter address</source>
-        <translation type="unfinished"/>
+        <translation>アドレスを入力します</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/siteicon.cpp" line="40"/>
@@ -2451,17 +2452,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="149"/>
         <source>Visit</source>
-        <translation type="unfinished"/>
+        <translation>開く</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="160"/>
         <source>Search with %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 で検索</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="192"/>
         <source>Switch to tab</source>
-        <translation type="unfinished"/>
+        <translation>タブを表示</translation>
     </message>
 </context>
 <context>
@@ -2484,17 +2485,17 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1208"/>
         <source>Open new tab</source>
-        <translation type="unfinished"/>
+        <translation>新しいタブ</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1209"/>
         <source>Open new window</source>
-        <translation type="unfinished"/>
+        <translation>新しいウィンドウ</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1210"/>
         <source>Open new private window</source>
-        <translation type="unfinished"/>
+        <translation>新しいプライベートウィンドウ</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainapplication.cpp" line="1225"/>
@@ -2508,7 +2509,7 @@ Are you sure you want to close this window?</source>
         <location filename="../src/lib/app/mainmenu.cpp" line="84"/>
         <location filename="../src/lib/app/mainmenu.cpp" line="497"/>
         <source>Sessions</source>
-        <translation type="unfinished"/>
+        <translation>セッション</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="467"/>
@@ -2563,12 +2564,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="500"/>
         <source>Session Manager</source>
-        <translation type="unfinished"/>
+        <translation>セッションマネージャ</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="507"/>
         <source>&amp;Save Page As...</source>
-        <translation type="unfinished"/>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="508"/>
@@ -2633,7 +2634,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="541"/>
         <source>Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>サイドバー</translation>
     </message>
     <message>
         <location filename="../src/lib/app/mainmenu.cpp" line="543"/>
@@ -2824,7 +2825,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="583"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
-        <translation type="unfinished"/>
+        <translation>本当にマスターパスワードをクリアしてデータを復号化しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="626"/>
@@ -2862,7 +2863,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="134"/>
         <source>Tools</source>
-        <translation type="unfinished"/>
+        <translation>ツール</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="147"/>
@@ -2872,42 +2873,42 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="164"/>
         <source>Exit Fullscreen</source>
-        <translation type="unfinished"/>
+        <translation>全画面表示を終了</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="190"/>
         <source>Back and Forward buttons</source>
-        <translation type="unfinished"/>
+        <translation>戻る・進むボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="191"/>
         <source>Reload button</source>
-        <translation type="unfinished"/>
+        <translation>再読み込みボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="192"/>
         <source>Home button</source>
-        <translation type="unfinished"/>
+        <translation>ホームボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="193"/>
         <source>Add tab button</source>
-        <translation type="unfinished"/>
+        <translation>タブの追加ボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="194"/>
         <source>Address and Search bar</source>
-        <translation type="unfinished"/>
+        <translation>アドレス・検索バー</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="195"/>
         <source>Tools button</source>
-        <translation type="unfinished"/>
+        <translation>ツールボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="196"/>
         <source>Exit Fullscreen button</source>
-        <translation type="unfinished"/>
+        <translation>全画面表示の終了ボタン</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="370"/>
@@ -2918,18 +2919,18 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="411"/>
         <source>Toolbars</source>
-        <translation type="unfinished"/>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="412"/>
         <source>Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>サイドバー</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="427"/>
         <location filename="../src/lib/navigation/navigationbar.cpp" line="442"/>
         <source>Configure Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>ツールバーを設定</translation>
     </message>
 </context>
 <context>
@@ -2937,22 +2938,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="14"/>
         <source>Configure Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>ツールバーを設定</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="62"/>
         <source>Show search bar</source>
-        <translation type="unfinished"/>
+        <translation>検索バーを表示</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="82"/>
         <source>Available items:</source>
-        <translation type="unfinished"/>
+        <translation>利用可能な項目:</translation>
     </message>
     <message>
         <location filename="../src/lib/navigation/navigationbarconfigdialog.ui" line="89"/>
         <source>Current items:</source>
-        <translation type="unfinished"/>
+        <translation>現在の項目:</translation>
     </message>
 </context>
 <context>
@@ -2992,7 +2993,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="111"/>
         <source>Save username and password for this site</source>
-        <translation type="unfinished"/>
+        <translation>このサイトでユーザー名とパスワードを保存する</translation>
     </message>
     <message>
         <location filename="../src/lib/network/networkmanager.cpp" line="119"/>
@@ -3246,7 +3247,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="323"/>
         <source>Select session</source>
-        <translation type="unfinished"/>
+        <translation>セッションを選択する</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="331"/>
@@ -3346,7 +3347,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="571"/>
         <source>Enable instant Bookmarks ToolBar</source>
-        <translation type="unfinished"/>
+        <translation>インスタントブックマークツールバーを有効にする</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="593"/>
@@ -3381,7 +3382,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="675"/>
         <source>Open popup windows in tabs</source>
-        <translation type="unfinished"/>
+        <translation>ポップアップウィンドウをタブで開く</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="682"/>
@@ -3471,7 +3472,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="850"/>
         <source>Propose to switch tab if completed url is already loaded</source>
-        <translation>URLが既に読み込まれている場合、タブを切り替える。</translation>
+        <translation>URLが既に読み込まれている場合にタブを切り替える</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="857"/>
@@ -3491,7 +3492,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="878"/>
         <source>Enable automatic searching from the address bar</source>
-        <translation type="unfinished"/>
+        <translation>アドレスバーからの自動検索を有効にする</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="885"/>
@@ -3501,7 +3502,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="892"/>
         <source>Show search suggestions</source>
-        <translation type="unfinished"/>
+        <translation>検索候補を表示</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="915"/>
@@ -3787,7 +3788,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1734"/>
         <source>Existing shortcuts:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</source>
-        <translation type="unfinished"/>
+        <translation>利用可能なショートカット:&lt;br/&gt;&lt;b&gt;1&lt;/b&gt; - previous tab&lt;br/&gt;&lt;b&gt;2&lt;/b&gt; - next tab&lt;br/&gt;&lt;b&gt;/&lt;/b&gt; - search on page</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1737"/>
@@ -3797,7 +3798,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1744"/>
         <source>If unchecked, prevents accidental exit from the application if the Ctrl-W shortcut was intended.</source>
-        <translation type="unfinished"/>
+        <translation>チェックしない場合、Ctrl-W のショートカットのつもりで意図せずにアプリケーションを終了するのを防ぎます。</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="1747"/>
@@ -3967,22 +3968,22 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2339"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>スペルチェックについての詳しい情報は &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt; を参照してください。</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;スペルチェックの設定&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2388"/>
         <source>Enable Spell Check</source>
-        <translation type="unfinished"/>
+        <translation>スペルチェックを有効にする</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2395"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;辞書のディレクトリ&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
@@ -3992,12 +3993,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;検索エンジンを管理する&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2467"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;ユーザースタイルシート&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="2474"/>
@@ -4305,12 +4306,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="303"/>
         <source>Are you sure you want to remove this speed dial?</source>
-        <translation type="unfinished"/>
+        <translation>本当にこの Speed Dial を削除しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="304"/>
         <source>Are you sure you want to reload all speed dials?</source>
-        <translation type="unfinished"/>
+        <translation>本当にすべての Speed Dial を再読み込みしますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="305"/>
@@ -4320,7 +4321,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="306"/>
         <source>SpeedDial requires enabled JavaScript.</source>
-        <translation type="unfinished"/>
+        <translation>SpeedDial を使用するには JavaScript を有効にする必要があります。</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="307"/>
@@ -4340,7 +4341,7 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="310"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="311"/>
@@ -4385,12 +4386,12 @@ Are you sure you want to close this window?</source>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="319"/>
         <source>Use custom wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>カスタム壁紙を使用</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="320"/>
         <source>Click to select image</source>
-        <translation type="unfinished"/>
+        <translation>クリックして画像を選択</translation>
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="321"/>
@@ -4758,27 +4759,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>_cloned</source>
-        <translation type="unfinished"/>
+        <translation>の複製</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="126"/>
         <source>_renamed</source>
-        <translation type="unfinished"/>
+        <translation>の新しい名前</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Clone Session</source>
-        <translation type="unfinished"/>
+        <translation>セッションを複製</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="127"/>
         <source>Rename Session</source>
-        <translation type="unfinished"/>
+        <translation>セッションの名前を変更</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="128"/>
         <source>Please enter a new name:</source>
-        <translation type="unfinished"/>
+        <translation>新しい名前を入力してください:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="136"/>
@@ -4787,99 +4788,99 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/session/sessionmanager.cpp" line="170"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="218"/>
         <source>Error!</source>
-        <translation type="unfinished"/>
+        <translation>エラーが発生しました!</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="136"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="170"/>
         <location filename="../src/lib/session/sessionmanager.cpp" line="218"/>
         <source>The session file &quot;%1&quot; exists. Please enter another name.</source>
-        <translation type="unfinished"/>
+        <translation>セッションファイル &quot;%1&quot; が存在します。別の名前を入力してください。</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="143"/>
         <source>An error occurred when cloning session file.</source>
-        <translation type="unfinished"/>
+        <translation>セッションファイルの複製時にエラーが発生しました。</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="148"/>
         <source>An error occurred when renaming session file.</source>
-        <translation type="unfinished"/>
+        <translation>セッションファイルの名前変更時にエラーが発生しました。</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="161"/>
         <source>Save Session</source>
-        <translation type="unfinished"/>
+        <translation>セッションを保存</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="162"/>
         <source>Please enter a name to save session:</source>
-        <translation type="unfinished"/>
+        <translation>セッションを保存するために名前を入力してください:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="163"/>
         <source>Saved Session (%1)</source>
-        <translation type="unfinished"/>
+        <translation>保存されたセッション (%1)</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="180"/>
         <source>Restore Backup</source>
-        <translation type="unfinished"/>
+        <translation>バックアップを復元</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="180"/>
         <source>Are you sure you want to replace current session?</source>
-        <translation type="unfinished"/>
+        <translation>本当に現在のセッションを置き換えますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="199"/>
         <source>Delete Session</source>
-        <translation type="unfinished"/>
+        <translation>セッションを削除</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="199"/>
         <source>Are you sure you want to delete session &apos;%1&apos;?</source>
-        <translation type="unfinished"/>
+        <translation>本当にセッション &apos;%1&apos; を削除しますか?</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="209"/>
         <source>New Session</source>
-        <translation type="unfinished"/>
+        <translation>新しいセッション</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="210"/>
         <source>Please enter a name to create new session:</source>
-        <translation type="unfinished"/>
+        <translation>新しいセッションを作成するために名前を入力してください:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="211"/>
         <source>New Session (%1)</source>
-        <translation type="unfinished"/>
+        <translation>新しいセッション (%1)</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="243"/>
         <source>Backup 1</source>
-        <translation type="unfinished"/>
+        <translation>バックアップ 1</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="250"/>
         <source>Backup 2</source>
-        <translation type="unfinished"/>
+        <translation>バックアップ 2</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="290"/>
         <source>Default Session</source>
-        <translation type="unfinished"/>
+        <translation>既定のセッション</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="393"/>
         <source>Please select the startup session:</source>
-        <translation type="unfinished"/>
+        <translation>開始時のセッションを選択してください:</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanager.cpp" line="412"/>
         <source>%1 (last session)</source>
-        <translation type="unfinished"/>
+        <translation>%1 (前回のセッション)</translation>
     </message>
 </context>
 <context>
@@ -4887,52 +4888,52 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="14"/>
         <source>Session Manager</source>
-        <translation type="unfinished"/>
+        <translation>セッションマネージャ</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="24"/>
         <source>Session</source>
-        <translation type="unfinished"/>
+        <translation>セッション</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="29"/>
         <source>Last Modified</source>
-        <translation type="unfinished"/>
+        <translation>最終更新</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="39"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>新規</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="46"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="53"/>
         <source>Clone</source>
-        <translation type="unfinished"/>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="60"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.ui" line="67"/>
         <source>Switch to</source>
-        <translation type="unfinished"/>
+        <translation>切り替え</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.cpp" line="140"/>
         <source>Restore</source>
-        <translation type="unfinished"/>
+        <translation>復元</translation>
     </message>
     <message>
         <location filename="../src/lib/session/sessionmanagerdialog.cpp" line="140"/>
         <source>Switch To</source>
-        <translation type="unfinished"/>
+        <translation>切り替え</translation>
     </message>
 </context>
 <context>
@@ -5123,7 +5124,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="287"/>
         <source>Click to select image...</source>
-        <translation type="unfinished"/>
+        <translation>クリックして画像を選択...</translation>
     </message>
     <message>
         <location filename="../src/lib/plugins/speeddial.cpp" line="342"/>
@@ -5152,7 +5153,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="61"/>
         <source>Don&apos;t ask again</source>
-        <translation type="unfinished"/>
+        <translation>次回からは表示しない</translation>
     </message>
 </context>
 <context>
@@ -5162,7 +5163,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
         <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="89"/>
         <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="100"/>
         <source>Close Tabs</source>
-        <translation type="unfinished"/>
+        <translation>タブを閉じる</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
@@ -5281,12 +5282,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="156"/>
         <source>Unmute Tab</source>
-        <translation type="unfinished"/>
+        <translation>タブのミュートを解除</translation>
     </message>
     <message>
         <location filename="../src/lib/tabwidget/tabicon.cpp" line="156"/>
         <source>Mute Tab</source>
-        <translation type="unfinished"/>
+        <translation>タブをミュート</translation>
     </message>
 </context>
 <context>
@@ -5465,17 +5466,17 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
         <source>Something went wrong while loading this page.</source>
-        <translation type="unfinished"/>
+        <translation>このページの読み込み時に問題が発生しました。</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
-        <translation type="unfinished"/>
+        <translation>ページの再読み込みを試すか、もしくは幾つかのタブを閉じて使用可能なメモリを確保してください。</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
         <source>Reload page</source>
-        <translation type="unfinished"/>
+        <translation>ページを再読み込み</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="423"/>
@@ -5485,7 +5486,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="427"/>
         <source>Choose files...</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを選択...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webpage.cpp" line="542"/>
@@ -5549,12 +5550,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="412"/>
         <source>QupZilla %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="691"/>
         <source>No suggestions</source>
-        <translation type="unfinished"/>
+        <translation>候補なし</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="742"/>
@@ -5574,12 +5575,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="754"/>
         <source>&amp;Configure Speed Dial</source>
-        <translation>Speed Dialの設定(&amp;C)</translation>
+        <translation>Speed Dial の設定(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="756"/>
         <source>Reload All Dials</source>
-        <translation>すべてのDialを更新する</translation>
+        <translation>すべての Dial を更新する</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="775"/>
@@ -5589,7 +5590,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>&amp;Save page as...</source>
-        <translation type="unfinished"/>
+        <translation>名前を付けてページを保存(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="777"/>
@@ -5639,7 +5640,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="808"/>
         <source>Open link in &amp;private window</source>
-        <translation>リンクを新しいプライベートウィンドウで開く</translation>
+        <translation>リンクを新しいプライベートウィンドウで開く(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="813"/>
@@ -5669,7 +5670,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="834"/>
         <source>Copy image</source>
-        <translation type="unfinished"/>
+        <translation>画像をコピー</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="835"/>
@@ -5759,27 +5760,27 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="989"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"/>
+        <translation>元に戻す(&amp;U)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="995"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"/>
+        <translation>やり直す(&amp;R)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="1001"/>
         <source>&amp;Cut</source>
-        <translation>&amp;切り取り</translation>
+        <translation>切り取り(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="1007"/>
         <source>&amp;Copy</source>
-        <translation>&amp;複製</translation>
+        <translation>コピー(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="1013"/>
         <source>&amp;Paste</source>
-        <translation>&amp;貼り付け</translation>
+        <translation>貼り付け(&amp;P)</translation>
     </message>
     <message>
         <location filename="../src/lib/webengine/webview.cpp" line="1019"/>
