@@ -1,7 +1,7 @@
 {
     "id": "org.qupzilla.QupZilla",
     "runtime": "org.kde.Platform",
-    "runtime-version": "master",
+    "runtime-version": "5.9",
     "sdk": "org.kde.Sdk",
     "rename-icon": "qupzilla",
     "tags": ["nightly"],
