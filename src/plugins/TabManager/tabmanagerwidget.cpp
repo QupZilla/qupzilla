@@ -326,6 +326,7 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
         menu->addAction(QIcon(":/tabmanager/data/tab-detach.png"), tr("&Detach checked tabs"), this, SLOT(processActions()))->setObjectName("detachSelection");
         menu->addAction(QIcon(":/tabmanager/data/tab-bookmark.png"), tr("Book&mark checked tabs"), this, SLOT(processActions()))->setObjectName("bookmarkSelection");
         menu->addAction(QIcon(":/tabmanager/data/tab-close.png"), tr("&Close checked tabs"), this, SLOT(processActions()))->setObjectName("closeSelection");
+        menu->addAction(tr("&Unload checked tabs"), this, SLOT(processActions()))->setObjectName("unloadSelection");
     }
 
     menu->exec(ui->treeWidget->viewport()->mapToGlobal(pos));
@@ -471,7 +472,7 @@ void TabManagerWidget::processActions()
                 continue;
             }
 
-            if (command == "closeSelection") {
+            if (command == "closeSelection" || command == "unloadSelection") {
                 selectedTabs.insertMulti(mainWindow, webTab);
             }
             else if (command == "detachSelection" || command == "bookmarkSelection") {
@@ -490,6 +491,9 @@ void TabManagerWidget::processActions()
         }
         else if (command == "bookmarkSelection") {
             bookmarkSelectedTabs(selectedTabs);
+        }
+        else if (command == "unloadSelection") {
+            unloadSelectedTabs(selectedTabs);
         }
     }
 
@@ -602,6 +606,22 @@ bool TabManagerWidget::bookmarkSelectedTabs(const QHash<BrowserWindow*, WebTab*>
 
     delete dialog;
     return true;
+}
+
+void TabManagerWidget::unloadSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash)
+{
+    if (tabsHash.isEmpty()) {
+        return;
+    }
+
+    const QList<BrowserWindow*> &windows = tabsHash.uniqueKeys();
+    foreach (BrowserWindow* mainWindow, windows) {
+        QList<WebTab*> tabs = tabsHash.values(mainWindow);
+
+        foreach (WebTab* webTab, tabs) {
+            mainWindow->tabWidget()->unloadTab(webTab->tabIndex());
+        }
+    }
 }
 
 QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
