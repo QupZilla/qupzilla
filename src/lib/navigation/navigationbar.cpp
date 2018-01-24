@@ -500,6 +500,7 @@ void NavigationBar::loadSettings()
         QSL("button-home"),
         QSL("locationbar"),
         QSL("button-downloads"),
+        QSL("adblock-icon"),
         QSL("button-tools")
     };
 
