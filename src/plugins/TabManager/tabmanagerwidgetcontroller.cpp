@@ -18,18 +18,39 @@
 * ============================================================ */
 #include "tabmanagerwidgetcontroller.h"
 #include "tabmanagerwidget.h"
-#include "clickablelabel.h"
+#include "abstractbuttoninterface.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "statusbar.h"
+#include "navigationbar.h"
 
 #include <QDesktopWidget>
 #include <QAction>
 #include <QStyle>
 
 #include <QDebug>
+
+class TabManagerButton : public AbstractButtonInterface
+{
+public:
+    explicit TabManagerButton(QObject *parent = nullptr)
+        : AbstractButtonInterface(parent)
+    {
+    }
+
+    QString id() const override
+    {
+        return QSL("tabmanager-icon");
+    }
+
+    QString name() const override
+    {
+        return tr("Tab Manager button");
+    }
+};
+
 
 TabManagerWidgetController::TabManagerWidgetController(QObject* parent)
     : SideBarInterface(parent)
@@ -63,7 +84,7 @@ QWidget* TabManagerWidgetController::createSideBarWidget(BrowserWindow* mainWind
     return createTabManagerWidget(mainWindow, mainWindow);
 }
 
-QWidget* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWindow)
+AbstractButtonInterface* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWindow)
 {
     if (!defaultTabManager()) {
         return 0;
@@ -73,19 +94,33 @@ QWidget* TabManagerWidgetController::createStatusBarIcon(BrowserWindow* mainWind
         return m_statusBarIcons.value(mainWindow);
     }
 
-    ClickableLabel* icon = new ClickableLabel(mainWindow);
-    icon->setCursor(Qt::PointingHandCursor);
-    QPixmap p(":tabmanager/data/tabmanager.png");
-    icon->setPixmap(p.scaledToHeight(16));
+    TabManagerButton* icon = new TabManagerButton(this);
+    icon->setIcon(QPixmap(":tabmanager/data/tabmanager.png"));
+    icon->setTitle(tr("Tab Manager"));
     icon->setToolTip(tr("Show Tab Manager"));
+    connect(icon, &AbstractButtonInterface::clicked, this, [=](AbstractButtonInterface::ClickController *c) {
+        if (!defaultTabManager()) {
+            return;
+        }
+
+        static int frameWidth = (defaultTabManager()->frameGeometry().width() - defaultTabManager()->geometry().width()) / 2;
+        static int titleBarHeight = defaultTabManager()->style()->pixelMetric(QStyle::PM_TitleBarHeight);
+
+        QSize newSize(defaultTabManager()->width(), mainWindow->height() - titleBarHeight - frameWidth);
+        QRect newGeo(c->popupPosition(newSize), newSize);
+        defaultTabManager()->setGeometry(newGeo);
+        raiseTabManager();
+
+        QTimer::singleShot(0, this, [=]() {
+            c->popupClosed();
+        });
+    });
 
     QAction* showAction = createMenuAction();
     showAction->setCheckable(false);
     showAction->setParent(icon);
     mainWindow->addAction(showAction);
     connect(showAction, SIGNAL(triggered()), this, SLOT(raiseTabManager()));
-
-    connect(icon, SIGNAL(clicked(QPoint)), this, SLOT(raiseTabManager()));
 
     m_statusBarIcons.insert(mainWindow, icon);
     m_actions.insert(mainWindow, showAction);
@@ -137,14 +172,16 @@ TabManagerWidget* TabManagerWidgetController::defaultTabManager()
 void TabManagerWidgetController::addStatusBarIcon(BrowserWindow* window)
 {
     if (window) {
-        window->statusBar()->addPermanentWidget(createStatusBarIcon(window));
+        window->statusBar()->addButton(createStatusBarIcon(window));
+        window->navigationBar()->addToolButton(createStatusBarIcon(window));
     }
 }
 
 void TabManagerWidgetController::removeStatusBarIcon(BrowserWindow* window)
 {
     if (window) {
-        window->statusBar()->removeWidget(m_statusBarIcons.value(window));
+        window->statusBar()->removeButton(m_statusBarIcons.value(window));
+        window->navigationBar()->removeToolButton(m_statusBarIcons.value(window));
         window->removeAction(m_actions.value(window));
         delete m_actions.value(window);
         delete m_statusBarIcons.value(window);
@@ -164,20 +201,6 @@ void TabManagerWidgetController::raiseTabManager()
 {
     if (!defaultTabManager()) {
         return;
-    }
-
-    ClickableLabel* icon = qobject_cast<ClickableLabel*>(sender());
-    if (icon) {
-        static int frameWidth = (defaultTabManager()->frameGeometry().width() - defaultTabManager()->geometry().width()) / 2;
-        static int titleBarHeight = defaultTabManager()->style()->pixelMetric(QStyle::PM_TitleBarHeight);
-
-        int y = qMax(0, icon->mapToGlobal(QPoint(0, 0)).y() - 1 - icon->window()->height() + titleBarHeight - frameWidth);
-        int x = icon->mapToGlobal(QPoint(0, 0)).x();
-        if (!mApp->isRightToLeft()) {
-            x -= defaultTabManager()->width();
-        }
-        QRect newGeo(x, y, defaultTabManager()->width(), icon->window()->height() - titleBarHeight - frameWidth);
-        defaultTabManager()->setGeometry(newGeo);
     }
 
     defaultTabManager()->activateWindow();

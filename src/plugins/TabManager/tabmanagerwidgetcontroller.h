@@ -1,6 +1,7 @@
 /* ============================================================
 * TabManager plugin for QupZilla
 * Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2018       David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include "tabmanagerwidget.h"
 
 class WebPage;
+class AbstractButtonInterface;
 
 class TabManagerWidgetController : public SideBarInterface
 {
@@ -34,7 +36,7 @@ public:
     QAction* createMenuAction();
     QWidget* createSideBarWidget(BrowserWindow* mainWindow);
 
-    QWidget* createStatusBarIcon(BrowserWindow* mainWindow);
+    AbstractButtonInterface* createStatusBarIcon(BrowserWindow* mainWindow);
 
     TabManagerWidget::GroupType groupType();
     TabManagerWidget* createTabManagerWidget(BrowserWindow* mainClass, QWidget* parent = 0, bool defaultWidget = false);
@@ -55,7 +57,7 @@ private:
     TabManagerWidget* m_defaultTabManager;
     TabManagerWidget::GroupType m_groupType;
 
-    QHash<BrowserWindow*, QWidget*> m_statusBarIcons;
+    QHash<BrowserWindow*, AbstractButtonInterface*> m_statusBarIcons;
     QHash<BrowserWindow*, QAction*> m_actions;
 
 signals:
