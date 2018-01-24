@@ -472,12 +472,7 @@ void TabManagerWidget::processActions()
                 continue;
             }
 
-            if (command == "closeSelection" || command == "unloadSelection") {
-                selectedTabs.insertMulti(mainWindow, webTab);
-            }
-            else if (command == "detachSelection" || command == "bookmarkSelection") {
-                selectedTabs.insertMulti(mainWindow, webTab);
-            }
+            selectedTabs.insertMulti(mainWindow, webTab);
         }
         winItem->setCheckState(0, Qt::Unchecked);
     }
