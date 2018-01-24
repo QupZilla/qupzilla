@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,14 +15,13 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef STATUSBARMESSAGE_H
-#define STATUSBARMESSAGE_H
+#pragma once
 
 #include <QObject>
+#include <QStatusBar>
 
 #include "qzcommon.h"
 #include "squeezelabelv1.h"
-#include "animatedwidget.h"
 
 class QTimer;
 
@@ -45,17 +44,15 @@ private:
     QTimer* m_timer;
 };
 
-class QUPZILLA_EXPORT StatusBarMessage
+class QUPZILLA_EXPORT StatusBar : public QStatusBar
 {
 public:
-    explicit StatusBarMessage(BrowserWindow* window);
+    explicit StatusBar(BrowserWindow *window);
 
-    void showMessage(const QString &message);
+    void showMessage(const QString &message, int timeout = 0);
     void clearMessage();
 
 private:
-    BrowserWindow* m_window;
-    TipLabel* m_statusBarText;
+    BrowserWindow *m_window;
+    TipLabel *m_statusBarText;
 };
-
-#endif // STATUSBARMESSAGE_H

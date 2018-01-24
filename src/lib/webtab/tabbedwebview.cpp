@@ -22,7 +22,7 @@
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "webtab.h"
-#include "statusbarmessage.h"
+#include "statusbar.h"
 #include "progressbar.h"
 #include "navigationbar.h"
 #include "iconprovider.h"
@@ -139,10 +139,10 @@ void TabbedWebView::linkHovered(const QString &link)
 {
     if (m_webTab->isCurrentTab() && m_window) {
         if (link.isEmpty()) {
-            m_window->statusBarMessage()->clearMessage();
+            m_window->statusBar()->clearMessage();
         }
         else {
-            m_window->statusBarMessage()->showMessage(link);
+            m_window->statusBar()->showMessage(link);
         }
     }
 }

@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,9 +22,9 @@
 #include "sbi_networkicon.h"
 #include "sbi_networkmanager.h"
 #include "browserwindow.h"
+#include "statusbar.h"
 
 #include <QSettings>
-#include <QStatusBar>
 
 SBI_IconsManager::SBI_IconsManager(const QString &settingsPath, QObject* parent)
     : QObject(parent)

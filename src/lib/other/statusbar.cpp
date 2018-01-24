@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#include "statusbarmessage.h"
+#include "statusbar.h"
 #include "browserwindow.h"
 #include "tabwidget.h"
 #include "tabbedwebview.h"
@@ -107,46 +107,46 @@ bool TipLabel::eventFilter(QObject* o, QEvent* e)
     return false;
 }
 
-StatusBarMessage::StatusBarMessage(BrowserWindow* window)
+StatusBar::StatusBar(BrowserWindow* window)
     : m_window(window)
     , m_statusBarText(new TipLabel(window))
 {
 }
 
-void StatusBarMessage::showMessage(const QString &message)
+void StatusBar::showMessage(const QString &message, int timeout)
 {
-    if (m_window->statusBar()->isVisible()) {
+    if (isVisible()) {
         const static QChar LRE(0x202a);
-        m_window->statusBar()->showMessage(message.isRightToLeft() ? message : (LRE + message));
+        QStatusBar::showMessage(message.isRightToLeft() ? message : (LRE + message), timeout);
+        return;
     }
-    else if (mApp->activeWindow() == m_window) {
-        WebView* view = m_window->weView();
 
-        const int verticalScrollSize = view->scrollBarGeometry(Qt::Vertical).width();;
-        const int horizontalScrollSize = view->scrollBarGeometry(Qt::Horizontal).height();
-
-        m_statusBarText->setText(message);
-        m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
-        m_statusBarText->resize(m_statusBarText->sizeHint());
-
-        QPoint position(0, view->height() - horizontalScrollSize - m_statusBarText->height());
-        const QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
-
-        if (statusRect.contains(QCursor::pos())) {
-            position.setY(position.y() - m_statusBarText->height());
-        }
-
-        m_statusBarText->move(view->mapToGlobal(position));
-        m_statusBarText->show(view);
+    if (mApp->activeWindow() != m_window) {
+        return;
     }
+
+    WebView* view = m_window->weView();
+
+    const int verticalScrollSize = view->scrollBarGeometry(Qt::Vertical).width();;
+    const int horizontalScrollSize = view->scrollBarGeometry(Qt::Horizontal).height();
+
+    m_statusBarText->setText(message);
+    m_statusBarText->setMaximumWidth(view->width() - verticalScrollSize);
+    m_statusBarText->resize(m_statusBarText->sizeHint());
+
+    QPoint position(0, view->height() - horizontalScrollSize - m_statusBarText->height());
+    const QRect statusRect = QRect(view->mapToGlobal(QPoint(0, position.y())), m_statusBarText->size());
+
+    if (statusRect.contains(QCursor::pos())) {
+        position.setY(position.y() - m_statusBarText->height());
+    }
+
+    m_statusBarText->move(view->mapToGlobal(position));
+    m_statusBarText->show(view);
 }
 
-void StatusBarMessage::clearMessage()
+void StatusBar::clearMessage()
 {
-    if (m_window->statusBar()->isVisible()) {
-        m_window->statusBar()->showMessage(QString());
-    }
-    else {
-        m_statusBarText->hideDelayed();
-    }
+    QStatusBar::clearMessage();
+    m_statusBarText->hideDelayed();
 }

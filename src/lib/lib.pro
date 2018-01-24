@@ -139,7 +139,7 @@ SOURCES += \
     other/qzsettings.cpp \
     other/siteinfo.cpp \
     other/siteinfowidget.cpp \
-    other/statusbarmessage.cpp \
+    other/statusbar.cpp \
     other/updater.cpp \
     other/useragentmanager.cpp \
     plugins/pluginproxy.cpp \
@@ -318,7 +318,7 @@ HEADERS  += \
     other/qzsettings.h \
     other/siteinfo.h \
     other/siteinfowidget.h \
-    other/statusbarmessage.h \
+    other/statusbar.h \
     other/updater.h \
     other/useragentmanager.h \
     plugins/plugininterface.h \

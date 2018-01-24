@@ -1,6 +1,7 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2018 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,9 +23,9 @@
 #include "tabwidget.h"
 #include "mainapplication.h"
 #include "tabbar.h"
+#include "statusbar.h"
 
 #include <QDesktopWidget>
-#include <QStatusBar>
 #include <QAction>
 #include <QStyle>
 

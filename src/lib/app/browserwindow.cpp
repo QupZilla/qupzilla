@@ -38,7 +38,7 @@
 #include "iconprovider.h"
 #include "progressbar.h"
 #include "closedwindowsmanager.h"
-#include "statusbarmessage.h"
+#include "statusbar.h"
 #include "browsinglibrary.h"
 #include "navigationbar.h"
 #include "bookmarksimport/bookmarksimportdialog.h"
@@ -60,7 +60,6 @@
 
 #include <QKeyEvent>
 #include <QSplitter>
-#include <QStatusBar>
 #include <QMenuBar>
 #include <QTimer>
 #include <QShortcut>
@@ -190,7 +189,6 @@ BrowserWindow::BrowserWindow(Qz::BrowserWindowType type, const QUrl &startUrl)
     , m_startTab(0)
     , m_startPage(0)
     , m_sideBarManager(new SideBarManager(this))
-    , m_statusBarMessage(new StatusBarMessage(this))
     , m_isHtmlFullScreen(false)
     , m_hideNavigationTimer(0)
 {
@@ -375,15 +373,17 @@ void BrowserWindow::setupUi()
     m_mainLayout->addWidget(m_navigationContainer);
     m_mainLayout->addWidget(m_mainSplitter);
 
-    statusBar()->setObjectName("mainwindow-statusbar");
-    statusBar()->setCursor(Qt::ArrowCursor);
-    m_progressBar = new ProgressBar(statusBar());
+    m_statusBar = new StatusBar(this);
+    m_statusBar->setObjectName("mainwindow-statusbar");
+    m_statusBar->setCursor(Qt::ArrowCursor);
+    setStatusBar(m_statusBar);
+    m_progressBar = new ProgressBar(m_statusBar);
     m_ipLabel = new QLabel(this);
     m_ipLabel->setObjectName("statusbar-ip-label");
     m_ipLabel->setToolTip(tr("IP Address of current page"));
 
-    statusBar()->addPermanentWidget(m_progressBar);
-    statusBar()->addPermanentWidget(m_ipLabel);
+    m_statusBar->addPermanentWidget(m_progressBar);
+    m_statusBar->addPermanentWidget(m_ipLabel);
 
     m_navigationToolbar->addToolButton(new DownloadsButton(this));
 
@@ -668,9 +668,9 @@ BookmarksToolbar* BrowserWindow::bookmarksToolbar() const
     return m_bookmarksToolbar;
 }
 
-StatusBarMessage* BrowserWindow::statusBarMessage() const
+StatusBar* BrowserWindow::statusBar() const
 {
-    return m_statusBarMessage;
+    return m_statusBar;
 }
 
 NavigationBar* BrowserWindow::navigationBar() const
@@ -861,11 +861,11 @@ void BrowserWindow::toggleShowStatusBar()
 {
     setUpdatesEnabled(false);
 
-    statusBar()->setVisible(!statusBar()->isVisible());
+    m_statusBar->setVisible(!m_statusBar->isVisible());
 
     setUpdatesEnabled(true);
 
-    Settings().setValue("Browser-View-Settings/showStatusBar", statusBar()->isVisible());
+    Settings().setValue("Browser-View-Settings/showStatusBar", m_statusBar->isVisible());
 
 }
 
@@ -1197,19 +1197,19 @@ bool BrowserWindow::event(QEvent *event)
         QWindowStateChangeEvent *e = static_cast<QWindowStateChangeEvent*>(event);
         if (!(e->oldState() & Qt::WindowFullScreen) && windowState() & Qt::WindowFullScreen) {
             // Enter fullscreen
-            m_statusBarVisible = statusBar()->isVisible();
+            m_statusBarVisible = m_statusBar->isVisible();
 #ifndef Q_OS_MACOS
             m_menuBarVisible = menuBar()->isVisible();
             menuBar()->hide();
 #endif
-            statusBar()->hide();
+            m_statusBar->hide();
 
             m_navigationContainer->hide();
             m_navigationToolbar->enterFullScreen();
         }
         else if (e->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
-            statusBar()->setVisible(m_statusBarVisible);
+            m_statusBar->setVisible(m_statusBarVisible);
 #ifndef Q_OS_MACOS
             menuBar()->setVisible(m_menuBarVisible);
 #endif

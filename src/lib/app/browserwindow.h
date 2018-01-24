@@ -46,7 +46,7 @@ class WebPage;
 class SideBar;
 class SideBarManager;
 class ProgressBar;
-class StatusBarMessage;
+class StatusBar;
 class NavigationBar;
 class NavigationContainer;
 class ClickableLabel;
@@ -110,7 +110,7 @@ public:
     LocationBar* locationBar() const;
     TabWidget* tabWidget() const;
     BookmarksToolbar* bookmarksToolbar() const;
-    StatusBarMessage* statusBarMessage() const;
+    StatusBar* statusBar() const;
     NavigationBar* navigationBar() const;
     SideBarManager* sideBarManager() const;
     QLabel* ipLabel() const;
@@ -202,7 +202,7 @@ private:
     TabWidget* m_tabWidget;
     QPointer<SideBar> m_sideBar;
     SideBarManager* m_sideBarManager;
-    StatusBarMessage* m_statusBarMessage;
+    StatusBar* m_statusBar;
 
     NavigationContainer* m_navigationContainer;
     NavigationBar* m_navigationToolbar;

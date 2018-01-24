@@ -33,10 +33,10 @@
 #include "pluginproxy.h"
 #include "webinspector.h"
 #include "sessionmanager.h"
+#include "statusbar.h"
 
 #include <QApplication>
 #include <QMetaObject>
-#include <QStatusBar>
 #include <QWebEnginePage>
 #include <QMenuBar>
 #include <QDesktopServices>
