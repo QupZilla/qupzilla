@@ -963,8 +963,8 @@ void MainApplication::loadSettings()
     }
 
     qzSettings->loadSettings();
-    networkManager()->loadSettings();
     userAgentManager()->loadSettings();
+    networkManager()->loadSettings();
 }
 
 void MainApplication::loadTheme(const QString &name)
