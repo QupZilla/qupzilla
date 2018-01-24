@@ -24,12 +24,86 @@
 #include "webpage.h"
 #include "proxystyle.h"
 #include "qztools.h"
+#include "abstractbuttoninterface.h"
+#include "clickablelabel.h"
 
 #include <QStyleOptionFrame>
 #include <QStatusBar>
 #include <QToolTip>
 #include <QStylePainter>
 #include <QTimer>
+
+class StatusBarButton : public ClickableLabel
+{
+public:
+    explicit StatusBarButton(AbstractButtonInterface *button, QWidget *parent = nullptr);
+
+private:
+    void clicked();
+    void updateIcon();
+    void updateToolTip();
+
+    AbstractButtonInterface *m_button;
+};
+
+StatusBarButton::StatusBarButton(AbstractButtonInterface *button, QWidget *parent)
+    : ClickableLabel(parent)
+    , m_button(button)
+{
+    setFixedSize(16, 16);
+    setCursor(Qt::PointingHandCursor);
+
+    updateIcon();
+    updateToolTip();
+    setVisible(m_button->isVisible());
+
+    connect(this, &ClickableLabel::clicked, this, &StatusBarButton::clicked);
+    connect(m_button, &AbstractButtonInterface::iconChanged, this, &StatusBarButton::updateIcon);
+    connect(m_button, &AbstractButtonInterface::activeChanged, this, &StatusBarButton::updateIcon);
+    connect(m_button, &AbstractButtonInterface::toolTipChanged, this, &StatusBarButton::updateToolTip);
+    connect(m_button, &AbstractButtonInterface::badgeTextChanged, this, &StatusBarButton::updateToolTip);
+    connect(m_button, &AbstractButtonInterface::visibleChanged, this, &StatusBarButton::setVisible);
+}
+
+void StatusBarButton::clicked()
+{
+    AbstractButtonInterface::ClickController *c = new AbstractButtonInterface::ClickController;
+    c->visualParent = this;
+    c->popupPosition = [=](const QSize &size) {
+        QPoint pos = mapToGlobal(rect().topRight());
+        if (QApplication::isRightToLeft()) {
+            pos.setX(pos.x() - rect().width());
+        } else {
+            pos.setX(pos.x() - size.width());
+        }
+        pos.setY(pos.y() - size.height());
+        c->popupOpened = true;
+        return pos;
+    };
+    c->popupClosed = [=]() {
+        delete c;
+    };
+    emit m_button->clicked(c);
+    if (!c->popupOpened) {
+        c->popupClosed();
+    }
+}
+
+void StatusBarButton::updateIcon()
+{
+    const QIcon::Mode mode = m_button->isActive() ? QIcon::Normal : QIcon::Disabled;
+    const QImage img = m_button->icon().pixmap(size(), mode).toImage();
+    setPixmap(QPixmap::fromImage(img, Qt::MonoOnly));
+}
+
+void StatusBarButton::updateToolTip()
+{
+    QString text = m_button->toolTip();
+    if (!m_button->badgeText().isEmpty()) {
+        text.append(QSL(" (%1)").arg(m_button->badgeText()));
+    }
+    setToolTip(text);
+}
 
 TipLabel::TipLabel(QWidget* parent)
     : SqueezeLabelV1(parent)
@@ -149,4 +223,31 @@ void StatusBar::clearMessage()
 {
     QStatusBar::clearMessage();
     m_statusBarText->hideDelayed();
+}
+
+void StatusBar::addButton(AbstractButtonInterface *button)
+{
+    if (!button || !button->isValid()) {
+        return;
+    }
+
+    StatusBarButton *widget = new StatusBarButton(button, this);
+    widget->setProperty("button-id", button->id());
+
+    WidgetData data;
+    data.id = button->id();
+    data.widget = widget;
+    data.button = button;
+    m_widgets[data.id] = data;
+
+    addPermanentWidget(widget);
+}
+
+void StatusBar::removeButton(AbstractButtonInterface *button)
+{
+    if (!button || !m_widgets.contains(button->id())) {
+        return;
+    }
+
+    delete m_widgets.take(button->id()).widget;
 }

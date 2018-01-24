@@ -26,6 +26,7 @@
 class QTimer;
 
 class BrowserWindow;
+class AbstractButtonInterface;
 
 class QUPZILLA_EXPORT TipLabel : public SqueezeLabelV1
 {
@@ -52,7 +53,18 @@ public:
     void showMessage(const QString &message, int timeout = 0);
     void clearMessage();
 
+    void addButton(AbstractButtonInterface *button);
+    void removeButton(AbstractButtonInterface *button);
+
 private:
     BrowserWindow *m_window;
     TipLabel *m_statusBarText;
+
+    struct WidgetData {
+        QString id;
+        QWidget *widget = nullptr;
+        AbstractButtonInterface *button = nullptr;
+    };
+
+    QHash<QString, WidgetData> m_widgets;
 };
