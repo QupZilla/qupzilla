@@ -75,12 +75,12 @@
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="211"/>
+        <location filename="../gm_manager.cpp" line="212"/>
         <source>GreaseMonkey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="278"/>
+        <location filename="../gm_manager.cpp" line="279"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation type="unfinished"></translation>
     </message>

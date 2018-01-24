@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>FCM_Button</name>
+    <message>
+        <location filename="../fcm_plugin.cpp" line="58"/>
+        <source>Flash Cookie Manager button</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FCM_Dialog</name>
     <message>
         <location filename="../fcm_dialog.ui" line="14"/>
@@ -252,22 +260,23 @@
 <context>
     <name>FCM_Plugin</name>
     <message>
-        <location filename="../fcm_plugin.cpp" line="129"/>
+        <location filename="../fcm_plugin.cpp" line="147"/>
+        <location filename="../fcm_plugin.cpp" line="377"/>
         <source>Flash Cookie Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_plugin.cpp" line="357"/>
+        <location filename="../fcm_plugin.cpp" line="378"/>
         <source>Show Flash Cookie Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_plugin.cpp" line="439"/>
+        <location filename="../fcm_plugin.cpp" line="459"/>
         <source>!default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../fcm_plugin.cpp" line="451"/>
+        <location filename="../fcm_plugin.cpp" line="471"/>
         <source>!other</source>
         <translation type="unfinished"></translation>
     </message>
