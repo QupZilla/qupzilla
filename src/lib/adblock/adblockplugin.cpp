@@ -26,6 +26,7 @@
 #include "browserwindow.h"
 #include "navigationbar.h"
 #include "mainapplication.h"
+#include "statusbar.h"
 
 AdBlockPlugin::AdBlockPlugin()
     : QObject()
@@ -84,7 +85,9 @@ void AdBlockPlugin::webPageDeleted(WebPage *page)
 
 void AdBlockPlugin::mainWindowCreated(BrowserWindow *window)
 {
-    window->navigationBar()->addToolButton(new AdBlockIcon(window));
+    AdBlockIcon *icon = new AdBlockIcon(window);
+    window->statusBar()->addButton(icon);
+    window->navigationBar()->addToolButton(icon);
 }
 
 bool AdBlockPlugin::acceptNavigationRequest(WebPage *page, const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)

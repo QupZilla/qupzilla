@@ -31,6 +31,7 @@
 #include "navigationbar.h"
 #include "desktopnotificationsfactory.h"
 #include "javascript/externaljsobject.h"
+#include "statusbar.h"
 
 #include <QTimer>
 #include <QDir>
@@ -295,6 +296,7 @@ bool GM_Manager::canRunOnScheme(const QString &scheme)
 void GM_Manager::mainWindowCreated(BrowserWindow* window)
 {
     GM_Icon *icon = new GM_Icon(this);
+    window->statusBar()->addButton(icon);
     window->navigationBar()->addToolButton(icon);
     m_windows[window] = icon;
 }

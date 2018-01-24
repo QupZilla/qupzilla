@@ -385,7 +385,9 @@ void BrowserWindow::setupUi()
     m_statusBar->addPermanentWidget(m_progressBar);
     m_statusBar->addPermanentWidget(m_ipLabel);
 
-    m_navigationToolbar->addToolButton(new DownloadsButton(this));
+    DownloadsButton *downloadsButton = new DownloadsButton(this);
+    m_statusBar->addButton(downloadsButton);
+    m_navigationToolbar->addToolButton(downloadsButton);
 
     QDesktopWidget* desktop = mApp->desktop();
     int windowWidth = desktop->availableGeometry().width() / 1.3;
