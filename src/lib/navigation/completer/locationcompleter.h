@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ class QUrl;
 class QModelIndex;
 
 class LocationBar;
+class LoadRequest;
 class BrowserWindow;
 class OpenSearchEngine;
 class LocationCompleterModel;
@@ -53,6 +54,7 @@ signals:
     void clearCompletion();
     void popupClosed();
     void cancelRefreshJob();
+    void loadRequested(const LoadRequest &request);
 
 private slots:
     void refreshJobFinished();

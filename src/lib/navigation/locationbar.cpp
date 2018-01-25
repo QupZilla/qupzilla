@@ -77,6 +77,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
     connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(requestLoadUrl()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
+    connect(m_completer, &LocationCompleter::loadRequested, this, &LocationBar::loadRequest);
 
     m_domainCompleterModel = new QStringListModel(this);
     QCompleter* domainCompleter = new QCompleter(this);
@@ -294,17 +295,7 @@ void LocationBar::refreshTextFormat()
 
 void LocationBar::requestLoadUrl()
 {
-    const LoadRequest req = createLoadRequest();
-    const QString urlString = convertUrlToText(req.url());
-
-    m_completer->closePopup();
-    m_webView->setFocus();
-
-    if (urlString != text()) {
-        setText(urlString);
-    }
-
-    m_webView->userLoadAction(req);
+    loadRequest(createLoadRequest());
 }
 
 void LocationBar::textEdited(const QString &text)
@@ -360,6 +351,20 @@ void LocationBar::showUrl(const QUrl &url)
     home(false);
 
     m_bookmarkIcon->checkBookmark(url);
+}
+
+void LocationBar::loadRequest(const LoadRequest &request)
+{
+    const QString urlString = convertUrlToText(request.url());
+
+    m_completer->closePopup();
+    m_webView->setFocus();
+
+    if (urlString != text()) {
+        setText(urlString);
+    }
+
+    m_webView->userLoadAction(request);
 }
 
 void LocationBar::updateSiteIcon()

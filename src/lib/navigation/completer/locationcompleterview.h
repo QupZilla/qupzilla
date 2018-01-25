@@ -22,7 +22,10 @@
 
 #include "qzcommon.h"
 
+class LoadRequest;
 class LocationCompleterDelegate;
+
+class QHBoxLayout;
 
 class QUPZILLA_EXPORT LocationCompleterView : public QWidget
 {
@@ -46,6 +49,7 @@ public:
 
 signals:
     void closed();
+    void loadRequested(const LoadRequest &request);
 
     void indexActivated(const QModelIndex &index);
     void indexCtrlActivated(const QModelIndex &index);
@@ -56,12 +60,13 @@ public slots:
     void close();
 
 private:
+    void setupSearchEngines();
     void openSearchEnginesDialog();
-
-    bool m_ignoreNextMouseMove;
 
     QListView *m_view;
     LocationCompleterDelegate *m_delegate;
+    QHBoxLayout *m_searchEnginesLayout;
+    QString m_originalText;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

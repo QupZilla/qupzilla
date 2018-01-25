@@ -20,16 +20,20 @@
 #include "locationcompleterdelegate.h"
 #include "toolbutton.h"
 #include "iconprovider.h"
+#include "mainapplication.h"
 #include "searchenginesdialog.h"
+#include "searchenginesmanager.h"
+#include "loadrequest.h"
 
 #include <QKeyEvent>
 #include <QApplication>
 #include <QScrollBar>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 
 LocationCompleterView::LocationCompleterView()
     : QWidget(nullptr)
-    , m_ignoreNextMouseMove(false)
 {
     setAttribute(Qt::WA_ShowWithoutActivating);
     setAttribute(Qt::WA_X11NetWmWindowTypeCombo);
@@ -43,7 +47,6 @@ LocationCompleterView::LocationCompleterView()
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
-    setLayout(layout);
 
     m_view = new QListView(this);
     layout->addWidget(m_view);
@@ -63,15 +66,23 @@ LocationCompleterView::LocationCompleterView()
 
     QWidget *searchWidget = new QWidget(this);
     QHBoxLayout *searchLayout = new QHBoxLayout(searchWidget);
-    searchLayout->setContentsMargins(2, 2, 2, 2);
-    searchWidget->setLayout(searchLayout);
+    searchLayout->setContentsMargins(10, 4, 4, 4);
 
     ToolButton *searchSettingsButton = new ToolButton(this);
+    searchSettingsButton->setIcon(IconProvider::settingsIcon());
     searchSettingsButton->setToolTip(tr("Manage Search Engines"));
     searchSettingsButton->setAutoRaise(true);
-    searchSettingsButton->setIcon(IconProvider::settingsIcon());
+    searchSettingsButton->setIconSize(QSize(16, 16));
     connect(searchSettingsButton, &ToolButton::clicked, this, &LocationCompleterView::openSearchEnginesDialog);
 
+    QLabel *searchLabel = new QLabel(tr("Search with:"));
+    m_searchEnginesLayout = new QHBoxLayout();
+
+    setupSearchEngines();
+    connect(mApp->searchEnginesManager(), &SearchEnginesManager::enginesChanged, this, &LocationCompleterView::setupSearchEngines);
+
+    searchLayout->addWidget(searchLabel);
+    searchLayout->addLayout(m_searchEnginesLayout);
     searchLayout->addStretch();
     searchLayout->addWidget(searchSettingsButton);
 
@@ -105,6 +116,7 @@ QItemSelectionModel *LocationCompleterView::selectionModel() const
 
 void LocationCompleterView::setOriginalText(const QString &originalText)
 {
+    m_originalText = originalText;
     m_delegate->setOriginalText(originalText);
 }
 
@@ -298,11 +310,6 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         break;
     }
 
-    case QEvent::Show:
-        // Don't hover item when showing completer and mouse is currently in rect
-        m_ignoreNextMouseMove = true;
-        break;
-
     case QEvent::Wheel:
     case QEvent::MouseButtonPress:
         if (!underMouse()) {
@@ -343,6 +350,26 @@ void LocationCompleterView::close()
     m_delegate->setShowSwitchToTab(true);
 
     emit closed();
+}
+
+void LocationCompleterView::setupSearchEngines()
+{
+    while (m_searchEnginesLayout->count() != 0) {
+        delete m_searchEnginesLayout->takeAt(0);
+    }
+
+    const auto engines = mApp->searchEnginesManager()->allEngines();
+    for (const SearchEngine &engine : engines) {
+        ToolButton *button = new ToolButton(this);
+        button->setIcon(engine.icon);
+        button->setToolTip(engine.name);
+        button->setAutoRaise(true);
+        button->setIconSize(QSize(16, 16));
+        connect(button, &ToolButton::clicked, this, [=]() {
+            emit loadRequested(mApp->searchEnginesManager()->searchResult(engine, m_originalText));
+        });
+        m_searchEnginesLayout->addWidget(button);
+    }
 }
 
 void LocationCompleterView::openSearchEnginesDialog()
