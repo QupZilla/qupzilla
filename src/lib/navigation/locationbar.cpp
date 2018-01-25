@@ -179,54 +179,6 @@ void LocationBar::showDomainCompletion(const QString &completion)
         completer()->complete();
 }
 
-LoadRequest LocationBar::createLoadRequest() const
-{
-    LoadRequest req;
-
-    const QString &t = text().trimmed();
-
-    // Check for Search Engine shortcut
-    int firstSpacePos = t.indexOf(QLatin1Char(' '));
-    if (firstSpacePos != -1) {
-        const QString shortcut = t.left(firstSpacePos);
-        const QString searchedString = t.mid(firstSpacePos).trimmed();
-
-        SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
-        if (!en.name.isEmpty()) {
-            req = mApp->searchEnginesManager()->searchResult(en, searchedString);
-        }
-    }
-
-    // Check for Bookmark keyword
-    QList<BookmarkItem*> items = mApp->bookmarks()->searchKeyword(t);
-    if (!items.isEmpty()) {
-        BookmarkItem* item = items.at(0);
-        item->updateVisitCount();
-        req.setUrl(item->url());
-    }
-
-    if (!req.isValid()) {
-        // One word needs special handling, because QUrl::fromUserInput
-        // would convert it to QUrl("http://WORD")
-        if (t != QL1S("localhost") && !t.contains(QL1C(' ')) && !t.contains(QL1C('.'))) {
-            req.setUrl(QUrl(t));
-        } else {
-            const QUrl &guessed = QUrl::fromUserInput(t);
-            if (!guessed.isEmpty())
-                req.setUrl(guessed);
-            else
-                req.setUrl(QUrl::fromEncoded(t.toUtf8()));
-        }
-    }
-
-    // Search when creating url failed
-    if (!req.isValid()) {
-        req = mApp->searchEnginesManager()->searchResult(t);
-    }
-
-    return req;
-}
-
 QString LocationBar::convertUrlToText(const QUrl &url)
 {
     // It was most probably entered by user, so don't urlencode it
@@ -246,12 +198,67 @@ QString LocationBar::convertUrlToText(const QUrl &url)
 SearchEnginesManager::Engine LocationBar::searchEngine()
 {
     if (!qzSettings->searchFromAddressBar) {
-        return SearchEnginesManager::Engine();
+        return SearchEngine();
     } else if (qzSettings->searchWithDefaultEngine) {
         return mApp->searchEnginesManager()->defaultEngine();
     } else {
         return mApp->searchEnginesManager()->activeEngine();
     }
+}
+
+LocationBar::LoadAction LocationBar::loadAction(const QString &text)
+{
+    LoadAction action;
+
+    const QString &t = text.trimmed();
+
+    // Check for Search Engine shortcut
+    const int firstSpacePos = t.indexOf(QLatin1Char(' '));
+    if (qzSettings->searchFromAddressBar && firstSpacePos != -1) {
+        const QString shortcut = t.left(firstSpacePos);
+        const QString searchedString = t.mid(firstSpacePos).trimmed();
+
+        SearchEngine en = mApp->searchEnginesManager()->engineForShortcut(shortcut);
+        if (en.isValid()) {
+            action.type = LoadAction::Search;
+            action.searchEngine = en;
+            action.loadRequest = mApp->searchEnginesManager()->searchResult(en, searchedString);
+            return action;
+        }
+    }
+
+    // Check for Bookmark keyword
+    const QList<BookmarkItem*> items = mApp->bookmarks()->searchKeyword(t);
+    if (!items.isEmpty()) {
+        BookmarkItem* item = items.at(0);
+        action.type = LoadAction::Bookmark;
+        action.bookmark = item;
+        action.loadRequest.setUrl(item->url());
+        return action;
+    }
+
+    // Otherwise load as url
+    action.type = LoadAction::Url;
+
+    // One word needs special handling, because QUrl::fromUserInput
+    // would convert it to QUrl("http://WORD")
+    if (t != QL1S("localhost") && !QzTools::containsSpace(t) && !t.contains(QL1C('.'))) {
+        action.loadRequest.setUrl(QUrl(t));
+    } else {
+        const QUrl &guessed = QUrl::fromUserInput(t);
+        if (!guessed.isEmpty())
+            action.loadRequest.setUrl(guessed);
+        else
+            action.loadRequest.setUrl(QUrl::fromEncoded(t.toUtf8()));
+    }
+
+    // Search when creating url failed
+    if (qzSettings->searchFromAddressBar && !action.loadRequest.isValid()) {
+        action.type = LoadAction::Search;
+        action.loadRequest = mApp->searchEnginesManager()->searchResult(t);
+    }
+
+    return action;
 }
 
 void LocationBar::refreshTextFormat()
@@ -295,7 +302,7 @@ void LocationBar::refreshTextFormat()
 
 void LocationBar::requestLoadUrl()
 {
-    loadRequest(createLoadRequest());
+    loadRequest(loadAction(text()).loadRequest);
 }
 
 void LocationBar::textEdited(const QString &text)
@@ -531,7 +538,7 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
         case Qt::AltModifier:
             m_completer->closePopup();
-            m_window->tabWidget()->addView(createLoadRequest());
+            m_window->tabWidget()->addView(loadAction(text()).loadRequest);
             m_holdingAlt = false;
             break;
 

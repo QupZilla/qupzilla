@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -46,6 +46,10 @@ public:
         QString suggestionsUrl;
         QByteArray suggestionsParameters;
         QByteArray postData;
+
+        bool isValid() const {
+            return !name.isEmpty() && !url.isEmpty();
+        }
 
         bool operator==(const Engine &other) const {
             return (this->name == other.name &&

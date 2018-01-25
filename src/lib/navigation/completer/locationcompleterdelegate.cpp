@@ -92,7 +92,19 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     const bool isVisitSearchItem = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
     const bool isSearchSuggestion = index.data(LocationCompleterModel::SearchSuggestionRole).toBool();
-    const bool isWebSearch = qzSettings->searchFromAddressBar && !isUrlOrDomain(m_originalText.trimmed());
+
+    bool isWebSearch = false;
+    LocationBar::LoadAction loadAction;
+
+    if (isVisitSearchItem) {
+        loadAction = LocationBar::loadAction(m_originalText);
+        isWebSearch = loadAction.type == LocationBar::LoadAction::Search;
+        if (!isWebSearch && loadAction.type == LocationBar::LoadAction::Url) {
+            isWebSearch = !isUrlOrDomain(m_originalText.trimmed());
+        }
+    } else if (isSearchSuggestion) {
+        isWebSearch = true;
+    }
 
     // Draw icon
     const int iconSize = 16;
@@ -101,6 +113,9 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
     if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
         pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize, iconMode);
+    }
+    if (loadAction.type == LocationBar::LoadAction::Bookmark) {
+        pixmap = IconProvider::instance()->bookmarkIcon().pixmap(iconSize, iconMode);
     }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
@@ -151,12 +166,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
         if (!isSearchSuggestion && !isWebSearch) {
             link = tr("Visit");
         } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
-            QString searchEngineName;
-            const int firstSpacePos = title.indexOf(QL1C(' '));
-            if (firstSpacePos != -1) {
-                const QString shortcut = title.left(firstSpacePos);
-                searchEngineName = mApp->searchEnginesManager()->engineForShortcut(shortcut).name;
-            }
+            QString searchEngineName = loadAction.searchEngine.name;
             if (searchEngineName.isEmpty()) {
                 searchEngineName = LocationBar::searchEngine().name;
             }

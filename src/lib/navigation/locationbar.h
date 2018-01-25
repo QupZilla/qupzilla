@@ -21,6 +21,7 @@
 #include "qzcommon.h"
 #include "lineedit.h"
 #include "searchenginesmanager.h"
+#include "loadrequest.h"
 
 class QStringListModel;
 
@@ -32,7 +33,7 @@ class BookmarksIcon;
 class SiteIcon;
 class GoIcon;
 class AutoFillIcon;
-class LoadRequest;
+class BookmarkItem;
 
 class QUPZILLA_EXPORT LocationBar : public LineEdit
 {
@@ -41,11 +42,25 @@ class QUPZILLA_EXPORT LocationBar : public LineEdit
 public:
     explicit LocationBar(BrowserWindow* window);
 
+    struct LoadAction {
+        enum Type {
+            Invalid = 0,
+            Search,
+            Bookmark,
+            Url
+        };
+        Type type = Invalid;
+        SearchEngine searchEngine;
+        BookmarkItem *bookmark = nullptr;
+        LoadRequest loadRequest;
+    };
+
     TabbedWebView* webView() const;
     void setWebView(TabbedWebView* view);
 
     static QString convertUrlToText(const QUrl &url);
-    static SearchEnginesManager::Engine searchEngine();
+    static SearchEngine searchEngine();
+    static LoadAction loadAction(const QString &text);
 
 public slots:
     void setText(const QString &text);
@@ -89,7 +104,6 @@ private:
     void dropEvent(QDropEvent* event);
     void paintEvent(QPaintEvent* event);
 
-    LoadRequest createLoadRequest() const;
     void refreshTextFormat();
 
     LocationCompleter* m_completer;
