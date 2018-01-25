@@ -18,12 +18,10 @@
 #ifndef LOCATIONCOMPLETERVIEW_H
 #define LOCATIONCOMPLETERVIEW_H
 
-#include <QPointer>
 #include <QListView>
 
 #include "qzcommon.h"
 
-class SearchEnginesDialog;
 class LocationCompleterDelegate;
 
 class QUPZILLA_EXPORT LocationCompleterView : public QWidget
@@ -64,7 +62,6 @@ private:
 
     QListView *m_view;
     LocationCompleterDelegate *m_delegate;
-    QPointer<SearchEnginesDialog> m_searchDialog;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

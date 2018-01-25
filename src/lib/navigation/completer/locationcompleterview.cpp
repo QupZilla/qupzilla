@@ -347,11 +347,6 @@ void LocationCompleterView::close()
 
 void LocationCompleterView::openSearchEnginesDialog()
 {
-    if (!m_searchDialog) {
-        m_searchDialog = new SearchEnginesDialog(this);
-    }
-
-    m_searchDialog->open();
-    m_searchDialog->raise();
-    m_searchDialog->activateWindow();
+    SearchEnginesDialog *dialog = new SearchEnginesDialog(focusProxy());
+    dialog->open();
 }
