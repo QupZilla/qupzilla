@@ -25,6 +25,7 @@
 class LoadRequest;
 class LocationCompleterDelegate;
 
+class QTimer;
 class QHBoxLayout;
 
 class QUPZILLA_EXPORT LocationCompleterView : public QWidget
@@ -67,6 +68,8 @@ private:
     LocationCompleterDelegate *m_delegate;
     QHBoxLayout *m_searchEnginesLayout;
     QString m_originalText;
+    int m_resizeHeight = -1;
+    QTimer *m_resizeTimer = nullptr;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H
