@@ -63,11 +63,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
 
-    // Prepare title font
-    QFont titleFont = opt.font;
-    titleFont.setPointSize(titleFont.pointSize() + 1);
+    // Prepare link font
+    QFont linkFont = opt.font;
+    linkFont.setPointSize(linkFont.pointSize() - 1);
 
-    const QFontMetrics titleMetrics(titleFont);
+    const QFontMetrics linkMetrics(linkFont);
 
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
@@ -123,9 +123,9 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     // Draw title
     leftPosition += 2;
-    QRect titleRect(leftPosition, center - titleMetrics.height() / 2, opt.rect.width() * 0.6, titleMetrics.height());
+    QRect titleRect(leftPosition, center - opt.fontMetrics.height() / 2, opt.rect.width() * 0.6, opt.fontMetrics.height());
     QString title = index.data(LocationCompleterModel::TitleRole).toString();
-    painter->setFont(titleFont);
+    painter->setFont(opt.font);
 
     if (isVisitSearchItem) {
         title = m_originalText.trimmed();
@@ -169,7 +169,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw separator
     if (!link.isEmpty()) {
         QChar separator = QL1C('-');
-        QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
+        QRect separatorRect(leftPosition, center - linkMetrics.height() / 2, linkMetrics.width(separator), linkMetrics.height());
         style->drawItemText(painter, separatorRect, Qt::AlignCenter, textPalette, true, separator, colorRole);
         leftPosition += separatorRect.width() + m_padding * 2;
     }
@@ -177,8 +177,8 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int leftLinkEdge = leftPosition;
     const int rightLinkEdge = rightPosition - m_padding - starPixmapWidth;
-    QRect linkRect(leftLinkEdge, center - opt.fontMetrics.height() / 2, rightLinkEdge - leftLinkEdge, opt.fontMetrics.height());
-    painter->setFont(opt.font);
+    QRect linkRect(leftLinkEdge, center - linkMetrics.height() / 2, rightLinkEdge - leftLinkEdge, linkMetrics.height());
+    painter->setFont(linkFont);
 
     // Draw url (or switch to tab)
     int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
@@ -218,14 +218,8 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
         const QStyle* style = w ? w->style() : QApplication::style();
         const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
 
-        QFont titleFont = opt.font;
-        titleFont.setPointSize(titleFont.pointSize() + 1);
-
         m_padding = padding > 3 ? padding : 3;
-
-        const QFontMetrics titleMetrics(titleFont);
-
-        m_rowHeight = 4 * m_padding + qMax(16, titleMetrics.height());
+        m_rowHeight = 4 * m_padding + qMax(16, opt.fontMetrics.height());
     }
 
     return QSize(200, m_rowHeight);
