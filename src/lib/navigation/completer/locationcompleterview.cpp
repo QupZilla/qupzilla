@@ -18,6 +18,9 @@
 #include "locationcompleterview.h"
 #include "locationcompletermodel.h"
 #include "locationcompleterdelegate.h"
+#include "toolbutton.h"
+#include "iconprovider.h"
+#include "searchenginesdialog.h"
 
 #include <QKeyEvent>
 #include <QApplication>
@@ -57,6 +60,22 @@ LocationCompleterView::LocationCompleterView()
 
     m_delegate = new LocationCompleterDelegate(this);
     m_view->setItemDelegate(m_delegate);
+
+    QWidget *searchWidget = new QWidget(this);
+    QHBoxLayout *searchLayout = new QHBoxLayout(searchWidget);
+    searchLayout->setContentsMargins(2, 2, 2, 2);
+    searchWidget->setLayout(searchLayout);
+
+    ToolButton *searchSettingsButton = new ToolButton(this);
+    searchSettingsButton->setToolTip(tr("Manage Search Engines"));
+    searchSettingsButton->setAutoRaise(true);
+    searchSettingsButton->setIcon(IconProvider::settingsIcon());
+    connect(searchSettingsButton, &ToolButton::clicked, this, &LocationCompleterView::openSearchEnginesDialog);
+
+    searchLayout->addStretch();
+    searchLayout->addWidget(searchSettingsButton);
+
+    layout->addWidget(searchWidget);
 }
 
 QAbstractItemModel *LocationCompleterView::model() const
@@ -324,4 +343,15 @@ void LocationCompleterView::close()
     m_delegate->setShowSwitchToTab(true);
 
     emit closed();
+}
+
+void LocationCompleterView::openSearchEnginesDialog()
+{
+    if (!m_searchDialog) {
+        m_searchDialog = new SearchEnginesDialog(this);
+    }
+
+    m_searchDialog->open();
+    m_searchDialog->raise();
+    m_searchDialog->activateWindow();
 }
