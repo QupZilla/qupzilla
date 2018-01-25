@@ -319,16 +319,6 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
         if (!delimiters.isEmpty() && !(delimiters.count() % 2)) {
             QList<QTextLayout::FormatRange> highlightParts;
 
-            QTextLayout::FormatRange lighterWholeLine;
-            lighterWholeLine.start = 0;
-            lighterWholeLine.length = elidedText.size();
-            QColor lighterColor = color.lighter(130);
-            if (lighterColor == color) {
-                lighterColor = QColor(Qt::gray).darker(180);
-            }
-            lighterWholeLine.format.setForeground(lighterColor);
-            highlightParts << lighterWholeLine;
-
             while (!delimiters.isEmpty()) {
                 QTextLayout::FormatRange highlightedPart;
                 int start = delimiters.takeFirst();
@@ -337,7 +327,6 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
                 highlightedPart.length = end - start;
                 highlightedPart.format.setFontWeight(QFont::Bold);
                 highlightedPart.format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
-                highlightedPart.format.setForeground(color);
 
                 highlightParts << highlightedPart;
             }
