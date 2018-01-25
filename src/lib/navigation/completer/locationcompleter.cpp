@@ -213,18 +213,7 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
         return;
     }
 
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        BookmarkItem* bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
-        bookmark->updateVisitCount();
-    }
-
-    QString urlString = index.data(LocationCompleterModel::UrlRole).toString();
-
-    if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
-        urlString = m_originalText;
-    }
-
-    loadString(urlString);
+    loadRequest(createLoadRequest(index));
 }
 
 void LocationCompleter::indexCtrlActivated(const QModelIndex &index)
@@ -232,48 +221,26 @@ void LocationCompleter::indexCtrlActivated(const QModelIndex &index)
     Q_ASSERT(index.isValid());
     Q_ASSERT(m_window);
 
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        BookmarkItem* bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
-        bookmark->updateVisitCount();
-    }
-
-    const QUrl url = index.data(LocationCompleterModel::UrlRole).toUrl();
-    const QString title = index.data(LocationCompleterModel::TitleRole).toString();
-
     closePopup();
 
     // Clear locationbar
     emit clearCompletion();
 
-    // Open url in new tab
-    m_window->tabWidget()->addView(url, title, Qz::NT_CleanSelectedTab);
+    // Load request in new tab
+    m_window->tabWidget()->addView(createLoadRequest(index), Qz::NT_CleanSelectedTab);
 }
 
 void LocationCompleter::indexShiftActivated(const QModelIndex &index)
 {
     Q_ASSERT(index.isValid());
 
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
-        BookmarkItem* bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
-        bookmark->updateVisitCount();
-    }
-
-    const QString urlString = index.data(LocationCompleterModel::UrlRole).toString();
-    const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
-
-    // Load url (instead of switching to tab) with shift activation
-    if (tabPos > -1) {
-        loadString(urlString);
-        return;
-    }
-
     closePopup();
 
     // Clear locationbar
     emit clearCompletion();
 
-    // Open new window
-    mApp->createWindow(Qz::BW_NewWindow, QUrl(urlString));
+    // Load request
+    loadRequest(createLoadRequest(index));
 }
 
 void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
@@ -305,6 +272,48 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
     }
 }
 
+LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
+{
+    LoadRequest request;
+    QString searchString;
+    SearchEngine searchEngine;
+    BookmarkItem *bookmark = nullptr;
+
+    if (index.data(LocationCompleterModel::HistoryRole).toBool()) {
+        request = index.data(LocationCompleterModel::UrlRole).toUrl();
+    } else if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
+        bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
+    } else if (index.data(LocationCompleterModel::SearchSuggestionRole).toBool()) {
+        searchEngine = LocationBar::searchEngine();
+        searchString = index.data(LocationCompleterModel::TitleRole).toString();
+    } else if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
+        const auto action = LocationBar::loadAction(m_originalText);
+        switch (action.type) {
+        case LocationBar::LoadAction::Url:
+            request = action.loadRequest;
+            break;
+        case LocationBar::LoadAction::Bookmark:
+            bookmark = action.bookmark;
+            break;
+        case LocationBar::LoadAction::Search:
+            searchEngine = action.searchEngine;
+            searchString = m_originalText;
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (bookmark) {
+        bookmark->updateVisitCount();
+        request = bookmark->url();
+    } else if (searchEngine.isValid()) {
+        request = mApp->searchEnginesManager()->searchResult(searchEngine, searchString);
+    }
+
+    return request;
+}
+
 void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
 {
     Q_ASSERT(window);
@@ -328,15 +337,15 @@ void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
     }
 }
 
-void LocationCompleter::loadString(const QString &urlString)
+void LocationCompleter::loadRequest(const LoadRequest &request)
 {
     closePopup();
 
     // Show url in locationbar
-    emit showCompletion(urlString, false);
+    emit showCompletion(request.url().toString(), false);
 
-    // Load url
-    emit loadCompletion();
+    // Load request
+    emit loadRequested(request);
 }
 
 void LocationCompleter::showPopup()

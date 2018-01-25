@@ -75,7 +75,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     m_completer->setLocationBar(this);
     connect(m_completer, SIGNAL(showCompletion(QString,bool)), this, SLOT(showCompletion(QString,bool)));
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
-    connect(m_completer, SIGNAL(loadCompletion()), this, SLOT(requestLoadUrl()));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
     connect(m_completer, &LocationCompleter::loadRequested, this, &LocationBar::loadRequest);
 

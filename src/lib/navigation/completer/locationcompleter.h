@@ -50,7 +50,6 @@ public slots:
 signals:
     void showCompletion(const QString &completion, bool completeDomain);
     void showDomainCompletion(const QString &completion);
-    void loadCompletion();
     void clearCompletion();
     void popupClosed();
     void cancelRefreshJob();
@@ -68,8 +67,9 @@ private slots:
     void indexDeleteRequested(const QModelIndex &index);
 
 private:
+    LoadRequest createLoadRequest(const QModelIndex &index);
     void switchToTab(BrowserWindow* window, int tab);
-    void loadString(const QString &url);
+    void loadRequest(const LoadRequest &reqeust);
 
     void showPopup();
     void adjustPopupSize();
