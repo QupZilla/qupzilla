@@ -199,11 +199,15 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         case Qt::Key_Tab:
         case Qt::Key_Backtab: {
-            if (keyEvent->modifiers() != Qt::NoModifier) {
+            const bool isShift = keyEvent->modifiers() == Qt::ShiftModifier;
+            if (keyEvent->modifiers() != Qt::NoModifier && !isShift) {
                 return false;
             }
-            Qt::Key k = keyEvent->key() == Qt::Key_Tab ? Qt::Key_Down : Qt::Key_Up;
-            QKeyEvent ev(QKeyEvent::KeyPress, k, Qt::NoModifier);
+            bool isBack = keyEvent->key() == Qt::Key_Backtab;
+            if (keyEvent->key() == Qt::Key_Tab && isShift) {
+                isBack = true;
+            }
+            QKeyEvent ev(QKeyEvent::KeyPress, isBack ? Qt::Key_Up : Qt::Key_Down, Qt::NoModifier);
             QApplication::sendEvent(focusProxy(), &ev);
             return true;
         }
