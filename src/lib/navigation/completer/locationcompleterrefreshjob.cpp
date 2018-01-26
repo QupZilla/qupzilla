@@ -214,6 +214,7 @@ void LocationCompleterRefreshJob::completeMostVisited()
         item->setData(query.value(0), LocationCompleterModel::IdRole);
         item->setData(query.value(2), LocationCompleterModel::TitleRole);
         item->setData(url, LocationCompleterModel::UrlRole);
+        item->setData(true, LocationCompleterModel::HistoryRole);
 
         m_items.append(item);
     }
