@@ -136,17 +136,20 @@ void LocationCompleterView::adjustSize()
         });
     }
 
-    if (newHeight == m_view->height() || newHeight == m_resizeHeight) {
-        return;
-    }
+    if (!m_forceResize) {
+        if (newHeight == m_view->height() || newHeight == m_resizeHeight) {
+            return;
+        }
 
-    if (newHeight < m_view->height()) {
-        m_resizeHeight = newHeight;
-        m_resizeTimer->start();
-        return;
+        if (newHeight < m_view->height()) {
+            m_resizeHeight = newHeight;
+            m_resizeTimer->start();
+            return;
+        }
     }
 
     m_resizeHeight = -1;
+    m_forceResize = false;
     m_view->setFixedHeight(newHeight);
     setFixedHeight(sizeHint().height());
 }
@@ -370,8 +373,8 @@ void LocationCompleterView::close()
 {
     hide();
     m_view->verticalScrollBar()->setValue(0);
-
     m_delegate->setShowSwitchToTab(true);
+    m_forceResize = true;
 
     emit closed();
 }

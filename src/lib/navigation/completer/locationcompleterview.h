@@ -71,6 +71,7 @@ private:
     QString m_originalText;
     int m_resizeHeight = -1;
     QTimer *m_resizeTimer = nullptr;
+    bool m_forceResize = true;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H
