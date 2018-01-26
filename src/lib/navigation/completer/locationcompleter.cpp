@@ -68,7 +68,6 @@ bool LocationCompleter::isVisible() const
 
 void LocationCompleter::closePopup()
 {
-    m_popupClosed = true;
     s_view->close();
 }
 
@@ -140,6 +139,7 @@ void LocationCompleter::refreshJobFinished()
 
 void LocationCompleter::slotPopupClosed()
 {
+    m_popupClosed = true;
     m_oldSuggestions.clear();
 
     disconnect(s_view, SIGNAL(closed()), this, SLOT(slotPopupClosed()));
@@ -179,7 +179,9 @@ void LocationCompleter::addSuggestions(const QStringList &suggestions)
     s_model->addCompletions(items);
     m_oldSuggestions = suggestions;
 
-    showPopup();
+    if (!m_popupClosed) {
+        showPopup();
+    }
 }
 
 void LocationCompleter::currentChanged(const QModelIndex &index)
@@ -275,13 +277,7 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
     s_model->removeRow(index.row(), index.parent());
     s_view->setUpdatesEnabled(true);
 
-    // Close popup when removing last item
-    if (s_model->rowCount() == 0) {
-        closePopup();
-    }
-    else {
-        showPopup();
-    }
+    showPopup();
 }
 
 LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
