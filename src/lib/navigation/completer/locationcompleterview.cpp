@@ -63,8 +63,9 @@ LocationCompleterView::LocationCompleterView()
     m_delegate = new LocationCompleterDelegate(this);
     m_view->setItemDelegate(m_delegate);
 
-    QWidget *searchWidget = new QWidget(this);
-    QHBoxLayout *searchLayout = new QHBoxLayout(searchWidget);
+    QFrame *searchFrame = new QFrame(this);
+    searchFrame->setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
+    QHBoxLayout *searchLayout = new QHBoxLayout(searchFrame);
     searchLayout->setContentsMargins(10, 4, 4, 4);
 
     ToolButton *searchSettingsButton = new ToolButton(this);
@@ -85,7 +86,7 @@ LocationCompleterView::LocationCompleterView()
     searchLayout->addStretch();
     searchLayout->addWidget(searchSettingsButton);
 
-    layout->addWidget(searchWidget);
+    layout->addWidget(searchFrame);
 }
 
 QAbstractItemModel *LocationCompleterView::model() const
