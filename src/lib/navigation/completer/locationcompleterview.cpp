@@ -273,6 +273,11 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
         }
 
         case Qt::Key_Up:
+        case Qt::Key_PageUp: {
+            if (keyEvent->modifiers() != Qt::NoModifier) {
+                return false;
+            }
+            const int step = keyEvent->key() == Qt::Key_PageUp ? 5 : 1;
             if (!idx.isValid() || idx == visitSearchIdx) {
                 int rowCount = model()->rowCount();
                 QModelIndex lastIndex = model()->index(rowCount - 1, 0);
@@ -280,11 +285,17 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             } else if (idx.row() == 0) {
                 m_view->setCurrentIndex(QModelIndex());
             } else {
-                m_view->setCurrentIndex(model()->index(idx.row() - 1, 0));
+                m_view->setCurrentIndex(model()->index(qMax(0, idx.row() - step), 0));
             }
             return true;
+        }
 
         case Qt::Key_Down:
+        case Qt::Key_PageDown: {
+            if (keyEvent->modifiers() != Qt::NoModifier) {
+                return false;
+            }
+            const int step = keyEvent->key() == Qt::Key_PageDown ? 5 : 1;
             if (!idx.isValid()) {
                 QModelIndex firstIndex = model()->index(0, 0);
                 m_view->setCurrentIndex(firstIndex);
@@ -292,9 +303,10 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 m_view->setCurrentIndex(visitSearchIdx);
                 m_view->scrollToTop();
             } else {
-                m_view->setCurrentIndex(model()->index(idx.row() + 1, 0));
+                m_view->setCurrentIndex(model()->index(qMin(model()->rowCount() - 1, idx.row() + step), 0));
             }
             return true;
+        }
 
         case Qt::Key_Delete:
             if (idx != visitSearchIdx && m_view->viewport()->rect().contains(m_view->visualRect(idx))) {
@@ -302,14 +314,6 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
                 return true;
             }
             break;
-
-        case Qt::Key_PageUp:
-        case Qt::Key_PageDown:
-            if (keyEvent->modifiers() != Qt::NoModifier) {
-                return false;
-            }
-            QApplication::sendEvent(m_view, event);
-            return true;
 
         case Qt::Key_Shift:
             // don't switch if there is no hovered or selected index to not disturb typing
