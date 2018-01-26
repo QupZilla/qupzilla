@@ -30,6 +30,7 @@
 #include "qzsettings.h"
 #include "opensearchengine.h"
 #include "networkmanager.h"
+#include "searchenginesdialog.h"
 
 #include <QWindow>
 
@@ -142,6 +143,7 @@ void LocationCompleter::slotPopupClosed()
     disconnect(s_view, SIGNAL(indexShiftActivated(QModelIndex)), this, SLOT(indexShiftActivated(QModelIndex)));
     disconnect(s_view, SIGNAL(indexDeleteRequested(QModelIndex)), this, SLOT(indexDeleteRequested(QModelIndex)));
     disconnect(s_view, &LocationCompleterView::loadRequested, this, &LocationCompleter::loadRequested);
+    disconnect(s_view, &LocationCompleterView::searchEnginesDialogRequested, this, &LocationCompleter::openSearchEnginesDialog);
     disconnect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
 
     emit popupClosed();
@@ -348,6 +350,15 @@ void LocationCompleter::loadRequest(const LoadRequest &request)
     emit loadRequested(request);
 }
 
+void LocationCompleter::openSearchEnginesDialog()
+{
+    // Clear locationbar
+    emit clearCompletion();
+
+    SearchEnginesDialog *dialog = new SearchEnginesDialog(m_window);
+    dialog->open();
+}
+
 void LocationCompleter::showPopup()
 {
     Q_ASSERT(m_window);
@@ -376,6 +387,7 @@ void LocationCompleter::showPopup()
     connect(s_view, SIGNAL(indexShiftActivated(QModelIndex)), this, SLOT(indexShiftActivated(QModelIndex)));
     connect(s_view, SIGNAL(indexDeleteRequested(QModelIndex)), this, SLOT(indexDeleteRequested(QModelIndex)));
     connect(s_view, &LocationCompleterView::loadRequested, this, &LocationCompleter::loadRequested);
+    connect(s_view, &LocationCompleterView::searchEnginesDialogRequested, this, &LocationCompleter::openSearchEnginesDialog);
     connect(s_view->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(currentChanged(QModelIndex)));
 
     s_view->createWinId();

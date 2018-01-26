@@ -70,6 +70,7 @@ private:
     LoadRequest createLoadRequest(const QModelIndex &index);
     void switchToTab(BrowserWindow* window, int tab);
     void loadRequest(const LoadRequest &reqeust);
+    void openSearchEnginesDialog();
 
     void showPopup();
     void adjustPopupSize();

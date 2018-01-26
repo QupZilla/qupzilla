@@ -21,7 +21,6 @@
 #include "toolbutton.h"
 #include "iconprovider.h"
 #include "mainapplication.h"
-#include "searchenginesdialog.h"
 #include "searchenginesmanager.h"
 #include "loadrequest.h"
 
@@ -73,7 +72,7 @@ LocationCompleterView::LocationCompleterView()
     searchSettingsButton->setToolTip(tr("Manage Search Engines"));
     searchSettingsButton->setAutoRaise(true);
     searchSettingsButton->setIconSize(QSize(16, 16));
-    connect(searchSettingsButton, &ToolButton::clicked, this, &LocationCompleterView::openSearchEnginesDialog);
+    connect(searchSettingsButton, &ToolButton::clicked, this, &LocationCompleterView::searchEnginesDialogRequested);
 
     QLabel *searchLabel = new QLabel(tr("Search with:"));
     m_searchEnginesLayout = new QHBoxLayout();
@@ -395,10 +394,4 @@ void LocationCompleterView::setupSearchEngines()
         });
         m_searchEnginesLayout->addWidget(button);
     }
-}
-
-void LocationCompleterView::openSearchEnginesDialog()
-{
-    SearchEnginesDialog *dialog = new SearchEnginesDialog(focusProxy());
-    dialog->open();
 }

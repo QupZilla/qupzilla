@@ -50,6 +50,7 @@ public:
 
 signals:
     void closed();
+    void searchEnginesDialogRequested();
     void loadRequested(const LoadRequest &request);
 
     void indexActivated(const QModelIndex &index);
