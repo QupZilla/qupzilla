@@ -130,7 +130,6 @@ void LocationBar::setWebView(TabbedWebView* view)
     connect(m_webView, SIGNAL(loadFinished(bool)), SLOT(loadFinished()));
     connect(m_webView, SIGNAL(urlChanged(QUrl)), this, SLOT(showUrl(QUrl)));
     connect(m_webView, SIGNAL(privacyChanged(bool)), this, SLOT(setPrivacyState(bool)));
-    connect(m_webView, &TabbedWebView::iconChanged, this, &LocationBar::updateSiteIcon);
 }
 
 void LocationBar::setText(const QString &text)
@@ -382,9 +381,10 @@ void LocationBar::updateSiteIcon()
     if (m_completer->isVisible()) {
         m_siteIcon->setIcon(QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))));
     } else {
-        QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
-        if (m_webView && m_webView->url().scheme() == QL1S("https"))
+        QIcon icon = IconProvider::emptyWebIcon();
+        if (property("secured").toBool()) {
             icon = QIcon::fromTheme(QSL("document-encrypted"), icon);
+        }
         m_siteIcon->setIcon(QIcon(icon.pixmap(16)));
     }
 }
@@ -398,6 +398,8 @@ void LocationBar::setPrivacyState(bool state)
     setProperty("secured", QVariant(state));
     style()->unpolish(this);
     style()->polish(this);
+
+    updateSiteIcon();
 }
 
 void LocationBar::pasteAndGo()
@@ -608,8 +610,6 @@ void LocationBar::loadFinished()
         m_autofillIcon->setFormData(page->autoFillData());
         m_autofillIcon->show();
     }
-
-    updateSiteIcon();
 }
 
 void LocationBar::loadSettings()
