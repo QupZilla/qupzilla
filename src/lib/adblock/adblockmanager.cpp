@@ -28,6 +28,7 @@
 #include "settings.h"
 #include "networkmanager.h"
 
+#include <QAction>
 #include <QDateTime>
 #include <QTextStream>
 #include <QDir>
