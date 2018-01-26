@@ -61,6 +61,11 @@ void LocationCompleter::setLocationBar(LocationBar* locationBar)
     m_locationBar = locationBar;
 }
 
+bool LocationCompleter::isVisible() const
+{
+    return s_view->isVisible();
+}
+
 void LocationCompleter::closePopup()
 {
     m_popupClosed = true;

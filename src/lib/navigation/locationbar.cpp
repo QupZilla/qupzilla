@@ -77,6 +77,7 @@ LocationBar::LocationBar(BrowserWindow* window)
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
     connect(m_completer, SIGNAL(clearCompletion()), this, SLOT(clearCompletion()));
     connect(m_completer, &LocationCompleter::loadRequested, this, &LocationBar::loadRequest);
+    connect(m_completer, &LocationCompleter::popupClosed, this, &LocationBar::updateSiteIcon);
 
     m_domainCompleterModel = new QStringListModel(this);
     QCompleter* domainCompleter = new QCompleter(this);
@@ -160,6 +161,8 @@ void LocationBar::showCompletion(const QString &completion, bool completeDomain)
     if (completeDomain) {
         completer()->complete();
     }
+
+    updateSiteIcon();
 }
 
 void LocationBar::clearCompletion()
@@ -311,6 +314,7 @@ void LocationBar::textEdited(const QString &text)
 
     if (!text.isEmpty()) {
         m_completer->complete(text);
+        m_siteIcon->setIcon(QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))));
     }
     else {
         m_completer->closePopup();
@@ -375,10 +379,14 @@ void LocationBar::loadRequest(const LoadRequest &request)
 
 void LocationBar::updateSiteIcon()
 {
-    QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
-    if (m_webView && m_webView->url().scheme() == QL1S("https"))
-        icon = QIcon::fromTheme(QSL("document-encrypted"), icon);
-    m_siteIcon->setIcon(QIcon(icon.pixmap(16)));
+    if (m_completer->isVisible()) {
+        m_siteIcon->setIcon(QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))));
+    } else {
+        QIcon icon = m_webView ? m_webView->icon() : IconProvider::emptyWebIcon();
+        if (m_webView && m_webView->url().scheme() == QL1S("https"))
+            icon = QIcon::fromTheme(QSL("document-encrypted"), icon);
+        m_siteIcon->setIcon(QIcon(icon.pixmap(16)));
+    }
 }
 
 void LocationBar::setPrivacyState(bool state)

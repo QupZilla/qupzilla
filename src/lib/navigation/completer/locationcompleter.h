@@ -41,6 +41,7 @@ public:
     void setMainWindow(BrowserWindow* window);
     void setLocationBar(LocationBar* locationBar);
 
+    bool isVisible() const;
     void closePopup();
 
 public slots:
