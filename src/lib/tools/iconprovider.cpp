@@ -67,13 +67,16 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
+    for (int i = 0; i < m_iconBuffer.size(); ++i) {
+        if (m_iconBuffer[i].first == view->url()) {
+            m_iconBuffer.removeAt(i);
+            break;
+        }
+    }
+
     BufferedIcon item;
     item.first = view->url();
     item.second = icon.pixmap(16).toImage();
-
-    if (m_iconBuffer.contains(item)) {
-        return;
-    }
 
     m_autoSaver->changeOccurred();
     m_iconBuffer.append(item);
