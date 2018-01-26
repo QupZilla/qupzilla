@@ -137,11 +137,12 @@ void LocationCompleterView::adjustSize()
     }
 
     if (!m_forceResize) {
-        if (newHeight == m_view->height() || newHeight == m_resizeHeight) {
+        if (newHeight == m_resizeHeight) {
             return;
-        }
-
-        if (newHeight < m_view->height()) {
+        } else if (newHeight == m_view->height()) {
+            m_resizeHeight = -1;
+            return;
+        } else if (newHeight < m_view->height()) {
             m_resizeHeight = newHeight;
             m_resizeTimer->start();
             return;
