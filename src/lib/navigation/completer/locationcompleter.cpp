@@ -204,6 +204,11 @@ void LocationCompleter::indexActivated(const QModelIndex &index)
 {
     Q_ASSERT(index.isValid());
 
+    closePopup();
+
+    // Clear locationbar
+    emit clearCompletion();
+
     bool ok;
     const int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt(&ok);
 
@@ -320,11 +325,6 @@ void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
 {
     Q_ASSERT(window);
     Q_ASSERT(tab >= 0);
-
-    closePopup();
-
-    // Clear locationbar
-    emit clearCompletion();
 
     TabWidget* tabWidget = window->tabWidget();
 
