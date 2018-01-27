@@ -23,13 +23,15 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
 <script type="text/javascript">
 function addPlugins() {
     var table = document.getElementById('npapi-plugins');
-    for(var i = 0; i < navigator.plugins.length; i++) {
+    var existing = {};
+    for (var i = 0; i < navigator.plugins.length; i++) {
         var plugin = navigator.plugins[i];
-        if (plugin.name == '') {
+        if (plugin.name == '' || existing[plugin.filename]) {
             continue;
         }
-
-        table.innerHTML += "<tr><td>" + plugin.name + "</td><td colspan=3>" + plugin.description + "</td></tr>";
+        existing[plugin.filename] = true;
+        table.innerHTML += "<tr><td>" + plugin.name + "</td><td colspan=3>"
+            + plugin.description + " (" + plugin.filename + ")</td></tr>";
     }
 }
 window.addEventListener("load", addPlugins, false);
