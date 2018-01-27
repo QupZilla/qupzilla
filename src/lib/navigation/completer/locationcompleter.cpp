@@ -298,14 +298,11 @@ LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
         const auto action = LocationBar::loadAction(m_originalText);
         switch (action.type) {
         case LocationBar::LoadAction::Url:
+        case LocationBar::LoadAction::Search:
             request = action.loadRequest;
             break;
         case LocationBar::LoadAction::Bookmark:
             bookmark = action.bookmark;
-            break;
-        case LocationBar::LoadAction::Search:
-            searchEngine = action.searchEngine;
-            searchString = m_originalText;
             break;
         default:
             break;
