@@ -95,6 +95,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
     if (loadAction.type == LocationBar::LoadAction::Bookmark) {
         pixmap = IconProvider::instance()->bookmarkIcon().pixmap(iconSize, iconMode);
+    } else if (loadAction.type == LocationBar::LoadAction::Search) {
+        if (loadAction.searchEngine.name != LocationBar::searchEngine().name) {
+            pixmap = loadAction.searchEngine.icon.pixmap(iconSize, iconMode);
+        }
     }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
