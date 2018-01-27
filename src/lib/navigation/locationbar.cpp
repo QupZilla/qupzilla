@@ -263,11 +263,18 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
     // Otherwise load as url
     const QUrl &guessedUrl = QUrl::fromUserInput(t);
     if (guessedUrl.isValid()) {
-        // We only allow space in query
+        // Only allow spaces in query
         if (!QzTools::containsSpace(guessedUrl.toString(QUrl::RemoveQuery))) {
-            action.type = LoadAction::Url;
-            action.loadRequest = guessedUrl;
-            return action;
+            // Only allow whitelisted schemes
+            const QSet<QString> whitelistedSchemes = {
+                QSL("http"), QSL("https"), QSL("ftp"), QSL("file"),
+                QSL("about"), QSL("qupzilla")
+            };
+            if (whitelistedSchemes.contains(guessedUrl.scheme())) {
+                action.type = LoadAction::Url;
+                action.loadRequest = guessedUrl;
+                return action;
+            }
         }
     }
 

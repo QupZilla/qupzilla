@@ -130,7 +130,7 @@ void LocationBarTest::loadActionSearchTest()
 
 void LocationBarTest::loadAction_kdebug389491()
 {
-    // "site:website.com searchterm" is loaded instead of searched
+    // "site:website.com searchterm" and "link:website.com" are loaded instead of searched
 
     SearchEngine engine;
     engine.name = "Test Engine";
@@ -145,7 +145,11 @@ void LocationBarTest::loadAction_kdebug389491()
     QCOMPARE(action.type, LocationBar::LoadAction::Search);
     QCOMPARE(action.loadRequest.url(), QUrl("http://test/site%3Awebsite.com%20searchterm"));
 
-    action = LocationBar::loadAction("site:website.com?search=searchterm and another");
+    action = LocationBar::loadAction("link:website.com");
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://test/link%3Awebsite.com"));
+
+    action = LocationBar::loadAction("http://website.com?search=searchterm and another");
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QCOMPARE(action.loadRequest.url(), QUrl("site:website.com?search=searchterm and another"));
+    QCOMPARE(action.loadRequest.url(), QUrl("http://website.com?search=searchterm and another"));
 }
