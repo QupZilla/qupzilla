@@ -316,13 +316,9 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
             break;
 
         case Qt::Key_Shift:
-            // don't switch if there is no hovered or selected index to not disturb typing
-            if (idx != visitSearchIdx || underMouse()) {
-                m_delegate->setShowSwitchToTab(false);
-                m_view->viewport()->update();
-                return true;
-            }
-            break;
+            m_delegate->setForceVisitItem(true);
+            m_view->viewport()->update();
+            return true;
         } // switch (keyEvent->key())
 
         if (focusProxy()) {
@@ -336,7 +332,7 @@ bool LocationCompleterView::eventFilter(QObject* object, QEvent* event)
 
         switch (keyEvent->key()) {
         case Qt::Key_Shift:
-            m_delegate->setShowSwitchToTab(true);
+            m_delegate->setForceVisitItem(false);
             m_view->viewport()->update();
             return true;
         }
@@ -379,7 +375,7 @@ void LocationCompleterView::close()
 {
     hide();
     m_view->verticalScrollBar()->setValue(0);
-    m_delegate->setShowSwitchToTab(true);
+    m_delegate->setForceVisitItem(false);
     m_forceResize = true;
 
     emit closed();

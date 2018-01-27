@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,19 +30,17 @@ public:
     void paint(QPainter* painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    void setShowSwitchToTab(bool enable);
+    void setForceVisitItem(bool enable);
     void setOriginalText(const QString &originalText);
 
 private:
-    bool drawSwitchToTab() const;
-
     int viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect,
                          const QString &text, const QColor &color,
                          const QString &searchText = QString()) const;
 
     mutable int m_rowHeight;
     mutable int m_padding;
-    bool m_drawSwitchToTab;
+    bool m_forceVisitItem = false;
     QString m_originalText;
 };
 

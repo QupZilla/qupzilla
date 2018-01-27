@@ -254,7 +254,11 @@ void LocationCompleter::indexShiftActivated(const QModelIndex &index)
     emit clearCompletion();
 
     // Load request
-    loadRequest(createLoadRequest(index));
+    if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
+        loadRequest(LoadRequest(QUrl(m_originalText)));
+    } else {
+        loadRequest(createLoadRequest(index));
+    }
 }
 
 void LocationCompleter::indexDeleteRequested(const QModelIndex &index)

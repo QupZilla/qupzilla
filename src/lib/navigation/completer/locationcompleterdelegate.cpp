@@ -33,7 +33,6 @@ LocationCompleterDelegate::LocationCompleterDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
-    , m_drawSwitchToTab(true)
 {
 }
 
@@ -143,7 +142,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
 
     if (isVisitSearchItem || isSearchSuggestion) {
-        if (!isSearchSuggestion && !isWebSearch) {
+        if (isVisitSearchItem && (!isWebSearch || m_forceVisitItem)) {
             link = tr("Visit");
         } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
             QString searchEngineName = loadAction.searchEngine.name;
@@ -173,7 +172,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw url (or switch to tab)
     int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
 
-    if (drawSwitchToTab() && tabPos != -1) {
+    if (qzSettings->showSwitchTab && !m_forceVisitItem && tabPos != -1) {
         const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.svg"));
         QRect iconRect(linkRect);
         iconRect.setX(iconRect.x());
@@ -215,19 +214,14 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
     return QSize(200, m_rowHeight);
 }
 
-void LocationCompleterDelegate::setShowSwitchToTab(bool enable)
+void LocationCompleterDelegate::setForceVisitItem(bool enable)
 {
-    m_drawSwitchToTab = enable;
+    m_forceVisitItem = enable;
 }
 
 void LocationCompleterDelegate::setOriginalText(const QString &originalText)
 {
     m_originalText = originalText;
-}
-
-bool LocationCompleterDelegate::drawSwitchToTab() const
-{
-    return qzSettings->showSwitchTab && m_drawSwitchToTab;
 }
 
 static bool sizeBiggerThan(const QString &s1, const QString &s2)
