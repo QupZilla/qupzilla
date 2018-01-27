@@ -263,9 +263,12 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
     // Otherwise load as url
     const QUrl &guessedUrl = QUrl::fromUserInput(t);
     if (guessedUrl.isValid()) {
-        action.type = LoadAction::Url;
-        action.loadRequest = guessedUrl;
-        return action;
+        // We only allow space in query
+        if (!QzTools::containsSpace(guessedUrl.toString(QUrl::RemoveQuery))) {
+            action.type = LoadAction::Url;
+            action.loadRequest = guessedUrl;
+            return action;
+        }
     }
 
     // Search when creating url failed

@@ -127,3 +127,25 @@ void LocationBarTest::loadActionSearchTest()
     QCOMPARE(action.type, LocationBar::LoadAction::Search);
     QCOMPARE(action.loadRequest.url(), QUrl("http://test/ttt-notsearch"));
 }
+
+void LocationBarTest::loadAction_kdebug389491()
+{
+    // "site:website.com searchterm" is loaded instead of searched
+
+    SearchEngine engine;
+    engine.name = "Test Engine";
+    engine.url = "http://test/%s";
+    engine.shortcut = "t";
+    mApp->searchEnginesManager()->addEngine(engine);
+    mApp->searchEnginesManager()->setActiveEngine(engine);
+
+    LocationBar::LoadAction action;
+
+    action = LocationBar::loadAction("site:website.com searchterm");
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://test/site%3Awebsite.com%20searchterm"));
+
+    action = LocationBar::loadAction("site:website.com?search=searchterm and another");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("site:website.com?search=searchterm and another"));
+}

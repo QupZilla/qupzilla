@@ -31,4 +31,5 @@ private slots:
     void loadActionBasicTest();
     void loadActionBookmarksTest();
     void loadActionSearchTest();
+    void loadAction_kdebug389491();
 };
