@@ -64,7 +64,6 @@ void LocationBarTest::loadActionBasicTest()
 
     action = LocationBar::loadAction("localhost/test/path?x=2");
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QEXPECT_FAIL("", "localhost is not treated as full host", Continue);
     QCOMPARE(action.loadRequest.url(), QUrl("http://localhost/test/path?x=2"));
 
     action = LocationBar::loadAction("host.com/test/path?x=2");
@@ -72,12 +71,14 @@ void LocationBarTest::loadActionBasicTest()
     QCOMPARE(action.loadRequest.url(), QUrl("http://host.com/test/path?x=2"));
 
     action = LocationBar::loadAction("not-url");
-    QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QCOMPARE(action.loadRequest.url(), QUrl("not-url"));
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
 
     action = LocationBar::loadAction("not url with spaces");
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
+
+    action = LocationBar::loadAction("qupzilla:about");
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QCOMPARE(action.loadRequest.url(), QUrl("not url with spaces"));
+    QCOMPARE(action.loadRequest.url(), QUrl("qupzilla:about"));
 }
 
 void LocationBarTest::loadActionBookmarksTest()
@@ -95,8 +96,7 @@ void LocationBarTest::loadActionBookmarksTest()
     QCOMPARE(action.loadRequest.url(), QUrl("http://kde.org"));
 
     action = LocationBar::loadAction("kde-bookmark-notkeyword");
-    QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QCOMPARE(action.loadRequest.url(), QUrl("kde-bookmark-notkeyword"));
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
 
     action = LocationBar::loadAction("kde-bookmark");
     QCOMPARE(action.type, LocationBar::LoadAction::Bookmark);
@@ -111,13 +111,12 @@ void LocationBarTest::loadActionSearchTest()
     engine.url = "http://test/%s";
     engine.shortcut = "t";
     mApp->searchEnginesManager()->addEngine(engine);
+    mApp->searchEnginesManager()->setActiveEngine(engine);
 
     LocationBar::LoadAction action;
 
     action = LocationBar::loadAction("search term");
-    QEXPECT_FAIL("", "loadAction is not handling searching", Continue);
     QCOMPARE(action.type, LocationBar::LoadAction::Search);
-    QEXPECT_FAIL("", "loadAction is not handling searching", Continue);
     QCOMPARE(action.loadRequest.url(), QUrl("http://test/search%20term"));
 
     action = LocationBar::loadAction("t search term");
@@ -125,6 +124,6 @@ void LocationBarTest::loadActionSearchTest()
     QCOMPARE(action.loadRequest.url(), QUrl("http://test/search%20term"));
 
     action = LocationBar::loadAction(" ttt-notsearch");
-    QCOMPARE(action.type, LocationBar::LoadAction::Url);
-    QCOMPARE(action.loadRequest.url(), QUrl("ttt-notsearch"));
+    QCOMPARE(action.type, LocationBar::LoadAction::Search);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://test/ttt-notsearch"));
 }

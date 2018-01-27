@@ -29,21 +29,6 @@
 #include <QMouseEvent>
 #include <QTextLayout>
 
-static bool isUrlOrDomain(const QString &text)
-{
-    QUrl url(text);
-    if (!url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty())) {
-        return true;
-    }
-    if (text.contains(QL1C('.')) && !text.contains(QL1C(' '))) {
-        return true;
-    }
-    if (text == QL1S("localhost")) {
-        return true;
-    }
-    return false;
-}
-
 LocationCompleterDelegate::LocationCompleterDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
@@ -93,17 +78,12 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const bool isVisitSearchItem = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
     const bool isSearchSuggestion = index.data(LocationCompleterModel::SearchSuggestionRole).toBool();
 
-    bool isWebSearch = false;
     LocationBar::LoadAction loadAction;
+    bool isWebSearch = isSearchSuggestion;
 
     if (isVisitSearchItem) {
         loadAction = LocationBar::loadAction(m_originalText);
         isWebSearch = loadAction.type == LocationBar::LoadAction::Search;
-        if (!isWebSearch && loadAction.type == LocationBar::LoadAction::Url) {
-            isWebSearch = !isUrlOrDomain(m_originalText.trimmed());
-        }
-    } else if (isSearchSuggestion) {
-        isWebSearch = true;
     }
 
     // Draw icon

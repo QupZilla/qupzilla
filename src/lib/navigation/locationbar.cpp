@@ -213,6 +213,10 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
 
     const QString &t = text.trimmed();
 
+    if (t.isEmpty()) {
+        return action;
+    }
+
     // Check for Search Engine shortcut
     const int firstSpacePos = t.indexOf(QLatin1Char(' '));
     if (qzSettings->searchFromAddressBar && firstSpacePos != -1) {
@@ -238,27 +242,35 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
         return action;
     }
 
-    // Otherwise load as url
-    action.type = LoadAction::Url;
+    if (!qzSettings->searchFromAddressBar) {
+        action.type = LoadAction::Url;
+        action.loadRequest = QUrl(t);
+        return action;
+    }
 
-    // One word needs special handling, because QUrl::fromUserInput
-    // would convert it to QUrl("http://WORD")
-    if (t != QL1S("localhost") && !QzTools::containsSpace(t) && !t.contains(QL1C('.'))) {
-        action.loadRequest.setUrl(QUrl(t));
-    } else {
-        const QUrl &guessed = QUrl::fromUserInput(t);
-        if (!guessed.isEmpty())
-            action.loadRequest.setUrl(guessed);
-        else
-            action.loadRequest.setUrl(QUrl::fromEncoded(t.toUtf8()));
+    // Check for one word search
+    if (t != QL1S("localhost")
+            && !QzTools::containsSpace(t)
+            && !t.contains(QL1C('.'))
+            && !t.contains(QL1C(':'))
+            && !t.contains(QL1C('/'))
+       ) {
+        action.type = LoadAction::Search;
+        action.loadRequest = mApp->searchEnginesManager()->searchResult(searchEngine(), t);
+        return action;
+    }
+
+    // Otherwise load as url
+    const QUrl &guessedUrl = QUrl::fromUserInput(t);
+    if (guessedUrl.isValid()) {
+        action.type = LoadAction::Url;
+        action.loadRequest = guessedUrl;
+        return action;
     }
 
     // Search when creating url failed
-    if (qzSettings->searchFromAddressBar && !action.loadRequest.isValid()) {
-        action.type = LoadAction::Search;
-        action.loadRequest = mApp->searchEnginesManager()->searchResult(t);
-    }
-
+    action.type = LoadAction::Search;
+    action.loadRequest = mApp->searchEnginesManager()->searchResult(searchEngine(), t);
     return action;
 }
 

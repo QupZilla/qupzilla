@@ -43,7 +43,6 @@
 #include <QDesktopServices>
 #include <QWebEngineHistory>
 #include <QClipboard>
-#include <QHostInfo>
 #include <QMimeData>
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
@@ -203,31 +202,6 @@ void WebView::load(const LoadRequest &request)
 
     if (isUrlValid(reqUrl)) {
         loadRequest(request);
-        return;
-    }
-
-    // Make sure to correctly load hosts like localhost (eg. without the dot)
-    if (!reqUrl.isEmpty() &&
-        reqUrl.scheme().isEmpty() &&
-        !QzTools::containsSpace(reqUrl.path()) && // See #1622
-        !reqUrl.path().contains(QL1C('.'))
-       ) {
-        QUrl u(QSL("http://") + reqUrl.path());
-        if (u.isValid()) {
-            // This is blocking...
-            QHostInfo info = QHostInfo::fromName(u.path());
-            if (info.error() == QHostInfo::NoError) {
-                LoadRequest req = request;
-                req.setUrl(u);
-                loadRequest(req);
-                return;
-            }
-        }
-    }
-
-    if (qzSettings->searchFromAddressBar) {
-        const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
-        loadRequest(searchRequest);
     }
 }
 

@@ -283,8 +283,6 @@ void LocationCompleter::indexDeleteRequested(const QModelIndex &index)
 LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
 {
     LoadRequest request;
-    QString searchString;
-    SearchEngine searchEngine;
     BookmarkItem *bookmark = nullptr;
 
     if (index.data(LocationCompleterModel::HistoryRole).toBool()) {
@@ -292,8 +290,8 @@ LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
     } else if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
         bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
     } else if (index.data(LocationCompleterModel::SearchSuggestionRole).toBool()) {
-        searchEngine = LocationBar::searchEngine();
-        searchString = index.data(LocationCompleterModel::TitleRole).toString();
+        const QString text = index.data(LocationCompleterModel::TitleRole).toString();
+        request = mApp->searchEnginesManager()->searchResult(LocationBar::searchEngine(), text);
     } else if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
         const auto action = LocationBar::loadAction(m_originalText);
         switch (action.type) {
@@ -312,8 +310,6 @@ LoadRequest LocationCompleter::createLoadRequest(const QModelIndex &index)
     if (bookmark) {
         bookmark->updateVisitCount();
         request = bookmark->url();
-    } else if (searchEngine.isValid()) {
-        request = mApp->searchEnginesManager()->searchResult(searchEngine, searchString);
     }
 
     return request;
