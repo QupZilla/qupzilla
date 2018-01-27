@@ -156,6 +156,11 @@ void LocationCompleterRefreshJob::completeFromHistory()
         foreach (BookmarkItem* bookmark, bookmarks) {
             Q_ASSERT(bookmark->isUrl());
 
+            // Keyword bookmark replaces visit/search item
+            if (bookmark->keyword() == m_searchString) {
+                continue;
+            }
+
             QStandardItem* item = new QStandardItem();
             item->setText(bookmark->url().toEncoded());
             item->setData(-1, LocationCompleterModel::IdRole);

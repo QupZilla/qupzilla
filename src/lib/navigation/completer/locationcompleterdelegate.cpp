@@ -21,6 +21,7 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "mainapplication.h"
+#include "bookmarkitem.h"
 
 #include <algorithm>
 
@@ -80,9 +81,14 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     LocationBar::LoadAction loadAction;
     bool isWebSearch = isSearchSuggestion;
 
+    BookmarkItem *bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
+
     if (isVisitSearchItem) {
         loadAction = LocationBar::loadAction(m_originalText);
         isWebSearch = loadAction.type == LocationBar::LoadAction::Search;
+        if (!m_forceVisitItem) {
+            bookmark = loadAction.bookmark;
+        }
     }
 
     // Draw icon
@@ -93,8 +99,8 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
         pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize, iconMode);
     }
-    if (loadAction.type == LocationBar::LoadAction::Bookmark) {
-        pixmap = IconProvider::instance()->bookmarkIcon().pixmap(iconSize, iconMode);
+    if (isVisitSearchItem && bookmark) {
+        pixmap = bookmark->icon().pixmap(iconSize, iconMode);
     } else if (loadAction.type == LocationBar::LoadAction::Search) {
         if (loadAction.searchEngine.name != LocationBar::searchEngine().name) {
             pixmap = loadAction.searchEngine.icon.pixmap(iconSize, iconMode);
@@ -105,7 +111,7 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     // Draw star to bookmark items
     int starPixmapWidth = 0;
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
+    if (bookmark) {
         const QIcon icon = IconProvider::instance()->bookmarkIcon();
         const QSize starSize(16, 16);
         starPixmapWidth = starSize.width();
@@ -115,9 +121,6 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
 
     QString searchText = index.data(LocationCompleterModel::SearchStringRole).toString();
-    if (index.data(LocationCompleterModel::VisitSearchItemRole).toBool()) {
-        searchText.clear();
-    }
 
     // Draw title
     leftPosition += 2;
@@ -126,8 +129,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     painter->setFont(opt.font);
 
     if (isVisitSearchItem) {
-        title = m_originalText.trimmed();
-        if (searchText == title) {
+        if (bookmark) {
+            title = bookmark->title();
+        } else {
+            title = m_originalText.trimmed();
             searchText.clear();
         }
     }
@@ -157,6 +162,10 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
             }
             link = tr("Search with %1").arg(searchEngineName);
         }
+    }
+
+    if (bookmark) {
+        link = bookmark->url().toString();
     }
 
     // Draw separator
