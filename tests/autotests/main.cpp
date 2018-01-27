@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "qztoolstest.h"
+#include "mainapplication.h"
 #include "cookiestest.h"
 #include "adblocktest.h"
 #include "updatertest.h"
@@ -32,11 +33,11 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    QTEST_DISABLE_KEYPAD_NAVIGATION;
+    MainApplication::setTestModeEnabled(true);
+    MainApplication app(argc, argv);
 
     RUN_TEST(QzToolsTest)
-//    RUN_TEST(CookiesTest)
+    RUN_TEST(CookiesTest)
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
 
