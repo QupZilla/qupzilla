@@ -256,6 +256,7 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
             && !t.contains(QL1C('/'))
        ) {
         action.type = LoadAction::Search;
+        action.searchEngine = searchEngine();
         action.loadRequest = mApp->searchEnginesManager()->searchResult(searchEngine(), t);
         return action;
     }
@@ -280,6 +281,7 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
 
     // Search when creating url failed
     action.type = LoadAction::Search;
+    action.searchEngine = searchEngine();
     action.loadRequest = mApp->searchEnginesManager()->searchResult(searchEngine(), t);
     return action;
 }
