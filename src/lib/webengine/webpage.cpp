@@ -630,7 +630,8 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
         // Workaround focus issue when creating tab
         if (pos.testFlag(Qz::NT_SelectedTab)) {
             QPointer<TabbedWebView> pview = view;
-            QTimer::singleShot(0, this, [pview]() {
+            pview->setFocus();
+            QTimer::singleShot(100, this, [pview]() {
                 if (pview && pview->webTab()->isCurrentTab()) {
                     pview->setFocus();
                 }
