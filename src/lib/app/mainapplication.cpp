@@ -77,6 +77,8 @@
 #include "registerqappassociation.h"
 #endif
 
+static bool s_testMode = false;
+
 MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication(argc, argv)
     , m_isPrivate(false)
@@ -216,6 +218,10 @@ MainApplication::MainApplication(int &argc, char** argv)
             appId.append(QLatin1String("Portable"));
         }
 
+        if (isTestModeEnabled()) {
+            appId.append(QSL("TestMode"));
+        }
+
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
                 std::cout << "New instance cannot be started with default profile!" << std::endl;
@@ -271,7 +277,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     setupUserScripts();
 
-    if (!isPrivate()) {
+    if (!isPrivate() && !isTestModeEnabled()) {
         m_sessionManager = new SessionManager(this);
         m_autoSaver = new AutoSaver(this);
         connect(m_autoSaver, SIGNAL(save()), m_sessionManager, SLOT(autoSaveLastSession()));
@@ -312,7 +318,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     connect(this, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged()));
 
-    if (!isPrivate()) {
+    if (!isPrivate() && !isTestModeEnabled()) {
 #ifndef DISABLE_CHECK_UPDATES
         Settings settings;
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", true).toBool();
@@ -616,6 +622,18 @@ QWebEngineSettings *MainApplication::webSettings() const
 MainApplication* MainApplication::instance()
 {
     return static_cast<MainApplication*>(QCoreApplication::instance());
+}
+
+// static
+bool MainApplication::isTestModeEnabled()
+{
+    return s_testMode;
+}
+
+// static
+void MainApplication::setTestModeEnabled(bool enabled)
+{
+    s_testMode = enabled;
 }
 
 void MainApplication::addNewTab(const QUrl &url)

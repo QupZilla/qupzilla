@@ -118,6 +118,9 @@ public:
 
     static MainApplication* instance();
 
+    static bool isTestModeEnabled();
+    static void setTestModeEnabled(bool enabled);
+
 public slots:
     void addNewTab(const QUrl &url = QUrl());
     void startPrivateBrowsing(const QUrl &startUrl = QUrl());
