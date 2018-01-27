@@ -385,6 +385,18 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace(QLatin1String("%PL-AUTH%"), tr("Author"));
         cPage.replace(QLatin1String("%PL-DESC%"), tr("Description"));
 
+        auto allPaths = [](DataPaths::Path type) {
+            QString out;
+            const auto paths = DataPaths::allPaths(type);
+            for (const QString &path : paths) {
+                if (!out.isEmpty()) {
+                    out.append(QSL("<br>"));
+                }
+                out.append(path);
+            }
+            return out;
+        };
+
         cPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"),
 #ifdef GIT_REVISION
@@ -400,9 +412,10 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), DataPaths::currentProfilePath()) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), DataPaths::currentProfilePath() + "/settings.ini") +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), SessionManager::defaultSessionPath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), DataPaths::path(DataPaths::AppData)) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), DataPaths::path(DataPaths::Themes)) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), DataPaths::path(DataPaths::Translations)));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), allPaths(DataPaths::AppData)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), allPaths(DataPaths::Themes)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Extensions"), allPaths(DataPaths::Plugins)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), allPaths(DataPaths::Translations)));
 
 #ifdef QUPZILLA_DEBUG_BUILD
         QString debugBuild = tr("<b>Enabled</b>");
