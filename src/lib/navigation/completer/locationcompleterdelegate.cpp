@@ -146,16 +146,16 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
 
     if (isVisitSearchItem || isSearchSuggestion) {
-        if (isVisitSearchItem && (!isWebSearch || m_forceVisitItem)) {
+        if (!opt.state.testFlag(QStyle::State_Selected) && !opt.state.testFlag(QStyle::State_MouseOver)) {
+            link.clear();
+        } else if (isVisitSearchItem && (!isWebSearch || m_forceVisitItem)) {
             link = tr("Visit");
-        } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
+        } else {
             QString searchEngineName = loadAction.searchEngine.name;
             if (searchEngineName.isEmpty()) {
                 searchEngineName = LocationBar::searchEngine().name;
             }
             link = tr("Search with %1").arg(searchEngineName);
-        } else {
-            link.clear();
         }
     }
 
