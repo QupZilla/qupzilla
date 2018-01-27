@@ -274,7 +274,7 @@ void DatabaseEncryptedPasswordBackendTest::cleanup()
 
 #ifdef HAVE_KDE_PASSWORDS_PLUGIN
 // KWalletPassswordBackendTest
-void KWalletPassswordBackendTest::init()
+void KWalletPasswordBackendTest::init()
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
                                                       QStringLiteral("/org/freedesktop/DBus"),
