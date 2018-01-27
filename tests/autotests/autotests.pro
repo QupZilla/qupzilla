@@ -66,6 +66,7 @@ HEADERS += \
     cookiestest.h \
     adblocktest.h \
     updatertest.h \
+    locationbartest.h \
     passwordbackendtest.h \
 
 SOURCES += \
@@ -74,4 +75,5 @@ SOURCES += \
     cookiestest.cpp \
     adblocktest.cpp \
     updatertest.cpp \
+    locationbartest.cpp \
     passwordbackendtest.cpp \
