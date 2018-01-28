@@ -135,6 +135,11 @@ ToolButton[button-id="button-downloads"]
     qproperty-themeIcon: "list-add";
 }
 
+#tabwidget-button-addtab[outside-tabbar="false"]:hover
+{
+    background: #f3f3f3;
+}
+
 #tabwidget-button-addtab[outside-tabbar="true"]
 {
     qproperty-themeIcon: "list-add";
