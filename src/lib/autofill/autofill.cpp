@@ -229,7 +229,8 @@ QVector<PasswordEntry> AutoFill::completePage(WebPage *page, const QUrl &frameUr
     list = getFormData(frameUrl);
 
     if (!list.isEmpty()) {
-        const PasswordEntry entry = list.at(0);
+        PasswordEntry entry = list.at(0);
+        updateLastUsed(entry);
         page->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
     }
 

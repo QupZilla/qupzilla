@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,6 @@
 
 #include "qzcommon.h"
 #include "clickablelabel.h"
-#include "passwordmanager.h"
 
 class WebView;
 
@@ -32,7 +31,7 @@ public:
     explicit AutoFillIcon(QWidget* parent = 0);
 
     void setWebView(WebView* view);
-    void setFormData(const QVector<PasswordEntry> &data);
+    void setUsernames(const QStringList &usernames);
 
 private slots:
     void iconClicked();
@@ -43,7 +42,7 @@ private:
 
     WebView* m_view;
 
-    QVector<PasswordEntry> m_data;
+    QStringList m_usernames;
 
 };
 

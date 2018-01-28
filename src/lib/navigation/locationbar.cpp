@@ -630,8 +630,8 @@ void LocationBar::loadFinished()
 
     WebPage* page = qobject_cast<WebPage*>(m_webView->page());
 
-    if (page && page->hasMultipleUsernames()) {
-        m_autofillIcon->setFormData(page->autoFillData());
+    if (page && !page->autoFillUsernames().isEmpty()) {
+        m_autofillIcon->setUsernames(page->autoFillUsernames());
         m_autofillIcon->show();
     }
 }

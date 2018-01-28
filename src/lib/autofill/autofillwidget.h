@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,6 @@ class AutoFillWidget;
 }
 
 class WebView;
-struct PasswordEntry;
 
 class QUPZILLA_EXPORT AutoFillWidget : public LocationBarPopup
 {
@@ -40,16 +39,12 @@ public:
     explicit AutoFillWidget(WebView* view, QWidget* parent = 0);
     ~AutoFillWidget();
 
-    void setFormData(const QVector<PasswordEntry> &data);
-
-private slots:
-    void loginToPage();
+    void setUsernames(const QStringList &usernames);
 
 private:
     Ui::AutoFillWidget* ui;
 
     WebView* m_view;
-    QVector<PasswordEntry> m_data;
 };
 
 #endif // AUTOFILLWIDGET_H

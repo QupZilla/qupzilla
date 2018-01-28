@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,16 @@
 PasswordBackend::PasswordBackend()
     : m_active(false)
 {
+}
+
+QStringList PasswordBackend::getUsernames(const QUrl &url)
+{
+    QStringList out;
+    const auto entries = getEntries(url);
+    for (const PasswordEntry &entry : entries) {
+        out.append(entry.username);
+    }
+    return out;
 }
 
 void PasswordBackend::setActive(bool active)

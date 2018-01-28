@@ -41,6 +41,7 @@
 #include "ui_jsconfirm.h"
 #include "ui_jsalert.h"
 #include "ui_jsprompt.h"
+#include "passwordmanager.h"
 
 #include <iostream>
 
@@ -240,7 +241,11 @@ void WebPage::finished()
     }
 
     // AutoFill
-    m_passwordEntries = mApp->autoFill()->completePage(this, url());
+    m_autoFillUsernames.clear();
+    const auto entries = mApp->autoFill()->completePage(this, url());
+    for (const PasswordEntry &entry : entries) {
+        m_autoFillUsernames.append(entry.username);
+    }
 }
 
 void WebPage::watchedFileChanged(const QString &file)
@@ -449,14 +454,9 @@ QStringList WebPage::chooseFiles(QWebEnginePage::FileSelectionMode mode, const Q
     return files;
 }
 
-bool WebPage::hasMultipleUsernames() const
+QStringList WebPage::autoFillUsernames() const
 {
-    return m_passwordEntries.count() > 1;
-}
-
-QVector<PasswordEntry> WebPage::autoFillData() const
-{
-    return m_passwordEntries;
+    return m_autoFillUsernames;
 }
 
 bool WebPage::javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString* result)

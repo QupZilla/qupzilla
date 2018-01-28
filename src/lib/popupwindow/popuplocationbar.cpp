@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -90,8 +90,8 @@ void PopupLocationBar::stopLoading()
 
     WebPage* page = qobject_cast<WebPage*>(m_view->page());
 
-    if (page && page->hasMultipleUsernames()) {
-        m_autofillIcon->setFormData(page->autoFillData());
+    if (page && !page->autoFillUsernames().isEmpty()) {
+        m_autofillIcon->setUsernames(page->autoFillUsernames());
         m_autofillIcon->show();
     }
 

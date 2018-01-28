@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -31,6 +31,7 @@ public:
 
     virtual QString name() const = 0;
 
+    virtual QStringList getUsernames(const QUrl &url);
     virtual QVector<PasswordEntry> getEntries(const QUrl &url) = 0;
     virtual QVector<PasswordEntry> getAllEntries() = 0;
 

@@ -24,7 +24,6 @@
 #include <QVector>
 
 #include "qzcommon.h"
-#include "passwordmanager.h"
 
 class QEventLoop;
 class QWebEngineDownloadItem;
@@ -62,8 +61,7 @@ public:
     void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) Q_DECL_OVERRIDE;
     void javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) override;
 
-    bool hasMultipleUsernames() const;
-    QVector<PasswordEntry> autoFillData() const;
+    QStringList autoFillUsernames() const;
 
     bool isRunningLoop();
 
@@ -103,7 +101,7 @@ private:
     DelayedFileWatcher* m_fileWatcher;
     QEventLoop* m_runningLoop;
 
-    QVector<PasswordEntry> m_passwordEntries;
+    QStringList m_autoFillUsernames;
 
     int m_loadProgress;
     bool m_blockAlerts;

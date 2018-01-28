@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,9 +37,9 @@ void AutoFillIcon::setWebView(WebView* view)
     m_view = view;
 }
 
-void AutoFillIcon::setFormData(const QVector<PasswordEntry> &data)
+void AutoFillIcon::setUsernames(const QStringList &usernames)
 {
-    m_data = data;
+    m_usernames = usernames;
 }
 
 void AutoFillIcon::iconClicked()
@@ -49,7 +49,7 @@ void AutoFillIcon::iconClicked()
     }
 
     AutoFillWidget* widget = new AutoFillWidget(m_view, this);
-    widget->setFormData(m_data);
+    widget->setUsernames(m_usernames);
     widget->showAt(parentWidget());
 }
 
