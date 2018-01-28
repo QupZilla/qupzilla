@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     setToolButtonStyle(Qt::ToolButtonIconOnly);
     setCursor(Qt::ArrowCursor);
     setToolTip(LocationBar::tr("Show information about this page"));
-    setFocusPolicy(Qt::ClickFocus);
+    setFocusPolicy(Qt::NoFocus);
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(100);
