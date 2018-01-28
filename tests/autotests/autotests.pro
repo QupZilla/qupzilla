@@ -11,18 +11,6 @@ CONFIG -= app_bundle
 
 QMAKE_LFLAGS+=$${QMAKE_LFLAGS_RPATH}$$PWD/../../bin
 
-# KWallet plugin
-exists($$PWD/../../bin/plugins/libKWalletPasswords.so) {
-    LIBS += $$PWD/../../bin/plugins/libKWalletPasswords.so
-    DEFINES += HAVE_KDE_PASSWORDS_PLUGIN
-}
-
-# GnomeKeyring plugin
-exists($$PWD/../../bin/plugins/libGnomeKeyringPasswords.so) {
-    LIBS += $$PWD/../../bin/plugins/libGnomeKeyringPasswords.so
-    DEFINES += HAVE_GNOME_PASSWORDS_PLUGIN
-}
-
 mac {
     # homebrew openssl
     BREW_OPENSSL = $$system("brew --prefix openssl")

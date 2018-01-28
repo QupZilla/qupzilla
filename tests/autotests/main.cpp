@@ -42,17 +42,8 @@ int main(int argc, char *argv[])
     RUN_TEST(AdBlockTest)
     RUN_TEST(UpdaterTest)
     RUN_TEST(LocationBarTest)
-
     RUN_TEST(DatabasePasswordBackendTest)
     RUN_TEST(DatabaseEncryptedPasswordBackendTest)
-
-#ifdef HAVE_KDE_PASSWORDS_PLUGIN
-    RUN_TEST(KWalletPasswordBackendTest)
-#endif
-
-#ifdef HAVE_GNOME_PASSWORDS_PLUGIN
-    RUN_TEST(GnomeKeyringPasswordBackendTest)
-#endif
 
     return 0;
 }

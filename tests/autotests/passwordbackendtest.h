@@ -75,30 +75,4 @@ protected:
     void cleanup();
 };
 
-#ifdef HAVE_KDE_PASSWORDS_PLUGIN
-#include "../../src/plugins/KWalletPasswords/kwalletpasswordbackend.h"
-
-class KWalletPasswordBackendTest : public PasswordBackendTest
-{
-    Q_OBJECT
-
-protected:
-    void init();
-    void reloadBackend();
-};
-#endif
-
-#ifdef HAVE_GNOME_PASSWORDS_PLUGIN
-#include "../../src/plugins/GnomeKeyringPasswords/gnomekeyringpasswordbackend.h"
-
-class GnomeKeyringPasswordBackendTest : public PasswordBackendTest
-{
-    Q_OBJECT
-
-protected:
-    void init();
-    void reloadBackend();
-};
-#endif
-
 #endif // PASSWORDBACKENDTEST_H
