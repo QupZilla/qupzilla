@@ -49,10 +49,9 @@ TabbedWebView::TabbedWebView(WebTab* webTab)
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 }
 
-void TabbedWebView::setWebPage(WebPage* page)
+void TabbedWebView::setPage(WebPage* page)
 {
-    page->setParent(this);
-    setPage(page);
+    WebView::setPage(page);
 
     connect(page, &WebPage::linkHovered, this, &TabbedWebView::linkHovered);
 }
