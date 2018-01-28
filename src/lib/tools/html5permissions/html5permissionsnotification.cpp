@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -72,8 +72,8 @@ HTML5PermissionsNotification::HTML5PermissionsNotification(const QUrl &origin, Q
     connect(ui->deny, SIGNAL(clicked()), this, SLOT(denyPermissions()));
     connect(ui->close, SIGNAL(clicked()), this, SLOT(denyPermissions()));
 
-    connect(m_page, &QWebEnginePage::loadStarted, this, &QObject::deleteLater);
-    connect(m_page, &QWebEnginePage::featurePermissionRequestCanceled, this, [this](const QUrl &origin, QWebEnginePage::Feature feature) {
+    connect(m_page.data(), &QWebEnginePage::loadStarted, this, &QObject::deleteLater);
+    connect(m_page.data(), &QWebEnginePage::featurePermissionRequestCanceled, this, [this](const QUrl &origin, QWebEnginePage::Feature feature) {
         if (origin == m_origin && feature == m_feature) {
             deleteLater();
         }
