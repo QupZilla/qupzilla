@@ -1,6 +1,6 @@
 ﻿; QupZilla Windows Installer NSIS Script
-; Copyright (C) 2010-2017  David Rosca <nowrep@gmail.com>
-;               2012-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+; Copyright (C) 2010-2018  David Rosca <nowrep@gmail.com>
+;               2012-2018  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 ;
 ; For compiling this script you need following plugins:
 ; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
@@ -11,7 +11,7 @@
 ; http://nsis.sourceforge.net/Registry_plug-in
 
 !ifndef CUSTOM
-  !define VERSION 2.2.4
+  !define VERSION 2.2.5
   !define ARCH x86
   !define MSVC_VER 140
   !define OPENSSL_BIN_DIR .

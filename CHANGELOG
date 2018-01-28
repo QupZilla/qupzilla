@@ -1,13 +1,15 @@
 Version 2.2.5
-    * released xx xx 2018
+    * released 28 January 2018
     * added Unload Tab action
     * added search engine buttons to locationbar completer
+    * added option to disable automatic password completion on sites
     * plugins are now always enabled (fixes missing AdBlock)
     * bring back AdBlock and GreaseMonkey icons in statusbar + add new buttons
     * fix incorrect size of buttons in bookmarks toolbar with some styles
     * fix losing session when loading newer profile with old application version
     * fix temporariliy enabling/disabling JavaScript using StatusBarIcons plugin
     * fix user agent settings not being applied on startup
+    * fix calculating remaining time in download manager
 
 Version 2.2.4
     * released 16 January 2018
