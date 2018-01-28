@@ -219,22 +219,26 @@ void AutoFill::saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData 
 }
 
 // Returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
+QStringList AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
 {
-    QVector<PasswordEntry> list;
+    QStringList usernames;
 
     if (!page || !isStored(frameUrl))
-        return list;
+        return usernames;
 
-    list = getFormData(frameUrl);
+    const auto entries = getFormData(frameUrl);
 
-    if (!list.isEmpty()) {
-        PasswordEntry entry = list.at(0);
+    if (!entries.isEmpty()) {
+        PasswordEntry entry = entries.at(0);
         updateLastUsed(entry);
         page->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
     }
 
-    return list;
+    usernames.reserve(entries.size());
+    for (const PasswordEntry &entry : entries) {
+        usernames.append(entry.username);
+    }
+    return usernames;
 }
 
 QByteArray AutoFill::exportPasswords()

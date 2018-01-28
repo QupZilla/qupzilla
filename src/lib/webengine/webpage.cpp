@@ -241,11 +241,7 @@ void WebPage::finished()
     }
 
     // AutoFill
-    m_autoFillUsernames.clear();
-    const auto entries = mApp->autoFill()->completePage(this, url());
-    for (const PasswordEntry &entry : entries) {
-        m_autoFillUsernames.append(entry.username);
-    }
+    m_autoFillUsernames = mApp->autoFill()->completePage(this, url());
 }
 
 void WebPage::watchedFileChanged(const QString &file)
