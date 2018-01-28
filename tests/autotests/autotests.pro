@@ -56,6 +56,7 @@ HEADERS += \
     updatertest.h \
     locationbartest.h \
     passwordbackendtest.h \
+    webviewtest.h \
 
 SOURCES += \
     qztoolstest.cpp \
@@ -65,3 +66,6 @@ SOURCES += \
     updatertest.cpp \
     locationbartest.cpp \
     passwordbackendtest.cpp \
+    webviewtest.cpp \
+
+RESOURCES += autotests.qrc

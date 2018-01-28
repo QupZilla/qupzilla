@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/autotests">
+        <file>data/basic_page.html</file>
+    </qresource>
+</RCC>
