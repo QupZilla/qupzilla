@@ -144,8 +144,12 @@ PopupWindow::PopupWindow(PopupWebView* view)
     connect(m_view, &WebView::loadProgress, this, &PopupWindow::loadProgress);
     connect(m_view, &WebView::loadFinished, this, &PopupWindow::loadFinished);
 
-    connect(m_view->page(), &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
-    connect(m_view->page(), &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
+    auto pageChanged = [this](WebPage *page) {
+        connect(page, &WebPage::linkHovered, this, &PopupWindow::showStatusBarMessage);
+        connect(page, &WebPage::geometryChangeRequested, this, &PopupWindow::setWindowGeometry);
+    };
+    pageChanged(m_view->page());
+    connect(m_view, &WebView::pageChanged, this, pageChanged);
 
     m_view->setFocus();
     titleChanged();

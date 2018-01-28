@@ -65,7 +65,12 @@ void TabIcon::setWebTab(WebTab* tab)
     connect(m_tab->webView(), SIGNAL(loadFinished(bool)), this, SLOT(hideLoadingAnimation()));
     connect(m_tab->webView(), &WebView::iconChanged, this, &TabIcon::updateIcon);
     connect(m_tab->webView(), &WebView::backgroundActivityChanged, this, [this]() { update(); });
-    connect(m_tab->webView()->page(), &QWebEnginePage::recentlyAudibleChanged, this, &TabIcon::updateAudioIcon);
+
+    auto pageChanged = [this](WebPage *page) {
+        connect(page, &QWebEnginePage::recentlyAudibleChanged, this, &TabIcon::updateAudioIcon);
+    };
+    pageChanged(m_tab->webView()->page());
+    connect(m_tab->webView(), &WebView::pageChanged, this, pageChanged);
 
     updateIcon();
 }

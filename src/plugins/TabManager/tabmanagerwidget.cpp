@@ -788,11 +788,16 @@ void TabItem::setWebTab(WebTab* webTab)
     else
         setIsSavedTab(true);
 
-    connect(m_webTab->webView()->page(), SIGNAL(audioMutedChanged(bool)), this, SLOT(updateIcon()));
-    connect(m_webTab->webView()->page(), SIGNAL(loadFinished(bool)), this, SLOT(updateIcon()));
-    connect(m_webTab->webView()->page(), SIGNAL(loadStarted()), this, SLOT(updateIcon()));
     connect(m_webTab->webView(), SIGNAL(titleChanged(QString)), this, SLOT(setTitle(QString)));
     connect(m_webTab->webView(), SIGNAL(iconChanged(QIcon)), this, SLOT(updateIcon()));
+
+    auto pageChanged = [this](WebPage *page) {
+        connect(page, &WebPage::audioMutedChanged, this, &TabItem::updateIcon);
+        connect(page, &WebPage::loadFinished, this, &TabItem::updateIcon);
+        connect(page, &WebPage::loadStarted, this, &TabItem::updateIcon);
+    };
+    pageChanged(m_webTab->webView()->page());
+    connect(m_webTab->webView(), &WebView::pageChanged, this, pageChanged);
 }
 
 void TabItem::updateIcon()
