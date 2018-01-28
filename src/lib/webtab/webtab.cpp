@@ -324,8 +324,8 @@ void WebTab::reload()
 void WebTab::unload()
 {
     m_savedTab = SavedTab(this);
-    m_webView->history()->clear();
-    m_webView->setUrl(QUrl(QSL("about:blank")));
+    m_webView->setPage(new WebPage);
+    m_webView->setFocus();
 }
 
 bool WebTab::isLoading() const
@@ -433,10 +433,6 @@ void WebTab::showNotification(QWidget* notif)
 
 void WebTab::loadStarted()
 {
-    if (!isRestored()) {
-        return;
-    }
-
     if (m_tabBar && m_webView->title(/*allowEmpty*/true).isEmpty()) {
         m_tabBar->setTabText(tabIndex(), tr("Loading..."));
     }
@@ -444,16 +440,12 @@ void WebTab::loadStarted()
 
 void WebTab::loadFinished()
 {
-    if (isRestored()) {
-        titleChanged(m_webView->title());
-    } else if (m_webView->url().toString() == QL1S("about:blank")) {
-        m_webView->history()->clear();
-    }
+    titleChanged(m_webView->title());
 }
 
 void WebTab::titleChanged(const QString &title)
 {
-    if (!m_tabBar || !m_window || title.isEmpty() || !isRestored()) {
+    if (!m_tabBar || !m_window || title.isEmpty()) {
         return;
     }
 
