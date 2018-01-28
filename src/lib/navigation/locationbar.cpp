@@ -269,7 +269,7 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
             // Only allow whitelisted schemes
             const QSet<QString> whitelistedSchemes = {
                 QSL("http"), QSL("https"), QSL("ftp"), QSL("file"),
-                QSL("about"), QSL("qupzilla")
+                QSL("data"), QSL("about"), QSL("qupzilla")
             };
             if (whitelistedSchemes.contains(guessedUrl.scheme())) {
                 action.type = LoadAction::Url;

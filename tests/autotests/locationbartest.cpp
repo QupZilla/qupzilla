@@ -153,3 +153,24 @@ void LocationBarTest::loadAction_kdebug389491()
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
     QCOMPARE(action.loadRequest.url(), QUrl("http://website.com?search=searchterm and another"));
 }
+
+void LocationBarTest::loadActionSpecialSchemesTest()
+{
+    LocationBar::LoadAction action;
+
+    action = LocationBar::loadAction("data:image/png;base64,xxxxx");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("data:image/png;base64,xxxxx"));
+
+    action = LocationBar::loadAction("qupzilla:about");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("qupzilla:about"));
+
+    action = LocationBar::loadAction("file:test.html");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("file:test.html"));
+
+    action = LocationBar::loadAction("about:blank");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("about:blank"));
+}
