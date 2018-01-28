@@ -672,6 +672,15 @@ int TabWidget::duplicateTab(int index)
     return id;
 }
 
+void TabWidget::loadTab(int index)
+{
+    if (!validIndex(index)) {
+        return;
+    }
+
+    weTab(index)->tabActivated();
+}
+
 void TabWidget::unloadTab(int index)
 {
     if (!validIndex(index)) {
