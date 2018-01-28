@@ -1017,6 +1017,10 @@ void MainApplication::loadTheme(const QString &name)
         qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/rtl.css")));
     }
 
+    if (isPrivate()) {
+        qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/private.css")));
+    }
+
     qss.append(QzTools::readAllFileContents(DataPaths::currentProfilePath() + QL1S("/userChrome.css")));
 
     QString relativePath = QDir::current().relativeFilePath(activeThemePath);
