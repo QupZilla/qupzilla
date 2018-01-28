@@ -266,7 +266,9 @@ void BrowserWindow::postLaunch()
         break;
     }
 
-    show();
+    if (!mApp->isTestModeEnabled()) {
+        show();
+    }
 
     switch (m_windowType) {
     case Qz::BW_FirstAppWindow:
@@ -1018,7 +1020,9 @@ void BrowserWindow::restoreWindow(const SavedWindow &window)
 #ifdef QZ_WS_X11
     moveToVirtualDesktop(window.virtualDesktop);
 #endif
-    show(); // Window has to be visible before adding QWebEngineView's
+    if (!mApp->isTestModeEnabled()) {
+        show(); // Window has to be visible before adding QWebEngineView's
+    }
     m_tabWidget->restoreState(window.tabs, window.currentTab);
     updateStartupFocus();
 }
