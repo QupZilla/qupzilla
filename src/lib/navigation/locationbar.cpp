@@ -388,6 +388,10 @@ void LocationBar::showUrl(const QUrl &url)
 
 void LocationBar::loadRequest(const LoadRequest &request)
 {
+    if (!m_webView->webTab()->isRestored()) {
+        return;
+    }
+
     const QString urlString = convertUrlToText(request.url());
 
     m_completer->closePopup();
@@ -499,9 +503,7 @@ void LocationBar::dropEvent(QDropEvent* event)
         const QUrl dropUrl = event->mimeData()->urls().at(0);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
-
-            m_webView->setFocus();
-            m_webView->userLoadAction(dropUrl);
+            loadRequest(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
@@ -513,9 +515,7 @@ void LocationBar::dropEvent(QDropEvent* event)
         const QUrl dropUrl = QUrl(dropText);
         if (WebView::isUrlValid(dropUrl)) {
             setText(dropUrl.toString());
-
-            m_webView->setFocus();
-            m_webView->userLoadAction(dropUrl);
+            loadRequest(dropUrl);
 
             QFocusEvent event(QFocusEvent::FocusOut);
             LineEdit::focusOutEvent(&event);
