@@ -97,7 +97,6 @@ Preferences::Preferences(BrowserWindow* window)
     , m_window(window)
     , m_autoFillManager(0)
     , m_pluginsList(0)
-    , m_autoFillEnabled(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -294,9 +293,6 @@ Preferences::Preferences(BrowserWindow* window)
     //PASSWORD MANAGER
     ui->allowPassManager->setChecked(settings.value("SavePasswordsOnSites", true).toBool());
     ui->autoCompletePasswords->setChecked(settings.value("AutoCompletePasswords", true).toBool());
-    connect(ui->allowPassManager, SIGNAL(toggled(bool)), this, SLOT(showPassManager(bool)));
-
-    showPassManager(ui->allowPassManager->isChecked());
 
     //PRIVACY
     //Web storage
@@ -582,7 +578,6 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     if (index == 7 && !m_autoFillManager) {
         m_autoFillManager = new AutoFillManager(this);
         ui->autoFillFrame->addWidget(m_autoFillManager);
-        m_autoFillManager->setVisible(m_autoFillEnabled);
     }
 }
 
@@ -766,16 +761,6 @@ void Preferences::changeCachePathClicked()
     }
 
     ui->cachePath->setText(path);
-}
-
-void Preferences::showPassManager(bool state)
-{
-    if (m_autoFillManager) {
-        m_autoFillManager->setVisible(state);
-    }
-    else {
-        m_autoFillEnabled = state;
-    }
 }
 
 void Preferences::buttonClicked(QAbstractButton* button)
