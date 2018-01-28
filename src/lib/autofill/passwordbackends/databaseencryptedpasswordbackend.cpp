@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
 * Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2013-2017  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -45,6 +45,24 @@ DatabaseEncryptedPasswordBackend::DatabaseEncryptedPasswordBackend()
 
 DatabaseEncryptedPasswordBackend::~DatabaseEncryptedPasswordBackend()
 {
+}
+
+QStringList DatabaseEncryptedPasswordBackend::getUsernames(const QUrl &url)
+{
+    if (!m_askMasterPassword) {
+        return PasswordBackend::getUsernames(url);
+    }
+
+    QSqlQuery query(SqlDatabase::instance()->database());
+    query.prepare("SELECT username_encrypted FROM autofill_encrypted WHERE server=? ORDER BY last_used DESC");
+    query.addBindValue(PasswordManager::createHost(url));
+    query.exec();
+
+    QStringList list;
+    while (query.next()) {
+        list.append(QSL("Encrypted %1").arg(list.size() + 1));
+    }
+    return list;
 }
 
 QVector<PasswordEntry> DatabaseEncryptedPasswordBackend::getEntries(const QUrl &url)

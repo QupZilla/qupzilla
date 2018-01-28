@@ -79,7 +79,8 @@ public:
 
 private:
     PasswordManager* m_manager;
-    bool m_isStoring;
+    bool m_isStoring = false;
+    bool m_isAutoComplete = false;
     QPointer<AutoFillNotification> m_lastNotification;
     WebPage *m_lastNotificationPage = nullptr;
 

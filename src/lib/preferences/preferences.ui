@@ -1966,7 +1966,7 @@
              </property>
             </spacer>
            </item>
-           <item row="2" column="0" colspan="3">
+           <item row="3" column="0" colspan="3">
             <widget class="QFrame" name="AutoFillFrame">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1979,6 +1979,13 @@
                <enum>QLayout::SetMinAndMaxSize</enum>
               </property>
              </layout>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QCheckBox" name="autoCompletePasswords">
+             <property name="text">
+              <string>Automatically complete passwords on sites</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -2412,8 +2419,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>31</height>
+                <width>560</width>
+                <height>80</height>
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_14">

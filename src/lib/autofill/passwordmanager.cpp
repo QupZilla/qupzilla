@@ -83,6 +83,12 @@ void PasswordManager::loadSettings()
     m_backend->setActive(true);
 }
 
+QStringList PasswordManager::getUsernames(const QUrl &url)
+{
+    ensureLoaded();
+    return m_backend->getUsernames(url);
+}
+
 QVector<PasswordEntry> PasswordManager::getEntries(const QUrl &url)
 {
     ensureLoaded();

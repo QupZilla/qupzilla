@@ -18,7 +18,6 @@
 #include "autofillwidget.h"
 #include "ui_autofillwidget.h"
 #include "autofill.h"
-#include "qztools.h"
 #include "webview.h"
 #include "webpage.h"
 #include "scripts.h"
@@ -52,13 +51,22 @@ void AutoFillWidget::setUsernames(const QStringList &usernames)
         ui->gridLayout->addWidget(button, i++, 0);
         connect(button, &QPushButton::clicked, this, [=]() {
             const auto entries = mApp->autoFill()->getFormData(m_view->url());
-            for (PasswordEntry entry : entries) {
-                if (entry.username != username) {
-                    continue;
+            PasswordEntry entry;
+            // Find exact username match
+            for (const PasswordEntry &e : entries) {
+                if (e.username == username) {
+                    entry = e;
+                    break;
                 }
+            }
+            // Find by index
+            // This is needed for DatabaseEncryptedPasswordBackend because it also encrypts usernames.
+            if (!entry.isValid()) {
+                entry = entries.value(i - 1);
+            }
+            if (entry.isValid()) {
                 mApp->autoFill()->updateLastUsed(entry);
                 m_view->page()->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
-                break;
             }
             close();
         });

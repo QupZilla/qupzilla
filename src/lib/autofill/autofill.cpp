@@ -38,7 +38,6 @@
 AutoFill::AutoFill(QObject* parent)
     : QObject(parent)
     , m_manager(new PasswordManager(this))
-    , m_isStoring(false)
 {
     loadSettings();
 
@@ -62,6 +61,7 @@ void AutoFill::loadSettings()
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_isStoring = settings.value("SavePasswordsOnSites", true).toBool();
+    m_isAutoComplete = settings.value("AutoCompletePasswords", true).toBool();
     settings.endGroup();
 }
 
@@ -71,7 +71,7 @@ bool AutoFill::isStored(const QUrl &url)
         return false;
     }
 
-    return !m_manager->getEntries(url).isEmpty();
+    return !m_manager->getUsernames(url).isEmpty();
 }
 
 bool AutoFill::isStoringEnabled(const QUrl &url)
@@ -225,6 +225,10 @@ QStringList AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
 
     if (!page || !isStored(frameUrl))
         return usernames;
+
+    if (!m_isAutoComplete) {
+        return m_manager->getUsernames(frameUrl);
+    }
 
     const auto entries = getFormData(frameUrl);
 
