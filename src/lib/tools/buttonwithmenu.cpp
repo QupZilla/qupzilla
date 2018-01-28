@@ -25,9 +25,11 @@ ButtonWithMenu::ButtonWithMenu(QWidget* parent)
     , m_menu(new QMenu(this))
 {
     setCursor(Qt::ArrowCursor);
-    setFocusPolicy(Qt::ClickFocus);
+    setFocusPolicy(Qt::NoFocus);
 
     connect(this, SIGNAL(aboutToShowMenu()), this, SLOT(generateMenu()));
+    connect(m_menu, &QMenu::aboutToShow, this, std::bind(&ButtonWithMenu::setDown, this, true));
+    connect(m_menu, &QMenu::aboutToHide, this, std::bind(&ButtonWithMenu::setDown, this, false));
 }
 
 void ButtonWithMenu::setCurrentItem()
