@@ -144,6 +144,10 @@ void WebView::setPage(WebPage *page)
     }
 
     if (m_page) {
+        if (m_page->isLoading()) {
+            emit m_page->loadProgress(100);
+            emit m_page->loadFinished(true);
+        }
         m_page->setView(nullptr);
         m_page->deleteLater();
     }
@@ -151,6 +155,11 @@ void WebView::setPage(WebPage *page)
     m_page = page;
     m_page->setParent(this);
     QWebEngineView::setPage(m_page);
+
+    if (m_page->isLoading()) {
+        emit loadStarted();
+        emit loadProgress(m_page->m_loadProgress);
+    }
 
     connect(m_page, &WebPage::privacyChanged, this, &WebView::privacyChanged);
     connect(m_page, &WebPage::printRequested, this, &WebView::printPage);

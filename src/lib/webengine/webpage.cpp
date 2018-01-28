@@ -69,7 +69,7 @@ WebPage::WebPage(QObject* parent)
     : QWebEnginePage(mApp->webProfile(), parent)
     , m_fileWatcher(0)
     , m_runningLoop(0)
-    , m_loadProgress(-1)
+    , m_loadProgress(100)
     , m_blockAlerts(false)
     , m_secureStatus(false)
 {
