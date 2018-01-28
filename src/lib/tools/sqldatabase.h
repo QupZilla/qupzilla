@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,14 @@ public:
     // Returns database connection for current thread
     QSqlDatabase database();
 
+    // Sets database to be created for other threads
+    void setDatabase(const QSqlDatabase &database);
+
     static SqlDatabase* instance();
+
+private:
+    QString m_databaseName;
+    QString m_connectOptions;
 };
 
 #endif // SQLDATABASE_H

@@ -21,6 +21,7 @@
 #include "updater.h"
 #include "qztools.h"
 #include "restoremanager.h"
+#include "sqldatabase.h"
 
 #include <QDir>
 #include <QSqlDatabase>
@@ -281,6 +282,8 @@ void ProfileManager::connectDatabase()
     if (!db.open()) {
         qWarning("Cannot open SQLite database! Continuing without database....");
     }
+
+    SqlDatabase::instance()->setDatabase(db);
 
     m_databaseConnected = true;
 }

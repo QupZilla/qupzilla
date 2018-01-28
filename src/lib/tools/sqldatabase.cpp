@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,12 +44,20 @@ QSqlDatabase SqlDatabase::database()
 
     if (!s_databases.hasLocalData()) {
         const QString threadStr = QString::number((quintptr) QThread::currentThread());
-        QSqlDatabase db = QSqlDatabase::cloneDatabase(QSqlDatabase::database(), QL1S("QupZilla/") + threadStr);
+        QSqlDatabase db = QSqlDatabase::addDatabase(QSL("QSQLITE"), threadStr);
+        db.setDatabaseName(m_databaseName);
+        db.setConnectOptions(m_connectOptions);
         db.open();
         s_databases.setLocalData(db);
     }
 
     return s_databases.localData();
+}
+
+void SqlDatabase::setDatabase(const QSqlDatabase &database)
+{
+    m_databaseName = database.databaseName();
+    m_connectOptions = database.connectOptions();
 }
 
 // instance
