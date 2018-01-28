@@ -2,32 +2,32 @@
 <context>
     <name>SBI_ImagesIcon</name>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="33"/>
+        <location filename="../sbi_imagesicon.cpp" line="34"/>
         <source>Modify images loading settings per-site and globally</source>
         <translation>画像の読み込みの全体の設定、またはサイトごとの設定を調整する。</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="57"/>
+        <location filename="../sbi_imagesicon.cpp" line="58"/>
         <source>Current Page Settings</source>
         <translation>現在のページの設定</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="60"/>
+        <location filename="../sbi_imagesicon.cpp" line="61"/>
         <source>Disable loading images (temporarily)</source>
         <translation>画像の読み込みを(一時的に)無効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="63"/>
+        <location filename="../sbi_imagesicon.cpp" line="64"/>
         <source>Enable loading images (temporarily)</source>
         <translation>画像の読み込みを(一時的に)有効にする</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="67"/>
+        <location filename="../sbi_imagesicon.cpp" line="68"/>
         <source>Global Settings</source>
         <translation>全体の設定</translation>
     </message>
     <message>
-        <location filename="../sbi_imagesicon.cpp" line="69"/>
+        <location filename="../sbi_imagesicon.cpp" line="70"/>
         <source>Automatically load images</source>
         <translation>自動的に画像を読み込む</translation>
     </message>
@@ -164,7 +164,7 @@
     <message>
         <location filename="../sbi_networkicondialog.cpp" line="70"/>
         <source>Are you sure you want to remove current proxy?</source>
-        <translation type="unfinished"/>
+        <translation>本当に現在のプロキシを削除しますか?</translation>
     </message>
 </context>
 <context>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../sbi_proxywidget.ui" line="111"/>
         <source>S&amp;ystem proxy configuration</source>
-        <translation type="unfinished"/>
+        <translation>システムプロキシの設定(&amp;Y)</translation>
     </message>
     <message>
         <location filename="../sbi_proxywidget.ui" line="118"/>
         <source>&amp;Manual configuration</source>
-        <translation type="unfinished"/>
+        <translation>手動設定(&amp;M)</translation>
     </message>
 </context>
 <context>

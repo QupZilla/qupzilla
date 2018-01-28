@@ -94,7 +94,7 @@
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="313"/>
         <source>&lt;b&gt;Duplicate&lt;/b&gt;&lt;br/&gt;Duplicate current tab</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;複製&lt;/b&gt;&lt;br/&gt;現在のタブを複製します</translation>
     </message>
     <message>
         <location filename="../mousegesturessettingsdialog.ui" line="337"/>

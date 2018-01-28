@@ -1,5 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="nl_NL" version="2.1">
 <context>
+    <name>TabManagerButton</name>
+    <message>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
+        <source>Tab Manager button</source>
+        <translation>Tabbladbeheerderknop</translation>
+    </message>
+</context>
+<context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
@@ -45,77 +53,82 @@
         <translation>Tabbladbeheerder</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="98"/>
+        <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
         <translation>Lokaal bestandssysteem:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="101"/>
+        <location filename="../tabmanagerwidget.cpp" line="113"/>
         <source>QupZilla:</source>
         <translation>QupZilla:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="104"/>
+        <location filename="../tabmanagerwidget.cpp" line="116"/>
         <source> [FTP]</source>
         <translation>[FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="250"/>
+        <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
         <translation>Groeperen op</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="251"/>
+        <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
         <translation>&amp;Venster</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="256"/>
+        <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
         <translation>&amp;Domeinnaam</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="261"/>
+        <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
         <translation>&amp;Host</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="269"/>
+        <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
         <translation>&amp;Naast elkaar weergeven</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="275"/>
+        <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
         <translation>&amp;Aangevinkte tabbladen loskoppelen</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="276"/>
+        <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>Aangevinkte tabbladen toevoegen aan blad&amp;wijzers</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
         <translation>Aangevinkte tabbladen &amp;sluiten</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="528"/>
+        <location filename="../tabmanagerwidget.cpp" line="329"/>
+        <source>&amp;Unload checked tabs</source>
+        <translation>Aangevinkte tabbladen &amp;ontladen</translation>
+    </message>
+    <message>
+        <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Kies een bladwijzermap:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="529"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Geselecteerde tabbladen toevoegen aan bladwijzers</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="646"/>
+        <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
         <translation>Venster %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="647"/>
+        <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
         <translation>Dubbelklik om om te schakelen</translation>
     </message>
@@ -123,13 +136,14 @@
 <context>
     <name>TabManagerWidgetController</name>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="68"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
         <translation>Tabbladbeheerder</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
         <translation>Tabbladbeheerder weergeven</translation>
     </message>

@@ -1,5 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
 <context>
+    <name>TabManagerButton</name>
+    <message>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
+        <source>Tab Manager button</source>
+        <translation>分頁管理器按鈕</translation>
+    </message>
+</context>
+<context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
@@ -45,77 +53,82 @@
         <translation>分頁管理員</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="106"/>
+        <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
         <translation>本機檔案系統：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="109"/>
+        <location filename="../tabmanagerwidget.cpp" line="113"/>
         <source>QupZilla:</source>
         <translation>QupZilla：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="112"/>
+        <location filename="../tabmanagerwidget.cpp" line="116"/>
         <source> [FTP]</source>
         <translation> [FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="266"/>
+        <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
         <translation>以此種方式分組</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="267"/>
+        <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
         <translation>視窗 (&amp;W)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="272"/>
+        <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
         <translation>網域 (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
         <translation>主機 (&amp;H)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="285"/>
+        <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
         <translation>並排顯示 (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="291"/>
+        <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
         <translation>分離勾選的分頁 (&amp;D)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="292"/>
+        <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>將勾選的分頁加入書籤 (&amp;M)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="293"/>
+        <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
         <translation>關閉勾選的分頁 (&amp;C)</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="547"/>
+        <location filename="../tabmanagerwidget.cpp" line="329"/>
+        <source>&amp;Unload checked tabs</source>
+        <translation>取消載入已勾選的分頁(&amp;U)</translation>
+    </message>
+    <message>
+        <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
         <translation>選取書籤資料夾：</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="548"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
         <translation>將選取的分頁加入書籤</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="665"/>
+        <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
         <translation>視窗 %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="666"/>
+        <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
         <translation>雙擊以切換</translation>
     </message>
@@ -123,13 +136,14 @@
 <context>
     <name>TabManagerWidgetController</name>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="68"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
         <translation>分頁管理員</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
         <translation>顯示分頁管理員</translation>
     </message>

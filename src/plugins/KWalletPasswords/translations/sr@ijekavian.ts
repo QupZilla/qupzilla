@@ -2,7 +2,7 @@
 <context>
     <name>KWalletPlugin</name>
     <message>
-        <location filename="../kwalletpasswordbackend.cpp" line="55"/>
+        <location filename="../kwalletpasswordbackend.cpp" line="51"/>
         <source>KWallet</source>
         <translation>К-новчаник</translation>
     </message>

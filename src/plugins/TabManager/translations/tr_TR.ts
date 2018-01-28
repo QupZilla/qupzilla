@@ -1,5 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="tr_TR" version="2.1">
 <context>
+    <name>TabManagerButton</name>
+    <message>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
+        <source>Tab Manager button</source>
+        <translation>Sekme Yöneticisi düğmesi</translation>
+    </message>
+</context>
+<context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
@@ -101,22 +109,27 @@
         <translation>&amp;Kontrol edilmiş sekmeleri kapat</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="582"/>
+        <location filename="../tabmanagerwidget.cpp" line="329"/>
+        <source>&amp;Unload checked tabs</source>
+        <translation>&amp;Kontrol edilmiş sekmeleri yükleme</translation>
+    </message>
+    <message>
+        <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Yer imleri için dizin seçin: </translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="583"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Seçilen Sekmeleri Yer İmlerine Ekle</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="685"/>
+        <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
         <translation>Pencere %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="686"/>
+        <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
         <translation>Değiştirmek için çift tıklayın</translation>
     </message>
@@ -124,13 +137,14 @@
 <context>
     <name>TabManagerWidgetController</name>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="68"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
         <translation>Sekme Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
         <translation>Sekme Yöneticisini Göster</translation>
     </message>

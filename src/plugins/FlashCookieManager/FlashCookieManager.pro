@@ -33,6 +33,7 @@ TRANSLATIONS += \
     translations/id_ID.ts \
     translations/is.ts \
     translations/it_IT.ts \
+    translations/ja_JP.ts \
     translations/lt.ts \
     translations/lv_LV.ts \
     translations/nb_NO.ts \

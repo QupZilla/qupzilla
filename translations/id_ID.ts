@@ -1114,8 +1114,8 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="201"/>
-        <location filename="../src/lib/app/browserwindow.cpp" line="966"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="199"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
@@ -1125,79 +1125,79 @@ Silakan pasang versi terbaru dari QupZilla.</translation>
         <translation>Alamat IP halaman ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="716"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="718"/>
         <source> (Private Browsing)</source>
         <translation>(Perambahan Privat)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="970"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1032"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1034"/>
         <source>&amp;Menu Bar</source>
         <translation>Bilah &amp;Menu</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1037"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1039"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Toolbar &amp;Navigasi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1041"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1043"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Toolbar &amp;Bookmark</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1047"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1049"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Tab di Atas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1101"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1103"/>
         <source>Other</source>
         <translation>Lainnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>HTML files</source>
         <translation>Berkas HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Image files</source>
         <translation>Berkas gambar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Text files</source>
         <translation>Berkas teks</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>All files</source>
         <translation>Semua berkas</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1142"/>
         <source>Open file...</source>
         <translation>Buka berkas...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1479"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Masih ada %n tab terbuka dan sesi anda tidak akan disimpan.
 Apakah Anda yakin ingin menutup jendela ini?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1480"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1482"/>
         <source>Don&apos;t ask again</source>
         <translation>Jangan tanya lagi</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1483"/>
         <source>There are still open tabs</source>
         <translation>Masih ada tab yang terbuka</translation>
     </message>
@@ -2450,19 +2450,32 @@ Apakah Anda yakin ingin menutup jendela ini?</numerusform></translation>
 <context>
     <name>LocationCompleterDelegate</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="149"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="167"/>
         <source>Visit</source>
         <translation>Kunjungi</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="160"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="173"/>
         <source>Search with %1</source>
         <translation>Cari dengan %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="192"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="205"/>
         <source>Switch to tab</source>
         <translation>Pindah ke tab</translation>
+    </message>
+</context>
+<context>
+    <name>LocationCompleterView</name>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="73"/>
+        <source>Manage Search Engines</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="78"/>
+        <source>Search with:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3014,12 +3027,7 @@ Apakah Anda yakin ingin menutup jendela ini?</numerusform></translation>
 <context>
     <name>PluginsList</name>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="29"/>
-        <source>Allow Application Extensions to be loaded</source>
-        <translation>Ijinkan ekstensi aplikasi untuk dimuat</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="63"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="56"/>
         <source>Settings</source>
         <translation>Pengaturan</translation>
     </message>
@@ -3027,12 +3035,12 @@ Apakah Anda yakin ingin menutup jendela ini?</numerusform></translation>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Error!</source>
         <translation>Kesalahan!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Cannot load extension!</source>
         <translation>Tidak dapat memuat ekstensi!</translation>
     </message>
@@ -5152,7 +5160,7 @@ Mungkin dengan menjalankannya sebagai administrator dapat memberikan keajaiban b
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="61"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="62"/>
         <source>Don&apos;t ask again</source>
         <translation>Jangan tanya lagi</translation>
     </message>
@@ -5160,120 +5168,125 @@ Mungkin dengan menjalankannya sebagai administrator dapat memberikan keajaiban b
 <context>
     <name>TabContextMenu</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="89"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="100"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="90"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="101"/>
         <source>Close Tabs</source>
         <translation>Tutup Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
         <source>Do you really want to close other tabs?</source>
         <translation>Anda yakin ingin menutup tab yang lain?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="86"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
         <source>Do you really want to close all tabs to the right?</source>
         <translation>Anda yakin ingin menutup semua tab setelahnya?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="88"/>
         <source>Do you really want to close all tabs to the bottom?</source>
         <translation>Anda yakin ingin menutup semua tab di bawahnya?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="97"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
         <source>Do you really want to close all tabs to the left?</source>
         <translation>Anda yakin ingin menutup semua tab sebelumnya?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="99"/>
         <source>Do you really want to close all tabs to the top?</source>
         <translation>Anda yakin ingin menutup semua tab di atasnya?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="114"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="115"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Stop Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="117"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="118"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Muat Ulang Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="120"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="121"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplikasi Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>Un&amp;pin Tab</source>
         <translation>Un&amp;pin Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>&amp;Pin Tab</source>
         <translation>&amp;Pin Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>Un&amp;mute Tab</source>
         <translation>Un&amp;mute Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>&amp;Mute Tab</source>
         <translation>&amp;Mute Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="125"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="127"/>
+        <source>Unload Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
         <source>Re&amp;load All Tabs</source>
         <translation>Muat &amp;Ulang Seluruh Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="126"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="142"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="148"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Bookm&amp;ark Seluruh Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="130"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="136"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Tutup Tab &amp;Yang Lain</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Right</source>
         <translation>Tutup Tab Setelahnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Bottom</source>
         <translation>Tutup Tab di Bawahnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Left</source>
         <translation>Tutup Tab Sebelumnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Top</source>
         <translation>Tutup Tab di Atasnya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="143"/>
         <source>Cl&amp;ose Tab</source>
         <translation>&amp;Tutup Tab</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="139"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="145"/>
         <source>&amp;New tab</source>
         <translation>&amp;Tab Baru</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="141"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="147"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Mu&amp;at Ulang Semua Tab</translation>
     </message>
@@ -5444,58 +5457,58 @@ Mungkin dengan menjalankannya sebagai administrator dapat memberikan keajaiban b
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="267"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="276"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla tidak dapat menangani tautan &lt;b&gt;%1:&lt;/b&gt;. Tautan yang diminta adalah &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Apakah anda ingin QupZilla membuka tautan ini menggunakan aplikasi sistem?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="272"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>Remember my choice for this protocol</source>
         <translation>Ingat pilihan saya untuk protokol ini</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="273"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="282"/>
         <source>External Protocol Request</source>
         <translation>Permintaan Protokol Eksternal</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="353"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="362"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="363"/>
         <source>Failed loading page</source>
         <translation>Halaman gagal dimuat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="364"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Terjadi kesalahan saat memuat laman ini.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="365"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Coba muat ulang laman atau tutup tab lain agar memori menjadi lebih lega</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="366"/>
         <source>Reload page</source>
         <translation>Muat ulang laman</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="423"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="434"/>
         <source>Choose file...</source>
         <translation>Pilih berkas...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="427"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="438"/>
         <source>Choose files...</source>
         <translation>Pilih berkas...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="542"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="553"/>
         <source>JavaScript alert</source>
         <translation>Peringatan JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="551"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Halangi halaman ini untuk membuat dialog tambahan</translation>
     </message>
@@ -5531,12 +5544,12 @@ Mungkin dengan menjalankannya sebagai administrator dapat memberikan keajaiban b
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="430"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="441"/>
         <source>Loading...</source>
         <translation>Memuat...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="446"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="461"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>

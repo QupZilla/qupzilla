@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es_MX" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.1">
 <context>
     <name>TabManagerButton</name>
     <message>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
         <source>Tab Manager button</source>
-        <translation type="unfinished"/>
+        <translation>タブマネージャ ボタン</translation>
     </message>
 </context>
 <context>
@@ -12,37 +12,37 @@
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
         <source>Tab Manager Settings</source>
-        <translation>Configuración de Administrador de Pestañas</translation>
+        <translation>タブマネージャの設定</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="20"/>
         <source>View</source>
-        <translation>Ver</translation>
+        <translation>表示</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="26"/>
         <source>Please select view type:</source>
-        <translation>Por favor, seleccione el tipo de visualización:</translation>
+        <translation>表示の種類を選択してください:</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="33"/>
         <source>SideBar</source>
-        <translation>Barra lateral</translation>
+        <translation>サイドバー</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="40"/>
         <source>Window</source>
-        <translation>Ventana</translation>
+        <translation>ウィンドウ</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="47"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; The &amp;quot;Window&amp;quot; type is recommended for managing lots of windows/tabs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Nota:&lt;/span&gt; El tipo &amp;quot;Ventana&amp;quot; es recomendado para administrar muchas ventanas/pestañas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;メモ:&lt;/span&gt; &amp;quot;ウィンドウ&amp;quot; の種類は多数のウィンドウ/タブを管理するのに推奨されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tabmanagersettings.ui" line="60"/>
         <source>Use TabManager plugin as replacement for main TabBar.</source>
-        <translation>Usar el complemento de Administrador de Pestañas como reemplazo de la Barra de Pestañas principal.</translation>
+        <translation>タブマネージャをメインのタブバーの代わりに使用</translation>
     </message>
 </context>
 <context>
@@ -50,12 +50,12 @@
     <message>
         <location filename="../tabmanagerwidget.ui" line="14"/>
         <source>Tab Manager</source>
-        <translation>Administrador de pestañas</translation>
+        <translation>タブマネージャ</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
-        <translation>Sistema de archivos local:</translation>
+        <translation>ローカルファイルシステム:</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="113"/>
@@ -70,67 +70,67 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
-        <translation>Agrupar por</translation>
+        <translation>グループ化の種類</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
-        <translation>&amp;Ventana</translation>
+        <translation>ウィンドウ(&amp;W)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
-        <translation>&amp;Dominio</translation>
+        <translation>ドメイン(&amp;D)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
-        <translation>&amp;Servidor</translation>
+        <translation>ホスト(&amp;H)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
-        <translation>&amp;Mostrar al lado del otro</translation>
+        <translation>並べて表示(&amp;S)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
-        <translation>&amp;Desprender las pestañas seleccionadas</translation>
+        <translation>チェックしたタブを別ウィンドウに分離(&amp;D)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
-        <translation>Agregar a &amp;marcadores las pestañas seleccionadas</translation>
+        <translation>チェックしたタブをブックマーク(&amp;M)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
-        <translation>&amp;Cerrar las pestañas seleccionadas</translation>
+        <translation>チェックしたタブを閉じる(&amp;C)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="329"/>
         <source>&amp;Unload checked tabs</source>
-        <translation type="unfinished"/>
+        <translation>チェックしたタブを破棄(&amp;U)</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
-        <translation>Elegir carpeta para marcadores:</translation>
+        <translation>ブックマークのフォルダを選択してください:</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
-        <translation>Añadir a marcadores las pestañas seleccionadas</translation>
+        <translation>選択したタブをブックマーク</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
-        <translation>Ventana %1</translation>
+        <translation>ウィンドウ %1</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
-        <translation>Hacer doble clic para cambiar</translation>
+        <translation>ダブルクリックで切り替わります</translation>
     </message>
 </context>
 <context>
@@ -140,12 +140,12 @@
         <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
-        <translation>Administrador de pestañas</translation>
+        <translation>タブマネージャ</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
-        <translation>Mostrar administrador de pestañas</translation>
+        <translation>タブマネージャを表示</translation>
     </message>
 </context>
 </TS>

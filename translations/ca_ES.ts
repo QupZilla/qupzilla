@@ -1114,8 +1114,8 @@ Si us plau, instal·leu l&apos;última versió del QupZilla.</translation>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="201"/>
-        <location filename="../src/lib/app/browserwindow.cpp" line="966"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="199"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
@@ -1125,67 +1125,67 @@ Si us plau, instal·leu l&apos;última versió del QupZilla.</translation>
         <translation>IP de la pàgina actual</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="716"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="718"/>
         <source> (Private Browsing)</source>
         <translation> (Navegació privada)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="970"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1032"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1034"/>
         <source>&amp;Menu Bar</source>
         <translation>Barra del &amp;menú</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1037"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1039"/>
         <source>&amp;Navigation Toolbar</source>
         <translation>Barra de &amp;navegació</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1041"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1043"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>Barra de les ad&amp;reces d&apos;interès</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1047"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1049"/>
         <source>&amp;Tabs on Top</source>
         <translation>Pestan&amp;yes a dalt</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1101"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1103"/>
         <source>Other</source>
         <translation>Altres</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>HTML files</source>
         <translation>Fitxers HTML</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Image files</source>
         <translation>Fitxers d&apos;imatge</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Text files</source>
         <translation>Fitxers de text</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>All files</source>
         <translation>Tots els fitxers</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1142"/>
         <source>Open file...</source>
         <translation>Obre un fitxer...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1479"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation><numerusform>Encara hi ha %n pestanya oberta i no es desarà la vostra sessió.
@@ -1193,12 +1193,12 @@ Esteu segur que voleu tancar aquesta finestra?</numerusform><numerusform>Encara 
 Esteu segur que voleu tancar aquesta finestra?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1480"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1482"/>
         <source>Don&apos;t ask again</source>
         <translation>No m&apos;ho tornis a preguntar</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1483"/>
         <source>There are still open tabs</source>
         <translation>Encara hi ha pestanyes obertes</translation>
     </message>
@@ -2451,19 +2451,32 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>LocationCompleterDelegate</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="149"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="167"/>
         <source>Visit</source>
         <translation>Visiteu</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="160"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="173"/>
         <source>Search with %1</source>
         <translation>Cerqueu amb %1</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="192"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="205"/>
         <source>Switch to tab</source>
         <translation>Canvieu a pestanya</translation>
+    </message>
+</context>
+<context>
+    <name>LocationCompleterView</name>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="73"/>
+        <source>Manage Search Engines</source>
+        <translation>Gestiona els motors de cerca</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="78"/>
+        <source>Search with:</source>
+        <translation>Cerca amb:</translation>
     </message>
 </context>
 <context>
@@ -3015,12 +3028,7 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>PluginsList</name>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="29"/>
-        <source>Allow Application Extensions to be loaded</source>
-        <translation>Permet que es carreguin les extensions de l&apos;aplicació</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="63"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="56"/>
         <source>Settings</source>
         <translation>Preferències</translation>
     </message>
@@ -3028,12 +3036,12 @@ no s&apos;ha trobat!</translation>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Error!</source>
         <translation>Hi ha hagut un error!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Cannot load extension!</source>
         <translation>No s&apos;ha pogut carregar l&apos;extensió!</translation>
     </message>
@@ -5153,7 +5161,7 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="61"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="62"/>
         <source>Don&apos;t ask again</source>
         <translation>No ho tornis a preguntar.</translation>
     </message>
@@ -5161,120 +5169,125 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
 <context>
     <name>TabContextMenu</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="89"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="100"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="90"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="101"/>
         <source>Close Tabs</source>
         <translation>Tanca les pestanyes</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
         <source>Do you really want to close other tabs?</source>
         <translation>Segur que voleu tancar altres pestanyes?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="86"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
         <source>Do you really want to close all tabs to the right?</source>
         <translation>Segur que voleu tancar totes les pestanyes de la dreta?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="88"/>
         <source>Do you really want to close all tabs to the bottom?</source>
         <translation>Segur que voleu tancar totes les pestanyes de baix?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="97"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
         <source>Do you really want to close all tabs to the left?</source>
         <translation>Segur que voleu tancar totes les pestanyes de l&apos;esquerra?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="99"/>
         <source>Do you really want to close all tabs to the top?</source>
         <translation>Segur que voleu tancar totes les pestanyes de dalt?</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="114"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="115"/>
         <source>&amp;Stop Tab</source>
         <translation>&amp;Atura la pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="117"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="118"/>
         <source>&amp;Reload Tab</source>
         <translation>&amp;Torna a carregar la pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="120"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="121"/>
         <source>&amp;Duplicate Tab</source>
         <translation>&amp;Duplica la pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>Un&amp;pin Tab</source>
         <translation>Desancora la &amp;pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>&amp;Pin Tab</source>
         <translation>Ancora la &amp;pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>Un&amp;mute Tab</source>
         <translation>&amp;No silenciïs la pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>&amp;Mute Tab</source>
         <translation>&amp;Silencia la pestanya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="125"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="127"/>
+        <source>Unload Tab</source>
+        <translation>Descarrega la pestanya</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
         <source>Re&amp;load All Tabs</source>
         <translation>&amp;Torna a carregar totes les pestanyes</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="126"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="142"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="148"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation>Afegeix &amp;totes les pestanyes a les adreces d&apos;interès</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="130"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="136"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation>Tanca les &amp;altres pestanyes</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Right</source>
         <translation>Tanca les pestanyes de la dreta</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Bottom</source>
         <translation>Tanca les pestanyes de baix</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Left</source>
         <translation>Tanca les pestanyes de l&apos;esquerra</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Top</source>
         <translation>Tanca les pestanyes de dalt</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="143"/>
         <source>Cl&amp;ose Tab</source>
         <translation>Tanca la pestan&amp;ya</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="139"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="145"/>
         <source>&amp;New tab</source>
         <translation>Pestanya &amp;nova</translation>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="141"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="147"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation>Torna a carre&amp;gar totes les pestanyes</translation>
     </message>
@@ -5445,58 +5458,58 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="267"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="276"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>El QupZilla no pot gestionar enllaços &lt;b&gt;%1:&lt;/b&gt;. L&apos;enllaç requerit és &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;. Voleu que el QupZilla intenti obrir aquest enllaç amb una altra aplicació del sistema?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="272"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>Remember my choice for this protocol</source>
         <translation>Recorda la meva elecció per a aquest protocol</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="273"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="282"/>
         <source>External Protocol Request</source>
         <translation>Sol·licitud de protocol extern</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="353"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="362"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="363"/>
         <source>Failed loading page</source>
         <translation>No s&apos;ha pogut carregar la pàgina</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="364"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Alguna cosa ha anat malament mentre es carregava aquesta pàgina.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="365"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>Intenteu tornar a carregar la pàgina o tancar algunes pestanyes per tenir més memòria disponible.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="366"/>
         <source>Reload page</source>
         <translation>Torna a carregar la pàgina</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="423"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="434"/>
         <source>Choose file...</source>
         <translation>Tria un fitxer...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="427"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="438"/>
         <source>Choose files...</source>
         <translation>Tria els fitxers...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="542"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="553"/>
         <source>JavaScript alert</source>
         <translation>Alerta JavaScript</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="551"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Evita que aquesta pàgina creï diàlegs addicionals</translation>
     </message>
@@ -5532,12 +5545,12 @@ També podeu provar d&apos;executar-lo amb permisos d&apos;administrador.</trans
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="430"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="441"/>
         <source>Loading...</source>
         <translation>S&apos;està carregant...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="446"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="461"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>

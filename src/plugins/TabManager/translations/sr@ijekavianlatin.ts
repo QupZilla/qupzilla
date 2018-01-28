@@ -1,5 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@ijekavianlatin" version="2.1">
 <context>
+    <name>TabManagerButton</name>
+    <message>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
+        <source>Tab Manager button</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
@@ -45,77 +53,82 @@
         <translation>Menadžer jezičaka</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="106"/>
+        <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
         <translation>Lokalni fajl sistem:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="109"/>
+        <location filename="../tabmanagerwidget.cpp" line="113"/>
         <source>QupZilla:</source>
         <translation>Kapzila:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="112"/>
+        <location filename="../tabmanagerwidget.cpp" line="116"/>
         <source> [FTP]</source>
         <translation>[FTP]</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="266"/>
+        <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
         <translation>Grupiši po</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="267"/>
+        <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
         <translation>&amp;prozoru</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="272"/>
+        <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
         <translation>&amp;domenu</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
         <translation>do&amp;maćinu</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="285"/>
+        <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
         <translation>Prikaži &amp;jedan uz drugi</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="291"/>
+        <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
         <translation>&amp;Otkači označene jezičke</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="292"/>
+        <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
         <translation>O&amp;bilježi označene jezičke</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="293"/>
+        <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
         <translation>&amp;Zatvori označene jezičke</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="547"/>
+        <location filename="../tabmanagerwidget.cpp" line="329"/>
+        <source>&amp;Unload checked tabs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
         <translation>Odredite fasciklu za obilježivače:</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="548"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
         <translation>Obilježi izabrane jezičke</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="665"/>
+        <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
         <translation>Prozor %1</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="666"/>
+        <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
         <translation>Dvoklik za prebacivanje</translation>
     </message>
@@ -123,13 +136,14 @@
 <context>
     <name>TabManagerWidgetController</name>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="68"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
         <translation>Menadžer jezičaka</translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
         <translation>Prikaži menadžera jezičaka</translation>
     </message>

@@ -1113,8 +1113,8 @@ Please install latest version of QupZilla.</source>
 <context>
     <name>BrowserWindow</name>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="201"/>
-        <location filename="../src/lib/app/browserwindow.cpp" line="966"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="199"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
         <source>QupZilla</source>
         <translation>QupZilla</translation>
     </message>
@@ -1124,78 +1124,78 @@ Please install latest version of QupZilla.</source>
         <translation>Jelenlegi oldal IP cím</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="716"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="718"/>
         <source> (Private Browsing)</source>
         <translation>(Magán böngészés)</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="968"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="970"/>
         <source>%1 - QupZilla</source>
         <translation>%1 - QupZilla</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1032"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1034"/>
         <source>&amp;Menu Bar</source>
         <translation>&amp;Menü sáv</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1037"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1039"/>
         <source>&amp;Navigation Toolbar</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1041"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1043"/>
         <source>&amp;Bookmarks Toolbar</source>
         <translation>&amp;Könyvjelző eszköztár</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1047"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1049"/>
         <source>&amp;Tabs on Top</source>
         <translation>&amp;Lapok fent</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1101"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1103"/>
         <source>Other</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>HTML files</source>
         <translation>HTML fájlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Image files</source>
         <translation>Képfájlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>Text files</source>
         <translation>Szövegfájlok</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1138"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
         <source>All files</source>
         <translation>Összes fájl</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1140"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1142"/>
         <source>Open file...</source>
         <translation>Fájl megnyitás...</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/app/browserwindow.cpp" line="1479"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
         <source>There are still %n open tabs and your session won't be stored. 
 Are you sure you want to close this window?</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1480"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1482"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/app/browserwindow.cpp" line="1481"/>
+        <location filename="../src/lib/app/browserwindow.cpp" line="1483"/>
         <source>There are still open tabs</source>
         <translation type="unfinished"/>
     </message>
@@ -2446,18 +2446,31 @@ Are you sure you want to close this window?</source>
 <context>
     <name>LocationCompleterDelegate</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="149"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="167"/>
         <source>Visit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="160"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="173"/>
         <source>Search with %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="192"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="205"/>
         <source>Switch to tab</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>LocationCompleterView</name>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="73"/>
+        <source>Manage Search Engines</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/navigation/completer/locationcompleterview.cpp" line="78"/>
+        <source>Search with:</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3010,12 +3023,7 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PluginsList</name>
     <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="29"/>
-        <source>Allow Application Extensions to be loaded</source>
-        <translation>Programbővítmények használatának engedélyezése</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/preferences/pluginslist.ui" line="63"/>
+        <location filename="../src/lib/preferences/pluginslist.ui" line="56"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
@@ -3023,12 +3031,12 @@ Are you sure you want to close this window?</source>
 <context>
     <name>PluginsManager</name>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Error!</source>
         <translation>Hiba!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="216"/>
+        <location filename="../src/lib/preferences/pluginsmanager.cpp" line="192"/>
         <source>Cannot load extension!</source>
         <translation>Nem lehet betölteni a kiegészítőt!</translation>
     </message>
@@ -5147,7 +5155,7 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="61"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="62"/>
         <source>Don&apos;t ask again</source>
         <translation type="unfinished"/>
     </message>
@@ -5155,120 +5163,125 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>TabContextMenu</name>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="89"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="100"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="90"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="101"/>
         <source>Close Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="78"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="79"/>
         <source>Do you really want to close other tabs?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="86"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
         <source>Do you really want to close all tabs to the right?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="87"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="88"/>
         <source>Do you really want to close all tabs to the bottom?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="97"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
         <source>Do you really want to close all tabs to the left?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="98"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="99"/>
         <source>Do you really want to close all tabs to the top?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="114"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="115"/>
         <source>&amp;Stop Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="117"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="118"/>
         <source>&amp;Reload Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="120"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="121"/>
         <source>&amp;Duplicate Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>Un&amp;pin Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="122"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
         <source>&amp;Pin Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>Un&amp;mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="123"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="124"/>
         <source>&amp;Mute Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="125"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="127"/>
+        <source>Unload Tab</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
         <source>Re&amp;load All Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="126"/>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="142"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="148"/>
         <source>Bookmark &amp;All Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="130"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="136"/>
         <source>Close Ot&amp;her Tabs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Right</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="131"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
         <source>Close Tabs To The Bottom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Left</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="132"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="138"/>
         <source>Close Tabs To The Top</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="137"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="143"/>
         <source>Cl&amp;ose Tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="139"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="145"/>
         <source>&amp;New tab</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="141"/>
+        <location filename="../src/lib/tabwidget/tabcontextmenu.cpp" line="147"/>
         <source>Reloa&amp;d All Tabs</source>
         <translation type="unfinished"/>
     </message>
@@ -5439,58 +5452,58 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="267"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="276"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="272"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
         <source>Remember my choice for this protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="273"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="282"/>
         <source>External Protocol Request</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="353"/>
-        <location filename="../src/lib/webengine/webpage.cpp" line="354"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="362"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="363"/>
         <source>Failed loading page</source>
         <translation>Nem sikerült betölteni az oldalt</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="355"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="364"/>
         <source>Something went wrong while loading this page.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="356"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="365"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="357"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="366"/>
         <source>Reload page</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="423"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="434"/>
         <source>Choose file...</source>
         <translation>Fájl kiválasztása...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="427"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="438"/>
         <source>Choose files...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="542"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="553"/>
         <source>JavaScript alert</source>
         <translation>Javascript figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="551"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Ne jelenjenek meg további párbeszédablakok ezen az oldalon</translation>
     </message>
@@ -5526,12 +5539,12 @@ Maybe relaunch with administrator right do a magic for you! ;)</source>
 <context>
     <name>WebTab</name>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="430"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="441"/>
         <source>Loading...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/lib/webtab/webtab.cpp" line="446"/>
+        <location filename="../src/lib/webtab/webtab.cpp" line="461"/>
         <source>%1 - QupZilla</source>
         <translation type="unfinished"/>
     </message>
