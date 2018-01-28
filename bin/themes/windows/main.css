@@ -358,7 +358,7 @@ IconProvider
     qproperty-themeIcon: "edit-find";
 }
 
-#websearchbar-searchprovider-comobobox
+#websearchbar-searchprovider-combobox
 {
     border-image: url(images/transp.png);
     qproperty-fixedwidth: 25;

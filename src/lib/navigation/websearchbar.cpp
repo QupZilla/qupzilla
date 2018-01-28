@@ -64,7 +64,7 @@ WebSearchBar::WebSearchBar(BrowserWindow* window)
     m_buttonSearch = new WebSearchBar_Button(this);
 
     m_boxSearchType = new ButtonWithMenu(this);
-    m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
+    m_boxSearchType->setObjectName("websearchbar-searchprovider-combobox");
     // RTL Support
     // If we don't add 'm_boxSearchType' by following code, then we should use suitable padding-left value
     // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
