@@ -226,14 +226,10 @@ void GM_Script::parseScript()
         line = line.mid(3).replace(QLatin1Char('\t'), QLatin1Char(' '));
         int index = line.indexOf(QLatin1Char(' '));
 
-        if (index < 0) {
-            continue;
-        }
-
         const QString key = line.left(index).trimmed();
-        const QString value = line.mid(index + 1).trimmed();
+        const QString value = index > 0 ? line.mid(index + 1).trimmed() : QString();
 
-        if (key.isEmpty() || value.isEmpty()) {
+        if (key.isEmpty()) {
             continue;
         }
 
@@ -277,6 +273,9 @@ void GM_Script::parseScript()
         }
         else if (key == QL1S("@icon")) {
             m_iconUrl = QUrl(value);
+        }
+        else if (key == QL1S("@noframes")) {
+            m_noframes = true;
         }
     }
 
