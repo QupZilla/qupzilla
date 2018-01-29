@@ -33,4 +33,5 @@ private slots:
     void loadActionSearchTest();
     void loadAction_kdebug389491();
     void loadActionSpecialSchemesTest();
+    void loadAction_issue2578();
 };

@@ -243,8 +243,11 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
     }
 
     if (!qzSettings->searchFromAddressBar) {
-        action.type = LoadAction::Url;
-        action.loadRequest = QUrl(t);
+        const QUrl &guessedUrl = QUrl::fromUserInput(t);
+        if (guessedUrl.isValid()) {
+            action.type = LoadAction::Url;
+            action.loadRequest = guessedUrl;
+        }
         return action;
     }
 

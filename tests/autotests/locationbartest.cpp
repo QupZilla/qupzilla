@@ -21,6 +21,7 @@
 #include "searchenginesmanager.h"
 #include "bookmarks.h"
 #include "bookmarkitem.h"
+#include "qzsettings.h"
 
 #include <QtTest/QtTest>
 
@@ -173,4 +174,36 @@ void LocationBarTest::loadActionSpecialSchemesTest()
     action = LocationBar::loadAction("about:blank");
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
     QCOMPARE(action.loadRequest.url(), QUrl("about:blank"));
+}
+
+void LocationBarTest::loadAction_issue2578()
+{
+    // typed text is not correctly transformed to QUrl when searchFromAddressBar is disabled
+
+    qzSettings->searchFromAddressBar = false;
+
+    LocationBar::LoadAction action;
+
+    action = LocationBar::loadAction("github.com");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://github.com"));
+
+    action = LocationBar::loadAction("github");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://github"));
+
+    action = LocationBar::loadAction("github/test/path");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://github/test/path"));
+
+    action = LocationBar::loadAction("localhost");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://localhost"));
+
+    action = LocationBar::loadAction("localhost/test/path");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("http://localhost/test/path"));
+
+    action = LocationBar::loadAction("github.com foo bar");
+    QCOMPARE(action.type, LocationBar::LoadAction::Invalid);
 }
