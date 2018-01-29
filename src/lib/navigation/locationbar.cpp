@@ -183,7 +183,8 @@ void LocationBar::showDomainCompletion(const QString &completion)
 QString LocationBar::convertUrlToText(const QUrl &url)
 {
     // It was most probably entered by user, so don't urlencode it
-    if (url.scheme().isEmpty()) {
+    // Also don't urlencode JavaScript code
+    if (url.scheme().isEmpty() || url.scheme() == QL1S("javascript")) {
         return QUrl::fromPercentEncoding(url.toEncoded());
     }
 
@@ -267,14 +268,16 @@ LocationBar::LoadAction LocationBar::loadAction(const QString &text)
     // Otherwise load as url
     const QUrl &guessedUrl = QUrl::fromUserInput(t);
     if (guessedUrl.isValid()) {
+        // Always allow javascript: to be loaded
+        const bool forceLoad = guessedUrl.scheme() == QL1S("javascript");
         // Only allow spaces in query
-        if (!QzTools::containsSpace(guessedUrl.toString(QUrl::RemoveQuery))) {
+        if (forceLoad || !QzTools::containsSpace(guessedUrl.toString(QUrl::RemoveQuery))) {
             // Only allow whitelisted schemes
-            const QSet<QString> whitelistedSchemes = {
+            static const QSet<QString> whitelistedSchemes = {
                 QSL("http"), QSL("https"), QSL("ftp"), QSL("file"),
                 QSL("data"), QSL("about"), QSL("qupzilla")
             };
-            if (whitelistedSchemes.contains(guessedUrl.scheme())) {
+            if (forceLoad || whitelistedSchemes.contains(guessedUrl.scheme())) {
                 action.type = LoadAction::Url;
                 action.loadRequest = guessedUrl;
                 return action;

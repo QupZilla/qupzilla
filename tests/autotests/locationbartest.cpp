@@ -174,6 +174,14 @@ void LocationBarTest::loadActionSpecialSchemesTest()
     action = LocationBar::loadAction("about:blank");
     QCOMPARE(action.type, LocationBar::LoadAction::Url);
     QCOMPARE(action.loadRequest.url(), QUrl("about:blank"));
+
+    action = LocationBar::loadAction("javascript:test");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("javascript:test"));
+
+    action = LocationBar::loadAction("javascript:alert(' test ');");
+    QCOMPARE(action.type, LocationBar::LoadAction::Url);
+    QCOMPARE(action.loadRequest.url(), QUrl("javascript:alert('%20test%20');"));
 }
 
 void LocationBarTest::loadAction_issue2578()
