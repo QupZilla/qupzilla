@@ -22,12 +22,15 @@
 #include "delayedfilewatcher.h"
 #include "mainapplication.h"
 #include "webpage.h"
+#include "networkmanager.h"
 
 #include <QFile>
 #include <QTextStream>
 #include <QStringList>
 #include <QWebEngineScript>
 #include <QCryptographicHash>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
@@ -74,6 +77,11 @@ QString GM_Script::description() const
 QString GM_Script::version() const
 {
     return m_version;
+}
+
+QIcon GM_Script::icon() const
+{
+    return m_icon;
 }
 
 QUrl GM_Script::iconUrl() const
@@ -183,6 +191,7 @@ void GM_Script::parseScript()
     m_include.clear();
     m_exclude.clear();
     m_require.clear();
+    m_icon = QIcon();
     m_iconUrl.clear();
     m_downloadUrl.clear();
     m_updateUrl.clear();
@@ -295,6 +304,7 @@ void GM_Script::parseScript()
     m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(m_require), fileData);
     m_valid = true;
 
+    downloadIcon();
     downloadRequires();
 }
 
@@ -306,6 +316,19 @@ void GM_Script::reloadScript()
     m_manager->addScript(this);
 
     emit scriptChanged();
+}
+
+void GM_Script::downloadIcon()
+{
+    if (m_iconUrl.isValid()) {
+        QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(m_iconUrl));
+        connect(reply, &QNetworkReply::finished, this, [=]() {
+            reply->deleteLater();
+            if (reply->error() == QNetworkReply::NoError) {
+                m_icon = QPixmap::fromImage(QImage::fromData(reply->readAll()));
+            }
+        });
+    }
 }
 
 void GM_Script::downloadRequires()

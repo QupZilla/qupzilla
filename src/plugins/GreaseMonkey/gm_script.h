@@ -19,7 +19,7 @@
 #define GM_SCRIPT_H
 
 #include <QObject>
-#include <QVector>
+#include <QIcon>
 #include <QUrl>
 
 class QWebEngineScript;
@@ -44,7 +44,9 @@ public:
     QString description() const;
     QString version() const;
 
+    QIcon icon() const;
     QUrl iconUrl() const;
+
     QUrl downloadUrl() const;
     QUrl updateUrl() const;
 
@@ -76,6 +78,7 @@ private slots:
 private:
     void parseScript();
     void reloadScript();
+    void downloadIcon();
     void downloadRequires();
 
     GM_Manager* m_manager;
@@ -90,6 +93,7 @@ private:
     QStringList m_exclude;
     QStringList m_require;
 
+    QIcon m_icon;
     QUrl m_iconUrl;
     QUrl m_downloadUrl;
     QUrl m_updateUrl;
