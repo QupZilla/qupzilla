@@ -64,7 +64,25 @@ void GM_Manager::showSettings(QWidget* parent)
 
 void GM_Manager::downloadScript(const QUrl &url)
 {
-    QMetaObject::invokeMethod(this, "doDownloadScript", Qt::QueuedConnection, Q_ARG(QUrl, url));
+    GM_Downloader *downloader = new GM_Downloader(url, this);
+    connect(downloader, &GM_Downloader::finished, this, [=](const QString &fileName) {
+        bool deleteScript = true;
+        GM_Script *script = new GM_Script(this, fileName);
+        if (script->isValid()) {
+            if (!containsScript(script->fullName())) {
+                GM_AddScriptDialog dialog(this, script);
+                deleteScript = dialog.exec() != QDialog::Accepted;
+            }
+            else {
+                showNotification(tr("'%1' is already installed").arg(script->name()));
+            }
+        }
+
+        if (deleteScript) {
+            delete script;
+            QFile(fileName).remove();
+        }
+    });
 }
 
 QString GM_Manager::settinsPath() const
@@ -262,29 +280,6 @@ void GM_Manager::scriptChanged()
     QWebEngineScriptCollection *collection = mApp->webProfile()->scripts();
     collection->remove(collection->findScript(script->fullName()));
     collection->insert(script->webScript());
-}
-
-void GM_Manager::doDownloadScript(const QUrl &url)
-{
-    GM_Downloader *downloader = new GM_Downloader(url, this);
-    connect(downloader, &GM_Downloader::finished, this, [=](const QString &fileName) {
-        bool deleteScript = true;
-        GM_Script *script = new GM_Script(this, fileName);
-        if (script->isValid()) {
-            if (!containsScript(script->fullName())) {
-                GM_AddScriptDialog dialog(this, script);
-                deleteScript = dialog.exec() != QDialog::Accepted;
-            }
-            else {
-                showNotification(tr("'%1' is already installed").arg(script->name()));
-            }
-        }
-
-        if (deleteScript) {
-            delete script;
-            QFile(fileName).remove();
-        }
-    });
 }
 
 bool GM_Manager::canRunOnScheme(const QString &scheme)

@@ -73,7 +73,6 @@ public slots:
 private slots:
     void load();
     void scriptChanged();
-    void doDownloadScript(const QUrl &url);
 
 private:
     QString m_settingsPath;
