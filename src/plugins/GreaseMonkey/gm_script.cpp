@@ -76,6 +76,11 @@ QString GM_Script::version() const
     return m_version;
 }
 
+QUrl GM_Script::iconUrl() const
+{
+    return m_iconUrl;
+}
+
 QUrl GM_Script::downloadUrl() const
 {
     return m_downloadUrl;
@@ -178,6 +183,7 @@ void GM_Script::parseScript()
     m_include.clear();
     m_exclude.clear();
     m_require.clear();
+    m_iconUrl.clear();
     m_downloadUrl.clear();
     m_updateUrl.clear();
     m_startAt = DocumentEnd;
@@ -269,12 +275,17 @@ void GM_Script::parseScript()
                 m_startAt = DocumentIdle;
             }
         }
+        else if (key == QL1S("@icon")) {
+            m_iconUrl = QUrl(value);
+        }
     }
 
     if (!inMetadata) {
         qWarning() << "GreaseMonkey: File does not contain metadata block" << m_fileName;
         return;
     }
+
+    m_iconUrl = m_downloadUrl.resolved(m_iconUrl);
 
     if (m_include.isEmpty()) {
         m_include.append(QSL("*"));

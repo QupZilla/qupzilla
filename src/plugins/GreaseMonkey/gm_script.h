@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@ public:
     QString description() const;
     QString version() const;
 
+    QUrl iconUrl() const;
     QUrl downloadUrl() const;
     QUrl updateUrl() const;
 
@@ -89,6 +90,7 @@ private:
     QStringList m_exclude;
     QStringList m_require;
 
+    QUrl m_iconUrl;
     QUrl m_downloadUrl;
     QUrl m_updateUrl;
     StartAt m_startAt;
