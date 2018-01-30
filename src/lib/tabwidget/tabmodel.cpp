@@ -21,6 +21,8 @@
 #include "tabbedwebview.h"
 #include "browserwindow.h"
 
+#include <QMimeData>
+
 TabModel::TabModel(BrowserWindow *window, QObject *parent)
     : QAbstractListModel(parent)
     , m_window(window)
@@ -39,6 +41,14 @@ int TabModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
     return m_window ? m_window->tabCount() : 0;
+}
+
+Qt::ItemFlags TabModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return Qt::ItemIsDropEnabled;
+    }
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDragEnabled;
 }
 
 QVariant TabModel::data(const QModelIndex &index, int role) const
@@ -79,6 +89,71 @@ QVariant TabModel::data(const QModelIndex &index, int role) const
     default:
         return QVariant();
     }
+}
+
+Qt::DropActions TabModel::supportedDropActions() const
+{
+    return Qt::MoveAction;
+}
+
+#define MIMETYPE QStringLiteral("application/qupzilla.tabmodel.tab")
+
+QStringList TabModel::mimeTypes() const
+{
+    return {MIMETYPE};
+}
+
+QMimeData *TabModel::mimeData(const QModelIndexList &indexes) const
+{
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+
+    for (const QModelIndex &index : indexes) {
+        if (index.isValid() && index.column() == 0) {
+            stream << index.row();
+        }
+    }
+
+    QMimeData *mimeData = new QMimeData();
+    mimeData->setData(MIMETYPE, data);
+    return mimeData;
+}
+
+bool TabModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
+{
+    if (action == Qt::IgnoreAction) {
+        return true;
+    }
+
+    if (!m_window || !data->hasFormat(MIMETYPE) || parent.isValid() || column != 0) {
+        return false;
+    }
+
+    QByteArray encodedData = data->data(MIMETYPE);
+    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+
+    QVector<WebTab*> tabs;
+    while (!stream.atEnd()) {
+        int index;
+        stream >> index;
+        WebTab *tab = webTab(index);
+        if (tab) {
+            tabs.append(tab);
+        }
+    }
+
+    if (tabs.isEmpty()) {
+        return false;
+    }
+
+    for (int i = 0; i < tabs.count(); ++i) {
+        const int from = tabs.at(i)->tabIndex();
+        const int to = row >= from ? row - 1 : row++;
+        // FIXME: This switches order when moving > 2 non-contiguous indices
+        m_window->tabWidget()->moveTab(from, to);
+    }
+
+    return true;
 }
 
 void TabModel::init()
