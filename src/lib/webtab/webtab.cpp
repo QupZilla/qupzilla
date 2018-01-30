@@ -177,19 +177,6 @@ WebTab::WebTab(BrowserWindow* window)
     });
 }
 
-WebTab::~WebTab()
-{
-    if (m_parentTab) {
-        m_parentTab->m_childTabs.removeOne(this);
-        emit m_parentTab->childTabRemoved(this);
-    }
-
-    const auto childTabs = m_childTabs; // modified in loop
-    for (WebTab *child : childTabs) {
-        child->setParentTab(nullptr);
-    }
-}
-
 TabbedWebView* WebTab::webView() const
 {
     return m_webView;
@@ -293,7 +280,15 @@ void WebTab::detach()
     Q_ASSERT(m_tabBar);
 
     // Remove parent tab
-    setParentTab(nullptr);
+    if (m_parentTab) {
+        m_parentTab->m_childTabs.removeOne(this);
+        emit m_parentTab->childTabRemoved(this);
+    }
+    // Remove from child tabs
+    const auto childTabs = m_childTabs;
+    for (WebTab *child : childTabs) {
+        child->setParentTab(nullptr);
+    }
 
     // Remove icon from tab
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), nullptr);

@@ -59,7 +59,6 @@ public:
     };
 
     explicit WebTab(BrowserWindow* window);
-    ~WebTab();
 
     TabbedWebView* webView() const;
     LocationBar* locationBar() const;
