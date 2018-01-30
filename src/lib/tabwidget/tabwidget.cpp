@@ -438,7 +438,7 @@ void TabWidget::closeTab(int index)
     m_lastBackgroundTabIndex = -1;
 
     removeTab(index);
-    webTab->deleteLater();
+    delete webTab;
 
     updateClosedTabsButton();
 
