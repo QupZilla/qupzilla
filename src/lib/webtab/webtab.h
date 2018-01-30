@@ -46,6 +46,7 @@ public:
         QByteArray history;
         bool isPinned;
         int zoomLevel;
+        int parentTab;
 
         SavedTab();
         SavedTab(WebTab* webTab);
