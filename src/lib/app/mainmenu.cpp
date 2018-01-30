@@ -79,7 +79,7 @@ void MainMenu::initSuperMenu(QMenu* superMenu) const
     superMenu->addAction(m_actions[QSL("File/NewWindow")]);
     superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
-    if (!mApp->isPrivate()) {
+    if (mApp->sessionManager()) {
         superMenu->addSeparator();
         QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
         connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
@@ -493,7 +493,7 @@ void MainMenu::init()
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
 
-    if (!mApp->isPrivate()) {
+    if (mApp->sessionManager()) {
         QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
         connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
         m_menuFile->addMenu(sessionsSubmenu);
