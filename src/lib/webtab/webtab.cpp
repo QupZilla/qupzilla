@@ -184,7 +184,8 @@ WebTab::~WebTab()
         emit m_parentTab->childTabRemoved(this);
     }
 
-    for (WebTab *child : qAsConst(m_childTabs)) {
+    const auto childTabs = m_childTabs; // modified in loop
+    for (WebTab *child : childTabs) {
         child->setParentTab(nullptr);
     }
 }
