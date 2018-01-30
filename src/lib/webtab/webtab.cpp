@@ -284,6 +284,9 @@ void WebTab::detach()
     Q_ASSERT(m_window);
     Q_ASSERT(m_tabBar);
 
+    // Remove parent tab
+    setParentTab(nullptr);
+
     // Remove icon from tab
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), nullptr);
     m_tabIcon->setParent(this);

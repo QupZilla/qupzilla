@@ -165,8 +165,10 @@ void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags
 {
     if (m_window) {
         int index = m_window->tabWidget()->addView(QUrl(), position);
-        m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
-        m_window->weView(index)->load(req);
+        TabbedWebView *view = m_window->weView(index);
+        view->webTab()->setParentTab(webTab());
+        view->webTab()->locationBar()->showUrl(req.url());
+        view->load(req);
     }
 }
 
