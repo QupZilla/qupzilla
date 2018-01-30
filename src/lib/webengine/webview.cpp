@@ -121,8 +121,14 @@ QString WebView::title(bool allowEmpty) const
         return title;
     }
 
+    const QUrl u = url().isEmpty() ? m_page->requestedUrl() : url();
+
     if (title.isEmpty()) {
-        title = url().toString(QUrl::RemoveFragment);
+        title = u.host();
+    }
+
+    if (title.isEmpty()) {
+        title = u.toString(QUrl::RemoveFragment);
     }
 
     if (title.isEmpty() || title == QL1S("about:blank")) {
