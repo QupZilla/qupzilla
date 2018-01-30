@@ -57,6 +57,7 @@ HEADERS += \
     locationbartest.h \
     passwordbackendtest.h \
     webviewtest.h \
+    tabmodeltest.h \
 
 SOURCES += \
     qztoolstest.cpp \
@@ -67,5 +68,8 @@ SOURCES += \
     locationbartest.cpp \
     passwordbackendtest.cpp \
     webviewtest.cpp \
+    tabmodeltest.cpp \
 
 RESOURCES += autotests.qrc
+
+include(../modeltest/modeltest.pri)

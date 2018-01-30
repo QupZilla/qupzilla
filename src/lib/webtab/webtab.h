@@ -109,9 +109,15 @@ private slots:
     void showNotification(QWidget* notif);
     void loadStarted();
     void loadFinished();
+
+signals:
     void titleChanged(const QString &title);
+    void iconChanged(const QIcon &icon);
+    void pinnedChanged(bool pinned);
+    void restoredChanged(bool restored);
 
 private:
+    void titleWasChanged(const QString &title);
     void resizeEvent(QResizeEvent *event) override;
 
     BrowserWindow* m_window;

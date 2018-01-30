@@ -24,6 +24,7 @@
 #include "locationbartest.h"
 #include "passwordbackendtest.h"
 #include "webviewtest.h"
+#include "tabmodeltest.h"
 
 #include <QtTest/QtTest>
 
@@ -48,6 +49,7 @@ int main(int argc, char *argv[])
     RUN_TEST(DatabasePasswordBackendTest)
     RUN_TEST(DatabaseEncryptedPasswordBackendTest)
     RUN_TEST(WebViewTest)
+    RUN_TEST(TabModelTest)
 
     return 0;
 }

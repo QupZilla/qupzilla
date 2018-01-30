@@ -128,6 +128,9 @@ public slots:
 
 signals:
     void changed();
+    void tabInserted(int index);
+    void tabRemoved(int index);
+    void tabMoved(int from, int to);
 
 private slots:
     void loadSettings();
@@ -136,7 +139,7 @@ private slots:
     void aboutToShowClosedTabsMenu();
 
     void actionChangeIndex();
-    void tabMoved(int before, int after);
+    void tabWasMoved(int before, int after);
 
 private:
     WebTab* weTab();

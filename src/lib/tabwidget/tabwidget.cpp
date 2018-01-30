@@ -99,7 +99,7 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(this, &TabStackedWidget::pinStateChanged, this, &TabWidget::changed);
 
     connect(m_tabBar, SIGNAL(tabCloseRequested(int)), this, SLOT(requestCloseTab(int)));
-    connect(m_tabBar, SIGNAL(tabMoved(int,int)), this, SLOT(tabMoved(int,int)));
+    connect(m_tabBar, &TabBar::tabMoved, this, &TabWidget::tabWasMoved);
 
     connect(m_tabBar, SIGNAL(moveAddTabButton(int)), this, SLOT(moveAddTabButton(int)));
 
@@ -369,6 +369,8 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     }
 
     emit changed();
+    emit tabInserted(index);
+
     return index;
 }
 
@@ -399,6 +401,8 @@ int TabWidget::insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags 
     }
 
     emit changed();
+    emit tabInserted(newIndex);
+
     return newIndex;
 }
 
@@ -443,6 +447,7 @@ void TabWidget::closeTab(int index)
     updateClosedTabsButton();
 
     emit changed();
+    emit tabRemoved(index);
 }
 
 void TabWidget::requestCloseTab(int index)
@@ -499,7 +504,7 @@ void TabWidget::currentTabChanged(int index)
     emit changed();
 }
 
-void TabWidget::tabMoved(int before, int after)
+void TabWidget::tabWasMoved(int before, int after)
 {
     Q_UNUSED(before)
     Q_UNUSED(after)
@@ -508,6 +513,7 @@ void TabWidget::tabMoved(int before, int after)
     m_lastTabIndex = before;
 
     emit changed();
+    emit tabMoved(before, after);
 }
 
 void TabWidget::setCurrentIndex(int index)

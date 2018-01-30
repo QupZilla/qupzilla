@@ -158,7 +158,9 @@ WebTab::WebTab(BrowserWindow* window)
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
     connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
-    connect(m_webView, SIGNAL(titleChanged(QString)), this, SLOT(titleChanged(QString)));
+    connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleWasChanged);
+    connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleChanged);
+    connect(m_webView, &TabbedWebView::iconChanged, this, &WebTab::iconChanged);
 
     // Workaround QTabBar not immediately noticing resizing of tab buttons
     connect(m_tabIcon, &TabIcon::resized, this, [this]() {
@@ -324,6 +326,7 @@ void WebTab::reload()
 void WebTab::unload()
 {
     m_savedTab = SavedTab(this);
+    emit restoredChanged(isRestored());
     m_webView->setPage(new WebPage);
     m_webView->setFocus();
 }
@@ -340,7 +343,12 @@ bool WebTab::isPinned() const
 
 void WebTab::setPinned(bool state)
 {
+    if (m_isPinned == state) {
+        return;
+    }
+
     m_isPinned = state;
+    emit pinnedChanged(m_isPinned);
 }
 
 bool WebTab::isMuted() const
@@ -378,10 +386,11 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
 {
     Q_ASSERT(m_tabBar);
 
-    m_isPinned = tab.isPinned;
+    setPinned(tab.isPinned);
 
-    if (!m_isPinned && qzSettings->loadTabsOnActivation) {
+    if (!isPinned() && qzSettings->loadTabsOnActivation) {
         m_savedTab = tab;
+        emit restoredChanged(isRestored());
         int index = tabIndex();
 
         m_tabBar->setTabText(index, tab.title);
@@ -440,10 +449,10 @@ void WebTab::loadStarted()
 
 void WebTab::loadFinished()
 {
-    titleChanged(m_webView->title());
+    titleWasChanged(m_webView->title());
 }
 
-void WebTab::titleChanged(const QString &title)
+void WebTab::titleWasChanged(const QString &title)
 {
     if (!m_tabBar || !m_window || title.isEmpty()) {
         return;
@@ -468,6 +477,7 @@ void WebTab::tabActivated()
         }
         p_restoreTab(m_savedTab);
         m_savedTab.clear();
+        emit restoredChanged(isRestored());
     });
 }
 
@@ -495,7 +505,6 @@ void WebTab::togglePinned()
     Q_ASSERT(m_tabBar);
     Q_ASSERT(m_window);
 
-    m_isPinned = !m_isPinned;
-
+    setPinned(!isPinned());
     m_window->tabWidget()->pinUnPinTab(tabIndex(), title());
 }
