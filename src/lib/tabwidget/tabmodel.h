@@ -35,6 +35,8 @@ public:
         IconRole = Qt::UserRole + 3,
         PinnedRole = Qt::UserRole + 4,
         RestoredRole = Qt::UserRole + 5,
+        ParentTabRole = Qt::UserRole + 6,
+        ChildTabsRole = Qt::UserRole + 7
     };
 
     explicit TabModel(BrowserWindow *window, QObject *parent = nullptr);

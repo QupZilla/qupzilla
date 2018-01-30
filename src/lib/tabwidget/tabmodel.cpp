@@ -38,12 +38,12 @@ int TabModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0;
     }
-    return m_window->tabCount();
+    return m_window ? m_window->tabCount() : 0;
 }
 
 QVariant TabModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() > m_window->tabCount()) {
+    if (!m_window || index.row() < 0 || index.row() > m_window->tabCount()) {
         return QVariant();
     }
 
@@ -70,6 +70,12 @@ QVariant TabModel::data(const QModelIndex &index, int role) const
     case RestoredRole:
         return tab->isRestored();
 
+    case ParentTabRole:
+        return QVariant::fromValue(tab->parentTab());
+
+    case ChildTabsRole:
+        return QVariant::fromValue(tab->childTabs());
+
     default:
         return QVariant();
     }
@@ -84,6 +90,15 @@ void TabModel::init()
     connect(m_window->tabWidget(), &TabWidget::tabInserted, this, &TabModel::tabInserted);
     connect(m_window->tabWidget(), &TabWidget::tabRemoved, this, &TabModel::tabRemoved);
     connect(m_window->tabWidget(), &TabWidget::tabMoved, this, &TabModel::tabMoved);
+
+    connect(m_window, &QObject::destroyed, this, [this]() {
+        beginResetModel();
+        m_window = nullptr;
+        for (WebTab *tab : qAsConst(m_tabs)) {
+            tab->disconnect(this);
+        }
+        endResetModel();
+    });
 }
 
 void TabModel::tabInserted(int index)
@@ -95,7 +110,7 @@ void TabModel::tabInserted(int index)
     endInsertRows();
 
     auto emitDataChanged = [this](WebTab *tab, int role) {
-        const QModelIndex idx = TabModel::index(tab->tabIndex(), 0);
+        const QModelIndex idx = TabModel::index(m_tabs.indexOf(tab), 0);
         emit dataChanged(idx, idx, {role});
     };
 
@@ -105,6 +120,9 @@ void TabModel::tabInserted(int index)
     connect(tab, &WebTab::iconChanged, this, std::bind(emitDataChanged, tab, IconRole));
     connect(tab, &WebTab::pinnedChanged, this, std::bind(emitDataChanged, tab, PinnedRole));
     connect(tab, &WebTab::restoredChanged, this, std::bind(emitDataChanged, tab, RestoredRole));
+    connect(tab, &WebTab::parentTabChanged, this, std::bind(emitDataChanged, tab, ParentTabRole));
+    connect(tab, &WebTab::childTabAdded, this, std::bind(emitDataChanged, tab, ChildTabsRole));
+    connect(tab, &WebTab::childTabRemoved, this, std::bind(emitDataChanged, tab, ChildTabsRole));
 }
 
 void TabModel::tabRemoved(int index)

@@ -170,6 +170,18 @@ WebTab::WebTab(BrowserWindow* window)
     });
 }
 
+WebTab::~WebTab()
+{
+    if (m_parentTab) {
+        m_parentTab->m_childTabs.removeOne(this);
+        emit m_parentTab->childTabRemoved(this);
+    }
+
+    for (WebTab *child : qAsConst(m_childTabs)) {
+        child->setParentTab(nullptr);
+    }
+}
+
 TabbedWebView* WebTab::webView() const
 {
     return m_webView;
@@ -375,6 +387,37 @@ LocationBar* WebTab::locationBar() const
 TabIcon* WebTab::tabIcon() const
 {
     return m_tabIcon;
+}
+
+WebTab *WebTab::parentTab() const
+{
+    return m_parentTab;
+}
+
+void WebTab::setParentTab(WebTab *tab)
+{
+    if (m_parentTab == tab) {
+        return;
+    }
+
+    if (m_parentTab) {
+        m_parentTab->m_childTabs.removeOne(this);
+        emit m_parentTab->childTabRemoved(this);
+    }
+
+    m_parentTab = tab;
+
+    if (m_parentTab) {
+        m_parentTab->m_childTabs.append(this);
+        emit m_parentTab->childTabAdded(this);
+    }
+
+    emit parentTabChanged(m_parentTab);
+}
+
+QVector<WebTab*> WebTab::childTabs() const
+{
+    return m_childTabs;
 }
 
 bool WebTab::isRestored() const

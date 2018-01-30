@@ -113,5 +113,24 @@ void TabModelTest::dataTest()
     QCOMPARE(model.index(0, 0).data(TabModel::PinnedRole).toBool(), tab0->isPinned());
     QCOMPARE(model.index(0, 0).data(TabModel::RestoredRole).toBool(), tab0->isRestored());
 
+    w->tabWidget()->addView(QUrl("http://test.com"));
+
+    WebTab *tab1 = w->weView(1)->webTab();
+
+    QSignalSpy dataChangedSpy(&model, &TabModel::dataChanged);
+
+    tab1->setParentTab(tab0);
+
+    QCOMPARE(dataChangedSpy.count(), 2);
+    QCOMPARE(dataChangedSpy.at(0).at(0).value<QModelIndex>(), model.index(0, 0));
+    QCOMPARE(dataChangedSpy.at(0).at(1).value<QModelIndex>(), model.index(0, 0));
+    QCOMPARE(dataChangedSpy.at(0).at(2).value<QVector<int>>(), QVector<int>{TabModel::ChildTabsRole});
+    QCOMPARE(model.index(0, 0).data(TabModel::ChildTabsRole).value<QVector<WebTab*>>(), QVector<WebTab*>{tab1});
+
+    QCOMPARE(dataChangedSpy.at(1).at(0).value<QModelIndex>(), model.index(1, 0));
+    QCOMPARE(dataChangedSpy.at(1).at(1).value<QModelIndex>(), model.index(1, 0));
+    QCOMPARE(dataChangedSpy.at(1).at(2).value<QVector<int>>(), QVector<int>{TabModel::ParentTabRole});
+    QCOMPARE(model.index(1, 0).data(TabModel::ParentTabRole).value<WebTab*>(), tab0);
+
     delete w;
 }

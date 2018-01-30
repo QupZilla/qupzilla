@@ -58,10 +58,16 @@ public:
     };
 
     explicit WebTab(BrowserWindow* window);
+    ~WebTab();
 
     TabbedWebView* webView() const;
     LocationBar* locationBar() const;
     TabIcon* tabIcon() const;
+
+    WebTab *parentTab() const;
+    void setParentTab(WebTab *tab);
+
+    QVector<WebTab*> childTabs() const;
 
     QUrl url() const;
     QString title(bool allowEmpty = false) const;
@@ -115,6 +121,9 @@ signals:
     void iconChanged(const QIcon &icon);
     void pinnedChanged(bool pinned);
     void restoredChanged(bool restored);
+    void parentTabChanged(WebTab *tab);
+    void childTabAdded(WebTab *tab);
+    void childTabRemoved(WebTab *tab);
 
 private:
     void titleWasChanged(const QString &title);
@@ -130,6 +139,9 @@ private:
     TabIcon* m_tabIcon;
     TabBar* m_tabBar;
     QWidget *m_notificationWidget;
+
+    WebTab *m_parentTab = nullptr;
+    QVector<WebTab*> m_childTabs;
 
     SavedTab m_savedTab;
     bool m_isPinned;
