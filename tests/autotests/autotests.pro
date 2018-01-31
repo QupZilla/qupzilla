@@ -58,6 +58,7 @@ HEADERS += \
     passwordbackendtest.h \
     webviewtest.h \
     tabmodeltest.h \
+    webtabtest.h \
 
 SOURCES += \
     qztoolstest.cpp \
@@ -69,6 +70,7 @@ SOURCES += \
     passwordbackendtest.cpp \
     webviewtest.cpp \
     tabmodeltest.cpp \
+    webtabtest.cpp \
 
 RESOURCES += autotests.qrc
 

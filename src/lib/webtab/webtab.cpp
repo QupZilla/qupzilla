@@ -279,15 +279,17 @@ void WebTab::detach()
     Q_ASSERT(m_window);
     Q_ASSERT(m_tabBar);
 
-    // Remove parent tab
-    if (m_parentTab) {
-        m_parentTab->m_childTabs.removeOne(this);
-        emit m_parentTab->childTabRemoved(this);
-    }
-    // Remove from child tabs
-    const auto childTabs = m_childTabs;
-    for (WebTab *child : childTabs) {
+    // Remove parent tab and reparent children
+    WebTab *parentTab = m_parentTab;
+    const int parentIndex = parentTab ? parentTab->m_childTabs.indexOf(this) : -1;
+    setParentTab(nullptr);
+    int i = 0;
+    while (!m_childTabs.isEmpty()) {
+        WebTab *child = m_childTabs.at(0);
         child->setParentTab(nullptr);
+        if (parentTab) {
+            parentTab->addChildTab(child, parentIndex + i++);
+        }
     }
 
     // Remove icon from tab
@@ -407,18 +409,40 @@ void WebTab::setParentTab(WebTab *tab)
     }
 
     if (m_parentTab) {
-        m_parentTab->m_childTabs.removeOne(this);
-        emit m_parentTab->childTabRemoved(this);
+        const int index = m_parentTab->m_childTabs.indexOf(this);
+        if (index >= 0) {
+            m_parentTab->m_childTabs.removeAt(index);
+            emit m_parentTab->childTabRemoved(this, index);
+        }
     }
 
     m_parentTab = tab;
 
     if (m_parentTab) {
         m_parentTab->m_childTabs.append(this);
-        emit m_parentTab->childTabAdded(this);
+        emit m_parentTab->childTabAdded(this, m_parentTab->m_childTabs.size() - 1);
     }
 
     emit parentTabChanged(m_parentTab);
+}
+
+void WebTab::addChildTab(WebTab *tab, int index)
+{
+    if (tab->parentTab()) {
+        tab->setParentTab(nullptr);
+    }
+
+    tab->m_parentTab = this;
+
+    if (index < 0 || index > m_childTabs.size()) {
+        m_childTabs.append(tab);
+        emit childTabAdded(tab, m_childTabs.size() - 1);
+    } else {
+        m_childTabs.insert(index, tab);
+        emit childTabAdded(tab, index);
+    }
+
+    emit tab->parentTabChanged(this);
 }
 
 QVector<WebTab*> WebTab::childTabs() const

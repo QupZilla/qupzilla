@@ -66,6 +66,7 @@ public:
 
     WebTab *parentTab() const;
     void setParentTab(WebTab *tab);
+    void addChildTab(WebTab *tab, int index = -1);
 
     QVector<WebTab*> childTabs() const;
 
@@ -122,8 +123,8 @@ signals:
     void pinnedChanged(bool pinned);
     void restoredChanged(bool restored);
     void parentTabChanged(WebTab *tab);
-    void childTabAdded(WebTab *tab);
-    void childTabRemoved(WebTab *tab);
+    void childTabAdded(WebTab *tab, int index);
+    void childTabRemoved(WebTab *tab, int index);
 
 private:
     void titleWasChanged(const QString &title);
