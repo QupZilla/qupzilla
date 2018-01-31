@@ -651,7 +651,12 @@ void TabWidget::detachTab(WebTab* tab)
     disconnect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(tab->webView(), SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
+    const int index = tab->tabIndex();
+
     tab->detach();
+    tab->setPinned(false);
+
+    emit tabRemoved(index);
 
     if (count() == 0) {
         m_window->close();
@@ -668,7 +673,6 @@ void TabWidget::detachTab(int index)
     }
 
     detachTab(tab);
-    tab->setPinned(false);
 
     BrowserWindow* window = mApp->createWindow(Qz::BW_NewWindow);
     window->setStartTab(tab);
