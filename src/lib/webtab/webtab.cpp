@@ -446,9 +446,8 @@ void WebTab::addChildTab(WebTab *tab, int index)
         return;
     }
 
-    tab->m_parentTab = this;
-
     WebTab *tabParent = tab->m_parentTab;
+    tab->m_parentTab = this;
     if (tabParent) {
         const int index = tabParent->m_childTabs.indexOf(tab);
         if (index >= 0) {

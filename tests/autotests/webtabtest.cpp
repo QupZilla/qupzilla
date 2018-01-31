@@ -72,5 +72,9 @@ void WebTabTest::parentChildTabsTest()
     QCOMPARE(tab3.childTabs(), QVector<WebTab*>{&tab4});
     QCOMPARE(tab4.parentTab(), &tab3);
 
+    tab3.addChildTab(&tab2);
+    QCOMPARE(tab3.childTabs(), (QVector<WebTab*>{&tab4, &tab2}));
+    QCOMPARE(tab1.childTabs(), (QVector<WebTab*>{&tab3, &tab5, &tab6}));
+
     QTest::qWait(1);
 }
