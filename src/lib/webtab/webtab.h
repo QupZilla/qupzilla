@@ -58,7 +58,7 @@ public:
         friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
     };
 
-    explicit WebTab(BrowserWindow* window);
+    explicit WebTab(QWidget *parent = nullptr);
 
     TabbedWebView* webView() const;
     LocationBar* locationBar() const;
@@ -130,7 +130,6 @@ private:
     void titleWasChanged(const QString &title);
     void resizeEvent(QResizeEvent *event) override;
 
-    BrowserWindow* m_window;
     QVBoxLayout* m_layout;
     QSplitter* m_splitter;
 
@@ -138,14 +137,15 @@ private:
     WebInspector* m_inspector;
     LocationBar* m_locationBar;
     TabIcon* m_tabIcon;
-    TabBar* m_tabBar;
     QWidget *m_notificationWidget;
+    BrowserWindow* m_window = nullptr;
+    TabBar* m_tabBar = nullptr;
 
     WebTab *m_parentTab = nullptr;
     QVector<WebTab*> m_childTabs;
 
     SavedTab m_savedTab;
-    bool m_isPinned;
+    bool m_isPinned = false;
 };
 
 #endif // WEBTAB_H

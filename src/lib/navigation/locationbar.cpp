@@ -42,9 +42,9 @@
 #include <QContextMenuEvent>
 #include <QStyleOptionFrameV3>
 
-LocationBar::LocationBar(BrowserWindow* window)
-    : LineEdit(window)
-    , m_window(window)
+LocationBar::LocationBar(QWidget *parent)
+    : LineEdit(parent)
+    , m_window(nullptr)
     , m_webView(0)
     , m_holdingAlt(false)
     , m_oldTextLength(0)
@@ -60,7 +60,7 @@ LocationBar::LocationBar(BrowserWindow* window)
 
     m_bookmarkIcon = new BookmarksIcon(this);
     m_goIcon = new GoIcon(this);
-    m_siteIcon = new SiteIcon(m_window, this);
+    m_siteIcon = new SiteIcon(this);
     m_autofillIcon = new AutoFillIcon(this);
     DownIcon* down = new DownIcon(this);
 
@@ -71,7 +71,6 @@ LocationBar::LocationBar(BrowserWindow* window)
     addWidget(down, LineEdit::RightSide);
 
     m_completer = new LocationCompleter(this);
-    m_completer->setMainWindow(m_window);
     m_completer->setLocationBar(this);
     connect(m_completer, SIGNAL(showCompletion(QString,bool)), this, SLOT(showCompletion(QString,bool)));
     connect(m_completer, SIGNAL(showDomainCompletion(QString)), this, SLOT(showDomainCompletion(QString)));
@@ -110,6 +109,18 @@ LocationBar::LocationBar(BrowserWindow* window)
     m_autofillIcon->hide();
 
     QTimer::singleShot(0, this, SLOT(updatePlaceHolderText()));
+}
+
+BrowserWindow *LocationBar::browserWindow() const
+{
+    return m_window;
+}
+
+void LocationBar::setBrowserWindow(BrowserWindow *window)
+{
+    m_window = window;
+    m_completer->setMainWindow(m_window);
+    m_siteIcon->setBrowserWindow(m_window);
 }
 
 TabbedWebView* LocationBar::webView() const
@@ -475,7 +486,7 @@ void LocationBar::focusInEvent(QFocusEvent* event)
     clearTextFormat();
     LineEdit::focusInEvent(event);
 
-    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+    if (m_window && Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
         m_window->bookmarksToolbar()->show();
     }
 }
@@ -498,7 +509,7 @@ void LocationBar::focusOutEvent(QFocusEvent* event)
 
     refreshTextFormat();
 
-    if (Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
+    if (m_window && Settings().value("Browser-View-Settings/instantBookmarksToolbar").toBool()) {
         m_window->bookmarksToolbar()->hide();
     }
 }
@@ -577,7 +588,9 @@ void LocationBar::keyPressEvent(QKeyEvent* event)
 
         case Qt::AltModifier:
             m_completer->closePopup();
-            m_window->tabWidget()->addView(loadAction(text()).loadRequest);
+            if (m_window) {
+                m_window->tabWidget()->addView(loadAction(text()).loadRequest);
+            }
             m_holdingAlt = false;
             break;
 

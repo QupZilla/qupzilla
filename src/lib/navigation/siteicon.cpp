@@ -28,9 +28,9 @@
 #include <QApplication>
 #include <QContextMenuEvent>
 
-SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
+SiteIcon::SiteIcon(LocationBar *parent)
     : ToolButton(parent)
-    , m_window(window)
+    , m_window(nullptr)
     , m_locationBar(parent)
     , m_view(0)
 {
@@ -44,6 +44,11 @@ SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     m_updateTimer->setInterval(100);
     m_updateTimer->setSingleShot(true);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateIcon()));
+}
+
+void SiteIcon::setBrowserWindow(BrowserWindow *window)
+{
+    m_window = window;
 }
 
 void SiteIcon::setWebView(WebView* view)

@@ -31,12 +31,12 @@ void WebTabTest::cleanupTestCase()
 
 void WebTabTest::parentChildTabsTest()
 {
-    WebTab tab1(mApp->getWindow());
-    WebTab tab2(mApp->getWindow());
-    WebTab tab3(mApp->getWindow());
-    WebTab tab4(mApp->getWindow());
-    WebTab tab5(mApp->getWindow());
-    WebTab tab6(mApp->getWindow());
+    WebTab tab1;
+    WebTab tab2;
+    WebTab tab3;
+    WebTab tab4;
+    WebTab tab5;
+    WebTab tab6;
 
     tab1.addChildTab(&tab2);
     QCOMPARE(tab1.childTabs(), QVector<WebTab*>{&tab2});

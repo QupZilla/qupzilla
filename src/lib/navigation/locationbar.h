@@ -40,7 +40,7 @@ class QUPZILLA_EXPORT LocationBar : public LineEdit
     Q_OBJECT
 
 public:
-    explicit LocationBar(BrowserWindow* window);
+    explicit LocationBar(QWidget *parent = nullptr);
 
     struct LoadAction {
         enum Type {
@@ -54,6 +54,10 @@ public:
         BookmarkItem *bookmark = nullptr;
         LoadRequest loadRequest;
     };
+
+    // BrowserWindow can be null!
+    BrowserWindow *browserWindow() const;
+    void setBrowserWindow(BrowserWindow *window);
 
     TabbedWebView* webView() const;
     void setWebView(TabbedWebView* view);

@@ -114,20 +114,16 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
     return stream;
 }
 
-WebTab::WebTab(BrowserWindow* window)
-    : QWidget()
-    , m_window(window)
-    , m_tabBar(0)
-    , m_isPinned(false)
+WebTab::WebTab(QWidget *parent)
+    : QWidget(parent)
 {
     setObjectName(QSL("webtab"));
 
     m_webView = new TabbedWebView(this);
-    m_webView->setBrowserWindow(m_window);
     m_webView->setPage(new WebPage);
     m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
 
-    m_locationBar = new LocationBar(m_window);
+    m_locationBar = new LocationBar(this);
     m_locationBar->setWebView(m_webView);
 
     m_tabIcon = new TabIcon(this);
@@ -298,15 +294,15 @@ void WebTab::detach()
 
     // Remove the tab from tabbar
     m_window->tabWidget()->removeTab(tabIndex());
-    setParent(0);
+    setParent(nullptr);
     // Remove the locationbar from window
     m_locationBar->setParent(this);
     // Detach TabbedWebView
-    m_webView->setBrowserWindow(0);
+    m_webView->setBrowserWindow(nullptr);
 
     // WebTab is now standalone widget
-    m_window = 0;
-    m_tabBar = 0;
+    m_window = nullptr;
+    m_tabBar = nullptr;
 }
 
 void WebTab::attach(BrowserWindow* window)
@@ -315,6 +311,7 @@ void WebTab::attach(BrowserWindow* window)
     m_tabBar = m_window->tabWidget()->tabBar();
 
     m_webView->setBrowserWindow(m_window);
+    m_locationBar->setBrowserWindow(m_window);
     m_tabBar->setTabText(tabIndex(), title());
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
     m_tabIcon->updateIcon();
