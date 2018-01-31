@@ -642,6 +642,10 @@ void TabWidget::detachTab(WebTab* tab)
 {
     Q_ASSERT(tab);
 
+    if (count() == 1 && mApp->windowCount() == 1) {
+        return;
+    }
+
     m_locationBars->removeWidget(tab->locationBar());
     disconnect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
     disconnect(tab->webView(), SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
@@ -657,6 +661,12 @@ void TabWidget::detachTab(WebTab* tab)
 void TabWidget::detachTab(int index)
 {
     WebTab* tab = weTab(index);
+    Q_ASSERT(tab);
+
+    if (count() == 1 && mApp->windowCount() == 1) {
+        return;
+    }
+
     detachTab(tab);
     tab->setPinned(false);
 

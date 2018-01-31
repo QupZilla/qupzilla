@@ -511,6 +511,10 @@ void TabBar::mouseMoveEvent(QMouseEvent* event)
         return;
     }
 
+    if (count() == 1 && mApp->windowCount() == 1) {
+        return;
+    }
+
     if (!m_dragStartPosition.isNull()) {
         int offset = 0;
         const int eventY = event->pos().y();
