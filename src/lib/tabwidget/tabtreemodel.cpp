@@ -261,9 +261,10 @@ void TabTreeModel::init()
         connectTab(item->tab);
     }
 
-    connect(sourceModel(), &QAbstractItemModel::dataChanged, this, &TabTreeModel::sourceDataChanged);
-    connect(sourceModel(), &QAbstractItemModel::rowsInserted, this, &TabTreeModel::sourceRowsInserted);
-    connect(sourceModel(), &QAbstractItemModel::rowsAboutToBeRemoved, this, &TabTreeModel::sourceRowsAboutToBeRemoved);
+    connect(sourceModel(), &QAbstractItemModel::dataChanged, this, &TabTreeModel::sourceDataChanged, Qt::UniqueConnection);
+    connect(sourceModel(), &QAbstractItemModel::rowsInserted, this, &TabTreeModel::sourceRowsInserted, Qt::UniqueConnection);
+    connect(sourceModel(), &QAbstractItemModel::rowsAboutToBeRemoved, this, &TabTreeModel::sourceRowsAboutToBeRemoved, Qt::UniqueConnection);
+    connect(sourceModel(), &QAbstractItemModel::modelReset, this, &TabTreeModel::sourceReset, Qt::UniqueConnection);
 }
 
 QModelIndex TabTreeModel::index(TabTreeModelItem *item) const
@@ -309,6 +310,13 @@ void TabTreeModel::sourceRowsAboutToBeRemoved(const QModelIndex &parent, int sta
     for (int i = start; i <= end; ++i) {
         removeIndex(sourceModel()->index(i, 0, parent));
     }
+}
+
+void TabTreeModel::sourceReset()
+{
+    beginResetModel();
+    init();
+    endResetModel();
 }
 
 void TabTreeModel::insertIndex(const QModelIndex &sourceIndex)

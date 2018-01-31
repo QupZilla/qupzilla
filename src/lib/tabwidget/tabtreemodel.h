@@ -57,6 +57,7 @@ private:
     void sourceDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
     void sourceRowsInserted(const QModelIndex &parent, int start, int end);
     void sourceRowsAboutToBeRemoved(const QModelIndex &parent, int start, int end);
+    void sourceReset();
 
     void insertIndex(const QModelIndex &sourceIndex);
     void removeIndex(const QModelIndex &sourceIndex);

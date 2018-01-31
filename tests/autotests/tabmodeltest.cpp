@@ -117,8 +117,6 @@ void TabModelTest::dataTest()
 
     w->tabWidget()->addView(QUrl("http://test.com"));
 
-    WebTab *tab1 = w->weView(1)->webTab();
-
     QTest::qWait(1);
     delete w;
 }
@@ -219,4 +217,21 @@ void TabModelTest::treeModelTest()
 
     QTest::qWait(1);
     delete w;
+}
+
+void TabModelTest::resetTreeModelTest()
+{
+    BrowserWindow *w = mApp->createWindow(Qz::BW_NewWindow);
+
+    TabModel sourceModel(w);
+    TabTreeModel model;
+    model.setSourceModel(&sourceModel);
+    ModelTest modelTest(&model);
+
+    QTRY_COMPARE(model.rowCount(QModelIndex()), 1);
+
+    QTest::qWait(1);
+    delete w;
+
+    QCOMPARE(model.rowCount(QModelIndex()), 0);
 }
