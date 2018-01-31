@@ -30,9 +30,18 @@ TabModel::TabModel(BrowserWindow *window, QObject *parent)
     init();
 }
 
-WebTab *TabModel::webTab(int row) const
+QModelIndex TabModel::tabIndex(WebTab *tab) const
 {
-    return m_tabs.value(row);
+    const int idx = m_tabs.indexOf(tab);
+    if (idx < 0) {
+        return QModelIndex();
+    }
+    return index(idx);
+}
+
+WebTab *TabModel::tab(const QModelIndex &index) const
+{
+    return m_tabs.value(index.row());
 }
 
 int TabModel::rowCount(const QModelIndex &parent) const
@@ -40,7 +49,7 @@ int TabModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0;
     }
-    return m_window ? m_window->tabCount() : 0;
+    return m_tabs.count();
 }
 
 Qt::ItemFlags TabModel::flags(const QModelIndex &index) const
@@ -53,38 +62,32 @@ Qt::ItemFlags TabModel::flags(const QModelIndex &index) const
 
 QVariant TabModel::data(const QModelIndex &index, int role) const
 {
-    if (!m_window || index.row() < 0 || index.row() > m_window->tabCount()) {
+    if (index.row() < 0 || index.row() > m_tabs.count()) {
         return QVariant();
     }
 
-    WebTab *tab = webTab(index.row());
-    if (!tab) {
+    WebTab *t = tab(index);
+    if (!t) {
         return QVariant();
     }
 
     switch (role) {
     case WebTabRole:
-        return QVariant::fromValue(tab);
+        return QVariant::fromValue(t);
 
     case TitleRole:
     case Qt::DisplayRole:
-        return tab->title();
+        return t->title();
 
     case IconRole:
     case Qt::DecorationRole:
-        return tab->icon();
+        return t->icon();
 
     case PinnedRole:
-        return tab->isPinned();
+        return t->isPinned();
 
     case RestoredRole:
-        return tab->isRestored();
-
-    case ParentTabRole:
-        return QVariant::fromValue(tab->parentTab());
-
-    case ChildTabsRole:
-        return QVariant::fromValue(tab->childTabs());
+        return t->isRestored();
 
     default:
         return QVariant();
@@ -134,11 +137,11 @@ bool TabModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int ro
 
     QVector<WebTab*> tabs;
     while (!stream.atEnd()) {
-        int index;
-        stream >> index;
-        WebTab *tab = webTab(index);
-        if (tab) {
-            tabs.append(tab);
+        int idx;
+        stream >> idx;
+        WebTab *t = tab(index(idx));
+        if (t) {
+            tabs.append(t);
         }
     }
 
@@ -169,9 +172,7 @@ void TabModel::init()
     connect(m_window, &QObject::destroyed, this, [this]() {
         beginResetModel();
         m_window = nullptr;
-        for (WebTab *tab : qAsConst(m_tabs)) {
-            tab->disconnect(this);
-        }
+        m_tabs.clear();
         endResetModel();
     });
 }
@@ -185,7 +186,7 @@ void TabModel::tabInserted(int index)
     endInsertRows();
 
     auto emitDataChanged = [this](WebTab *tab, int role) {
-        const QModelIndex idx = TabModel::index(m_tabs.indexOf(tab), 0);
+        const QModelIndex idx = tabIndex(tab);
         emit dataChanged(idx, idx, {role});
     };
 
@@ -195,9 +196,6 @@ void TabModel::tabInserted(int index)
     connect(tab, &WebTab::iconChanged, this, std::bind(emitDataChanged, tab, IconRole));
     connect(tab, &WebTab::pinnedChanged, this, std::bind(emitDataChanged, tab, PinnedRole));
     connect(tab, &WebTab::restoredChanged, this, std::bind(emitDataChanged, tab, RestoredRole));
-    connect(tab, &WebTab::parentTabChanged, this, std::bind(emitDataChanged, tab, ParentTabRole));
-    connect(tab, &WebTab::childTabAdded, this, std::bind(emitDataChanged, tab, ChildTabsRole));
-    connect(tab, &WebTab::childTabRemoved, this, std::bind(emitDataChanged, tab, ChildTabsRole));
 }
 
 void TabModel::tabRemoved(int index)

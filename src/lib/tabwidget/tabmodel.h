@@ -34,14 +34,13 @@ public:
         TitleRole = Qt::UserRole + 2,
         IconRole = Qt::UserRole + 3,
         PinnedRole = Qt::UserRole + 4,
-        RestoredRole = Qt::UserRole + 5,
-        ParentTabRole = Qt::UserRole + 6,
-        ChildTabsRole = Qt::UserRole + 7
+        RestoredRole = Qt::UserRole + 5
     };
 
     explicit TabModel(BrowserWindow *window, QObject *parent = nullptr);
 
-    WebTab *webTab(int row) const;
+    QModelIndex tabIndex(WebTab *tab) const;
+    WebTab *tab(const QModelIndex &index) const;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
