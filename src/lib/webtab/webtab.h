@@ -131,6 +131,7 @@ signals:
 private:
     void titleWasChanged(const QString &title);
     void resizeEvent(QResizeEvent *event) override;
+    void removeFromTabTree();
 
     QVBoxLayout* m_layout;
     QSplitter* m_splitter;

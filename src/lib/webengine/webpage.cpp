@@ -624,7 +624,7 @@ QWebEnginePage* WebPage::createWindow(QWebEnginePage::WebWindowType type)
         TabbedWebView* view = window->weView(index);
         view->setPage(new WebPage);
         if (tView) {
-            view->webTab()->setParentTab(tView->webTab());
+            tView->webTab()->addChildTab(view->webTab());
         }
         // Workaround focus issue when creating tab
         if (pos.testFlag(Qz::NT_SelectedTab)) {

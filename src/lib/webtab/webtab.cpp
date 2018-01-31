@@ -277,18 +277,8 @@ void WebTab::detach()
     Q_ASSERT(m_window);
     Q_ASSERT(m_tabBar);
 
-    // Remove parent tab and reparent children
-    WebTab *parentTab = m_parentTab;
-    const int parentIndex = parentTab ? parentTab->m_childTabs.indexOf(this) : -1;
-    setParentTab(nullptr);
-    int i = 0;
-    while (!m_childTabs.isEmpty()) {
-        WebTab *child = m_childTabs.at(0);
-        child->setParentTab(nullptr);
-        if (parentTab) {
-            parentTab->addChildTab(child, parentIndex + i++);
-        }
-    }
+    // Remove from tab tree
+    removeFromTabTree();
 
     // Remove icon from tab
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), nullptr);
@@ -383,6 +373,10 @@ void WebTab::setPinned(bool state)
         return;
     }
 
+    if (state) {
+        removeFromTabTree();
+    }
+
     m_isPinned = state;
     emit pinnedChanged(m_isPinned);
 }
@@ -420,7 +414,11 @@ WebTab *WebTab::parentTab() const
 
 void WebTab::setParentTab(WebTab *tab)
 {
-    if (m_parentTab == tab) {
+    if (m_isPinned || m_parentTab == tab) {
+        return;
+    }
+
+    if (tab && tab->isPinned()) {
         return;
     }
 
@@ -444,6 +442,10 @@ void WebTab::setParentTab(WebTab *tab)
 
 void WebTab::addChildTab(WebTab *tab, int index)
 {
+    if (m_isPinned || !tab || tab->isPinned()) {
+        return;
+    }
+
     tab->m_parentTab = this;
 
     WebTab *tabParent = tab->m_parentTab;
@@ -580,6 +582,23 @@ void WebTab::resizeEvent(QResizeEvent *event)
     QWidget::resizeEvent(event);
 
     m_notificationWidget->setFixedWidth(width());
+}
+
+void WebTab::removeFromTabTree()
+{
+    WebTab *parentTab = m_parentTab;
+    const int parentIndex = parentTab ? parentTab->m_childTabs.indexOf(this) : -1;
+
+    setParentTab(nullptr);
+
+    int i = 0;
+    while (!m_childTabs.isEmpty()) {
+        WebTab *child = m_childTabs.at(0);
+        child->setParentTab(nullptr);
+        if (parentTab) {
+            parentTab->addChildTab(child, parentIndex + i++);
+        }
+    }
 }
 
 bool WebTab::isCurrentTab() const
