@@ -444,11 +444,16 @@ void WebTab::setParentTab(WebTab *tab)
 
 void WebTab::addChildTab(WebTab *tab, int index)
 {
-    if (tab->parentTab()) {
-        tab->setParentTab(nullptr);
-    }
-
     tab->m_parentTab = this;
+
+    WebTab *tabParent = tab->m_parentTab;
+    if (tabParent) {
+        const int index = tabParent->m_childTabs.indexOf(tab);
+        if (index >= 0) {
+            tabParent->m_childTabs.removeAt(index);
+            emit tabParent->childTabRemoved(tab, index);
+        }
+    }
 
     if (index < 0 || index > m_childTabs.size()) {
         m_childTabs.append(tab);

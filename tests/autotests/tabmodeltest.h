@@ -29,4 +29,5 @@ private slots:
 
     void basicTest();
     void dataTest();
+    void treeModelTest();
 };

@@ -168,6 +168,7 @@ SOURCES += \
     tabwidget/tabbar.cpp \
     tabwidget/tabicon.cpp \
     tabwidget/tabmodel.cpp \
+    tabwidget/tabtreemodel.cpp \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
     tabwidget/tabcontextmenu.cpp \
@@ -350,6 +351,7 @@ HEADERS  += \
     tabwidget/tabbar.h \
     tabwidget/tabicon.h \
     tabwidget/tabmodel.h \
+    tabwidget/tabtreemodel.h \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
     tabwidget/tabcontextmenu.h \
