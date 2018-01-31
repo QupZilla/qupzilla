@@ -47,6 +47,7 @@ public:
         bool isPinned;
         int zoomLevel;
         int parentTab;
+        QVector<int> childTabs;
 
         SavedTab();
         SavedTab(WebTab* webTab);

@@ -36,7 +36,7 @@
 #include <QTimer>
 #include <QSplitter>
 
-static const int savedTabVersion = 4;
+static const int savedTabVersion = 5;
 
 WebTab::SavedTab::SavedTab()
     : isPinned(false)
@@ -54,6 +54,12 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
     isPinned = webTab->isPinned();
     zoomLevel = webTab->zoomLevel();
     parentTab = webTab->parentTab() ? webTab->parentTab()->tabIndex() : -1;
+
+    const auto children = webTab->childTabs();
+    childTabs.reserve(children.count());
+    for (WebTab *child : children) {
+        childTabs.append(child->tabIndex());
+    }
 }
 
 bool WebTab::SavedTab::isValid() const
@@ -70,6 +76,7 @@ void WebTab::SavedTab::clear()
     isPinned = false;
     zoomLevel = qzSettings->defaultZoomLevel;
     parentTab = -1;
+    childTabs.clear();
 }
 
 QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
@@ -82,6 +89,7 @@ QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
     stream << tab.isPinned;
     stream << tab.zoomLevel;
     stream << tab.parentTab;
+    stream << tab.childTabs;
 
     return stream;
 }
@@ -108,6 +116,9 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 
     if (version >= 4)
         stream >> tab.parentTab;
+
+    if (version >= 5)
+        stream >> tab.childTabs;
 
     tab.icon = QIcon(pixmap);
 

@@ -790,19 +790,25 @@ bool TabWidget::restoreState(const QVector<WebTab::SavedTab> &tabs, int currentT
         return false;
     }
 
-    QVector<QPair<WebTab*, int>> parentTabs;
+    QVector<QPair<WebTab*, QVector<int>>> childTabs;
 
     for (int i = 0; i < tabs.size(); ++i) {
         WebTab::SavedTab tab = tabs.at(i);
         WebTab *webTab = weTab(addView(QUrl(), Qz::NT_CleanSelectedTab, false, tab.isPinned));
         webTab->restoreTab(tab);
-        if (tab.parentTab >= 0) {
-            parentTabs.append({webTab, tab.parentTab});
+        if (!tab.childTabs.isEmpty()) {
+            childTabs.append({webTab, tab.childTabs});
         }
     }
 
-    for (const auto p : qAsConst(parentTabs)) {
-        p.first->setParentTab(weTab(p.second));
+    for (const auto p : qAsConst(childTabs)) {
+        const auto indices = p.second;
+        for (int index : indices) {
+            WebTab *t = weTab(index);
+            if (t) {
+                p.first->addChildTab(t);
+            }
+        }
     }
 
     setCurrentIndex(currentTab);
