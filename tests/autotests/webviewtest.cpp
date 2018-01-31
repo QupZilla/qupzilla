@@ -103,5 +103,5 @@ void WebViewTest::loadSignalsChangePageTest()
     QTRY_COMPARE(loadStartedSpy.count(), 1);
     QCOMPARE(loadFinishedSpy.count(), 0);
 
-    QTest::qWait(1);
+    QTest::qWait(10);
 }
