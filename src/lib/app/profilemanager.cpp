@@ -20,7 +20,6 @@
 #include "datapaths.h"
 #include "updater.h"
 #include "qztools.h"
-#include "restoremanager.h"
 #include "sqldatabase.h"
 
 #include <QDir>
@@ -236,7 +235,7 @@ void ProfileManager::copyDataToProfile()
         }
 
         QFile sessionFile(profileDir.filePath(QSL("session.dat")));
-        if (sessionFile.exists() && !RestoreManager::validateFile(sessionFile.fileName())) {
+        if (sessionFile.exists()) {
             QString oldVersion = QzTools::readAllFileContents(profileDir.filePath(QSL("version"))).trimmed();
             if (oldVersion.isEmpty()) {
                 oldVersion = QSL("unknown-version");
