@@ -108,10 +108,15 @@ WebTab *TabTreeModel::tab(const QModelIndex &index) const
 
 Qt::ItemFlags TabTreeModel::flags(const QModelIndex &index) const
 {
-    if (!index.isValid()) {
+    TabTreeModelItem *it = item(index);
+    if (!it || !it->tab) {
         return Qt::ItemIsDropEnabled;
     }
-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
+    Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+    if (!it->tab->isPinned()) {
+        flags |= Qt::ItemIsDropEnabled | Qt::ItemIsDragEnabled;
+    }
+    return flags;
 }
 
 QVariant TabTreeModel::data(const QModelIndex &index, int role) const
