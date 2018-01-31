@@ -89,6 +89,12 @@ QVariant TabModel::data(const QModelIndex &index, int role) const
     case RestoredRole:
         return t->isRestored();
 
+    case CurrentTabRole:
+        return t->isCurrentTab();
+
+    case LoadingRole:
+        return t->isLoading();
+
     default:
         return QVariant();
     }
@@ -196,6 +202,8 @@ void TabModel::tabInserted(int index)
     connect(tab, &WebTab::iconChanged, this, std::bind(emitDataChanged, tab, IconRole));
     connect(tab, &WebTab::pinnedChanged, this, std::bind(emitDataChanged, tab, PinnedRole));
     connect(tab, &WebTab::restoredChanged, this, std::bind(emitDataChanged, tab, RestoredRole));
+    connect(tab, &WebTab::currentTabChanged, this, std::bind(emitDataChanged, tab, CurrentTabRole));
+    connect(tab, &WebTab::loadingChanged, this, std::bind(emitDataChanged, tab, LoadingRole));
 }
 
 void TabModel::tabRemoved(int index)

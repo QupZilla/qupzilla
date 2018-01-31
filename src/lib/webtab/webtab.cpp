@@ -164,6 +164,8 @@ WebTab::WebTab(QWidget *parent)
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleWasChanged);
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleChanged);
     connect(m_webView, &TabbedWebView::iconChanged, this, &WebTab::iconChanged);
+    connect(m_webView, &TabbedWebView::loadStarted, this, std::bind(&WebTab::loadingChanged, this, true));
+    connect(m_webView, &TabbedWebView::loadFinished, this, std::bind(&WebTab::loadingChanged, this, false));
 
     // Workaround QTabBar not immediately noticing resizing of tab buttons
     connect(m_tabIcon, &TabIcon::resized, this, [this]() {
@@ -300,6 +302,12 @@ void WebTab::detach()
     // Detach TabbedWebView
     m_webView->setBrowserWindow(nullptr);
 
+    if (m_isCurrentTab) {
+        m_isCurrentTab = false;
+        emit currentTabChanged(m_isCurrentTab);
+    }
+    m_tabBar->disconnect(this);
+
     // WebTab is now standalone widget
     m_window = nullptr;
     m_tabBar = nullptr;
@@ -315,6 +323,17 @@ void WebTab::attach(BrowserWindow* window)
     m_tabBar->setTabText(tabIndex(), title());
     m_tabBar->setTabButton(tabIndex(), m_tabBar->iconButtonPosition(), m_tabIcon);
     m_tabIcon->updateIcon();
+
+    auto currentChanged = [this](int index) {
+        const bool wasCurrent = m_isCurrentTab;
+        m_isCurrentTab = index == tabIndex();
+        if (wasCurrent != m_isCurrentTab) {
+            emit currentTabChanged(m_isCurrentTab);
+        }
+    };
+
+    currentTabChanged(m_tabBar->currentIndex());
+    connect(m_tabBar, &TabBar::currentChanged, this, currentChanged);
 }
 
 QByteArray WebTab::historyData() const
@@ -528,7 +547,7 @@ void WebTab::titleWasChanged(const QString &title)
         return;
     }
 
-    if (isCurrentTab()) {
+    if (m_isCurrentTab) {
         m_window->setWindowTitle(tr("%1 - QupZilla").arg(title));
     }
 
@@ -560,14 +579,12 @@ void WebTab::resizeEvent(QResizeEvent *event)
 
 bool WebTab::isCurrentTab() const
 {
-    return m_tabBar && tabIndex() == m_tabBar->currentIndex();
+    return m_isCurrentTab;
 }
 
 int WebTab::tabIndex() const
 {
-    Q_ASSERT(m_tabBar);
-
-    return m_tabBar->tabWidget()->indexOf(const_cast<WebTab*>(this));
+    return m_tabBar ? m_tabBar->tabWidget()->indexOf(const_cast<WebTab*>(this)) : -1;
 }
 
 void WebTab::togglePinned()

@@ -122,6 +122,8 @@ signals:
     void iconChanged(const QIcon &icon);
     void pinnedChanged(bool pinned);
     void restoredChanged(bool restored);
+    void currentTabChanged(bool current);
+    void loadingChanged(bool loading);
     void parentTabChanged(WebTab *tab);
     void childTabAdded(WebTab *tab, int index);
     void childTabRemoved(WebTab *tab, int index);
@@ -146,6 +148,7 @@ private:
 
     SavedTab m_savedTab;
     bool m_isPinned = false;
+    bool m_isCurrentTab = false;
 };
 
 #endif // WEBTAB_H
