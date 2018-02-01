@@ -100,6 +100,8 @@ public:
     int tabIndex() const;
 
     bool isCurrentTab() const;
+    void makeCurrentTab();
+    void closeTab();
 
     bool haveInspector() const;
     void showWebInspector(bool inspectElement = false);

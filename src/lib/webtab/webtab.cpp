@@ -628,6 +628,20 @@ bool WebTab::isCurrentTab() const
     return m_isCurrentTab;
 }
 
+void WebTab::makeCurrentTab()
+{
+    if (m_tabBar) {
+        m_tabBar->tabWidget()->setCurrentIndex(tabIndex());
+    }
+}
+
+void WebTab::closeTab()
+{
+    if (m_tabBar) {
+        m_tabBar->tabWidget()->closeTab(tabIndex());
+    }
+}
+
 int WebTab::tabIndex() const
 {
     return m_tabBar ? m_tabBar->tabWidget()->indexOf(const_cast<WebTab*>(this)) : -1;
