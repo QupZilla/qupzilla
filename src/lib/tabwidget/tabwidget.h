@@ -93,6 +93,8 @@ public:
     ToolButton* buttonClosedTabs() const;
     AddTabButton* buttonAddTab() const;
 
+    int pinUnPinTab(int index, const QString &title = QString());
+
     void detachTab(WebTab* tab);
 
 public slots:

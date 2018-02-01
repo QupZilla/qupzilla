@@ -638,6 +638,15 @@ void TabWidget::closeToLeft(int index)
     }
 }
 
+int TabWidget::pinUnPinTab(int index, const QString &title)
+{
+    const int newIndex = TabStackedWidget::pinUnPinTab(index, title);
+    if (index != newIndex) {
+        emit tabMoved(index, newIndex);
+    }
+    return newIndex;
+}
+
 void TabWidget::detachTab(WebTab* tab)
 {
     Q_ASSERT(tab);
