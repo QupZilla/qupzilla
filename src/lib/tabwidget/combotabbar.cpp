@@ -762,10 +762,7 @@ QTabBar::ButtonPosition ComboTabBar::closeButtonPosition() const
 
 QSize ComboTabBar::iconButtonSize() const
 {
-    QSize s = closeButtonSize();
-    s.setWidth(qMax(16, s.width()));
-    s.setHeight(qMax(16, s.height()));
-    return s;
+    return QSize(16, 16);
 }
 
 QSize ComboTabBar::closeButtonSize() const
