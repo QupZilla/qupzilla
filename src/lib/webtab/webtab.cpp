@@ -178,6 +178,13 @@ WebTab::WebTab(QWidget *parent)
     connect(m_webView, &TabbedWebView::loadStarted, this, std::bind(&WebTab::loadingChanged, this, true));
     connect(m_webView, &TabbedWebView::loadFinished, this, std::bind(&WebTab::loadingChanged, this, false));
 
+    auto pageChanged = [this](WebPage *page) {
+        connect(page, &WebPage::audioMutedChanged, this, &WebTab::playingChanged);
+        connect(page, &WebPage::recentlyAudibleChanged, this, &WebTab::mutedChanged);
+    };
+    pageChanged(m_webView->page());
+    connect(m_webView, &TabbedWebView::pageChanged, this, pageChanged);
+
     // Workaround QTabBar not immediately noticing resizing of tab buttons
     connect(m_tabIcon, &TabIcon::resized, this, [this]() {
         if (m_tabBar) {
@@ -395,6 +402,11 @@ void WebTab::setPinned(bool state)
 bool WebTab::isMuted() const
 {
     return m_webView->page()->isAudioMuted();
+}
+
+bool WebTab::isPlaying() const
+{
+    return m_webView->page()->recentlyAudible();
 }
 
 void WebTab::setMuted(bool muted)

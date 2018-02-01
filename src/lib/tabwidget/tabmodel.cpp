@@ -95,6 +95,12 @@ QVariant TabModel::data(const QModelIndex &index, int role) const
     case LoadingRole:
         return t->isLoading();
 
+    case AudioPlayingRole:
+        return t->isPlaying();
+
+    case AudioMutedRole:
+        return t->isMuted();
+
     default:
         return QVariant();
     }
@@ -204,6 +210,8 @@ void TabModel::tabInserted(int index)
     connect(tab, &WebTab::restoredChanged, this, std::bind(emitDataChanged, tab, RestoredRole));
     connect(tab, &WebTab::currentTabChanged, this, std::bind(emitDataChanged, tab, CurrentTabRole));
     connect(tab, &WebTab::loadingChanged, this, std::bind(emitDataChanged, tab, LoadingRole));
+    connect(tab, &WebTab::playingChanged, this, std::bind(emitDataChanged, tab, AudioPlayingRole));
+    connect(tab, &WebTab::mutedChanged, this, std::bind(emitDataChanged, tab, AudioMutedRole));
 }
 
 void TabModel::tabRemoved(int index)

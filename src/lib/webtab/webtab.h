@@ -93,6 +93,7 @@ public:
     void togglePinned();
 
     bool isMuted() const;
+    bool isPlaying() const;
     void setMuted(bool muted);
     void toggleMuted();
 
@@ -125,6 +126,8 @@ signals:
     void restoredChanged(bool restored);
     void currentTabChanged(bool current);
     void loadingChanged(bool loading);
+    void mutedChanged(bool muted);
+    void playingChanged(bool playing);
     void parentTabChanged(WebTab *tab);
     void childTabAdded(WebTab *tab, int index);
     void childTabRemoved(WebTab *tab, int index);
