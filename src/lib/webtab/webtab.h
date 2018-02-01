@@ -118,7 +118,6 @@ public:
 
 private slots:
     void showNotification(QWidget* notif);
-    void loadStarted();
     void loadFinished();
 
 signals:

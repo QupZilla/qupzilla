@@ -417,6 +417,10 @@ void WebView::printPage()
 void WebView::slotLoadStarted()
 {
     m_progress = 0;
+
+    if (title(/*allowEmpty*/true).isEmpty()) {
+        emit titleChanged(title());
+    }
 }
 
 void WebView::slotLoadProgress(int progress)
@@ -446,7 +450,13 @@ void WebView::slotIconChanged()
 
 void WebView::slotUrlChanged(const QUrl &url)
 {
-    Q_UNUSED(url)
+    if (!url.isEmpty() && title(/*allowEmpty*/true).isEmpty()) {
+        // Don't treat this as background activity change
+        const bool oldActivity = m_backgroundActivity;
+        m_backgroundActivity = true;
+        emit titleChanged(title());
+        m_backgroundActivity = oldActivity;
+    }
 
     // Don't save blank page / speed dial in tab history
     if (!history()->canGoForward()  && history()->backItems(1).size() == 1) {

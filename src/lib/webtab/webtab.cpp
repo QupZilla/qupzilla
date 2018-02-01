@@ -170,7 +170,6 @@ WebTab::WebTab(QWidget *parent)
     nlayout->setSpacing(1);
 
     connect(m_webView, SIGNAL(showNotification(QWidget*)), this, SLOT(showNotification(QWidget*)));
-    connect(m_webView, SIGNAL(loadStarted()), this, SLOT(loadStarted()));
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished()));
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleWasChanged);
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleChanged);
@@ -556,13 +555,6 @@ void WebTab::showNotification(QWidget* notif)
     m_notificationWidget->layout()->addWidget(notif);
     m_notificationWidget->show();
     notif->show();
-}
-
-void WebTab::loadStarted()
-{
-    if (m_tabBar && m_webView->title(/*allowEmpty*/true).isEmpty()) {
-        m_tabBar->setTabText(tabIndex(), tr("Loading..."));
-    }
 }
 
 void WebTab::loadFinished()
