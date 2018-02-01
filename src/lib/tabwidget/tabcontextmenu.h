@@ -22,14 +22,15 @@
 
 #include "qzcommon.h"
 
-class BrowserWindow;
+class WebTab;
 class TabWidget;
+class BrowserWindow;
 
 class QUPZILLA_EXPORT TabContextMenu : public QMenu
 {
     Q_OBJECT
 public:
-    explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs = true);
+    explicit TabContextMenu(WebTab *tab, Qt::Orientation orientation, bool showCloseOtherTabs = true);
 
 signals:
     void reloadTab(int index);

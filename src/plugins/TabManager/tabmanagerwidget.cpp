@@ -278,16 +278,12 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
     TabItem* item = static_cast<TabItem*>(ui->treeWidget->itemAt(pos));
 
     if (item) {
-        BrowserWindow* mainWindow = item->window();
-        QWidget* tabWidget = item->webTab();
-
-        if (mainWindow && tabWidget) {
-            int index = mainWindow->tabWidget()->indexOf(tabWidget);
-
+        WebTab *tab = item->webTab();
+        if (tab) {
             // if items are not grouped by Window then actions "Close Other Tabs",
             // "Close Tabs To The Bottom" and "Close Tabs To The Top"
             // are ambiguous and should be hidden.
-            menu = new TabContextMenu(index, Qt::Vertical, mainWindow, mainWindow->tabWidget(), m_groupType == GroupByWindow);
+            menu = new TabContextMenu(tab, Qt::Vertical, m_groupType == GroupByWindow);
             menu->addSeparator();
         }
     }

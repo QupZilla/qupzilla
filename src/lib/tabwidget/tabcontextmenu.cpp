@@ -27,12 +27,12 @@
 #include "checkboxdialog.h"
 
 
-TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs)
+TabContextMenu::TabContextMenu(WebTab *tab, Qt::Orientation orientation, bool showCloseOtherTabs)
     : QMenu()
-    , m_clickedTab(index)
+    , m_clickedTab(tab->tabIndex())
     , m_tabsOrientation(orientation)
-    , m_window(window)
-    , m_tabWidget(tabWidget)
+    , m_window(tab->webView()->browserWindow())
+    , m_tabWidget(m_window->tabWidget())
     , m_showCloseOtherTabs(showCloseOtherTabs)
 {
     setObjectName("tabcontextmenu");
