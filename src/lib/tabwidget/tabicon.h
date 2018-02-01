@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,10 +32,19 @@ class QUPZILLA_EXPORT TabIcon : public QWidget
     Q_OBJECT
 
 public:
+    struct Data {
+        int framesCount;
+        int animationInterval;
+        QPixmap animationPixmap;
+        QPixmap audioPlayingPixmap;
+        QPixmap audioMutedPixmap;
+    };
     explicit TabIcon(QWidget* parent = 0);
 
     void setWebTab(WebTab* tab);
     void updateIcon();
+
+    static Data *data();
 
 signals:
     void resized();
@@ -64,14 +73,6 @@ private:
     bool m_animationRunning;
     bool m_audioIconDisplayed;
     QRect m_audioIconRect;
-
-    struct Data {
-        int framesCount;
-        QPixmap animationPixmap;
-        QPixmap audioPlayingPixmap;
-        QPixmap audioMutedPixmap;
-    };
-    static Data *s_data;
 };
 
 #endif // TABICON_H
