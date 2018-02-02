@@ -25,9 +25,8 @@
 
 #include <QToolTip>
 #include <QHoverEvent>
-#include <QApplication>
 
-TabTreeView::TabTreeView(QWidget* parent)
+TabTreeView::TabTreeView(QWidget *parent)
     : QTreeView(parent)
 {
     setDragEnabled(true);
