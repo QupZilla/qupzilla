@@ -125,6 +125,7 @@ public:
 
 signals:
     void startingCompleted();
+    void aboutToClose();
 
 public slots:
     void goHome();

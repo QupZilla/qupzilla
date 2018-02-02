@@ -1506,6 +1506,8 @@ void BrowserWindow::closeEvent(QCloseEvent* event)
         }
     }
 
+    emit aboutToClose();
+
     saveSettings();
     mApp->closedWindowsManager()->saveWindow(this);
 

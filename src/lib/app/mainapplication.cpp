@@ -689,6 +689,10 @@ void MainApplication::quitApplication()
         return;
     }
 
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        emit window->aboutToClose();
+    }
+
     if (m_sessionManager && m_windows.count() > 0) {
         m_sessionManager->autoSaveLastSession();
     }
