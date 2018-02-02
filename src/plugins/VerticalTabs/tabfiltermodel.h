@@ -17,27 +17,27 @@
 * ============================================================ */
 #pragma once
 
-#include <QWidget>
+#include <QSortFilterProxyModel>
 
-#include "verticaltabsplugin.h"
-
-class BrowserWindow;
-class TabTreeModel;
-
-class TabListView;
-class TabTreeView;
-
-class VerticalTabsWidget : public QWidget
+class TabFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-public:
-    explicit VerticalTabsWidget(BrowserWindow *window);
 
-    void setViewType(VerticalTabsPlugin::ViewType type);
+public:
+    explicit TabFilterModel(QObject *parent = nullptr);
+
+    void resetFilter();
+
+    void setFilterPinnedTabs(bool pinned);
 
 private:
-    BrowserWindow *m_window;
-    TabListView *m_pinnedView;
-    TabTreeView *m_normalView;
-    TabTreeModel *m_treeModel = nullptr;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const;
+
+    enum Mode {
+        NoFilter,
+        FilterPinnedTabs
+    };
+
+    Mode m_mode = NoFilter;
+    bool m_filterPinnedTabs = false;
 };

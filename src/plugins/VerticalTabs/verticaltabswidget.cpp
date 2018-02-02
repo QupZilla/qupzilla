@@ -17,12 +17,15 @@
 * ============================================================ */
 #include "verticaltabswidget.h"
 #include "tabtreeview.h"
+#include "tablistview.h"
+#include "tabfiltermodel.h"
 
 #include "tabmodel.h"
 #include "tabtreemodel.h"
 #include "browserwindow.h"
 
 #include <QVBoxLayout>
+#include <QListView>
 
 VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     : QWidget()
@@ -32,24 +35,38 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
 
-    m_view = new TabTreeView(this);
-    layout->addWidget(m_view);
+    TabListView *m_pinnedView = new TabListView(this);
+    m_normalView = new TabTreeView(this);
+    layout->addWidget(m_pinnedView);
+    layout->addWidget(m_normalView);
+
+    TabFilterModel *model = new TabFilterModel(m_pinnedView);
+    model->setFilterPinnedTabs(false);
+    model->setSourceModel(m_window->tabModel());
+    m_pinnedView->setModel(model);
+
+    m_pinnedView->setFocusProxy(m_normalView);
 }
 
 void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
 {
+    TabFilterModel *model = new TabFilterModel(m_normalView);
+    model->setFilterPinnedTabs(true);
+
     switch (type) {
     case VerticalTabsPlugin::TabListView:
-        m_view->setModel(m_window->tabModel());
-        m_view->setTabsInOrder(true);
+        model->setSourceModel(m_window->tabModel());
+        m_normalView->setModel(model);
+        m_normalView->setTabsInOrder(true);
         break;
 
     case VerticalTabsPlugin::TabTreeView:
         delete m_treeModel;
         m_treeModel = new TabTreeModel(this);
         m_treeModel->setSourceModel(m_window->tabModel());
-        m_view->setModel(m_treeModel);
-        m_view->setTabsInOrder(false);
+        model->setSourceModel(m_treeModel);
+        m_normalView->setModel(model);
+        m_normalView->setTabsInOrder(false);
         break;
 
     default:

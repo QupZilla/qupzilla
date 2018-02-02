@@ -15,29 +15,35 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#pragma once
+#include "tabfiltermodel.h"
 
-#include <QWidget>
+#include "tabmodel.h"
 
-#include "verticaltabsplugin.h"
-
-class BrowserWindow;
-class TabTreeModel;
-
-class TabListView;
-class TabTreeView;
-
-class VerticalTabsWidget : public QWidget
+TabFilterModel::TabFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
-    Q_OBJECT
-public:
-    explicit VerticalTabsWidget(BrowserWindow *window);
+}
 
-    void setViewType(VerticalTabsPlugin::ViewType type);
+void TabFilterModel::resetFilter()
+{
+    m_mode = NoFilter;
+    invalidateFilter();
+}
 
-private:
-    BrowserWindow *m_window;
-    TabListView *m_pinnedView;
-    TabTreeView *m_normalView;
-    TabTreeModel *m_treeModel = nullptr;
-};
+void TabFilterModel::setFilterPinnedTabs(bool filter)
+{
+    m_mode = FilterPinnedTabs;
+    m_filterPinnedTabs = filter;
+    invalidateFilter();
+}
+
+bool TabFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+    if (m_mode == NoFilter) {
+        return true;
+    }
+
+    const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+    return index.data(TabModel::PinnedRole).toBool() != m_filterPinnedTabs;
+}
+

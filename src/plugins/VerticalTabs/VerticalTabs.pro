@@ -7,6 +7,9 @@ SOURCES += verticaltabsplugin.cpp \
            tabtreeview.cpp \
            tabtreedelegate.cpp \
            loadinganimator.cpp \
+           tabfiltermodel.cpp \
+           tablistview.cpp \
+           tablistdelegate.cpp \
 
 HEADERS += verticaltabsplugin.h \
            verticaltabscontroller.h \
@@ -15,6 +18,9 @@ HEADERS += verticaltabsplugin.h \
            tabtreeview.h \
            tabtreedelegate.h \
            loadinganimator.h \
+           tabfiltermodel.h \
+           tablistview.h \
+           tablistdelegate.h \
 
 RESOURCES += verticaltabs.qrc
 

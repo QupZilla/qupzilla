@@ -17,27 +17,31 @@
 * ============================================================ */
 #pragma once
 
-#include <QWidget>
+#include <QListView>
 
-#include "verticaltabsplugin.h"
+class TabListDelegate;
 
-class BrowserWindow;
-class TabTreeModel;
-
-class TabListView;
-class TabTreeView;
-
-class VerticalTabsWidget : public QWidget
+class TabListView : public QListView
 {
     Q_OBJECT
-public:
-    explicit VerticalTabsWidget(BrowserWindow *window);
 
-    void setViewType(VerticalTabsPlugin::ViewType type);
+public:
+    explicit TabListView(QWidget *parent = nullptr);
 
 private:
-    BrowserWindow *m_window;
-    TabListView *m_pinnedView;
-    TabTreeView *m_normalView;
-    TabTreeModel *m_treeModel = nullptr;
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
+    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    bool viewportEvent(QEvent *event) override;
+
+    TabListDelegate *m_delegate;
+
+    enum DelegateButton {
+        NoButton,
+        AudioButton
+    };
+
+    DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
+
+    DelegateButton m_pressedButton = NoButton;
+    QModelIndex m_pressedIndex;
 };

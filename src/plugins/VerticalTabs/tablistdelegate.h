@@ -17,27 +17,23 @@
 * ============================================================ */
 #pragma once
 
-#include <QWidget>
-
-#include "verticaltabsplugin.h"
-
-class BrowserWindow;
-class TabTreeModel;
+#include <QStyledItemDelegate>
 
 class TabListView;
-class TabTreeView;
+class LoadingAnimator;
 
-class VerticalTabsWidget : public QWidget
+class TabListDelegate : public QStyledItemDelegate
 {
-    Q_OBJECT
 public:
-    explicit VerticalTabsWidget(BrowserWindow *window);
+    explicit TabListDelegate(TabListView *view);
 
-    void setViewType(VerticalTabsPlugin::ViewType type);
+    QRect audioButtonRect(const QModelIndex &index) const;
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    BrowserWindow *m_window;
-    TabListView *m_pinnedView;
-    TabTreeView *m_normalView;
-    TabTreeModel *m_treeModel = nullptr;
+    TabListView *m_view;
+    LoadingAnimator *m_loadingAnimator;
+    int m_padding;
 };
