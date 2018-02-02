@@ -43,6 +43,9 @@ TabTreeView::TabTreeView(QWidget *parent)
 
     m_delegate = new TabTreeDelegate(this);
     setItemDelegate(m_delegate);
+
+    // Move scrollbar to the left
+    setLayoutDirection(isRightToLeft() ? Qt::LeftToRight : Qt::RightToLeft);
 }
 
 bool TabTreeView::areTabsInOrder() const

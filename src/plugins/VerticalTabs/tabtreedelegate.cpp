@@ -78,7 +78,6 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const QWidget *w = option.widget;
     const QStyle *style = w ? w->style() : m_view->style();
 
-    const bool reverse = m_view->isRightToLeft();
     const bool expanded = m_view->isExpanded(index);
     const bool children = m_view->model()->rowCount(index) > 0;
     const int depth = indexDepth(index);
@@ -115,17 +114,11 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     // Draw expand button
     if (children) {
-        QStyle::PrimitiveElement element;
-        if (expanded) {
-            element = QStyle::PE_IndicatorArrowDown;
-        } else {
-            element = reverse ? QStyle::PE_IndicatorArrowLeft : QStyle::PE_IndicatorArrowRight;
-        }
         QStyleOptionViewItem o = opt;
         o.state &= ~QStyle::State_MouseOver;
         o.rect.moveLeft(m_indentation * depth);
         o.rect.setWidth(m_indentation);
-        style->drawPrimitive(element, &o, painter, w);
+        style->drawPrimitive(expanded ? QStyle::PE_IndicatorArrowDown : QStyle::PE_IndicatorArrowRight, &o, painter, w);
     }
 
     // Draw icon
