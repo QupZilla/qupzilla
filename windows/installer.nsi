@@ -184,6 +184,9 @@ notRunning:
   SetOutPath "$INSTDIR\sqldrivers"
   File "${QT_PLUGINS_DIR}\sqldrivers\qsqlite.dll"
 
+  SetOutPath "$INSTDIR\styles"
+  File "${QT_PLUGINS_DIR}\styles\*.dll"
+
   SetOutPath "$INSTDIR\translations\qtwebengine_locales"
   File "${QT_DIR}\translations\qtwebengine_locales\*"
 
@@ -347,6 +350,7 @@ SectionEnd
       RMDir /r "$INSTDIR\resources"
       RMDir /r "$INSTDIR\translations"
       RMDir /r "$INSTDIR\sqldrivers"
+      RMDir /r "$INSTDIR\styles"
       RMDir /r "$INSTDIR\qtwebengine_dictionaries"
       RMDir /r "$INSTDIR\themes"
       RMDir /r "$INSTDIR\locale"
