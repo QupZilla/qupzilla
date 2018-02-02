@@ -63,7 +63,7 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
         break;
 
     case VerticalTabsPlugin::TabTreeView:
-        m_treeModel = new TabTreeModel(model);
+        m_treeModel = new TabTreeModel(m_window, model);
         m_treeModel->setSourceModel(m_window->tabModel());
         model->setSourceModel(m_treeModel);
         m_normalView->setModel(model);

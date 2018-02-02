@@ -18,6 +18,7 @@
 #include "tabtreemodel.h"
 #include "tabmodel.h"
 #include "webtab.h"
+#include "browserwindow.h"
 
 #include <QTimer>
 #include <QMimeData>
@@ -81,13 +82,10 @@ void TabTreeModelItem::addChild(TabTreeModelItem *item, int index)
     }
 }
 
-TabTreeModel::TabTreeModel(QObject *parent)
+TabTreeModel::TabTreeModel(BrowserWindow *window, QObject *parent)
     : QAbstractProxyModel(parent)
 {
-    m_syncTimer = new QTimer(this);
-    m_syncTimer->setInterval(100);
-    m_syncTimer->setSingleShot(true);
-    connect(m_syncTimer, &QTimer::timeout, this, &TabTreeModel::syncTopLevelTabs);
+    connect(window, &BrowserWindow::aboutToClose, this, &TabTreeModel::syncTopLevelTabs);
 
     connect(this, &QAbstractProxyModel::sourceModelChanged, this, &TabTreeModel::init);
 }
@@ -239,7 +237,6 @@ bool TabTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action, in
         }
         m_root->addChild(it, childPos);
         endMoveRows();
-        m_syncTimer->start();
     } else {
         parentItem->tab->addChildTab(tab, row);
     }
@@ -390,7 +387,6 @@ void TabTreeModel::connectTab(WebTab *tab)
         }
         m_root->addChild(item, pos);
         endMoveRows();
-        m_syncTimer->start();
     });
 
     connect(tab, &WebTab::childTabAdded, this, [=](WebTab *child, int pos) {
@@ -407,9 +403,6 @@ void TabTreeModel::connectTab(WebTab *tab)
         }
         item->addChild(from, childPos);
         endMoveRows();
-        if (item->parent == m_root) {
-            m_syncTimer->start();
-        }
     });
 }
 

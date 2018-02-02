@@ -153,7 +153,7 @@ void TabModelTest::treeModelTest()
     BrowserWindow *w = mApp->createWindow(Qz::BW_NewWindow);
 
     TabModel sourceModel(w);
-    TabTreeModel model;
+    TabTreeModel model(w);
     model.setSourceModel(&sourceModel);
     ModelTest modelTest(&model);
 
@@ -251,7 +251,7 @@ void TabModelTest::resetTreeModelTest()
     BrowserWindow *w = mApp->createWindow(Qz::BW_NewWindow);
 
     TabModel sourceModel(w);
-    TabTreeModel model;
+    TabTreeModel model(w);
     model.setSourceModel(&sourceModel);
     ModelTest modelTest(&model);
 

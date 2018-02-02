@@ -24,6 +24,7 @@
 class QTimer;
 
 class WebTab;
+class BrowserWindow;
 class TabTreeModelItem;
 
 class QUPZILLA_EXPORT TabTreeModel : public QAbstractProxyModel
@@ -31,7 +32,7 @@ class QUPZILLA_EXPORT TabTreeModel : public QAbstractProxyModel
     Q_OBJECT
 
 public:
-    explicit TabTreeModel(QObject *parent = nullptr);
+    explicit TabTreeModel(BrowserWindow *window, QObject *parent = nullptr);
     ~TabTreeModel();
 
     QModelIndex tabIndex(WebTab *tab) const;
@@ -68,5 +69,4 @@ private:
 
     TabTreeModelItem *m_root = nullptr;
     QHash<WebTab*, TabTreeModelItem*> m_items;
-    QTimer *m_syncTimer = nullptr;
 };
