@@ -339,7 +339,7 @@ void WebTab::attach(BrowserWindow* window)
         }
     };
 
-    currentTabChanged(m_tabBar->currentIndex());
+    currentChanged(m_tabBar->currentIndex());
     connect(m_tabBar, &TabBar::currentChanged, this, currentChanged);
 }
 

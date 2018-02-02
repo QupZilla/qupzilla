@@ -114,8 +114,35 @@ void TabModelTest::dataTest()
     QCOMPARE(model.index(0, 0).data(Qt::DecorationRole).value<QIcon>().pixmap(16), tab0->icon().pixmap(16));
     QCOMPARE(model.index(0, 0).data(TabModel::PinnedRole).toBool(), tab0->isPinned());
     QCOMPARE(model.index(0, 0).data(TabModel::RestoredRole).toBool(), tab0->isRestored());
+    QCOMPARE(model.index(0, 0).data(TabModel::CurrentTabRole).toBool(), true);
 
     w->tabWidget()->addView(QUrl("http://test.com"));
+
+    QTest::qWait(10);
+    delete w;
+}
+
+void TabModelTest::pinTabTest()
+{
+    BrowserWindow *w = mApp->createWindow(Qz::BW_NewWindow);
+
+    TabModel model(w);
+    ModelTest modelTest(&model);
+
+    w->tabWidget()->addView(QUrl("http://test.com"));
+
+    QTRY_COMPARE(model.rowCount(), 2);
+
+    WebTab *tab0 = w->weView(0)->webTab();
+    WebTab *tab1 = w->weView(1)->webTab();
+
+    QCOMPARE(model.data(model.index(0, 0), TabModel::WebTabRole).value<WebTab*>(), tab0);
+    QCOMPARE(model.data(model.index(1, 0), TabModel::WebTabRole).value<WebTab*>(), tab1);
+
+    tab1->togglePinned();
+
+    QCOMPARE(model.data(model.index(0, 0), TabModel::WebTabRole).value<WebTab*>(), tab1);
+    QCOMPARE(model.data(model.index(1, 0), TabModel::WebTabRole).value<WebTab*>(), tab0);
 
     QTest::qWait(10);
     delete w;

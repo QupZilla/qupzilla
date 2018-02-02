@@ -29,6 +29,7 @@ private slots:
 
     void basicTest();
     void dataTest();
+    void pinTabTest();
     void treeModelTest();
     void resetTreeModelTest();
 };
