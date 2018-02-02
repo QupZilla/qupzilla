@@ -37,6 +37,8 @@ public:
 private:
     void drawBranches(QPainter *painter, const QRect &rect, const QModelIndex &index) const override;
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
+    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+
     bool viewportEvent(QEvent *event) override;
 
     enum DelegateButton {

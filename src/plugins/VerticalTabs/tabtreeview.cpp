@@ -58,10 +58,22 @@ void TabTreeView::drawBranches(QPainter *, const QRect &, const QModelIndex &) c
     // Disable drawing branches
 }
 
-void TabTreeView::currentChanged(const QModelIndex &, const QModelIndex &)
+void TabTreeView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
-    // Disable current index
-    setCurrentIndex(QModelIndex());
+    if (current.data(TabModel::CurrentTabRole).toBool()) {
+        QTreeView::currentChanged(current, previous);
+    } else if (previous.data(TabModel::CurrentTabRole).toBool()) {
+        setCurrentIndex(previous);
+    }
+}
+
+void TabTreeView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    QTreeView::dataChanged(topLeft, bottomRight, roles);
+
+    if (roles.size() == 1 && roles.at(0) == TabModel::CurrentTabRole && topLeft.data(TabModel::CurrentTabRole).toBool()) {
+        setCurrentIndex(topLeft);
+    }
 }
 
 bool TabTreeView::viewportEvent(QEvent *event)
