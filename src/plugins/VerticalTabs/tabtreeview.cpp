@@ -167,5 +167,3 @@ TabTreeView::DelegateButton TabTreeView::buttonAt(const QPoint &pos, const QMode
     }
     return NoButton;
 }
-
-#include "tabtreeview.moc"
