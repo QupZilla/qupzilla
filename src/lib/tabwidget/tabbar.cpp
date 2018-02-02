@@ -51,7 +51,7 @@ class TabBarTabMetrics : public QWidget
     Q_PROPERTY(int pinnedWidth READ pinnedWidth WRITE setPinnedWidth)
 
 public:
-    void init(TabBar *t)
+    void init()
     {
         if (!m_metrics.isEmpty()) {
             return;
@@ -60,7 +60,7 @@ public:
         m_metrics[1] = 100;
         m_metrics[2] = 100;
         m_metrics[3] = 100;
-        m_metrics[4] = t->iconButtonSize().width() + t->style()->pixelMetric(QStyle::PM_TabBarTabHSpace, nullptr, t);
+        m_metrics[4] = -1; // Will be initialized from TabBar
     }
 
     int normalMaxWidth() const { return m_metrics.value(0); }
@@ -111,7 +111,7 @@ TabBar::TabBar(BrowserWindow* window, TabWidget* tabWidget)
     setCloseButtonsToolTip(BrowserWindow::tr("Close Tab"));
     connect(this, SIGNAL(overFlowChanged(bool)), this, SLOT(overflowChanged(bool)));
 
-    tabMetrics()->init(this);
+    tabMetrics()->init();
 
     if (mApp->isPrivate()) {
         QLabel* privateBrowsing = new QLabel(this);
@@ -292,7 +292,7 @@ int TabBar::comboTabBarPixelMetric(ComboTabBar::SizeType sizeType) const
 {
     switch (sizeType) {
     case ComboTabBar::PinnedTabWidth:
-        return tabMetrics()->pinnedWidth();
+        return tabMetrics()->pinnedWidth() > 0 ? tabMetrics()->pinnedWidth() : 32;
 
     case ComboTabBar::ActiveTabMinimumWidth:
         return tabMetrics()->activeMinWidth();
@@ -454,6 +454,22 @@ void TabBar::setTabText(int index, const QString &text)
 void TabBar::tabInserted(int index)
 {
     Q_UNUSED(index)
+
+    // Initialize pinned tab metrics
+    if (tabMetrics()->pinnedWidth() == -1) {
+        QTimer::singleShot(0, this, [this]() {
+            if (tabMetrics()->pinnedWidth() != -1) {
+                return;
+            }
+            QWidget *w = tabButton(0, iconButtonPosition());
+            const QRect r = tabRect(0);
+            if (w && r.isValid()) {
+                const int padding = w->geometry().x() - r.x();
+                tabMetrics()->setPinnedWidth(iconButtonSize().width() + padding * 2);
+                setUpLayout();
+            }
+        });
+    }
 
     setVisible(!(count() <= 1 && m_hideTabBarWithOneTab));
 }
