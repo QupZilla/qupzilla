@@ -42,7 +42,7 @@ PluginSpec VerticalTabsPlugin::pluginSpec()
     spec.description = QSL("Adds ability to show tabs in sidebar");
     spec.version = QSL("0.1.0");
     spec.author = QSL("David Rosca <nowrep@gmail.com>");
-    spec.icon = QPixmap(QSL(":verticaltabs/data/icon.png"));
+    spec.icon = QIcon(QSL(":verticaltabs/data/icon.svg")).pixmap(32);
     spec.hasSettings = true;
     return spec;
 }
