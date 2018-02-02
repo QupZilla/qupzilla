@@ -53,6 +53,8 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
     TabFilterModel *model = new TabFilterModel(m_normalView);
     model->setFilterPinnedTabs(true);
 
+    delete m_normalView->model();
+
     switch (type) {
     case VerticalTabsPlugin::TabListView:
         model->setSourceModel(m_window->tabModel());
@@ -61,8 +63,7 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
         break;
 
     case VerticalTabsPlugin::TabTreeView:
-        delete m_treeModel;
-        m_treeModel = new TabTreeModel(this);
+        m_treeModel = new TabTreeModel(model);
         m_treeModel->setSourceModel(m_window->tabModel());
         model->setSourceModel(m_treeModel);
         m_normalView->setModel(model);
