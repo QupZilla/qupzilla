@@ -23,6 +23,7 @@
 #include "webtab.h"
 #include "tabcontextmenu.h"
 
+#include <QTimer>
 #include <QToolTip>
 #include <QHoverEvent>
 
@@ -75,6 +76,28 @@ void TabTreeView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bot
     if (roles.size() == 1 && roles.at(0) == TabModel::CurrentTabRole && topLeft.data(TabModel::CurrentTabRole).toBool()) {
         setCurrentIndex(topLeft);
     }
+}
+
+void TabTreeView::rowsInserted(const QModelIndex &parent, int start, int end)
+{
+    QTreeView::rowsInserted(parent, start, end);
+
+    // Parent for WebTab is set after insertTab is emitted
+    const QPersistentModelIndex index = model()->index(start, 0, parent);
+    QTimer::singleShot(0, this, [=]() {
+        if (!index.isValid()) {
+            return;
+        }
+        QModelIndex idx = index;
+        QVector<QModelIndex> stack;
+        do {
+            stack.append(idx);
+            idx = idx.parent();
+        } while (idx.isValid());
+        for (const QModelIndex &index : qAsConst(stack)) {
+            expand(index);
+        }
+    });
 }
 
 bool TabTreeView::viewportEvent(QEvent *event)
