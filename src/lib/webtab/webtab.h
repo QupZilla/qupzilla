@@ -102,6 +102,7 @@ public:
     bool isCurrentTab() const;
     void makeCurrentTab();
     void closeTab();
+    void moveTab(int to);
 
     bool haveInspector() const;
     void showWebInspector(bool inspectElement = false);

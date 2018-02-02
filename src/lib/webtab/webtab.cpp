@@ -634,6 +634,13 @@ void WebTab::closeTab()
     }
 }
 
+void WebTab::moveTab(int to)
+{
+    if (m_tabBar) {
+        m_tabBar->tabWidget()->moveTab(tabIndex(), to);
+    }
+}
+
 int WebTab::tabIndex() const
 {
     return m_tabBar ? m_tabBar->tabWidget()->indexOf(const_cast<WebTab*>(this)) : -1;

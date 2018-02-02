@@ -21,6 +21,8 @@
 
 #include "qzcommon.h"
 
+class QTimer;
+
 class WebTab;
 class TabTreeModelItem;
 
@@ -62,7 +64,9 @@ private:
     void insertIndex(const QModelIndex &sourceIndex);
     void removeIndex(const QModelIndex &sourceIndex);
     void connectTab(WebTab *tab);
+    void syncTopLevelTabs();
 
     TabTreeModelItem *m_root = nullptr;
     QHash<WebTab*, TabTreeModelItem*> m_items;
+    QTimer *m_syncTimer = nullptr;
 };
