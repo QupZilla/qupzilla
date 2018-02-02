@@ -114,6 +114,10 @@ bool TabListView::viewportEvent(QEvent *event)
             QToolTip::showText(he->globalPos(), muted ? tr("Unmute Tab") : tr("Mute Tab"), this, visualRect(index));
             he->accept();
             return true;
+        } else if (button == NoButton) {
+            QToolTip::showText(he->globalPos(), index.data().toString(), this, visualRect(index));
+            he->accept();
+            return true;
         }
         break;
     }
