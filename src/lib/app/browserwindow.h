@@ -51,6 +51,7 @@ class NavigationBar;
 class NavigationContainer;
 class ClickableLabel;
 class LocationBar;
+class TabModel;
 
 class QUPZILLA_EXPORT BrowserWindow : public QMainWindow
 {
@@ -119,6 +120,8 @@ public:
     QUrl homepageUrl() const;
 
     QAction* action(const QString &name) const;
+
+    TabModel *tabModel();
 
 signals:
     void startingCompleted();
@@ -213,6 +216,8 @@ private:
 
     QMenu* m_superMenu;
     MainMenu* m_mainMenu;
+
+    TabModel *m_tabModel = nullptr;
 
     int m_sideBarWidth;
     int m_webViewWidth;

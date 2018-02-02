@@ -55,6 +55,7 @@
 #include "historymenu.h"
 #include "mainmenu.h"
 #include "downloadsbutton.h"
+#include "tabmodel.h"
 
 #include <algorithm>
 
@@ -710,6 +711,14 @@ Qz::BrowserWindowType BrowserWindow::windowType() const
 QAction* BrowserWindow::action(const QString &name) const
 {
     return m_mainMenu->action(name);
+}
+
+TabModel *BrowserWindow::tabModel()
+{
+    if (!m_tabModel) {
+        m_tabModel = new TabModel(this, this);
+    }
+    return m_tabModel;
 }
 
 void BrowserWindow::setWindowTitle(const QString &t)
