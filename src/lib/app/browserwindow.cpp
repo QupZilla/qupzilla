@@ -122,6 +122,11 @@ BrowserWindow::SavedWindow::SavedWindow(BrowserWindow *window)
 
 bool BrowserWindow::SavedWindow::isValid() const
 {
+    for (const WebTab::SavedTab &tab : qAsConst(tabs)) {
+        if (!tab.isValid()) {
+            return false;
+        }
+    }
     return currentTab > -1;
 }
 

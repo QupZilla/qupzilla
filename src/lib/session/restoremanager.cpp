@@ -26,12 +26,19 @@ static const int restoreDataVersion = 2;
 
 bool RestoreData::isValid() const
 {
+    for (const BrowserWindow::SavedWindow &window : qAsConst(windows)) {
+        if (!window.isValid()) {
+            return false;
+        }
+    }
     return !windows.isEmpty();
 }
 
 void RestoreData::clear()
 {
     windows.clear();
+    crashedSession.clear();
+    closedWindows.clear();
 }
 
 QDataStream &operator<<(QDataStream &stream, const RestoreData &data)
@@ -155,27 +162,9 @@ static void loadVersion3(QDataStream &stream, RestoreData &data)
 // static
 bool RestoreManager::validateFile(const QString &file)
 {
-    if (!QFile::exists(file)) {
-        return false;
-    }
-
-    QFile recoveryFile(file);
-    if (!recoveryFile.open(QIODevice::ReadOnly)) {
-        return false;
-    }
-
-    QDataStream stream(&recoveryFile);
-
-    int version;
-    stream >> version;
-
-    if (version == Qz::sessionVersion || version == 0x0003 || version == (0x0003 | 0x050000)) {
-        int windowCount;
-        stream >> windowCount;
-        return windowCount > 0;
-    }
-
-    return false;
+    RestoreData data;
+    createFromFile(file, data);
+    return data.isValid();
 }
 
 // static
