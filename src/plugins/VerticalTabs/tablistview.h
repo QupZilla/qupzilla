@@ -28,15 +28,18 @@ class TabListView : public QListView
 public:
     explicit TabListView(QWidget *parent = nullptr);
 
+    bool isHidingWhenEmpty() const;
+    void setHideWhenEmpty(bool enable);
+
     void updateIndex(const QModelIndex &index);
     void adjustStyleOption(QStyleOptionViewItem *option);
 
 private:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void rowsInserted(const QModelIndex &parent, int start, int end) override;
+    void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
     bool viewportEvent(QEvent *event) override;
-
-    TabListDelegate *m_delegate;
 
     enum DelegateButton {
         NoButton,
@@ -44,7 +47,10 @@ private:
     };
 
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
+    void updateVisibility();
 
+    TabListDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;
     QModelIndex m_pressedIndex;
+    bool m_hideWhenEmpty = false;
 };

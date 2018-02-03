@@ -23,6 +23,7 @@
 #include "webtab.h"
 #include "tabcontextmenu.h"
 
+#include <QTimer>
 #include <QToolTip>
 #include <QHoverEvent>
 
@@ -44,6 +45,17 @@ TabListView::TabListView(QWidget *parent)
     setItemDelegate(m_delegate);
 
     setFixedHeight(m_delegate->sizeHint(viewOptions(), QModelIndex()).height());
+}
+
+bool TabListView::isHidingWhenEmpty() const
+{
+    return m_hideWhenEmpty;
+}
+
+void TabListView::setHideWhenEmpty(bool enable)
+{
+    m_hideWhenEmpty = enable;
+    updateVisibility();
 }
 
 void TabListView::updateIndex(const QModelIndex &index)
@@ -98,6 +110,20 @@ void TabListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bot
     if (roles.size() == 1 && roles.at(0) == TabModel::CurrentTabRole && topLeft.data(TabModel::CurrentTabRole).toBool()) {
         setCurrentIndex(topLeft);
     }
+}
+
+void TabListView::rowsInserted(const QModelIndex &parent, int start, int end)
+{
+    QListView::rowsInserted(parent, start, end);
+
+    updateVisibility();
+}
+
+void TabListView::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+{
+    QListView::rowsAboutToBeRemoved(parent, start, end);
+
+    QTimer::singleShot(0, this, &TabListView::updateVisibility);
 }
 
 bool TabListView::viewportEvent(QEvent *event)
@@ -182,3 +208,9 @@ TabListView::DelegateButton TabListView::buttonAt(const QPoint &pos, const QMode
     }
     return NoButton;
 }
+
+void TabListView::updateVisibility()
+{
+    setVisible(!m_hideWhenEmpty || model()->rowCount() > 0);
+}
+

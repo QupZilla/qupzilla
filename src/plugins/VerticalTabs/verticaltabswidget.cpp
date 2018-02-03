@@ -41,6 +41,7 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     model->setFilterPinnedTabs(false);
     model->setSourceModel(m_window->tabModel());
     m_pinnedView->setModel(model);
+    m_pinnedView->setHideWhenEmpty(true);
 
     m_normalView = new TabTreeView(this);
     m_pinnedView->setFocusProxy(m_normalView);
