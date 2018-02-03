@@ -159,7 +159,6 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     int leftPosition = opt.rect.left() + m_indentation + m_indentation * depth + m_padding;
     int rightPosition = opt.rect.right() - m_padding * 2 - m_closeButton->size().width();
 
-    const QIcon::Mode iconMode = opt.state & QStyle::State_Selected ? QIcon::Selected : QIcon::Normal;
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
 
     QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
@@ -202,7 +201,7 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     if (index.data(TabModel::LoadingRole).toBool()) {
         pixmap = m_loadingAnimator->pixmap(index);
     } else {
-        pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
+        pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
     }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition += iconRect.width() + m_padding;

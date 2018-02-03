@@ -56,8 +56,6 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
 
-    const QIcon::Mode iconMode = opt.state & QStyle::State_Selected ? QIcon::Selected : QIcon::Normal;
-
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
@@ -69,7 +67,7 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     if (index.data(TabModel::LoadingRole).toBool()) {
         pixmap = m_loadingAnimator->pixmap(index);
     } else {
-        pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
+        pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
     }
     painter->drawPixmap(iconRect, pixmap);
 
