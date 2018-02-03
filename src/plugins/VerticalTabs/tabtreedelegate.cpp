@@ -31,8 +31,6 @@
 TabTreeCloseButton::TabTreeCloseButton(QWidget *parent)
     : QAbstractButton(parent)
 {
-    setObjectName(QSL("treeview_close_button"));
-
     int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, this);
     int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, this);
     resize(width, height);
@@ -98,7 +96,7 @@ TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
 
     // Needed to make it stylable the same way as real tabbar close button
     QTabBar *tabBar = new QTabBar(m_view);
-    tabBar->setObjectName(QSL("treeview_tabbar"));
+    tabBar->setObjectName(QSL("tabtree_tabbar"));
     tabBar->lower();
 
     m_closeButton = new TabTreeCloseButton(tabBar);
