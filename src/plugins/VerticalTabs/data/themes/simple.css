@@ -1,0 +1,39 @@
+/* Vertical Tabs Simple theme */
+
+/* TabListView */
+TabListView::item
+{
+    border-right: 1px solid palette(alternate-base);
+}
+
+TabListView::item:selected
+{
+    background : palette(mid)
+}
+
+TabListView::item:!selected:hover
+{
+    background : palette(alternate-base)
+}
+
+/* TabTreeView */
+TabTreeView
+{
+    qproperty-backgroundIndentation: 0;
+    selection-color: palette(text)
+}
+
+TabTreeView::item
+{
+    border-bottom: 1px solid palette(alternate-base);
+}
+
+TabTreeView::item:selected
+{
+    background : palette(mid)
+}
+
+TabTreeView::item:!selected:hover
+{
+    background : palette(alternate-base)
+}

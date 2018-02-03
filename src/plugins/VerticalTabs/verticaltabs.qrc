@@ -6,5 +6,6 @@
         <file>data/themes/windows-tab-close.svg</file>
         <file>data/themes/windows-tab-close-a.svg</file>
         <file>data/themes/windows-tab-close-h.svg</file>
+        <file>data/themes/simple.css</file>
     </qresource>
 </RCC>
