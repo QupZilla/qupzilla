@@ -52,9 +52,8 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const QStyle *style = w ? w->style() : m_view->style();
 
     QStyleOptionViewItem opt = option;
-    opt.state.setFlag(QStyle::State_Active, true);
-    opt.state.setFlag(QStyle::State_HasFocus, false);
-    opt.state.setFlag(QStyle::State_Selected, index.data(TabModel::CurrentTabRole).toBool());
+    initStyleOption(&opt, index);
+    m_view->adjustStyleOption(&opt);
 
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
@@ -91,7 +90,6 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         painter->drawEllipse(audioRect);
 
         painter->drawPixmap(audioRect, audioMuted ? TabIcon::data()->audioMutedPixmap : TabIcon::data()->audioPlayingPixmap);
-
     }
 }
 

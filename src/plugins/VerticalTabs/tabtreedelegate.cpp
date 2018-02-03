@@ -100,9 +100,8 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const int depth = indexDepth(index);
 
     QStyleOptionViewItem opt = option;
-    opt.state.setFlag(QStyle::State_Active, true);
-    opt.state.setFlag(QStyle::State_HasFocus, false);
-    opt.state.setFlag(QStyle::State_Selected, index.data(TabModel::CurrentTabRole).toBool());
+    initStyleOption(&opt, index);
+    m_view->adjustStyleOption(&opt);
 
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
@@ -184,6 +183,11 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QRect titleRect(leftPosition, center - opt.fontMetrics.height() / 2, opt.rect.width(), opt.fontMetrics.height());
     titleRect.setRight(rightPosition - m_padding);
     QString title = opt.fontMetrics.elidedText(index.data().toString(), Qt::ElideRight, titleRect.width());
+    if (opt.state.testFlag(QStyle::State_Selected) && m_view->selectedColor().isValid()) {
+        textPalette.setColor(cg, colorRole, m_view->selectedColor());
+    } else if (opt.state.testFlag(QStyle::State_MouseOver) && m_view->hoverColor().isValid()) {
+        textPalette.setColor(cg, colorRole, m_view->hoverColor());
+    }
     style->drawItemText(painter, titleRect, Qt::AlignLeft, textPalette, true, title, colorRole);
 }
 

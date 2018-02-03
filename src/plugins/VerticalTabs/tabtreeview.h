@@ -24,13 +24,23 @@ class TabTreeDelegate;
 class TabTreeView : public QTreeView
 {
     Q_OBJECT
+    Q_PROPERTY(QColor hoverColor READ hoverColor WRITE setHoverColor)
+    Q_PROPERTY(QColor selectedColor READ selectedColor WRITE setSelectedColor)
 
 public:
     explicit TabTreeView(QWidget *parent = nullptr);
 
+    QColor hoverColor() const;
+    void setHoverColor(const QColor &color);
+
+    QColor selectedColor() const;
+    void setSelectedColor(const QColor &color);
+
     // In TabBar order
     bool areTabsInOrder() const;
     void setTabsInOrder(bool enable);
+
+    void adjustStyleOption(QStyleOptionViewItem *option);
 
 private:
     void drawBranches(QPainter *painter, const QRect &rect, const QModelIndex &index) const override;
@@ -47,6 +57,9 @@ private:
     };
 
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
+
+    QColor m_hoverColor;
+    QColor m_selectedColor;
 
     TabTreeDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;

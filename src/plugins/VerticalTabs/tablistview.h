@@ -28,6 +28,8 @@ class TabListView : public QListView
 public:
     explicit TabListView(QWidget *parent = nullptr);
 
+    void adjustStyleOption(QStyleOptionViewItem *option);
+
 private:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;

@@ -45,6 +45,30 @@ TabListView::TabListView(QWidget *parent)
     setFixedHeight(m_delegate->sizeHint(viewOptions(), QModelIndex()).height());
 }
 
+void TabListView::adjustStyleOption(QStyleOptionViewItem *option)
+{
+    const QModelIndex index = option->index;
+
+    option->state.setFlag(QStyle::State_Active, true);
+    option->state.setFlag(QStyle::State_HasFocus, false);
+    option->state.setFlag(QStyle::State_Selected, index.data(TabModel::CurrentTabRole).toBool());
+
+    if (!index.isValid()) {
+        option->viewItemPosition = QStyleOptionViewItem::Invalid;
+    } else if (model()->rowCount() == 1) {
+        option->viewItemPosition = QStyleOptionViewItem::OnlyOne;
+    } else {
+        const QRect rect = visualRect(index);
+        if (!indexAt(QPoint(rect.x() - rect.width() / 2, rect.y())).isValid()) {
+            option->viewItemPosition = QStyleOptionViewItem::Beginning;
+        } else if (!indexAt(QPoint(rect.x() + rect.width() / 2, rect.y())).isValid()) {
+            option->viewItemPosition = QStyleOptionViewItem::End;
+        } else {
+            option->viewItemPosition = QStyleOptionViewItem::Middle;
+        }
+    }
+}
+
 void TabListView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     if (current.data(TabModel::CurrentTabRole).toBool()) {

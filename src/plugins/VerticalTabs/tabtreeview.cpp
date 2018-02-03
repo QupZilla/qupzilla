@@ -51,6 +51,26 @@ TabTreeView::TabTreeView(QWidget *parent)
     viewport()->setAttribute(Qt::WA_Hover);
 }
 
+QColor TabTreeView::hoverColor() const
+{
+    return m_hoverColor;
+}
+
+void TabTreeView::setHoverColor(const QColor &color)
+{
+    m_hoverColor = color;
+}
+
+QColor TabTreeView::selectedColor() const
+{
+    return m_selectedColor;
+}
+
+void TabTreeView::setSelectedColor(const QColor &color)
+{
+    m_selectedColor = color;
+}
+
 bool TabTreeView::areTabsInOrder() const
 {
     return m_tabsInOrder;
@@ -59,6 +79,29 @@ bool TabTreeView::areTabsInOrder() const
 void TabTreeView::setTabsInOrder(bool enable)
 {
     m_tabsInOrder = enable;
+}
+
+void TabTreeView::adjustStyleOption(QStyleOptionViewItem *option)
+{
+    const QModelIndex index = option->index;
+
+    option->state.setFlag(QStyle::State_Active, true);
+    option->state.setFlag(QStyle::State_HasFocus, false);
+    option->state.setFlag(QStyle::State_Selected, index.data(TabModel::CurrentTabRole).toBool());
+
+    if (!index.isValid()) {
+        option->viewItemPosition = QStyleOptionViewItem::Invalid;
+    } else if (model()->rowCount() == 1) {
+        option->viewItemPosition = QStyleOptionViewItem::OnlyOne;
+    } else {
+        if (!indexAbove(index).isValid()) {
+            option->viewItemPosition = QStyleOptionViewItem::Beginning;
+        } else if (!indexBelow(index).isValid()) {
+            option->viewItemPosition = QStyleOptionViewItem::End;
+        } else {
+            option->viewItemPosition = QStyleOptionViewItem::Middle;
+        }
+    }
 }
 
 void TabTreeView::drawBranches(QPainter *, const QRect &, const QModelIndex &) const
