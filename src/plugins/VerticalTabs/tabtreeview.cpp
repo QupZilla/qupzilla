@@ -66,6 +66,16 @@ QColor TabTreeView::selectedColor() const
     return m_selectedColor;
 }
 
+int TabTreeView::backgroundIndentation() const
+{
+    return m_backgroundIndentation;
+}
+
+void TabTreeView::setBackgroundIndentation(int indentation)
+{
+    m_backgroundIndentation = indentation;
+}
+
 void TabTreeView::setSelectedColor(const QColor &color)
 {
     m_selectedColor = color;

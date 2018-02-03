@@ -26,6 +26,7 @@ class TabTreeView : public QTreeView
     Q_OBJECT
     Q_PROPERTY(QColor hoverColor READ hoverColor WRITE setHoverColor)
     Q_PROPERTY(QColor selectedColor READ selectedColor WRITE setSelectedColor)
+    Q_PROPERTY(int backgroundIndentation READ backgroundIndentation WRITE setBackgroundIndentation)
 
 public:
     explicit TabTreeView(QWidget *parent = nullptr);
@@ -35,6 +36,9 @@ public:
 
     QColor selectedColor() const;
     void setSelectedColor(const QColor &color);
+
+    int backgroundIndentation() const;
+    void setBackgroundIndentation(int indentation);
 
     // In TabBar order
     bool areTabsInOrder() const;
@@ -67,4 +71,5 @@ private:
     QPersistentModelIndex m_pressedIndex;
     QPersistentModelIndex m_hoveredIndex;
     bool m_tabsInOrder = false;
+    int m_backgroundIndentation = 0;
 };

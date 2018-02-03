@@ -181,6 +181,10 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const bool selected = opt.state.testFlag(QStyle::State_Selected);
 
     // Draw background
+    if (m_view->backgroundIndentation()) {
+        opt.rect.moveLeft(m_indentation * depth);
+        opt.rect.setWidth(opt.rect.width() - m_indentation * depth);
+    }
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
     // Draw expand button
