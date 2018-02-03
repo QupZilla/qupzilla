@@ -31,9 +31,7 @@ TabListDelegate::TabListDelegate(TabListView *view)
     m_padding = qMax(5, m_view->style()->pixelMetric(QStyle::PM_FocusFrameHMargin) + 1);
 
     m_loadingAnimator = new LoadingAnimator(this);
-    connect(m_loadingAnimator, &LoadingAnimator::updateIndex, this, [this](const QModelIndex &index) {
-        m_view->update(index);
-    });
+    connect(m_loadingAnimator, &LoadingAnimator::updateIndex, m_view, &TabListView::updateIndex);
 }
 
 QRect TabListDelegate::audioButtonRect(const QModelIndex &index) const

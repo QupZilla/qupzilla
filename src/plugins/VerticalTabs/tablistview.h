@@ -28,6 +28,7 @@ class TabListView : public QListView
 public:
     explicit TabListView(QWidget *parent = nullptr);
 
+    void updateIndex(const QModelIndex &index);
     void adjustStyleOption(QStyleOptionViewItem *option);
 
 private:

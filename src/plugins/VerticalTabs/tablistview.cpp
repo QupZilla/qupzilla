@@ -45,6 +45,18 @@ TabListView::TabListView(QWidget *parent)
     setFixedHeight(m_delegate->sizeHint(viewOptions(), QModelIndex()).height());
 }
 
+void TabListView::updateIndex(const QModelIndex &index)
+{
+    QRect rect = visualRect(index);
+    if (!rect.isValid()) {
+        return;
+    }
+    // Need to update a little above/under to account for negative margins
+    rect.moveTop(rect.y() - rect.height() / 2);
+    rect.setHeight(rect.height() * 2);
+    viewport()->update(rect);
+}
+
 void TabListView::adjustStyleOption(QStyleOptionViewItem *option)
 {
     const QModelIndex index = option->index;

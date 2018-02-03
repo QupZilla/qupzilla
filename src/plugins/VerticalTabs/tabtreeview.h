@@ -40,6 +40,7 @@ public:
     bool areTabsInOrder() const;
     void setTabsInOrder(bool enable);
 
+    void updateIndex(const QModelIndex &index);
     void adjustStyleOption(QStyleOptionViewItem *option);
 
 private:

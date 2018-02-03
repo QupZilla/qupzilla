@@ -81,6 +81,18 @@ void TabTreeView::setTabsInOrder(bool enable)
     m_tabsInOrder = enable;
 }
 
+void TabTreeView::updateIndex(const QModelIndex &index)
+{
+    QRect rect = visualRect(index);
+    if (!rect.isValid()) {
+        return;
+    }
+    // Need to update a little above/under to account for negative margins
+    rect.moveTop(rect.y() - rect.height() / 2);
+    rect.setHeight(rect.height() * 2);
+    viewport()->update(rect);
+}
+
 void TabTreeView::adjustStyleOption(QStyleOptionViewItem *option)
 {
     const QModelIndex index = option->index;
@@ -155,7 +167,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
     case QEvent::MouseButtonPress: {
         QMouseEvent *me = static_cast<QMouseEvent*>(event);
         const QModelIndex index = indexAt(me->pos());
-        update(index);
+        updateIndex(index);
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
         if (me->buttons() == Qt::MiddleButton && tab) {
             tab->closeTab();
@@ -200,7 +212,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
             break;
         }
         const QModelIndex index = indexAt(me->pos());
-        update(index);
+        updateIndex(index);
         if (m_pressedIndex != index) {
             break;
         }
@@ -230,9 +242,9 @@ bool TabTreeView::viewportEvent(QEvent *event)
     case QEvent::HoverLeave:
     case QEvent::HoverMove: {
         QHoverEvent *he = static_cast<QHoverEvent*>(event);
-        update(m_hoveredIndex);
+        updateIndex(m_hoveredIndex);
         m_hoveredIndex = indexAt(he->pos());
-        update(m_hoveredIndex);
+        updateIndex(m_hoveredIndex);
         break;
     }
 

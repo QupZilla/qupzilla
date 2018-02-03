@@ -94,9 +94,7 @@ TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
     m_indentation = 15;
 
     m_loadingAnimator = new LoadingAnimator(this);
-    connect(m_loadingAnimator, &LoadingAnimator::updateIndex, this, [this](const QModelIndex &index) {
-        m_view->update(index);
-    });
+    connect(m_loadingAnimator, &LoadingAnimator::updateIndex, m_view, &TabTreeView::updateIndex);
 
     // Needed to make it stylable the same way as real tabbar close button
     QTabBar *tabBar = new QTabBar(m_view);
