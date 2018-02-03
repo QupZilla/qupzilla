@@ -37,6 +37,7 @@ TabTreeView::TabTreeView(QWidget *parent)
     setDropIndicatorShown(true);
     setAllColumnsShowFocus(true);
     setMouseTracking(true);
+    setFocusPolicy(Qt::NoFocus);
     setFrameShape(QFrame::NoFrame);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     setIndentation(0);

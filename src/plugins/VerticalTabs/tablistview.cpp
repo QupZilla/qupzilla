@@ -35,6 +35,7 @@ TabListView::TabListView(QWidget *parent)
     setDropIndicatorShown(true);
     setMouseTracking(true);
     setFlow(QListView::LeftToRight);
+    setFocusPolicy(Qt::NoFocus);
     setFrameShape(QFrame::NoFrame);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
