@@ -50,15 +50,25 @@ public:
     bool replaceTabBar() const;
     void setReplaceTabBar(bool replace);
 
+    enum AddChildBehavior {
+        AppendChild,
+        PrependChild
+    };
+
+    AddChildBehavior addChildBehavior() const;
+    void setAddChildBehavior(AddChildBehavior behavior);
+
 signals:
     void viewTypeChanged(ViewType type);
 
 private:
     void mainWindowCreated(BrowserWindow *window);
     void setTabBarVisible(bool visible);
+    void setWebTabBehavior(AddChildBehavior behavior);
 
     QString m_settingsPath;
     VerticalTabsController *m_controller = nullptr;
     ViewType m_viewType = TabListView;
     bool m_replaceTabBar = false;
+    AddChildBehavior m_addChildBehavior = AppendChild;
 };

@@ -29,11 +29,14 @@ VerticalTabsSettings::VerticalTabsSettings(VerticalTabsPlugin *plugin, QWidget *
 
     ui->tabListView->setChecked(m_plugin->viewType() == VerticalTabsPlugin::TabListView);
     ui->tabTreeView->setChecked(m_plugin->viewType() == VerticalTabsPlugin::TabTreeView);
+    ui->appendChild->setChecked(m_plugin->addChildBehavior() == VerticalTabsPlugin::AppendChild);
+    ui->prependChild->setChecked(m_plugin->addChildBehavior() == VerticalTabsPlugin::PrependChild);
     ui->replaceTabBar->setChecked(m_plugin->replaceTabBar());
 
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [this]() {
         m_plugin->setViewType(ui->tabListView->isChecked() ? VerticalTabsPlugin::TabListView : VerticalTabsPlugin::TabTreeView);
+        m_plugin->setAddChildBehavior(ui->appendChild->isChecked() ? VerticalTabsPlugin::AppendChild : VerticalTabsPlugin::PrependChild);
         m_plugin->setReplaceTabBar(ui->replaceTabBar->isChecked());
         accept();
     });

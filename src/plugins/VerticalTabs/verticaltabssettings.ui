@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>415</width>
-    <height>231</height>
+    <width>460</width>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,6 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Please select view type:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QRadioButton" name="tabListView">
         <property name="text">
          <string>Tab List</string>
@@ -38,6 +31,29 @@
        <widget class="QRadioButton" name="tabTreeView">
         <property name="text">
          <string>Tab Tree</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Options</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QRadioButton" name="appendChild">
+        <property name="text">
+         <string>Add new child tabs to the end of tab tree</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QRadioButton" name="prependChild">
+        <property name="text">
+         <string>Add new child tabs to the beginning of tab tree</string>
         </property>
        </widget>
       </item>
