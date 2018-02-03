@@ -21,6 +21,7 @@
 #include "tabfiltermodel.h"
 
 #include "tabmodel.h"
+#include "toolbutton.h"
 #include "tabtreemodel.h"
 #include "browserwindow.h"
 
@@ -36,16 +37,26 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     layout->setContentsMargins(0, 0, 0, 0);
 
     TabListView *m_pinnedView = new TabListView(this);
-    m_normalView = new TabTreeView(this);
-    layout->addWidget(m_pinnedView);
-    layout->addWidget(m_normalView);
-
     TabFilterModel *model = new TabFilterModel(m_pinnedView);
     model->setFilterPinnedTabs(false);
     model->setSourceModel(m_window->tabModel());
     m_pinnedView->setModel(model);
 
+    m_normalView = new TabTreeView(this);
     m_pinnedView->setFocusProxy(m_normalView);
+
+    ToolButton *buttonAddTab = new ToolButton(this);
+    buttonAddTab->setObjectName(QSL("verticaltabs-button-addtab"));
+    buttonAddTab->setAutoRaise(true);
+    buttonAddTab->setFocusPolicy(Qt::NoFocus);
+    buttonAddTab->setToolTip(tr("New Tab"));
+    buttonAddTab->setIcon(QIcon::fromTheme(QSL("list-add")));
+    buttonAddTab->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
+
+    layout->addWidget(m_pinnedView);
+    layout->addWidget(m_normalView);
+    layout->addWidget(buttonAddTab);
 }
 
 void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
