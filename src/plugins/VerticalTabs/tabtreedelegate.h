@@ -17,12 +17,42 @@
 * ============================================================ */
 #pragma once
 
+#include <QAbstractButton>
 #include <QStyledItemDelegate>
 
 class QPushButton;
 
 class TabTreeView;
 class LoadingAnimator;
+
+class TabTreeCloseButton : public QAbstractButton
+{
+    Q_OBJECT
+    Q_PROPERTY(int showOnNormal READ showOnNormal WRITE setShowOnNormal)
+    Q_PROPERTY(int showOnHovered READ showOnHovered WRITE setShowOnHovered)
+    Q_PROPERTY(int showOnSelected READ showOnSelected WRITE setShowOnSelected)
+
+public:
+    explicit TabTreeCloseButton(QWidget *parent = nullptr);
+
+    int showOnNormal() const;
+    void setShowOnNormal(int show);
+
+    int showOnHovered() const;
+    void setShowOnHovered(int show);
+
+    int showOnSelected() const;
+    void setShowOnSelected(int show);
+
+    bool isVisible(bool hovered, bool selected) const;
+
+private:
+    void paintEvent(QPaintEvent *event) override;
+
+    int m_showOnNormal = 0;
+    int m_showOnHovered = 1;
+    int m_showOnSelected = 1;
+};
 
 class TabTreeDelegate : public QStyledItemDelegate
 {
@@ -39,7 +69,7 @@ public:
 private:
     TabTreeView *m_view;
     LoadingAnimator *m_loadingAnimator;
-    QPushButton *m_closeButton;
+    TabTreeCloseButton *m_closeButton;
     int m_padding;
     int m_indentation;
 };

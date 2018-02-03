@@ -27,6 +27,65 @@
 #include <QPushButton>
 #include <QApplication>
 
+// TabTreeCloseButton
+TabTreeCloseButton::TabTreeCloseButton(QWidget *parent)
+    : QAbstractButton(parent)
+{
+    setObjectName(QSL("treeview_close_button"));
+
+    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, this);
+    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, this);
+    resize(width, height);
+}
+
+int TabTreeCloseButton::showOnNormal() const
+{
+    return m_showOnNormal;
+}
+
+void TabTreeCloseButton::setShowOnNormal(int show)
+{
+    m_showOnNormal = show;
+}
+
+int TabTreeCloseButton::showOnHovered() const
+{
+    return m_showOnHovered;
+}
+
+void TabTreeCloseButton::setShowOnHovered(int show)
+{
+    m_showOnHovered = show;
+}
+
+int TabTreeCloseButton::showOnSelected() const
+{
+    return m_showOnSelected;
+}
+
+void TabTreeCloseButton::setShowOnSelected(int show)
+{
+    m_showOnSelected = show;
+}
+
+bool TabTreeCloseButton::isVisible(bool hovered, bool selected) const
+{
+    if (hovered && selected) {
+        return m_showOnHovered || m_showOnSelected;
+    } else if (selected) {
+        return m_showOnSelected;
+    } else if (hovered) {
+        return m_showOnHovered;
+    } else {
+        return m_showOnNormal;
+    }
+}
+
+void TabTreeCloseButton::paintEvent(QPaintEvent *)
+{
+}
+
+// TabTreeDelegate
 TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
     : QStyledItemDelegate()
     , m_view(view)
@@ -44,13 +103,8 @@ TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
     tabBar->setObjectName(QSL("treeview_tabbar"));
     tabBar->lower();
 
-    m_closeButton = new QPushButton(tabBar);
-    m_closeButton->setObjectName(QSL("treeview_close_button"));
+    m_closeButton = new TabTreeCloseButton(tabBar);
     m_closeButton->lower();
-
-    int width = m_closeButton->style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, m_closeButton);
-    int height = m_closeButton->style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, m_closeButton);
-    m_closeButton->resize(width, height);
 }
 
 static int indexDepth(QModelIndex index)
@@ -125,6 +179,9 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QPalette textPalette = opt.palette;
     textPalette.setCurrentColorGroup(cg);
 
+    const bool hovered = opt.state.testFlag(QStyle::State_MouseOver);
+    const bool selected = opt.state.testFlag(QStyle::State_Selected);
+
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
@@ -151,7 +208,7 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     leftPosition += iconRect.width() + m_padding;
 
     // Draw close button
-    if (opt.state.testFlag(QStyle::State_MouseOver) || opt.state.testFlag(QStyle::State_Selected)) {
+    if (m_closeButton->isVisible(hovered, selected)) {
         QStyleOptionButton o;
         o.init(m_closeButton);
 
@@ -183,9 +240,9 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QRect titleRect(leftPosition, center - opt.fontMetrics.height() / 2, opt.rect.width(), opt.fontMetrics.height());
     titleRect.setRight(rightPosition - m_padding);
     QString title = opt.fontMetrics.elidedText(index.data().toString(), Qt::ElideRight, titleRect.width());
-    if (opt.state.testFlag(QStyle::State_Selected) && m_view->selectedColor().isValid()) {
+    if (selected && m_view->selectedColor().isValid()) {
         textPalette.setColor(cg, colorRole, m_view->selectedColor());
-    } else if (opt.state.testFlag(QStyle::State_MouseOver) && m_view->hoverColor().isValid()) {
+    } else if (hovered && m_view->hoverColor().isValid()) {
         textPalette.setColor(cg, colorRole, m_view->hoverColor());
     }
     style->drawItemText(painter, titleRect, Qt::AlignLeft, textPalette, true, title, colorRole);
