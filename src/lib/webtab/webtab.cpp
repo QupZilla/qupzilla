@@ -454,12 +454,12 @@ void WebTab::setParentTab(WebTab *tab)
 
     m_parentTab = tab;
 
-    if (m_parentTab) {
-        m_parentTab->m_childTabs.append(this);
-        emit m_parentTab->childTabAdded(this, m_parentTab->m_childTabs.size() - 1);
+    if (tab) {
+        m_parentTab = nullptr;
+        tab->addChildTab(this);
+    } else {
+        emit parentTabChanged(m_parentTab);
     }
-
-    emit parentTabChanged(m_parentTab);
 }
 
 void WebTab::addChildTab(WebTab *tab, int index)
@@ -468,23 +468,27 @@ void WebTab::addChildTab(WebTab *tab, int index)
         return;
     }
 
-    WebTab *tabParent = tab->m_parentTab;
+    WebTab *oldParent = tab->m_parentTab;
     tab->m_parentTab = this;
-    if (tabParent) {
-        const int index = tabParent->m_childTabs.indexOf(tab);
+    if (oldParent) {
+        const int index = oldParent->m_childTabs.indexOf(tab);
         if (index >= 0) {
-            tabParent->m_childTabs.removeAt(index);
-            emit tabParent->childTabRemoved(tab, index);
+            oldParent->m_childTabs.removeAt(index);
+            emit oldParent->childTabRemoved(tab, index);
         }
     }
 
     if (index < 0 || index > m_childTabs.size()) {
-        m_childTabs.append(tab);
-        emit childTabAdded(tab, m_childTabs.size() - 1);
-    } else {
-        m_childTabs.insert(index, tab);
-        emit childTabAdded(tab, index);
+        index = 0;
+        if (addChildBehavior() == AppendChild) {
+            index = m_childTabs.size();
+        } else if (addChildBehavior() == PrependChild) {
+            index = 0;
+        }
     }
+
+    m_childTabs.insert(index, tab);
+    emit childTabAdded(tab, index);
 
     emit tab->parentTabChanged(this);
 }
@@ -589,6 +593,20 @@ void WebTab::tabActivated()
         m_savedTab.clear();
         emit restoredChanged(isRestored());
     });
+}
+
+static WebTab::AddChildBehavior s_addChildBehavior = WebTab::AppendChild;
+
+// static
+WebTab::AddChildBehavior WebTab::addChildBehavior()
+{
+    return s_addChildBehavior;
+}
+
+// static
+void WebTab::setAddChildBehavior(AddChildBehavior behavior)
+{
+    s_addChildBehavior = behavior;
 }
 
 void WebTab::resizeEvent(QResizeEvent *event)

@@ -59,6 +59,11 @@ public:
         friend QUPZILLA_EXPORT QDataStream &operator>>(QDataStream &stream, SavedTab &tab);
     };
 
+    enum AddChildBehavior {
+        AppendChild = 0,
+        PrependChild
+    };
+
     explicit WebTab(QWidget *parent = nullptr);
 
     TabbedWebView* webView() const;
@@ -116,6 +121,9 @@ public:
     void p_restoreTab(const QUrl &url, const QByteArray &history, int zoomLevel);
 
     void tabActivated();
+
+    static AddChildBehavior addChildBehavior();
+    static void setAddChildBehavior(AddChildBehavior behavior);
 
 private slots:
     void showNotification(QWidget* notif);

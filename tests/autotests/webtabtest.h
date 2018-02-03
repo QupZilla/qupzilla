@@ -26,6 +26,8 @@ class WebTabTest : public QObject
 private slots:
     void initTestCase();
     void cleanupTestCase();
+    void init();
 
     void parentChildTabsTest();
+    void prependChildTabsTest();
 };
