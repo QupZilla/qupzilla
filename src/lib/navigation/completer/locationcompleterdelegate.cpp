@@ -95,15 +95,15 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int iconSize = 16;
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
+    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
     if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
         pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize, iconMode);
     }
     if (isVisitSearchItem && bookmark) {
-        pixmap = bookmark->icon().pixmap(iconSize, iconMode);
+        pixmap = bookmark->icon().pixmap(iconSize);
     } else if (loadAction.type == LocationBar::LoadAction::Search) {
         if (loadAction.searchEngine.name != LocationBar::searchEngine().name) {
-            pixmap = loadAction.searchEngine.icon.pixmap(iconSize, iconMode);
+            pixmap = loadAction.searchEngine.icon.pixmap(iconSize);
         }
     }
     painter->drawPixmap(iconRect, pixmap);
