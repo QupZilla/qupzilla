@@ -50,6 +50,7 @@ private:
 
     TabTreeDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;
-    QModelIndex m_pressedIndex;
+    QPersistentModelIndex m_pressedIndex;
+    QPersistentModelIndex m_hoveredIndex;
     bool m_tabsInOrder = false;
 };

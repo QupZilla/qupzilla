@@ -19,6 +19,8 @@
 
 #include <QStyledItemDelegate>
 
+class QPushButton;
+
 class TabTreeView;
 class LoadingAnimator;
 
@@ -37,6 +39,7 @@ public:
 private:
     TabTreeView *m_view;
     LoadingAnimator *m_loadingAnimator;
+    QPushButton *m_closeButton;
     int m_padding;
     int m_indentation;
 };

@@ -46,6 +46,9 @@ TabTreeView::TabTreeView(QWidget *parent)
 
     // Move scrollbar to the left
     setLayoutDirection(isRightToLeft() ? Qt::LeftToRight : Qt::RightToLeft);
+
+    // Enable hover to force redrawing close button
+    viewport()->setAttribute(Qt::WA_Hover);
 }
 
 bool TabTreeView::areTabsInOrder() const
@@ -109,6 +112,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
     case QEvent::MouseButtonPress: {
         QMouseEvent *me = static_cast<QMouseEvent*>(event);
         const QModelIndex index = indexAt(me->pos());
+        update(index);
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
         if (me->buttons() == Qt::MiddleButton && tab) {
             tab->closeTab();
@@ -131,6 +135,19 @@ bool TabTreeView::viewportEvent(QEvent *event)
                 tab->makeCurrentTab();
             }
         }
+        if (m_pressedButton == CloseButton) {
+            me->accept();
+            return true;
+        }
+        break;
+    }
+
+    case QEvent::MouseMove: {
+        QMouseEvent *me = static_cast<QMouseEvent*>(event);
+        if (m_pressedButton == CloseButton) {
+            me->accept();
+            return true;
+        }
         break;
     }
 
@@ -140,6 +157,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
             break;
         }
         const QModelIndex index = indexAt(me->pos());
+        update(index);
         if (m_pressedIndex != index) {
             break;
         }
@@ -158,6 +176,20 @@ bool TabTreeView::viewportEvent(QEvent *event)
                 }
             }
         }
+        if (m_pressedButton == CloseButton) {
+            me->accept();
+            return true;
+        }
+        break;
+    }
+
+    case QEvent::HoverEnter:
+    case QEvent::HoverLeave:
+    case QEvent::HoverMove: {
+        QHoverEvent *he = static_cast<QHoverEvent*>(event);
+        update(m_hoveredIndex);
+        m_hoveredIndex = indexAt(he->pos());
+        update(m_hoveredIndex);
         break;
     }
 

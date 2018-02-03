@@ -21,9 +21,11 @@
 
 #include "tabmodel.h"
 #include "tabicon.h"
-#include "iconprovider.h"
 
+#include <QTabBar>
 #include <QPainter>
+#include <QPushButton>
+#include <QApplication>
 
 TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
     : QStyledItemDelegate()
@@ -36,6 +38,19 @@ TabTreeDelegate::TabTreeDelegate(TabTreeView *view)
     connect(m_loadingAnimator, &LoadingAnimator::updateIndex, this, [this](const QModelIndex &index) {
         m_view->update(index);
     });
+
+    // Needed to make it stylable the same way as real tabbar close button
+    QTabBar *tabBar = new QTabBar(m_view);
+    tabBar->setObjectName(QSL("treeview_tabbar"));
+    tabBar->lower();
+
+    m_closeButton = new QPushButton(tabBar);
+    m_closeButton->setObjectName(QSL("treeview_close_button"));
+    m_closeButton->lower();
+
+    int width = m_closeButton->style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, m_closeButton);
+    int height = m_closeButton->style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, m_closeButton);
+    m_closeButton->resize(width, height);
 }
 
 static int indexDepth(QModelIndex index)
@@ -70,7 +85,9 @@ QRect TabTreeDelegate::closeButtonRect(const QModelIndex &index) const
 {
     const QRect rect = m_view->visualRect(index);
     const int center = rect.height() / 2 + rect.top();
-    return QRect(rect.right() - m_padding - 16, center - 16 / 2, 16, 16);
+    QSize size = m_closeButton->size();
+    size.setHeight(qMin(rect.height() - m_padding, size.height()));
+    return QRect(QPoint(rect.right() - m_padding - size.width(), center - size.height() / 2), size);
 }
 
 void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -91,7 +108,7 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const int center = height / 2 + opt.rect.top();
 
     int leftPosition = opt.rect.left() + m_indentation + m_indentation * depth + m_padding;
-    int rightPosition = opt.rect.right() - m_padding * 2 - 16; // always reserve close button size
+    int rightPosition = opt.rect.right() - m_padding * 2 - m_closeButton->size().width();
 
     const QIcon::Mode iconMode = opt.state & QStyle::State_Selected ? QIcon::Selected : QIcon::Normal;
     const QPalette::ColorRole colorRole = opt.state & QStyle::State_Selected ? QPalette::HighlightedText : QPalette::Text;
@@ -136,10 +153,20 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     // Draw close button
     if (opt.state.testFlag(QStyle::State_MouseOver) || opt.state.testFlag(QStyle::State_Selected)) {
-        QSize closeSize(16, 16);
+        QStyleOptionButton o;
+        o.init(m_closeButton);
+
+        const bool hovered = closeButtonRect(index).contains(m_view->viewport()->mapFromGlobal(QCursor::pos()));
+        const bool pressed = hovered && QApplication::mouseButtons() == Qt::LeftButton;
+
+        QSize closeSize = QSize(o.rect.size().width(), qMin(height - m_padding, o.rect.size().height()));
         QPoint pos(opt.rect.right() - m_padding - closeSize.width(), center - closeSize.height() / 2);
-        QRect closeRect(pos, closeSize);
-        painter->drawPixmap(closeRect, IconProvider::standardIcon(QStyle::SP_DialogCloseButton).pixmap(closeSize, iconMode));
+        o.rect = QRect(pos, closeSize);
+        o.state |= QStyle::State_AutoRaise | QStyle::State_Enabled | QStyle::State_Selected;
+        o.state.setFlag(QStyle::State_Raised, hovered && !pressed);
+        o.state.setFlag(QStyle::State_Sunken, pressed);
+        o.state.setFlag(QStyle::State_MouseOver, hovered);
+        style->drawPrimitive(QStyle::PE_IndicatorTabClose, &o, painter, m_closeButton);
     }
 
     // Draw audio icon
