@@ -9,8 +9,5 @@ TabTreeCloseButton
 
 TabTreeView
 {
-    color: 0;
-    qproperty-hoverColor: 0;
-    qproperty-selectedColor: 0;
     qproperty-backgroundIndentation: 0;
 }

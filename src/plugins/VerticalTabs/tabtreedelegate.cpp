@@ -240,11 +240,6 @@ void TabTreeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QRect titleRect(leftPosition, center - opt.fontMetrics.height() / 2, opt.rect.width(), opt.fontMetrics.height());
     titleRect.setRight(rightPosition - m_padding);
     QString title = opt.fontMetrics.elidedText(index.data().toString(), Qt::ElideRight, titleRect.width());
-    if (selected && m_view->selectedColor().isValid()) {
-        textPalette.setColor(cg, colorRole, m_view->selectedColor());
-    } else if (hovered && m_view->hoverColor().isValid()) {
-        textPalette.setColor(cg, colorRole, m_view->hoverColor());
-    }
     style->drawItemText(painter, titleRect, Qt::AlignLeft, textPalette, true, title, colorRole);
 }
 

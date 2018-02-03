@@ -24,18 +24,10 @@ class TabTreeDelegate;
 class TabTreeView : public QTreeView
 {
     Q_OBJECT
-    Q_PROPERTY(QColor hoverColor READ hoverColor WRITE setHoverColor)
-    Q_PROPERTY(QColor selectedColor READ selectedColor WRITE setSelectedColor)
     Q_PROPERTY(int backgroundIndentation READ backgroundIndentation WRITE setBackgroundIndentation)
 
 public:
     explicit TabTreeView(QWidget *parent = nullptr);
-
-    QColor hoverColor() const;
-    void setHoverColor(const QColor &color);
-
-    QColor selectedColor() const;
-    void setSelectedColor(const QColor &color);
 
     int backgroundIndentation() const;
     void setBackgroundIndentation(int indentation);
@@ -62,9 +54,6 @@ private:
     };
 
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
-
-    QColor m_hoverColor;
-    QColor m_selectedColor;
 
     TabTreeDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;

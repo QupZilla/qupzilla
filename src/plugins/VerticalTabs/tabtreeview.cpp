@@ -52,21 +52,6 @@ TabTreeView::TabTreeView(QWidget *parent)
     viewport()->setAttribute(Qt::WA_Hover);
 }
 
-QColor TabTreeView::hoverColor() const
-{
-    return m_hoverColor;
-}
-
-void TabTreeView::setHoverColor(const QColor &color)
-{
-    m_hoverColor = color;
-}
-
-QColor TabTreeView::selectedColor() const
-{
-    return m_selectedColor;
-}
-
 int TabTreeView::backgroundIndentation() const
 {
     return m_backgroundIndentation;
@@ -75,11 +60,6 @@ int TabTreeView::backgroundIndentation() const
 void TabTreeView::setBackgroundIndentation(int indentation)
 {
     m_backgroundIndentation = indentation;
-}
-
-void TabTreeView::setSelectedColor(const QColor &color)
-{
-    m_selectedColor = color;
 }
 
 bool TabTreeView::areTabsInOrder() const
