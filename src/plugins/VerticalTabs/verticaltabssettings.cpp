@@ -19,6 +19,9 @@
 #include "ui_verticaltabssettings.h"
 #include "verticaltabsplugin.h"
 
+#include <QDir>
+#include <QFileDialog>
+
 VerticalTabsSettings::VerticalTabsSettings(VerticalTabsPlugin *plugin, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::VerticalTabsSettings)
@@ -33,11 +36,15 @@ VerticalTabsSettings::VerticalTabsSettings(VerticalTabsPlugin *plugin, QWidget *
     ui->prependChild->setChecked(m_plugin->addChildBehavior() == VerticalTabsPlugin::PrependChild);
     ui->replaceTabBar->setChecked(m_plugin->replaceTabBar());
 
+    loadThemes();
+
+    connect(ui->theme, SIGNAL(activated(int)), this, SLOT(themeValueChanged(int)));
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [this]() {
         m_plugin->setViewType(ui->tabListView->isChecked() ? VerticalTabsPlugin::TabListView : VerticalTabsPlugin::TabTreeView);
         m_plugin->setAddChildBehavior(ui->appendChild->isChecked() ? VerticalTabsPlugin::AppendChild : VerticalTabsPlugin::PrependChild);
         m_plugin->setReplaceTabBar(ui->replaceTabBar->isChecked());
+        m_plugin->setTheme(ui->theme->currentData().toString());
         accept();
     });
 }
@@ -45,4 +52,39 @@ VerticalTabsSettings::VerticalTabsSettings(VerticalTabsPlugin *plugin, QWidget *
 VerticalTabsSettings::~VerticalTabsSettings()
 {
     delete ui;
+}
+
+void VerticalTabsSettings::themeValueChanged(int index)
+{
+    const int customIndex = ui->theme->count() - 1;
+    if (index == customIndex) {
+        const QString path = QFileDialog::getOpenFileName(this, tr("Theme file"), QDir::homePath(), {QSL("*.css")});
+        if (path.isEmpty()) {
+            loadThemes();
+        } else {
+            ui->theme->setToolTip(path);
+            ui->theme->setItemData(customIndex, path);
+        }
+    } else {
+        ui->theme->setToolTip(QString());
+    }
+}
+
+void VerticalTabsSettings::loadThemes()
+{
+    ui->theme->clear();
+    bool found = false;
+    const auto files = QDir(QSL(":verticaltabs/data/themes")).entryInfoList({QSL("*.css")});
+    for (const QFileInfo &file : files) {
+        ui->theme->addItem(file.baseName(), file.absoluteFilePath());
+        if (file.absoluteFilePath() == m_plugin->theme()) {
+            ui->theme->setCurrentIndex(ui->theme->count() - 1);
+            found = true;
+        }
+    }
+    ui->theme->setToolTip(m_plugin->theme());
+    ui->theme->addItem(tr("Custom..."), found ? QString() : m_plugin->theme());
+    if (!found) {
+        ui->theme->setCurrentIndex(ui->theme->count() - 1);
+    }
 }

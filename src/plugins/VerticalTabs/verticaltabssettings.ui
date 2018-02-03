@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>460</width>
-    <height>317</height>
+    <height>344</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,13 +57,23 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Theme:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="theme"/>
+      </item>
      </layout>
     </widget>
    </item>
    <item>
     <widget class="QCheckBox" name="replaceTabBar">
      <property name="text">
-      <string>Use as replacement for main TabBar.</string>
+      <string>Use as replacement for main tab bar</string>
      </property>
     </widget>
    </item>

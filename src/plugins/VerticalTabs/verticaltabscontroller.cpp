@@ -42,8 +42,10 @@ QAction *VerticalTabsController::createMenuAction()
 QWidget *VerticalTabsController::createSideBarWidget(BrowserWindow *window)
 {
     VerticalTabsWidget *widget = new VerticalTabsWidget(window);
-    connect(m_plugin, &VerticalTabsPlugin::viewTypeChanged, widget, &VerticalTabsWidget::setViewType);
     widget->setViewType(m_plugin->viewType());
+    widget->setStyleSheet(m_plugin->styleSheet());
+    connect(m_plugin, &VerticalTabsPlugin::viewTypeChanged, widget, &VerticalTabsWidget::setViewType);
+    connect(m_plugin, &VerticalTabsPlugin::styleSheetChanged, widget, &VerticalTabsWidget::setStyleSheet);
 
     return widget;
 }

@@ -58,17 +58,26 @@ public:
     AddChildBehavior addChildBehavior() const;
     void setAddChildBehavior(AddChildBehavior behavior);
 
+    QString theme() const;
+    void setTheme(const QString &theme);
+
+    QString styleSheet() const;
+
 signals:
     void viewTypeChanged(ViewType type);
+    void styleSheetChanged(const QString &styleSheet);
 
 private:
     void mainWindowCreated(BrowserWindow *window);
     void setTabBarVisible(bool visible);
     void setWebTabBehavior(AddChildBehavior behavior);
+    void loadStyleSheet(const QString &theme);
 
     QString m_settingsPath;
     VerticalTabsController *m_controller = nullptr;
     ViewType m_viewType = TabListView;
     bool m_replaceTabBar = false;
     AddChildBehavior m_addChildBehavior = AppendChild;
+    QString m_theme;
+    QString m_styleSheet;
 };

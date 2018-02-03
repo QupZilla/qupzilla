@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/verticaltabs">
         <file>data/icon.svg</file>
+        <file>data/themes/default.css</file>
     </qresource>
 </RCC>

@@ -56,12 +56,14 @@ void VerticalTabsPlugin::init(InitState state, const QString &settingsPath)
     m_viewType = static_cast<ViewType>(settings.value(QSL("ViewType"), TabListView).toInt());
     m_replaceTabBar = settings.value(QSL("ReplaceTabBar"), false).toBool();
     m_addChildBehavior = static_cast<AddChildBehavior>(settings.value(QSL("AddChildBehavior"), AppendChild).toInt());
+    m_theme = settings.value(QSL("Theme"), QSL(":verticaltabs/data/themes/default.css")).toString();
     settings.endGroup();
 
     m_controller = new VerticalTabsController(this);
     SideBarManager::addSidebar(QSL("VerticalTabs"), m_controller);
 
     setWebTabBehavior(m_addChildBehavior);
+    loadStyleSheet(m_theme);
 
     connect(mApp->plugins(), &PluginProxy::mainWindowCreated, this, &VerticalTabsPlugin::mainWindowCreated);
 
@@ -155,6 +157,31 @@ void VerticalTabsPlugin::setAddChildBehavior(AddChildBehavior behavior)
     settings.setValue(QSL("VerticalTabs/AddChildBehavior"), m_addChildBehavior);
 }
 
+QString VerticalTabsPlugin::theme() const
+{
+    return m_theme;
+}
+
+void VerticalTabsPlugin::setTheme(const QString &theme)
+{
+    if (theme.isEmpty()) {
+        return;
+    }
+
+    // Don't check if same to allow live reloading stylesheet
+
+    m_theme = theme;
+    loadStyleSheet(m_theme);
+
+    QSettings settings(m_settingsPath, QSettings::IniFormat);
+    settings.setValue(QSL("VerticalTabs/Theme"), m_theme);
+}
+
+QString VerticalTabsPlugin::styleSheet() const
+{
+    return m_styleSheet;
+}
+
 void VerticalTabsPlugin::mainWindowCreated(BrowserWindow *window)
 {
     if (window->sideBarManager()->activeSideBar().isEmpty()) {
@@ -174,4 +201,17 @@ void VerticalTabsPlugin::setTabBarVisible(bool visible)
 void VerticalTabsPlugin::setWebTabBehavior(AddChildBehavior behavior)
 {
     WebTab::setAddChildBehavior(behavior == AppendChild ? WebTab::AppendChild : WebTab::PrependChild);
+}
+
+void VerticalTabsPlugin::loadStyleSheet(const QString &theme)
+{
+    QFile file(theme);
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "Failed to open stylesheet file" << theme;
+        file.setFileName(QSL(":verticaltabs/data/themes/default.css"));
+        file.open(QFile::ReadOnly);
+    }
+
+    m_styleSheet = QString::fromUtf8(file.readAll());
+    emit styleSheetChanged(m_styleSheet);
 }
