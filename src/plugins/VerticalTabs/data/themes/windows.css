@@ -1,5 +1,6 @@
 /* Vertical Tabs Windows theme */
 
+/* New Tab button */
 #verticaltabs-button-addtab
 {
     background : #dddddd;
@@ -86,11 +87,6 @@ TabTreeView
     color: #000000;
     selection-color: #000000;
     qproperty-backgroundIndentation: 0;
-}
-
-TabTreeView::item
-{
-    max-height: 28px;
 }
 
 TabTreeView::item
