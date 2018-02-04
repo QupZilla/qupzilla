@@ -83,15 +83,32 @@ void TabListView::adjustStyleOption(QStyleOptionViewItem *option)
     } else if (model()->rowCount() == 1) {
         option->viewItemPosition = QStyleOptionViewItem::OnlyOne;
     } else {
-        const QRect rect = visualRect(index);
-        if (!indexAt(QPoint(rect.x() - rect.width() / 2, rect.y())).isValid()) {
+        if (!indexBefore(index).isValid()) {
             option->viewItemPosition = QStyleOptionViewItem::Beginning;
-        } else if (!indexAt(QPoint(rect.x() + rect.width() / 2, rect.y())).isValid()) {
+        } else if (!indexAfter(index).isValid()) {
             option->viewItemPosition = QStyleOptionViewItem::End;
         } else {
             option->viewItemPosition = QStyleOptionViewItem::Middle;
         }
     }
+}
+
+QModelIndex TabListView::indexAfter(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return QModelIndex();
+    }
+    const QRect rect = visualRect(index);
+    return indexAt(QPoint(rect.right() + rect.width() / 2, rect.y()));
+}
+
+QModelIndex TabListView::indexBefore(const QModelIndex &index) const
+{
+    if (!index.isValid()) {
+        return QModelIndex();
+    }
+    const QRect rect = visualRect(index);
+    return indexAt(QPoint(rect.left() - rect.width() / 2, rect.y()));
 }
 
 void TabListView::currentChanged(const QModelIndex &current, const QModelIndex &previous)

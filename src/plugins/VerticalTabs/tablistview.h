@@ -34,6 +34,9 @@ public:
     void updateIndex(const QModelIndex &index);
     void adjustStyleOption(QStyleOptionViewItem *option);
 
+    QModelIndex indexAfter(const QModelIndex &index) const;
+    QModelIndex indexBefore(const QModelIndex &index) const;
+
 private:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
     void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;

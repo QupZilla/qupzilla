@@ -19,7 +19,10 @@
 #include "verticaltabsplugin.h"
 #include "verticaltabswidget.h"
 
+#include "tabwidget.h"
+
 #include <QAction>
+#include <QKeyEvent>
 
 VerticalTabsController::VerticalTabsController(VerticalTabsPlugin *plugin)
     : SideBarInterface(plugin)
@@ -47,5 +50,24 @@ QWidget *VerticalTabsController::createSideBarWidget(BrowserWindow *window)
     connect(m_plugin, &VerticalTabsPlugin::viewTypeChanged, widget, &VerticalTabsWidget::setViewType);
     connect(m_plugin, &VerticalTabsPlugin::styleSheetChanged, widget, &VerticalTabsWidget::setStyleSheet);
 
+    m_widgets[window] = widget;
     return widget;
+}
+
+bool VerticalTabsController::handleKeyPress(QKeyEvent *event, TabWidget *tabWidget)
+{
+    if (event->key() == Qt::Key_Tab && event->modifiers() == Qt::ControlModifier) {
+        VerticalTabsWidget *widget = m_widgets.value(tabWidget->browserWindow());
+        if (widget) {
+            widget->switchToNextTab();
+            return true;
+        }
+    } else if (event->key() == Qt::Key_Backtab && event->modifiers() == (Qt::ShiftModifier | Qt::ControlModifier)) {
+        VerticalTabsWidget *widget = m_widgets.value(tabWidget->browserWindow());
+        if (widget) {
+            widget->switchToPreviousTab();
+            return true;
+        }
+    }
+    return false;
 }

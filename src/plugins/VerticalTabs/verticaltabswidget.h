@@ -21,6 +21,7 @@
 
 #include "verticaltabsplugin.h"
 
+class WebTab;
 class BrowserWindow;
 class TabTreeModel;
 
@@ -35,7 +36,13 @@ public:
 
     void setViewType(VerticalTabsPlugin::ViewType type);
 
+    void switchToNextTab();
+    void switchToPreviousTab();
+
 private:
+    WebTab *nextTab() const;
+    WebTab *previousTab() const;
+
     BrowserWindow *m_window;
     TabListView *m_pinnedView;
     TabTreeView *m_normalView;

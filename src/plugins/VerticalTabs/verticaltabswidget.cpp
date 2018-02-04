@@ -20,9 +20,11 @@
 #include "tablistview.h"
 #include "tabfiltermodel.h"
 
+#include "webtab.h"
 #include "tabmodel.h"
 #include "toolbutton.h"
 #include "tabtreemodel.h"
+#include "tabbedwebview.h"
 #include "browserwindow.h"
 
 #include <QVBoxLayout>
@@ -36,7 +38,7 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
 
-    TabListView *m_pinnedView = new TabListView(this);
+    m_pinnedView = new TabListView(this);
     TabFilterModel *model = new TabFilterModel(m_pinnedView);
     model->setFilterPinnedTabs(false);
     model->setSourceModel(m_window->tabModel());
@@ -85,4 +87,62 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
     default:
         break;
     };
+}
+
+void VerticalTabsWidget::switchToNextTab()
+{
+    WebTab *tab = nextTab();
+    if (tab) {
+        tab->makeCurrentTab();
+    }
+}
+
+void VerticalTabsWidget::switchToPreviousTab()
+{
+    WebTab *tab = previousTab();
+    if (tab) {
+        tab->makeCurrentTab();
+    }
+}
+
+WebTab *VerticalTabsWidget::nextTab() const
+{
+    QModelIndex next;
+    if (m_window->weView()->webTab()->isPinned()) {
+        next = m_pinnedView->indexAfter(m_pinnedView->currentIndex());
+        if (!next.isValid()) {
+            next = m_normalView->model()->index(0, 0);
+        }
+    } else {
+        next = m_normalView->indexBelow(m_normalView->currentIndex());
+        if (!next.isValid()) {
+            next = m_pinnedView->model()->index(0, 0);
+        }
+    }
+    return next.data(TabModel::WebTabRole).value<WebTab*>();
+}
+
+WebTab *VerticalTabsWidget::previousTab() const
+{
+    QModelIndex previous;
+    if (m_window->weView()->webTab()->isPinned()) {
+        previous = m_pinnedView->indexBefore(m_pinnedView->currentIndex());
+        if (!previous.isValid()) {
+            previous = m_normalView->model()->index(m_normalView->model()->rowCount() - 1, 0);
+            while (previous.isValid()) {
+                const QModelIndex below = m_normalView->indexBelow(previous);
+                if (below.isValid()) {
+                    previous = below;
+                } else {
+                    break;
+                }
+            }
+        }
+    } else {
+        previous = m_normalView->indexAbove(m_normalView->currentIndex());
+        if (!previous.isValid()) {
+            previous = m_pinnedView->model()->index(m_pinnedView->model()->rowCount() - 1, 0);
+        }
+    }
+    return previous.data(TabModel::WebTabRole).value<WebTab*>();
 }

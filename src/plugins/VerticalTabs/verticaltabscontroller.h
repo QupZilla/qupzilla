@@ -17,9 +17,17 @@
 * ============================================================ */
 #pragma once
 
+#include <QHash>
+#include <QPointer>
+
 #include "sidebarinterface.h"
 
+class QKeyEvent;
+
+class TabWidget;
+
 class VerticalTabsPlugin;
+class VerticalTabsWidget;
 
 class VerticalTabsController : public SideBarInterface
 {
@@ -31,6 +39,9 @@ public:
     QAction *createMenuAction() override;
     QWidget *createSideBarWidget(BrowserWindow *window) override;
 
+    bool handleKeyPress(QKeyEvent *event, TabWidget *tabWidget);
+
 private:
     VerticalTabsPlugin *m_plugin;
+    QHash<BrowserWindow*, QPointer<VerticalTabsWidget>> m_widgets;
 };

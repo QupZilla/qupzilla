@@ -38,6 +38,7 @@ public:
     bool testPlugin() override;
     QTranslator* getTranslator(const QString &locale) override;
     void showSettings(QWidget *parent = nullptr) override;
+    bool keyPress(const Qz::ObjectName &type, QObject *obj, QKeyEvent *event) override;
 
     enum ViewType {
         TabListView,

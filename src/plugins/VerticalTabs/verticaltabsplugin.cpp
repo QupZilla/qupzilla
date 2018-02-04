@@ -62,6 +62,8 @@ void VerticalTabsPlugin::init(InitState state, const QString &settingsPath)
     m_controller = new VerticalTabsController(this);
     SideBarManager::addSidebar(QSL("VerticalTabs"), m_controller);
 
+    QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);
+
     setWebTabBehavior(m_addChildBehavior);
     loadStyleSheet(m_theme);
 
@@ -100,6 +102,14 @@ void VerticalTabsPlugin::showSettings(QWidget *parent)
 {
     VerticalTabsSettings *settings = new VerticalTabsSettings(this, parent);
     settings->exec();
+}
+
+bool VerticalTabsPlugin::keyPress(const Qz::ObjectName &type, QObject *obj, QKeyEvent *event)
+{
+    if (type == Qz::ON_TabWidget) {
+        return m_controller->handleKeyPress(event, static_cast<TabWidget*>(obj));
+    }
+    return false;
 }
 
 VerticalTabsPlugin::ViewType VerticalTabsPlugin::viewType() const
