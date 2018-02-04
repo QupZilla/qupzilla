@@ -82,7 +82,7 @@ void MenuTabs::mouseReleaseEvent(QMouseEvent* event)
     QMenu::mouseReleaseEvent(event);
 }
 
-TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
+TabWidget::TabWidget(BrowserWindow *window, QWidget *parent)
     : TabStackedWidget(parent)
     , m_window(window)
     , m_locationBars(new QStackedWidget)
@@ -151,6 +151,11 @@ TabWidget::TabWidget(BrowserWindow* window, QWidget* parent)
     connect(m_tabBar, SIGNAL(overFlowChanged(bool)), this, SLOT(tabBarOverFlowChanged(bool)));
 
     loadSettings();
+}
+
+BrowserWindow *TabWidget::browserWindow() const
+{
+    return m_window;
 }
 
 void TabWidget::loadSettings()

@@ -66,8 +66,10 @@ class QUPZILLA_EXPORT TabWidget : public TabStackedWidget
 {
     Q_OBJECT
 public:
-    explicit TabWidget(BrowserWindow* mainclass, QWidget* parent = 0);
+    explicit TabWidget(BrowserWindow *window, QWidget *parent = nullptr);
     ~TabWidget();
+
+    BrowserWindow *browserWindow() const;
 
     bool restoreState(const QVector<WebTab::SavedTab> &tabs, int currentTab);
 
