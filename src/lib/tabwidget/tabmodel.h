@@ -17,12 +17,33 @@
 * ============================================================ */
 #pragma once
 
+#include <QPointer>
+#include <QMimeData>
 #include <QAbstractListModel>
 
 #include "qzcommon.h"
 
 class WebTab;
 class BrowserWindow;
+
+class QUPZILLA_EXPORT TabModelMimeData : public QMimeData
+{
+    Q_OBJECT
+
+public:
+    explicit TabModelMimeData();
+
+    WebTab *tab() const;
+    void setTab(WebTab *tab);
+
+    bool hasFormat(const QString &format) const override;
+    QStringList formats() const override;
+
+    static QString mimeType();
+
+private:
+    QPointer<WebTab> m_tab;
+};
 
 class QUPZILLA_EXPORT TabModel : public QAbstractListModel
 {
@@ -53,6 +74,7 @@ public:
     Qt::DropActions supportedDropActions() const override;
     QStringList mimeTypes() const override;
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const override;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
 private:

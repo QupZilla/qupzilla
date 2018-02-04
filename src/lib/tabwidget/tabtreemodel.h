@@ -49,6 +49,7 @@ public:
     QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
     QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
 
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const override;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
 
 private:
@@ -67,6 +68,7 @@ private:
     void connectTab(WebTab *tab);
     void syncTopLevelTabs();
 
+    BrowserWindow *m_window;
     TabTreeModelItem *m_root = nullptr;
     QHash<WebTab*, TabTreeModelItem*> m_items;
 };

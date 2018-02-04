@@ -18,6 +18,7 @@
 #include "tabtreemodel.h"
 #include "tabmodel.h"
 #include "webtab.h"
+#include "tabwidget.h"
 #include "browserwindow.h"
 
 #include <QTimer>
@@ -29,7 +30,6 @@ public:
     explicit TabTreeModelItem(WebTab *tab = nullptr, const QModelIndex &index = QModelIndex());
     ~TabTreeModelItem();
 
-    bool isRoot() const;
     void setParent(TabTreeModelItem *item);
     void addChild(TabTreeModelItem *item, int index = -1);
 
@@ -50,11 +50,6 @@ TabTreeModelItem::~TabTreeModelItem()
     for (TabTreeModelItem *child : qAsConst(children)) {
         delete child;
     }
-}
-
-bool TabTreeModelItem::isRoot() const
-{
-    return !tab;
 }
 
 void TabTreeModelItem::setParent(TabTreeModelItem *item)
@@ -84,8 +79,9 @@ void TabTreeModelItem::addChild(TabTreeModelItem *item, int index)
 
 TabTreeModel::TabTreeModel(BrowserWindow *window, QObject *parent)
     : QAbstractProxyModel(parent)
+    , m_window(window)
 {
-    connect(window, &BrowserWindow::aboutToClose, this, &TabTreeModel::syncTopLevelTabs);
+    connect(m_window, &BrowserWindow::aboutToClose, this, &TabTreeModel::syncTopLevelTabs);
 
     connect(this, &QAbstractProxyModel::sourceModelChanged, this, &TabTreeModel::init);
 }
@@ -186,44 +182,53 @@ QModelIndex TabTreeModel::mapToSource(const QModelIndex &proxyIndex) const
     return it->sourceIndex;
 }
 
+bool TabTreeModel::canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const
+{
+    Q_UNUSED(row)
+    Q_UNUSED(parent)
+    if (action != Qt::MoveAction || column > 0 || !m_window) {
+        return false;
+    }
+    const TabModelMimeData *mimeData = qobject_cast<const TabModelMimeData*>(data);
+    if (!mimeData) {
+        return false;
+    }
+    WebTab *tab = mimeData->tab();
+    if (!tab) {
+        return false;
+    }
+    // This would require moving the entire tab tree
+    if (tab->browserWindow() != m_window && !tab->childTabs().isEmpty()) {
+        return false;
+    }
+    return true;
+}
+
 bool TabTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
-    if (action == Qt::IgnoreAction) {
-        return true;
-    }
-
-    const QString mimeType = mimeTypes().at(0);
-
-    if (!data->hasFormat(mimeType) || column > 0) {
+    if (!canDropMimeData(data, action, row, column, parent)) {
         return false;
     }
 
-    QByteArray encodedData = data->data(mimeType);
-    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+    const TabModelMimeData *mimeData = static_cast<const TabModelMimeData*>(data);
+    WebTab *tab = mimeData->tab();
 
-    QVector<WebTab*> tabs;
-    while (!stream.atEnd()) {
-        int index;
-        stream >> index;
-        WebTab *tab = sourceModel()->index(index, 0).data(TabModel::WebTabRole).value<WebTab*>();
-        if (tab) {
-            tabs.append(tab);
+    if (tab->isPinned()) {
+        tab->togglePinned();
+    }
+
+    if (tab->browserWindow() != m_window) {
+        if (tab->browserWindow()) {
+            tab->browserWindow()->tabWidget()->detachTab(tab);
+            m_window->tabWidget()->addView(tab, Qz::NT_SelectedTab);
         }
     }
-
-    if (tabs.isEmpty()) {
-        return false;
-    }
-
-    // Only support moving one tab
-    WebTab *tab = tabs.at(0);
 
     TabTreeModelItem *it = m_items.value(tab);
     TabTreeModelItem *parentItem = item(parent);
     if (!it || !parentItem) {
         return false;
     }
-
     if (!parentItem->tab) {
         tab->setParentTab(nullptr);
         if (row < 0) {

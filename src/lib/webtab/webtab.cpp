@@ -199,6 +199,11 @@ WebTab::WebTab(QWidget *parent)
     });
 }
 
+BrowserWindow *WebTab::browserWindow() const
+{
+    return m_window;
+}
+
 TabbedWebView* WebTab::webView() const
 {
     return m_webView;

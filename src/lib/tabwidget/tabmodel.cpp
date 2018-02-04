@@ -21,8 +21,39 @@
 #include "tabbedwebview.h"
 #include "browserwindow.h"
 
-#include <QMimeData>
+// TabModelMimeData
+TabModelMimeData::TabModelMimeData()
+    : QMimeData()
+{
+}
 
+WebTab *TabModelMimeData::tab() const
+{
+    return m_tab;
+}
+
+void TabModelMimeData::setTab(WebTab *tab)
+{
+    m_tab = tab;
+}
+
+bool TabModelMimeData::hasFormat(const QString &format) const
+{
+    return mimeType() == format;
+}
+
+QStringList TabModelMimeData::formats() const
+{
+    return {mimeType()};
+}
+
+// static
+QString TabModelMimeData::mimeType()
+{
+    return QSL("application/qupzilla.tabmodel.tab");
+}
+
+// TabModel
 TabModel::TabModel(BrowserWindow *window, QObject *parent)
     : QAbstractListModel(parent)
     , m_window(window)
@@ -111,61 +142,74 @@ Qt::DropActions TabModel::supportedDropActions() const
     return Qt::MoveAction;
 }
 
-#define MIMETYPE QStringLiteral("application/qupzilla.tabmodel.tab")
-
 QStringList TabModel::mimeTypes() const
 {
-    return {MIMETYPE};
+    return {TabModelMimeData::mimeType()};
 }
 
 QMimeData *TabModel::mimeData(const QModelIndexList &indexes) const
 {
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
-
-    for (const QModelIndex &index : indexes) {
-        if (index.isValid() && index.column() == 0) {
-            stream << index.row();
-        }
+    if (indexes.isEmpty()) {
+        return nullptr;
     }
-
-    QMimeData *mimeData = new QMimeData();
-    mimeData->setData(MIMETYPE, data);
+    WebTab *tab = indexes.at(0).data(WebTabRole).value<WebTab*>();
+    if (!tab) {
+        return nullptr;
+    }
+    TabModelMimeData *mimeData = new TabModelMimeData;
+    mimeData->setTab(tab);
     return mimeData;
+}
+
+bool TabModel::canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const
+{
+    Q_UNUSED(row)
+    if (action != Qt::MoveAction || parent.isValid() || column > 0 || !m_window) {
+        return false;
+    }
+    const TabModelMimeData *mimeData = qobject_cast<const TabModelMimeData*>(data);
+    if (!mimeData) {
+        return false;
+    }
+    return mimeData->tab();
 }
 
 bool TabModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
-    if (action == Qt::IgnoreAction) {
-        return true;
-    }
-
-    if (!m_window || !data->hasFormat(MIMETYPE) || parent.isValid() || column != 0) {
+    if (!canDropMimeData(data, action, row, column, parent)) {
         return false;
     }
 
-    QByteArray encodedData = data->data(MIMETYPE);
-    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+    const TabModelMimeData *mimeData = static_cast<const TabModelMimeData*>(data);
+    WebTab *tab = mimeData->tab();
 
-    QVector<WebTab*> tabs;
-    while (!stream.atEnd()) {
-        int idx;
-        stream >> idx;
-        WebTab *t = tab(index(idx));
-        if (t) {
-            tabs.append(t);
+    if (tab->browserWindow() == m_window) {
+        if (tab->isPinned()) {
+            if (row < 0) {
+                row = m_window->tabWidget()->pinnedTabsCount();
+            }
+            if (row > m_window->tabWidget()->pinnedTabsCount()) {
+                tab->togglePinned();
+            }
+        } else {
+            if (row < 0) {
+                row = m_window->tabWidget()->count();
+            }
+            if (row < m_window->tabWidget()->pinnedTabsCount()) {
+                tab->togglePinned();
+                row++;
+            }
         }
-    }
-
-    if (tabs.isEmpty()) {
-        return false;
-    }
-
-    for (int i = 0; i < tabs.count(); ++i) {
-        const int from = tabs.at(i)->tabIndex();
-        const int to = row >= from ? row - 1 : row++;
-        // FIXME: This switches order when moving > 2 non-contiguous indices
-        m_window->tabWidget()->moveTab(from, to);
+        tab->moveTab(row > mimeData->tab()->tabIndex() ? row - 1 : row);
+    } else {
+        if (row < 0) {
+            row = m_window->tabCount();
+        }
+        if (tab->browserWindow()) {
+            tab->browserWindow()->tabWidget()->detachTab(tab);
+        }
+        tab->setPinned(row < m_window->tabWidget()->pinnedTabsCount());
+        m_window->tabWidget()->insertView(row, tab, Qz::NT_SelectedTab);
     }
 
     return true;

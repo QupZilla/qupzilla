@@ -67,6 +67,7 @@ public:
 
     explicit WebTab(QWidget *parent = nullptr);
 
+    BrowserWindow *browserWindow() const;
     TabbedWebView* webView() const;
     LocationBar* locationBar() const;
     TabIcon* tabIcon() const;
