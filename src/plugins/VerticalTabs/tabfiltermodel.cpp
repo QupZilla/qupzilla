@@ -37,6 +37,11 @@ void TabFilterModel::setFilterPinnedTabs(bool filter)
     invalidateFilter();
 }
 
+void TabFilterModel::setRejectDropOnLastIndex(bool reject)
+{
+    m_rejectDropOnLastIndex = reject;
+}
+
 bool TabFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     if (m_mode == NoFilter) {
@@ -47,3 +52,10 @@ bool TabFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourcePa
     return index.data(TabModel::PinnedRole).toBool() != m_filterPinnedTabs;
 }
 
+bool TabFilterModel::canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const
+{
+    if (m_rejectDropOnLastIndex && row == rowCount()) {
+        return false;
+    }
+    return QSortFilterProxyModel::canDropMimeData(data, action, row, column, parent);
+}

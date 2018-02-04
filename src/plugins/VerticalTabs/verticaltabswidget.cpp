@@ -43,6 +43,7 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     m_pinnedView = new TabListView(this);
     TabFilterModel *model = new TabFilterModel(m_pinnedView);
     model->setFilterPinnedTabs(false);
+    model->setRejectDropOnLastIndex(true);
     model->setSourceModel(m_window->tabModel());
     m_pinnedView->setModel(model);
     m_pinnedView->setHideWhenEmpty(true);

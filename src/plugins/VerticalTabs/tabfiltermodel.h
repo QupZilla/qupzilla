@@ -30,8 +30,11 @@ public:
 
     void setFilterPinnedTabs(bool pinned);
 
+    void setRejectDropOnLastIndex(bool reject);
+
 private:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const;
+    bool canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const override;
 
     enum Mode {
         NoFilter,
@@ -40,4 +43,5 @@ private:
 
     Mode m_mode = NoFilter;
     bool m_filterPinnedTabs = false;
+    bool m_rejectDropOnLastIndex = false;
 };
