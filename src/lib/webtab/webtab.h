@@ -48,6 +48,7 @@ public:
         int zoomLevel;
         int parentTab;
         QVector<int> childTabs;
+        QHash<QString, QVariant> sessionData;
 
         SavedTab();
         SavedTab(WebTab* webTab);
@@ -73,8 +74,10 @@ public:
     WebTab *parentTab() const;
     void setParentTab(WebTab *tab);
     void addChildTab(WebTab *tab, int index = -1);
-
     QVector<WebTab*> childTabs() const;
+
+    QHash<QString, QVariant> sessionData() const;
+    void setSessionData(const QString &key, const QVariant &value);
 
     QUrl url() const;
     QString title(bool allowEmpty = false) const;
@@ -160,6 +163,7 @@ private:
 
     WebTab *m_parentTab = nullptr;
     QVector<WebTab*> m_childTabs;
+    QHash<QString, QVariant> m_sessionData;
 
     SavedTab m_savedTab;
     bool m_isPinned = false;

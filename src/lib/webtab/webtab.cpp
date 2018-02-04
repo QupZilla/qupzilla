@@ -36,7 +36,7 @@
 #include <QTimer>
 #include <QSplitter>
 
-static const int savedTabVersion = 5;
+static const int savedTabVersion = 6;
 
 WebTab::SavedTab::SavedTab()
     : isPinned(false)
@@ -60,6 +60,8 @@ WebTab::SavedTab::SavedTab(WebTab* webTab)
     for (WebTab *child : children) {
         childTabs.append(child->tabIndex());
     }
+
+    sessionData = webTab->sessionData();
 }
 
 bool WebTab::SavedTab::isValid() const
@@ -77,6 +79,7 @@ void WebTab::SavedTab::clear()
     zoomLevel = qzSettings->defaultZoomLevel;
     parentTab = -1;
     childTabs.clear();
+    sessionData.clear();
 }
 
 QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
@@ -90,6 +93,7 @@ QDataStream &operator <<(QDataStream &stream, const WebTab::SavedTab &tab)
     stream << tab.zoomLevel;
     stream << tab.parentTab;
     stream << tab.childTabs;
+    stream << tab.sessionData;
 
     return stream;
 }
@@ -119,6 +123,9 @@ QDataStream &operator >>(QDataStream &stream, WebTab::SavedTab &tab)
 
     if (version >= 5)
         stream >> tab.childTabs;
+
+    if (version >= 6)
+        stream >> tab.sessionData;
 
     tab.icon = QIcon(pixmap);
 
@@ -498,6 +505,16 @@ QVector<WebTab*> WebTab::childTabs() const
     return m_childTabs;
 }
 
+QHash<QString, QVariant> WebTab::sessionData() const
+{
+    return m_sessionData;
+}
+
+void WebTab::setSessionData(const QString &key, const QVariant &value)
+{
+    m_sessionData[key] = value;
+}
+
 bool WebTab::isRestored() const
 {
     return !m_savedTab.isValid();
@@ -508,6 +525,7 @@ void WebTab::restoreTab(const WebTab::SavedTab &tab)
     Q_ASSERT(m_tabBar);
 
     setPinned(tab.isPinned);
+    m_sessionData = tab.sessionData;
 
     if (!isPinned() && qzSettings->loadTabsOnActivation) {
         m_savedTab = tab;
