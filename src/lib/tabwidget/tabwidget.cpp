@@ -30,6 +30,7 @@
 #include "qzsettings.h"
 #include "qztools.h"
 #include "tabicon.h"
+#include "pluginproxy.h"
 
 #include <QFile>
 #include <QTimer>
@@ -194,6 +195,24 @@ bool TabWidget::validIndex(int index) const
 void TabWidget::updateClosedTabsButton()
 {
     m_buttonClosedTabs->setVisible(m_showClosedTabsButton && canRestoreTab());
+}
+
+void TabWidget::keyPressEvent(QKeyEvent *event)
+{
+    if (mApp->plugins()->processKeyPress(Qz::ON_TabWidget, this, event)) {
+        return;
+    }
+
+    TabStackedWidget::keyPressEvent(event);
+}
+
+void TabWidget::keyReleaseEvent(QKeyEvent *event)
+{
+    if (mApp->plugins()->processKeyRelease(Qz::ON_TabWidget, this, event)) {
+        return;
+    }
+
+    TabStackedWidget::keyReleaseEvent(event);
 }
 
 bool TabWidget::isCurrentTabFresh() const

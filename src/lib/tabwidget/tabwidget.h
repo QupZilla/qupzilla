@@ -151,6 +151,9 @@ private:
     bool validIndex(int index) const;
     void updateClosedTabsButton();
 
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
+
     BrowserWindow* m_window;
     TabBar* m_tabBar;
     QStackedWidget* m_locationBars;

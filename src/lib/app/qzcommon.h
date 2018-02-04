@@ -89,6 +89,7 @@ enum CommandLineAction {
 enum ObjectName {
     ON_WebView,
     ON_TabBar,
+    ON_TabWidget,
     ON_BrowserWindow
 };
 
