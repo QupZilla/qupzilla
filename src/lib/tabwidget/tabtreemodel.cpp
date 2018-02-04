@@ -229,6 +229,9 @@ bool TabTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action, in
     if (!it || !parentItem) {
         return false;
     }
+    if (it->parent == parentItem) {
+        return false;
+    }
     if (!parentItem->tab) {
         tab->setParentTab(nullptr);
         if (row < 0) {
