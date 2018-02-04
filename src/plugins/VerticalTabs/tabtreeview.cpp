@@ -29,6 +29,7 @@
 
 TabTreeView::TabTreeView(QWidget *parent)
     : QTreeView(parent)
+    , m_expandedSessionKey(QSL("VerticalTabs-expanded"))
 {
     setDragEnabled(true);
     setAcceptDrops(true);
@@ -50,6 +51,18 @@ TabTreeView::TabTreeView(QWidget *parent)
 
     // Enable hover to force redrawing close button
     viewport()->setAttribute(Qt::WA_Hover);
+
+    auto saveExpandedState = [this](const QModelIndex &index, bool expanded) {
+        if (m_initializing) {
+            return;
+        }
+        WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
+        if (tab) {
+            tab->setSessionData(m_expandedSessionKey, expanded);
+        }
+    };
+    connect(this, &TabTreeView::expanded, this, std::bind(saveExpandedState, std::placeholders::_1, true));
+    connect(this, &TabTreeView::collapsed, this, std::bind(saveExpandedState, std::placeholders::_1, false));
 }
 
 int TabTreeView::backgroundIndentation() const
@@ -70,6 +83,14 @@ bool TabTreeView::areTabsInOrder() const
 void TabTreeView::setTabsInOrder(bool enable)
 {
     m_tabsInOrder = enable;
+}
+
+void TabTreeView::setModel(QAbstractItemModel *model)
+{
+    QTreeView::setModel(model);
+
+    m_initializing = true;
+    QTimer::singleShot(0, this, &TabTreeView::initView);
 }
 
 void TabTreeView::updateIndex(const QModelIndex &index)
@@ -133,6 +154,10 @@ void TabTreeView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bot
 void TabTreeView::rowsInserted(const QModelIndex &parent, int start, int end)
 {
     QTreeView::rowsInserted(parent, start, end);
+
+    if (m_initializing) {
+        return;
+    }
 
     // Parent for WebTab is set after insertTab is emitted
     const QPersistentModelIndex index = model()->index(start, 0, parent);
@@ -275,6 +300,22 @@ bool TabTreeView::viewportEvent(QEvent *event)
         break;
     }
     return QTreeView::viewportEvent(event);
+}
+
+void TabTreeView::initView()
+{
+    // Restore expanded state
+    expandAll();
+    QModelIndex index = model()->index(0, 0);
+    while (index.isValid()) {
+        WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
+        if (tab) {
+            setExpanded(index, tab->sessionData().value(m_expandedSessionKey, true).toBool());
+        }
+        index = indexBelow(index);
+    }
+
+    m_initializing = false;
 }
 
 TabTreeView::DelegateButton TabTreeView::buttonAt(const QPoint &pos, const QModelIndex &index) const

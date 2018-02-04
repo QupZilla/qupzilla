@@ -36,6 +36,8 @@ public:
     bool areTabsInOrder() const;
     void setTabsInOrder(bool enable);
 
+    void setModel(QAbstractItemModel *model) override;
+
     void updateIndex(const QModelIndex &index);
     void adjustStyleOption(QStyleOptionViewItem *option);
 
@@ -53,6 +55,7 @@ private:
         CloseButton
     };
 
+    void initView();
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
 
     TabTreeDelegate *m_delegate;
@@ -61,4 +64,6 @@ private:
     QPersistentModelIndex m_hoveredIndex;
     bool m_tabsInOrder = false;
     int m_backgroundIndentation = 0;
+    QString m_expandedSessionKey;
+    bool m_initializing = false;
 };
