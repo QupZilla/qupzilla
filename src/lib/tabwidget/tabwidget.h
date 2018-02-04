@@ -18,8 +18,8 @@
 #ifndef TABWIDGET_H
 #define TABWIDGET_H
 
-#include <QTabWidget>
 #include <QMenu>
+#include <QPointer>
 
 #include "tabstackedwidget.h"
 #include "toolbutton.h"
@@ -81,8 +81,10 @@ public:
 
     int normalTabsCount() const;
     int pinnedTabsCount() const;
-    int lastTabIndex() const;
     int extraReservedWidth() const;
+
+    WebTab *lastTab() const;
+    int lastTabIndex() const;
 
     TabBar* tabBar() const;
     ClosedTabsManager* closedTabsManager() const;
@@ -168,8 +170,8 @@ private:
     AddTabButton* m_buttonAddTab;
     AddTabButton* m_buttonAddTab2;
 
-    int m_lastTabIndex;
-    int m_lastBackgroundTabIndex;
+    QPointer<WebTab> m_lastTab;
+    QPointer<WebTab> m_lastBackgroundTab;
 
     bool m_dontCloseWithOneTab;
     bool m_showClosedTabsButton;

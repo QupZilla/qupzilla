@@ -87,8 +87,6 @@ TabWidget::TabWidget(BrowserWindow *window, QWidget *parent)
     , m_window(window)
     , m_locationBars(new QStackedWidget)
     , m_closedTabsManager(new ClosedTabsManager)
-    , m_lastTabIndex(-1)
-    , m_lastBackgroundTabIndex(-1)
 {
     setObjectName(QSL("tabwidget"));
 
@@ -323,7 +321,7 @@ int TabWidget::addView(const LoadRequest &req, const Qz::NewTabPositionFlags &op
 int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
     QUrl url = req.url();
-    m_lastTabIndex = currentIndex();
+    m_lastTab = weTab();
     m_currentTabFresh = false;
 
     if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
@@ -339,8 +337,8 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
     if (openAfterActive && position == -1) {
         // If we are opening newBgTab from pinned tab, make sure it won't be
         // opened between other pinned tabs
-        if (openFlags & Qz::NT_NotSelectedTab && m_lastBackgroundTabIndex != -1) {
-            position = m_lastBackgroundTabIndex + 1;
+        if (openFlags & Qz::NT_NotSelectedTab && m_lastBackgroundTab) {
+            position = m_lastBackgroundTab->tabIndex() + 1;
         }
         else {
             position = qMax(currentIndex() + 1, m_tabBar->pinnedTabsCount());
@@ -361,9 +359,8 @@ int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::N
 
     if (openFlags & Qz::NT_SelectedTab) {
         setCurrentIndex(index);
-    }
-    else {
-        m_lastBackgroundTabIndex = index;
+    } else {
+        m_lastBackgroundTab = webTab;
     }
 
     connect(webTab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -412,7 +409,7 @@ int TabWidget::insertView(int index, WebTab *tab, const Qz::NewTabPositionFlags 
     if (openFlags.testFlag(Qz::NT_SelectedTab)) {
         setCurrentIndex(newIndex);
     } else {
-        m_lastBackgroundTabIndex = index;
+        m_lastBackgroundTab = tab;
     }
 
     connect(tab->webView(), SIGNAL(wantsCloseTab(int)), this, SLOT(closeTab(int)));
@@ -463,7 +460,7 @@ void TabWidget::closeTab(int index)
     disconnect(webView, SIGNAL(urlChanged(QUrl)), this, SIGNAL(changed()));
     disconnect(webView, SIGNAL(ipChanged(QString)), m_window->ipLabel(), SLOT(setText(QString)));
 
-    m_lastBackgroundTabIndex = -1;
+    m_lastBackgroundTab = nullptr;
 
     webTab->detach();
     webTab->deleteLater();
@@ -510,12 +507,12 @@ void TabWidget::currentTabChanged(int index)
     if (!validIndex(index))
         return;
 
-    m_lastBackgroundTabIndex = -1;
-    m_lastTabIndex = index;
+    m_lastBackgroundTab = nullptr;
     m_currentTabFresh = false;
 
     WebTab* webTab = weTab(index);
     webTab->tabActivated();
+    m_lastTab = webTab;
 
     LocationBar* locBar = webTab->locationBar();
 
@@ -530,11 +527,7 @@ void TabWidget::currentTabChanged(int index)
 
 void TabWidget::tabWasMoved(int before, int after)
 {
-    Q_UNUSED(before)
-    Q_UNUSED(after)
-
-    m_lastBackgroundTabIndex = -1;
-    m_lastTabIndex = before;
+    m_lastBackgroundTab = nullptr;
 
     emit changed();
     emit tabMoved(before, after);
@@ -542,7 +535,7 @@ void TabWidget::tabWasMoved(int before, int after)
 
 void TabWidget::setCurrentIndex(int index)
 {
-    m_lastTabIndex = currentIndex();
+    m_lastTab = weTab();
 
     TabStackedWidget::setCurrentIndex(index);
 }
@@ -578,9 +571,14 @@ void TabWidget::reloadTab(int index)
     weTab(index)->reload();
 }
 
+WebTab *TabWidget::lastTab() const
+{
+    return m_lastTab;
+}
+
 int TabWidget::lastTabIndex() const
 {
-    return m_lastTabIndex;
+    return m_lastTab ? m_lastTab->tabIndex() : -1;
 }
 
 int TabWidget::extraReservedWidth() const
