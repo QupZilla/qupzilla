@@ -19,6 +19,8 @@
 
 #include <QWidget>
 
+#include "wheelhelper.h"
+
 #include "verticaltabsplugin.h"
 
 class WebTab;
@@ -40,6 +42,8 @@ public:
     void switchToPreviousTab();
 
 private:
+    void wheelEvent(QWheelEvent *event) override;
+
     WebTab *nextTab() const;
     WebTab *previousTab() const;
 
@@ -47,4 +51,5 @@ private:
     TabListView *m_pinnedView;
     TabTreeView *m_normalView;
     TabTreeModel *m_treeModel = nullptr;
+    WheelHelper m_wheelHelper;
 };

@@ -27,8 +27,10 @@
 #include "tabbedwebview.h"
 #include "browserwindow.h"
 
-#include <QVBoxLayout>
 #include <QListView>
+#include <QScrollBar>
+#include <QVBoxLayout>
+#include <QWheelEvent>
 
 VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     : QWidget()
@@ -145,4 +147,30 @@ WebTab *VerticalTabsWidget::previousTab() const
         }
     }
     return previous.data(TabModel::WebTabRole).value<WebTab*>();
+}
+
+void VerticalTabsWidget::wheelEvent(QWheelEvent *event)
+{
+    if (m_normalView->verticalScrollBar()->isVisible()) {
+        return;
+    }
+
+    m_wheelHelper.processEvent(event);
+    while (WheelHelper::Direction direction = m_wheelHelper.takeDirection()) {
+        switch (direction) {
+        case WheelHelper::WheelUp:
+        case WheelHelper::WheelLeft:
+            switchToPreviousTab();
+            break;
+
+        case WheelHelper::WheelDown:
+        case WheelHelper::WheelRight:
+            switchToNextTab();
+            break;
+
+        default:
+            break;
+        }
+    }
+    event->accept();
 }
