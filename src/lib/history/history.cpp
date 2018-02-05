@@ -70,14 +70,11 @@ void History::addHistoryEntry(const QUrl &url, QString title)
         return;
     }
 
-    const QStringList ignoredSchemes = {
-        QStringLiteral("qupzilla"),
-        QStringLiteral("view-source"),
-        QStringLiteral("data"),
-        QStringLiteral("about")
+    const QStringList schemes = {
+        QSL("http"), QSL("https"), QSL("ftp"), QSL("file")
     };
 
-    if (url.isEmpty() || ignoredSchemes.contains(url.scheme())) {
+    if (!schemes.contains(url.scheme())) {
         return;
     }
 
