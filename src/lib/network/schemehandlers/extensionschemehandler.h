@@ -21,7 +21,7 @@
 
 #include "qzcommon.h"
 
-class ExtensionSchemeHandler : public QObject
+class QUPZILLA_EXPORT ExtensionSchemeHandler : public QObject
 {
 public:
     explicit ExtensionSchemeHandler(QObject *parent = nullptr) : QObject(parent) { }
