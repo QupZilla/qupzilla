@@ -28,8 +28,19 @@ class TabWidget;
 class QUPZILLA_EXPORT TabContextMenu : public QMenu
 {
     Q_OBJECT
+
 public:
-    explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs = true);
+    enum Option {
+        InvalidOption = 0,
+        HorizontalTabs = 1 << 0,
+        VerticalTabs = 1 << 1,
+        ShowCloseOtherTabsActions = 1 << 2,
+
+        DefaultOptions = HorizontalTabs | ShowCloseOtherTabsActions
+    };
+    Q_DECLARE_FLAGS(Options, Option)
+
+    explicit TabContextMenu(int index, BrowserWindow *window, Options options = DefaultOptions);
 
 signals:
     void reloadTab(int index);
@@ -61,10 +72,8 @@ private:
     void init();
 
     int m_clickedTab;
-    Qt::Orientation m_tabsOrientation;
-    BrowserWindow* m_window;
-    TabWidget* m_tabWidget;
-    bool m_showCloseOtherTabs;
+    BrowserWindow *m_window;
+    Options m_options = InvalidOption;
 };
 
 #endif // TABCONTEXTMENU_H

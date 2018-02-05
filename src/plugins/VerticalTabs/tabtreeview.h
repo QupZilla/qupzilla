@@ -19,6 +19,8 @@
 
 #include <QTreeView>
 
+class BrowserWindow;
+
 class TabTreeDelegate;
 
 class TabTreeView : public QTreeView
@@ -27,7 +29,7 @@ class TabTreeView : public QTreeView
     Q_PROPERTY(int backgroundIndentation READ backgroundIndentation WRITE setBackgroundIndentation)
 
 public:
-    explicit TabTreeView(QWidget *parent = nullptr);
+    explicit TabTreeView(BrowserWindow *window, QWidget *parent = nullptr);
 
     int backgroundIndentation() const;
     void setBackgroundIndentation(int indentation);
@@ -58,6 +60,7 @@ private:
     void initView();
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
 
+    BrowserWindow *m_window;
     TabTreeDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;
     QPersistentModelIndex m_pressedIndex;

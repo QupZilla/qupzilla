@@ -347,7 +347,7 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
 
     int index = tabAt(event->pos());
 
-    TabContextMenu menu(index, Qt::Horizontal, m_window, m_tabWidget);
+    TabContextMenu menu(index, m_window);
 
     // Prevent choosing first option with double rightclick
     const QPoint pos = event->globalPos();

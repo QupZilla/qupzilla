@@ -27,8 +27,9 @@
 #include <QToolTip>
 #include <QHoverEvent>
 
-TabListView::TabListView(QWidget *parent)
+TabListView::TabListView(BrowserWindow *window, QWidget *parent)
     : QListView(parent)
+    , m_window(window)
 {
     setDragEnabled(true);
     setAcceptDrops(true);
@@ -206,10 +207,9 @@ bool TabListView::viewportEvent(QEvent *event)
         QContextMenuEvent *ce = static_cast<QContextMenuEvent*>(event);
         const QModelIndex index = indexAt(ce->pos());
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
-        if (tab) {
-            TabContextMenu menu(tab, Qt::Horizontal, false);
-            menu.exec(ce->globalPos());
-        }
+        const int tabIndex = tab ? tab->tabIndex() : -1;
+        TabContextMenu menu(tabIndex, m_window, TabContextMenu::HorizontalTabs);
+        menu.exec(ce->globalPos());
         break;
     }
     default:

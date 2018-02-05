@@ -40,7 +40,7 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
 
-    m_pinnedView = new TabListView(this);
+    m_pinnedView = new TabListView(m_window, this);
     TabFilterModel *model = new TabFilterModel(m_pinnedView);
     model->setFilterPinnedTabs(false);
     model->setRejectDropOnLastIndex(true);
@@ -48,7 +48,7 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     m_pinnedView->setModel(model);
     m_pinnedView->setHideWhenEmpty(true);
 
-    m_normalView = new TabTreeView(this);
+    m_normalView = new TabTreeView(m_window, this);
     m_pinnedView->setFocusProxy(m_normalView);
 
     ToolButton *buttonAddTab = new ToolButton(this);

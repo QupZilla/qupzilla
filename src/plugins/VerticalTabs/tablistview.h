@@ -19,6 +19,8 @@
 
 #include <QListView>
 
+class BrowserWindow;
+
 class TabListDelegate;
 
 class TabListView : public QListView
@@ -26,7 +28,7 @@ class TabListView : public QListView
     Q_OBJECT
 
 public:
-    explicit TabListView(QWidget *parent = nullptr);
+    explicit TabListView(BrowserWindow *window, QWidget *parent = nullptr);
 
     bool isHidingWhenEmpty() const;
     void setHideWhenEmpty(bool enable);
@@ -52,6 +54,7 @@ private:
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
     void updateVisibility();
 
+    BrowserWindow *m_window;
     TabListDelegate *m_delegate;
     DelegateButton m_pressedButton = NoButton;
     QModelIndex m_pressedIndex;

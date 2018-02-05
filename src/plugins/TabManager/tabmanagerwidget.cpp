@@ -287,7 +287,11 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
             // if items are not grouped by Window then actions "Close Other Tabs",
             // "Close Tabs To The Bottom" and "Close Tabs To The Top"
             // are ambiguous and should be hidden.
-            menu = new TabContextMenu(index, Qt::Vertical, mainWindow, mainWindow->tabWidget(), m_groupType == GroupByWindow);
+            TabContextMenu::Options options = TabContextMenu::VerticalTabs;
+            if (m_groupType == GroupByWindow) {
+                options |= TabContextMenu::ShowCloseOtherTabsActions;
+            }
+            menu = new TabContextMenu(index, mainWindow, options);
             menu->addSeparator();
         }
     }

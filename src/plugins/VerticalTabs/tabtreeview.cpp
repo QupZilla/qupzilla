@@ -27,8 +27,9 @@
 #include <QToolTip>
 #include <QHoverEvent>
 
-TabTreeView::TabTreeView(QWidget *parent)
+TabTreeView::TabTreeView(BrowserWindow *window, QWidget *parent)
     : QTreeView(parent)
+    , m_window(window)
     , m_expandedSessionKey(QSL("VerticalTabs-expanded"))
 {
     setDragEnabled(true);
@@ -289,10 +290,13 @@ bool TabTreeView::viewportEvent(QEvent *event)
         QContextMenuEvent *ce = static_cast<QContextMenuEvent*>(event);
         const QModelIndex index = indexAt(ce->pos());
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
-        if (tab) {
-            TabContextMenu menu(tab, Qt::Vertical, m_tabsInOrder);
-            menu.exec(ce->globalPos());
+        const int tabIndex = tab ? tab->tabIndex() : -1;
+        TabContextMenu::Options options = TabContextMenu::VerticalTabs;
+        if (m_tabsInOrder) {
+            options |= TabContextMenu::ShowCloseOtherTabsActions;
         }
+        TabContextMenu menu(tabIndex, m_window, options);
+        menu.exec(ce->globalPos());
         break;
     }
 

@@ -27,25 +27,24 @@
 #include "checkboxdialog.h"
 
 
-TabContextMenu::TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs)
+TabContextMenu::TabContextMenu(int index, BrowserWindow *window, Options options)
     : QMenu()
     , m_clickedTab(index)
-    , m_tabsOrientation(orientation)
     , m_window(window)
-    , m_tabWidget(tabWidget)
-    , m_showCloseOtherTabs(showCloseOtherTabs)
+    , m_options(options)
 {
     setObjectName("tabcontextmenu");
 
-    connect(this, SIGNAL(tabCloseRequested(int)), m_tabWidget->tabBar(), SIGNAL(tabCloseRequested(int)));
-    connect(this, SIGNAL(reloadTab(int)), m_tabWidget, SLOT(reloadTab(int)));
-    connect(this, SIGNAL(stopTab(int)), m_tabWidget, SLOT(stopTab(int)));
-    connect(this, SIGNAL(closeAllButCurrent(int)), m_tabWidget, SLOT(closeAllButCurrent(int)));
-    connect(this, SIGNAL(closeToRight(int)), m_tabWidget, SLOT(closeToRight(int)));
-    connect(this, SIGNAL(closeToLeft(int)), m_tabWidget, SLOT(closeToLeft(int)));
-    connect(this, SIGNAL(duplicateTab(int)), m_tabWidget, SLOT(duplicateTab(int)));
-    connect(this, SIGNAL(loadTab(int)), m_tabWidget, SLOT(loadTab(int)));
-    connect(this, SIGNAL(unloadTab(int)), m_tabWidget, SLOT(unloadTab(int)));
+    TabWidget *tabWidget = m_window->tabWidget();
+    connect(this, SIGNAL(tabCloseRequested(int)), tabWidget->tabBar(), SIGNAL(tabCloseRequested(int)));
+    connect(this, SIGNAL(reloadTab(int)), tabWidget, SLOT(reloadTab(int)));
+    connect(this, SIGNAL(stopTab(int)), tabWidget, SLOT(stopTab(int)));
+    connect(this, SIGNAL(closeAllButCurrent(int)), tabWidget, SLOT(closeAllButCurrent(int)));
+    connect(this, SIGNAL(closeToRight(int)), tabWidget, SLOT(closeToRight(int)));
+    connect(this, SIGNAL(closeToLeft(int)), tabWidget, SLOT(closeToLeft(int)));
+    connect(this, SIGNAL(duplicateTab(int)), tabWidget, SLOT(duplicateTab(int)));
+    connect(this, SIGNAL(loadTab(int)), tabWidget, SLOT(loadTab(int)));
+    connect(this, SIGNAL(unloadTab(int)), tabWidget, SLOT(unloadTab(int)));
 
     init();
 }
@@ -84,7 +83,7 @@ void TabContextMenu::closeAllButCurrent()
 
 void TabContextMenu::closeToRight()
 {
-    const QString label = m_tabsOrientation == Qt::Horizontal
+    const QString label = m_options & HorizontalTabs
             ? tr("Do you really want to close all tabs to the right?")
             : tr("Do you really want to close all tabs to the bottom?");
 
@@ -95,7 +94,7 @@ void TabContextMenu::closeToRight()
 
 void TabContextMenu::closeToLeft()
 {
-    const QString label = m_tabsOrientation == Qt::Horizontal
+    const QString label = m_options & HorizontalTabs
             ? tr("Do you really want to close all tabs to the left?")
             : tr("Do you really want to close all tabs to the top?");
 
@@ -106,8 +105,9 @@ void TabContextMenu::closeToLeft()
 
 void TabContextMenu::init()
 {
+    TabWidget *tabWidget = m_window->tabWidget();
     if (m_clickedTab != -1) {
-        WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
+        WebTab* webTab = tabWidget->webTab(m_clickedTab);
         if (!webTab) {
             return;
         }
@@ -131,14 +131,14 @@ void TabContextMenu::init()
         }
 
         addSeparator();
-        addAction(tr("Re&load All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
+        addAction(tr("Re&load All Tabs"), tabWidget, SLOT(reloadAllTabs()));
         addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         addSeparator();
 
-        if (m_showCloseOtherTabs) {
+        if (m_options & ShowCloseOtherTabsActions) {
             addAction(tr("Close Ot&her Tabs"), this, SLOT(closeAllButCurrent()));
-            addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Right") : tr("Close Tabs To The Bottom"), this, SLOT(closeToRight()));
-            addAction(m_tabsOrientation == Qt::Horizontal ? tr("Close Tabs To The Left") : tr("Close Tabs To The Top"), this, SLOT(closeToLeft()));
+            addAction(m_options & HorizontalTabs ? tr("Close Tabs To The Right") : tr("Close Tabs To The Bottom"), this, SLOT(closeToRight()));
+            addAction(m_options & HorizontalTabs ? tr("Close Tabs To The Left") : tr("Close Tabs To The Top"), this, SLOT(closeToLeft()));
             addSeparator();
         }
 
@@ -147,19 +147,18 @@ void TabContextMenu::init()
     } else {
         addAction(IconProvider::newTabIcon(), tr("&New tab"), m_window, SLOT(addTab()));
         addSeparator();
-        addAction(tr("Reloa&d All Tabs"), m_tabWidget, SLOT(reloadAllTabs()));
+        addAction(tr("Reloa&d All Tabs"), tabWidget, SLOT(reloadAllTabs()));
         addAction(tr("Bookmark &All Tabs"), m_window, SLOT(bookmarkAllTabs()));
         addSeparator();
         addAction(m_window->action(QSL("Other/RestoreClosedTab")));
     }
 
-    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(m_tabWidget->canRestoreTab());
+    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(tabWidget->canRestoreTab());
 }
 
 void TabContextMenu::pinTab()
 {
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
-
+    WebTab* webTab = m_window->tabWidget()->webTab(m_clickedTab);
     if (webTab) {
         webTab->togglePinned();
     }
@@ -167,8 +166,7 @@ void TabContextMenu::pinTab()
 
 void TabContextMenu::muteTab()
 {
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(m_clickedTab));
-
+    WebTab* webTab = m_window->tabWidget()->webTab(m_clickedTab);
     if (webTab) {
         webTab->toggleMuted();
     }
