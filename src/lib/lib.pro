@@ -119,6 +119,7 @@ SOURCES += \
     network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
     network/networkurlinterceptor.cpp \
+    network/schemehandlers/extensionschemehandler.cpp \
     #network/schemehandlers/fileschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
@@ -299,6 +300,7 @@ HEADERS  += \
     network/networkmanager.h \
     network/networkproxyfactory.h \
     network/networkurlinterceptor.h \
+    network/schemehandlers/extensionschemehandler.h \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/urlinterceptor.h \

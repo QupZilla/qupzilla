@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -139,7 +139,7 @@ bool SiteInfo::canShowSiteInfo(const QUrl &url)
     if (LocationBar::convertUrlToText(url).isEmpty())
         return false;
 
-    if (url.scheme() == QL1S("qupzilla") || url.scheme() == QL1S("view-source"))
+    if (url.scheme() == QL1S("qupzilla") || url.scheme() == QL1S("view-source") || url.scheme() == QL1S("extension"))
         return false;
 
     return true;
