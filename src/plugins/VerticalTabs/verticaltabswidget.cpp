@@ -81,6 +81,7 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
         model->setSourceModel(m_window->tabModel());
         m_normalView->setModel(model);
         m_normalView->setTabsInOrder(true);
+        m_normalView->setHaveTreeModel(false);
         break;
 
     case VerticalTabsPlugin::TabTreeView:
@@ -89,6 +90,7 @@ void VerticalTabsWidget::setViewType(VerticalTabsPlugin::ViewType type)
         model->setSourceModel(m_treeModel);
         m_normalView->setModel(model);
         m_normalView->setTabsInOrder(false);
+        m_normalView->setHaveTreeModel(true);
         break;
 
     default:

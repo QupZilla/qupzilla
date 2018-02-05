@@ -19,6 +19,8 @@
 
 #include <QTreeView>
 
+class QMenu;
+
 class BrowserWindow;
 
 class TabTreeDelegate;
@@ -37,6 +39,9 @@ public:
     // In TabBar order
     bool areTabsInOrder() const;
     void setTabsInOrder(bool enable);
+
+    bool haveTreeModel() const;
+    void setHaveTreeModel(bool enable);
 
     void setModel(QAbstractItemModel *model) override;
 
@@ -59,6 +64,8 @@ private:
 
     void initView();
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
+    void addMenuActions(QMenu *menu, const QModelIndex &index) const;
+    void reverseTraverse(const QModelIndex &root, std::function<void(const QModelIndex&)> callback) const;
 
     BrowserWindow *m_window;
     TabTreeDelegate *m_delegate;
@@ -66,6 +73,7 @@ private:
     QPersistentModelIndex m_pressedIndex;
     QPersistentModelIndex m_hoveredIndex;
     bool m_tabsInOrder = false;
+    bool m_haveTreeModel = false;
     int m_backgroundIndentation = 0;
     QString m_expandedSessionKey;
     bool m_initializing = false;

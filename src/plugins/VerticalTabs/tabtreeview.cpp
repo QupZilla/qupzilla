@@ -86,6 +86,16 @@ void TabTreeView::setTabsInOrder(bool enable)
     m_tabsInOrder = enable;
 }
 
+bool TabTreeView::haveTreeModel() const
+{
+    return m_haveTreeModel;
+}
+
+void TabTreeView::setHaveTreeModel(bool enable)
+{
+    m_haveTreeModel = enable;
+}
+
 void TabTreeView::setModel(QAbstractItemModel *model)
 {
     QTreeView::setModel(model);
@@ -296,6 +306,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
             options |= TabContextMenu::ShowCloseOtherTabsActions;
         }
         TabContextMenu menu(tabIndex, m_window, options);
+        addMenuActions(&menu, index);
         menu.exec(ce->globalPos());
         break;
     }
@@ -332,4 +343,45 @@ TabTreeView::DelegateButton TabTreeView::buttonAt(const QPoint &pos, const QMode
         return CloseButton;
     }
     return NoButton;
+}
+
+void TabTreeView::addMenuActions(QMenu *menu, const QModelIndex &index) const
+{
+    if (!m_haveTreeModel) {
+        return;
+    }
+
+    menu->addSeparator();
+    QMenu *m = menu->addMenu(tr("Tab Tree"));
+
+    if (index.isValid() && model()->rowCount(index) > 0) {
+        QPersistentModelIndex pindex = index;
+        m->addAction(tr("Close Tree"), this, [=]() {
+            QVector<WebTab*> tabs;
+            reverseTraverse(pindex, [&](const QModelIndex &index) {
+                WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
+                if (tab) {
+                    tabs.append(tab);
+                }
+            });
+            for (WebTab *tab : qAsConst(tabs)) {
+                tab->closeTab();
+            }
+        });
+    }
+
+    m->addSeparator();
+    m->addAction(tr("Expand All"), this, &TabTreeView::expandAll);
+    m->addAction(tr("Collapse All"), this, &TabTreeView::collapseAll);
+}
+
+void TabTreeView::reverseTraverse(const QModelIndex &root, std::function<void(const QModelIndex&)> callback) const
+{
+    if (!root.isValid()) {
+        return;
+    }
+    for (int i = 0; i < model()->rowCount(root); ++i) {
+        reverseTraverse(model()->index(i, 0, root), callback);
+    }
+    callback(root);
 }
