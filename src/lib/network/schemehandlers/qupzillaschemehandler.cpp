@@ -19,7 +19,6 @@
 #include "qztools.h"
 #include "browserwindow.h"
 #include "mainapplication.h"
-#include "tabbedwebview.h"
 #include "speeddial.h"
 #include "pluginproxy.h"
 #include "plugininterface.h"

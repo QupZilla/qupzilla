@@ -140,6 +140,7 @@ WebTab::WebTab(QWidget *parent)
     m_webView = new TabbedWebView(this);
     m_webView->setPage(new WebPage);
     m_webView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    setFocusProxy(m_webView);
 
     m_locationBar = new LocationBar(this);
     m_locationBar->setWebView(m_webView);
@@ -376,6 +377,11 @@ void WebTab::stop()
 void WebTab::reload()
 {
     m_webView->reload();
+}
+
+void WebTab::load(const LoadRequest &request)
+{
+    m_webView->load(request);
 }
 
 void WebTab::unload()

@@ -175,17 +175,17 @@ void TabWidget::loadSettings()
     updateClosedTabsButton();
 }
 
-WebTab* TabWidget::weTab()
+WebTab* TabWidget::weTab() const
 {
     return weTab(currentIndex());
 }
 
-WebTab* TabWidget::weTab(int index)
+WebTab* TabWidget::weTab(int index) const
 {
     return qobject_cast<WebTab*>(widget(index));
 }
 
-TabIcon* TabWidget::tabIcon(int index)
+TabIcon* TabWidget::tabIcon(int index) const
 {
     return weTab(index)->tabIcon();
 }
@@ -569,6 +569,11 @@ void TabWidget::reloadTab(int index)
     }
 
     weTab(index)->reload();
+}
+
+WebTab *TabWidget::webTab(int index) const
+{
+    return index < 0 ? weTab() : weTab(index);
 }
 
 WebTab *TabWidget::lastTab() const

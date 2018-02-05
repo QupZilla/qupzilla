@@ -24,7 +24,6 @@
 #include "emptynetworkreply.h"
 #include "tabwidget.h"
 #include "webtab.h"
-#include "tabbedwebview.h"
 
 #include <QTranslator>
 

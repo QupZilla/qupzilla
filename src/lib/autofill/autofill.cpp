@@ -19,7 +19,6 @@
 #include "browserwindow.h"
 #include "webpage.h"
 #include "sqldatabase.h"
-#include "tabbedwebview.h"
 #include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"

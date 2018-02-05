@@ -22,9 +22,9 @@
 
 #include "webtab.h"
 #include "tabmodel.h"
+#include "tabwidget.h"
 #include "toolbutton.h"
 #include "tabtreemodel.h"
-#include "tabbedwebview.h"
 #include "browserwindow.h"
 
 #include <QListView>
@@ -111,7 +111,7 @@ void VerticalTabsWidget::switchToPreviousTab()
 WebTab *VerticalTabsWidget::nextTab() const
 {
     QModelIndex next;
-    if (m_window->weView()->webTab()->isPinned()) {
+    if (m_window->tabWidget()->webTab()->isPinned()) {
         next = m_pinnedView->indexAfter(m_pinnedView->currentIndex());
         if (!next.isValid()) {
             next = m_normalView->model()->index(0, 0);
@@ -128,7 +128,7 @@ WebTab *VerticalTabsWidget::nextTab() const
 WebTab *VerticalTabsWidget::previousTab() const
 {
     QModelIndex previous;
-    if (m_window->weView()->webTab()->isPinned()) {
+    if (m_window->tabWidget()->webTab()->isPinned()) {
         previous = m_pinnedView->indexBefore(m_pinnedView->currentIndex());
         if (!previous.isValid()) {
             previous = m_normalView->model()->index(m_normalView->model()->rowCount() - 1, 0);

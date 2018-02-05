@@ -20,7 +20,6 @@
 #include "tabtreemodel.h"
 #include "webtab.h"
 #include "tabwidget.h"
-#include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "browserwindow.h"
 
@@ -51,7 +50,7 @@ void TabModelTest::basicTest()
     rowsInsertedSpy.wait();
 
     QCOMPARE(rowsInsertedSpy.count(), 1);
-    WebTab *tab0 = w->weView(0)->webTab();
+    WebTab *tab0 = w->tabWidget()->webTab(0);
     QCOMPARE(rowsInsertedSpy.at(0).at(0).value<QModelIndex>(), QModelIndex());
     QCOMPARE(rowsInsertedSpy.at(0).at(1).toInt(), 0);
     QCOMPARE(rowsInsertedSpy.at(0).at(2).toInt(), 0);
@@ -62,23 +61,23 @@ void TabModelTest::basicTest()
     w->tabWidget()->addView(QUrl("http://test.com"));
 
     QCOMPARE(rowsInsertedSpy.count(), 1);
-    WebTab *tab1 = w->weView(1)->webTab();
+    WebTab *tab1 = w->tabWidget()->webTab(1);
     QCOMPARE(rowsInsertedSpy.at(0).at(0).value<QModelIndex>(), QModelIndex());
     QCOMPARE(rowsInsertedSpy.at(0).at(1).toInt(), 1);
     QCOMPARE(rowsInsertedSpy.at(0).at(2).toInt(), 1);
     QCOMPARE(model1.data(model1.index(1, 0), TabModel::WebTabRole).value<WebTab*>(), tab1);
 
     w->tabWidget()->moveTab(0, 1);
-    QCOMPARE(w->weView(0)->webTab(), tab1);
-    QCOMPARE(w->weView(1)->webTab(), tab0);
+    QCOMPARE(w->tabWidget()->webTab(0), tab1);
+    QCOMPARE(w->tabWidget()->webTab(1), tab0);
 
     w->tabWidget()->moveTab(1, 0);
-    QCOMPARE(w->weView(0)->webTab(), tab0);
-    QCOMPARE(w->weView(1)->webTab(), tab1);
+    QCOMPARE(w->tabWidget()->webTab(0), tab0);
+    QCOMPARE(w->tabWidget()->webTab(1), tab1);
 
     w->tabWidget()->moveTab(0, 1);
-    QCOMPARE(w->weView(0)->webTab(), tab1);
-    QCOMPARE(w->weView(1)->webTab(), tab0);
+    QCOMPARE(w->tabWidget()->webTab(0), tab1);
+    QCOMPARE(w->tabWidget()->webTab(1), tab0);
 
     QCOMPARE(rowsRemovedSpy.count(), 0);
 
@@ -107,7 +106,7 @@ void TabModelTest::dataTest()
 
     QTRY_COMPARE(model.rowCount(), 1);
 
-    WebTab *tab0 = w->weView(0)->webTab();
+    WebTab *tab0 = w->tabWidget()->webTab(0);
     QCOMPARE(model.index(0, 0).data(TabModel::TitleRole).toString(), tab0->title());
     QCOMPARE(model.index(0, 0).data(Qt::DisplayRole).toString(), tab0->title());
     QCOMPARE(model.index(0, 0).data(TabModel::IconRole).value<QIcon>().pixmap(16), tab0->icon().pixmap(16));
@@ -133,8 +132,8 @@ void TabModelTest::pinTabTest()
 
     QTRY_COMPARE(model.rowCount(), 2);
 
-    WebTab *tab0 = w->weView(0)->webTab();
-    WebTab *tab1 = w->weView(1)->webTab();
+    WebTab *tab0 = w->tabWidget()->webTab(0);
+    WebTab *tab1 = w->tabWidget()->webTab(1);
 
     QCOMPARE(model.data(model.index(0, 0), TabModel::WebTabRole).value<WebTab*>(), tab0);
     QCOMPARE(model.data(model.index(1, 0), TabModel::WebTabRole).value<WebTab*>(), tab1);
@@ -165,12 +164,12 @@ void TabModelTest::treeModelTest()
 
     QTRY_COMPARE(model.rowCount(QModelIndex()), 6);
 
-    WebTab *tab1 = w->weView(0)->webTab();
-    WebTab *tab2 = w->weView(1)->webTab();
-    WebTab *tab3 = w->weView(2)->webTab();
-    WebTab *tab4 = w->weView(3)->webTab();
-    WebTab *tab5 = w->weView(4)->webTab();
-    WebTab *tab6 = w->weView(5)->webTab();
+    WebTab *tab1 = w->tabWidget()->webTab(0);
+    WebTab *tab2 = w->tabWidget()->webTab(1);
+    WebTab *tab3 = w->tabWidget()->webTab(2);
+    WebTab *tab4 = w->tabWidget()->webTab(3);
+    WebTab *tab5 = w->tabWidget()->webTab(4);
+    WebTab *tab6 = w->tabWidget()->webTab(5);
 
     QCOMPARE(model.index(0, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
     QCOMPARE(model.index(1, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab2);

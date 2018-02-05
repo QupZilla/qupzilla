@@ -83,6 +83,8 @@ public:
     int pinnedTabsCount() const;
     int extraReservedWidth() const;
 
+    WebTab *webTab(int index = -1) const;
+
     WebTab *lastTab() const;
     int lastTabIndex() const;
 
@@ -148,9 +150,9 @@ private slots:
     void tabWasMoved(int before, int after);
 
 private:
-    WebTab* weTab();
-    WebTab* weTab(int index);
-    TabIcon* tabIcon(int index);
+    WebTab* weTab() const;
+    WebTab* weTab(int index) const;
+    TabIcon* tabIcon(int index) const;
 
     bool validIndex(int index) const;
     void updateClosedTabsButton();

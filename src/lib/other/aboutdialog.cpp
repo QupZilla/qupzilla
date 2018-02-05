@@ -19,7 +19,6 @@
 #include "ui_aboutdialog.h"
 #include "browserwindow.h"
 #include "mainapplication.h"
-#include "tabbedwebview.h"
 #include "webpage.h"
 #include "useragentmanager.h"
 

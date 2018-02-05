@@ -34,6 +34,7 @@ class WebInspector;
 class LocationBar;
 class TabIcon;
 class TabBar;
+class LoadRequest;
 
 class QUPZILLA_EXPORT WebTab : public QWidget
 {
@@ -94,6 +95,7 @@ public:
 
     void stop();
     void reload();
+    void load(const LoadRequest &request);
     void unload();
     bool isLoading() const;
 

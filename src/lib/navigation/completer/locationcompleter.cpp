@@ -333,7 +333,7 @@ void LocationCompleter::switchToTab(BrowserWindow* window, int tab)
         window->raise();
     }
     else {
-        window->weView()->setFocus();
+        tabWidget->webTab()->setFocus();
     }
 }
 

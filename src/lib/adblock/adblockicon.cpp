@@ -22,7 +22,6 @@
 #include "mainapplication.h"
 #include "browserwindow.h"
 #include "webview.h"
-#include "tabbedwebview.h"
 #include "tabwidget.h"
 #include "desktopnotificationsfactory.h"
 #include "qztools.h"

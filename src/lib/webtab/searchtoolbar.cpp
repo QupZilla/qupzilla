@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "searchtoolbar.h"
-#include "tabbedwebview.h"
+#include "webview.h"
 #include "webpage.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"

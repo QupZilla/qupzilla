@@ -18,7 +18,6 @@
 #include "tabmodel.h"
 #include "webtab.h"
 #include "tabwidget.h"
-#include "tabbedwebview.h"
 #include "browserwindow.h"
 
 // TabModelMimeData
@@ -235,7 +234,7 @@ void TabModel::init()
 
 void TabModel::tabInserted(int index)
 {
-    WebTab *tab = m_window->weView(index)->webTab();
+    WebTab *tab = m_window->tabWidget()->webTab(index);
 
     beginInsertRows(QModelIndex(), index, index);
     m_tabs.insert(index, tab);

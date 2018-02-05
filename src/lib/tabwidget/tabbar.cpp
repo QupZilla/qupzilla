@@ -21,7 +21,6 @@
 #include "webtab.h"
 #include "toolbutton.h"
 #include "settings.h"
-#include "tabbedwebview.h"
 #include "mainapplication.h"
 #include "pluginproxy.h"
 #include "iconprovider.h"
@@ -702,7 +701,7 @@ void TabBar::dropEvent(QDropEvent* event)
         }
     } else {
         LoadRequest req;
-        WebTab* tab = m_window->weView(index)->webTab();
+        WebTab* tab = m_tabWidget->webTab(index);
         TabDropAction action = tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE));
         if (mime->hasUrls()) {
             req = mime->urls().at(0);
@@ -711,7 +710,7 @@ void TabBar::dropEvent(QDropEvent* event)
         }
         if (action == SelectTab) {
             if (tab->isRestored() && req.isValid()) {
-                tab->webView()->load(req);
+                tab->load(req);
             }
         } else if (action == PrependTab || action == AppendTab) {
             const int newIndex = action == PrependTab ? index : index + 1;
