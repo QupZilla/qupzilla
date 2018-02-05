@@ -1,0 +1,27 @@
+<html>
+<head>
+<link rel="shortcut icon" href="%FAVICON%">
+<style>
+input { margin: 15% 25%; min-width: 50%; }
+</style>
+</head>
+<body>
+    <input type="text" id="groupname" oninput="updateName();"></input>
+</body>
+<script>
+var loaded = false;
+function updateName() {
+    var input = document.getElementById("groupname");
+    if (!loaded && input.value == "") {
+        input.value = window.location.hash.substr(1);
+        if (input.value == "") {
+            input.value = "%NEW-GROUP%";
+        }
+    }
+    document.title = input.value;
+    window.location.replace("#" + input.value);
+    loaded = true;
+}
+updateName();
+</script>
+</html>

@@ -10,6 +10,7 @@ SOURCES += verticaltabsplugin.cpp \
            tabfiltermodel.cpp \
            tablistview.cpp \
            tablistdelegate.cpp \
+           verticaltabsschemehandler.cpp \
 
 HEADERS += verticaltabsplugin.h \
            verticaltabscontroller.h \
@@ -21,6 +22,7 @@ HEADERS += verticaltabsplugin.h \
            tabfiltermodel.h \
            tablistview.h \
            tablistdelegate.h \
+           verticaltabsschemehandler.h \
 
 RESOURCES += verticaltabs.qrc
 

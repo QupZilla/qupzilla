@@ -17,43 +17,16 @@
 * ============================================================ */
 #pragma once
 
-#include <QWidget>
+#include "schemehandlers/extensionschemehandler.h"
 
-#include "wheelhelper.h"
-
-#include "verticaltabsplugin.h"
-
-class QMenu;
-
-class WebTab;
-class BrowserWindow;
-class TabTreeModel;
-
-class TabListView;
-class TabTreeView;
-
-class VerticalTabsWidget : public QWidget
+class VerticalTabsSchemeHandler : public ExtensionSchemeHandler
 {
-    Q_OBJECT
 public:
-    explicit VerticalTabsWidget(BrowserWindow *window);
+    explicit VerticalTabsSchemeHandler(QObject *parent = nullptr);
 
-    void setViewType(VerticalTabsPlugin::ViewType type);
-
-    void switchToNextTab();
-    void switchToPreviousTab();
+    void requestStarted(QWebEngineUrlRequestJob *job) override;
 
 private:
-    WebTab *nextTab() const;
-    WebTab *previousTab() const;
-
-    void wheelEvent(QWheelEvent *event) override;
-    void updateGroupMenu();
-
-    BrowserWindow *m_window;
-    TabListView *m_pinnedView;
-    TabTreeView *m_normalView;
-    TabTreeModel *m_treeModel = nullptr;
-    WheelHelper m_wheelHelper;
-    QMenu *m_groupMenu;
+    QByteArray indexPage() const;
+    QByteArray groupPage() const;
 };

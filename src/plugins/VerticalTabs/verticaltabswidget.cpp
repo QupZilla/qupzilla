@@ -60,6 +60,10 @@ VerticalTabsWidget::VerticalTabsWidget(BrowserWindow *window)
     buttonAddTab->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     connect(buttonAddTab, SIGNAL(clicked()), m_window, SLOT(addTab()));
 
+    m_groupMenu = new QMenu(this);
+    buttonAddTab->setMenu(m_groupMenu);
+    connect(m_groupMenu, &QMenu::aboutToShow, this, &VerticalTabsWidget::updateGroupMenu);
+
     layout->addWidget(m_pinnedView);
     layout->addWidget(m_normalView);
     layout->addWidget(buttonAddTab);
@@ -174,4 +178,24 @@ void VerticalTabsWidget::wheelEvent(QWheelEvent *event)
         }
     }
     event->accept();
+}
+
+void VerticalTabsWidget::updateGroupMenu()
+{
+    m_groupMenu->clear();
+
+    for (int i = 0; i < m_window->tabWidget()->count(); ++i) {
+        WebTab *tab = m_window->tabWidget()->webTab(i);
+        if (tab->url().toString(QUrl::RemoveFragment) == QL1S("extension://verticaltabs/group")) {
+            m_groupMenu->addAction(tab->url().fragment(), this, [=]() {
+                QMetaObject::invokeMethod(m_window, "addTab");
+                m_window->tabWidget()->webTab()->setParentTab(tab);
+            });
+        }
+    }
+
+    m_groupMenu->addSeparator();
+    m_groupMenu->addAction(tr("Add New Group..."), this, [this]() {
+        m_window->tabWidget()->addView(QUrl(QSL("extension://verticaltabs/group")), Qz::NT_SelectedTab);
+    });
 }
