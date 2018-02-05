@@ -345,14 +345,14 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
         return;
     }
 
-    WebTab* webTab = qobject_cast<WebTab*>(m_tabWidget->widget(tabAt(event->pos())));
-    if (webTab) {
-        TabContextMenu menu(webTab, Qt::Horizontal);
-        // Prevent choosing first option with double rightclick
-        const QPoint pos = event->globalPos();
-        QPoint p(pos.x(), pos.y() + 1);
-        menu.exec(p);
-    }
+    int index = tabAt(event->pos());
+
+    TabContextMenu menu(index, Qt::Horizontal, m_window, m_tabWidget);
+
+    // Prevent choosing first option with double rightclick
+    const QPoint pos = event->globalPos();
+    QPoint p(pos.x(), pos.y() + 1);
+    menu.exec(p);
 
     m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
