@@ -464,10 +464,10 @@ void TabBar::tabInserted(int index)
                 return;
             }
             QWidget *w = tabButton(0, iconButtonPosition());
-            const QRect r = tabRect(0);
-            if (w && r.isValid()) {
-                const int padding = w->geometry().x() - r.x();
-                tabMetrics()->setPinnedWidth(iconButtonSize().width() + padding * 2);
+            if (w && w->parentWidget()) {
+                const QRect wg = w->parentWidget()->geometry();
+                const QRect wr = QStyle::visualRect(layoutDirection(), wg, w->geometry());
+                tabMetrics()->setPinnedWidth(iconButtonSize().width() + wr.x() * 2);
                 setUpLayout();
             }
         });
