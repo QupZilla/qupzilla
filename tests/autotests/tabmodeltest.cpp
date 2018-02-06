@@ -18,6 +18,7 @@
 #include "tabmodeltest.h"
 #include "tabmodel.h"
 #include "tabtreemodel.h"
+#include "tabmrumodel.h"
 #include "webtab.h"
 #include "tabwidget.h"
 #include "mainapplication.h"
@@ -260,4 +261,64 @@ void TabModelTest::resetTreeModelTest()
     delete w;
 
     QCOMPARE(model.rowCount(QModelIndex()), 0);
+}
+
+void TabModelTest::mruModelTest()
+{
+    BrowserWindow *w = mApp->createWindow(Qz::BW_NewWindow);
+
+    TabModel sourceModel(w);
+    TabMruModel model(w);
+    model.setSourceModel(&sourceModel);
+    ModelTest modelTest(&model);
+
+    w->tabWidget()->addView(QUrl());
+    w->tabWidget()->addView(QUrl());
+    w->tabWidget()->addView(QUrl());
+    w->tabWidget()->addView(QUrl());
+    w->tabWidget()->addView(QUrl());
+
+    QTRY_COMPARE(model.rowCount(QModelIndex()), 6);
+
+    WebTab *tab0 = w->tabWidget()->webTab(0);
+    WebTab *tab1 = w->tabWidget()->webTab(1);
+    WebTab *tab2 = w->tabWidget()->webTab(2);
+    WebTab *tab3 = w->tabWidget()->webTab(3);
+    WebTab *tab4 = w->tabWidget()->webTab(4);
+    WebTab *tab5 = w->tabWidget()->webTab(5);
+
+    QCOMPARE(model.index(0, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab0);
+    QCOMPARE(model.index(1, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
+    QCOMPARE(model.index(2, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab2);
+    QCOMPARE(model.index(3, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab3);
+    QCOMPARE(model.index(4, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab4);
+    QCOMPARE(model.index(5, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab5);
+
+    w->tabWidget()->setCurrentIndex(2);
+    QCOMPARE(model.index(0, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab2);
+    QCOMPARE(model.index(1, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab0);
+    QCOMPARE(model.index(2, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
+    QCOMPARE(model.index(3, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab3);
+    QCOMPARE(model.index(4, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab4);
+    QCOMPARE(model.index(5, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab5);
+    w->tabWidget()->setCurrentIndex(2);
+
+    w->tabWidget()->setCurrentIndex(4);
+    QCOMPARE(model.index(0, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab4);
+    QCOMPARE(model.index(1, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab2);
+    QCOMPARE(model.index(2, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab0);
+    QCOMPARE(model.index(3, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
+    QCOMPARE(model.index(4, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab3);
+    QCOMPARE(model.index(5, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab5);
+
+    w->tabWidget()->setCurrentIndex(5);
+    QCOMPARE(model.index(0, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab5);
+    QCOMPARE(model.index(1, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab4);
+    QCOMPARE(model.index(2, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab2);
+    QCOMPARE(model.index(3, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab0);
+    QCOMPARE(model.index(4, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
+    QCOMPARE(model.index(5, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab3);
+
+    QTest::qWait(10);
+    delete w;
 }

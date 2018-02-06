@@ -32,4 +32,5 @@ private slots:
     void pinTabTest();
     void treeModelTest();
     void resetTreeModelTest();
+    void mruModelTest();
 };
