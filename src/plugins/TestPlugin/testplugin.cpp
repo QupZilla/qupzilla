@@ -72,7 +72,7 @@ void TestPlugin::init(InitState state, const QString &settingsPath)
 
     // Registering this plugin as a MousePressHandler.
     // Otherwise mousePress() function will never be called
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MousePressHandler, this);
 
     // Adding new sidebar into application
     SideBarManager::addSidebar("testplugin-sidebar", new TestPlugin_Sidebar(this));

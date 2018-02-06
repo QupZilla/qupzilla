@@ -50,7 +50,7 @@ void AKN_Plugin::init(InitState state, const QString &sPath)
 
     m_handler = new AKN_Handler(sPath, this);
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);
+    mApp->plugins->registerAppEventHandler(PluginProxy::KeyPressHandler, this);
 }
 
 void AKN_Plugin::unload()

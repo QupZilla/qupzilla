@@ -48,7 +48,7 @@ void KWalletPlugin::init(InitState state, const QString &settingsPath)
     Q_UNUSED(settingsPath);
 
     m_backend = new KWalletPasswordBackend;
-    QZ_REGISTER_PASSWORD_BACKEND("KWallet", m_backend);
+    mApp->autoFill()->passwordManager()->registerBackend(QSL("KWallet"), m_backend);
 }
 
 void KWalletPlugin::unload()

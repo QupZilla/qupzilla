@@ -64,7 +64,7 @@ void VerticalTabsPlugin::init(InitState state, const QString &settingsPath)
     m_controller = new VerticalTabsController(this);
     SideBarManager::addSidebar(QSL("VerticalTabs"), m_controller);
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::KeyPressHandler, this);
     mApp->networkManager()->registerExtensionSchemeHandler(QSL("verticaltabs"), new VerticalTabsSchemeHandler);
 
     setWebTabBehavior(m_addChildBehavior);

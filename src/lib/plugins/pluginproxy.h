@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -81,23 +81,5 @@ private:
     QList<PluginInterface*> m_keyPressHandlers;
     QList<PluginInterface*> m_keyReleaseHandlers;
 };
-
-#include "mainapplication.h"
-#include "networkmanager.h"
-#include "autofill.h"
-#include "passwordmanager.h"
-
-#define QZ_REGISTER_EVENT_HANDLER(Type) \
-    mApp->plugins()->registerAppEventHandler(Type, this);
-
-#define QZ_REGISTER_SCHEME_HANDLER(Scheme, Object) \
-    mApp->networkManager()->registerSchemeHandler(Scheme, Object);
-#define QZ_UNREGISTER_SCHEME_HANDLER(Scheme, Object) \
-    mApp->networkManager()->unregisterSchemeHandler(Scheme, Object);
-
-#define QZ_REGISTER_PASSWORD_BACKEND(Name, Object) \
-    mApp->autoFill()->passwordManager()->registerBackend(Name, Object);
-#define QZ_UNREGISTER_PASSWORD_BACKEND(Object) \
-    mApp->autoFill()->passwordManager()->unregisterBackend(Object);
 
 #endif // PLUGINPROXY_H

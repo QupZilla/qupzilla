@@ -20,6 +20,7 @@
 #include "sbi_settingsdialog.h"
 #include "pluginproxy.h"
 #include "browserwindow.h"
+#include "mainapplication.h"
 
 #include <QTranslator>
 

@@ -52,7 +52,7 @@ void PIM_Plugin::init(InitState state, const QString &settingsPath)
 
     m_handler = new PIM_Handler(settingsPath, this);
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::KeyPressHandler);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::KeyPressHandler, this);
 
     connect(mApp->plugins(), SIGNAL(webPageCreated(WebPage*)), m_handler, SLOT(webPageCreated(WebPage*)));
 }

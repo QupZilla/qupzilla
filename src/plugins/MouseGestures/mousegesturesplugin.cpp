@@ -49,9 +49,9 @@ void MouseGesturesPlugin::init(InitState state, const QString &settingsPath)
 
     m_gestures = new MouseGestures(settingsPath, this);
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseReleaseHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MousePressHandler, this);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MouseReleaseHandler, this);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MouseMoveHandler, this);
 }
 
 void MouseGesturesPlugin::unload()

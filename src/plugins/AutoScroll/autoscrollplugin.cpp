@@ -50,10 +50,10 @@ void AutoScrollPlugin::init(InitState state, const QString &settingsPath)
 
     m_scroller = new AutoScroller(settingsPath + QL1S("/extensions.ini"), this);
 
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseMoveHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MousePressHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::MouseReleaseHandler);
-    QZ_REGISTER_EVENT_HANDLER(PluginProxy::WheelEventHandler);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MouseMoveHandler, this);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MousePressHandler, this);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::MouseReleaseHandler, this);
+    mApp->plugins()->registerAppEventHandler(PluginProxy::WheelEventHandler, this);
 }
 
 void AutoScrollPlugin::unload()
