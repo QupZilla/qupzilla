@@ -257,6 +257,9 @@ void WebTab::showSearchToolBar()
 QUrl WebTab::url() const
 {
     if (isRestored()) {
+        if (m_webView->url().isEmpty() && m_webView->isLoading()) {
+            return m_webView->page()->requestedUrl();
+        }
         return m_webView->url();
     }
     else {
