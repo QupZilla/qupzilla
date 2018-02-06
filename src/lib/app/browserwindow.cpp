@@ -56,6 +56,7 @@
 #include "mainmenu.h"
 #include "downloadsbutton.h"
 #include "tabmodel.h"
+#include "tabmrumodel.h"
 
 #include <algorithm>
 
@@ -369,6 +370,10 @@ void BrowserWindow::setupUi()
     m_superMenu = new QMenu(this);
     m_navigationToolbar = new NavigationBar(this);
     m_bookmarksToolbar = new BookmarksToolbar(this);
+
+    m_tabModel = new TabModel(this, this);
+    m_tabMruModel = new TabMruModel(this, this);
+    m_tabMruModel->setSourceModel(m_tabModel);
 
     m_navigationContainer = new NavigationContainer(this);
     m_navigationContainer->addWidget(m_navigationToolbar);
@@ -718,12 +723,14 @@ QAction* BrowserWindow::action(const QString &name) const
     return m_mainMenu->action(name);
 }
 
-TabModel *BrowserWindow::tabModel()
+TabModel *BrowserWindow::tabModel() const
 {
-    if (!m_tabModel) {
-        m_tabModel = new TabModel(this, this);
-    }
     return m_tabModel;
+}
+
+TabMruModel *BrowserWindow::tabMruModel() const
+{
+    return m_tabMruModel;
 }
 
 void BrowserWindow::setWindowTitle(const QString &t)
