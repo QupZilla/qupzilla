@@ -85,9 +85,6 @@ public:
 
     WebTab *webTab(int index = -1) const;
 
-    WebTab *lastTab() const;
-    int lastTabIndex() const;
-
     TabBar* tabBar() const;
     ClosedTabsManager* closedTabsManager() const;
     QList<WebTab*> allTabs(bool withPinned = true);
@@ -172,7 +169,6 @@ private:
     AddTabButton* m_buttonAddTab;
     AddTabButton* m_buttonAddTab2;
 
-    QPointer<WebTab> m_lastTab;
     QPointer<WebTab> m_lastBackgroundTab;
 
     bool m_dontCloseWithOneTab;

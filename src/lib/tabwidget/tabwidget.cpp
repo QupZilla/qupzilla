@@ -321,7 +321,6 @@ int TabWidget::addView(const LoadRequest &req, const Qz::NewTabPositionFlags &op
 int TabWidget::addView(const LoadRequest &req, const QString &title, const Qz::NewTabPositionFlags &openFlags, bool selectLine, int position, bool pinned)
 {
     QUrl url = req.url();
-    m_lastTab = weTab();
     m_currentTabFresh = false;
 
     if (url.isEmpty() && !(openFlags & Qz::NT_CleanTab)) {
@@ -512,7 +511,6 @@ void TabWidget::currentTabChanged(int index)
 
     WebTab* webTab = weTab(index);
     webTab->tabActivated();
-    m_lastTab = webTab;
 
     LocationBar* locBar = webTab->locationBar();
 
@@ -535,8 +533,6 @@ void TabWidget::tabWasMoved(int before, int after)
 
 void TabWidget::setCurrentIndex(int index)
 {
-    m_lastTab = weTab();
-
     TabStackedWidget::setCurrentIndex(index);
 }
 
@@ -574,16 +570,6 @@ void TabWidget::reloadTab(int index)
 WebTab *TabWidget::webTab(int index) const
 {
     return index < 0 ? weTab() : weTab(index);
-}
-
-WebTab *TabWidget::lastTab() const
-{
-    return m_lastTab;
-}
-
-int TabWidget::lastTabIndex() const
-{
-    return m_lastTab ? m_lastTab->tabIndex() : -1;
 }
 
 int TabWidget::extraReservedWidth() const

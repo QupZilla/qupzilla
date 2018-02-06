@@ -18,8 +18,9 @@
 #ifndef TABBAR_H
 #define TABBAR_H
 
-#include "combotabbar.h"
+#include <QPointer>
 
+#include "combotabbar.h"
 #include "qzcommon.h"
 
 class BrowserWindow;
@@ -88,6 +89,7 @@ private:
     QPoint m_dragStartPosition;
 
     bool m_forceHidden;
+    QPointer<WebTab> m_lastTab;
 };
 
 #endif // TABBAR_H

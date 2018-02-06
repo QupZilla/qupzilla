@@ -26,6 +26,7 @@
 #include "iconprovider.h"
 #include "tabcontextmenu.h"
 #include "searchenginesmanager.h"
+#include "tabmrumodel.h"
 
 #include <QMimeData>
 #include <QMouseEvent>
@@ -425,11 +426,13 @@ void TabBar::currentTabChanged(int index)
     // Don't hide close buttons when dragging tabs
     if (m_dragStartPosition.isNull()) {
         showCloseButton(index);
-        hideCloseButton(m_tabWidget->lastTabIndex());
-
+        if (m_lastTab) {
+            hideCloseButton(m_lastTab->tabIndex());
+        }
         QTimer::singleShot(100, this, [this]() { ensureVisible(); });
     }
 
+    m_lastTab = webTab(index);
     m_tabWidget->currentTabChanged(index);
 }
 
