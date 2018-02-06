@@ -151,16 +151,20 @@ TabMruModelItem *TabMruModel::item(const QModelIndex &index) const
 void TabMruModel::currentTabChanged(int index)
 {
     TabMruModelItem *it = item(mapFromSource(sourceModel()->index(index, 0)));
-    if (it) {
-        const int from = m_root->children.indexOf(it);
-        if (!beginMoveRows(QModelIndex(), from, from, QModelIndex(), 0)) {
-            qWarning() << "Invalid beginMoveRows" << from;
-            return;
-        }
-        m_root->children.removeAt(from);
-        m_root->children.insert(0, it);
-        endMoveRows();
+    if (!it) {
+        return;
     }
+    const int from = m_root->children.indexOf(it);
+    if (from == 0) {
+        return;
+    }
+    if (!beginMoveRows(QModelIndex(), from, from, QModelIndex(), 0)) {
+        qWarning() << "Invalid beginMoveRows" << from;
+        return;
+    }
+    m_root->children.removeAt(from);
+    m_root->children.insert(0, it);
+    endMoveRows();
 }
 
 void TabMruModel::sourceDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
