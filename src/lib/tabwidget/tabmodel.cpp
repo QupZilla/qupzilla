@@ -266,7 +266,10 @@ void TabModel::tabRemoved(int index)
 
 void TabModel::tabMoved(int from, int to)
 {
-    beginMoveRows(QModelIndex(), from, from, QModelIndex(), to > from ? to + 1 : to);
+    if (!beginMoveRows(QModelIndex(), from, from, QModelIndex(), to > from ? to + 1 : to)) {
+        qWarning() << "Invalid beginMoveRows" << from << (to > from ? to + 1 : to);
+        return;
+    }
     m_tabs.insert(to, m_tabs.takeAt(from));
     endMoveRows();
 }
