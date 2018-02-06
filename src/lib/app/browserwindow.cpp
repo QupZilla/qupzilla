@@ -1344,15 +1344,13 @@ void BrowserWindow::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_Tab:
         if (event->modifiers() == Qt::ControlModifier) {
-            m_tabWidget->nextTab();
-            event->accept();
+            QApplication::sendEvent(m_tabWidget, event);
         }
         break;
 
     case Qt::Key_Backtab:
         if (event->modifiers() == (Qt::ControlModifier + Qt::ShiftModifier)) {
-            m_tabWidget->previousTab();
-            event->accept();
+            QApplication::sendEvent(m_tabWidget, event);
         }
         break;
 

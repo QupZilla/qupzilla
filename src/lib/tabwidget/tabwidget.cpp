@@ -538,14 +538,12 @@ void TabWidget::setCurrentIndex(int index)
 
 void TabWidget::nextTab()
 {
-    QKeyEvent fakeEvent(QKeyEvent::KeyPress, Qt::Key_Tab, Qt::ControlModifier);
-    keyPressEvent(&fakeEvent);
+    setCurrentIndex((currentIndex() + 1) % count());
 }
 
 void TabWidget::previousTab()
 {
-    QKeyEvent fakeEvent(QKeyEvent::KeyPress, Qt::Key_Backtab, QFlags<Qt::KeyboardModifier>(Qt::ControlModifier + Qt::ShiftModifier));
-    keyPressEvent(&fakeEvent);
+    setCurrentIndex(currentIndex() == 0 ? count() - 1 : currentIndex() - 1);
 }
 
 int TabWidget::normalTabsCount() const
