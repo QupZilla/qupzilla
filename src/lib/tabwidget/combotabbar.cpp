@@ -1442,6 +1442,10 @@ void TabBarHelper::mouseMoveEvent(QMouseEvent *event)
 
     // Don't allow to move tabs outside of tabbar
     if (m_dragInProgress && m_movingTab) {
+        // FIXME: This doesn't work at all with RTL...
+        if (isRightToLeft()) {
+            return;
+        }
         QRect r = tabRect(m_pressedIndex);
         r.moveLeft(r.x() + (event->pos().x() - m_dragStartPosition.x()));
         bool sendEvent = false;
