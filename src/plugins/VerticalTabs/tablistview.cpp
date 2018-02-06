@@ -45,7 +45,7 @@ TabListView::TabListView(BrowserWindow *window, QWidget *parent)
     m_delegate = new TabListDelegate(this);
     setItemDelegate(m_delegate);
 
-    setFixedHeight(m_delegate->sizeHint(viewOptions(), QModelIndex()).height());
+    updateHeight();
 }
 
 bool TabListView::isHidingWhenEmpty() const
@@ -212,6 +212,11 @@ bool TabListView::viewportEvent(QEvent *event)
         menu.exec(ce->globalPos());
         break;
     }
+
+    case QEvent::StyleChange:
+        updateHeight();
+        break;
+
     default:
         break;
     }
@@ -231,3 +236,7 @@ void TabListView::updateVisibility()
     setVisible(!m_hideWhenEmpty || model()->rowCount() > 0);
 }
 
+void TabListView::updateHeight()
+{
+    setFixedHeight(m_delegate->sizeHint(viewOptions(), QModelIndex()).height());
+}

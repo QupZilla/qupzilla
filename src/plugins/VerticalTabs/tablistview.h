@@ -53,6 +53,7 @@ private:
 
     DelegateButton buttonAt(const QPoint &pos, const QModelIndex &index) const;
     void updateVisibility();
+    void updateHeight();
 
     BrowserWindow *m_window;
     TabListDelegate *m_delegate;
