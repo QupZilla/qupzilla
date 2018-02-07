@@ -589,7 +589,8 @@ void BrowserWindow::loadSettings()
     //Browser Window settings
     settings.beginGroup("Browser-View-Settings");
     bool showStatusBar = settings.value("showStatusBar", false).toBool();
-    bool showBookmarksToolbar = settings.value("showBookmarksToolbar", true).toBool();
+    bool showWebSearchBar = settings.value("showWebSearchBar", false).toBool();
+    bool showBookmarksToolbar = settings.value("showBookmarksToolbar", false).toBool();
     bool showNavigationToolbar = settings.value("showNavigationToolbar", true).toBool();
     bool showMenuBar = settings.value("showMenubar", false).toBool();
 
@@ -617,6 +618,7 @@ void BrowserWindow::loadSettings()
     }
     settings.endGroup();
 
+    m_adblockIcon->setEnabled(settings.value("AdBlock/enabled", false).toBool());
     statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);

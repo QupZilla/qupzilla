@@ -79,7 +79,7 @@ void DownloadManager::loadSettings()
     settings.beginGroup("DownloadManager");
     m_downloadPath = settings.value("defaultDownloadPath", QString()).toString();
     m_lastDownloadPath = settings.value("lastDownloadPath", QDir::homePath().append(QLatin1Char('/'))).toString();
-    m_closeOnFinish = settings.value("CloseManagerOnFinish", false).toBool();
+    m_closeOnFinish = settings.value("CloseManagerOnFinish", true).toBool();
     m_useNativeDialog = settings.value("useNativeDialog", DEFAULT_DOWNLOAD_USE_NATIVE_DIALOG).toBool();
 
     m_useExternalManager = settings.value("UseExternalManager", false).toBool();

@@ -85,7 +85,7 @@ void NetworkUrlInterceptor::loadSettings()
 
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    m_sendDNT = settings.value("DoNotTrack", false).toBool();
+    m_sendDNT = settings.value("DoNotTrack", true).toBool();
     settings.endGroup();
 
     m_usePerDomainUserAgent = mApp->userAgentManager()->usePerDomainUserAgents();

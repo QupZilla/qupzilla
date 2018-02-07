@@ -49,7 +49,7 @@ Q_GLOBAL_STATIC(AdBlockManager, qz_adblock_manager)
 AdBlockManager::AdBlockManager(QObject* parent)
     : QObject(parent)
     , m_loaded(false)
-    , m_enabled(true)
+    , m_enabled(false)
     , m_matcher(new AdBlockMatcher(this))
     , m_interceptor(new AdBlockUrlInterceptor(this))
 {
