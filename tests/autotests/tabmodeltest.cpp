@@ -95,7 +95,6 @@ void TabModelTest::basicTest()
     ModelTest modelTest2(&model2);
     QCOMPARE(model2.rowCount(), 1);
 
-    QTest::qWait(10);
     delete w;
 }
 
@@ -118,7 +117,6 @@ void TabModelTest::dataTest()
 
     w->tabWidget()->addView(QUrl("http://test.com"));
 
-    QTest::qWait(10);
     delete w;
 }
 
@@ -144,7 +142,6 @@ void TabModelTest::pinTabTest()
     QCOMPARE(model.data(model.index(0, 0), TabModel::WebTabRole).value<WebTab*>(), tab1);
     QCOMPARE(model.data(model.index(1, 0), TabModel::WebTabRole).value<WebTab*>(), tab0);
 
-    QTest::qWait(10);
     delete w;
 }
 
@@ -242,7 +239,6 @@ void TabModelTest::treeModelTest()
     QCOMPARE(model.index(2, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab5);
     QCOMPARE(model.index(3, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab6);
 
-    QTest::qWait(10);
     delete w;
 }
 
@@ -257,7 +253,6 @@ void TabModelTest::resetTreeModelTest()
 
     QTRY_COMPARE(model.rowCount(QModelIndex()), 1);
 
-    QTest::qWait(10);
     delete w;
 
     QCOMPARE(model.rowCount(QModelIndex()), 0);
@@ -319,6 +314,5 @@ void TabModelTest::mruModelTest()
     QCOMPARE(model.index(4, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab1);
     QCOMPARE(model.index(5, 0).data(TabModel::WebTabRole).value<WebTab*>(), tab3);
 
-    QTest::qWait(10);
     delete w;
 }
