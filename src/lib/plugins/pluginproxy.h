@@ -35,7 +35,7 @@ public:
                             WheelEventHandler
                           };
 
-    explicit PluginProxy();
+    explicit PluginProxy(QObject *parent = nullptr);
 
     void registerAppEventHandler(const EventHandlerType &type, PluginInterface* obj);
 

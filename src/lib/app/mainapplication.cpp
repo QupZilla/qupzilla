@@ -307,7 +307,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     translateApp();
     loadSettings();
 
-    m_plugins = new PluginProxy;
+    m_plugins = new PluginProxy(this);
     m_autoFill = new AutoFill(this);
 
     if (!noAddons)
@@ -354,8 +354,9 @@ MainApplication::~MainApplication()
 
     // Delete all classes that are saving data in destructor
     delete m_bookmarks;
+    m_bookmarks = nullptr;
     delete m_cookieJar;
-    delete m_plugins;
+    m_cookieJar = nullptr;
 
     Settings::syncSettings();
 }
