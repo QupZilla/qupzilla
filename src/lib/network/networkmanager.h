@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@
 
 class UrlInterceptor;
 class NetworkUrlInterceptor;
+class ExtensionSchemeManager;
+class ExtensionSchemeHandler;
 
 class QUPZILLA_EXPORT NetworkManager : public QNetworkAccessManager
 {
@@ -40,6 +42,9 @@ public:
     void installUrlInterceptor(UrlInterceptor *interceptor);
     void removeUrlInterceptor(UrlInterceptor *interceptor);
 
+    void registerExtensionSchemeHandler(const QString &name, ExtensionSchemeHandler *handler);
+    void unregisterExtensionSchemeHandler(const QString &name);
+
     void loadSettings();
     void shutdown();
 
@@ -48,6 +53,7 @@ protected:
 
 private:
     NetworkUrlInterceptor *m_urlInterceptor;
+    ExtensionSchemeManager *m_extensionScheme;
     QHash<QString, QWebEngineCertificateError::Error> m_ignoredSslErrors;
 };
 

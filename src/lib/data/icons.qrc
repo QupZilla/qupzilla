@@ -18,11 +18,9 @@
         <file>icons/other/login.png</file>
         <file>icons/preferences/applications-graphics.png</file>
         <file>icons/preferences/document-properties.png</file>
-        <file>icons/other/adblock.png</file>
         <file>icons/other/download.svg</file>
         <file>icons/other/bighistory.svg</file>
         <file>icons/other/bighistory-selected.svg</file>
-        <file>icons/other/adblock-disabled.png</file>
         <file>icons/menu/search-icon.svg</file>
         <file>icons/browsers/firefox.png</file>
         <file>icons/browsers/firefox@2x.png</file>
@@ -63,5 +61,6 @@
         <file>icons/preferences/shortcuts.svg</file>
         <file>icons/preferences/spellcheck.svg</file>
         <file>icons/preferences/tabs.svg</file>
+        <file>icons/menu/download.svg</file>
     </qresource>
 </RCC>

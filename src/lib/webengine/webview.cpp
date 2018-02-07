@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,6 @@
 #include <QDesktopServices>
 #include <QWebEngineHistory>
 #include <QClipboard>
-#include <QHostInfo>
 #include <QMimeData>
 #include <QWebEngineContextMenuData>
 #include <QStackedLayout>
@@ -114,24 +113,29 @@ QIcon WebView::icon(bool allowNull) const
     return IconProvider::iconForUrl(url(), allowNull);
 }
 
-QString WebView::title() const
+QString WebView::title(bool allowEmpty) const
 {
     QString title = QWebEngineView::title();
 
-    if (title.isEmpty()) {
-        title = url().toString(QUrl::RemoveFragment);
+    if (allowEmpty) {
+        return title;
     }
 
-    if (title.isEmpty() || title == QLatin1String("about:blank")) {
+    const QUrl u = url().isEmpty() ? m_page->requestedUrl() : url();
+
+    if (title.isEmpty()) {
+        title = u.host();
+    }
+
+    if (title.isEmpty()) {
+        title = u.toString(QUrl::RemoveFragment);
+    }
+
+    if (title.isEmpty() || title == QL1S("about:blank")) {
         return tr("Empty Page");
     }
 
     return title;
-}
-
-bool WebView::isTitleEmpty() const
-{
-    return QWebEngineView::title().isEmpty();
 }
 
 WebPage* WebView::page() const
@@ -146,6 +150,10 @@ void WebView::setPage(WebPage *page)
     }
 
     if (m_page) {
+        if (m_page->isLoading()) {
+            emit m_page->loadProgress(100);
+            emit m_page->loadFinished(true);
+        }
         m_page->setView(nullptr);
         m_page->deleteLater();
     }
@@ -154,7 +162,13 @@ void WebView::setPage(WebPage *page)
     m_page->setParent(this);
     QWebEngineView::setPage(m_page);
 
-    connect(m_page, SIGNAL(privacyChanged(bool)), this, SIGNAL(privacyChanged(bool)));
+    if (m_page->isLoading()) {
+        emit loadStarted();
+        emit loadProgress(m_page->m_loadProgress);
+    }
+
+    connect(m_page, &WebPage::privacyChanged, this, &WebView::privacyChanged);
+    connect(m_page, &WebPage::printRequested, this, &WebView::printPage);
 
     // Set default zoom level
     zoomReset();
@@ -165,11 +179,16 @@ void WebView::setPage(WebPage *page)
     // Scrollbars must be added only after QWebEnginePage is set
     WebScrollBarManager::instance()->addWebView(this);
 
+    emit pageChanged(m_page);
     mApp->plugins()->emitWebPageCreated(m_page);
 }
 
 void WebView::load(const QUrl &url)
 {
+    if (m_page && !m_page->acceptNavigationRequest(url, QWebEnginePage::NavigationTypeTyped, true)) {
+        return;
+    }
+
     QWebEngineView::load(url);
 
     if (!m_firstLoad) {
@@ -198,31 +217,6 @@ void WebView::load(const LoadRequest &request)
 
     if (isUrlValid(reqUrl)) {
         loadRequest(request);
-        return;
-    }
-
-    // Make sure to correctly load hosts like localhost (eg. without the dot)
-    if (!reqUrl.isEmpty() &&
-        reqUrl.scheme().isEmpty() &&
-        !QzTools::containsSpace(reqUrl.path()) && // See #1622
-        !reqUrl.path().contains(QL1C('.'))
-       ) {
-        QUrl u(QSL("http://") + reqUrl.path());
-        if (u.isValid()) {
-            // This is blocking...
-            QHostInfo info = QHostInfo::fromName(u.path());
-            if (info.error() == QHostInfo::NoError) {
-                LoadRequest req = request;
-                req.setUrl(u);
-                loadRequest(req);
-                return;
-            }
-        }
-    }
-
-    if (qzSettings->searchFromAddressBar) {
-        const LoadRequest searchRequest = mApp->searchEnginesManager()->searchResult(request.urlString());
-        loadRequest(searchRequest);
     }
 }
 
@@ -423,6 +417,10 @@ void WebView::printPage()
 void WebView::slotLoadStarted()
 {
     m_progress = 0;
+
+    if (title(/*allowEmpty*/true).isEmpty()) {
+        emit titleChanged(title());
+    }
 }
 
 void WebView::slotLoadProgress(int progress)
@@ -452,7 +450,13 @@ void WebView::slotIconChanged()
 
 void WebView::slotUrlChanged(const QUrl &url)
 {
-    Q_UNUSED(url)
+    if (!url.isEmpty() && title(/*allowEmpty*/true).isEmpty()) {
+        // Don't treat this as background activity change
+        const bool oldActivity = m_backgroundActivity;
+        m_backgroundActivity = true;
+        emit titleChanged(title());
+        m_backgroundActivity = oldActivity;
+    }
 
     // Don't save blank page / speed dial in tab history
     if (!history()->canGoForward()  && history()->backItems(1).size() == 1) {
@@ -558,7 +562,7 @@ void WebView::showSiteInfo()
 
 void WebView::searchSelectedText()
 {
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
             engine = act->data().value<SearchEngine>();
@@ -571,7 +575,7 @@ void WebView::searchSelectedText()
 
 void WebView::searchSelectedTextInBackgroundTab()
 {
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     if (QAction* act = qobject_cast<QAction*>(sender())) {
         if (act->data().isValid()) {
             engine = act->data().value<SearchEngine>();
@@ -888,7 +892,7 @@ void WebView::createSelectedTextContextMenu(QMenu* menu, const WebHitTestResult 
     // KDE is displaying newlines in menu actions ... weird -,-
     selectedText.replace(QLatin1Char('\n'), QLatin1Char(' ')).replace(QLatin1Char('\t'), QLatin1Char(' '));
 
-    SearchEngine engine = mApp->searchEnginesManager()->activeEngine();
+    SearchEngine engine = mApp->searchEnginesManager()->defaultEngine();
     Action* act = new Action(engine.icon, tr("Search \"%1 ..\" with %2").arg(selectedText, engine.name));
     connect(act, SIGNAL(triggered()), this, SLOT(searchSelectedText()));
     connect(act, SIGNAL(ctrlTriggered()), this, SLOT(searchSelectedTextInBackgroundTab()));
@@ -1261,14 +1265,7 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
 
 void WebView::loadRequest(const LoadRequest &req)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 9, 0)
     QWebEngineView::load(req.webRequest());
-#else
-    if (req.operation() == LoadRequest::GetOperation)
-        load(req.url());
-    else
-        page()->runJavaScript(Scripts::sendPostData(req.url(), req.data()), WebPage::SafeJsWorld);
-#endif
 }
 
 bool WebView::eventFilter(QObject *obj, QEvent *event)

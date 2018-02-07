@@ -4,12 +4,12 @@
 <style>
 html {background: #dddddd;font-family: sans-serif;color: #525c66;}
 html * {font-size: 100%;line-height: 1.6;}
-#box {background: #ffffff; max-width:650px;min-width:400px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;text-align: %LEFT_STR%;direction: %DIRECTION%;}
+#box {background: #ffffff; max-width:700px;min-width:400px;overflow:auto;margin: 25px auto 10px auto;padding: 10px 40px;text-align: %LEFT_STR%;direction: %DIRECTION%;}
 h1 {color: #1a4ba4;font-size: 160%;margin-bottom: 0px;}
 h2 {margin: 5px 0px;font-size: 100%;color: #525c66;font-weight: bold;}
 dl {margin-top: 0px;}
 dt {display: block;float: %LEFT_STR%;min-width: 24%;margin: 0 0 0.3em 1%}
-dd {color: black;margin: 0 0 0.3em 28%;}
+dd {color: black;margin: 0 0 0.3em 28%;word-wrap:break-word;}
 p {margin-%LEFT_STR%: 1%;}
 .about-img {float: %RIGHT_STR%;margin-top:10px;width:230px;}
 table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2px solid #aaa;border-collapse: separate;}
@@ -23,13 +23,15 @@ table.tbl {width: 100%;margin: 15px 0;border-radius: 4px;padding: 0px;border: 2p
 <script type="text/javascript">
 function addPlugins() {
     var table = document.getElementById('npapi-plugins');
-    for(var i = 0; i < navigator.plugins.length; i++) {
+    var existing = {};
+    for (var i = 0; i < navigator.plugins.length; i++) {
         var plugin = navigator.plugins[i];
-        if (plugin.name == '') {
+        if (plugin.name == '' || existing[plugin.filename]) {
             continue;
         }
-
-        table.innerHTML += "<tr><td>" + plugin.name + "</td><td colspan=3>" + plugin.description + "</td></tr>";
+        existing[plugin.filename] = true;
+        table.innerHTML += "<tr><td>" + plugin.name + "</td><td colspan=3>"
+            + plugin.description + " (" + plugin.filename + ")</td></tr>";
     }
 }
 window.addEventListener("load", addPlugins, false);

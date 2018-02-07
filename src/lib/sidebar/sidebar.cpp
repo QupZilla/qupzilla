@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -92,22 +92,31 @@ SideBarManager::SideBarManager(BrowserWindow* parent)
 {
 }
 
+QString SideBarManager::activeSideBar() const
+{
+    return m_activeBar;
+}
+
 void SideBarManager::createMenu(QMenu* menu)
 {
     m_window->removeActions(menu->actions());
     menu->clear();
+
+    QActionGroup *group = new QActionGroup(menu);
 
     QAction* act = menu->addAction(SideBar::tr("Bookmarks"), this, SLOT(slotShowSideBar()));
     act->setCheckable(true);
     act->setShortcut(QKeySequence("Ctrl+Shift+B"));
     act->setData("Bookmarks");
     act->setChecked(m_activeBar == QL1S("Bookmarks"));
+    group->addAction(act);
 
     act = menu->addAction(SideBar::tr("History"), this, SLOT(slotShowSideBar()));
     act->setCheckable(true);
     act->setShortcut(QKeySequence("Ctrl+H"));
     act->setData("History");
     act->setChecked(m_activeBar == QL1S("History"));
+    group->addAction(act);
 
     foreach (const QPointer<SideBarInterface> &sidebar, s_sidebars) {
         if (sidebar) {
@@ -116,6 +125,7 @@ void SideBarManager::createMenu(QMenu* menu)
             act->setChecked(m_activeBar == s_sidebars.key(sidebar));
             connect(act, SIGNAL(triggered()), this, SLOT(slotShowSideBar()));
             menu->addAction(act);
+            group->addAction(act);
         }
     }
 
@@ -145,7 +155,7 @@ void SideBarManager::slotShowSideBar()
 
 void SideBarManager::showSideBar(const QString &id, bool toggle)
 {
-    if (id == QLatin1String("None")) {
+    if (id.isEmpty() || id == QL1S("None")) {
         return;
     }
 
@@ -158,10 +168,8 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
             return;
         }
         m_sideBar.data()->close();
-        m_activeBar = "None";
-
-        Settings settings;
-        settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
+        m_activeBar.clear();
+        m_window->saveSideBarSettings();
         return;
     }
 
@@ -183,9 +191,7 @@ void SideBarManager::showSideBar(const QString &id, bool toggle)
     }
 
     m_activeBar = id;
-
-    Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
+    m_window->saveSideBarSettings();
 }
 
 void SideBarManager::sideBarRemoved(const QString &id)
@@ -201,10 +207,7 @@ void SideBarManager::closeSideBar()
     if (mApp->isClosing()) {
         return;
     }
-    m_activeBar = "None";
 
-    Settings settings;
-    settings.setValue("Browser-View-Settings/SideBar", m_activeBar);
-
-    m_window->saveSideBarWidth();
+    m_activeBar.clear();
+    m_window->saveSideBarSettings();
 }

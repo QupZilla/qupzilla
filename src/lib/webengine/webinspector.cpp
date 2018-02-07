@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QNetworkReply>
+#include <QWebEngineSettings>
 
 QList<QWebEngineView*> WebInspector::s_views;
 
@@ -46,6 +47,10 @@ WebInspector::WebInspector(QWidget *parent)
 
 WebInspector::~WebInspector()
 {
+    if (m_view && hasFocus()) {
+        m_view->setFocus();
+    }
+
     unregisterView(this);
 
     if (isWindow()) {
@@ -85,7 +90,13 @@ void WebInspector::inspectElement()
 
 bool WebInspector::isEnabled()
 {
-    return qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING");
+    if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
+        return false;
+    }
+    if (!mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled)) {
+        return false;
+    }
+    return true;
 }
 
 void WebInspector::pushView(QWebEngineView *view)
@@ -108,18 +119,11 @@ void WebInspector::loadFinished()
 {
     // Show close button only when docked
     if (!isWindow()) {
-        page()->runJavaScript(QL1S("var toolbar = document.getElementsByClassName('inspector-view-toolbar')[1];"
-                                   "var button = document.createElement('button');"
-                                   "button.style.width = '22px';"
-                                   "button.style.height = '22px';"
-                                   "button.style.border = 'none';"
-                                   "button.style.cursor = 'pointer';"
-                                   "button.style.background = 'url(qrc:html/close.png) no-repeat';"
-                                   "button.style.backgroundPosition = 'center center';"
-                                   "button.addEventListener('click', function() {"
+        page()->runJavaScript(QL1S("var button = Components.dockController._closeButton;"
+                                   "button.setVisible(true);"
+                                   "button.element.onmouseup = function() {"
                                    "    window.close();"
-                                   "});"
-                                   "toolbar.appendChild(button);"));
+                                   "};"));
     }
 
     // Inspect element

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,14 +19,13 @@
 
 namespace Qz
 {
-const int sessionVersion = 0x0003;
-const int sessionVersionQt5 = 0x0003 | 0x050000;
+const int sessionVersion = 0x0004;
 const int bookmarksVersion = 1;
 
 QUPZILLA_EXPORT const char* APPNAME = "QupZilla";
 QUPZILLA_EXPORT const char* VERSION = QUPZILLA_VERSION;
 QUPZILLA_EXPORT const char* AUTHOR = "David Rosca";
-QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2017";
+QUPZILLA_EXPORT const char* COPYRIGHT = "2010-2018";
 QUPZILLA_EXPORT const char* WWWADDRESS = "https://www.qupzilla.com";
 QUPZILLA_EXPORT const char* WIKIADDRESS = "https://github.com/QupZilla/qupzilla/wiki";
 }

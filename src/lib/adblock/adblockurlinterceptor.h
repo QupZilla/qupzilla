@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,17 +19,23 @@
 #ifndef ADBLOCKURLINTERCEPTOR_H
 #define ADBLOCKURLINTERCEPTOR_H
 
-#include "urlinterceptor.h"
 #include "qzcommon.h"
+#include "urlinterceptor.h"
+#include "adblockmanager.h"
 
 class AdBlockManager;
 
 class QUPZILLA_EXPORT AdBlockUrlInterceptor : public UrlInterceptor
 {
-public:
-    explicit AdBlockUrlInterceptor(AdBlockManager* manager);
+    Q_OBJECT
 
-    void interceptRequest(QWebEngineUrlRequestInfo &info);
+public:
+    explicit AdBlockUrlInterceptor(AdBlockManager *manager);
+
+    void interceptRequest(QWebEngineUrlRequestInfo &request);
+
+signals:
+    void requestBlocked(const AdBlockedRequest &request);
 
 private:
     AdBlockManager *m_manager;

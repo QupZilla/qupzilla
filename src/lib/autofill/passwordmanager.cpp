@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -76,8 +76,17 @@ void PasswordManager::loadSettings()
     QString backendId = settings.value("Backend", "database").toString();
     settings.endGroup();
 
+    if (m_backend) {
+        m_backend->setActive(false);
+    }
     m_backend = m_backends[m_backends.contains(backendId) ? backendId : "database"];
     m_backend->setActive(true);
+}
+
+QStringList PasswordManager::getUsernames(const QUrl &url)
+{
+    ensureLoaded();
+    return m_backend->getUsernames(url);
 }
 
 QVector<PasswordEntry> PasswordManager::getEntries(const QUrl &url)

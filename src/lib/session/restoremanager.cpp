@@ -1,7 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2010-2014 Franz Fellner <alpine.art.de@googlemail.com>
-*                         David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,65 @@
 
 #include <QFile>
 
+static const int restoreDataVersion = 2;
+
+bool RestoreData::isValid() const
+{
+    for (const BrowserWindow::SavedWindow &window : qAsConst(windows)) {
+        if (!window.isValid()) {
+            return false;
+        }
+    }
+    return !windows.isEmpty();
+}
+
+void RestoreData::clear()
+{
+    windows.clear();
+    crashedSession.clear();
+    closedWindows.clear();
+}
+
+QDataStream &operator<<(QDataStream &stream, const RestoreData &data)
+{
+    stream << data.windows.count();
+    for (const BrowserWindow::SavedWindow &window : qAsConst(data.windows)) {
+        stream << window;
+    }
+
+    stream << restoreDataVersion;
+    stream << data.crashedSession;
+    stream << data.closedWindows;
+
+    return stream;
+}
+
+QDataStream &operator>>(QDataStream &stream, RestoreData &data)
+{
+    int windowCount;
+    stream >> windowCount;
+    data.windows.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        BrowserWindow::SavedWindow window;
+        stream >> window;
+        data.windows.append(window);
+    }
+
+    int version;
+    stream >> version;
+
+    if (version >= 1) {
+        stream >> data.crashedSession;
+    }
+
+    if (version >= 2) {
+        stream >> data.closedWindows;
+    }
+
+    return stream;
+}
+
 RestoreManager::RestoreManager(const QString &file)
     : m_recoveryObject(new RecoveryJsObject(this))
 {
@@ -38,9 +97,17 @@ RestoreData RestoreManager::restoreData() const
     return m_data;
 }
 
+void RestoreManager::clearRestoreData()
+{
+    m_data.clear();
+
+    QDataStream stream(&m_data.crashedSession, QIODevice::ReadOnly);
+    stream >> m_data;
+}
+
 bool RestoreManager::isValid() const
 {
-    return !m_data.isEmpty();
+    return m_data.isValid();
 }
 
 QObject *RestoreManager::recoveryObject(WebPage *page)
@@ -49,59 +116,80 @@ QObject *RestoreManager::recoveryObject(WebPage *page)
     return m_recoveryObject;
 }
 
-void RestoreManager::createFromFile(const QString &file, QVector<WindowData> &data)
+static void loadCurrentVersion(QDataStream &stream, RestoreData &data)
+{
+    stream >> data;
+}
+
+static void loadVersion3(QDataStream &stream, RestoreData &data)
+{
+    int windowCount;
+    stream >> windowCount;
+    data.windows.reserve(windowCount);
+
+    for (int i = 0; i < windowCount; ++i) {
+        QByteArray tabsState;
+        QByteArray windowState;
+
+        stream >> tabsState;
+        stream >> windowState;
+
+        BrowserWindow::SavedWindow window;
+
+#ifdef QZ_WS_X11
+        QDataStream stream1(&windowState, QIODevice::ReadOnly);
+        stream1 >> window.windowState;
+        stream1 >> window.virtualDesktop;
+#else
+        window.windowState = windowState;
+#endif
+
+        int tabsCount = -1;
+        QDataStream stream2(&tabsState, QIODevice::ReadOnly);
+        stream2 >> tabsCount;
+        window.tabs.reserve(tabsCount);
+        for (int i = 0; i < tabsCount; ++i) {
+            WebTab::SavedTab tab;
+            stream2 >> tab;
+            window.tabs.append(tab);
+        }
+        stream2 >> window.currentTab;
+
+        data.windows.append(window);
+    }
+}
+
+// static
+bool RestoreManager::validateFile(const QString &file)
+{
+    RestoreData data;
+    createFromFile(file, data);
+    return data.isValid();
+}
+
+// static
+void RestoreManager::createFromFile(const QString &file, RestoreData &data)
 {
     if (!QFile::exists(file)) {
         return;
     }
 
     QFile recoveryFile(file);
-    recoveryFile.open(QIODevice::ReadOnly);
+    if (!recoveryFile.open(QIODevice::ReadOnly)) {
+        return;
+    }
+
     QDataStream stream(&recoveryFile);
 
     int version;
     stream >> version;
 
-    if (version != Qz::sessionVersion && version != Qz::sessionVersionQt5) {
-        return;
-    }
-
-    int windowCount;
-    stream >> windowCount;
-
-    for (int win = 0; win < windowCount; ++win) {
-        QByteArray tabState;
-        QByteArray windowState;
-        stream >> tabState;
-        stream >> windowState;
-
-        WindowData wd;
-        wd.windowState = windowState;
-
-        QDataStream tabStream(tabState);
-        if (tabStream.atEnd()) {
-            continue;
-        }
-
-        QVector<WebTab::SavedTab> tabs;
-        int tabListCount = 0;
-        tabStream >> tabListCount;
-        for (int i = 0; i < tabListCount; ++i) {
-            WebTab::SavedTab tab;
-            tabStream >> tab;
-            tabs.append(tab);
-        }
-
-        if (tabs.count() == 0)
-            continue;
-
-        wd.tabsState = tabs;
-
-        int currentTab;
-        tabStream >> currentTab;
-        wd.currentTab = currentTab;
-
-        data.append(wd);
+    if (version == Qz::sessionVersion) {
+        loadCurrentVersion(stream, data);
+    } else if (version == 0x0003 || version == (0x0003 | 0x050000)) {
+        loadVersion3(stream, data);
+    } else {
+        qWarning() << "Unsupported session file version" << version;
     }
 }
 

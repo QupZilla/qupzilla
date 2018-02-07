@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -244,6 +244,7 @@ void DownloadManager::clearList()
         items.append(downItem);
     }
     qDeleteAll(items);
+    emit downloadsCountChanged();
 }
 
 void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
@@ -361,25 +362,43 @@ void DownloadManager::download(QWebEngineDownloadItem *downloadItem)
     listItem->setSizeHint(downItem->sizeHint());
     downItem->show();
 
-    show();
-    raise();
-    activateWindow();
+    m_activeDownloadsCount++;
+    emit downloadsCountChanged();
+}
+
+int DownloadManager::downloadsCount() const
+{
+    return ui->list->count();
+}
+
+int DownloadManager::activeDownloadsCount() const
+{
+    return m_activeDownloadsCount;
 }
 
 void DownloadManager::downloadFinished(bool success)
 {
+    m_activeDownloadsCount = 0;
     bool downloadingAllFilesFinished = true;
     for (int i = 0; i < ui->list->count(); i++) {
         DownloadItem* downItem = qobject_cast<DownloadItem*>(ui->list->itemWidget(ui->list->item(i)));
-        if (!downItem || downItem->isCancelled() || !downItem->isDownloading()) {
+        if (!downItem) {
+            continue;
+        }
+        if (downItem->isDownloading()) {
+            m_activeDownloadsCount++;
+        }
+        if (downItem->isCancelled() || !downItem->isDownloading()) {
             continue;
         }
         downloadingAllFilesFinished = false;
     }
 
+    emit downloadsCountChanged();
+
     if (downloadingAllFilesFinished) {
         if (success && qApp->activeWindow() != this) {
-            mApp->desktopNotifications()->showNotification(QIcon::fromTheme(QSL("download"), QIcon(QSL(":icons/other/download.svg"))).pixmap(48), tr("Download Finished"), tr("All files have been successfully downloaded."));
+            mApp->desktopNotifications()->showNotification(QIcon::fromTheme(QSL("download"), QIcon(QSL(":icons/other/download.svg"))).pixmap(48), tr("QupZilla: Download Finished"), tr("All files have been successfully downloaded."));
             if (!m_closeOnFinish) {
                 raise();
                 activateWindow();

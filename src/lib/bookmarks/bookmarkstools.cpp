@@ -24,9 +24,9 @@
 #include "tabwidget.h"
 #include "qzsettings.h"
 #include "browserwindow.h"
+#include "sqldatabase.h"
 
 #include <iostream>
-#include <QSqlQuery>
 #include <QDialogButtonBox>
 #include <QBoxLayout>
 #include <QFormLayout>
@@ -438,7 +438,7 @@ void BookmarksTools::addFolderContentsToMenu(QObject *receiver, Menu *menu, Book
 
 bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
 {
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='folders'");
 
     if (!query.next()) {

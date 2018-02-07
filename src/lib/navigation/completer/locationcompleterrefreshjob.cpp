@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -117,7 +117,7 @@ void LocationCompleterRefreshJob::runJob()
     if (!m_searchString.isEmpty() && qzSettings->useInlineCompletion) {
         QSqlQuery domainQuery = LocationCompleterModel::createDomainQuery(m_searchString);
         if (!domainQuery.lastQuery().isEmpty()) {
-            SqlDatabase::instance()->exec(domainQuery);
+            domainQuery.exec();
             if (domainQuery.next()) {
                 m_domainCompletion = createDomainCompletion(domainQuery.value(0).toUrl().host());
             }
@@ -134,7 +134,7 @@ void LocationCompleterRefreshJob::runJob()
         item->setText(m_searchString);
         item->setData(m_searchString, LocationCompleterModel::UrlRole);
         item->setData(m_searchString, LocationCompleterModel::SearchStringRole);
-        item->setData(QVariant(true), LocationCompleterModel::VisitSearchItemRole);
+        item->setData(true, LocationCompleterModel::VisitSearchItemRole);
         if (!m_domainCompletion.isEmpty()) {
             const QUrl url = QUrl(QSL("http://%1").arg(m_domainCompletion));
             item->setData(IconProvider::imageForDomain(url), LocationCompleterModel::ImageRole);
@@ -156,13 +156,18 @@ void LocationCompleterRefreshJob::completeFromHistory()
         foreach (BookmarkItem* bookmark, bookmarks) {
             Q_ASSERT(bookmark->isUrl());
 
+            // Keyword bookmark replaces visit/search item
+            if (bookmark->keyword() == m_searchString) {
+                continue;
+            }
+
             QStandardItem* item = new QStandardItem();
             item->setText(bookmark->url().toEncoded());
             item->setData(-1, LocationCompleterModel::IdRole);
             item->setData(bookmark->title(), LocationCompleterModel::TitleRole);
             item->setData(bookmark->url(), LocationCompleterModel::UrlRole);
             item->setData(bookmark->visitCount(), LocationCompleterModel::CountRole);
-            item->setData(QVariant(true), LocationCompleterModel::BookmarkRole);
+            item->setData(true, LocationCompleterModel::BookmarkRole);
             item->setData(QVariant::fromValue<void*>(static_cast<void*>(bookmark)), LocationCompleterModel::BookmarkItemRole);
             item->setData(m_searchString, LocationCompleterModel::SearchStringRole);
 
@@ -178,7 +183,7 @@ void LocationCompleterRefreshJob::completeFromHistory()
     if (showType == HistoryAndBookmarks || showType == History) {
         const int historyLimit = 20;
         QSqlQuery query = LocationCompleterModel::createHistoryQuery(m_searchString, historyLimit);
-        SqlDatabase::instance()->exec(query);
+        query.exec();
 
         while (query.next()) {
             const QUrl url = query.value(1).toUrl();
@@ -193,7 +198,7 @@ void LocationCompleterRefreshJob::completeFromHistory()
             item->setData(query.value(2), LocationCompleterModel::TitleRole);
             item->setData(url, LocationCompleterModel::UrlRole);
             item->setData(query.value(3), LocationCompleterModel::CountRole);
-            item->setData(QVariant(false), LocationCompleterModel::BookmarkRole);
+            item->setData(true, LocationCompleterModel::HistoryRole);
             item->setData(m_searchString, LocationCompleterModel::SearchStringRole);
 
             m_items.append(item);
@@ -203,8 +208,8 @@ void LocationCompleterRefreshJob::completeFromHistory()
 
 void LocationCompleterRefreshJob::completeMostVisited()
 {
-    QSqlQuery query(QSL("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15"));
-    SqlDatabase::instance()->exec(query);
+    QSqlQuery query(SqlDatabase::instance()->database());
+    query.exec(QSL("SELECT id, url, title FROM history ORDER BY count DESC LIMIT 15"));
 
     while (query.next()) {
         QStandardItem* item = new QStandardItem();
@@ -214,7 +219,7 @@ void LocationCompleterRefreshJob::completeMostVisited()
         item->setData(query.value(0), LocationCompleterModel::IdRole);
         item->setData(query.value(2), LocationCompleterModel::TitleRole);
         item->setData(url, LocationCompleterModel::UrlRole);
-        item->setData(QVariant(false), LocationCompleterModel::BookmarkRole);
+        item->setData(true, LocationCompleterModel::HistoryRole);
 
         m_items.append(item);
     }

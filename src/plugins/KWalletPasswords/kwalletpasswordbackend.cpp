@@ -1,6 +1,6 @@
 /* ============================================================
 * KWalletPasswords - KWallet support plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,14 +17,12 @@
 * ============================================================ */
 #include "kwalletpasswordbackend.h"
 #include "kwalletplugin.h"
+#include "mainapplication.h"
+#include "browserwindow.h"
 
 #include <QDateTime>
 
-#if QT_VERSION >= 0x050000
 #include <KWallet>
-#else
-#include <KDE/KWallet/Wallet>
-#endif
 
 static PasswordEntry decodeEntry(const QByteArray &data)
 {
@@ -154,7 +152,12 @@ void KWalletPasswordBackend::initialize()
         return;
     }
 
-    m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0);
+    WId wid = 0;
+    BrowserWindow *w = mApp->getWindow();
+    if (w && w->window()) {
+        wid = w->window()->winId();
+    }
+    m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), wid);
 
     if (!m_wallet) {
         qWarning() << "KWalletPasswordBackend::initialize Cannot open wallet!";

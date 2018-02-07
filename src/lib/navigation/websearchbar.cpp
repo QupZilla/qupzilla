@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ WebSearchBar::WebSearchBar(BrowserWindow* window)
     m_buttonSearch = new WebSearchBar_Button(this);
 
     m_boxSearchType = new ButtonWithMenu(this);
-    m_boxSearchType->setObjectName("websearchbar-searchprovider-comobobox");
+    m_boxSearchType->setObjectName("websearchbar-searchprovider-combobox");
     // RTL Support
     // If we don't add 'm_boxSearchType' by following code, then we should use suitable padding-left value
     // but then, when typing RTL text the layout dynamically changed and within RTL layout direction
@@ -132,7 +132,7 @@ void WebSearchBar::aboutToShowMenu()
 
 void WebSearchBar::addSuggestions(const QStringList &list)
 {
-    if (qzSettings->showSearchSuggestions) {
+    if (qzSettings->showWSBSearchSuggestions) {
         QStringList list_ = list.mid(0, 6);
         m_completerModel->setStringList(list_);
         m_completer->complete();
@@ -156,7 +156,7 @@ void WebSearchBar::enableSearchSuggestions(bool enable)
     settings.setValue("showSuggestions", enable);
     settings.endGroup();
 
-    qzSettings->showSearchSuggestions = enable;
+    qzSettings->showWSBSearchSuggestions = enable;
     m_completerModel->setStringList(QStringList());
 }
 
@@ -257,7 +257,7 @@ void WebSearchBar::contextMenuEvent(QContextMenuEvent* event)
     menu->addSeparator();
     QAction* act = menu->addAction(tr("Show suggestions"));
     act->setCheckable(true);
-    act->setChecked(qzSettings->showSearchSuggestions);
+    act->setChecked(qzSettings->showWSBSearchSuggestions);
     connect(act, SIGNAL(triggered(bool)), this, SLOT(enableSearchSuggestions(bool)));
 
     QAction* instantSearch = menu->addAction(tr("Search when engine changed"));

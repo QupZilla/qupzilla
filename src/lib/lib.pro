@@ -10,13 +10,13 @@ CONFIG += c++14
 include(../defines.pri)
 include(../../translations/translations.pri)
 include(3rdparty/qtsingleapplication/qtsingleapplication.pri)
+include(adblock/adblock.pri)
 
 CONFIG(debug, debug|release): include(../../tests/modeltest/modeltest.pri)
 
 unix:!contains(DEFINES, "DISABLE_DBUS") QT += dbus
 
 INCLUDEPATH += 3rdparty \
-               adblock \
                app \
                autofill \
                bookmarks \
@@ -48,16 +48,6 @@ SOURCES += \
     3rdparty/squeezelabelv1.cpp \
     3rdparty/squeezelabelv2.cpp \
     3rdparty/stylehelper.cpp \
-    adblock/adblockaddsubscriptiondialog.cpp \
-    adblock/adblockurlinterceptor.cpp \
-    adblock/adblockdialog.cpp \
-    adblock/adblockicon.cpp \
-    adblock/adblockmanager.cpp \
-    adblock/adblockmatcher.cpp \
-    adblock/adblockrule.cpp \
-    adblock/adblocksearchtree.cpp \
-    adblock/adblocksubscription.cpp \
-    adblock/adblocktreewidget.cpp \
     app/autosaver.cpp \
     app/browserwindow.cpp \
     app/commandlineoptions.cpp \
@@ -100,6 +90,7 @@ SOURCES += \
     bookmarks/bookmarkswidget.cpp \
     cookies/cookiejar.cpp \
     cookies/cookiemanager.cpp \
+    downloads/downloadsbutton.cpp \
     downloads/downloaditem.cpp \
     downloads/downloadmanager.cpp \
     downloads/downloadoptionsdialog.cpp \
@@ -119,6 +110,8 @@ SOURCES += \
     navigation/locationbar.cpp \
     navigation/locationbarpopup.cpp \
     navigation/navigationbar.cpp \
+    navigation/navigationbarconfigdialog.cpp \
+    navigation/navigationbartoolbutton.cpp \
     navigation/navigationcontainer.cpp \
     navigation/reloadstopbutton.cpp \
     navigation/siteicon.cpp \
@@ -126,6 +119,7 @@ SOURCES += \
     network/networkmanager.cpp \
     network/networkproxyfactory.cpp \
     network/networkurlinterceptor.cpp \
+    network/schemehandlers/extensionschemehandler.cpp \
     #network/schemehandlers/fileschemehandler.cpp \
     network/schemehandlers/qupzillaschemehandler.cpp \
     network/sslerrordialog.cpp \
@@ -146,7 +140,7 @@ SOURCES += \
     other/qzsettings.cpp \
     other/siteinfo.cpp \
     other/siteinfowidget.cpp \
-    other/statusbarmessage.cpp \
+    other/statusbar.cpp \
     other/updater.cpp \
     other/useragentmanager.cpp \
     plugins/pluginproxy.cpp \
@@ -174,9 +168,12 @@ SOURCES += \
     tabwidget/combotabbar.cpp \
     tabwidget/tabbar.cpp \
     tabwidget/tabicon.cpp \
+    tabwidget/tabmodel.cpp \
+    tabwidget/tabtreemodel.cpp \
     tabwidget/tabstackedwidget.cpp \
     tabwidget/tabwidget.cpp \
     tabwidget/tabcontextmenu.cpp \
+    tools/abstractbuttoninterface.cpp \
     tools/aesinterface.cpp \
     tools/animatedwidget.cpp \
     tools/buttonbox.cpp \
@@ -184,6 +181,7 @@ SOURCES += \
     tools/certificateinfowidget.cpp \
     tools/clickablelabel.cpp \
     tools/closedtabsmanager.cpp \
+    tools/closedwindowsmanager.cpp \
     tools/colors.cpp \
     tools/delayedfilewatcher.cpp \
     tools/docktitlebarwidget.cpp \
@@ -232,16 +230,6 @@ HEADERS  += \
     3rdparty/squeezelabelv1.h \
     3rdparty/squeezelabelv2.h \
     3rdparty/stylehelper.h \
-    adblock/adblockaddsubscriptiondialog.h \
-    adblock/adblockurlinterceptor.h \
-    adblock/adblockdialog.h \
-    adblock/adblockicon.h \
-    adblock/adblockmanager.h \
-    adblock/adblockmatcher.h \
-    adblock/adblockrule.h \
-    adblock/adblocksearchtree.h \
-    adblock/adblocksubscription.h \
-    adblock/adblocktreewidget.h \
     app/autosaver.h \
     app/browserwindow.h \
     app/commandlineoptions.h \
@@ -284,6 +272,7 @@ HEADERS  += \
     bookmarks/bookmarkswidget.h \
     cookies/cookiejar.h \
     cookies/cookiemanager.h \
+    downloads/downloadsbutton.h \
     downloads/downloaditem.h \
     downloads/downloadmanager.h \
     downloads/downloadoptionsdialog.h \
@@ -303,6 +292,8 @@ HEADERS  += \
     navigation/locationbar.h \
     navigation/locationbarpopup.h \
     navigation/navigationbar.h \
+    navigation/navigationbarconfigdialog.h \
+    navigation/navigationbartoolbutton.h \
     navigation/navigationcontainer.h \
     navigation/reloadstopbutton.h \
     navigation/siteicon.h \
@@ -310,6 +301,7 @@ HEADERS  += \
     network/networkmanager.h \
     network/networkproxyfactory.h \
     network/networkurlinterceptor.h \
+    network/schemehandlers/extensionschemehandler.h \
     #network/schemehandlers/fileschemehandler.h \
     network/schemehandlers/qupzillaschemehandler.h \
     network/urlinterceptor.h \
@@ -331,7 +323,7 @@ HEADERS  += \
     other/qzsettings.h \
     other/siteinfo.h \
     other/siteinfowidget.h \
-    other/statusbarmessage.h \
+    other/statusbar.h \
     other/updater.h \
     other/useragentmanager.h \
     plugins/plugininterface.h \
@@ -361,9 +353,12 @@ HEADERS  += \
     tabwidget/combotabbar.h \
     tabwidget/tabbar.h \
     tabwidget/tabicon.h \
+    tabwidget/tabmodel.h \
+    tabwidget/tabtreemodel.h \
     tabwidget/tabstackedwidget.h \
     tabwidget/tabwidget.h \
     tabwidget/tabcontextmenu.h \
+    tools/abstractbuttoninterface.h \
     tools/aesinterface.h \
     tools/animatedwidget.h \
     tools/buttonbox.h \
@@ -371,6 +366,7 @@ HEADERS  += \
     tools/certificateinfowidget.h \
     tools/clickablelabel.h \
     tools/closedtabsmanager.h \
+    tools/closedwindowsmanager.h \
     tools/colors.h \
     tools/delayedfilewatcher.h \
     tools/docktitlebarwidget.h \
@@ -413,8 +409,6 @@ HEADERS  += \
     tools/qzsysinfo.h
 
 FORMS    += \
-    adblock/adblockaddsubscriptiondialog.ui \
-    adblock/adblockdialog.ui \
     autofill/autofillnotification.ui \
     autofill/autofillwidget.ui \
     autofill/passwordbackends/masterpassworddialog.ui \
@@ -428,6 +422,7 @@ FORMS    += \
     downloads/downloadoptionsdialog.ui \
     history/historymanager.ui \
     network/sslerrordialog.ui \
+    navigation/navigationbarconfigdialog.ui \
     notifications/desktopnotification.ui \
     opensearch/editsearchengine.ui \
     opensearch/searchenginesdialog.ui \

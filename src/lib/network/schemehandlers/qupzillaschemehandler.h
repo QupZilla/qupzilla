@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,6 +30,9 @@ public:
     explicit QupZillaSchemeHandler(QObject *parent = Q_NULLPTR);
 
     void requestStarted(QWebEngineUrlRequestJob *job) Q_DECL_OVERRIDE;
+
+private:
+    bool handleRequest(QWebEngineUrlRequestJob *job);
 };
 
 class QUPZILLA_EXPORT QupZillaSchemeReply : public QIODevice
@@ -53,7 +56,6 @@ private:
     QString speeddialPage();
     QString restorePage();
     QString configPage();
-    QString adblockPage();
 
     bool m_loaded;
     QBuffer m_buffer;

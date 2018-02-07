@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 #include "sslerrordialog.h"
 #include "networkurlinterceptor.h"
 #include "schemehandlers/qupzillaschemehandler.h"
+#include "schemehandlers/extensionschemehandler.h"
 
 #include <QLabel>
 #include <QDialog>
@@ -44,6 +45,8 @@ NetworkManager::NetworkManager(QObject *parent)
 {
     // Create scheme handlers
     mApp->webProfile()->installUrlSchemeHandler(QByteArrayLiteral("qupzilla"), new QupZillaSchemeHandler());
+    m_extensionScheme = new ExtensionSchemeManager();
+    mApp->webProfile()->installUrlSchemeHandler(QByteArrayLiteral("extension"), m_extensionScheme);
 
     // Create url interceptor
     m_urlInterceptor = new NetworkUrlInterceptor(this);
@@ -226,6 +229,16 @@ void NetworkManager::installUrlInterceptor(UrlInterceptor *interceptor)
 void NetworkManager::removeUrlInterceptor(UrlInterceptor *interceptor)
 {
     m_urlInterceptor->removeUrlInterceptor(interceptor);
+}
+
+void NetworkManager::registerExtensionSchemeHandler(const QString &name, ExtensionSchemeHandler *handler)
+{
+    m_extensionScheme->registerHandler(name, handler);
+}
+
+void NetworkManager::unregisterExtensionSchemeHandler(const QString &name)
+{
+    m_extensionScheme->unregisterHandler(name);
 }
 
 void NetworkManager::loadSettings()

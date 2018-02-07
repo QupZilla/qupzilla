@@ -120,6 +120,17 @@ li {padding: 5px;}
     vertical-align: top;
 }
 
+#listview td.js-disabled
+{
+    text-align: center;
+    height: 150px;
+}
+
+#listview tbody tr.js-disabled:hover
+{
+    background-color: transparent;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -267,11 +278,6 @@ function addTab(winId, tab)
 
 function init()
 {
-    if (!external.recovery) {
-        setTimeout(init, 50);
-        return;
-    }
-
     var data = external.recovery.restoreData;
     for (var i = 0; i < data.length; ++i) {
         var win = data[i];
@@ -304,11 +310,18 @@ function init()
           </tr>
         </thead>
         <tbody id="recovery-items">
+          <noscript>
+            <tr class="js-disabled">
+              <td class="js-disabled">%JAVASCRIPT-DISABLED%</td>
+            </tr>
+          </noscript>
         </tbody>
       </table>
 
-      <input class="button" type="button" id="start-new-session-button" value="%BUTTON-START-NEW%" onclick="startNewSession();">
-      <input class="button" type="button" id="restore-session-button" value="   %BUTTON-RESTORE%   " onclick="restoreSession();">
+      <form>
+      <input class="button" type="submit" id="start-new-session-button" name="new-session" value="%BUTTON-START-NEW%" onclick="startNewSession();return false;">
+      <input class="button" type="submit" id="restore-session-button" name="restore-session" value="   %BUTTON-RESTORE%   " onclick="restoreSession();return false;">
+      </form>
     </div>
   </div>
 </body>
@@ -316,7 +329,7 @@ function init()
 <script type="text/javascript">
 
 // Initialize
-if (window.external) {
+if (window._qupzilla_external) {
     init();
 } else {
     document.addEventListener("_qupzilla_external_created", init);

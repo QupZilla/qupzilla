@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="license" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+  <rdf:RDF>
+   <cc:Work rdf:about="plus.svg">
+    <dc:description>Speed Dial add button</dc:description>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:date>2018-01-10</dc:date>
+    <dc:creator>Konstantin Savun</dc:creator>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/legalcode"/>
+    <cc:attributionName rdf:resource="Konstantin Savun"/>
+    <cc:attributionURL rdf:resource="diablopc@linuxforum.tech"/>
+   </cc:Work>
+  </rdf:RDF>
+</metadata>
+ <defs>
+  <style id="current-color-scheme" type="text/css">.ColorScheme-Text {
+        color:#4d4d4d
+      }</style>
+ </defs>
+ <path style="color:#4d4d4d" d="m9.6667 3c-0.2463 0-0.4445 0.1982-0.4445 0.4444v5.7778h-5.7778c-0.2462 0-0.4444 0.1982-0.4444 0.4445v2.6667c0 0.24622 0.19822 0.44444 0.44444 0.44444h5.7778v5.7778c0 0.247 0.1982 0.445 0.4445 0.445h2.6667c0.24625 0 0.44444-0.1982 0.44444-0.44444v-5.7778h5.7778c0.247 0 0.445-0.198 0.445-0.445v-2.6663c0-0.2463-0.198-0.4445-0.444-0.4445h-5.7778v-5.7778c0-0.2462-0.198-0.4444-0.445-0.4444h-2.6663z" class="ColorScheme-Text" stroke="#646464" stroke-width="1.4" fill="#eaeaea"/>
+</svg>

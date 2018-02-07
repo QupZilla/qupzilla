@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -44,9 +44,9 @@ LoadRequest &LoadRequest::operator=(const LoadRequest &other)
     return *this;
 }
 
-bool LoadRequest::isEmpty() const
+bool LoadRequest::isValid() const
 {
-    return m_url.isEmpty();
+    return m_url.isValid();
 }
 
 QUrl LoadRequest::url() const
@@ -84,11 +84,9 @@ void LoadRequest::setData(const QByteArray &data)
     m_data = data;
 }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 9, 0)
 QWebEngineHttpRequest LoadRequest::webRequest() const
 {
     QWebEngineHttpRequest req(m_url, m_operation == GetOperation ? QWebEngineHttpRequest::Get : QWebEngineHttpRequest::Post);
     req.setPostData(m_data);
     return req;
 }
-#endif

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,9 +38,7 @@ public:
     ~WebView();
 
     QIcon icon(bool allowNull = false) const;
-
-    QString title() const;
-    bool isTitleEmpty() const;
+    QString title(bool allowEmpty = false) const;
 
     WebPage* page() const;
     void setPage(WebPage* page);
@@ -75,6 +73,7 @@ public:
     static void setForceContextMenuOnMouseRelease(bool force);
 
 signals:
+    void pageChanged(WebPage *page);
     void focusChanged(bool);
     void viewportResized(QSize);
     void showNotification(QWidget*);

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,11 +38,16 @@ public:
     static QSettings* globalSettings();
     static QzSettings* staticSettings();
 
+    bool contains(const QString &key) const;
+    void remove(const QString &key);
+
     void setValue(const QString &key, const QVariant &defaultValue = QVariant());
     QVariant value(const QString &key, const QVariant &defaultValue = QVariant());
 
     void beginGroup(const QString &prefix);
     void endGroup();
+
+    void sync();
 
 private:
     static QSettings* s_settings;

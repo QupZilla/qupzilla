@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="license" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+  <rdf:RDF>
+   <cc:Work rdf:about="sd_bg.svg">
+    <dc:description>Speed Dial background</dc:description>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:date>2018-01-10</dc:date>
+    <dc:creator>Konstantin Savun</dc:creator>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/legalcode"/>
+    <cc:attributionName rdf:resource="Konstantin Savun"/>
+    <cc:attributionURL rdf:resource="diablopc@linuxforum.tech"/>
+   </cc:Work>
+  </rdf:RDF>
+</metadata>
+ <defs>
+  <linearGradient id="a">
+   <stop stop-color="#fff" stop-opacity=".58367" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <radialGradient id="i" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="257.36" cx="374.75" gradientTransform="matrix(.16167 -.66277 .67771 -.20087 -141.74 1038.4)" r="371.63"/>
+  <radialGradient id="h" gradientUnits="userSpaceOnUse" cy="214.51" cx="485.05" gradientTransform="matrix(.68155 0 0 .51298 -9.5292 703.39)" r="480">
+   <stop stop-color="#50a3ed" offset="0"/>
+   <stop stop-color="#118af5" offset="1"/>
+  </radialGradient>
+  <radialGradient id="g" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="257.36" cx="374.75" gradientTransform="matrix(.55088 .43549 .14504 .61190 195.84 602.23)" r="371.63"/>
+  <radialGradient id="f" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="257.36" cx="374.75" gradientTransform="matrix(.28811 -.36990 .34795 .086567 171.1 780.13)" r="371.63"/>
+  <radialGradient id="e" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="257.36" cx="374.75" gradientTransform="matrix(-.50832 -.51792 -.77395 -.017241 477.56 451.77)" r="371.63"/>
+  <radialGradient id="d" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="251.24" cx="483.99" gradientTransform="matrix(-.88921 .047588 -.41350 1.2804 1073.3 537.81)" r="371.63"/>
+  <radialGradient id="c" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="251.24" cx="483.99" gradientTransform="matrix(.47122 -.49638 1.043 .65644 -290.72 917.64)" r="371.63"/>
+  <radialGradient id="b" xlink:href="#a" gradientUnits="userSpaceOnUse" cy="257.36" cx="374.75" gradientTransform="matrix(-.043770 -.47204 .30810 -.18768 437.08 816.97)" r="371.63"/>
+ </defs>
+ <g transform="translate(0,-572.36)">
+  <rect height="506.27" width="655.49" y="567.2" x="-6.0868" stroke-width=".64960" fill="url(#h)"/>
+  <path opacity=".52653" d="m-6.0859 567.2v101.27c120.59 79.27 218.08 184.13 276.8 340.23 14.59-76.9-76.6-165.13 49.35-281.6-10.1-86.34-62.53-133.55-135.94-159.9z" stroke-width=".64960" fill="url(#i)"/>
+  <path opacity=".32653" d="m-6.0859 663.24v309.62c16.101 42.54 48.814 77.64 115.53 100.64h67.059c45.627-30.964 91.314-61.787 151.92-57.176-67.73-85.7-197.79-227.86-334.51-353.06z" stroke-width=".72309" fill="url(#c)"/>
+  <g stroke-width=".64960">
+   <path opacity=".52653" d="m435.53 567.2c-51.732 131.88 70.252 373.46 123.32 506.27h36.967c20.582-22.2 38.2-37.408 53.598-47.545v-231.43c-26.38-65.38-44.58-140.46-52.82-227.37z" fill="url(#d)"/>
+   <path opacity=".52653" d="m206.42 931.08c181.92-18.56 335.33-81.8 436.23-227.29-45.84 144.67-171.37 273.94-213.14 369.91-93.4-151.05-159.05-95.28-223.09-142.62z" fill="url(#g)"/>
+   <path opacity=".52653" d="m278.59 567.2c-17.457 148.27-60.625 309.15 73.414 324.39 31.693-44.207 7.111-128.12 98.195-162.29-24.258-37.717-51.162-98.506-81.316-162.1z" fill="url(#f)"/>
+  </g>
+  <path opacity=".30204" d="m341.58-5.1641c-126.87 67.132-246.68 166.22-347.67 239.53l0.0041 126.33c45.203 48.21 27.804 98.83 49.238 140.41h15.655c40.722-192.09 128.97-365.54 300.65-506.27l-17.88-0.0041z" transform="translate(0,572.36)" stroke-width=".78589" fill="url(#e)"/>
+  <path opacity=".52653" d="m354.95 567.2c94.15 121.41 174.8 289.98 287.26 199.85l0.0254-0.006c-7.1976-54.444-81.617-96.977-39.432-186.85-13.517-3.0342-28.771-7.5212-45.346-12.992z" stroke-width=".64960" fill="url(#b)"/>
+ </g>
+</svg>

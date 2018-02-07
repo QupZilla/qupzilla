@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,9 +33,9 @@ public:
     void setSettingsFile(const QString &name);
 
 public slots:
-    QVariant getValue(const QString &nspace, const QString &name, const QVariant &dValue);
-    void setValue(const QString &nspace, const QString &name, const QVariant &value);
-    void deleteValue(const QString &nspace, const QString &name);
+    QString getValue(const QString &nspace, const QString &name, const QString &dValue);
+    bool setValue(const QString &nspace, const QString &name, const QString &value);
+    bool deleteValue(const QString &nspace, const QString &name);
     QStringList listValues(const QString &nspace);
 
     void setClipboard(const QString &text);

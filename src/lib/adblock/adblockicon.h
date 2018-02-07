@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,45 +18,32 @@
 #ifndef ADBLOCKICON_H
 #define ADBLOCKICON_H
 
+#include <QPointer>
+
 #include "qzcommon.h"
-#include "clickablelabel.h"
-#include "adblockrule.h"
+#include "abstractbuttoninterface.h"
 
-class QMenu;
-class QUrl;
-
-class BrowserWindow;
-
-class QUPZILLA_EXPORT AdBlockIcon : public ClickableLabel
+class QUPZILLA_EXPORT AdBlockIcon : public AbstractButtonInterface
 {
     Q_OBJECT
+
 public:
-    explicit AdBlockIcon(BrowserWindow* window, QWidget* parent = 0);
-    ~AdBlockIcon();
+    explicit AdBlockIcon(QObject *parent = nullptr);
 
-    void popupBlocked(const QString &ruleString, const QUrl &url);
-    QAction* menuAction();
-
-public slots:
-    void setEnabled(bool enabled);
-    void createMenu(QMenu* menu = 0);
+    QString id() const override;
+    QString name() const override;
 
 private slots:
-    void showMenu(const QPoint &pos);
     void toggleCustomFilter();
 
-    void animateIcon();
-    void stopAnimation();
-
 private:
-    BrowserWindow* m_window;
-    QAction* m_menuAction;
+    void updateState();
+    void updateBadgeText();
+    void webViewChanged(WebView *view);
+    void clicked(ClickController *controller);
+    void blockedRequestsChanged(const QUrl &url);
 
-    QVector<QPair<AdBlockRule*, QUrl> > m_blockedPopups;
-    QTimer* m_flashTimer;
-
-    int m_timerTicks;
-    bool m_enabled;
+    QPointer<WebView> m_view;
 };
 
 #endif // ADBLOCKICON_H

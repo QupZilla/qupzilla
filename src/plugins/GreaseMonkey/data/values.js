@@ -26,3 +26,87 @@ function GM_listValues() {
 function GM_setValue(aKey, aVal) {
     localStorage.setItem("%1" + aKey, aVal);
 }
+
+// GreaseMonkey 4.0 support
+var asyncCall = (func) => {
+    if (window._qupzilla_external) {
+        func();
+    } else {
+        document.addEventListener("_qupzilla_external_created", func);
+    }
+};
+
+var decode = (val) => {
+    val = String(val);
+    if (!val.length) {
+        return val;
+    }
+    var v = val.substr(1);
+    if (val[0] == "b") {
+        return Boolean(v == "true" ? true : false);
+    } else if (val[0] == "i") {
+        return Number(v);
+    } else if (val[0] == "s") {
+        return v;
+    } else {
+        return undefined;
+    }
+};
+
+var encode = (val) => {
+    if (typeof val == "boolean") {
+        return "b" + (val ? "true" : "false");
+    } else if (typeof val == "number") {
+        return "i" + String(val);
+    } else if (typeof val == "string") {
+        return "s" + val;
+    } else {
+        return "";
+    }
+};
+
+GM.deleteValue = function(name) {
+    return new Promise((resolve, reject) => {
+        asyncCall(() => {
+            external.extra.greasemonkey.deleteValue("%1", name, (res) => {
+                if (res) {
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        });
+    });
+};
+
+GM.getValue = function(name, value) {
+    return new Promise((resolve) => {
+        asyncCall(() => {
+            external.extra.greasemonkey.getValue("%1", name, encode(value), (res) => {
+                resolve(decode(res));
+            });
+        });
+    });
+};
+
+GM.setValue = function(name, value) {
+    return new Promise((resolve, reject) => {
+        asyncCall(() => {
+            external.extra.greasemonkey.setValue("%1", name, encode(value), (res) => {
+                if (res) {
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        });
+    });
+};
+
+GM.listValues = function() {
+    return new Promise((resolve) => {
+        asyncCall(() => {
+            external.extra.greasemonkey.listValues("%1", resolve);
+        });
+    });
+};

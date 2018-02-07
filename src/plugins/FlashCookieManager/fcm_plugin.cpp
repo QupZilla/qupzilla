@@ -1,7 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
-* Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,12 +21,13 @@
 #include "pluginproxy.h"
 #include "mainapplication.h"
 #include "fcm_dialog.h"
-#include "clickablelabel.h"
+#include "abstractbuttoninterface.h"
 #include "tabbedwebview.h"
 #include "fcm_notification.h"
 #include "datapaths.h"
+#include "statusbar.h"
+#include "navigationbar.h"
 
-#include <QStatusBar>
 #include <QTimer>
 #include <QSettings>
 #include <QTranslator>
@@ -38,6 +39,25 @@
 #endif
 
 const int refreshInterval = 60 * 1000;
+
+class FCM_Button : public AbstractButtonInterface
+{
+public:
+    explicit FCM_Button(QObject *parent = nullptr)
+        : AbstractButtonInterface(parent)
+    {
+    }
+
+    QString id() const override
+    {
+        return QSL("fcm-icon");
+    }
+
+    QString name() const override
+    {
+        return tr("Flash Cookie Manager button");
+    }
+};
 
 FCM_Plugin::FCM_Plugin()
     : QObject()
@@ -96,9 +116,7 @@ void FCM_Plugin::unload()
     }
 
     foreach (BrowserWindow* window, mApp->windows()) {
-        window->statusBar()->removeWidget(m_statusBarIcons.value(window));
-        delete m_statusBarIcons.value(window);
-        m_statusBarIcons.remove(window);
+        mainWindowDeleted(window);
     }
 
     delete m_fcmDialog;
@@ -311,7 +329,8 @@ void FCM_Plugin::showFlashCookieManager()
 
 void FCM_Plugin::mainWindowCreated(BrowserWindow *window)
 {
-    window->statusBar()->addPermanentWidget(createStatusBarIcon(window));
+    window->statusBar()->addButton(createStatusBarIcon(window));
+    window->navigationBar()->addToolButton(createStatusBarIcon(window));
 }
 
 void FCM_Plugin::mainWindowDeleted(BrowserWindow *window)
@@ -324,7 +343,9 @@ void FCM_Plugin::mainWindowDeleted(BrowserWindow *window)
         m_fcmDialog->setParent(0);
     }
 
-    window->statusBar()->removeWidget(m_statusBarIcons.value(window));
+    window->statusBar()->removeButton(m_statusBarIcons.value(window));
+    window->navigationBar()->removeToolButton(m_statusBarIcons.value(window));
+
     delete m_statusBarIcons.value(window);
     m_statusBarIcons.remove(window);
 }
@@ -345,18 +366,17 @@ void FCM_Plugin::startStopTimer()
     }
 }
 
-QWidget* FCM_Plugin::createStatusBarIcon(BrowserWindow* mainWindow)
+AbstractButtonInterface* FCM_Plugin::createStatusBarIcon(BrowserWindow* mainWindow)
 {
     if (m_statusBarIcons.contains(mainWindow)) {
         return m_statusBarIcons.value(mainWindow);
     }
 
-    ClickableLabel* icon = new ClickableLabel(mainWindow);
-    icon->setCursor(Qt::PointingHandCursor);
-    icon->setPixmap(QIcon(QSL(":/flashcookiemanager/data/flash-cookie-manager.png")).pixmap(16));
+    FCM_Button* icon = new FCM_Button(this);
+    icon->setIcon(QIcon(QSL(":/flashcookiemanager/data/flash-cookie-manager.png")));
+    icon->setTitle(tr("Flash Cookie Manager"));
     icon->setToolTip(tr("Show Flash Cookie Manager"));
-
-    connect(icon, SIGNAL(clicked(QPoint)), this, SLOT(showFlashCookieManager()));
+    connect(icon, &AbstractButtonInterface::clicked, this, &FCM_Plugin::showFlashCookieManager);
 
     m_statusBarIcons.insert(mainWindow, icon);
 

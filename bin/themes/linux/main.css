@@ -47,18 +47,43 @@
     qproperty-themeIcon: "list-add";
 }
 
+#navigation-button-tools
+{
+    qproperty-themeIcon: "arrow-right-double";
+    qproperty-fallbackIcon: url(images/tools.svg);
+}
+
+#navigation-button-exitfullscreen
+{
+    qproperty-themeIcon: "view-restore";
+    qproperty-fallbackIcon: url(images/exit-fullscreen.svg);
+}
+
 #navigation-button-supermenu
 {
     qproperty-themeIcon: "application-menu";
     qproperty-fallbackIcon: url(images/menu.svg);
 }
 
-#navigation-button-exitfullscreen
+#navigation-toolbutton-badge
 {
-    qproperty-themeIcon: "view-restore";
+    background: palette(dark);
+    color: palette(bright-text);
+    margin: 0px 1px;
+}
+
+ToolButton[button-id="button-downloads"]
+{
+    qproperty-themeIcon: "edit-download";
 }
 
 /*TabWidget*/
+#tabbar
+{
+    qproperty-tabPadding: -1;
+    qproperty-baseColor: 0;
+}
+
 #tabbar-button-right
 {
     qproperty-themeIcon: "arrow-right";
@@ -99,6 +124,11 @@ IconProvider
 }
 
 /*LocationBar*/
+#locationbar
+{
+    qproperty-leftMargin: 25;
+}
+
 #locationbar-bookmarkicon
 {
     qproperty-themeIcon: "rating-unrated";
@@ -115,9 +145,9 @@ IconProvider
 
 #locationbar-siteicon
 {
-    margin-left: 5px;
     border-image: url(images/transp.png);
-    qproperty-fixedsize: 21px 16px;
+    padding-left: 5px;
+    qproperty-fixedsize: 25px 16px;
 }
 
 #locationbar-goicon
@@ -142,18 +172,22 @@ IconProvider
 }
 
 /*WebSearchBar*/
+#websearchbar
+{
+    qproperty-leftMargin: 25;
+}
+
 #websearchbar-searchbutton
 {
     qproperty-fixedsize: 22px 16px;
     qproperty-themeIcon: "edit-find";
 }
 
-#websearchbar-searchprovider-comobobox
+#websearchbar-searchprovider-combobox
 {
-    border-image: url(images/websearch-bg.png);
-    padding-right: 6px;
-    padding-left: 2px;
-    qproperty-fixedsize: 32px 16px;
+    border-image: url(images/transp.png);
+    padding-left: 5px;
+    qproperty-fixedsize: 25px 16px;
 }
 
 /*BookmarksToolbar*/
@@ -179,32 +213,35 @@ SearchToolBar #lineEdit[notfound="true"]
 /*AboutDialog*/
 AboutDialog #label
 {
-    background: white;
+    background: palette(window);
 }
 
 AboutDialog #textBrowser
 {
-    border: none;
-    margin-top: -2px; /* Workarounding rounded border on KDE */
+    background: palette(window);
 }
 
 /*DesktopNotification*/
 DesktopNotification
 {
-    background: transparent;
+    background: #31363b;
 }
 
 DesktopNotification #frame
 {
-    border: 2px solid darkblue;
-    border-radius: 20px;
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 #d3e5f1);
+    border: 1px solid #696d71;
+    padding: 10px;
 }
 
 DesktopNotification #heading
 {
     font: bold;
-    font-size: 13pt;
+    color: #c2c7c7;
+}
+
+DesktopNotification #text
+{
+    color: #e7ebeb;
 }
 
 /*BrowsingLibrary*/
@@ -216,17 +253,6 @@ BrowsingLibrary #tabs
 BrowsingLibrary #frame
 {
     background: url(images/library-bg.png);
-}
-
-/*Downloads*/
-DownloadItem #fileName
-{
-    font-size: 13pt;
-}
-
-DownloadManager #list
-{
-    border: none;
 }
 
 /*JavaScript Dialogs*/

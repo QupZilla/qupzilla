@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "speeddial.h"
 #include "settings.h"
 #include "datapaths.h"
+#include "adblock/adblockplugin.h"
 
 #include <iostream>
 #include <QPluginLoader>
@@ -83,7 +84,6 @@ void Plugins::loadSettings()
 {
     Settings settings;
     settings.beginGroup("Plugin-Settings");
-    m_pluginsEnabled = settings.value("EnablePlugins", !mApp->isPortable()).toBool();
     m_allowedPlugins = settings.value("AllowedPlugins", QStringList()).toStringList();
     settings.endGroup();
 
@@ -97,43 +97,17 @@ void Plugins::loadSettings()
         for (int i = 0; i < m_allowedPlugins.count(); ++i)
             m_allowedPlugins[i] = dir.absoluteFilePath(QFileInfo(m_allowedPlugins[i]).fileName());
     }
-
-    c2f_loadSettings();
 }
 
 void Plugins::shutdown()
 {
-    c2f_saveSettings();
-
     foreach (PluginInterface* iPlugin, m_loadedPlugins) {
         iPlugin->unload();
     }
 }
 
-void Plugins::c2f_loadSettings()
-{
-    Settings settings;
-    settings.beginGroup("ClickToFlash");
-    c2f_whitelist = settings.value("whitelist", QStringList()).toStringList();
-    c2f_enabled = settings.value("Enabled", true).toBool();
-    settings.endGroup();
-}
-
-void Plugins::c2f_saveSettings()
-{
-    Settings settings;
-    settings.beginGroup("ClickToFlash");
-    settings.setValue("whitelist", c2f_whitelist);
-    settings.setValue("Enabled", c2f_enabled);
-    settings.endGroup();
-}
-
 void Plugins::loadPlugins()
 {
-    if (!m_pluginsEnabled) {
-        return;
-    }
-
     QDir settingsDir(DataPaths::currentProfilePath() + "/extensions/");
     if (!settingsDir.exists()) {
         settingsDir.mkdir(settingsDir.absolutePath());
@@ -156,15 +130,19 @@ void Plugins::loadPlugins()
 
         if (plugin.isLoaded()) {
             plugin.pluginSpec = iPlugin->pluginSpec();
-
-            m_loadedPlugins.append(plugin.instance);
             m_availablePlugins.append(plugin);
         }
     }
 
+    // Internal plugins
+    AdBlockPlugin *adBlock = new AdBlockPlugin();
+    if (initPlugin(PluginInterface::StartupInitState, adBlock, nullptr)) {
+        m_internalPlugins.append(adBlock);
+    }
+
     refreshLoadedPlugins();
 
-    std::cout << "QupZilla: " << m_loadedPlugins.count() << " extensions loaded"  << std::endl;
+    std::cout << "QupZilla: " << (m_loadedPlugins.count() - m_internalPlugins.count()) << " extensions loaded"  << std::endl;
 }
 
 void Plugins::loadAvailablePlugins()
@@ -222,7 +200,9 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
 
     if (!pluginInterface->testPlugin()) {
         pluginInterface->unload();
-        loader->unload();
+        if (loader) {
+            loader->unload();
+        }
 
         emit pluginUnloaded(pluginInterface);
 
@@ -236,7 +216,7 @@ PluginInterface* Plugins::initPlugin(PluginInterface::InitState state, PluginInt
 
 void Plugins::refreshLoadedPlugins()
 {
-    m_loadedPlugins.clear();
+    m_loadedPlugins = m_internalPlugins;
 
     foreach (const Plugin &plugin, m_availablePlugins) {
         if (plugin.isLoaded()) {

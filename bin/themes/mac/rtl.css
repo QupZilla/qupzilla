@@ -8,9 +8,20 @@
     qproperty-multiIcon: url(images/navigation-forward.png);
 }
 
+#navigation-button-tools
+{
+    qproperty-icon: url(images/navigation-tools-rtl.png);
+}
+
+
 #tabwidget-button-opentabs
 {
     qproperty-multiIcon: url(images/tabs-list-button_rtl.png);
+}
+
+#tabwidget-button-closedtabs
+{
+    qproperty-multiIcon: url(images/tabs-closed-button-rtl.png);
 }
 
 #tabbar-button-right

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - QtWebEngine based browser
-* Copyright (C) 2015 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 #ifndef NETWORKURLINTERCEPTOR_H
 #define NETWORKURLINTERCEPTOR_H
 
+#include <QMutex>
 #include <QWebEngineUrlRequestInterceptor>
 
 #include "qzcommon.h"
@@ -38,8 +39,11 @@ public:
     void loadSettings();
 
 private:
+    QMutex m_mutex;
     QList<UrlInterceptor*> m_interceptors;
-    bool m_sendDNT;
+    bool m_sendDNT = false;
+    bool m_usePerDomainUserAgent = false;
+    QHash<QString, QString> m_userAgentsList;
 };
 
 #endif // NETWORKURLINTERCEPTOR_H

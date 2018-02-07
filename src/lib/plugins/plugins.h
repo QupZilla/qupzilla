@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -66,15 +66,6 @@ public:
 
     void shutdown();
 
-    // CLick2Flash
-    void c2f_loadSettings();
-    void c2f_saveSettings();
-    void c2f_addWhitelist(QString page) { c2f_whitelist.append(page); }
-    void c2f_removeWhitelist(QString page) { c2f_whitelist.removeOne(page); }
-    void c2f_setEnabled(bool en) { c2f_enabled = en; }
-    bool c2f_isEnabled() { return c2f_enabled; }
-    QStringList c2f_getWhiteList() { return c2f_whitelist; }
-
     // SpeedDial
     SpeedDial* speedDial() { return m_speedDial; }
 
@@ -99,12 +90,10 @@ private:
     QList<Plugin> m_availablePlugins;
     QStringList m_allowedPlugins;
 
-    bool m_pluginsEnabled;
     bool m_pluginsLoaded;
 
     SpeedDial* m_speedDial;
-    QStringList c2f_whitelist;
-    bool c2f_enabled;
+    QList<PluginInterface*> m_internalPlugins;
 };
 
 Q_DECLARE_METATYPE(Plugins::Plugin)

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,9 +20,12 @@
 #include "pluginproxy.h"
 #include "speeddial.h"
 #include "webpage.h"
-#include "searchenginesmanager.h"
 #include "autofilljsobject.h"
 #include "restoremanager.h"
+
+#include <QWebChannel>
+
+static QHash<QString, QObject*> s_extraObjects;
 
 ExternalJsObject::ExternalJsObject(WebPage *page)
     : QObject(page)
@@ -36,15 +39,26 @@ WebPage *ExternalJsObject::page() const
     return m_page;
 }
 
-void ExternalJsObject::AddSearchProvider(const QString &engineUrl)
+// static
+void ExternalJsObject::setupWebChannel(QWebChannel *webChannel, WebPage *page)
 {
-    mApp->searchEnginesManager()->addEngine(QUrl(engineUrl));
+    webChannel->registerObject(QSL("qz_object"), new ExternalJsObject(page));
+
+    for (auto it = s_extraObjects.constBegin(); it != s_extraObjects.constEnd(); ++it) {
+        webChannel->registerObject(QSL("qz_") + it.key(), it.value());
+    }
 }
 
-int ExternalJsObject::IsSearchProviderInstalled(const QString &engineURL)
+// static
+void ExternalJsObject::registerExtraObject(const QString &id, QObject *object)
 {
-    qDebug() << "NOT IMPLEMENTED: IsSearchProviderInstalled()" << engineURL;
-    return 0;
+    s_extraObjects[id] = object;
+}
+
+// static
+void ExternalJsObject::unregisterExtraObject(const QString &id)
+{
+    s_extraObjects.remove(id);
 }
 
 QObject *ExternalJsObject::speedDial() const

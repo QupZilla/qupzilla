@@ -19,6 +19,8 @@
 #include "ui_autoscrollsettings.h"
 #include "autoscroller.h"
 
+#include <QIcon>
+
 AutoScrollSettings::AutoScrollSettings(AutoScroller* scroller, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AutoScrollSettings)

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
 #include "searchtoolbar.h"
-#include "tabbedwebview.h"
+#include "webview.h"
 #include "webpage.h"
 #include "lineedit.h"
 #include "ui_searchtoolbar.h"
@@ -133,7 +133,7 @@ void SearchToolBar::searchText(const QString &text)
         ui->lineEdit->style()->polish(ui->lineEdit);
 
         // Clear selection
-        m_view->page()->runJavaScript(QSL("window.getSelection().empty();"));
+        m_view->page()->runJavaScript(QSL("window.getSelection().empty();"), WebPage::SafeJsWorld);
     });
 }
 

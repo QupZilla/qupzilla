@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -65,6 +65,9 @@ public:
 
     void download(QWebEngineDownloadItem *downloadItem);
 
+    int downloadsCount() const;
+    int activeDownloadsCount() const;
+
     bool canClose();
 
     bool useExternalManager() const;
@@ -83,6 +86,7 @@ private slots:
 
 signals:
     void resized(QSize);
+    void downloadsCountChanged();
 
 private:
     void showEvent(QShowEvent *event) override;
@@ -101,6 +105,7 @@ private:
     bool m_useNativeDialog;
     bool m_isClosing;
     bool m_closeOnFinish;
+    int m_activeDownloadsCount = 0;
 
     bool m_useExternalManager;
     QString m_externalExecutable;

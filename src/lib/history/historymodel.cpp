@@ -18,9 +18,9 @@
 #include "historymodel.h"
 #include "historyitem.h"
 #include "iconprovider.h"
+#include "sqldatabase.h"
 
 #include <QApplication>
-#include <QSqlQuery>
 #include <QDateTime>
 #include <QTimer>
 
@@ -293,7 +293,7 @@ void HistoryModel::fetchMore(const QModelIndex &parent)
         idList.append(parentItem->child(i)->historyEntry.id);
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("SELECT id, count, title, url, date FROM history WHERE date BETWEEN ? AND ? ORDER BY date DESC");
     query.addBindValue(parentItem->endTimestamp());
     query.addBindValue(parentItem->startTimestamp());
@@ -443,7 +443,7 @@ void HistoryModel::checkEmptyParentItem(HistoryItem* item)
 
 void HistoryModel::init()
 {
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec("SELECT MIN(date) FROM history");
     if (!query.next()) {
         return;
@@ -489,7 +489,7 @@ void HistoryModel::init()
             itemName = QString("%1 %2").arg(History::titleCaseLocalizedMonth(timestampDate.month()), QString::number(timestampDate.year()));
         }
 
-        QSqlQuery query;
+        QSqlQuery query(SqlDatabase::instance()->database());
         query.prepare("SELECT id FROM history WHERE date BETWEEN ? AND ? LIMIT 1");
         query.addBindValue(endTimestamp);
         query.addBindValue(timestamp);

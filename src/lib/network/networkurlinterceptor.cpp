@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,8 @@
 #include "mainapplication.h"
 #include "useragentmanager.h"
 
+#include <QMutexLocker>
+
 NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
     , m_sendDNT(false)
@@ -29,10 +31,32 @@ NetworkUrlInterceptor::NetworkUrlInterceptor(QObject *parent)
 
 void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-    if (m_sendDNT)
-        info.setHttpHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
+    QMutexLocker lock(&m_mutex);
 
-    info.setHttpHeader(QByteArrayLiteral("User-Agent"), mApp->userAgentManager()->userAgentForUrl(info.firstPartyUrl()).toUtf8());
+    if (m_sendDNT) {
+        info.setHttpHeader(QByteArrayLiteral("DNT"), QByteArrayLiteral("1"));
+    }
+
+    const QString host = info.firstPartyUrl().host();
+
+    if (m_usePerDomainUserAgent) {
+        QString userAgent;
+        if (m_userAgentsList.contains(host)) {
+            userAgent = m_userAgentsList.value(host);
+        } else {
+            QHashIterator<QString, QString> i(m_userAgentsList);
+            while (i.hasNext()) {
+                i.next();
+                if (host.endsWith(i.key())) {
+                    userAgent = i.value();
+                    break;
+                }
+            }
+        }
+        if (!userAgent.isEmpty()) {
+            info.setHttpHeader(QByteArrayLiteral("User-Agent"), userAgent.toUtf8());
+        }
+    }
 
     foreach (UrlInterceptor *interceptor, m_interceptors) {
         interceptor->interceptRequest(info);
@@ -41,19 +65,29 @@ void NetworkUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 
 void NetworkUrlInterceptor::installUrlInterceptor(UrlInterceptor *interceptor)
 {
-    if (!m_interceptors.contains(interceptor))
+    QMutexLocker lock(&m_mutex);
+
+    if (!m_interceptors.contains(interceptor)) {
         m_interceptors.append(interceptor);
+    }
 }
 
 void NetworkUrlInterceptor::removeUrlInterceptor(UrlInterceptor *interceptor)
 {
+    QMutexLocker lock(&m_mutex);
+
     m_interceptors.removeOne(interceptor);
 }
 
 void NetworkUrlInterceptor::loadSettings()
 {
+    QMutexLocker lock(&m_mutex);
+
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_sendDNT = settings.value("DoNotTrack", true).toBool();
     settings.endGroup();
+
+    m_usePerDomainUserAgent = mApp->userAgentManager()->usePerDomainUserAgents();
+    m_userAgentsList = mApp->userAgentManager()->perDomainUserAgentsList();
 }

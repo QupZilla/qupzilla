@@ -24,8 +24,6 @@
 
 void CookiesTest::initTestCase()
 {
-    DataPaths::setCurrentProfilePath(QDir::tempPath() + "qz-test");
-    Settings::createSettings(QDir::tempPath() + "qz-test/settings.ini");
     m_cookieJar = new CookieJar_Tst;
 }
 

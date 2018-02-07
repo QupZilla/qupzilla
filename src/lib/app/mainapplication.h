@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 
 class QMenu;
 class QWebEngineProfile;
+class QWebEngineSettings;
 class QNetworkAccessManager;
 class QWebEngineDownloadItem;
 
@@ -50,6 +51,7 @@ class RegisterQAppAssociation;
 class DesktopNotificationsFactory;
 class ProxyStyle;
 class SessionManager;
+class ClosedWindowsManager;
 
 class QUPZILLA_EXPORT MainApplication : public QtSingleApplication
 {
@@ -68,7 +70,6 @@ public:
     ~MainApplication();
 
     bool isClosing() const;
-    bool isRestoring() const;
     bool isPrivate() const;
     bool isPortable() const;
     bool isStartingAfterCrash() const;
@@ -107,13 +108,18 @@ public:
     DownloadManager* downloadManager();
     UserAgentManager* userAgentManager();
     SearchEnginesManager* searchEnginesManager();
+    ClosedWindowsManager* closedWindowsManager();
     HTML5PermissionsManager* html5PermissionsManager();
     DesktopNotificationsFactory* desktopNotifications();
     QWebEngineProfile* webProfile() const;
+    QWebEngineSettings *webSettings() const;
 
     QByteArray saveState() const;
 
     static MainApplication* instance();
+
+    static bool isTestModeEnabled();
+    static void setTestModeEnabled(bool enabled);
 
 public slots:
     void addNewTab(const QUrl &url = QUrl());
@@ -153,6 +159,7 @@ private:
 
     void translateApp();
 
+    void setupUserScripts();
     void setUserStyleSheet(const QString &filePath);
 
     void checkDefaultWebBrowser();
@@ -161,7 +168,6 @@ private:
     bool m_isPrivate;
     bool m_isPortable;
     bool m_isClosing;
-    bool m_isRestoring;
     bool m_isStartingAfterCrash;
 
     History* m_history;
@@ -178,6 +184,7 @@ private:
     DownloadManager* m_downloadManager;
     UserAgentManager* m_userAgentManager;
     SearchEnginesManager* m_searchEnginesManager;
+    ClosedWindowsManager* m_closedWindowsManager;
     HTML5PermissionsManager* m_html5PermissionsManager;
     DesktopNotificationsFactory* m_desktopNotifications;
     QWebEngineProfile* m_webProfile;

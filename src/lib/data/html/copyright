@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -117,8 +117,4 @@
 -----------------------------------------------------------------------------
  In application are used also some icons from Breeze icon set.
  More info at https://cgit.kde.org/breeze-icons.git
------------------------------------------------------------------------------
- Speed Dial uses some icons from Faenza icon set, which are licensed under
- the GNU/GPL license.
- More info at http://tiheum.deviantart.com/art/Faenza-Icons-173323228
 -----------------------------------------------------------------------------

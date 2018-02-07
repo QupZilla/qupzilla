@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -67,13 +67,16 @@ void IconProvider::saveIcon(WebView* view)
         return;
     }
 
+    for (int i = 0; i < m_iconBuffer.size(); ++i) {
+        if (m_iconBuffer[i].first == view->url()) {
+            m_iconBuffer.removeAt(i);
+            break;
+        }
+    }
+
     BufferedIcon item;
     item.first = view->url();
     item.second = icon.pixmap(16).toImage();
-
-    if (m_iconBuffer.contains(item)) {
-        return;
-    }
 
     m_autoSaver->changeOccurred();
     m_iconBuffer.append(item);
@@ -192,10 +195,10 @@ QImage IconProvider::imageForUrl(const QUrl &url, bool allowNull)
         }
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
     query.addBindValue(QString("%1*").arg(QzTools::escapeSqlGlobString(QString::fromUtf8(encodedUrl))));
-    SqlDatabase::instance()->exec(query);
+    query.exec();
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
@@ -221,11 +224,10 @@ QImage IconProvider::imageForDomain(const QUrl &url, bool allowNull)
         }
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("SELECT icon FROM icons WHERE url GLOB ? LIMIT 1"));
-
     query.addBindValue(QString("*%1*").arg(QzTools::escapeSqlGlobString(url.host())));
-    SqlDatabase::instance()->exec(query);
+    query.exec();
 
     if (query.next()) {
         return QImage::fromData(query.value(0).toByteArray());
@@ -242,9 +244,9 @@ IconProvider* IconProvider::instance()
 void IconProvider::saveIconsToDatabase()
 {
     foreach (const BufferedIcon &ic, m_iconBuffer) {
-        QSqlQuery query;
+        QSqlQuery query(SqlDatabase::instance()->database());
         query.prepare("SELECT id FROM icons WHERE url = ?");
-        query.bindValue(0, ic.first.toEncoded(QUrl::RemoveFragment));
+        query.bindValue(0, encodeUrl(ic.first));
         query.exec();
 
         if (query.next()) {
@@ -260,8 +262,7 @@ void IconProvider::saveIconsToDatabase()
         ic.second.save(&buffer, "PNG");
         query.bindValue(0, buffer.data());
         query.bindValue(1, QString::fromUtf8(encodeUrl(ic.first)));
-
-        SqlDatabase::instance()->execAsync(query);
+        query.exec();
     }
 
     m_iconBuffer.clear();
@@ -272,7 +273,7 @@ void IconProvider::clearOldIconsInDatabase()
     // Delete icons for entries older than 6 months
     const QDateTime date = QDateTime::currentDateTime().addMonths(-6);
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare(QSL("DELETE FROM icons WHERE url IN (SELECT url FROM history WHERE date < ?)"));
     query.addBindValue(date.toMSecsSinceEpoch());
     query.exec();

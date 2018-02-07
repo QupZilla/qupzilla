@@ -1,7 +1,6 @@
 include(defines.pri)
 
 INCLUDEPATH += $$PWD/lib/3rdparty \
-               $$PWD/lib/adblock \
                $$PWD/lib/app \
                $$PWD/lib/autofill \
                $$PWD/lib/bookmarks \
@@ -26,8 +25,6 @@ INCLUDEPATH += $$PWD/lib/3rdparty \
 
 DEPENDPATH += $$INCLUDEPATH \
               $$PWD/lib/data \
-
-include(lib/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 TEMPLATE = lib
 CONFIG += plugin

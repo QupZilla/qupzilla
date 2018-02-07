@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,11 +17,12 @@
 * ============================================================ */
 #include "sqldatabase.h"
 
-#include <QThread>
-#include <QMutexLocker>
 #include <QApplication>
+#include <QThreadStorage>
 
 #include <QtConcurrent/QtConcurrentRun>
+
+QThreadStorage<QSqlDatabase> s_databases;
 
 Q_GLOBAL_STATIC(SqlDatabase, qz_sql_database)
 
@@ -33,51 +34,30 @@ SqlDatabase::SqlDatabase(QObject* parent)
 
 SqlDatabase::~SqlDatabase()
 {
-    QMutableHashIterator<QThread*, QSqlDatabase> i(m_databases);
-    while (i.hasNext()) {
-        i.next();
-        i.value().close();
-    }
 }
 
-QSqlDatabase SqlDatabase::databaseForThread(QThread* thread)
-{
-    QMutexLocker lock(&m_mutex);
-
-    if (!m_databases.contains(thread)) {
-        const QString threadStr = QString::number((quintptr) thread);
-        m_databases[thread] = QSqlDatabase::cloneDatabase(QSqlDatabase::database(), QL1S("QupZilla/") + threadStr);
-        m_databases[thread].open();
-    }
-
-    Q_ASSERT(m_databases[thread].isOpen());
-
-    return m_databases[thread];
-}
-
-QSqlQuery SqlDatabase::exec(QSqlQuery &query)
+QSqlDatabase SqlDatabase::database()
 {
     if (QThread::currentThread() == qApp->thread()) {
-        query.exec();
-        return query;
+        return QSqlDatabase::database();
     }
 
-    QSqlQuery out(databaseForThread(QThread::currentThread()));
-    out.prepare(query.lastQuery());
-
-    const QList<QVariant> boundValues = query.boundValues().values();
-
-    foreach (const QVariant &variant, boundValues) {
-        out.addBindValue(variant);
+    if (!s_databases.hasLocalData()) {
+        const QString threadStr = QString::number((quintptr) QThread::currentThread());
+        QSqlDatabase db = QSqlDatabase::addDatabase(QSL("QSQLITE"), threadStr);
+        db.setDatabaseName(m_databaseName);
+        db.setConnectOptions(m_connectOptions);
+        db.open();
+        s_databases.setLocalData(db);
     }
 
-    out.exec();
-    return query = out;
+    return s_databases.localData();
 }
 
-QFuture<QSqlQuery> SqlDatabase::execAsync(const QSqlQuery &query)
+void SqlDatabase::setDatabase(const QSqlDatabase &database)
 {
-    return QtConcurrent::run(this, &SqlDatabase::exec, query);
+    m_databaseName = database.databaseName();
+    m_connectOptions = database.connectOptions();
 }
 
 // instance

@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2012-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2012-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,15 +19,18 @@
 #include "gm_manager.h"
 #include "gm_downloader.h"
 
-#include "qzregexp.h"
 #include "delayedfilewatcher.h"
 #include "mainapplication.h"
+#include "webpage.h"
+#include "networkmanager.h"
 
 #include <QFile>
 #include <QTextStream>
 #include <QStringList>
 #include <QWebEngineScript>
 #include <QCryptographicHash>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 
 GM_Script::GM_Script(GM_Manager* manager, const QString &filePath)
     : QObject(manager)
@@ -74,6 +77,16 @@ QString GM_Script::description() const
 QString GM_Script::version() const
 {
     return m_version;
+}
+
+QIcon GM_Script::icon() const
+{
+    return m_icon;
+}
+
+QUrl GM_Script::iconUrl() const
+{
+    return m_iconUrl;
 }
 
 QUrl GM_Script::downloadUrl() const
@@ -131,7 +144,7 @@ QWebEngineScript GM_Script::webScript() const
     QWebEngineScript script;
     script.setSourceCode(QSL("%1\n%2").arg(m_manager->bootstrapScript(), m_script));
     script.setName(fullName());
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(!m_noframes);
     return script;
 }
@@ -178,6 +191,8 @@ void GM_Script::parseScript()
     m_include.clear();
     m_exclude.clear();
     m_require.clear();
+    m_icon = QIcon();
+    m_iconUrl.clear();
     m_downloadUrl.clear();
     m_updateUrl.clear();
     m_startAt = DocumentEnd;
@@ -220,14 +235,10 @@ void GM_Script::parseScript()
         line = line.mid(3).replace(QLatin1Char('\t'), QLatin1Char(' '));
         int index = line.indexOf(QLatin1Char(' '));
 
-        if (index < 0) {
-            continue;
-        }
-
         const QString key = line.left(index).trimmed();
-        const QString value = line.mid(index + 1).trimmed();
+        const QString value = index > 0 ? line.mid(index + 1).trimmed() : QString();
 
-        if (key.isEmpty() || value.isEmpty()) {
+        if (key.isEmpty()) {
             continue;
         }
 
@@ -269,12 +280,20 @@ void GM_Script::parseScript()
                 m_startAt = DocumentIdle;
             }
         }
+        else if (key == QL1S("@icon")) {
+            m_iconUrl = QUrl(value);
+        }
+        else if (key == QL1S("@noframes")) {
+            m_noframes = true;
+        }
     }
 
     if (!inMetadata) {
         qWarning() << "GreaseMonkey: File does not contain metadata block" << m_fileName;
         return;
     }
+
+    m_iconUrl = m_downloadUrl.resolved(m_iconUrl);
 
     if (m_include.isEmpty()) {
         m_include.append(QSL("*"));
@@ -285,6 +304,7 @@ void GM_Script::parseScript()
     m_script = QSL("(function(){%1\n%2\n%3\n})();").arg(gmValues, m_manager->requireScripts(m_require), fileData);
     m_valid = true;
 
+    downloadIcon();
     downloadRequires();
 }
 
@@ -296,6 +316,19 @@ void GM_Script::reloadScript()
     m_manager->addScript(this);
 
     emit scriptChanged();
+}
+
+void GM_Script::downloadIcon()
+{
+    if (m_iconUrl.isValid()) {
+        QNetworkReply *reply = mApp->networkManager()->get(QNetworkRequest(m_iconUrl));
+        connect(reply, &QNetworkReply::finished, this, [=]() {
+            reply->deleteLater();
+            if (reply->error() == QNetworkReply::NoError) {
+                m_icon = QPixmap::fromImage(QImage::fromData(reply->readAll()));
+            }
+        });
+    }
 }
 
 void GM_Script::downloadRequires()

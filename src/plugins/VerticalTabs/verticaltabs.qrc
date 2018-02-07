@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/verticaltabs">
+        <file>data/icon.svg</file>
+        <file>data/group.svg</file>
+        <file>data/index.html</file>
+        <file>data/group.html</file>
+        <file>data/themes/default.css</file>
+        <file>data/themes/windows.css</file>
+        <file>data/themes/windows-tab-close.svg</file>
+        <file>data/themes/windows-tab-close-a.svg</file>
+        <file>data/themes/windows-tab-close-h.svg</file>
+        <file>data/themes/simple.css</file>
+    </qresource>
+</RCC>

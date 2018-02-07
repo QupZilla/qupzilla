@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ class QUrl;
 class QModelIndex;
 
 class LocationBar;
+class LoadRequest;
 class BrowserWindow;
 class OpenSearchEngine;
 class LocationCompleterModel;
@@ -40,6 +41,7 @@ public:
     void setMainWindow(BrowserWindow* window);
     void setLocationBar(LocationBar* locationBar);
 
+    bool isVisible() const;
     void closePopup();
 
 public slots:
@@ -49,10 +51,10 @@ public slots:
 signals:
     void showCompletion(const QString &completion, bool completeDomain);
     void showDomainCompletion(const QString &completion);
-    void loadCompletion();
     void clearCompletion();
     void popupClosed();
     void cancelRefreshJob();
+    void loadRequested(const LoadRequest &request);
 
 private slots:
     void refreshJobFinished();
@@ -66,8 +68,10 @@ private slots:
     void indexDeleteRequested(const QModelIndex &index);
 
 private:
+    LoadRequest createLoadRequest(const QModelIndex &index);
     void switchToTab(BrowserWindow* window, int tab);
-    void loadString(const QString &url);
+    void loadRequest(const LoadRequest &reqeust);
+    void openSearchEnginesDialog();
 
     void showPopup();
     void adjustPopupSize();

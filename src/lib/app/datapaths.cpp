@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 * ============================================================ */
 #include "datapaths.h"
 #include "qztools.h"
+#include "mainapplication.h"
 
 #include <QApplication>
 #include <QDir>
@@ -98,6 +99,9 @@ void DataPaths::init()
     m_paths[Plugins].append(m_paths[AppData].at(0) + QLatin1String("/plugins"));
 
     // Config
+    if (MainApplication::isTestModeEnabled()) {
+        m_paths[Config].append(QDir::tempPath() + QL1S("/QupZilla-test"));
+    } else {
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
     // Use %LOCALAPPDATA%/qupzilla as Config path on Windows
     m_paths[Config].append(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
@@ -106,6 +110,7 @@ void DataPaths::init()
 #else // Unix
     m_paths[Config].append(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QL1S("/qupzilla"));
 #endif
+    }
 
     // Profiles
     m_paths[Profiles].append(m_paths[Config].at(0) + QLatin1String("/profiles"));

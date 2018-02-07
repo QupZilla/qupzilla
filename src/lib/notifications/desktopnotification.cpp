@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,11 +30,7 @@ DesktopNotification::DesktopNotification(bool setPosition)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
-    Qt::WindowFlags flags = Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;
-    setWindowFlags(flags);
-
-    setAttribute(Qt::WA_TranslucentBackground);
-    setWindowOpacity(0.9);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
 
     m_timer->setSingleShot(true);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(close()));
@@ -57,20 +53,6 @@ void DesktopNotification::show()
     }
 
     QWidget::show();
-}
-
-void DesktopNotification::enterEvent(QEvent*)
-{
-    if (!m_settingPosition) {
-        setWindowOpacity(0.5);
-    }
-}
-
-void DesktopNotification::leaveEvent(QEvent*)
-{
-    if (!m_settingPosition) {
-        setWindowOpacity(0.9);
-    }
 }
 
 void DesktopNotification::mousePressEvent(QMouseEvent* e)

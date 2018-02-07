@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@
 #include "settings.h"
 #include "networkmanager.h"
 
+#include <QAction>
 #include <QDateTime>
 #include <QTextStream>
 #include <QDir>
@@ -52,6 +53,8 @@ AdBlockManager::AdBlockManager(QObject* parent)
     , m_matcher(new AdBlockMatcher(this))
     , m_interceptor(new AdBlockUrlInterceptor(this))
 {
+    qRegisterMetaType<AdBlockedRequest>();
+
     load();
 }
 
@@ -96,7 +99,7 @@ QList<AdBlockSubscription*> AdBlockManager::subscriptions() const
     return m_subscriptions;
 }
 
-bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
+bool AdBlockManager::block(QWebEngineUrlRequestInfo &request, QString &ruleFilter, QString &ruleSubscription)
 {
     QMutexLocker locker(&m_mutex);
 
@@ -116,24 +119,11 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
         return false;
     }
 
-    bool res = false;
     const AdBlockRule* blockedRule = m_matcher->match(request, urlDomain, urlString);
 
     if (blockedRule) {
-        res = true;
-
-        if (request.resourceType() == QWebEngineUrlRequestInfo::ResourceTypeMainFrame) {
-            QUrl url(QSL("qupzilla:adblock"));
-            QUrlQuery query;
-            query.addQueryItem(QSL("rule"), blockedRule->filter());
-            query.addQueryItem(QSL("subscription"), blockedRule->subscription()->title());
-            url.setQuery(query);
-            request.redirect(url);
-        }
-        else {
-            request.block(true);
-        }
-
+        ruleFilter = blockedRule->filter();
+        ruleSubscription = blockedRule->subscription()->title();
 #ifdef ADBLOCK_DEBUG
         qDebug() << "BLOCKED: " << timer.elapsed() << blockedRule->filter() << request.requestUrl();
 #endif
@@ -143,7 +133,19 @@ bool AdBlockManager::block(QWebEngineUrlRequestInfo &request)
     qDebug() << timer.elapsed() << request.requestUrl();
 #endif
 
-    return res;
+    return blockedRule;
+}
+
+QVector<AdBlockedRequest> AdBlockManager::blockedRequestsForUrl(const QUrl &url) const
+{
+    return m_blockedRequests.value(url);
+}
+
+void AdBlockManager::clearBlockedRequestsForUrl(const QUrl &url)
+{
+    if (m_blockedRequests.remove(url)) {
+        emit blockedRequestsChanged(url);
+    }
 }
 
 QStringList AdBlockManager::disabledRules() const
@@ -341,6 +343,11 @@ void AdBlockManager::load()
     m_matcher->update();
     m_loaded = true;
 
+    connect(m_interceptor, &AdBlockUrlInterceptor::requestBlocked, this, [this](const AdBlockedRequest &request) {
+        m_blockedRequests[request.firstPartyUrl].append(request);
+        emit blockedRequestsChanged(request.firstPartyUrl);
+    });
+
     mApp->networkManager()->installUrlInterceptor(m_interceptor);
 }
 
@@ -387,9 +394,8 @@ bool AdBlockManager::isEnabled() const
 
 bool AdBlockManager::canRunOnScheme(const QString &scheme) const
 {
-    return !(scheme == QLatin1String("file") || scheme == QLatin1String("qrc")
-             || scheme == QLatin1String("qupzilla") || scheme == QLatin1String("data")
-             || scheme == QLatin1String("abp"));
+    return !(scheme == QL1S("file") || scheme == QL1S("qrc") || scheme == QL1S("view-source")
+             || scheme == QL1S("qupzilla") || scheme == QL1S("data") || scheme == QL1S("abp"));
 }
 
 bool AdBlockManager::canBeBlocked(const QUrl &url) const

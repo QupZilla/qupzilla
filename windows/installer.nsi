@@ -1,6 +1,6 @@
 ﻿; QupZilla Windows Installer NSIS Script
-; Copyright (C) 2010-2017  David Rosca <nowrep@gmail.com>
-;               2012-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+; Copyright (C) 2010-2018  David Rosca <nowrep@gmail.com>
+;               2012-2018  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
 ;
 ; For compiling this script you need following plugins:
 ; FindProcDLL_plug-in, KillProcDLL_plug-in and 'AllAssociation.nsh' needs
@@ -11,7 +11,7 @@
 ; http://nsis.sourceforge.net/Registry_plug-in
 
 !ifndef CUSTOM
-  !define VERSION 2.2.2
+  !define VERSION 2.2.5
   !define ARCH x86
   !define MSVC_VER 140
   !define OPENSSL_BIN_DIR .
@@ -184,6 +184,9 @@ notRunning:
   SetOutPath "$INSTDIR\sqldrivers"
   File "${QT_PLUGINS_DIR}\sqldrivers\qsqlite.dll"
 
+  SetOutPath "$INSTDIR\styles"
+  File "${QT_PLUGINS_DIR}\styles\*.dll"
+
   SetOutPath "$INSTDIR\translations\qtwebengine_locales"
   File "${QT_DIR}\translations\qtwebengine_locales\*"
 
@@ -222,13 +225,6 @@ SectionGroup $(TITLE_SecThemes) SecThemes
   File "${QZ_BIN_DIR}\themes\mac\*"
   SetOutPath "$INSTDIR\themes\mac\images"
   File "${QZ_BIN_DIR}\themes\mac\images\*"
-  SectionEnd
-
-  Section Breathe SecBreathe
-  SetOutPath "$INSTDIR\themes\breathe"
-  File "${QZ_BIN_DIR}\themes\breathe\*"
-  SetOutPath "$INSTDIR\themes\breathe\images"
-  File "${QZ_BIN_DIR}\themes\breathe\images\*"
   SectionEnd
 SectionGroupEnd
 
@@ -354,6 +350,7 @@ SectionEnd
       RMDir /r "$INSTDIR\resources"
       RMDir /r "$INSTDIR\translations"
       RMDir /r "$INSTDIR\sqldrivers"
+      RMDir /r "$INSTDIR\styles"
       RMDir /r "$INSTDIR\qtwebengine_dictionaries"
       RMDir /r "$INSTDIR\themes"
       RMDir /r "$INSTDIR\locale"

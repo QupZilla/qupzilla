@@ -1,29 +1,78 @@
-#navigation-button-next
-{
-    qproperty-multiIcon: url(images/navigation-back.png);
-}
-
 #navigation-button-back
 {
-    qproperty-multiIcon: url(images/navigation-forward.png);
+    qproperty-themeIcon: "go-next";
 }
 
-#tabwidget-button-addtab
+#navigation-button-next
 {
-    qproperty-multiIcon: url(images/tabbar-addtab_rtl.png);
+    qproperty-themeIcon: "go-previous";
 }
 
-#tabbar::tab:last
+#navigation-button-tools
 {
-    margin-left: 1px;
+    qproperty-themeIcon: "arrow-left-double";
+    qproperty-fallbackIcon: url(images/tools-rtl.svg);
 }
 
 #tabbar-button-right
 {
-    qproperty-icon: url(images/tab-left-arrow.png);
+    qproperty-themeIcon: "arrow-left";
+    qproperty-fallbackIcon: url(images/tab-left-arrow.svg);
+    qproperty-fixedsize: 15px 25px;
 }
 
 #tabbar-button-left
 {
-    qproperty-icon: url(images/tab-right-arrow.png);
+    qproperty-themeIcon: "arrow-right";
+    qproperty-fallbackIcon: url(images/tab-right-arrow.svg);
+    qproperty-fixedsize: 15px 25px;
+}
+
+#locationbar
+{
+    background: transparent;
+    border: 1px solid #b2b2b2;
+    min-height: 25px;
+    qproperty-leftMargin: 27;
+    margin-right: 1px; /* Why ??? */
+}
+
+#tabbar::tab:selected:!first
+{
+    margin-right: -1px;
+}
+
+#tabbar::tab:!selected:!first
+{
+    margin-right: -1px;
+}
+
+#tabbar::tab:!selected:!first:hover
+{
+    margin-right: -1px;
+}
+
+#tabbar::tab:selected:first
+{
+    margin-right: 0;
+}
+
+#tabbar::tab:!selected:first
+{
+    margin-right: 0;
+}
+
+#tabbar::tab:selected:only-one
+{
+    margin-right: 0;
+}
+
+#tabbar::tab:!selected:only-one
+{
+    margin-right: 0;
+}
+
+#tabbar::tab:!selected:hover:only-one
+{
+    margin-right: 0;
 }

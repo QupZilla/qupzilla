@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,6 @@
 #include "browserwindow.h"
 #include "webpage.h"
 #include "sqldatabase.h"
-#include "tabbedwebview.h"
 #include "popupwebview.h"
 #include "mainapplication.h"
 #include "autofillnotification.h"
@@ -27,18 +26,17 @@
 #include "passwordmanager.h"
 #include "qztools.h"
 #include "scripts.h"
+#include "webpage.h"
 
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
-
 #include <QUrlQuery>
 
 AutoFill::AutoFill(QObject* parent)
     : QObject(parent)
     , m_manager(new PasswordManager(this))
-    , m_isStoring(false)
 {
     loadSettings();
 
@@ -46,7 +44,7 @@ AutoFill::AutoFill(QObject* parent)
     QWebEngineScript script;
     script.setName(QSL("_qupzilla_autofill"));
     script.setInjectionPoint(QWebEngineScript::DocumentReady);
-    script.setWorldId(QWebEngineScript::MainWorld);
+    script.setWorldId(WebPage::SafeJsWorld);
     script.setRunsOnSubFrames(true);
     script.setSourceCode(Scripts::setupFormObserver());
     mApp->webProfile()->scripts()->insert(script);
@@ -62,6 +60,7 @@ void AutoFill::loadSettings()
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_isStoring = settings.value("SavePasswordsOnSites", true).toBool();
+    m_isAutoComplete = settings.value("AutoCompletePasswords", true).toBool();
     settings.endGroup();
 }
 
@@ -71,7 +70,7 @@ bool AutoFill::isStored(const QUrl &url)
         return false;
     }
 
-    return !m_manager->getEntries(url).isEmpty();
+    return !m_manager->getUsernames(url).isEmpty();
 }
 
 bool AutoFill::isStoringEnabled(const QUrl &url)
@@ -85,7 +84,7 @@ bool AutoFill::isStoringEnabled(const QUrl &url)
         server = url.toString();
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("SELECT count(id) FROM autofill_exceptions WHERE server=?");
     query.addBindValue(server);
     query.exec();
@@ -104,11 +103,10 @@ void AutoFill::blockStoringforUrl(const QUrl &url)
         server = url.toString();
     }
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.prepare("INSERT INTO autofill_exceptions (server) VALUES (?)");
     query.addBindValue(server);
-
-    SqlDatabase::instance()->execAsync(query);
+    query.exec();
 }
 
 QVector<PasswordEntry> AutoFill::getFormData(const QUrl &url)
@@ -220,21 +218,30 @@ void AutoFill::saveForm(WebPage *page, const QUrl &frameUrl, const PageFormData 
 }
 
 // Returns all saved passwords on this page
-QVector<PasswordEntry> AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
+QStringList AutoFill::completePage(WebPage *page, const QUrl &frameUrl)
 {
-    QVector<PasswordEntry> list;
+    QStringList usernames;
 
     if (!page || !isStored(frameUrl))
-        return list;
+        return usernames;
 
-    list = getFormData(frameUrl);
+    if (!m_isAutoComplete) {
+        return m_manager->getUsernames(frameUrl);
+    }
 
-    if (!list.isEmpty()) {
-        const PasswordEntry entry = list.at(0);
+    const auto entries = getFormData(frameUrl);
+
+    if (!entries.isEmpty()) {
+        PasswordEntry entry = entries.at(0);
+        updateLastUsed(entry);
         page->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
     }
 
-    return list;
+    usernames.reserve(entries.size());
+    for (const PasswordEntry &entry : entries) {
+        usernames.append(entry.username);
+    }
+    return usernames;
 }
 
 QByteArray AutoFill::exportPasswords()
@@ -260,8 +267,9 @@ QByteArray AutoFill::exportPasswords()
         stream.writeEndElement();
     }
 
-    QSqlQuery query;
-    query.exec("SELECT server FROM autofill_exceptions");
+    QSqlQuery query(SqlDatabase::instance()->database());
+    query.prepare("SELECT server FROM autofill_exceptions");
+    query.exec();
     while (query.next()) {
         stream.writeStartElement("exception");
         stream.writeTextElement("server", query.value(0).toString());
@@ -336,7 +344,7 @@ bool AutoFill::importPasswords(const QByteArray &data)
                 }
 
                 if (!server.isEmpty()) {
-                    QSqlQuery query;
+                    QSqlQuery query(SqlDatabase::instance()->database());
                     query.prepare("SELECT id FROM autofill_exceptions WHERE server=?");
                     query.addBindValue(server);
                     query.exec();

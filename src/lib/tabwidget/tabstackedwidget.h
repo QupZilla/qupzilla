@@ -1,6 +1,7 @@
 /* ============================================================
-* QupZilla - WebKit based browser
+* QupZilla - Qt web browser
 * Copyright (C) 2013-2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2018       David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -53,6 +54,7 @@ public:
     int pinUnPinTab(int index, const QString &title = QString());
 
     void removeTab(int index);
+    void moveTab(int from, int to);
 
     int currentIndex() const;
     QWidget* currentWidget() const;

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,8 +19,8 @@
 #include "aesinterface.h"
 
 #include <QtTest/QtTest>
-#include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlDatabase>
 #include <QDebug>
 #include <QDBusMessage>
 #include <QDBusConnection>
@@ -271,49 +271,3 @@ void DatabaseEncryptedPasswordBackendTest::cleanup()
 {
     QSqlDatabase::removeDatabase(QSqlDatabase::database().databaseName());
 }
-
-#ifdef HAVE_KDE_PASSWORDS_PLUGIN
-// KWalletPassswordBackendTest
-void KWalletPassswordBackendTest::init()
-{
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
-                                                      QStringLiteral("/org/freedesktop/DBus"),
-                                                      QStringLiteral("org.freedesktop.DBus"),
-                                                      QStringLiteral("StartServiceByName"));
-    msg << "org.kde.kwalletd5";
-    msg << quint32(0);
-
-    QDBusMessage reply = QDBusConnection::sessionBus().call(msg);
-    if (reply.arguments().isEmpty() || reply.arguments().first().toInt() != 1)
-        QSKIP("This test requires org.kde.kwalletd5 service.");
-}
-
-void KWalletPasswordBackendTest::reloadBackend()
-{
-    delete m_backend;
-    m_backend = new KWalletPasswordBackend;
-}
-#endif
-
-#ifdef HAVE_GNOME_PASSWORDS_PLUGIN
-// GnomeKeyringPassswordBackendTest
-void GnomeKeyringPasswordBackendTest::init()
-{
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
-                                                      QStringLiteral("/org/freedesktop/DBus"),
-                                                      QStringLiteral("org.freedesktop.DBus"),
-                                                      QStringLiteral("StartServiceByName"));
-    msg << "org.freedesktop.secrets";
-    msg << quint32(0);
-
-    QDBusMessage reply = QDBusConnection::sessionBus().call(msg);
-    if (reply.arguments().isEmpty() || reply.arguments().first().toInt() != 1)
-        QSKIP("This test requires org.freedesktop.secrets service.");
-}
-
-void GnomeKeyringPasswordBackendTest::reloadBackend()
-{
-    delete m_backend;
-    m_backend = new GnomeKeyringPasswordBackend;
-}
-#endif

@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,9 +28,19 @@ class TabWidget;
 class QUPZILLA_EXPORT TabContextMenu : public QMenu
 {
     Q_OBJECT
-public:
-    explicit TabContextMenu(int index, Qt::Orientation orientation, BrowserWindow* window, TabWidget* tabWidget, bool showCloseOtherTabs = true);
 
+public:
+    enum Option {
+        InvalidOption = 0,
+        HorizontalTabs = 1 << 0,
+        VerticalTabs = 1 << 1,
+        ShowCloseOtherTabsActions = 1 << 2,
+
+        DefaultOptions = HorizontalTabs | ShowCloseOtherTabsActions
+    };
+    Q_DECLARE_FLAGS(Options, Option)
+
+    explicit TabContextMenu(int index, BrowserWindow *window, Options options = DefaultOptions);
 
 signals:
     void reloadTab(int index);
@@ -40,14 +50,16 @@ signals:
     void closeToRight(int index);
     void closeToLeft(int index);
     void duplicateTab(int index);
-    void detachTab(int index);
+    void loadTab(int index);
+    void unloadTab(int index);
 
 private slots:
     void reloadTab() { emit reloadTab(m_clickedTab); }
     void stopTab() { emit stopTab(m_clickedTab); }
     void closeTab() { emit tabCloseRequested(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
-    void detachTab() { emit detachTab(m_clickedTab); }
+    void loadTab() { emit loadTab(m_clickedTab); }
+    void unloadTab() { emit unloadTab(m_clickedTab); }
 
     void pinTab();
     void muteTab();
@@ -60,10 +72,8 @@ private:
     void init();
 
     int m_clickedTab;
-    Qt::Orientation m_tabsOrientation;
-    BrowserWindow* m_window;
-    TabWidget* m_tabWidget;
-    bool m_showCloseOtherTabs;
+    BrowserWindow *m_window;
+    Options m_options = InvalidOption;
 };
 
 #endif // TABCONTEXTMENU_H

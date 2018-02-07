@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,11 +22,12 @@
 #include <QStringList>
 #include <QPointer>
 #include <QMutex>
+#include <QUrl>
+#include <QWebEngineUrlRequestInfo>
 
 #include "qzcommon.h"
 
-class QUrl;
-class QWebEngineUrlRequestInfo;
+#define ADBLOCK_EASYLIST_URL "https://easylist-downloads.adblockplus.org/easylist.txt"
 
 class AdBlockRule;
 class AdBlockDialog;
@@ -34,6 +35,17 @@ class AdBlockMatcher;
 class AdBlockCustomList;
 class AdBlockSubscription;
 class AdBlockUrlInterceptor;
+
+struct AdBlockedRequest
+{
+    QUrl requestUrl;
+    QUrl firstPartyUrl;
+    QByteArray requestMethod;
+    QWebEngineUrlRequestInfo::ResourceType resourceType;
+    QWebEngineUrlRequestInfo::NavigationType navigationType;
+    QString rule;
+};
+Q_DECLARE_METATYPE(AdBlockedRequest)
 
 class QUPZILLA_EXPORT AdBlockManager : public QObject
 {
@@ -48,6 +60,7 @@ public:
 
     bool isEnabled() const;
     bool canRunOnScheme(const QString &scheme) const;
+    bool canBeBlocked(const QUrl &url) const;
 
     QString elementHidingRules(const QUrl &url) const;
     QString elementHidingRulesForDomain(const QUrl &url) const;
@@ -55,7 +68,10 @@ public:
     AdBlockSubscription* subscriptionByName(const QString &name) const;
     QList<AdBlockSubscription*> subscriptions() const;
 
-    bool block(QWebEngineUrlRequestInfo &request);
+    bool block(QWebEngineUrlRequestInfo &request, QString &ruleFilter, QString &ruleSubscription);
+
+    QVector<AdBlockedRequest> blockedRequestsForUrl(const QUrl &url) const;
+    void clearBlockedRequestsForUrl(const QUrl &url);
 
     QStringList disabledRules() const;
     void addDisabledRule(const QString &filter);
@@ -72,6 +88,7 @@ public:
 
 signals:
     void enabledChanged(bool enabled);
+    void blockedRequestsChanged(const QUrl &url);
 
 public slots:
     void setEnabled(bool enabled);
@@ -83,8 +100,6 @@ public slots:
     AdBlockDialog* showDialog();
 
 private:
-    inline bool canBeBlocked(const QUrl &url) const;
-
     bool m_loaded;
     bool m_enabled;
 
@@ -95,6 +110,7 @@ private:
     AdBlockUrlInterceptor *m_interceptor;
     QPointer<AdBlockDialog> m_adBlockDialog;
     QMutex m_mutex;
+    QHash<QUrl, QVector<AdBlockedRequest>> m_blockedRequests;
 };
 
 #endif // ADBLOCKMANAGER_H

@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #include "tabwidget.h"
 #include "tabbedwebview.h"
 #include "webpage.h"
+#include "mainapplication.h"
 
 #include <QGraphicsColorizeEffect>
 #include <QSettings>
@@ -40,7 +41,7 @@ SBI_ImagesIcon::SBI_ImagesIcon(BrowserWindow* window, const QString &settingsPat
     m_loadingImages = settings.value("LoadImages", true).toBool();
     settings.endGroup();
 
-    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
+    mApp->webSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
 
     updateIcon();
 
@@ -97,7 +98,7 @@ void SBI_ImagesIcon::setGlobalLoadingImages(bool enable)
 
     // Switch it in websettings
     m_loadingImages = enable;
-    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
+    mApp->webSettings()->setAttribute(QWebEngineSettings::AutoLoadImages, m_loadingImages);
     updateIcon();
 
     // We should reload page on disabling images

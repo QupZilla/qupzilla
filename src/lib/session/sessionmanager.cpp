@@ -1,6 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2017  Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2017 Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -86,10 +87,10 @@ void SessionManager::openSession(QString sessionFilePath, SessionFlags flags)
         return;
     }
 
-    QVector<RestoreManager::WindowData> sessionData;
+    RestoreData sessionData;
     RestoreManager::createFromFile(sessionFilePath, sessionData);
 
-    if (sessionData.isEmpty())
+    if (!sessionData.isValid())
         return;
 
     BrowserWindow* window = mApp->getWindow();
@@ -122,7 +123,7 @@ void SessionManager::renameSession(QString sessionFilePath, SessionFlags flags)
     }
 
     bool ok;
-    const QString suggestedName = QFileInfo(sessionFilePath).baseName() + (flags.testFlag(CloneSession) ? tr("_cloned") : tr("_renamed"));
+    const QString suggestedName = QFileInfo(sessionFilePath).completeBaseName() + (flags.testFlag(CloneSession) ? tr("_cloned") : tr("_renamed"));
     QString newName = QInputDialog::getText(mApp->activeWindow(), (flags.testFlag(CloneSession) ? tr("Clone Session") : tr("Rename Session")),
                                             tr("Please enter a new name:"), QLineEdit::Normal,
                                             suggestedName, &ok);
@@ -196,7 +197,7 @@ void SessionManager::cloneSession(const QString &filePath)
 void SessionManager::deleteSession(const QString &filePath)
 {
     QMessageBox::StandardButton result = QMessageBox::information(mApp->activeWindow(), tr("Delete Session"), tr("Are you sure you want to delete session '%1'?")
-                                                                  .arg(QFileInfo(filePath).baseName()), QMessageBox::Yes | QMessageBox::No);
+                                                                  .arg(QFileInfo(filePath).completeBaseName()), QMessageBox::Yes | QMessageBox::No);
     if (result == QMessageBox::Yes) {
         QFile::remove(filePath);
     }
@@ -278,22 +279,20 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 
     for (int i = 0; i < sessionFiles.size(); ++i) {
         const QFileInfo &fileInfo = sessionFiles.at(i);
-        QVector<RestoreManager::WindowData> data;
-        RestoreManager::createFromFile(fileInfo.absoluteFilePath(), data);
 
-        if (data.isEmpty())
+        if (!RestoreManager::validateFile(fileInfo.absoluteFilePath()))
             continue;
 
         SessionMetaData metaData;
-        metaData.name = fileInfo.baseName();
+        metaData.name = fileInfo.completeBaseName();
 
         if (fileInfo == QFileInfo(defaultSessionPath())) {
             metaData.name = tr("Default Session");
             metaData.isDefault = true;
-        } else if (fileNames.contains(fileInfo.baseName())) {
+        } else if (fileNames.contains(fileInfo.completeBaseName())) {
             metaData.name = fileInfo.fileName();
         } else {
-            metaData.name = fileInfo.baseName();
+            metaData.name = fileInfo.completeBaseName();
         }
 
         if (isActive(fileInfo)) {
@@ -309,21 +308,29 @@ void SessionManager::fillSessionsMetaDataListIfNeeded()
 
 void SessionManager::loadSettings()
 {
+    QDir sessionsDir(DataPaths::path(DataPaths::Sessions));
+
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
     m_lastActiveSessionPath = settings.value("lastActiveSessionPath", defaultSessionPath()).toString();
     settings.endGroup();
 
-    // fallback to default session
-    if (!QFile::exists(m_lastActiveSessionPath))
+    if (QDir::isRelativePath(m_lastActiveSessionPath)) {
+        m_lastActiveSessionPath = sessionsDir.absoluteFilePath(m_lastActiveSessionPath);
+    }
+
+    // Fallback to default session
+    if (!RestoreManager::validateFile(m_lastActiveSessionPath))
         m_lastActiveSessionPath = defaultSessionPath();
 }
 
 void SessionManager::saveSettings()
 {
+    QDir sessionsDir(DataPaths::path(DataPaths::Sessions));
+
     Settings settings;
     settings.beginGroup("Web-Browser-Settings");
-    settings.setValue("lastActiveSessionPath", m_lastActiveSessionPath);
+    settings.setValue("lastActiveSessionPath", sessionsDir.relativeFilePath(m_lastActiveSessionPath));
     settings.endGroup();
 }
 
@@ -370,7 +377,7 @@ void SessionManager::openSessionManagerDialog()
 
 void SessionManager::autoSaveLastSession()
 {
-    if (mApp->isPrivate() || mApp->isRestoring() || mApp->windowCount() == 0 || mApp->restoreManager()) {
+    if (mApp->isPrivate() || mApp->windowCount() == 0) {
         return;
     }
 

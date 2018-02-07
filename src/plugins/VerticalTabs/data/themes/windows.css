@@ -1,0 +1,151 @@
+/* Vertical Tabs Windows theme */
+
+/* New Tab button */
+#verticaltabs-button-addtab
+{
+    background : #dddddd;
+    border: 1px solid #b2b2b2;
+    margin-top: 2px;
+    qproperty-themeIcon: "list-add";
+}
+
+#verticaltabs-button-addtab:hover
+{
+    background: #f3f3f3;
+}
+
+/* Close button */
+TabTreeCloseButton
+{
+    min-width: 11px;
+    max-width: 11px;
+    min-height: 9px;
+    max-height: 9px;
+    padding-right: 2px;
+
+    qproperty-showOnNormal: 1;
+    qproperty-showOnHovered: 1;
+    qproperty-showOnSelected: 1;
+}
+
+#tabtree_tabbar::close-button
+{
+    image: url(:verticaltabs/data/themes/windows-tab-close.svg);
+}
+
+#tabtree_tabbar::close-button:hover
+{
+    image: url(:verticaltabs/data/themes/windows-tab-close-h.svg);
+}
+
+#tabtree_tabbar::close-button:pressed
+{
+    image: url(:verticaltabs/data/themes/windows-tab-close-a.svg);
+}
+
+/* TabListView */
+TabListView
+{
+    background: #ffffff;
+}
+
+TabListView::item
+{
+    border: 1px solid #b2b2b2;
+    border-bottom: none;
+}
+
+TabListView::item:selected
+{
+    background : #ffffff;
+}
+
+TabListView::item:!selected
+{
+    background : #dddddd;
+}
+
+TabListView::item:!selected:hover
+{
+    background: #f3f3f3;
+}
+
+TabListView::item:!first
+{
+    margin-left: -1px;
+}
+
+TabListView::item:only-one
+{
+    margin-left: 0px;
+}
+
+/* TabTreeView */
+TabTreeView
+{
+    background: #ffffff;
+    color: #000000;
+    selection-color: #000000;
+    qproperty-backgroundIndentation: 0;
+}
+
+TabTreeView::item
+{
+    border: 1px solid #b2b2b2;
+}
+
+TabTreeView::item:selected
+{
+    background : #ffffff;
+}
+
+TabTreeView::item:!selected
+{
+    background : #dddddd;
+}
+
+TabTreeView::item:!selected:hover
+{
+    background: #f3f3f3;
+}
+
+TabTreeView::item:!first
+{
+    margin-top: -1px;
+}
+
+TabTreeView::item:only-one
+{
+    margin-top: 0px;
+}
+
+/* ScrollBar */
+TabTreeView QScrollBar:vertical
+{
+    background: #ffffff;
+    border: 1px solid #b2b2b2;
+    border-left: none;
+    border-right: 1px solid #ffffff;
+    width: 8px;
+}
+
+TabTreeView QScrollBar::handle:vertical
+{
+    background: #dddddd;
+    min-height: 50px;
+}
+
+TabTreeView QScrollBar::handle:hover:vertical
+{
+    background: #b2b2b2;
+}
+
+TabTreeView QScrollBar::add-line:vertical
+{
+    height: 0px;
+}
+
+TabTreeView QScrollBar::sub-line:vertical
+{
+    height: 0px;
+}

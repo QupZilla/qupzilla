@@ -1,0 +1,13 @@
+/* Vertical Tabs Default theme */
+
+TabTreeCloseButton
+{
+    qproperty-showOnNormal: 0;
+    qproperty-showOnHovered: 1;
+    qproperty-showOnSelected: 1;
+}
+
+TabTreeView
+{
+    qproperty-backgroundIndentation: 0;
+}

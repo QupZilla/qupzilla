@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ class QWebFrame;
 
 class BrowserWindow;
 class GM_Script;
+class GM_JSObject;
 class GM_Settings;
 class GM_Icon;
 
@@ -36,6 +37,7 @@ class GM_Manager : public QObject
     Q_OBJECT
 public:
     explicit GM_Manager(const QString &sPath, QObject* parent = 0);
+    ~GM_Manager();
 
     void showSettings(QWidget* parent);
     void downloadScript(const QUrl &url);
@@ -71,7 +73,6 @@ public slots:
 private slots:
     void load();
     void scriptChanged();
-    void doDownloadScript(const QUrl &url);
 
 private:
     QString m_settingsPath;
@@ -80,7 +81,7 @@ private:
     QPointer<GM_Settings> m_settings;
 
     QStringList m_disabledScripts;
-    //GM_JSObject* m_jsObject;
+    GM_JSObject *m_jsObject;
     QList<GM_Script*> m_scripts;
 
     QHash<BrowserWindow*, GM_Icon*> m_windows;

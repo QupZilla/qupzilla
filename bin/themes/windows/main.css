@@ -13,41 +13,7 @@
 /*MainWindow*/
 #mainwindow
 {
-    background : #dee3f4 url(images/toolbar-bg.png) repeat-x;
-}
-
-#mainwindow-menubar
-{
-    background-image:url(images/transp.png);
-    border:none;
-}
-
-#mainwindow-menubar:item
-{
-    color: black;
-    spacing: 5px;
-    padding: 2px 6px;
-    background: transparent;
-}
-
-#mainwindow-menubar::item:pressed
-{
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #a1c0e6, stop:1 #86abd9);
-    border: 1px solid #4b6e99;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom: none;
-}
-
-#mainwindow-statusbar
-{
-    background: transparent;
-}
-
-#mainwindow QToolBar
-{
-    background-image:url(images/transp.png);
-    border:none;
+    background : #ffffff;
 }
 
 #statusbar-ip-label
@@ -67,146 +33,291 @@
     background-color:transparent;
 }
 
+#navigationbar QSplitter
+{
+    min-width: 8px;
+}
+
 #navigation-button-back
 {
-    qproperty-multiIcon: url(images/navigation-back.png);
+    qproperty-themeIcon: "go-previous";
 }
 
 #navigation-button-next
 {
-    qproperty-multiIcon: url(images/navigation-forward.png);
+    qproperty-themeIcon: "go-next";
 }
 
 #navigation-button-stop
 {
-    qproperty-icon: url(images/navigation-stop.png);
-    qproperty-iconSize: 23px 22px;
+    qproperty-themeIcon: "process-stop";
 }
 
 #navigation-button-reload
 {
-    qproperty-icon: url(images/navigation-reload.png);
-    qproperty-iconSize: 23px 22px;
+    qproperty-themeIcon: "view-refresh";
 }
 
 #navigation-button-home
 {
-    qproperty-icon: url(images/navigation-home.png);
-    qproperty-iconSize: 23px 22px;
+    qproperty-themeIcon: "go-home";
 }
 
 #navigation-button-addtab
 {
-    qproperty-icon: url(images/navigation-addtab.png);
-    qproperty-iconSize: 23px 22px;
+    qproperty-themeIcon: "list-add";
 }
 
-#navigation-button-supermenu
+#navigation-button-tools
 {
-    qproperty-icon: url(images/navigation-supermenu.png);
-    qproperty-iconSize: 23px 22px;
+    qproperty-themeIcon: "arrow-right-double";
+    qproperty-fallbackIcon: url(images/tools.svg);
 }
 
 #navigation-button-exitfullscreen
 {
     qproperty-themeIcon: "view-restore";
+    qproperty-fallbackIcon: url(images/exit-fullscreen.svg);
+}
+
+#navigation-button-supermenu
+{
+    qproperty-themeIcon: "application-menu";
+    qproperty-fallbackIcon: url(images/menu.svg);
+}
+
+#navigation-toolbutton-badge
+{
+    background: palette(dark);
+    color: palette(bright-text);
+    margin: 0px 1px;
+}
+
+ToolButton[button-id="button-downloads"]
+{
+    qproperty-themeIcon: "edit-download";
 }
 
 /*TabWidget*/
 #tabbar-button-right
 {
-    qproperty-icon: url(images/tab-right-arrow.png);
+    qproperty-themeIcon: "arrow-right";
+    qproperty-fallbackIcon: url(images/tab-right-arrow.svg);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabbar-button-left
 {
-    qproperty-icon: url(images/tab-left-arrow.png);
+    qproperty-themeIcon: "arrow-left";
+    qproperty-fallbackIcon: url(images/tab-left-arrow.svg);
     qproperty-fixedsize: 15px 25px;
 }
 
 #tabwidget-button-opentabs
 {
-    qproperty-icon: url(images/tabs-list-button.png);
-    qproperty-fixedsize: 18px 28px;
+    qproperty-themeIcon: "go-down";
+    qproperty-fixedsize: 22px 29px;
 }
 
 #tabwidget-button-closedtabs
 {
     qproperty-themeIcon: "user-trash-full";
-    qproperty-fixedsize: 22px 28px;
+    qproperty-fixedsize: 22px 29px;
 }
 
-#tabwidget-button-addtab
+#tabwidget-button-addtab[outside-tabbar="false"]
 {
-    qproperty-multiIcon: url(images/tabbar-addtab.png);
+    background : #dddddd;
+    border: 1px solid #b2b2b2;
+    border-bottom: none;
+    border-left: none;
+    qproperty-fixedsize: 29px 29px;
+    qproperty-themeIcon: "list-add";
+}
+
+#tabwidget-button-addtab[outside-tabbar="false"]:hover
+{
+    background: #f3f3f3;
 }
 
 #tabwidget-button-addtab[outside-tabbar="true"]
 {
-    qproperty-icon: url(images/tabbar-addtab-outside.png);
+    qproperty-themeIcon: "list-add";
+    qproperty-fixedsize: 22px 29px;
+}
+
+TabBarTabMetrics
+{
+    qproperty-pinnedWidth: 32;
+}
+
+#tabbar
+{
+    min-height: 30px;
+    max-height: 30px;
+    qproperty-tabPadding: 3;
+    qproperty-baseColor: transparent;
+}
+
+#tab-icon
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    min-width: 16px;
+    max-width: 16px;
+    background: transparent;
+}
+
+#combotabbar_tabs_close_button
+{
+    max-width: 11px;
+    max-height: 9px;
+    min-width: 11px;
+    min-height: 9px;
+    padding-right: 2px;
+}
+
+#tabbar::close-button
+{
+    image: url(images/tab-close.svg);
+}
+
+#tabbar::close-button:hover
+{
+    image: url(images/tab-close-h.svg);
+}
+
+#tabbar::close-button:pressed
+{
+    image: url(images/tab-close-a.svg);
+}
+
+#tabbar::tab
+{
+    height: 28px;
+}
+
+#tabbar::tab:selected
+{
+    background : #ffffff;
+    border: 1px solid #b2b2b2;
+    border-bottom: none;
+}
+
+#tabbar::tab:!selected
+{
+    background : #dddddd;
+    border: 1px solid #b2b2b2;
+    border-bottom: none;
+}
+
+#tabbar::tab:!selected:hover
+{
+    background: #f3f3f3;
+    border: 1px solid #b2b2b2;
+    border-bottom: none;
+}
+
+#tabbar::tab:selected:!first
+{
+    margin-left: -1px;
+}
+
+#tabbar::tab:!selected:!first
+{
+    margin-left: -1px;
+}
+
+#tabbar::tab:!selected:!first:hover
+{
+    margin-left: -1px;
+}
+
+#tabbar::tab:selected:first
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:!selected:first
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:selected:only-one
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:!selected:only-one
+{
+    margin-left: 0;
+}
+
+#tabbar::tab:!selected:hover:only-one
+{
+    margin-left: 0;
 }
 
 /*IconProvider*/
 IconProvider
 {
-    qproperty-bookmarkIcon: url(images/star-a.png);
+    qproperty-bookmarkIcon: url(images/star-a.svg);
 }
 
 /*LocationBar*/
 #locationbar
 {
     background: transparent;
-    border-image: url(images/lineedit-bg.png);
-    border-width: 3px;
-    color:black;
-    padding-right: -3px;
-    padding-left: -3px;
-    padding-top: -2px;
-    padding-bottom: -2px;
-    qproperty-fixedheight: 22;
-    qproperty-leftMargin: 29;
+    border: 1px solid #b2b2b2;
+    min-height: 25px;
+    qproperty-leftMargin: 27;
+}
+
+#locationbar::focus
+{
+    border-color: #0078d7;
 }
 
 #locationbar-bookmarkicon
 {
-    margin-left: 3px;
-    qproperty-pixmap: url(images/star.png);
+    qproperty-themeIcon: "rating-unrated";
+    qproperty-fallbackIcon: url(images/star.svg);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-bookmarkicon[bookmarked="true"]
 {
-    qproperty-pixmap: url(images/star-a.png);
+    qproperty-themeIcon: "rating";
+    qproperty-fallbackIcon: url(images/star-a.svg);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-siteicon
 {
-    border-image: url(images/siteicon-bg.png);
-    qproperty-fixedsize:28px 22px;
+    border-image: url(images/transp.png);
+    qproperty-fixedwidth: 30;
+    min-height: 25px;
     padding-left: 0px;
-}
-
-#locationbar-siteicon[secured="true"]
-{
-    border-image: url(images/siteicon-secure-bg.png);
 }
 
 #locationbar-goicon
 {
-    margin-left: 3px;
-    qproperty-pixmap: url(images/gotoaddress.png);
+    qproperty-themeIcon: "go-jump-locationbar";
+    qproperty-fallbackIcon: url(images/goto.svg);
+    qproperty-fixedsize: 16px 16px;
 }
 
 #locationbar-down-icon
 {
-    margin-right: -4px;
-    margin-bottom: 1px;
-    qproperty-pixmap: url(images/navigation-dropdown.png);
+    qproperty-themeIcon: "go-down";
+    qproperty-fixedsize: 12px 16px;
 }
 
 #locationbar-autofillicon
 {
-    qproperty-pixmap: url(images/key.png);
+    qproperty-themeIcon: "user-identity";
+    qproperty-fallbackIcon: url(images/user.svg);
+    qproperty-fixedsize: 16px 16px;
 }
 
 /*BookmarksToolbar*/
@@ -232,38 +343,27 @@ IconProvider
 #websearchbar
 {
     background: transparent;
-    border-image: url(images/lineedit-bg.png);
-    border-width: 3px;
-    color:black;
-    padding-right: -3px;
-    padding-top: -2px;
-    padding-bottom: -2px;
-    qproperty-fixedheight: 22;
-    qproperty-leftMargin: 30;
+    border: 1px solid #b2b2b2 solid;
+    qproperty-leftMargin: 27;
+}
+
+#websearchbar::focus
+{
+    border-color: #0078d7;
 }
 
 #websearchbar-searchbutton
 {
-    qproperty-pixmap: url(images/search-icon.png);
+    qproperty-fixedsize: 22px 16px;
+    qproperty-themeIcon: "edit-find";
 }
 
-#websearchbar-searchprovider-comobobox
+#websearchbar-searchprovider-combobox
 {
-    border-image: url(images/searchbar-provider-bg.png);
-    padding-left:-8px;
-    qproperty-fixedsize: 32px 22px;
-}
-
-/*SourceViewer*/
-#sourceviewer-textedit
-{
-    border:none;
-}
-
-/*SourceViewerSearch*/
-SourceViewerSearch #lineEdit[notfound="true"]
-{
-    background:#ff6666;
+    border-image: url(images/transp.png);
+    qproperty-fixedwidth: 25;
+    min-height: 25px;
+    padding-left: 4px;
 }
 
 /*SearchToolbar*/
@@ -275,31 +375,35 @@ SearchToolBar #lineEdit[notfound="true"]
 /*AboutDialog*/
 AboutDialog #label
 {
-    background:white;
+    background: palette(window);
 }
 
 AboutDialog #textBrowser
 {
-    border:none;
-    margin-top: -2px; /* Workarounding rounded border on KDE */
+    background: palette(window);
 }
 
 /*DesktopNotification*/
 DesktopNotification
 {
-    background: transparent;
+    background: #31363b;
 }
+
 DesktopNotification #frame
 {
-    border: 2px solid darkblue;
-    border-radius: 20px;
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #e4ecf1, stop:1 #d3e5f1);
+    border: 1px solid #696d71;
+    padding: 10px;
 }
 
 DesktopNotification #heading
 {
     font: bold;
-    font-size: 13pt;
+    color: #c2c7c7;
+}
+
+DesktopNotification #text
+{
+    color: #e7ebeb;
 }
 
 /*BrowsingLibrary*/
@@ -311,17 +415,6 @@ BrowsingLibrary #tabs
 BrowsingLibrary #frame
 {
     background: url(images/library-bg.png);
-}
-
-/*Downloads*/
-DownloadItem #fileName
-{
-    font-size: 13pt;
-}
-
-DownloadManager #list
-{
-    border: none;
 }
 
 /*JavaScript Dialogs*/

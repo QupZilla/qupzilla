@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,9 +20,10 @@
 #include "datapaths.h"
 #include "updater.h"
 #include "qztools.h"
+#include "sqldatabase.h"
 
 #include <QDir>
-#include <QSqlQuery>
+#include <QSqlDatabase>
 #include <QMessageBox>
 #include <QSettings>
 #include <iostream>
@@ -187,6 +188,11 @@ void ProfileManager::updateProfile(const QString &current, const QString &profil
 
     Updater::Version prof(profile);
 
+    if (prof > Updater::Version(Qz::VERSION)) {
+        copyDataToProfile();
+        return;
+    }
+
     if (prof < Updater::Version("1.9.0")) {
         std::cout << "QupZilla: Using profile from QupZilla " << qPrintable(profile) << " is not supported!" << std::endl;
         return;
@@ -228,6 +234,17 @@ void ProfileManager::copyDataToProfile()
             settings.remove();
         }
 
+        QFile sessionFile(profileDir.filePath(QSL("session.dat")));
+        if (sessionFile.exists()) {
+            QString oldVersion = QzTools::readAllFileContents(profileDir.filePath(QSL("version"))).trimmed();
+            if (oldVersion.isEmpty()) {
+                oldVersion = QSL("unknown-version");
+            }
+            const QString sessionBackup = QzTools::ensureUniqueFilename(profileDir.filePath(QSL("sessions/backup-%1.dat").arg(oldVersion)));
+            sessionFile.copy(sessionBackup);
+            sessionFile.remove();
+        }
+
         const QString text = "Incompatible profile version has been detected. To avoid losing your profile data, they were "
                              "backed up in following file:<br/><br/><b>" + browseDataBackup + "<br/></b>";
         QMessageBox::warning(0, "QupZilla: Incompatible profile version", text);
@@ -264,6 +281,8 @@ void ProfileManager::connectDatabase()
     if (!db.open()) {
         qWarning("Cannot open SQLite database! Continuing without database....");
     }
+
+    SqlDatabase::instance()->setDatabase(db);
 
     m_databaseConnected = true;
 }

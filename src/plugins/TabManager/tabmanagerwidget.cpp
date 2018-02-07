@@ -1,6 +1,7 @@
 /* ============================================================
 * TabManager plugin for QupZilla
-* Copyright (C) 2013-2017  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2013-2017 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C)      2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -286,7 +287,11 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
             // if items are not grouped by Window then actions "Close Other Tabs",
             // "Close Tabs To The Bottom" and "Close Tabs To The Top"
             // are ambiguous and should be hidden.
-            menu = new TabContextMenu(index, Qt::Vertical, mainWindow, mainWindow->tabWidget(), m_groupType == GroupByWindow);
+            TabContextMenu::Options options = TabContextMenu::VerticalTabs;
+            if (m_groupType == GroupByWindow) {
+                options |= TabContextMenu::ShowCloseOtherTabsActions;
+            }
+            menu = new TabContextMenu(index, mainWindow, options);
             menu->addSeparator();
         }
     }
@@ -325,6 +330,7 @@ void TabManagerWidget::customContextMenuRequested(const QPoint &pos)
         menu->addAction(QIcon(":/tabmanager/data/tab-detach.png"), tr("&Detach checked tabs"), this, SLOT(processActions()))->setObjectName("detachSelection");
         menu->addAction(QIcon(":/tabmanager/data/tab-bookmark.png"), tr("Book&mark checked tabs"), this, SLOT(processActions()))->setObjectName("bookmarkSelection");
         menu->addAction(QIcon(":/tabmanager/data/tab-close.png"), tr("&Close checked tabs"), this, SLOT(processActions()))->setObjectName("closeSelection");
+        menu->addAction(tr("&Unload checked tabs"), this, SLOT(processActions()))->setObjectName("unloadSelection");
     }
 
     menu->exec(ui->treeWidget->viewport()->mapToGlobal(pos));
@@ -470,15 +476,7 @@ void TabManagerWidget::processActions()
                 continue;
             }
 
-            if (command == "closeSelection") {
-                if (webTab->url().toString() == "qupzilla:restore") {
-                    continue;
-                }
-                selectedTabs.insertMulti(mainWindow, webTab);
-            }
-            else if (command == "detachSelection" || command == "bookmarkSelection") {
-                selectedTabs.insertMulti(mainWindow, webTab);
-            }
+            selectedTabs.insertMulti(mainWindow, webTab);
         }
         winItem->setCheckState(0, Qt::Unchecked);
     }
@@ -492,6 +490,9 @@ void TabManagerWidget::processActions()
         }
         else if (command == "bookmarkSelection") {
             bookmarkSelectedTabs(selectedTabs);
+        }
+        else if (command == "unloadSelection") {
+            unloadSelectedTabs(selectedTabs);
         }
     }
 
@@ -540,12 +541,12 @@ static void detachTabsTo(BrowserWindow* targetWindow, const QHash<BrowserWindow*
         foreach (WebTab* webTab, tabs) {
             mainWindow->tabWidget()->detachTab(webTab);
 
-            if (mainWindow && mainWindow->tabWidget()->count() == 0) {
+            if (mainWindow && mainWindow->tabCount() == 0) {
                 mainWindow->close();
                 mainWindow = 0;
             }
 
-            targetWindow->tabWidget()->addView(webTab);
+            targetWindow->tabWidget()->addView(webTab, Qz::NT_NotSelectedTab);
         }
     }
 }
@@ -554,7 +555,7 @@ void TabManagerWidget::detachSelectedTabs(const QHash<BrowserWindow*, WebTab*> &
 {
     if (tabsHash.isEmpty() ||
             (tabsHash.uniqueKeys().size() == 1 &&
-             tabsHash.size() == tabsHash.keys().at(0)->tabWidget()->count())) {
+             tabsHash.size() == tabsHash.keys().at(0)->tabCount())) {
         return;
     }
 
@@ -604,6 +605,22 @@ bool TabManagerWidget::bookmarkSelectedTabs(const QHash<BrowserWindow*, WebTab*>
 
     delete dialog;
     return true;
+}
+
+void TabManagerWidget::unloadSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash)
+{
+    if (tabsHash.isEmpty()) {
+        return;
+    }
+
+    const QList<BrowserWindow*> &windows = tabsHash.uniqueKeys();
+    foreach (BrowserWindow* mainWindow, windows) {
+        QList<WebTab*> tabs = tabsHash.values(mainWindow);
+
+        foreach (WebTab* webTab, tabs) {
+            mainWindow->tabWidget()->unloadTab(webTab->tabIndex());
+        }
+    }
 }
 
 QTreeWidgetItem* TabManagerWidget::groupByDomainName(bool useHostName)
@@ -775,11 +792,16 @@ void TabItem::setWebTab(WebTab* webTab)
     else
         setIsSavedTab(true);
 
-    connect(m_webTab->webView()->page(), SIGNAL(audioMutedChanged(bool)), this, SLOT(updateIcon()));
-    connect(m_webTab->webView()->page(), SIGNAL(loadFinished(bool)), this, SLOT(updateIcon()));
-    connect(m_webTab->webView()->page(), SIGNAL(loadStarted()), this, SLOT(updateIcon()));
     connect(m_webTab->webView(), SIGNAL(titleChanged(QString)), this, SLOT(setTitle(QString)));
     connect(m_webTab->webView(), SIGNAL(iconChanged(QIcon)), this, SLOT(updateIcon()));
+
+    auto pageChanged = [this](WebPage *page) {
+        connect(page, &WebPage::audioMutedChanged, this, &TabItem::updateIcon);
+        connect(page, &WebPage::loadFinished, this, &TabItem::updateIcon);
+        connect(page, &WebPage::loadStarted, this, &TabItem::updateIcon);
+    };
+    pageChanged(m_webTab->webView()->page());
+    connect(m_webTab->webView(), &WebView::pageChanged, this, pageChanged);
 }
 
 void TabItem::updateIcon()

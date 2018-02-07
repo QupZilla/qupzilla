@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,6 @@
 #include "networkmanager.h"
 #include "desktopnotificationsfactory.h"
 #include "desktopnotification.h"
-#include "navigationbar.h"
 #include "thememanager.h"
 #include "acceptlanguage.h"
 #include "qztools.h"
@@ -98,7 +97,6 @@ Preferences::Preferences(BrowserWindow* window)
     , m_window(window)
     , m_autoFillManager(0)
     , m_pluginsList(0)
-    , m_autoFillEnabled(false)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
@@ -216,10 +214,6 @@ Preferences::Preferences(BrowserWindow* window)
     connect(ui->instantBookmarksToolbar, SIGNAL(toggled(bool)), ui->showBookmarksToolbar, SLOT(setDisabled(bool)));
     connect(ui->showBookmarksToolbar, SIGNAL(toggled(bool)), ui->instantBookmarksToolbar, SLOT(setDisabled(bool)));
     ui->showNavigationToolbar->setChecked(settings.value("showNavigationToolbar", true).toBool());
-    ui->showHome->setChecked(settings.value("showHomeButton", true).toBool());
-    ui->showBackForward->setChecked(settings.value("showBackForwardButtons", true).toBool());
-    ui->showAddTabButton->setChecked(settings.value("showAddTabButton", false).toBool());
-    ui->showReloadStopButtons->setChecked(settings.value("showReloadButton", true).toBool());
     ui->showWebSearchBar->setChecked(settings.value("showWebSearchBar", false).toBool());
     int currentSettingsPage = settings.value("settingsDialogPage", 0).toInt(0);
     settings.endGroup();
@@ -265,6 +259,8 @@ Preferences::Preferences(BrowserWindow* window)
     ui->searchFromAddressBar->setChecked(searchFromAB);
     ui->searchWithDefaultEngine->setEnabled(searchFromAB);
     ui->searchWithDefaultEngine->setChecked(settings.value("SearchWithDefaultEngine", false).toBool());
+    ui->showABSearchSuggestions->setEnabled(searchFromAB);
+    ui->showABSearchSuggestions->setChecked(settings.value("showSearchSuggestions", true).toBool());
     connect(ui->searchFromAddressBar, SIGNAL(toggled(bool)), this, SLOT(searchFromAddressBarChanged(bool)));
     settings.endGroup();
 
@@ -297,9 +293,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     //PASSWORD MANAGER
     ui->allowPassManager->setChecked(settings.value("SavePasswordsOnSites", true).toBool());
-    connect(ui->allowPassManager, SIGNAL(toggled(bool)), this, SLOT(showPassManager(bool)));
-
-    showPassManager(ui->allowPassManager->isChecked());
+    ui->autoCompletePasswords->setChecked(settings.value("AutoCompletePasswords", true).toBool());
 
     //PRIVACY
     //Web storage
@@ -348,7 +342,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     //FONTS
     settings.beginGroup("Browser-Fonts");
-    QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
+    QWebEngineSettings* webSettings = mApp->webSettings();
     auto defaultFont = [&](QWebEngineSettings::FontFamily font) -> const QString {
         const QString family = webSettings->fontFamily(font);
         if (!family.isEmpty())
@@ -498,7 +492,7 @@ Preferences::Preferences(BrowserWindow* window)
 
     // Proxy Configuration
     settings.beginGroup("Web-Proxy");
-    int proxyType = settings.value("ProxyType", 1).toInt();
+    int proxyType = settings.value("ProxyType", 2).toInt();
     if (proxyType == 0) {
         ui->noProxy->setChecked(true);
     } else if (proxyType == 2) {
@@ -585,7 +579,6 @@ void Preferences::showStackedPage(QListWidgetItem* item)
     if (index == 7 && !m_autoFillManager) {
         m_autoFillManager = new AutoFillManager(this);
         ui->autoFillFrame->addWidget(m_autoFillManager);
-        m_autoFillManager->setVisible(m_autoFillEnabled);
     }
 }
 
@@ -701,6 +694,7 @@ void Preferences::setManualProxyConfigurationEnabled(bool state)
 void Preferences::searchFromAddressBarChanged(bool stat)
 {
     ui->searchWithDefaultEngine->setEnabled(stat);
+    ui->showABSearchSuggestions->setEnabled(stat);
 }
 
 void Preferences::saveHistoryChanged(bool stat)
@@ -757,7 +751,7 @@ void Preferences::newTabChanged(int value)
 
 void Preferences::afterLaunchChanged(int value)
 {
-    ui->dontLoadTabsUntilSelected->setEnabled(value == 3);
+    ui->dontLoadTabsUntilSelected->setEnabled(value == 3 || value == 4);
 }
 
 void Preferences::changeCachePathClicked()
@@ -768,16 +762,6 @@ void Preferences::changeCachePathClicked()
     }
 
     ui->cachePath->setText(path);
-}
-
-void Preferences::showPassManager(bool state)
-{
-    if (m_autoFillManager) {
-        m_autoFillManager->setVisible(state);
-    }
-    else {
-        m_autoFillEnabled = state;
-    }
 }
 
 void Preferences::buttonClicked(QAbstractButton* button)
@@ -903,11 +887,6 @@ void Preferences::saveSettings()
     settings.setValue("instantBookmarksToolbar", ui->instantBookmarksToolbar->isChecked());
     settings.setValue("showBookmarksToolbar", ui->showBookmarksToolbar->isChecked());
     settings.setValue("showNavigationToolbar", ui->showNavigationToolbar->isChecked());
-    settings.setValue("showHomeButton", ui->showHome->isChecked());
-    settings.setValue("showBackForwardButtons", ui->showBackForward->isChecked());
-    settings.setValue("showWebSearchBar", ui->showWebSearchBar->isChecked());
-    settings.setValue("showAddTabButton", ui->showAddTabButton->isChecked());
-    settings.setValue("showReloadButton", ui->showReloadStopButtons->isChecked());
     settings.endGroup();
 
     //TABS
@@ -991,6 +970,7 @@ void Preferences::saveSettings()
 
     //PASSWORD MANAGER
     settings.setValue("SavePasswordsOnSites", ui->allowPassManager->isChecked());
+    settings.setValue("AutoCompletePasswords", ui->autoCompletePasswords->isChecked());
 
     //PRIVACY
     //Web storage
@@ -1039,6 +1019,7 @@ void Preferences::saveSettings()
     settings.beginGroup("SearchEngines");
     settings.setValue("SearchFromAddressBar", ui->searchFromAddressBar->isChecked());
     settings.setValue("SearchWithDefaultEngine", ui->searchWithDefaultEngine->isChecked());
+    settings.setValue("showSearchSuggestions", ui->showABSearchSuggestions->isChecked());
     settings.endGroup();
 
     //Languages
@@ -1073,7 +1054,6 @@ void Preferences::saveSettings()
     mApp->cookieJar()->loadSettings();
     mApp->history()->loadSettings();
     mApp->reloadSettings();
-    mApp->plugins()->c2f_saveSettings();
     mApp->desktopNotifications()->loadSettings();
     mApp->autoFill()->loadSettings();
     mApp->networkManager()->loadSettings();

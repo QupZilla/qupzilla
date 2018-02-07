@@ -1,7 +1,7 @@
 /* ============================================================
 * QupZilla - Qt web browser
 * Copyright (C) 2013-2014 S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
-* Copyright (C) 2014-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -52,6 +52,11 @@ public:
         ExtraReservedWidth
     };
 
+    enum DropIndicatorPosition {
+        BeforeTab,
+        AfterTab
+    };
+
     explicit ComboTabBar(QWidget* parent = 0);
 
     int addTab(const QString &text);
@@ -70,6 +75,8 @@ public:
     void setTabTextColor(int index, const QColor &color);
 
     QRect tabRect(int index) const;
+    QRect draggedTabRect() const;
+    QPixmap tabPixmap(int index) const;
 
     // Returns tab index at pos, or -1
     int tabAt(const QPoint &pos) const;
@@ -136,6 +143,9 @@ public:
     bool usesScrollButtons() const;
     void setUsesScrollButtons(bool useButtons);
 
+    void showDropIndicator(int index, DropIndicatorPosition position);
+    void clearDropIndicator();
+
     bool isDragInProgress() const;
     bool isScrollInProgress() const;
     bool isMainBarOverflowed() const;
@@ -188,6 +198,7 @@ private:
     TabBarHelper* localTabBar(int index = -1) const;
 
     int toLocalIndex(int globalIndex) const;
+    QRect mapFromLocalTabRect(const QRect &rect, QWidget *tabBar) const;
     void updatePinnedTabBarVisibility();
 
     QHBoxLayout* m_mainLayout;
@@ -217,14 +228,25 @@ private:
 class QUPZILLA_EXPORT TabBarHelper : public QTabBar
 {
     Q_OBJECT
+    Q_PROPERTY(int tabPadding READ tabPadding WRITE setTabPadding)
+    Q_PROPERTY(QColor baseColor READ baseColor WRITE setBaseColor)
 
 public:
     explicit TabBarHelper(bool isPinnedTabBar, ComboTabBar* comboTabBar);
+
+    int tabPadding() const;
+    void setTabPadding(int padding);
+
+    QColor baseColor() const;
+    void setBaseColor(const QColor &color);
 
     void setTabButton(int index, QTabBar::ButtonPosition position, QWidget* widget);
 
     QSize tabSizeHint(int index) const;
     QSize baseClassTabSizeHint(int index) const;
+
+    QRect draggedTabRect() const;
+    QPixmap tabPixmap(int index) const;
 
     bool isActiveTabBar();
     void setActiveTabBar(bool activate);
@@ -234,6 +256,9 @@ public:
     void setScrollArea(QScrollArea* scrollArea);
     void useFastTabSizeHint(bool enabled);
 
+    void showDropIndicator(int index, ComboTabBar::DropIndicatorPosition position);
+    void clearDropIndicator();
+
     bool isDisplayedOnViewPort(int globalLeft, int globalRight);
     bool isDragInProgress() const;
 
@@ -242,30 +267,30 @@ public:
 public slots:
     void setCurrentIndex(int index);
 
-private slots:
-    void resetDragState();
-    void tabWasMoved(int from, int to);
-
 private:
     bool event(QEvent* ev);
     void paintEvent(QPaintEvent* event);
     void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent* event);
 
+    int dragOffset(QStyleOptionTab *option, int tabIndex) const;
     void initStyleOption(QStyleOptionTab* option, int tabIndex) const;
-
-    void tabInserted(int index);
-    void tabRemoved(int index);
 
     ComboTabBar* m_comboTabBar;
     QScrollArea* m_scrollArea;
 
+    int m_tabPadding = -1;
+    QColor m_baseColor;
     int m_pressedIndex;
-    int m_pressedGlobalX;
     bool m_dragInProgress;
+    QPoint m_dragStartPosition;
+    class QMovableTabWidget *m_movingTab = nullptr;
     bool m_activeTabBar;
     bool m_isPinnedTabBar;
     bool m_useFastTabSizeHint;
+    int m_dropIndicatorIndex = -1;
+    ComboTabBar::DropIndicatorPosition m_dropIndicatorPosition;
 };
 
 class QUPZILLA_EXPORT TabScrollBar : public QScrollBar

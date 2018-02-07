@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2013-2016 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,11 @@
 #include "autofillwidget.h"
 #include "ui_autofillwidget.h"
 #include "autofill.h"
-#include "qztools.h"
 #include "webview.h"
 #include "webpage.h"
 #include "scripts.h"
+#include "mainapplication.h"
+#include "passwordmanager.h"
 
 #include <QPushButton>
 
@@ -33,44 +34,43 @@ AutoFillWidget::AutoFillWidget(WebView* view, QWidget* parent)
     ui->setupUi(this);
 }
 
-void AutoFillWidget::setFormData(const QVector<PasswordEntry> &data)
+void AutoFillWidget::setUsernames(const QStringList &usernames)
 {
-    m_data = data;
-
-    for (int i = 0; i < data.count(); ++i) {
-        const PasswordEntry d = data.at(i);
-        if (d.username.isEmpty()) {
+    int i = 0;
+    for (const QString &username : usernames) {
+        if (username.isEmpty()) {
             continue;
         }
 
         QPushButton* button = new QPushButton(this);
         button->setIcon(QIcon(":icons/other/login.png"));
         button->setStyleSheet("text-align:left;font-weight:bold;");
-        button->setText(d.username);
-        button->setProperty("data-index", i);
+        button->setText(username);
         button->setFlat(true);
 
-        ui->gridLayout->addWidget(button, i, 0);
-        connect(button, SIGNAL(clicked()), this, SLOT(loginToPage()));
+        ui->gridLayout->addWidget(button, i++, 0);
+        connect(button, &QPushButton::clicked, this, [=]() {
+            const auto entries = mApp->autoFill()->getFormData(m_view->url());
+            PasswordEntry entry;
+            // Find exact username match
+            for (const PasswordEntry &e : entries) {
+                if (e.username == username) {
+                    entry = e;
+                    break;
+                }
+            }
+            // Find by index
+            // This is needed for DatabaseEncryptedPasswordBackend because it also encrypts usernames.
+            if (!entry.isValid()) {
+                entry = entries.value(i - 1);
+            }
+            if (entry.isValid()) {
+                mApp->autoFill()->updateLastUsed(entry);
+                m_view->page()->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
+            }
+            close();
+        });
     }
-}
-
-void AutoFillWidget::loginToPage()
-{
-    QPushButton* button = qobject_cast<QPushButton*>(sender());
-    if (!button || !m_view) {
-        return;
-    }
-
-    bool ok;
-    int index = button->property("data-index").toInt(&ok);
-
-    if (ok && QzTools::containsIndex(m_data, index)) {
-        const PasswordEntry entry = m_data.at(index);
-        m_view->page()->runJavaScript(Scripts::completeFormData(entry.data), WebPage::SafeJsWorld);
-    }
-
-    close();
 }
 
 AutoFillWidget::~AutoFillWidget()

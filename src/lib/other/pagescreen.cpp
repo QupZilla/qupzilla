@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 * ============================================================ */
 #include "pagescreen.h"
 #include "ui_pagescreen.h"
-#include "tabbedwebview.h"
+#include "webview.h"
 #include "webpage.h"
 #include "qztools.h"
 #include "browserwindow.h"

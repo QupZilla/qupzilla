@@ -15,9 +15,3 @@
 {
     height: 26px;
 }
-
-/*Downloads*/
-DownloadItem #progressBar
-{
-    border: 1px solid;
-}

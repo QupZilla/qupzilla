@@ -55,20 +55,30 @@
 <context>
     <name>GM_Icon</name>
     <message>
+        <location filename="../gm_icon.cpp" line="28"/>
+        <source>GreaseMonkey</source>
+        <translation>GreaseMonkey</translation>
+    </message>
+    <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
         <translation>Buka pengaturan GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="41"/>
+        <source>GreaseMonkey Icon</source>
+        <translation>Ikon GreaseMonkey</translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="203"/>
+        <location filename="../gm_manager.cpp" line="211"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="267"/>
+        <location filename="../gm_manager.cpp" line="278"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; telah terpasang</translation>
     </message>

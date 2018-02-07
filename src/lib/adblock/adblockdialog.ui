@@ -78,7 +78,7 @@
           </property>
           <property name="icon">
            <iconset resource="../data/icons.qrc">
-            <normaloff>:/icons/other/adblock.png</normaloff>:/icons/other/adblock.png</iconset>
+            <normaloff>:/adblock/data/adblock.png</normaloff>:/adblock/data/adblock.png</iconset>
           </property>
          </widget>
         </item>

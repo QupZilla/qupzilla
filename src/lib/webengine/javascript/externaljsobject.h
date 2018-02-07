@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,10 +20,14 @@
 
 #include <QObject>
 
+#include "qzcommon.h"
+
 class WebPage;
 class AutoFillJsObject;
 
-class ExternalJsObject : public QObject
+class QWebChannel;
+
+class QUPZILLA_EXPORT ExternalJsObject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* speedDial READ speedDial CONSTANT)
@@ -35,9 +39,10 @@ public:
 
     WebPage *page() const;
 
-public slots:
-    void AddSearchProvider(const QString &engineUrl);
-    int IsSearchProviderInstalled(const QString &engineURL);
+    static void setupWebChannel(QWebChannel *webChannel, WebPage *page);
+
+    static void registerExtraObject(const QString &id, QObject *object);
+    static void unregisterExtraObject(const QString &id);
 
 private:
     QObject *speedDial() const;

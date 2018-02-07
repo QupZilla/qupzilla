@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,9 @@
 #ifndef CLOSEDTABSMANAGER_H
 #define CLOSEDTABSMANAGER_H
 
-#include <QUrl>
-#include <QIcon>
-#include <QLinkedList>
+#include <QVector>
 
+#include "webtab.h"
 #include "qzcommon.h"
 
 class WebTab;
@@ -30,36 +29,29 @@ class QUPZILLA_EXPORT ClosedTabsManager
 {
 public:
     struct Tab {
-        QUrl url;
-        QString title;
-        QIcon icon;
-        QByteArray history;
-        int position;
-        int zoomLevel;
+        int position = -1;
+        WebTab::SavedTab tabState;
 
-        bool operator==(const Tab &a) const {
-            return (a.url == url &&
-                    a.history == history &&
-                    a.position == position);
+        bool isValid() const {
+            return position > -1;
         }
     };
 
     explicit ClosedTabsManager();
 
-    void saveTab(WebTab* tab, int position);
-    bool isClosedTabAvailable();
+    void saveTab(WebTab *tab);
+    bool isClosedTabAvailable() const;
 
     // Takes tab that was most recently closed
     Tab takeLastClosedTab();
     // Takes tab at given index
     Tab takeTabAt(int index);
 
-    QLinkedList<Tab> allClosedTabs();
-    void clearList();
+    QVector<Tab> closedTabs() const;
+    void clearClosedTabs();
 
 private:
-    QLinkedList<Tab> m_closedTabs;
-
+    QVector<Tab> m_closedTabs;
 };
 
 // Hint to Qt to use std::realloc on item moving

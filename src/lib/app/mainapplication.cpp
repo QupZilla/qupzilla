@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,6 @@
 #include "checkboxdialog.h"
 #include "networkmanager.h"
 #include "profilemanager.h"
-#include "adblockmanager.h"
 #include "restoremanager.h"
 #include "browsinglibrary.h"
 #include "downloadmanager.h"
@@ -47,6 +46,7 @@
 #include "html5permissions/html5permissionsmanager.h"
 #include "scripts.h"
 #include "sessionmanager.h"
+#include "closedwindowsmanager.h"
 
 #include <QWebEngineSettings>
 #include <QDesktopServices>
@@ -77,12 +77,13 @@
 #include "registerqappassociation.h"
 #endif
 
+static bool s_testMode = false;
+
 MainApplication::MainApplication(int &argc, char** argv)
     : QtSingleApplication(argc, argv)
     , m_isPrivate(false)
     , m_isPortable(false)
     , m_isClosing(false)
-    , m_isRestoring(false)
     , m_isStartingAfterCrash(false)
     , m_history(0)
     , m_bookmarks(0)
@@ -96,6 +97,7 @@ MainApplication::MainApplication(int &argc, char** argv)
     , m_downloadManager(0)
     , m_userAgentManager(0)
     , m_searchEnginesManager(0)
+    , m_closedWindowsManager(0)
     , m_html5PermissionsManager(0)
     , m_desktopNotifications(0)
     , m_webProfile(0)
@@ -216,6 +218,10 @@ MainApplication::MainApplication(int &argc, char** argv)
             appId.append(QLatin1String("Portable"));
         }
 
+        if (isTestModeEnabled()) {
+            appId.append(QSL("TestMode"));
+        }
+
         if (newInstance) {
             if (startProfile.isEmpty() || startProfile == QLatin1String("default")) {
                 std::cout << "New instance cannot be started with default profile!" << std::endl;
@@ -269,23 +275,29 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     m_networkManager = new NetworkManager(this);
 
-    // Setup QWebChannel userscript
-    QWebEngineScript script;
-    script.setName(QSL("_qupzilla_webchannel"));
-    script.setInjectionPoint(QWebEngineScript::DocumentCreation);
-    script.setWorldId(QWebEngineScript::MainWorld);
-    script.setRunsOnSubFrames(true);
-    script.setSourceCode(Scripts::setupWebChannel());
-    m_webProfile->scripts()->insert(script);
+    setupUserScripts();
 
-    if (!isPrivate()) {
+    if (!isPrivate() && !isTestModeEnabled()) {
         m_sessionManager = new SessionManager(this);
         m_autoSaver = new AutoSaver(this);
         connect(m_autoSaver, SIGNAL(save()), m_sessionManager, SLOT(autoSaveLastSession()));
 
         Settings settings;
-        m_isStartingAfterCrash = settings.value("SessionRestore/isRunning", false).toBool();
-        settings.setValue("SessionRestore/isRunning", true);
+        settings.beginGroup(QSL("SessionRestore"));
+        const bool wasRunning = settings.value(QSL("isRunning"), false).toBool();
+        const bool wasRestoring = settings.value(QSL("isRestoring"), false).toBool();
+        settings.setValue(QSL("isRunning"), true);
+        settings.setValue(QSL("isRestoring"), wasRunning);
+        settings.endGroup();
+        settings.sync();
+
+        m_isStartingAfterCrash = wasRunning && wasRestoring;
+
+        if (wasRunning) {
+            QTimer::singleShot(60 * 1000, this, [this]() {
+                Settings().setValue(QSL("SessionRestore/isRestoring"), false);
+            });
+        }
 
         // we have to ask about startup session before creating main window
         if (!m_isStartingAfterCrash && afterLaunch() == SelectSession)
@@ -306,8 +318,7 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     connect(this, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged()));
 
-
-    if (!isPrivate()) {
+    if (!isPrivate() && !isTestModeEnabled()) {
 #ifndef DISABLE_CHECK_UPDATES
         Settings settings;
         bool checkUpdates = settings.value("Web-Browser-Settings/CheckUpdates", true).toBool();
@@ -323,10 +334,11 @@ MainApplication::MainApplication(int &argc, char** argv)
             m_restoreManager = new RestoreManager(sessionManager()->lastActiveSessionPath());
             if (!m_restoreManager->isValid()) {
                 destroyRestoreManager();
-            } else {
-                // Pinned tabs are saved into session.dat, so remove the old saved pinned tabs
-                QFile::remove(DataPaths::currentProfilePath() + QL1S("/pinnedtabs.dat"));
             }
+        }
+
+        if (!m_isStartingAfterCrash && m_restoreManager) {
+            restoreSession(window, m_restoreManager->restoreData());
         }
     }
 
@@ -351,11 +363,6 @@ MainApplication::~MainApplication()
 bool MainApplication::isClosing() const
 {
     return m_isClosing;
-}
-
-bool MainApplication::isRestoring() const
-{
-    return m_isRestoring;
 }
 
 bool MainApplication::isPrivate() const
@@ -421,65 +428,44 @@ void MainApplication::openSession(BrowserWindow* window, RestoreData &restoreDat
     if (!window)
         window = createWindow(Qz::BW_OtherRestoredWindow);
 
-    window->setUpdatesEnabled(false);
-
-    if (m_isRestoring)
-        window->tabWidget()->closeRecoveryTab();
-
-    if (window->tabWidget()->normalTabsCount() > 1) {
+    if (window->tabCount() != 0) {
         // This can only happen when recovering crashed session!
-        //
-        // Don't restore tabs in current window as user already opened
-        // some new tabs.
-        // Instead create new one and restore pinned tabs there
-        BrowserWindow* newWin = createWindow(Qz::BW_OtherRestoredWindow);
-        newWin->setUpdatesEnabled(false);
-        newWin->restoreWindowState(restoreData.at(0));
-        newWin->setUpdatesEnabled(true);
-        restoreData.remove(0);
-    }
-    else {
-        // QTabWidget::count() - count of tabs is not updated after closing
-        // recovery tab ...
-        // update: it seems with ComboTabBar QTabWidget::count() is updated,
-        // we add pinnedTabCounts to currentTab!
-        int tabCount = window->tabWidget()->pinnedTabsCount();
-        RestoreManager::WindowData data = restoreData.at(0);
-        data.currentTab += tabCount;
-        restoreData.remove(0);
-        window->restoreWindowState(data);
+        // Don't restore tabs in current window as user already opened some new tabs.
+        createWindow(Qz::BW_OtherRestoredWindow)->restoreWindow(restoreData.windows.takeAt(0));
+    } else {
+        window->restoreWindow(restoreData.windows.takeAt(0));
     }
 
-    window->setUpdatesEnabled(true);
-
-    foreach (const RestoreManager::WindowData &data, restoreData) {
+    foreach (const BrowserWindow::SavedWindow &data, restoreData.windows) {
         BrowserWindow* window = createWindow(Qz::BW_OtherRestoredWindow);
-        window->setUpdatesEnabled(false);
-        window->restoreWindowState(data);
-        window->setUpdatesEnabled(true);
+        window->restoreWindow(data);
     }
+
+    m_closedWindowsManager->restoreState(restoreData.closedWindows);
 
     restoreOverrideCursor();
 }
 
 bool MainApplication::restoreSession(BrowserWindow* window, RestoreData restoreData)
 {
-    if (m_isPrivate || restoreData.isEmpty()) {
+    if (m_isPrivate || !restoreData.isValid()) {
         return false;
     }
 
-    m_isRestoring = true;
-
     openSession(window, restoreData);
 
+    m_restoreManager->clearRestoreData();
     destroyRestoreManager();
-    m_isRestoring = false;
 
     return true;
 }
 
 void MainApplication::destroyRestoreManager()
 {
+    if (m_restoreManager && m_restoreManager->isValid()) {
+        return;
+    }
+
     delete m_restoreManager;
     m_restoreManager = 0;
 }
@@ -598,6 +584,14 @@ SearchEnginesManager* MainApplication::searchEnginesManager()
     return m_searchEnginesManager;
 }
 
+ClosedWindowsManager* MainApplication::closedWindowsManager()
+{
+    if (!m_closedWindowsManager) {
+        m_closedWindowsManager = new ClosedWindowsManager(this);
+    }
+    return m_closedWindowsManager;
+}
+
 HTML5PermissionsManager* MainApplication::html5PermissionsManager()
 {
     if (!m_html5PermissionsManager) {
@@ -619,10 +613,27 @@ QWebEngineProfile *MainApplication::webProfile() const
     return m_webProfile;
 }
 
+QWebEngineSettings *MainApplication::webSettings() const
+{
+    return m_webProfile->settings();
+}
+
 // static
 MainApplication* MainApplication::instance()
 {
     return static_cast<MainApplication*>(QCoreApplication::instance());
+}
+
+// static
+bool MainApplication::isTestModeEnabled()
+{
+    return s_testMode;
+}
+
+// static
+void MainApplication::setTestModeEnabled(bool enabled)
+{
+    s_testMode = enabled;
 }
 
 void MainApplication::addNewTab(const QUrl &url)
@@ -678,6 +689,10 @@ void MainApplication::quitApplication()
         return;
     }
 
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        emit window->aboutToClose();
+    }
+
     if (m_sessionManager && m_windows.count() > 0) {
         m_sessionManager->autoSaveLastSession();
     }
@@ -727,21 +742,24 @@ void MainApplication::postLaunch()
 
 QByteArray MainApplication::saveState() const
 {
+    RestoreData restoreData;
+    restoreData.windows.reserve(m_windows.count());
+    for (BrowserWindow *window : qAsConst(m_windows)) {
+        restoreData.windows.append(BrowserWindow::SavedWindow(window));
+    }
+
+    if (m_restoreManager && m_restoreManager->isValid()) {
+        QDataStream stream(&restoreData.crashedSession, QIODevice::WriteOnly);
+        stream << m_restoreManager->restoreData();
+    }
+
+    restoreData.closedWindows = m_closedWindowsManager->saveState();
+
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
 
     stream << Qz::sessionVersion;
-    stream << m_windows.count();
-
-    foreach (BrowserWindow* w, m_windows) {
-        stream << w->tabWidget()->saveState();
-        if (w->isFullScreen()) {
-            stream << QByteArray();
-        }
-        else {
-            stream << w->saveState();
-        }
-    }
+    stream << restoreData;
 
     return data;
 }
@@ -757,6 +775,7 @@ void MainApplication::saveSettings()
     Settings settings;
     settings.beginGroup("SessionRestore");
     settings.setValue("isRunning", false);
+    settings.setValue("isRestoring", false);
     settings.endGroup();
 
     settings.beginGroup("Web-Browser-Settings");
@@ -789,7 +808,6 @@ void MainApplication::saveSettings()
     DataPaths::clearTempData();
 
     qzSettings->saveSettings();
-    AdBlockManager::instance()->save();
     QFile::remove(DataPaths::currentProfilePath() + QLatin1String("/WebpageIcons.db"));
 
     sessionManager()->saveSettings();
@@ -894,7 +912,7 @@ void MainApplication::loadSettings()
 
     loadTheme(activeTheme);
 
-    QWebEngineSettings* webSettings = QWebEngineSettings::defaultSettings();
+    QWebEngineSettings* webSettings = m_webProfile->settings();
 
     // Web browsing settings
     settings.beginGroup("Web-Browser-Settings");
@@ -967,8 +985,8 @@ void MainApplication::loadSettings()
     }
 
     qzSettings->loadSettings();
-    networkManager()->loadSettings();
     userAgentManager()->loadSettings();
+    networkManager()->loadSettings();
 }
 
 void MainApplication::loadTheme(const QString &name)
@@ -1002,6 +1020,12 @@ void MainApplication::loadTheme(const QString &name)
     if (isRightToLeft()) {
         qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/rtl.css")));
     }
+
+    if (isPrivate()) {
+        qss.append(QzTools::readAllFileContents(activeThemePath + QLatin1String("/private.css")));
+    }
+
+    qss.append(QzTools::readAllFileContents(DataPaths::currentProfilePath() + QL1S("/userChrome.css")));
 
     QString relativePath = QDir::current().relativeFilePath(activeThemePath);
     qss.replace(QzRegExp(QSL("url\\s*\\(\\s*([^\\*:\\);]+)\\s*\\)"), Qt::CaseSensitive), QString("url(%1/\\1)").arg(relativePath));
@@ -1085,6 +1109,7 @@ void MainApplication::checkDefaultWebBrowser()
 
     if (!associationManager()->isDefaultForAllCapabilities()) {
         CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, getWindow());
+        dialog.setDefaultButton(QMessageBox::Yes);
         dialog.setText(tr("QupZilla is not currently your default browser. Would you like to make it your default browser?"));
         dialog.setCheckBoxText(tr("Always perform this check when starting QupZilla."));
         dialog.setDefaultCheckState(Qt::Checked);
@@ -1117,6 +1142,36 @@ void MainApplication::checkOptimizeDatabase()
     }
 
     settings.endGroup();
+}
+
+void MainApplication::setupUserScripts()
+{
+    // WebChannel for SafeJsWorld
+    QWebEngineScript script;
+    script.setName(QSL("_qupzilla_webchannel"));
+    script.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script.setWorldId(WebPage::SafeJsWorld);
+    script.setRunsOnSubFrames(true);
+    script.setSourceCode(Scripts::setupWebChannel(script.worldId()));
+    m_webProfile->scripts()->insert(script);
+
+    // WebChannel for UnsafeJsWorld
+    QWebEngineScript script2;
+    script2.setName(QSL("_qupzilla_webchannel2"));
+    script2.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script2.setWorldId(WebPage::UnsafeJsWorld);
+    script2.setRunsOnSubFrames(true);
+    script2.setSourceCode(Scripts::setupWebChannel(script2.worldId()));
+    m_webProfile->scripts()->insert(script2);
+
+    // document.window object addons
+    QWebEngineScript script3;
+    script3.setName(QSL("_qupzilla_window_object"));
+    script3.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    script3.setWorldId(WebPage::UnsafeJsWorld);
+    script3.setRunsOnSubFrames(true);
+    script3.setSourceCode(Scripts::setupWindowObject());
+    m_webProfile->scripts()->insert(script3);
 }
 
 void MainApplication::setUserStyleSheet(const QString &filePath)

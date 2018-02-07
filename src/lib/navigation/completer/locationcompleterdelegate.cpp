@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "iconprovider.h"
 #include "qzsettings.h"
 #include "mainapplication.h"
+#include "bookmarkitem.h"
 
 #include <algorithm>
 
@@ -29,26 +30,10 @@
 #include <QMouseEvent>
 #include <QTextLayout>
 
-static bool isUrlOrDomain(const QString &text)
-{
-    QUrl url(text);
-    if (!url.scheme().isEmpty() && (!url.host().isEmpty() || !url.path().isEmpty())) {
-        return true;
-    }
-    if (text.contains(QL1C('.')) && !text.contains(QL1C(' '))) {
-        return true;
-    }
-    if (text == QL1S("localhost")) {
-        return true;
-    }
-    return false;
-}
-
 LocationCompleterDelegate::LocationCompleterDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
     , m_rowHeight(0)
     , m_padding(0)
-    , m_drawSwitchToTab(true)
 {
 }
 
@@ -63,11 +48,11 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
 
-    // Prepare title font
-    QFont titleFont = opt.font;
-    titleFont.setPointSize(titleFont.pointSize() + 1);
+    // Prepare link font
+    QFont linkFont = opt.font;
+    linkFont.setPointSize(linkFont.pointSize() - 1);
 
-    const QFontMetrics titleMetrics(titleFont);
+    const QFontMetrics linkMetrics(linkFont);
 
     int leftPosition = m_padding * 2;
     int rightPosition = opt.rect.right() - m_padding;
@@ -92,22 +77,41 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     const bool isVisitSearchItem = index.data(LocationCompleterModel::VisitSearchItemRole).toBool();
     const bool isSearchSuggestion = index.data(LocationCompleterModel::SearchSuggestionRole).toBool();
-    const bool isWebSearch = qzSettings->searchFromAddressBar && !isUrlOrDomain(m_originalText.trimmed());
+
+    LocationBar::LoadAction loadAction;
+    bool isWebSearch = isSearchSuggestion;
+
+    BookmarkItem *bookmark = static_cast<BookmarkItem*>(index.data(LocationCompleterModel::BookmarkItemRole).value<void*>());
+
+    if (isVisitSearchItem) {
+        loadAction = LocationBar::loadAction(m_originalText);
+        isWebSearch = loadAction.type == LocationBar::LoadAction::Search;
+        if (!m_forceVisitItem) {
+            bookmark = loadAction.bookmark;
+        }
+    }
 
     // Draw icon
     const int iconSize = 16;
     const int iconYPos = center - (iconSize / 2);
     QRect iconRect(leftPosition, iconYPos, iconSize, iconSize);
-    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize, iconMode);
+    QPixmap pixmap = index.data(Qt::DecorationRole).value<QIcon>().pixmap(iconSize);
     if (isSearchSuggestion || (isVisitSearchItem && isWebSearch)) {
         pixmap = QIcon::fromTheme(QSL("edit-find"), QIcon(QSL(":icons/menu/search-icon.svg"))).pixmap(iconSize, iconMode);
+    }
+    if (isVisitSearchItem && bookmark) {
+        pixmap = bookmark->icon().pixmap(iconSize);
+    } else if (loadAction.type == LocationBar::LoadAction::Search) {
+        if (loadAction.searchEngine.name != LocationBar::searchEngine().name) {
+            pixmap = loadAction.searchEngine.icon.pixmap(iconSize);
+        }
     }
     painter->drawPixmap(iconRect, pixmap);
     leftPosition = iconRect.right() + m_padding * 2;
 
     // Draw star to bookmark items
     int starPixmapWidth = 0;
-    if (index.data(LocationCompleterModel::BookmarkRole).toBool()) {
+    if (bookmark) {
         const QIcon icon = IconProvider::instance()->bookmarkIcon();
         const QSize starSize(16, 16);
         starPixmapWidth = starSize.width();
@@ -120,13 +124,15 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
 
     // Draw title
     leftPosition += 2;
-    QRect titleRect(leftPosition, center - titleMetrics.height() / 2, opt.rect.width() * 0.6, titleMetrics.height());
+    QRect titleRect(leftPosition, center - opt.fontMetrics.height() / 2, opt.rect.width() * 0.6, opt.fontMetrics.height());
     QString title = index.data(LocationCompleterModel::TitleRole).toString();
-    painter->setFont(titleFont);
+    painter->setFont(opt.font);
 
     if (isVisitSearchItem) {
-        title = m_originalText.trimmed();
-        if (searchText == title) {
+        if (bookmark) {
+            title = bookmark->title();
+        } else {
+            title = m_originalText.trimmed();
             searchText.clear();
         }
     }
@@ -145,28 +151,27 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     }
 
     if (isVisitSearchItem || isSearchSuggestion) {
-        if (!isSearchSuggestion && !isWebSearch) {
+        if (!opt.state.testFlag(QStyle::State_Selected) && !opt.state.testFlag(QStyle::State_MouseOver)) {
+            link.clear();
+        } else if (isVisitSearchItem && (!isWebSearch || m_forceVisitItem)) {
             link = tr("Visit");
-        } else if (opt.state.testFlag(QStyle::State_Selected) || opt.state.testFlag(QStyle::State_MouseOver)) {
-            QString searchEngineName;
-            const int firstSpacePos = title.indexOf(QL1C(' '));
-            if (firstSpacePos != -1) {
-                const QString shortcut = title.left(firstSpacePos);
-                searchEngineName = mApp->searchEnginesManager()->engineForShortcut(shortcut).name;
-            }
+        } else {
+            QString searchEngineName = loadAction.searchEngine.name;
             if (searchEngineName.isEmpty()) {
                 searchEngineName = LocationBar::searchEngine().name;
             }
             link = tr("Search with %1").arg(searchEngineName);
-        } else {
-            link.clear();
         }
+    }
+
+    if (bookmark) {
+        link = bookmark->url().toString();
     }
 
     // Draw separator
     if (!link.isEmpty()) {
         QChar separator = QL1C('-');
-        QRect separatorRect(leftPosition, center - titleMetrics.height() / 2, titleMetrics.width(separator), titleMetrics.height());
+        QRect separatorRect(leftPosition, center - linkMetrics.height() / 2, linkMetrics.width(separator), linkMetrics.height());
         style->drawItemText(painter, separatorRect, Qt::AlignCenter, textPalette, true, separator, colorRole);
         leftPosition += separatorRect.width() + m_padding * 2;
     }
@@ -174,13 +179,13 @@ void LocationCompleterDelegate::paint(QPainter* painter, const QStyleOptionViewI
     // Draw link
     const int leftLinkEdge = leftPosition;
     const int rightLinkEdge = rightPosition - m_padding - starPixmapWidth;
-    QRect linkRect(leftLinkEdge, center - opt.fontMetrics.height() / 2, rightLinkEdge - leftLinkEdge, opt.fontMetrics.height());
-    painter->setFont(opt.font);
+    QRect linkRect(leftLinkEdge, center - linkMetrics.height() / 2, rightLinkEdge - leftLinkEdge, linkMetrics.height());
+    painter->setFont(linkFont);
 
     // Draw url (or switch to tab)
     int tabPos = index.data(LocationCompleterModel::TabPositionTabRole).toInt();
 
-    if (drawSwitchToTab() && tabPos != -1) {
+    if (qzSettings->showSwitchTab && !m_forceVisitItem && tabPos != -1) {
         const QIcon tabIcon = QIcon(QSL(":icons/menu/tab.svg"));
         QRect iconRect(linkRect);
         iconRect.setX(iconRect.x());
@@ -215,32 +220,21 @@ QSize LocationCompleterDelegate::sizeHint(const QStyleOptionViewItem &option, co
         const QStyle* style = w ? w->style() : QApplication::style();
         const int padding = style->pixelMetric(QStyle::PM_FocusFrameHMargin, 0) + 1;
 
-        QFont titleFont = opt.font;
-        titleFont.setPointSize(titleFont.pointSize() + 1);
-
         m_padding = padding > 3 ? padding : 3;
-
-        const QFontMetrics titleMetrics(titleFont);
-
-        m_rowHeight = 4 * m_padding + qMax(16, titleMetrics.height());
+        m_rowHeight = 4 * m_padding + qMax(16, opt.fontMetrics.height());
     }
 
     return QSize(200, m_rowHeight);
 }
 
-void LocationCompleterDelegate::setShowSwitchToTab(bool enable)
+void LocationCompleterDelegate::setForceVisitItem(bool enable)
 {
-    m_drawSwitchToTab = enable;
+    m_forceVisitItem = enable;
 }
 
 void LocationCompleterDelegate::setOriginalText(const QString &originalText)
 {
     m_originalText = originalText;
-}
-
-bool LocationCompleterDelegate::drawSwitchToTab() const
-{
-    return qzSettings->showSwitchTab && m_drawSwitchToTab;
 }
 
 static bool sizeBiggerThan(const QString &s1, const QString &s2)
@@ -322,16 +316,6 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
         if (!delimiters.isEmpty() && !(delimiters.count() % 2)) {
             QList<QTextLayout::FormatRange> highlightParts;
 
-            QTextLayout::FormatRange lighterWholeLine;
-            lighterWholeLine.start = 0;
-            lighterWholeLine.length = elidedText.size();
-            QColor lighterColor = color.lighter(130);
-            if (lighterColor == color) {
-                lighterColor = QColor(Qt::gray).darker(180);
-            }
-            lighterWholeLine.format.setForeground(lighterColor);
-            highlightParts << lighterWholeLine;
-
             while (!delimiters.isEmpty()) {
                 QTextLayout::FormatRange highlightedPart;
                 int start = delimiters.takeFirst();
@@ -340,7 +324,6 @@ int LocationCompleterDelegate::viewItemDrawText(QPainter *p, const QStyleOptionV
                 highlightedPart.length = end - start;
                 highlightedPart.format.setFontWeight(QFont::Bold);
                 highlightedPart.format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
-                highlightedPart.format.setForeground(color);
 
                 highlightParts << highlightedPart;
             }

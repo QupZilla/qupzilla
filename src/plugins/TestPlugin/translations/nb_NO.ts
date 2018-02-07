@@ -9,12 +9,12 @@
     <message>
         <location filename="../testplugin.cpp" line="133"/>
         <source>Example Plugin Settings</source>
-        <translation>Eksempel på Innstillinger av Plugin</translation>
+        <translation>Eksempel på Innstillinger av programtillegg</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="163"/>
         <source>My first plugin action</source>
-        <translation>Min første plugin handling</translation>
+        <translation>Min første programtilleggshandling</translation>
     </message>
     <message>
         <location filename="../testplugin.cpp" line="178"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../testplugin.cpp" line="178"/>
         <source>First plugin action works :-)</source>
-        <translation>Første plugin handling fungerer :-)</translation>
+        <translation>Første programtilleggshandling fungerer :-)</translation>
     </message>
 </context>
 <context>
@@ -33,7 +33,7 @@
         <location filename="../testplugin_sidebar.cpp" line="32"/>
         <location filename="../testplugin_sidebar.cpp" line="40"/>
         <source>Testing Sidebar</source>
-        <translation>tester sidefane</translation>
+        <translation>Testsidestolpe</translation>
     </message>
 </context>
 </TS>

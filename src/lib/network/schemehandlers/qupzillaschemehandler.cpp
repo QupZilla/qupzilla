@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,19 +19,19 @@
 #include "qztools.h"
 #include "browserwindow.h"
 #include "mainapplication.h"
-#include "tabbedwebview.h"
 #include "speeddial.h"
 #include "pluginproxy.h"
 #include "plugininterface.h"
 #include "settings.h"
 #include "datapaths.h"
 #include "iconprovider.h"
-#include "useragentmanager.h"
 #include "sessionmanager.h"
+#include "restoremanager.h"
 
 #include <QTimer>
 #include <QSettings>
 #include <QUrlQuery>
+#include <QWebEngineProfile>
 #include <QWebEngineUrlRequestJob>
 
 static QString authorString(const char* name, const QString &mail)
@@ -46,13 +46,36 @@ QupZillaSchemeHandler::QupZillaSchemeHandler(QObject *parent)
 
 void QupZillaSchemeHandler::requestStarted(QWebEngineUrlRequestJob *job)
 {
+    if (handleRequest(job)) {
+        return;
+    }
+
     QStringList knownPages;
-    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore" << "adblock";
+    knownPages << "about" << "reportbug" << "start" << "speeddial" << "config" << "restore";
 
     if (knownPages.contains(job->requestUrl().path()))
         job->reply(QByteArrayLiteral("text/html"), new QupZillaSchemeReply(job));
     else
         job->fail(QWebEngineUrlRequestJob::UrlInvalid);
+}
+
+bool QupZillaSchemeHandler::handleRequest(QWebEngineUrlRequestJob *job)
+{
+    QUrlQuery query(job->requestUrl());
+    if (!query.isEmpty() && job->requestUrl().path() == QL1S("restore")) {
+        if (mApp->restoreManager()) {
+            if (query.hasQueryItem(QSL("new-session"))) {
+                mApp->restoreManager()->clearRestoreData();
+            } else if (query.hasQueryItem(QSL("restore-session"))) {
+                mApp->restoreSession(nullptr, mApp->restoreManager()->restoreData());
+            }
+        }
+        mApp->destroyRestoreManager();
+        job->redirect(QUrl(QSL("qupzilla:start")));
+        return true;
+    }
+
+    return false;
 }
 
 QupZillaSchemeReply::QupZillaSchemeReply(QWebEngineUrlRequestJob *job, QObject *parent)
@@ -91,9 +114,6 @@ void QupZillaSchemeReply::loadPage()
     }
     else if (m_pageName == QLatin1String("restore")) {
         stream << restorePage();
-    }
-    else if (m_pageName == QLatin1String("adblock")) {
-        stream << adblockPage();
     }
 
     stream.flush();
@@ -265,14 +285,14 @@ QString QupZillaSchemeReply::speeddialPage()
 
     if (dPage.isEmpty()) {
         dPage.append(QzTools::readAllFileContents(":html/speeddial.html"));
-        dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.png"));
-        dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.png"));
-        dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.png"));
-        dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.png"));
+        dPage.replace(QLatin1String("%IMG_PLUS%"), QLatin1String("qrc:html/plus.svg"));
+        dPage.replace(QLatin1String("%IMG_CLOSE%"), QLatin1String("qrc:html/close.svg"));
+        dPage.replace(QLatin1String("%IMG_EDIT%"), QLatin1String("qrc:html/edit.svg"));
+        dPage.replace(QLatin1String("%IMG_RELOAD%"), QLatin1String("qrc:html/reload.svg"));
         dPage.replace(QLatin1String("%JQUERY%"), QLatin1String("qrc:html/jquery.js"));
         dPage.replace(QLatin1String("%JQUERY-UI%"), QLatin1String("qrc:html/jquery-ui.js"));
         dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
-        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.png"));
+        dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.svg"));
 
         dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
         dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));
@@ -282,10 +302,11 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TITLE-WARN%"), tr("Are you sure you want to remove this speed dial?"));
         dPage.replace(QLatin1String("%TITLE-WARN-REL%"), tr("Are you sure you want to reload all speed dials?"));
         dPage.replace(QLatin1String("%TITLE-FETCHTITLE%"), tr("Load title from page"));
+        dPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("SpeedDial requires enabled JavaScript."));
         dPage.replace(QLatin1String("%URL%"), tr("Url"));
         dPage.replace(QLatin1String("%TITLE%"), tr("Title"));
         dPage.replace(QLatin1String("%APPLY%"), tr("Apply"));
-        dPage.replace(QLatin1String("%CLOSE%"), tr("Close"));
+        dPage.replace(QLatin1String("%CANCEL%"), tr("Cancel"));
         dPage.replace(QLatin1String("%NEW-PAGE%"), tr("New Page"));
         dPage.replace(QLatin1String("%SETTINGS-TITLE%"), tr("Speed Dial settings"));
         dPage.replace(QLatin1String("%TXT_PLACEMENT%"), tr("Placement: "));
@@ -294,8 +315,8 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%TXT_FIT%"), tr("Fit"));
         dPage.replace(QLatin1String("%TXT_FWIDTH%"), tr("Fit Width"));
         dPage.replace(QLatin1String("%TXT_FHEIGHT%"), tr("Fit Height"));
-        dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use background image"));
-        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Select image"));
+        dPage.replace(QLatin1String("%TXT_NOTE%"), tr("Use custom wallpaper"));
+        dPage.replace(QLatin1String("%TXT_SELECTIMAGE%"), tr("Click to select image"));
         dPage.replace(QLatin1String("%TXT_NRROWS%"), tr("Maximum pages in a row:"));
         dPage.replace(QLatin1String("%TXT_SDSIZE%"), tr("Change size of pages:"));
         dPage.replace(QLatin1String("%TXT_CNTRDLS%"), tr("Center speed dials"));
@@ -332,6 +353,7 @@ QString QupZillaSchemeReply::restorePage()
         rPage.replace(QLatin1String("%WINDOWS-AND-TABS%"), tr("Windows and Tabs"));
         rPage.replace(QLatin1String("%BUTTON-START-NEW%"), tr("Start New Session"));
         rPage.replace(QLatin1String("%BUTTON-RESTORE%"), tr("Restore"));
+        rPage.replace(QLatin1String("%JAVASCRIPT-DISABLED%"), tr("Requires enabled JavaScript."));
         rPage = QzTools::applyDirectionToPage(rPage);
     }
 
@@ -362,6 +384,18 @@ QString QupZillaSchemeReply::configPage()
         cPage.replace(QLatin1String("%PL-AUTH%"), tr("Author"));
         cPage.replace(QLatin1String("%PL-DESC%"), tr("Description"));
 
+        auto allPaths = [](DataPaths::Path type) {
+            QString out;
+            const auto paths = DataPaths::allPaths(type);
+            for (const QString &path : paths) {
+                if (!out.isEmpty()) {
+                    out.append(QSL("<br>"));
+                }
+                out.append(path);
+            }
+            return out;
+        };
+
         cPage.replace(QLatin1String("%VERSION-INFO%"),
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Application version"),
 #ifdef GIT_REVISION
@@ -377,10 +411,10 @@ QString QupZillaSchemeReply::configPage()
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Profile"), DataPaths::currentProfilePath()) +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Settings"), DataPaths::currentProfilePath() + "/settings.ini") +
                       QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Saved session"), SessionManager::defaultSessionPath()) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Pinned tabs"), DataPaths::currentProfilePath() + "/pinnedtabs.dat") +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), DataPaths::path(DataPaths::AppData)) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), DataPaths::path(DataPaths::Themes)) +
-                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), DataPaths::path(DataPaths::Translations)));
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Data"), allPaths(DataPaths::AppData)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Themes"), allPaths(DataPaths::Themes)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Extensions"), allPaths(DataPaths::Plugins)) +
+                      QString("<dt>%1</dt><dd>%2<dd>").arg(tr("Translations"), allPaths(DataPaths::Translations)));
 
 #ifdef QUPZILLA_DEBUG_BUILD
         QString debugBuild = tr("<b>Enabled</b>");
@@ -409,7 +443,7 @@ QString QupZillaSchemeReply::configPage()
     }
 
     QString page = cPage;
-    page.replace(QLatin1String("%USER-AGENT%"), mApp->userAgentManager()->userAgentForUrl(QUrl()));
+    page.replace(QLatin1String("%USER-AGENT%"), mApp->webProfile()->httpUserAgent());
 
     QString pluginsString;
     const QList<Plugins::Plugin> &availablePlugins = mApp->plugins()->getAvailablePlugins();
@@ -467,28 +501,6 @@ QString QupZillaSchemeReply::configPage()
     }
 
     page.replace(QLatin1String("%PREFS-INFO%"), allGroupsString);
-
-    return page;
-}
-
-QString QupZillaSchemeReply::adblockPage()
-{
-    static QString aPage;
-
-    if (aPage.isEmpty()) {
-        aPage.append(QzTools::readAllFileContents(":html/adblock.html"));
-        aPage.replace(QLatin1String("%FAVICON%"), QLatin1String("qrc:html/adblock_big.png"));
-        aPage.replace(QLatin1String("%IMAGE%"), QLatin1String("qrc:html/adblock_big.png"));
-        aPage.replace(QLatin1String("%TITLE%"), tr("Blocked content"));
-        aPage = QzTools::applyDirectionToPage(aPage);
-    }
-
-    QString page = aPage;
-    QUrlQuery query(m_job->requestUrl());
-
-    const QString rule = query.queryItemValue(QSL("rule"));
-    const QString subscription = query.queryItemValue(QSL("subscription"));
-    page.replace(QLatin1String("%RULE%"), tr("Blocked by <i>%1 (%2)</i>").arg(rule, subscription));
 
     return page;
 }

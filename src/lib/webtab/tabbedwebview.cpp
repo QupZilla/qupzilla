@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,13 +22,12 @@
 #include "mainapplication.h"
 #include "tabbar.h"
 #include "webtab.h"
-#include "statusbarmessage.h"
+#include "statusbar.h"
 #include "progressbar.h"
 #include "navigationbar.h"
 #include "iconprovider.h"
 #include "searchenginesmanager.h"
 #include "enhancedmenu.h"
-#include "adblockicon.h"
 #include "locationbar.h"
 #include "webhittestresult.h"
 #include "webinspector.h"
@@ -50,10 +49,9 @@ TabbedWebView::TabbedWebView(WebTab* webTab)
     connect(this, SIGNAL(urlChanged(QUrl)), this, SLOT(urlChanged(QUrl)));
 }
 
-void TabbedWebView::setWebPage(WebPage* page)
+void TabbedWebView::setPage(WebPage* page)
 {
-    page->setParent(this);
-    setPage(page);
+    WebView::setPage(page);
 
     connect(page, &WebPage::linkHovered, this, &TabbedWebView::linkHovered);
 }
@@ -140,10 +138,10 @@ void TabbedWebView::linkHovered(const QString &link)
 {
     if (m_webTab->isCurrentTab() && m_window) {
         if (link.isEmpty()) {
-            m_window->statusBarMessage()->clearMessage();
+            m_window->statusBar()->clearMessage();
         }
         else {
-            m_window->statusBarMessage()->showMessage(link);
+            m_window->statusBar()->showMessage(link);
         }
     }
 }
@@ -167,8 +165,10 @@ void TabbedWebView::loadInNewTab(const LoadRequest &req, Qz::NewTabPositionFlags
 {
     if (m_window) {
         int index = m_window->tabWidget()->addView(QUrl(), position);
-        m_window->weView(index)->webTab()->locationBar()->showUrl(req.url());
-        m_window->weView(index)->load(req);
+        TabbedWebView *view = m_window->weView(index);
+        webTab()->addChildTab(view->webTab());
+        view->webTab()->locationBar()->showUrl(req.url());
+        view->load(req);
     }
 }
 
@@ -198,10 +198,6 @@ void TabbedWebView::_contextMenuEvent(QContextMenuEvent *event)
 
     WebHitTestResult hitTest = page()->hitTestContent(event->pos());
     createContextMenu(m_menu, hitTest);
-
-    if (!hitTest.isContentEditable() && !hitTest.isContentSelected() && m_window) {
-        m_menu->addAction(m_window->adBlockIcon()->menuAction());
-    }
 
     if (WebInspector::isEnabled()) {
         m_menu->addSeparator();

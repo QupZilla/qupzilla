@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,16 +19,11 @@
 #include "ui_aboutdialog.h"
 #include "browserwindow.h"
 #include "mainapplication.h"
-#include "tabbedwebview.h"
 #include "webpage.h"
 #include "useragentmanager.h"
 
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
-
-#ifdef Q_OS_WIN
-#include <QtWin>
-#endif
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent)
@@ -40,21 +35,10 @@ AboutDialog::AboutDialog(QWidget* parent)
     ui->setupUi(this);
     ui->label->setPixmap(QIcon(QSL(":icons/other/about.png")).pixmap(300, 130));
 
-#ifdef Q_OS_WIN
-    if (QtWin::isCompositionEnabled()) {
-        QtWin::extendFrameIntoClientArea(this, -1, -1, -1, -1);
-        ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
-    }
-#endif
-
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(close()));
     connect(ui->authorsButton, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 
     showAbout();
-
-#ifdef Q_OS_WIN
-    resize(300, height());
-#endif
 }
 
 void AboutDialog::buttonClicked()

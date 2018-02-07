@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ private slots:
 
     void aboutToShowMostVisited();
     void aboutToShowClosedTabs();
+    void aboutToShowClosedWindows();
 
     void historyEntryActivated();
     void historyEntryCtrlActivated();
@@ -62,6 +63,7 @@ private:
     QPointer<BrowserWindow> m_window;
     Menu* m_menuMostVisited;
     Menu* m_menuClosedTabs;
+    Menu *m_menuClosedWindows;
 };
 
 #endif // HISTORYMENU_H

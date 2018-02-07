@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>TabManagerButton</name>
+    <message>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
+        <source>Tab Manager button</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TabManagerSettings</name>
     <message>
         <location filename="../tabmanagersettings.ui" line="14"/>
@@ -47,77 +55,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="106"/>
+        <location filename="../tabmanagerwidget.cpp" line="110"/>
         <source>Local File System:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="109"/>
+        <location filename="../tabmanagerwidget.cpp" line="113"/>
         <source>QupZilla:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="112"/>
+        <location filename="../tabmanagerwidget.cpp" line="116"/>
         <source> [FTP]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="266"/>
+        <location filename="../tabmanagerwidget.cpp" line="301"/>
         <source>Group by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="267"/>
+        <location filename="../tabmanagerwidget.cpp" line="302"/>
         <source>&amp;Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="272"/>
+        <location filename="../tabmanagerwidget.cpp" line="307"/>
         <source>&amp;Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="277"/>
+        <location filename="../tabmanagerwidget.cpp" line="312"/>
         <source>&amp;Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="285"/>
+        <location filename="../tabmanagerwidget.cpp" line="320"/>
         <source>&amp;Show side by side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="291"/>
+        <location filename="../tabmanagerwidget.cpp" line="326"/>
         <source>&amp;Detach checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="292"/>
+        <location filename="../tabmanagerwidget.cpp" line="327"/>
         <source>Book&amp;mark checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="293"/>
+        <location filename="../tabmanagerwidget.cpp" line="328"/>
         <source>&amp;Close checked tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="547"/>
+        <location filename="../tabmanagerwidget.cpp" line="329"/>
+        <source>&amp;Unload checked tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tabmanagerwidget.cpp" line="581"/>
         <source>Choose folder for bookmarks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="548"/>
+        <location filename="../tabmanagerwidget.cpp" line="582"/>
         <source>Bookmark Selected Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="665"/>
+        <location filename="../tabmanagerwidget.cpp" line="700"/>
         <source>Window %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidget.cpp" line="666"/>
+        <location filename="../tabmanagerwidget.cpp" line="701"/>
         <source>Double click to switch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -125,13 +138,14 @@
 <context>
     <name>TabManagerWidgetController</name>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="46"/>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="51"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="68"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="73"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="99"/>
         <source>Tab Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tabmanagerwidgetcontroller.cpp" line="79"/>
+        <location filename="../tabmanagerwidgetcontroller.cpp" line="100"/>
         <source>Show Tab Manager</source>
         <translation type="unfinished"></translation>
     </message>

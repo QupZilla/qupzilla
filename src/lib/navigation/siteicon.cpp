@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -28,9 +28,9 @@
 #include <QApplication>
 #include <QContextMenuEvent>
 
-SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
+SiteIcon::SiteIcon(LocationBar *parent)
     : ToolButton(parent)
-    , m_window(window)
+    , m_window(nullptr)
     , m_locationBar(parent)
     , m_view(0)
 {
@@ -38,12 +38,17 @@ SiteIcon::SiteIcon(BrowserWindow* window, LocationBar* parent)
     setToolButtonStyle(Qt::ToolButtonIconOnly);
     setCursor(Qt::ArrowCursor);
     setToolTip(LocationBar::tr("Show information about this page"));
-    setFocusPolicy(Qt::ClickFocus);
+    setFocusPolicy(Qt::NoFocus);
 
     m_updateTimer = new QTimer(this);
     m_updateTimer->setInterval(100);
     m_updateTimer->setSingleShot(true);
     connect(m_updateTimer, SIGNAL(timeout()), this, SLOT(updateIcon()));
+}
+
+void SiteIcon::setBrowserWindow(BrowserWindow *window)
+{
+    m_window = window;
 }
 
 void SiteIcon::setWebView(WebView* view)

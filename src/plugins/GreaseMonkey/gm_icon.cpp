@@ -1,6 +1,6 @@
 /* ============================================================
 * GreaseMonkey plugin for QupZilla
-* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,21 +17,31 @@
 * ============================================================ */
 #include "gm_icon.h"
 #include "gm_manager.h"
-#include "browserwindow.h"
 
-GM_Icon::GM_Icon(GM_Manager* manager, BrowserWindow* window)
-    : ClickableLabel(window)
+#include "webview.h"
+
+GM_Icon::GM_Icon(GM_Manager *manager)
+    : AbstractButtonInterface(manager)
     , m_manager(manager)
-    , m_window(window)
 {
-    setCursor(Qt::PointingHandCursor);
-    setPixmap(QIcon(":gm/data/icon.svg").pixmap(16));
+    setIcon(QIcon(":gm/data/icon.svg"));
+    setTitle(tr("GreaseMonkey"));
     setToolTip(tr("Open GreaseMonkey settings"));
 
-    connect(this, SIGNAL(clicked(QPoint)), this, SLOT(openSettings()));
+    connect(this, &AbstractButtonInterface::clicked, this, &GM_Icon::openSettings);
+}
+
+QString GM_Icon::id() const
+{
+    return QSL("greasemonkey-icon");
+}
+
+QString GM_Icon::name() const
+{
+    return tr("GreaseMonkey Icon");
 }
 
 void GM_Icon::openSettings()
 {
-    m_manager->showSettings(m_window);
+    m_manager->showSettings(webView());
 }

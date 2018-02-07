@@ -55,22 +55,32 @@
 <context>
     <name>GM_Icon</name>
     <message>
+        <location filename="../gm_icon.cpp" line="28"/>
+        <source>GreaseMonkey</source>
+        <translation>GreaseMonkey</translation>
+    </message>
+    <message>
         <location filename="../gm_icon.cpp" line="29"/>
         <source>Open GreaseMonkey settings</source>
-        <translation>Greasemonkey の設定を開く</translation>
+        <translation>GreaseMonkey の設定を開く</translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="41"/>
+        <source>GreaseMonkey Icon</source>
+        <translation>GreaseMonkey アイコン</translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="203"/>
+        <location filename="../gm_manager.cpp" line="211"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="267"/>
+        <location filename="../gm_manager.cpp" line="278"/>
         <source>&apos;%1&apos; is already installed</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; は既にインストール済みです</translation>
     </message>
 </context>
 <context>
@@ -126,7 +136,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="200"/>
         <source>New user script</source>
-        <translation type="unfinished"/>
+        <translation>新しいユーザースクリプト</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="91"/>
@@ -141,12 +151,12 @@
     <message>
         <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Add script</source>
-        <translation type="unfinished"/>
+        <translation>スクリプトを追加</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.cpp" line="122"/>
         <source>Choose name for script:</source>
-        <translation type="unfinished"/>
+        <translation>スクリプトの名前を入力してください:</translation>
     </message>
 </context>
 <context>

@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -64,6 +64,10 @@ public:
     bool showMenuInside() const;
     void setShowMenuInside(bool enable);
 
+    // Show button menu on right click
+    bool showMenuOnRightClick() const;
+    void setShowMenuOnRightClick(bool enable);
+
     // Set the button to look as it was in toolbar
     // (it now only sets the correct icon size)
     bool toolbarButtonLook() const;
@@ -98,7 +102,8 @@ private:
     enum Options {
         MultiIconOption = 1,
         ShowMenuInsideOption = 2,
-        ToolBarLookOption = 4
+        ToolBarLookOption = 4,
+        ShowMenuOnRightClick = 8
     };
     Q_DECLARE_FLAGS(OptionsFlags, Options)
     OptionsFlags m_options;

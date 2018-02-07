@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 
 #include "qzcommon.h"
 
+class QUrl;
 class QHBoxLayout;
 class QSplitter;
 class QWebEngineHistoryItem;
@@ -31,28 +32,29 @@ class WebSearchBar;
 class BrowserWindow;
 class ReloadStopButton;
 class Menu;
-class QUrl;
+class AbstractButtonInterface;
+class TabbedWebView;
 
 class QUPZILLA_EXPORT NavigationBar : public QWidget
 {
     Q_OBJECT
-public:
-    explicit NavigationBar(BrowserWindow* window);
-
     Q_PROPERTY(int layoutMargin READ layoutMargin WRITE setLayoutMargin)
     Q_PROPERTY(int layoutSpacing READ layoutSpacing WRITE setLayoutSpacing)
 
+public:
+    explicit NavigationBar(BrowserWindow* window);
+    ~NavigationBar();
+
     void setSplitterSizes(int locationBar, int websearchBar);
+
+    void setCurrentView(TabbedWebView *view);
 
     void showReloadButton();
     void showStopButton();
 
-    ToolButton* buttonBack() { return m_buttonBack; }
-    ToolButton* buttonForward() { return m_buttonForward; }
-    ToolButton* buttonHome() { return m_buttonHome; }
-    ToolButton* buttonAddTab() { return m_buttonAddTab; }
-    ToolButton* buttonExitFullscreen() { return m_exitFullscreen; }
-    ReloadStopButton* buttonReloadStop() { return m_reloadStop; }
+    void enterFullScreen();
+    void leaveFullScreen();
+
     WebSearchBar* webSearchBar() { return m_searchLine; }
     QSplitter* splitter() { return m_navigationSplitter; }
 
@@ -64,7 +66,11 @@ public:
     int layoutSpacing() const;
     void setLayoutSpacing(int spacing);
 
-signals:
+    void addWidget(QWidget *widget, const QString &id, const QString &name);
+    void removeWidget(const QString &id);
+
+    void addToolButton(AbstractButtonInterface *button);
+    void removeToolButton(AbstractButtonInterface *button);
 
 public slots:
     void refreshHistory();
@@ -79,36 +85,47 @@ public slots:
 private slots:
     void aboutToShowHistoryNextMenu();
     void aboutToShowHistoryBackMenu();
+    void aboutToShowToolsMenu();
 
     void loadHistoryIndex();
     void loadHistoryIndexInNewTab(int index = -1);
 
     void clearHistory();
     void contextMenuRequested(const QPoint &pos);
+    void openConfigurationDialog();
+    void toolActionActivated();
 
 private:
-    QString titleForUrl(QString title, const QUrl &url);
-    QIcon iconForPage(const QUrl &url, const QIcon &sIcon);
-
+    void loadSettings();
+    void reloadLayout();
     void loadHistoryItem(const QWebEngineHistoryItem &item);
     void loadHistoryItemInNewTab(const QWebEngineHistoryItem &item);
 
     BrowserWindow* m_window;
-
     QHBoxLayout* m_layout;
     QSplitter* m_navigationSplitter;
-    ToolButton* m_buttonBack;
-    ToolButton* m_buttonForward;
-    ToolButton* m_buttonHome;
-    ToolButton* m_buttonAddTab;
-    ToolButton* m_supMenu;
-    ToolButton* m_exitFullscreen;
-    ReloadStopButton* m_reloadStop;
+    WebSearchBar* m_searchLine;
 
     Menu* m_menuBack;
     Menu* m_menuForward;
+    ToolButton* m_buttonBack;
+    ToolButton* m_buttonForward;
+    ReloadStopButton* m_reloadStop;
+    Menu *m_menuTools;
+    ToolButton* m_supMenu;
+    ToolButton *m_exitFullscreen;
 
-    WebSearchBar* m_searchLine;
+    struct WidgetData {
+        QString id;
+        QString name;
+        QWidget *widget = nullptr;
+        AbstractButtonInterface *button = nullptr;
+    };
+
+    QStringList m_layoutIds;
+    QHash<QString, WidgetData> m_widgets;
+
+    friend class NavigationBarConfigDialog;
 };
 
 #endif // NAVIGATIONBAR_H

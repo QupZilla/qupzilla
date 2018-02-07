@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -51,8 +51,6 @@ namespace Qz
 {
 // Version of session.dat file
 extern const int sessionVersion;
-// Backwards compatibility (used to be different for Qt4 and Qt5)
-extern const int sessionVersionQt5;
 
 // Version of bookmarks.json file
 extern const int bookmarksVersion;
@@ -91,6 +89,7 @@ enum CommandLineAction {
 enum ObjectName {
     ON_WebView,
     ON_TabBar,
+    ON_TabWidget,
     ON_BrowserWindow
 };
 
@@ -113,8 +112,6 @@ Q_DECLARE_FLAGS(NewTabPositionFlags, NewTabPositionFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(Qz::NewTabPositionFlags)
 
 }
-
-#define ADBLOCK_EASYLIST_URL "https://easylist-downloads.adblockplus.org/easylist.txt"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
 #define DEFAULT_THEME_NAME "chrome"

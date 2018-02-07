@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -45,10 +45,10 @@ QJsonArray RecoveryJsObject::restoreData() const
     QJsonArray out;
 
     int i = 0;
-    Q_FOREACH (const RestoreManager::WindowData &w, m_manager->restoreData()) {
+    Q_FOREACH (const BrowserWindow::SavedWindow &w, m_manager->restoreData().windows) {
         int j = 0;
         QJsonArray tabs;
-        Q_FOREACH (const WebTab::SavedTab &t, w.tabsState) {
+        Q_FOREACH (const WebTab::SavedTab &t, w.tabs) {
             const QIcon icon = t.icon.isNull() ? IconProvider::emptyWebIcon() : t.icon;
             QJsonObject tab;
             tab[QSL("tab")] = j;
@@ -72,12 +72,9 @@ QJsonArray RecoveryJsObject::restoreData() const
 
 void RecoveryJsObject::startNewSession()
 {
-    BrowserWindow *window = getBrowserWindow();
-    if (!window)
-        return;
+    closeTab();
 
-    m_page->load(window->homepageUrl());
-
+    mApp->restoreManager()->clearRestoreData();
     mApp->destroyRestoreManager();
 }
 
@@ -93,34 +90,41 @@ void RecoveryJsObject::restoreSession(const QStringList &excludeWin, const QStri
         int win = excludeWin.at(i).toInt();
         int tab = excludeTab.at(i).toInt();
 
-        if (!QzTools::containsIndex(data, win) || !QzTools::containsIndex(data.at(win).tabsState, tab))
+        if (!QzTools::containsIndex(data.windows, win) || !QzTools::containsIndex(data.windows.at(win).tabs, tab))
             continue;
 
-        RestoreManager::WindowData &wd = data[win];
+        BrowserWindow::SavedWindow &wd = data.windows[win];
 
-        wd.tabsState.remove(tab);
+        wd.tabs.remove(tab);
         if (wd.currentTab >= tab)
             --wd.currentTab;
 
-        if (wd.tabsState.isEmpty()) {
-            data.remove(win);
+        if (wd.tabs.isEmpty()) {
+            data.windows.remove(win);
             continue;
         }
 
         if (wd.currentTab < 0)
-            wd.currentTab = wd.tabsState.size() - 1;
+            wd.currentTab = wd.tabs.size() - 1;
     }
 
-    BrowserWindow *window = getBrowserWindow();
-    if (!window)
-        return;
-
-    if (!mApp->restoreSession(window , data))
+    if (mApp->restoreSession(nullptr, data)) {
+        closeTab();
+    } else {
         startNewSession();
+    }
 }
 
-BrowserWindow *RecoveryJsObject::getBrowserWindow() const
+void RecoveryJsObject::closeTab()
 {
     TabbedWebView *view = qobject_cast<TabbedWebView*>(m_page->view());
-    return view ? view->browserWindow() : Q_NULLPTR;
+    if (!view) {
+        return;
+    }
+
+    if (view->browserWindow()->tabCount() > 1) {
+        view->closeView();
+    } else {
+        view->browserWindow()->close();
+    }
 }

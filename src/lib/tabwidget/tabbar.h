@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -38,11 +38,7 @@ public:
     void setVisible(bool visible);
     void setForceHidden(bool hidden);
 
-    void overrideTabTextColor(int index, QColor color);
-    void restoreTabTextColor(int index);
-
     void setTabText(int index, const QString &text);
-    void updatePinnedTabCloseButton(int index);
 
     void wheelEvent(QWheelEvent* event);
 
@@ -62,6 +58,7 @@ private:
 
     void hideCloseButton(int index);
     void showCloseButton(int index);
+    void updatePinnedTabCloseButton(int index);
 
     void contextMenuEvent(QContextMenuEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
@@ -70,6 +67,8 @@ private:
     void mouseReleaseEvent(QMouseEvent* event);
 
     void dragEnterEvent(QDragEnterEvent* event);
+    void dragMoveEvent(QDragMoveEvent *event);
+    void dragLeaveEvent(QDragLeaveEvent *event);
     void dropEvent(QDropEvent* event);
 
     QSize tabSizeHint(int index, bool fast) const;
@@ -86,7 +85,6 @@ private:
     mutable int m_normalTabWidth;
     mutable int m_activeTabWidth;
 
-    QColor m_originalTabTextColor;
     QPoint m_dragStartPosition;
 
     bool m_forceHidden;

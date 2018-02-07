@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="license" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+  <rdf:RDF>
+   <cc:Work rdf:about="close.svg">
+    <dc:description>Speed Dial close button</dc:description>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:date>2018-01-10</dc:date>
+    <dc:creator>Konstantin Savun</dc:creator>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/legalcode"/>
+    <cc:attributionName rdf:resource="Konstantin Savun"/>
+    <cc:attributionURL rdf:resource="diablopc@linuxforum.tech"/>
+   </cc:Work>
+  </rdf:RDF>
+</metadata>
+ <defs>
+  <style id="current-color-scheme" type="text/css">.ColorScheme-NegativeText {
+        color:#da4453;
+      }</style>
+ </defs>
+ <path opacity=".99" d="m17.927 6.9843c-0.715-1.2256-1.685-2.196-2.911-2.9113-1.226-0.7154-2.564-1.073-4.016-1.073-1.4512 0-2.7898 0.3576-4.0154 1.073-1.2258 0.7152-2.1962 1.6856-2.9115 2.9113-0.7155 1.2258-1.0731 2.5644-1.0731 4.0157 0 1.4514 0.35774 2.7898 1.073 4.0157 0.71535 1.2255 1.6858 2.196 2.9115 2.9114 1.2257 0.715 2.5642 1.073 4.0155 1.073 1.4514 0 2.79-0.35761 4.0157-1.073 1.2256-0.71522 2.196-1.6858 2.9114-2.9114 0.715-1.226 1.073-2.565 1.073-4.016 0-1.4514-0.358-2.79-1.073-4.0157zm-3.1564 5.901c0.13195 0.13181 0.19805 0.28831 0.19805 0.46884 0 0.18743-0.0661 0.34725-0.19805 0.47907l-0.93743 0.93756c-0.13195 0.13195-0.29164 0.19792-0.4792 0.19792-0.18053 0-0.33702-0.066-0.46872-0.19792l-1.8855-1.8855-1.8855 1.8855c-0.13195 0.13195-0.28818 0.19792-0.46872 0.19792-0.18756 0-0.34725-0.066-0.4792-0.19792l-0.9379-0.938c-0.132-0.132-0.1979-0.291-0.1979-0.479 0-0.18053 0.065973-0.33703 0.19792-0.46884l1.8855-1.885-1.8855-1.8855c-0.132-0.1318-0.1979-0.2882-0.1979-0.4687 0-0.18756 0.065973-0.34725 0.19792-0.4792l0.9375-0.9374c0.132-0.132 0.2917-0.1979 0.4792-0.1979 0.18053 0 0.33677 0.066 0.46872 0.19792l1.8855 1.8854 1.8855-1.8854c0.13169-0.13195 0.28818-0.19792 0.46872-0.19792 0.18756 0 0.34725 0.066 0.4792 0.19792l0.93743 0.93743c0.13195 0.13195 0.19805 0.29164 0.19805 0.4792 0 0.18053-0.0661 0.3369-0.19805 0.46872l-1.885 1.8855 1.8853 1.8854z" class="ColorScheme-NegativeText" fill="#eaeaea"/>
+</svg>

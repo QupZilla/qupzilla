@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -22,22 +22,36 @@
 
 #include "qzcommon.h"
 
+class LoadRequest;
 class LocationCompleterDelegate;
 
-class QUPZILLA_EXPORT LocationCompleterView : public QListView
+class QTimer;
+class QHBoxLayout;
+
+class QUPZILLA_EXPORT LocationCompleterView : public QWidget
 {
     Q_OBJECT
 public:
     explicit LocationCompleterView();
 
-    QPersistentModelIndex hoveredIndex() const;
+    QAbstractItemModel *model() const;
+    void setModel(QAbstractItemModel *model);
+
+    QItemSelectionModel *selectionModel() const;
+
+    QModelIndex currentIndex() const;
+    void setCurrentIndex(const QModelIndex &index);
 
     void setOriginalText(const QString &originalText);
+
+    void adjustSize();
 
     bool eventFilter(QObject* object, QEvent* event);
 
 signals:
     void closed();
+    void searchEnginesDialogRequested();
+    void loadRequested(const LoadRequest &request);
 
     void indexActivated(const QModelIndex &index);
     void indexCtrlActivated(const QModelIndex &index);
@@ -47,13 +61,17 @@ signals:
 public slots:
     void close();
 
-protected:
-    void mouseReleaseEvent(QMouseEvent* event);
-
 private:
-    bool m_ignoreNextMouseMove;
+    void setupSearchEngines();
+    void openSearchEnginesDialog();
 
-    LocationCompleterDelegate* m_delegate;
+    QListView *m_view;
+    LocationCompleterDelegate *m_delegate;
+    QHBoxLayout *m_searchEnginesLayout;
+    QString m_originalText;
+    int m_resizeHeight = -1;
+    QTimer *m_resizeTimer = nullptr;
+    bool m_forceResize = true;
 };
 
 #endif // LOCATIONCOMPLETERVIEW_H

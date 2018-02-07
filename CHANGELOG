@@ -1,3 +1,45 @@
+Version 2.2.5
+    * released 28 January 2018
+    * added Unload Tab action
+    * added search engine buttons to locationbar completer
+    * added option to disable automatic password completion on sites
+    * plugins are now always enabled (fixes missing AdBlock)
+    * bring back AdBlock and GreaseMonkey icons in statusbar + add new buttons
+    * fix incorrect size of buttons in bookmarks toolbar with some styles
+    * fix losing session when loading newer profile with old application version
+    * fix temporariliy enabling/disabling JavaScript using StatusBarIcons plugin
+    * fix user agent settings not being applied on startup
+    * fix calculating remaining time in download manager
+
+Version 2.2.4
+    * released 16 January 2018
+    * added option to disable search suggestions from locationbar
+    * added support for detaching and moving tabs to other windows with drag&drop
+    * added support for dropping text/url on tabbar to create new tabs
+    * added support for GreaseMonkey 4.0 API in userscripts
+    * added support for customizing navigation bar layout and widgets
+    * added support for loading userChrome.css stylesheet from profile to configure interface
+    * added new buttons to navigation bar: Tools, Downloads, GreaseMonkey and AdBlock
+    * added new Windows theme and improve every other theme
+    * added support for printing from JavaScript with window.print()
+    * closed windows can now be restored using history menu or Ctrl+Shit+N shortcut
+    * multiple windows in session now each restore its geometry, state and settings
+    * number of fixes and improvements in tabbar
+    * greatly improved compatibility with various GreaseMonkey userscripts
+    * updated design for SpeedDial
+    * fix infinite loading animation on some sites with QtWebEngine 5.10
+    * fix restoring maximized state after leaving fullscreen
+    * fix internal pages not working when JavaScript is disabled
+    * fix showing close button in Web Inspector
+    * fix tabs not being restored when activated in some cases
+    * fix loading "localhost" from locationbar
+    * fix applying web settings when in private mode
+
+Version 2.2.3
+    * released 19 December 2017
+    * fix crashes with Qt 5.10
+    * fix default proxy configuration type in preferences
+
 Version 2.2.2
     * released 05 December 2017
     * updated available user agent strings

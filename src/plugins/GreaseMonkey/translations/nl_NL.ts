@@ -56,19 +56,29 @@
     <name>GM_Icon</name>
     <message>
         <location filename="../gm_icon.cpp" line="29"/>
+        <source>GreaseMonkey</source>
+        <translation>GreaseMonkey</translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="30"/>
         <source>Open GreaseMonkey settings</source>
         <translation>GreaseMonkey-instellingen openen</translation>
+    </message>
+    <message>
+        <location filename="../gm_icon.cpp" line="42"/>
+        <source>GreaseMonkey Icon</source>
+        <translation>GreaseMonkey-pictogram</translation>
     </message>
 </context>
 <context>
     <name>GM_Manager</name>
     <message>
-        <location filename="../gm_manager.cpp" line="197"/>
+        <location filename="../gm_manager.cpp" line="211"/>
         <source>GreaseMonkey</source>
         <translation>GreaseMonkey</translation>
     </message>
     <message>
-        <location filename="../gm_manager.cpp" line="261"/>
+        <location filename="../gm_manager.cpp" line="278"/>
         <source>&apos;%1&apos; is already installed</source>
         <translation>&apos;%1&apos; is al geïnstalleerd</translation>
     </message>
@@ -111,7 +121,7 @@
     <message>
         <location filename="../settings/gm_settings.ui" line="70"/>
         <source>Double clicking script will show additional information</source>
-        <translation>Dubbelklikken op een script zal extra informatie weergeven</translation>
+        <translation>Dubbelklik op een script om extra informatie te weergeven</translation>
     </message>
     <message>
         <location filename="../settings/gm_settings.ui" line="150"/>

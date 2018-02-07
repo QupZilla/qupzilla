@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2014-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -25,10 +25,11 @@
 #include "qztools.h"
 #include "history.h"
 #include "qzsettings.h"
+#include "sqldatabase.h"
+#include "closedwindowsmanager.h"
 
 #include <QApplication>
 #include <QWebEngineHistory>
-#include <QSqlQuery>
 
 HistoryMenu::HistoryMenu(QWidget* parent)
     : Menu(parent)
@@ -79,8 +80,8 @@ void HistoryMenu::aboutToShow()
         actions().at(1)->setEnabled(view->history()->canGoForward());
     }
 
-    while (actions().count() != 7) {
-        QAction* act = actions().at(7);
+    while (actions().count() != 8) {
+        QAction* act = actions().at(8);
         if (act->menu()) {
             act->menu()->clear();
         }
@@ -90,7 +91,7 @@ void HistoryMenu::aboutToShow()
 
     addSeparator();
 
-    QSqlQuery query;
+    QSqlQuery query(SqlDatabase::instance()->database());
     query.exec(QSL("SELECT title, url FROM history ORDER BY date DESC LIMIT 10"));
 
     while (query.next()) {
@@ -145,13 +146,11 @@ void HistoryMenu::aboutToShowClosedTabs()
 
     TabWidget* tabWidget = m_window->tabWidget();
 
-    int i = 0;
-    const QLinkedList<ClosedTabsManager::Tab> closedTabs = tabWidget->closedTabsManager()->allClosedTabs();
-
-    foreach (const ClosedTabsManager::Tab &tab, closedTabs) {
-        const QString title = QzTools::truncatedText(tab.title, 40);
-        QAction* act = m_menuClosedTabs->addAction(tab.icon, title, tabWidget, SLOT(restoreClosedTab()));
-        act->setData(i++);
+    const auto closedTabs = tabWidget->closedTabsManager()->closedTabs();
+    for (int i = 0; i < closedTabs.count(); ++i) {
+        const ClosedTabsManager::Tab tab = closedTabs.at(i);
+        const QString title = QzTools::truncatedText(tab.tabState.title, 40);
+        m_menuClosedTabs->addAction(tab.tabState.icon, title, tabWidget, SLOT(restoreClosedTab()))->setData(i);
     }
 
     if (m_menuClosedTabs->isEmpty()) {
@@ -161,6 +160,34 @@ void HistoryMenu::aboutToShowClosedTabs()
         m_menuClosedTabs->addSeparator();
         m_menuClosedTabs->addAction(tr("Restore All Closed Tabs"), tabWidget, SLOT(restoreAllClosedTabs()));
         m_menuClosedTabs->addAction(tr("Clear list"), tabWidget, SLOT(clearClosedTabsList()));
+    }
+}
+
+void HistoryMenu::aboutToShowClosedWindows()
+{
+    m_menuClosedWindows->clear();
+
+    ClosedWindowsManager *manager = mApp->closedWindowsManager();
+
+    const auto closedWindows = manager->closedWindows();
+    for (int i = 0; i < closedWindows.count(); ++i) {
+        const ClosedWindowsManager::Window window = closedWindows.at(i);
+        const QString title = QzTools::truncatedText(window.title, 40);
+        QAction *act = m_menuClosedWindows->addAction(window.icon, title, manager, SLOT(restoreClosedWindow()));
+        if (i == 0) {
+            act->setShortcut(QKeySequence(QSL("Ctrl+Shift+N")));
+            act->setShortcutContext(Qt::WidgetShortcut);
+        } else {
+            act->setData(i);
+        }
+    }
+
+    if (m_menuClosedWindows->isEmpty()) {
+        m_menuClosedWindows->addAction(tr("Empty"))->setEnabled(false);
+    } else {
+        m_menuClosedWindows->addSeparator();
+        m_menuClosedWindows->addAction(tr("Restore All Closed Windows"), manager, SLOT(restoreAllClosedWindows()));
+        m_menuClosedWindows->addAction(tr("Clear list"), manager, SLOT(clearClosedWindows()));
     }
 }
 
@@ -231,6 +258,10 @@ void HistoryMenu::init()
     m_menuClosedTabs = new Menu(tr("Closed Tabs"));
     connect(m_menuClosedTabs, SIGNAL(aboutToShow()), this, SLOT(aboutToShowClosedTabs()));
 
+    m_menuClosedWindows = new Menu(tr("Closed Windows"));
+    connect(m_menuClosedWindows, &QMenu::aboutToShow, this, &HistoryMenu::aboutToShowClosedWindows);
+
     addMenu(m_menuMostVisited);
     addMenu(m_menuClosedTabs);
+    addMenu(m_menuClosedWindows);
 }

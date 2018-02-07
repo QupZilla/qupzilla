@@ -1,6 +1,7 @@
 /* ============================================================
 * FlashCookieManager plugin for QupZilla
 * Copyright (C) 2014  S. Razi Alavizadeh <s.r.alavizadeh@gmail.com>
+* Copyright (C) 2018  David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,6 +27,7 @@
 class BrowserWindow;
 class FCM_Dialog;
 class QTimer;
+class AbstractButtonInterface;
 
 struct FlashCookie {
     QString name;
@@ -79,7 +81,7 @@ private slots:
     void startStopTimer();
 
 private:
-    QWidget* createStatusBarIcon(BrowserWindow* mainWindow);
+    AbstractButtonInterface* createStatusBarIcon(BrowserWindow* mainWindow);
     void loadFlashCookies();
     void loadFlashCookies(QString path);
     void insertFlashCookie(QString path);
@@ -89,7 +91,7 @@ private:
     void removeAllButWhitelisted();
     QString sharedObjectDirName() const;
 
-    QHash<BrowserWindow*, QWidget*> m_statusBarIcons;
+    QHash<BrowserWindow*, AbstractButtonInterface*> m_statusBarIcons;
     QPointer<FCM_Dialog> m_fcmDialog;
 
     QString m_settingsPath;

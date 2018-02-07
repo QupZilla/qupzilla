@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2015-2017 David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2015-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,25 +18,30 @@
 
 #include "scripts.h"
 #include "qztools.h"
+#include "webpage.h"
 
 #include <QUrlQuery>
 
-QString Scripts::setupWebChannel()
+QString Scripts::setupWebChannel(quint32 worldId)
 {
-    QString source =  QL1S("(function() {"
-                           "%1"
+    QString source =  QL1S("// ==UserScript==\n"
+                           "// %1\n"
+                           "// ==/UserScript==\n\n"
+                           "(function() {"
+                           "%2"
                            ""
                            "function registerExternal(e) {"
                            "    window.external = e;"
                            "    if (window.external) {"
                            "        var event = document.createEvent('Event');"
                            "        event.initEvent('_qupzilla_external_created', true, true);"
+                           "        window._qupzilla_external = true;"
                            "        document.dispatchEvent(event);"
                            "    }"
                            "}"
                            ""
                            "if (self !== top) {"
-                           "    if (top.external)"
+                           "    if (top._qupzilla_external)"
                            "        registerExternal(top.external);"
                            "    else"
                            "        top.document.addEventListener('_qupzilla_external_created', function() {"
@@ -48,7 +53,14 @@ QString Scripts::setupWebChannel()
                            "function registerWebChannel() {"
                            "    try {"
                            "        new QWebChannel(qt.webChannelTransport, function(channel) {"
-                           "            registerExternal(channel.objects.qz_object);"
+                           "            var external = channel.objects.qz_object;"
+                           "            external.extra = {};"
+                           "            for (var key in channel.objects) {"
+                           "                if (key != 'qz_object' && key.startsWith('qz_')) {"
+                           "                    external.extra[key.substr(3)] = channel.objects[key];"
+                           "                }"
+                           "            }"
+                           "            registerExternal(external);"
                            "        });"
                            "    } catch (e) {"
                            "        setTimeout(registerWebChannel, 100);"
@@ -58,7 +70,13 @@ QString Scripts::setupWebChannel()
                            ""
                            "})()");
 
-    return source.arg(QzTools::readAllFileContents(QSL(":/qtwebchannel/qwebchannel.js")));
+    QString match;
+    if (worldId == WebPage::SafeJsWorld) {
+        match = QSL("@exclude qupzilla:*");
+    } else {
+        match = QSL("@include qupzilla:*");
+    }
+    return source.arg(match, QzTools::readAllFileContents(QSL(":/qtwebchannel/qwebchannel.js")));
 }
 
 QString Scripts::setupFormObserver()
@@ -120,6 +138,26 @@ QString Scripts::setupFormObserver()
                           "});"
                           "observer.observe(document.documentElement, { childList: true, subtree: true });"
                           ""
+                          "})()");
+
+    return source;
+}
+
+QString Scripts::setupWindowObject()
+{
+    QString source = QL1S("(function() {"
+                          "var external = {};"
+                          "external.AddSearchProvider = function(url) {"
+                          "    window.location = 'qupzilla:AddSearchProvider?url=' + url;"
+                          "};"
+                          "external.IsSearchProviderInstalled = function(url) {"
+                          "    console.warn('NOT IMPLEMENTED: IsSearchProviderInstalled()');"
+                          "    return false;"
+                          "};"
+                          "window.external = external;"
+                          "window.print = function() {"
+                          "    window.location = 'qupzilla:PrintPage';"
+                          "};"
                           "})()");
 
     return source;

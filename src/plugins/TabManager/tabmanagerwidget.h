@@ -71,6 +71,7 @@ public:
     void closeSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash);
     void detachSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash);
     bool bookmarkSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash);
+    void unloadSelectedTabs(const QHash<BrowserWindow*, WebTab*> &tabsHash);
 
     void setGroupType(GroupType type);
 

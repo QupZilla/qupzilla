@@ -1,6 +1,6 @@
 /* ============================================================
 * StatusBarIcons - Extra icons in statusbar for QupZilla
-* Copyright (C) 2013-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2013-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -82,13 +82,21 @@ void SBI_JavaScriptIcon::updateIcon()
 
 void SBI_JavaScriptIcon::toggleJavaScript()
 {
-    if (!currentPage()) {
+    WebPage *page = currentPage();
+    if (!page) {
         return;
-
     }
 
     bool current = testCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled);
-    currentPage()->setJavaScriptEnabled(!current);
+    setCurrentPageWebAttribute(QWebEngineSettings::JavascriptEnabled, !current);
+
+    m_settings[page] = !current;
+
+    connect(page, &WebPage::navigationRequestAccepted, this, [=](const QUrl &, WebPage::NavigationType, bool isMainFrame) {
+        if (isMainFrame) {
+            page->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, m_settings[page]);
+        }
+    });
 
     m_window->weView()->reload();
 
