@@ -585,8 +585,8 @@ void WebTab::p_restoreTab(const WebTab::SavedTab &tab)
 
 void WebTab::showNotification(QWidget* notif)
 {
-    m_notificationWidget->setParent(nullptr);
     m_notificationWidget->setParent(this);
+    m_notificationWidget->raise();
     m_notificationWidget->setFixedWidth(width());
     m_notificationWidget->layout()->addWidget(notif);
     m_notificationWidget->show();
