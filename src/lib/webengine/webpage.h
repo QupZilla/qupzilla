@@ -109,6 +109,10 @@ private:
 
     QMetaObject::Connection m_contentsResizedConnection;
 
+    QUrl m_channelUrl;
+    int m_channelWorldId = -1;
+    QTimer *m_setupChannelTimer = nullptr;
+
     friend class WebView;
 };
 
