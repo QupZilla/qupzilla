@@ -57,6 +57,8 @@ private:
 
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
+    
+    int fixedMinHeight = -1;
 
     BrowserWindow* m_window;
     Bookmarks* m_bookmarks;
