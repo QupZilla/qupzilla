@@ -214,11 +214,9 @@ void BookmarksToolbar::addItem(BookmarkItem* item)
     button->setShowOnlyText(m_bookmarks->showOnlyTextInToolbar());
     m_layout->addWidget(button);
     
-    if(fixedMinHeight != -1){
-        setMinimumHeight(fixedMinHeight);
-    }else{
-        fixedMinHeight = minimumSizeHint().height();
-        setMinimumHeight(fixedMinHeight);
+    if(!m_fixedMinHeight){
+        m_fixedMinHeight = true;
+        setMinimumHeight(minimumSizeHint().height());
     }
 }
 
