@@ -57,8 +57,6 @@ private:
 
     void dropEvent(QDropEvent* e);
     void dragEnterEvent(QDragEnterEvent* e);
-    
-    int fixedMinHeight = -1;
 
     BrowserWindow* m_window;
     Bookmarks* m_bookmarks;
@@ -67,6 +65,8 @@ private:
     QTimer* m_updateTimer;
     QAction* m_actShowOnlyIcons = nullptr;
     QAction* m_actShowOnlyText = nullptr;
+    
+    bool m_fixedMinHeight = false;
 };
 
 #endif // BOOKMARKSTOOLBAR_H
