@@ -534,8 +534,9 @@ void ComboTabBar::setUpLayout()
     }
 
     // We need to setup heights even before m_mainTabBar->height() has correct value
-    // So lets just set minimum 5px height
-    height = qMax(5, height);
+    // So lets just set minimum 32px height so that if just pinned tabs were present
+    // in the last session, then height becomes very small
+    height = qMax(32, height);
 
     setFixedHeight(height);
     m_pinnedTabBar->setFixedHeight(height);
