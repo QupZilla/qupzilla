@@ -262,6 +262,8 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
 
     bool makePinned = index >= m_tabBar->pinnedTabsCount();
     QWidget* button = m_tabBar->tabButton(index, m_tabBar->iconButtonPosition());
+    // To show tooltip of tab which is pinned in the current session
+    QString m_tabToolTip = tabToolTip(index);
 
     m_tabBar->m_blockCurrentChangedSignal = true;
     m_tabBar->setTabButton(index, m_tabBar->iconButtonPosition(), 0);
@@ -271,6 +273,7 @@ int TabStackedWidget::pinUnPinTab(int index, const QString &title)
 
     m_tabBar->setTabButton(newIndex, m_tabBar->iconButtonPosition(), button);
     m_tabBar->m_blockCurrentChangedSignal = false;
+    setTabToolTip(newIndex, m_tabToolTip);
 
     // Restore current widget
     setCurrentWidget(currentWidget);
