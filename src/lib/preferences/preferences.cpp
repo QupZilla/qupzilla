@@ -708,7 +708,7 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager* dialog = new CookieManager();
+    CookieManager* dialog = new CookieManager(this);
     dialog->show();
 }
 

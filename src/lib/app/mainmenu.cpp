@@ -309,7 +309,7 @@ void MainMenu::showDownloadManager()
 
 void MainMenu::showCookieManager()
 {
-    CookieManager* m = new CookieManager();
+    CookieManager* m = new CookieManager(m_window);
     m->show();
     m->raise();
 }
