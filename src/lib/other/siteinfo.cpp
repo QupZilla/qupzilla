@@ -37,8 +37,8 @@
 #include <QTimer>
 #include <QGraphicsPixmapItem>
 
-SiteInfo::SiteInfo(WebView* view)
-    : QWidget()
+SiteInfo::SiteInfo(WebView *view)
+    : QDialog(view)
     , ui(new Ui::SiteInfo)
     , m_certWidget(0)
     , m_view(view)

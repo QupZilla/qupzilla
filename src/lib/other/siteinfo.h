@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #include "qzcommon.h"
 
 #include <QUrl>
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui
 {
@@ -34,12 +34,12 @@ class QTreeWidgetItem;
 class WebView;
 class CertificateInfoWidget;
 
-class QUPZILLA_EXPORT SiteInfo : public QWidget
+class QUPZILLA_EXPORT SiteInfo : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SiteInfo(WebView* view);
+    explicit SiteInfo(WebView *view);
     ~SiteInfo();
 
     static bool canShowSiteInfo(const QUrl &url);
