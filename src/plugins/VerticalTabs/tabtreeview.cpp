@@ -185,6 +185,9 @@ void TabTreeView::rowsInserted(const QModelIndex &parent, int start, int end)
         for (const QModelIndex &index : qAsConst(stack)) {
             expand(index);
         }
+        if (index.data(TabModel::CurrentTabRole).toBool()) {
+            setCurrentIndex(index);
+        }
     });
 }
 
