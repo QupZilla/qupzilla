@@ -1,6 +1,6 @@
 /* ============================================================
-* QupZilla - WebKit based browser
-* Copyright (C) 2010-2014  David Rosca <nowrep@gmail.com>
+* QupZilla - Qt web browser
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 #ifndef COOKIEMANAGER_H
 #define COOKIEMANAGER_H
 
-#include <QWidget>
+#include <QDialog>
 
 #include "qzcommon.h"
 
@@ -32,12 +32,12 @@ class QNetworkCookie;
 
 class BrowserWindow;
 
-class QUPZILLA_EXPORT CookieManager : public QWidget
+class QUPZILLA_EXPORT CookieManager : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CookieManager();
+    explicit CookieManager(QWidget *parent = nullptr);
     ~CookieManager();
 
 private slots:

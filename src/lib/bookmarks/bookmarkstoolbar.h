@@ -65,7 +65,6 @@ private:
     QTimer* m_updateTimer;
     QAction* m_actShowOnlyIcons = nullptr;
     QAction* m_actShowOnlyText = nullptr;
-    
     bool m_fixedMinHeight = false;
 };
 

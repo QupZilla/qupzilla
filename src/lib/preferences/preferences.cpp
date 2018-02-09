@@ -92,7 +92,7 @@ static QString createLanguageItem(const QString &lang)
 }
 
 Preferences::Preferences(BrowserWindow* window)
-    : QWidget()
+    : QDialog(window)
     , ui(new Ui::Preferences)
     , m_window(window)
     , m_autoFillManager(0)
@@ -708,7 +708,7 @@ void Preferences::allowHtml5storageChanged(bool stat)
 
 void Preferences::showCookieManager()
 {
-    CookieManager* dialog = new CookieManager();
+    CookieManager* dialog = new CookieManager(this);
     dialog->show();
 }
 

@@ -19,7 +19,7 @@
 #define PREFERENCES_H
 
 #include <QUrl>
-#include <QWidget>
+#include <QDialog>
 #include <QPointer>
 
 #include "qzcommon.h"
@@ -38,7 +38,7 @@ class PluginsManager;
 class DesktopNotification;
 class ThemeManager;
 
-class QUPZILLA_EXPORT Preferences : public QWidget
+class QUPZILLA_EXPORT Preferences : public QDialog
 {
     Q_OBJECT
 

@@ -485,10 +485,10 @@ void TabWidget::requestCloseTab(int index)
     if (count() <= 1) {
         // If we are not closing window upon closing last tab, let's just load new-tab-url
         if (m_dontCloseWithOneTab) {
-            if (webView->url() == m_urlOnNewTab) {
-                // We don't want to accumulate more than one closed tab, if user tries
-                // to close the last tab multiple times
-                m_closedTabsManager->takeLastClosedTab();
+            // We don't want to accumulate more than one closed tab, if user tries
+            // to close the last tab multiple times
+            if (webView->url() != m_urlOnNewTab) {
+                m_closedTabsManager->saveTab(webTab);
             }
             webView->zoomReset();
             webView->load(m_urlOnNewTab);
