@@ -527,6 +527,10 @@ void ComboTabBar::setUpLayout()
 {
     int height = qMax(m_mainTabBar->height(), m_pinnedTabBar->height());
 
+    if (height < 1) {
+        height = qMax(m_mainTabBar->sizeHint().height(), m_pinnedTabBar->sizeHint().height());
+    }
+
     // Workaround for Oxygen theme. For some reason, QTabBar::height() returns bigger
     // height than it actually should.
     if (mApp->styleName() == QLatin1String("oxygen")) {
@@ -538,7 +542,6 @@ void ComboTabBar::setUpLayout()
     height = qMax(5, height);
 
     setFixedHeight(height);
-    m_pinnedTabBar->setFixedHeight(height);
     m_leftContainer->setFixedHeight(height);
     m_rightContainer->setFixedHeight(height);
     m_mainTabBarWidget->setUpLayout();
@@ -546,10 +549,10 @@ void ComboTabBar::setUpLayout()
 
     setMinimumWidths();
 
-    if (isVisible() && m_mainTabBar->count() > 0) {
+    if (isVisible() && height > 5) {
         // ComboTabBar is now visible, we can sync heights of both tabbars
-        m_pinnedTabBar->setFixedHeight(m_mainTabBar->sizeHint().height());
-        m_mainTabBar->setFixedHeight(m_mainTabBar->sizeHint().height());
+        m_mainTabBar->setFixedHeight(height);
+        m_pinnedTabBar->setFixedHeight(height);
     }
 }
 
