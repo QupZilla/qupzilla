@@ -56,6 +56,8 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     const int height = opt.rect.height();
     const int center = height / 2 + opt.rect.top();
 
+    painter->setRenderHint(QPainter::Antialiasing);
+
     // Draw background
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, w);
 
@@ -86,6 +88,25 @@ void TabListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         painter->drawEllipse(audioRect);
 
         painter->drawPixmap(audioRect, audioMuted ? TabIcon::data()->audioMutedPixmap : TabIcon::data()->audioPlayingPixmap);
+    }
+
+    // Draw background activity indicator
+    const bool backgroundActivity = index.data(TabModel::BackgroundActivityRole).toBool();
+    if (backgroundActivity) {
+        QSize activitySize(7, 7);
+        QPoint pos(iconRect.center().x() - activitySize.width() / 2 + 1, iconRect.bottom() - 2);
+        QRect activityRect(pos, activitySize);
+
+        QColor c1 = opt.palette.color(QPalette::Window);
+        c1.setAlpha(180);
+        painter->setPen(Qt::transparent);
+        painter->setBrush(c1);
+        painter->drawEllipse(activityRect);
+
+        const QRect r2 = activityRect.adjusted(1, 1, -1, -1);
+        painter->setPen(Qt::transparent);
+        painter->setBrush(opt.palette.color(QPalette::Text));
+        painter->drawEllipse(r2);
     }
 }
 
