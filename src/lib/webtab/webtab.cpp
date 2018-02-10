@@ -182,6 +182,7 @@ WebTab::WebTab(QWidget *parent)
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleWasChanged);
     connect(m_webView, &TabbedWebView::titleChanged, this, &WebTab::titleChanged);
     connect(m_webView, &TabbedWebView::iconChanged, this, &WebTab::iconChanged);
+    connect(m_webView, &TabbedWebView::backgroundActivityChanged, this, &WebTab::backgroundActivityChanged);
     connect(m_webView, &TabbedWebView::loadStarted, this, std::bind(&WebTab::loadingChanged, this, true));
     connect(m_webView, &TabbedWebView::loadFinished, this, std::bind(&WebTab::loadingChanged, this, false));
 
@@ -438,6 +439,11 @@ void WebTab::toggleMuted()
 {
     bool muted = isMuted();
     setMuted(!muted);
+}
+
+bool WebTab::backgroundActivity() const
+{
+    return m_webView->backgroundActivity();
 }
 
 LocationBar* WebTab::locationBar() const

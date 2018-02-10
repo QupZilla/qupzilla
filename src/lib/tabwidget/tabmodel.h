@@ -59,7 +59,8 @@ public:
         CurrentTabRole = Qt::UserRole + 6,
         LoadingRole = Qt::UserRole + 7,
         AudioPlayingRole = Qt::UserRole + 8,
-        AudioMutedRole = Qt::UserRole + 9
+        AudioMutedRole = Qt::UserRole + 9,
+        BackgroundActivityRole = Qt::UserRole + 10
     };
 
     explicit TabModel(BrowserWindow *window, QObject *parent = nullptr);

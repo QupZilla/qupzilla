@@ -108,6 +108,8 @@ public:
     void setMuted(bool muted);
     void toggleMuted();
 
+    bool backgroundActivity() const;
+
     int tabIndex() const;
 
     bool isCurrentTab() const;
@@ -144,6 +146,7 @@ signals:
     void loadingChanged(bool loading);
     void mutedChanged(bool muted);
     void playingChanged(bool playing);
+    void backgroundActivityChanged(bool activity);
     void parentTabChanged(WebTab *tab);
     void childTabAdded(WebTab *tab, int index);
     void childTabRemoved(WebTab *tab, int index);
