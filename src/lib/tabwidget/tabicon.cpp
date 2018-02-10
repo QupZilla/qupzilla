@@ -132,7 +132,7 @@ void TabIcon::show()
         return;
     }
 
-    setFixedSize(16, 16);
+    setFixedSize(16, qMax(minimumHeight(), 16));
     emit resized();
     QWidget::show();
 }
@@ -144,7 +144,7 @@ void TabIcon::hide()
     }
 
     emit resized();
-    setFixedSize(1, 16);
+    setFixedSize(1, qMax(minimumHeight(), 16));
     QWidget::hide();
 }
 
