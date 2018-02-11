@@ -21,6 +21,7 @@
 #include "datapaths.h"
 #include "qztools.h"
 #include "autosaver.h"
+#include "mainapplication.h"
 
 #include <QDir>
 #include <QCryptographicHash>
@@ -34,6 +35,7 @@ SpeedDial::SpeedDial(QObject* parent)
     : QObject(parent)
     , m_maxPagesInRow(4)
     , m_sizeOfSpeedDials(231)
+    , m_searchEnabled(true)
     , m_sdcentered(false)
     , m_loaded(false)
     , m_regenerateScript(true)
@@ -59,6 +61,7 @@ void SpeedDial::loadSettings()
     m_backgroundImageSize = settings.value("backsize", "auto").toString();
     m_maxPagesInRow = settings.value("pagesrow", 4).toInt();
     m_sizeOfSpeedDials = settings.value("sdsize", 231).toInt();
+    m_searchEnabled = settings.value("searchEnabled", true).toBool();
     m_sdcentered = settings.value("sdcenter", false).toBool();
     settings.endGroup();
 
@@ -93,6 +96,7 @@ void SpeedDial::saveSettings()
     settings.setValue("backsize", m_backgroundImageSize);
     settings.setValue("pagesrow", m_maxPagesInRow);
     settings.setValue("sdsize", m_sizeOfSpeedDials);
+    settings.setValue("searchEnabled", m_searchEnabled);
     settings.setValue("sdcenter", m_sdcentered);
     settings.endGroup();
 }
@@ -172,6 +176,13 @@ int SpeedDial::sdSize()
     return m_sizeOfSpeedDials;
 }
 
+bool SpeedDial::searchEnabled()
+{
+    ENSURE_LOADED;
+
+    return m_searchEnabled;
+}
+
 bool SpeedDial::sdCenter()
 {
     ENSURE_LOADED;
@@ -227,6 +238,12 @@ QString SpeedDial::initialScript()
     }
 
     return m_initialScript;
+}
+
+SearchEnginesManager::Engine SpeedDial::searchEngine()
+{
+
+    return mApp->searchEnginesManager()->speeddialEngine();
 }
 
 void SpeedDial::changed(const QString &allPages)
@@ -316,6 +333,13 @@ void SpeedDial::setPagesInRow(int count)
 void SpeedDial::setSdSize(int count)
 {
     m_sizeOfSpeedDials = count;
+}
+
+void SpeedDial::setSearchEnabled(bool searchenabled)
+{
+    m_searchEnabled = searchenabled;
+
+    m_autoSaver->changeOccurred();
 }
 
 void SpeedDial::setSdCentered(bool centered)

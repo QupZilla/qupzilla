@@ -23,6 +23,7 @@
 #include <QWebEnginePage>
 
 #include "qzcommon.h"
+#include "searchenginesmanager.h"
 
 class QUrl;
 class QPixmap;
@@ -59,8 +60,11 @@ public:
     void addPage(const QUrl &url, const QString &title);
     void removePage(const Page &page);
 
+    static SearchEnginesManager::Engine searchEngine();
+
     int pagesInRow();
     int sdSize();
+    bool searchEnabled();
     bool sdCenter();
 
     QString backgroundImage();
@@ -84,6 +88,7 @@ public slots:
     void setBackgroundImageSize(const QString &size);
     void setPagesInRow(int count);
     void setSdSize(int count);
+    void setSearchEnabled(bool searchenabled);
     void setSdCentered(bool centered);
 
 private slots:
@@ -103,6 +108,7 @@ private:
     QString m_backgroundImageSize;
     int m_maxPagesInRow;
     int m_sizeOfSpeedDials;
+    bool m_searchEnabled;
     bool m_sdcentered;
 
     QList<Page> m_pages;

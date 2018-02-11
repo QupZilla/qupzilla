@@ -72,6 +72,7 @@ SearchEnginesManager::SearchEnginesManager(QObject* parent)
     Settings settings;
     settings.beginGroup("SearchEngines");
     m_startingEngineName = settings.value("activeEngine", "DuckDuckGo").toString();
+    m_speeddialEngineName = settings.value("SpeeddialEngine", "DuckDuckGo").toString();
     m_defaultEngineName = settings.value("DefaultEngine", "DuckDuckGo").toString();
     settings.endGroup();
 
@@ -97,6 +98,10 @@ void SearchEnginesManager::loadSettings()
 
         m_allEngines.append(en);
 
+        if (en.name == m_speeddialEngineName) {
+            m_speeddialEngine = en;
+        }
+
         if (en.name == m_defaultEngineName) {
             m_defaultEngine = en;
         }
@@ -104,6 +109,10 @@ void SearchEnginesManager::loadSettings()
 
     if (m_allEngines.isEmpty()) {
         restoreDefaults();
+    }
+
+    if (m_speeddialEngine.name.isEmpty()) {
+        m_speeddialEngine = m_allEngines[0];
     }
 
     if (m_defaultEngine.name.isEmpty()) {
@@ -192,6 +201,7 @@ void SearchEnginesManager::restoreDefaults()
     addEngine(wiki);
     addEngine(google);
 
+    m_speeddialEngine = duck;
     m_defaultEngine = duck;
 
     emit enginesChanged();
@@ -427,6 +437,18 @@ void SearchEnginesManager::setActiveEngine(const Engine &engine)
     emit activeEngineChanged();
 }
 
+void SearchEnginesManager::setSpeeddialEngine(const SearchEnginesManager::Engine &sdengine)
+{
+    ENSURE_LOADED;
+
+    if (!m_allEngines.contains(sdengine)) {
+        return;
+    }
+
+    m_speeddialEngine = sdengine;
+    emit speeddialEngineChanged();
+}
+
 void SearchEnginesManager::setDefaultEngine(const SearchEnginesManager::Engine &engine)
 {
     ENSURE_LOADED;
@@ -479,6 +501,7 @@ void SearchEnginesManager::saveSettings()
     Settings settings;
     settings.beginGroup("SearchEngines");
     settings.setValue("activeEngine", m_activeEngine.name);
+    settings.setValue("SpeeddialEngine", m_speeddialEngine.name);
     settings.setValue("DefaultEngine", m_defaultEngine.name);
     settings.endGroup();
 

@@ -294,6 +294,7 @@ QString QupZillaSchemeReply::speeddialPage()
         dPage.replace(QLatin1String("%LOADING-IMG%"), QLatin1String("qrc:html/loading.gif"));
         dPage.replace(QLatin1String("%IMG_SETTINGS%"), QLatin1String("qrc:html/configure.svg"));
 
+        dPage.replace(QLatin1String("%SEARCH-TITLE%"), tr("Search Engine"));
         dPage.replace(QLatin1String("%SITE-TITLE%"), tr("Speed Dial"));
         dPage.replace(QLatin1String("%ADD-TITLE%"), tr("Add New Page"));
         dPage.replace(QLatin1String("%TITLE-EDIT%"), tr("Edit"));
@@ -330,8 +331,11 @@ QString QupZillaSchemeReply::speeddialPage()
     page.replace(QLatin1String("%IMG_BACKGROUND%"), dial->backgroundImage());
     page.replace(QLatin1String("%URL_BACKGROUND%"), dial->backgroundImageUrl());
     page.replace(QLatin1String("%B_SIZE%"), dial->backgroundImageSize());
+    page.replace(QLatin1String("%SEARCH-HINT%"), tr("Search with") + " " + dial->searchEngine().name);
+    page.replace(QLatin1String("%SEARCH-URL%"), dial->searchEngine().url);
     page.replace(QLatin1String("%ROW-PAGES%"), QString::number(dial->pagesInRow()));
     page.replace(QLatin1String("%SD-SIZE%"), QString::number(dial->sdSize()));
+    page.replace(QLatin1String("%SEARCH-ENABLED%"), QVariant(dial->searchEnabled()).toString());
     page.replace(QLatin1String("%SD-CENTER%"), dial->sdCenter() ? QSL("true") : QSL("false"));
 
     return page;

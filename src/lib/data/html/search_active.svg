@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="license" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+  <rdf:RDF>
+   <cc:Work rdf:about="search_active.svg">
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:date>2018-01-18</dc:date>
+    <dc:creator>Konstantin Savun</dc:creator>
+    <cc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/legalcode"/>
+    <cc:attributionName rdf:resource="Konstantin Savun"/>
+    <cc:attributionURL rdf:resource="diablopc@linuxforum.tech"/>
+   </cc:Work>
+  </rdf:RDF>
+</metadata>
+ <defs>
+  <style id="current-color-scheme" type="text/css">.ColorScheme-Text {
+        color:#bebebe;
+      }</style>
+ </defs>
+ <path style="color:#bebebe" d="m7.1299 2.003c-0.4891 0.0165-0.9675 0.107-1.4335 0.2709-0.6215 0.2184-1.1641 0.5325-1.6305 0.9433-0.4664 0.4109-0.8483 0.9113-1.1448 1.5014-0.2966 0.5902-0.4672 1.2186-0.5104 1.8837-0.0432 0.665 0.0447 1.3081 0.2625 1.932 0.2177 0.6237 0.5313 1.1695 0.9406 1.6377 0.40929 0.4683 0.90698 0.85223 1.4948 1.15 0.58792 0.29775 1.2129 0.46778 1.8755 0.51113 1.0194 0.06675 1.9625-0.1617 2.8292-0.684l2.2298 2.5428c0.15528 0.18765 0.35778 0.2898 0.60814 0.30615 0.24089 0.01575 0.45431-0.05925 0.64168-0.2241 0.18754-0.16515 0.28909-0.36908 0.3048-0.6108 0.01609-0.2463-0.05547-0.46125-0.21584-0.64448l-2.228-2.5492c0.62858-0.79485 0.97626-1.7043 1.0427-2.7275 0.043-0.6649-0.044-1.3096-0.262-1.9333-0.217-0.6239-0.531-1.1696-0.94-1.6377-0.41-0.4682-0.909-0.8508-1.4967-1.1484-0.588-0.2977-1.2129-0.4692-1.8754-0.5127-0.16563-0.0105-0.32986-0.01275-0.49293-0.0075zm0.37772 1.7943c0.8571 0.05625 1.5698 0.40905 2.1394 1.0605 0.56957 0.65138 0.82591 1.4072 0.77002 2.2674-0.0559 0.86055-0.40836 1.5771-1.0573 2.1489-0.649 0.5717-1.4017 0.8299-2.2589 0.7729-0.8571-0.0558-1.5699-0.4101-2.1394-1.0615-0.5696-0.6515-0.8274-1.407-0.7715-2.2674s0.4083-1.5758 1.0573-2.1474c0.649-0.5718 1.4034-0.8295 2.2605-0.7734z" class="ColorScheme-Text" stroke="#414141" stroke-width=".7" fill="#00afff"/>
+</svg>

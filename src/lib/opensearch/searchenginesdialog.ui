@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
+    <width>473</width>
     <height>299</height>
    </rect>
   </property>
@@ -49,6 +49,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setForSpeeddial">
+       <property name="text">
+        <string>Set for speeddial</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="setAsDefault">
