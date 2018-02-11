@@ -4,7 +4,7 @@
     <message>
         <location filename="../tabmanagerwidgetcontroller.cpp" line="50"/>
         <source>Tab Manager button</source>
-        <translation type="unfinished"/>
+        <translation>Botón de Administrador de Pestañas</translation>
     </message>
 </context>
 <context>
@@ -110,7 +110,7 @@
     <message>
         <location filename="../tabmanagerwidget.cpp" line="329"/>
         <source>&amp;Unload checked tabs</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Descargar pestañas seleccionadas</translation>
     </message>
     <message>
         <location filename="../tabmanagerwidget.cpp" line="581"/>

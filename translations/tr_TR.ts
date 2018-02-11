@@ -221,17 +221,17 @@
 <context>
     <name>AdBlockManager</name>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="183"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="184"/>
         <source>Do you want to add &lt;b&gt;%1&lt;/b&gt; subscription?</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; imzasını eklemek istiyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="185"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="186"/>
         <source>AdBlock Subscription</source>
         <translation>AdBlock İmzası</translation>
     </message>
     <message>
-        <location filename="../src/lib/adblock/adblockmanager.cpp" line="315"/>
+        <location filename="../src/lib/adblock/adblockmanager.cpp" line="316"/>
         <source>EasyList</source>
         <translation>EasyList</translation>
     </message>
@@ -326,32 +326,32 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</translation>
 <context>
     <name>AutoFill</name>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="240"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="258"/>
         <source>Database (encrypted)</source>
         <translation>Veritabanı (şifrelenmiş)</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="561"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="579"/>
         <source>Warning!</source>
         <translation>Uyarı!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="562"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="580"/>
         <source>This backend needs a master password to be set! QupZilla just switches to its default backend</source>
         <translation>Bu arkauç bir ana parola belirlemeyi gerektirmektedir. QupZilla varsayılan arkaucu değişebilir</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="652"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="670"/>
         <source>Enter Master Password</source>
         <translation>Ana Parolayı Girin</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="656"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="674"/>
         <source>Permission is required, please enter Master Password:</source>
         <translation>İzin gerekiyor, lütfen Ana Parolayı girin:</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="662"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="680"/>
         <source>Entered password is wrong!</source>
         <translation>Girilen parola yanlış!</translation>
     </message>
@@ -2427,7 +2427,7 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
 <context>
     <name>LocationBar</name>
     <message>
-        <location filename="../src/lib/navigation/locationbar.cpp" line="92"/>
+        <location filename="../src/lib/navigation/locationbar.cpp" line="93"/>
         <source>Paste And &amp;Go</source>
         <translation>Yapıştır ve &amp;Git</translation>
     </message>
@@ -2450,17 +2450,17 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
 <context>
     <name>LocationCompleterDelegate</name>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="167"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="157"/>
         <source>Visit</source>
         <translation>Ziyaret etmek</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="173"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="163"/>
         <source>Search with %1</source>
         <translation>%1 ile ara</translation>
     </message>
     <message>
-        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="205"/>
+        <location filename="../src/lib/navigation/completer/locationcompleterdelegate.cpp" line="197"/>
         <source>Switch to tab</source>
         <translation>Sekmeye geç</translation>
     </message>
@@ -2481,37 +2481,37 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
 <context>
     <name>MainApplication</name>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1087"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1109"/>
         <source>QupZilla is not currently your default browser. Would you like to make it your default browser?</source>
         <translation>QupZilla varsayılan web tarayıcınız değil. QupZillayı varsayılan web tarayıcınız yapmak ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1088"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1110"/>
         <source>Always perform this check when starting QupZilla.</source>
         <translation>QupZilla başladığında bu kontrolü herzaman yap.</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1090"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1112"/>
         <source>Default Browser</source>
         <translation>Varsayılan Web Tarayıcı</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1208"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1230"/>
         <source>Open new tab</source>
         <translation>Yeni sekme aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1209"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1231"/>
         <source>Open new window</source>
         <translation>Yeni pencere aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1210"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1232"/>
         <source>Open new private window</source>
         <translation>Yeni bir gizli sekme aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/app/mainapplication.cpp" line="1225"/>
+        <location filename="../src/lib/app/mainapplication.cpp" line="1247"/>
         <source>QupZilla is a new, fast and secure open-source WWW browser. QupZilla is licensed under GPL version 3 or (at your option) any later version. It is based on WebKit core and Qt Framework.</source>
         <translation>QupZilla yeni, hızlı ve güvenli Web tarayıcısıdır. QupZilla GPL v3 altında lisanslanmıştır ve gelecekte de lisanslanacaktır.QupZilla WebKit ve Qt Framework tabanlı bir uygulamadır.</translation>
     </message>
@@ -2818,30 +2818,30 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
         <translation>&lt;b&gt;Not:&lt;/b&gt; Ana parola sıfırlanabilir değil. Ana parola unutmayın.</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="529"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="534"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="583"/>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="626"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="547"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="552"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="601"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="644"/>
         <source>Warning!</source>
         <translation>Uyarı!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="529"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="547"/>
         <source>You entered a wrong password!</source>
         <translation>Yanlış parola girdiniz!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="534"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="552"/>
         <source>New/Confirm password fields do not match!</source>
         <translation>Yeni/Onaylanan parola bölümleri uyuşmuyor!</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="583"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="601"/>
         <source>Are you sure you want to clear master password and decrypt data?</source>
         <translation>Ana parolayı kaldırıp tüm şifreli veriyi şifresiz yapmak istediğinize emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="626"/>
+        <location filename="../src/lib/autofill/passwordbackends/databaseencryptedpasswordbackend.cpp" line="644"/>
         <source>Some data has not been decrypted. The master password was not cleared!</source>
         <translation>Bazı veriler şifresiz yapılamadı. Ana parola kaldırılamadı!</translation>
     </message>
@@ -3206,7 +3206,7 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
     </message>
     <message>
         <location filename="../src/lib/preferences/preferences.ui" line="227"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="845"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="831"/>
         <source>Note: You cannot delete active profile.</source>
         <translation>Not: Geçerli profili silemezsiniz.</translation>
     </message>
@@ -3547,7 +3547,7 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
         <location filename="../src/lib/preferences/preferences.ui" line="1263"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1797"/>
         <location filename="../src/lib/preferences/preferences.ui" line="1894"/>
-        <location filename="../src/lib/preferences/preferences.ui" line="2484"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2491"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -3879,249 +3879,254 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
         <translation>Sitelerdeki parolaları kaydetmeye izin ver</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1991"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="1987"/>
+        <source>Automatically complete passwords on sites</source>
+        <translation>Sitelerde otomatik olarak şifreleri tamamlama</translation>
+    </message>
+    <message>
+        <location filename="../src/lib/preferences/preferences.ui" line="1998"/>
         <source>&lt;b&gt;Cookies&lt;/b&gt;</source>
         <translation>&lt;b&gt;Çerezler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="1998"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2005"/>
         <source>&lt;b&gt;Other&lt;/b&gt;</source>
         <translation>&lt;b&gt;Diğer&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2024"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2031"/>
         <source>JavaScript options</source>
         <translation>JavaScript seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2034"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2041"/>
         <source>&lt;b&gt;JavaScript&lt;/b&gt;</source>
         <translation>&lt;b&gt;JavaScript&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2047"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2054"/>
         <source>Cookies Manager</source>
         <translation>Çerez Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2057"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2064"/>
         <source>Manage JavaScript privacy options</source>
         <translation>JavaScript gizlilik ayarlarını yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2080"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2087"/>
         <source>Manage HTML5 permissions</source>
         <translation>HTML5 izinlerini yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2087"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2094"/>
         <source>Manage Cookies</source>
         <translation>Çerezleri Yönet</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2107"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2114"/>
         <source>&lt;b&gt;HTML5 Permissions&lt;/b&gt;</source>
         <translation>&lt;b&gt;HTML5 İzinleri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2120"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2127"/>
         <source>HTML5 Permissions</source>
         <translation>HTML5 İzinleri</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2127"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2134"/>
         <source>Send Do Not Track header to servers</source>
         <translation>Send Do Not Track header to servers</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2153"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2160"/>
         <source>Expiration timeout:</source>
         <translation>Son kullanma zamanaşımı:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2166"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2173"/>
         <source> seconds</source>
         <translation>saniye</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2188"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2195"/>
         <source>&lt;b&gt;Notifications&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bildirimler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2211"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2218"/>
         <source>Use Native System Notifications (Linux only)</source>
         <translation>Yerel Sistem Bildirimlerini kullan(sadece linux için)</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2218"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2225"/>
         <source>Do not use Notifications</source>
         <translation>Bildirimleri kullanma</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2241"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2248"/>
         <source>&lt;b&gt;Note: &lt;/b&gt;You can change position of OSD Notification by dragging it on the screen.</source>
         <translation>&lt;b&gt;Not: &lt;/b&gt;OSD bildirim kutusunu ekranda sürükleyerek pozisyonunu değiştirebilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2267"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2274"/>
         <source>Use OSD Notifications</source>
         <translation>OSD Bildirimlerini Kullan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2274"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2281"/>
         <source>Preview</source>
         <translation>Ön İzleme</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2339"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2346"/>
         <source>For more information about Spell Check, please see &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</source>
         <translation>Çeviri hakkında daha fazla bilgi, lütfen bakınız &lt;a href=&quot;https://github.com/QupZilla/qupzilla/wiki/Spell-Check&quot;&gt;wiki&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2381"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2388"/>
         <source>&lt;b&gt;Spell Check options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Yazım Denetimi Seçenekleri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2388"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2395"/>
         <source>Enable Spell Check</source>
         <translation>Yazım Denetimi Etkin</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2395"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2402"/>
         <source>&lt;b&gt;Dictionary directories&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sözlük yöneticileri&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2449"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2456"/>
         <source>No languages found</source>
         <translation>Hiçbir dil bulunamadı.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2460"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2467"/>
         <source>&lt;b&gt;Manage search engines&lt;/b&gt;</source>
         <translation>&lt;b&gt;Arama motorlarını yönet&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2467"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2474"/>
         <source>&lt;b&gt;User Style Sheet&lt;/b&gt;</source>
         <translation>&lt;b&gt;Kullanıcı Stil Sayfası&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2474"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2481"/>
         <source>Style Sheet automatically loaded with all websites: </source>
         <translation>Stil Sayfası tüm web siteleriyle otomatik olarak yüklendi: </translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2504"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2511"/>
         <source>&lt;b&gt;Preferred language for web sites&lt;/b&gt;</source>
         <translation>&lt;b&gt;Web siteleri için tercih edilen diller&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2524"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2531"/>
         <source>&lt;b&gt;Change browser identification&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tarayıcı kimliğini değiştir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2549"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2556"/>
         <source>User Agent Manager</source>
         <translation>Kullanıcı Yetki Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2589"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2596"/>
         <source>Languages</source>
         <translation>Diller</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.ui" line="2629"/>
+        <location filename="../src/lib/preferences/preferences.ui" line="2636"/>
         <source>Search Engines Manager</source>
         <translation>Arama Motorları Yöneticisi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="148"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="611"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="147"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="607"/>
         <source>Default</source>
         <translation>Varsayılan</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="152"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="151"/>
         <source>Set as default</source>
         <translation>Varsayılan olarak ayarla</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="553"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="550"/>
         <source>Choose executable location...</source>
         <translation>Çalıştırılabilir dosya konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="597"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="593"/>
         <source>OSD Notification</source>
         <translation>OSD Bildirimi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="598"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="594"/>
         <source>Drag it on the screen to place it where you want.</source>
         <translation>Ekranda istediğiniz yere sürükleyin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="647"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="643"/>
         <source>Choose download location...</source>
         <translation>İndirme konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="661"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="657"/>
         <source>Choose stylesheet location...</source>
         <translation>Stil konumunu seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="672"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="668"/>
         <source>Deleted</source>
         <translation>Silindi</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="762"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="758"/>
         <source>Choose cache path...</source>
         <translation>Önbellek klasöünü seçin...</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="789"/>
         <source>New Profile</source>
         <translation>Yeni Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="803"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="789"/>
         <source>Enter the new profile&apos;s name:</source>
         <translation>Yeni profil ismini girin:</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="799"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
         <source>Error!</source>
         <translation>Hata!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="813"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="799"/>
         <source>This profile already exists!</source>
         <translation>Bu profil zaten mevcut!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="818"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="804"/>
         <source>Cannot create profile directory!</source>
         <translation>Profil klasörü oluşturulamadı!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="829"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="815"/>
         <source>Confirmation</source>
         <translation>Onay</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="830"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="816"/>
         <source>Are you sure you want to permanently delete &quot;%1&quot; profile? This action cannot be undone!</source>
         <translation>%1 isimli profili kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!</translation>
     </message>
     <message>
-        <location filename="../src/lib/preferences/preferences.cpp" line="1100"/>
+        <location filename="../src/lib/preferences/preferences.cpp" line="1087"/>
         <source>Select Color</source>
         <translation>Renk Seç</translation>
     </message>
@@ -4509,6 +4514,7 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
     </message>
     <message>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="382"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
         <source>Extensions</source>
         <translation>Eklentiler</translation>
     </message>
@@ -4528,81 +4534,81 @@ Lütfen QupZilla uygulamasının en son sürümünü yükleyin.</numerusform></t
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="389"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
         <source>Application version</source>
         <translation>Uygulama sürümü</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="396"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
         <source>Qt version</source>
         <translation>Qt srürümü</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="397"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="409"/>
         <source>Platform</source>
         <translation>İşletim sistemi</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="400"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="412"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="401"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="413"/>
         <source>Settings</source>
         <translation>Ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="402"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="414"/>
         <source>Saved session</source>
         <translation>Kayıtlı oturum</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="403"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="415"/>
         <source>Data</source>
         <translation>Veri</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="404"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="416"/>
         <source>Themes</source>
         <translation>Arayüzler</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="405"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="418"/>
         <source>Translations</source>
         <translation>Çeviriler</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="408"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="415"/>
         <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
         <source>&lt;b&gt;Enabled&lt;/b&gt;</source>
         <translation>&lt;b&gt;Aktif&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="410"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="417"/>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="421"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="423"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="430"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="434"/>
         <source>Disabled</source>
         <translation>Aktif değil</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="424"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="437"/>
         <source>Debug build</source>
         <translation>Hata kontrol yapılandırması</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="426"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="439"/>
         <source>Windows 7 API</source>
         <translation>Windows 7 API</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="428"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="441"/>
         <source>Portable build</source>
         <translation>Taşınabilir yapılandırma</translation>
     </message>
     <message>
-        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="446"/>
+        <location filename="../src/lib/network/schemehandlers/qupzillaschemehandler.cpp" line="459"/>
         <source>No available extensions.</source>
         <translation>Kullanılabilir eklenti yok.</translation>
     </message>
@@ -5457,58 +5463,58 @@ Bu işlem için Yönetici yetkilerini kullanmanız ve bir bardak çay işe yaray
 <context>
     <name>WebPage</name>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="276"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="277"/>
         <source>QupZilla cannot handle &lt;b&gt;%1:&lt;/b&gt; links. The requested link is &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Do you want QupZilla to try open this link in system application?</source>
         <translation>QupZilla &lt;b&gt;%1:&lt;/b&gt; linklerini açamaz. Açmak istenilen link şu: &lt;ul&gt;&lt;li&gt;%2&lt;/li&gt;&lt;/ul&gt;Bu linki bir sistem uygulamasıyla açmak ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="281"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="282"/>
         <source>Remember my choice for this protocol</source>
         <translation>Bu protokol için seçimimi hatırla</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="282"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="283"/>
         <source>External Protocol Request</source>
         <translation>Harici Protokol Başvurusu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="362"/>
         <location filename="../src/lib/webengine/webpage.cpp" line="363"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="364"/>
         <source>Failed loading page</source>
         <translation>Sayfa yüklenirken hata oluştu</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="364"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="365"/>
         <source>Something went wrong while loading this page.</source>
         <translation>Bu sayfa yükleme sırasında bir şeyler ters gitti.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="365"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="366"/>
         <source>Try reloading the page or closing some tabs to make more memory available.</source>
         <translation>daha fazla bellek için sayfayı yeniden yüklemeyi veya bazı sekmeleri kapatmayı  deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="366"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="367"/>
         <source>Reload page</source>
         <translation>Tekrar Yükle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="434"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="435"/>
         <source>Choose file...</source>
         <translation>Dosya seç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="438"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="439"/>
         <source>Choose files...</source>
         <translation>Dosya seç...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="553"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="549"/>
         <source>JavaScript alert</source>
         <translation>JavaScript uyarısı</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webpage.cpp" line="562"/>
+        <location filename="../src/lib/webengine/webpage.cpp" line="558"/>
         <source>Prevent this page from creating additional dialogs</source>
         <translation>Ek diyaloglar oluşturarak bu sayfayı engelle</translation>
     </message>
@@ -5557,257 +5563,257 @@ Bu işlem için Yönetici yetkilerini kullanmanız ve bir bardak çay işe yaray
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="130"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="129"/>
         <source>Empty Page</source>
         <translation>Boş Sayfa</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="412"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="386"/>
         <source>QupZilla %1 (%2)</source>
         <translation>QupZilla %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="691"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="665"/>
         <source>No suggestions</source>
         <translation>Öneriler yok</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="742"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="716"/>
         <source>&amp;Back</source>
         <translation>&amp;Geri</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="746"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="720"/>
         <source>&amp;Forward</source>
         <translation>İ&amp;leri</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="753"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="727"/>
         <source>&amp;Add New Page</source>
         <translation>Yeni Sayf&amp;a Ekle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="728"/>
         <source>&amp;Configure Speed Dial</source>
         <translation>&amp;Hızlı Erişimi Yapılandır</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="756"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="730"/>
         <source>Reload All Dials</source>
         <translation>Aramaları Yeniden Yükle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="775"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="749"/>
         <source>Book&amp;mark page</source>
         <translation>Sayfayı Yer İmlerine Ekl&amp;e</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="750"/>
         <source>&amp;Save page as...</source>
         <translation>&amp;Sayfayı farklı kaydet...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="777"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="751"/>
         <source>&amp;Copy page link</source>
         <translation>Sayfa linkini &amp;kopyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="778"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="752"/>
         <source>Send page link...</source>
         <translation>Sayfa linkini gönder...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="780"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="754"/>
         <source>Select &amp;all</source>
         <translation>Tümün&amp;ü seç</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="785"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="759"/>
         <source>Validate page</source>
         <translation>Sayfayı doğrula</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="763"/>
         <source>Translate page</source>
         <translation>Sayfayı başka dile çevir</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="793"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="767"/>
         <source>Show so&amp;urce code</source>
         <translation>Sayfanın kaynak kod&amp;unu görüntüle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="796"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="770"/>
         <source>Show info ab&amp;out site</source>
         <translation>Sayfa hakkında bil&amp;gileri görüntüle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="802"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="776"/>
         <source>Open link in new &amp;tab</source>
         <translation>Linki ye&amp;ni sekmede aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="807"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="781"/>
         <source>Open link in new &amp;window</source>
         <translation>Linki yeni &amp;pencerede aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="782"/>
         <source>Open link in &amp;private window</source>
         <translation>Linki gizli tarama &amp;penceresinde aç</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="813"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="787"/>
         <source>B&amp;ookmark link</source>
         <translation>Linki &amp;yer imlerine ekle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="815"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="789"/>
         <source>&amp;Save link as...</source>
         <translation>Linki &amp;farklı kaydet...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="816"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="790"/>
         <source>Send link...</source>
         <translation>Linki gönder...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="817"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="791"/>
         <source>&amp;Copy link address</source>
         <translation>Link adresini k&amp;opyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="829"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="803"/>
         <source>Show i&amp;mage</source>
         <translation>Res&amp;mi göster</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="834"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="808"/>
         <source>Copy image</source>
         <translation>Resmi Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="835"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="809"/>
         <source>Copy image ad&amp;dress</source>
         <translation>Resim a&amp;dresini kopyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="837"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="811"/>
         <source>&amp;Save image as...</source>
         <translation>Re&amp;smi farklı kaydet...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="838"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="812"/>
         <source>Send image...</source>
         <translation>Resmi gönder...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="857"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="831"/>
         <source>Send text...</source>
         <translation>Metni gönder...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="862"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="836"/>
         <source>Google Translate</source>
         <translation>Google  Çeviri</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="868"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="842"/>
         <source>Dictionary</source>
         <translation>Sözlük</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="883"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="857"/>
         <source>Go to &amp;web address</source>
         <translation>&amp;Web adresine git</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="897"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="871"/>
         <source>Search &quot;%1 ..&quot; with %2</source>
         <translation>%1 öğesini %2 ile ara</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="903"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="877"/>
         <source>Search with...</source>
         <translation>Şununla ara...</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>&amp;Play</source>
         <translation>O&amp;ynat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="924"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="898"/>
         <source>&amp;Pause</source>
         <translation>D&amp;uraklat</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
         <source>Un&amp;mute</source>
         <translation>Ses&amp;li</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="925"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="899"/>
         <source>&amp;Mute</source>
         <translation>&amp;Sessiz</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="927"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="901"/>
         <source>&amp;Copy Media Address</source>
         <translation>Medya Adresini K&amp;opyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="928"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="902"/>
         <source>&amp;Send Media Address</source>
         <translation>Medya Adre&amp;sini Gönder</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="929"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="903"/>
         <source>Save Media To &amp;Disk</source>
         <translation>Medyayı &amp;Diske Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="948"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="922"/>
         <source>Create Search Engine</source>
         <translation>Yeni Arama Motoru Oluştur</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="989"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="963"/>
         <source>&amp;Undo</source>
         <translation>Geri Al</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="995"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="969"/>
         <source>&amp;Redo</source>
         <translation>Yinele</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1001"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="975"/>
         <source>&amp;Cut</source>
         <translation>Kes</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1007"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="981"/>
         <source>&amp;Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1013"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="987"/>
         <source>&amp;Paste</source>
         <translation>Ya&amp;pıştır</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1019"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="993"/>
         <source>Select All</source>
         <translation>Tümünü Seç</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1025"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="999"/>
         <source>&amp;Reload</source>
         <translation>Tek&amp;rar Yükle</translation>
     </message>
     <message>
-        <location filename="../src/lib/webengine/webview.cpp" line="1029"/>
+        <location filename="../src/lib/webengine/webview.cpp" line="1003"/>
         <source>S&amp;top</source>
         <translation>D&amp;ur</translation>
     </message>

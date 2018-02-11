@@ -4,7 +4,7 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="58"/>
         <source>Flash Cookie Manager button</source>
-        <translation type="unfinished"/>
+        <translation>Tlačítko správce cookies pro Flash</translation>
     </message>
 </context>
 <context>
@@ -35,7 +35,7 @@
         <location filename="../fcm_dialog.cpp" line="153"/>
         <location filename="../fcm_dialog.cpp" line="154"/>
         <source>&lt;flash cookie not selected&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;flash cookie not selected&gt;</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.ui" line="83"/>
@@ -213,7 +213,7 @@
         <location filename="../fcm_dialog.cpp" line="289"/>
         <location filename="../fcm_dialog.cpp" line="317"/>
         <source>Already whitelisted!</source>
-        <translation type="unfinished"/>
+        <translation>Již na seznamu povolených!</translation>
     </message>
     <message>
         <location filename="../fcm_dialog.cpp" line="289"/>
@@ -261,22 +261,22 @@
         <location filename="../fcm_plugin.cpp" line="147"/>
         <location filename="../fcm_plugin.cpp" line="377"/>
         <source>Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Správce cookies pro Flash</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="378"/>
         <source>Show Flash Cookie Manager</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit správce cookies pro Flash</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="459"/>
         <source>!default</source>
-        <translation type="unfinished"/>
+        <translation>!výchozí</translation>
     </message>
     <message>
         <location filename="../fcm_plugin.cpp" line="471"/>
         <source>!other</source>
-        <translation type="unfinished"/>
+        <translation>!ostatní</translation>
     </message>
 </context>
 </TS>

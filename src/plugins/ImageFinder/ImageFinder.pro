@@ -19,6 +19,7 @@ FORMS += imagefindersettings.ui
 TRANSLATIONS += \
     translations/bg_BG.ts \
     translations/ca_ES.ts \
+    translations/cs_CZ.ts \
     translations/da_DK.ts \
     translations/de_DE.ts \
     translations/el_GR.ts \

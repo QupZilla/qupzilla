@@ -4,7 +4,7 @@
     <message>
         <location filename="../fcm_plugin.cpp" line="58"/>
         <source>Flash Cookie Manager button</source>
-        <translation type="unfinished"/>
+        <translation>Botón Administrador de Cookie Flash</translation>
     </message>
 </context>
 <context>
