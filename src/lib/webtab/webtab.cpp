@@ -385,6 +385,10 @@ void WebTab::reload()
 
 void WebTab::load(const LoadRequest &request)
 {
+    if (!isRestored()) {
+        tabActivated();
+        QTimer::singleShot(300, this, std::bind(&WebTab::load, this, request));
+    }
     m_webView->load(request);
 }
 

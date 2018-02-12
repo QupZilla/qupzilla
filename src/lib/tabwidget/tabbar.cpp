@@ -709,8 +709,7 @@ void TabBar::dropEvent(QDropEvent* event)
         }
         if (action == SelectTab) {
             if (req.isValid()) {
-                tab->tabActivated();
-                QTimer::singleShot(300, this,[tab, req]{tab->load(req);});
+                tab->load(req);
             }
         } else if (action == PrependTab || action == AppendTab) {
             const int newIndex = action == PrependTab ? index : index + 1;
