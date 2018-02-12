@@ -642,7 +642,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent *event)
     const int index = tabAt(event->pos());
     const QMimeData* mime = event->mimeData();
 
-    if (index == -1 || (mime->hasFormat(MIMETYPE) && event->source() == this)) {
+    if (index == -1) {
         ComboTabBar::dragMoveEvent(event);
         return;
     }
@@ -679,10 +679,6 @@ void TabBar::dropEvent(QDropEvent* event)
     }
 
     event->acceptProposedAction();
-
-    if (mime->hasFormat(MIMETYPE) && event->source() == this) {
-        return;
-    }
 
     TabBar *sourceTabBar = qobject_cast<TabBar*>(event->source());
 
@@ -722,9 +718,13 @@ void TabBar::dropEvent(QDropEvent* event)
             } else if (mime->hasFormat(MIMETYPE) && sourceTabBar) {
                 WebTab *tab = sourceTabBar->webTab();
                 if (tab) {
-                    sourceTabBar->m_tabWidget->detachTab(tab);
-                    tab->setPinned(index < pinnedTabsCount());
-                    m_tabWidget->insertView(newIndex, tab, Qz::NT_SelectedTab);
+                    if (sourceTabBar == this) {
+                        tab->moveTab(newIndex > tab->tabIndex() ? newIndex - 1 : newIndex);
+                    } else {
+                        sourceTabBar->m_tabWidget->detachTab(tab);
+                        tab->setPinned(index < pinnedTabsCount());
+                        m_tabWidget->insertView(newIndex, tab, Qz::NT_SelectedTab);
+                    }
                 }
             }
         }
