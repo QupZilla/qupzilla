@@ -685,6 +685,11 @@ void TabBar::dropEvent(QDropEvent* event)
     if (mime->hasFormat(MIMETYPE) && event->source() == this) {
         int index = tabAt(event->pos());
         int current = currentIndex();
+        TabDropAction action = tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE));
+        index = action == PrependTab ? index : index + 1;
+        if (current < index){
+            index --;
+        }
         sourceTabBar->moveTab(current, index);
         return;
     }
