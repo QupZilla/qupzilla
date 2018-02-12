@@ -684,8 +684,20 @@ void TabBar::dropEvent(QDropEvent* event)
 
     if (mime->hasFormat(MIMETYPE) && event->source() == this) {
         int index = tabAt(event->pos());
+        if (index == -1) {
+            return;
+        }
         int current = currentIndex();
+        int count = pinnedTabsCount();
         TabDropAction action = tabDropAction(event->pos(), tabRect(index), !mime->hasFormat(MIMETYPE));
+        // If pinned/unpinned tab is dragged to unpinned/pinned
+        if ((current < count) ^ (index < count)){
+            webTab(current)->togglePinned();
+            current = currentIndex();
+            if ((index > current) && (index < count)){
+                index ++;
+            }
+        }
         index = action == PrependTab ? index : index + 1;
         if (current < index){
             index --;
