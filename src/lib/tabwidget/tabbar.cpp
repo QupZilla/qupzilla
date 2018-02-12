@@ -682,6 +682,13 @@ void TabBar::dropEvent(QDropEvent* event)
 
     TabBar *sourceTabBar = qobject_cast<TabBar*>(event->source());
 
+    if (mime->hasFormat(MIMETYPE) && event->source() == this) {
+        int index = tabAt(event->pos());
+        int current = currentIndex();
+        sourceTabBar->moveTab(current, index);
+        return;
+    }
+
     int index = tabAt(event->pos());
     if (index == -1) {
         if (mime->hasUrls()) {
