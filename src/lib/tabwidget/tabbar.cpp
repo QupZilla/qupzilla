@@ -642,7 +642,7 @@ void TabBar::dragMoveEvent(QDragMoveEvent *event)
     const int index = tabAt(event->pos());
     const QMimeData* mime = event->mimeData();
 
-    if (index == -1 || (mime->hasFormat(MIMETYPE) && event->source() == this)) {
+    if (index == -1) {
         ComboTabBar::dragMoveEvent(event);
         return;
     }
@@ -679,10 +679,6 @@ void TabBar::dropEvent(QDropEvent* event)
     }
 
     event->acceptProposedAction();
-
-    if (mime->hasFormat(MIMETYPE) && event->source() == this) {
-        return;
-    }
 
     TabBar *sourceTabBar = qobject_cast<TabBar*>(event->source());
 
