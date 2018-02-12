@@ -708,8 +708,9 @@ void TabBar::dropEvent(QDropEvent* event)
             req = mApp->searchEnginesManager()->searchResult(mime->text());
         }
         if (action == SelectTab) {
-            if (tab->isRestored() && req.isValid()) {
-                tab->load(req);
+            if (req.isValid()) {
+                tab->tabActivated();
+                QTimer::singleShot(300, this,[tab, req]{tab->load(req);});
             }
         } else if (action == PrependTab || action == AppendTab) {
             const int newIndex = action == PrependTab ? index : index + 1;
