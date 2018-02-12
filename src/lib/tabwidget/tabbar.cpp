@@ -708,7 +708,7 @@ void TabBar::dropEvent(QDropEvent* event)
             req = mApp->searchEnginesManager()->searchResult(mime->text());
         }
         if (action == SelectTab) {
-            if (tab->isRestored() && req.isValid()) {
+            if (req.isValid()) {
                 tab->load(req);
             }
         } else if (action == PrependTab || action == AppendTab) {
