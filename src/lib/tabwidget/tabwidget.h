@@ -96,6 +96,7 @@ public:
     ToolButton* buttonClosedTabs() const;
     AddTabButton* buttonAddTab() const;
 
+    void moveTab(int from, int to);
     int pinUnPinTab(int index, const QString &title = QString());
 
     void detachTab(WebTab* tab);

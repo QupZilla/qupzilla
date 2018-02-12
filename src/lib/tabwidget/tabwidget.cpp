@@ -649,6 +649,19 @@ void TabWidget::closeToLeft(int index)
     }
 }
 
+void TabWidget::moveTab(int from, int to)
+{
+    WebTab *tab = webTab(from);
+    if (!tab) {
+        return;
+    }
+    // (Un)pin tab when needed
+    if ((tab->isPinned() && to >= pinnedTabsCount()) || (!tab->isPinned() && to < pinnedTabsCount())) {
+        tab->togglePinned();
+    }
+    TabStackedWidget::moveTab(tab->tabIndex(), to);
+}
+
 int TabWidget::pinUnPinTab(int index, const QString &title)
 {
     const int newIndex = TabStackedWidget::pinUnPinTab(index, title);

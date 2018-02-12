@@ -186,21 +186,8 @@ bool TabModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int ro
     WebTab *tab = mimeData->tab();
 
     if (tab->browserWindow() == m_window) {
-        if (tab->isPinned()) {
-            if (row < 0) {
-                row = m_window->tabWidget()->pinnedTabsCount();
-            }
-            if (row > m_window->tabWidget()->pinnedTabsCount()) {
-                tab->togglePinned();
-            }
-        } else {
-            if (row < 0) {
-                row = m_window->tabWidget()->count();
-            }
-            if (row < m_window->tabWidget()->pinnedTabsCount()) {
-                tab->togglePinned();
-                row++;
-            }
+        if (row < 0) {
+            row = tab->isPinned() ? m_window->tabWidget()->pinnedTabsCount() : m_window->tabWidget()->count();
         }
         tab->moveTab(row > mimeData->tab()->tabIndex() ? row - 1 : row);
     } else {
