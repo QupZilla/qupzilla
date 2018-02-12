@@ -208,7 +208,8 @@ bool TabListView::viewportEvent(QEvent *event)
         const QModelIndex index = indexAt(ce->pos());
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
         const int tabIndex = tab ? tab->tabIndex() : -1;
-        TabContextMenu menu(tabIndex, m_window, TabContextMenu::HorizontalTabs);
+        TabContextMenu::Options options = TabContextMenu::HorizontalTabs | TabContextMenu::ShowDetachTabAction;
+        TabContextMenu menu(tabIndex, m_window, options);
         menu.exec(ce->globalPos());
         break;
     }

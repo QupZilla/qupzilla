@@ -35,6 +35,7 @@ public:
         HorizontalTabs = 1 << 0,
         VerticalTabs = 1 << 1,
         ShowCloseOtherTabsActions = 1 << 2,
+        ShowDetachTabAction = 1 << 3,
 
         DefaultOptions = HorizontalTabs | ShowCloseOtherTabsActions
     };
@@ -50,6 +51,7 @@ signals:
     void closeToRight(int index);
     void closeToLeft(int index);
     void duplicateTab(int index);
+    void detachTab(int index);
     void loadTab(int index);
     void unloadTab(int index);
 
@@ -58,6 +60,7 @@ private slots:
     void stopTab() { emit stopTab(m_clickedTab); }
     void closeTab() { emit tabCloseRequested(m_clickedTab); }
     void duplicateTab() { emit duplicateTab(m_clickedTab); }
+    void detachTab() { emit detachTab(m_clickedTab); }
     void loadTab() { emit loadTab(m_clickedTab); }
     void unloadTab() { emit unloadTab(m_clickedTab); }
 
@@ -75,5 +78,7 @@ private:
     BrowserWindow *m_window;
     Options m_options = InvalidOption;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(TabContextMenu::Options)
 
 #endif // TABCONTEXTMENU_H

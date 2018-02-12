@@ -43,6 +43,7 @@ TabContextMenu::TabContextMenu(int index, BrowserWindow *window, Options options
     connect(this, SIGNAL(closeToRight(int)), tabWidget, SLOT(closeToRight(int)));
     connect(this, SIGNAL(closeToLeft(int)), tabWidget, SLOT(closeToLeft(int)));
     connect(this, SIGNAL(duplicateTab(int)), tabWidget, SLOT(duplicateTab(int)));
+    connect(this, SIGNAL(detachTab(int)), tabWidget, SLOT(detachTab(int)));
     connect(this, SIGNAL(loadTab(int)), tabWidget, SLOT(loadTab(int)));
     connect(this, SIGNAL(unloadTab(int)), tabWidget, SLOT(unloadTab(int)));
 
@@ -120,6 +121,10 @@ void TabContextMenu::init()
         }
 
         addAction(QIcon::fromTheme("tab-duplicate"), tr("&Duplicate Tab"), this, SLOT(duplicateTab()));
+
+        if (m_options & ShowDetachTabAction && (mApp->windowCount() > 1 || tabWidget->count() > 1)) {
+            addAction(QIcon::fromTheme("tab-detach"), tr("D&etach Tab"), this, SLOT(detachTab()));
+        }
 
         addAction(webTab->isPinned() ? tr("Un&pin Tab") : tr("&Pin Tab"), this, SLOT(pinTab()));
         addAction(webTab->isMuted() ? tr("Un&mute Tab") : tr("&Mute Tab"), this, SLOT(muteTab()));

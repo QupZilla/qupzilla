@@ -304,7 +304,7 @@ bool TabTreeView::viewportEvent(QEvent *event)
         const QModelIndex index = indexAt(ce->pos());
         WebTab *tab = index.data(TabModel::WebTabRole).value<WebTab*>();
         const int tabIndex = tab ? tab->tabIndex() : -1;
-        TabContextMenu::Options options = TabContextMenu::VerticalTabs;
+        TabContextMenu::Options options = TabContextMenu::VerticalTabs | TabContextMenu::ShowDetachTabAction;
         if (m_tabsInOrder) {
             options |= TabContextMenu::ShowCloseOtherTabsActions;
         }
