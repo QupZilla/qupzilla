@@ -311,13 +311,17 @@ void AdBlockManager::load()
         m_subscriptions.append(subscription);
     }
 
-    // Prepend EasyList if subscriptions are empty
+    // Add EasyList + NoCoinList if subscriptions are empty
     if (m_subscriptions.isEmpty()) {
-        AdBlockSubscription* easyList = new AdBlockSubscription(tr("EasyList"), this);
+        AdBlockSubscription *easyList = new AdBlockSubscription(tr("EasyList"), this);
         easyList->setUrl(QUrl(ADBLOCK_EASYLIST_URL));
         easyList->setFilePath(DataPaths::currentProfilePath() + QLatin1String("/adblock/easylist.txt"));
+        m_subscriptions.append(easyList);
 
-        m_subscriptions.prepend(easyList);
+        AdBlockSubscription *noCoinList = new AdBlockSubscription(tr("NoCoin List"), this);
+        noCoinList->setUrl(QUrl(ADBLOCK_NOCOINLIST_URL));
+        noCoinList->setFilePath(DataPaths::currentProfilePath() + QLatin1String("/adblock/nocoinlist.txt"));
+        m_subscriptions.append(noCoinList);
     }
 
     // Append CustomList
