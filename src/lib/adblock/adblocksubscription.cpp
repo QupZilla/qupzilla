@@ -1,6 +1,6 @@
 /* ============================================================
 * QupZilla - Qt web browser
-* Copyright (C) 2010-2017 David Rosca <nowrep@gmail.com>
+* Copyright (C) 2010-2018 David Rosca <nowrep@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -119,12 +119,14 @@ void AdBlockSubscription::loadSubscription(const QStringList &disabledRules)
     m_rules.clear();
 
     while (!textStream.atEnd()) {
-        AdBlockRule* rule = new AdBlockRule(textStream.readLine(), this);
-
+        const QString line = textStream.readLine().trimmed();
+        if (line.isEmpty()) {
+            continue;
+        }
+        AdBlockRule *rule = new AdBlockRule(line, this);
         if (disabledRules.contains(rule->filter())) {
             rule->setEnabled(false);
         }
-
         m_rules.append(rule);
     }
 
