@@ -394,7 +394,7 @@ void WebView::printPage()
 
     QPrinter* printer = new QPrinter(QPrinter::HighResolution);
     printer->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-    printer->setDocName(QzTools::getFileNameFromUrl(url()));
+    printer->setDocName(title());
 
     QPrintDialog* dialog = new QPrintDialog(printer, this);
     dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
