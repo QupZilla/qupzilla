@@ -392,14 +392,16 @@ void WebView::printPage()
 {
     Q_ASSERT(m_page);
 
-    QPrintDialog* dialog = new QPrintDialog(this);
+    QPrinter* printer = new QPrinter(QPrinter::HighResolution);
+    printer->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
+    printer->setDocName(QzTools::getFileNameFromUrl(url()));
+
+    QPrintDialog* dialog = new QPrintDialog(printer, this);
     dialog->setOptions(QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintShowPageSize);
 #ifndef Q_OS_WIN
     dialog->setOption(QAbstractPrintDialog::PrintPageRange);
     dialog->setOption(QAbstractPrintDialog::PrintCollateCopies);
 #endif
-    dialog->printer()->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
-    dialog->printer()->setDocName(QzTools::getFileNameFromUrl(url()));
 
     if (dialog->exec() == QDialog::Accepted) {
         if (dialog->printer()->outputFormat() == QPrinter::PdfFormat) {
