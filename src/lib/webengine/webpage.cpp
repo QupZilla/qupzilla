@@ -100,7 +100,7 @@ WebPage::WebPage(QObject* parent)
     });
 
     // Workaround for broken load started/finished signals in QtWebEngine 5.10
-    if (qstrcmp(qVersion(), "5.10.0") == 0) {
+    if (qstrncmp(qVersion(), "5.10.", 5) == 0) {
         connect(this, &QWebEnginePage::loadProgress, this, [this](int progress) {
             if (progress == 100) {
                 emit loadFinished(true);

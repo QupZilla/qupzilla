@@ -83,7 +83,7 @@ void WebViewTest::loadSignalsChangePageTest()
     view.setPage(page2);
 
     // WebPage: Workaround for broken load started/finished signals in QtWebEngine 5.10
-    const int loadFinishedEmitCount = qstrcmp(qVersion(), "5.10.0") == 0 ? 2 : 1;
+    const int loadFinishedEmitCount = qstrncmp(qVersion(), "5.10.", 5) == 0 ? 2 : 1;
 
     QTRY_COMPARE(loadFinishedSpy.count(), loadFinishedEmitCount);
     QCOMPARE(loadStartedSpy.count(), 0);
