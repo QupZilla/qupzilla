@@ -392,7 +392,7 @@ void WebView::printPage()
 {
     Q_ASSERT(m_page);
 
-    QPrinter* printer = new QPrinter(QPrinter::HighResolution);
+    QPrinter* printer = new QPrinter();
     printer->setCreator(tr("QupZilla %1 (%2)").arg(Qz::VERSION, Qz::WWWADDRESS));
     printer->setDocName(QzTools::filterCharsFromFilename(title()));
 
