@@ -246,6 +246,9 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
     BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
     bookmark->setTitle(title);
     bookmark->setUrl(url);
+    if (!BookmarksTools::allowDuplicateBookmarks(bookmark)) {
+        return;
+    }
     m_bookmarks->addBookmark(parent, bookmark);
 }
 

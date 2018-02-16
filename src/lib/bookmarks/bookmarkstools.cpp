@@ -25,6 +25,7 @@
 #include "qzsettings.h"
 #include "browserwindow.h"
 #include "sqldatabase.h"
+#include "checkboxdialog.h"
 
 #include <iostream>
 #include <QDialogButtonBox>
@@ -35,7 +36,6 @@
 #include <QPlainTextEdit>
 #include <QStyle>
 #include <QDialog>
-#include <QMessageBox>
 
 // BookmarksFoldersMenu
 BookmarksFoldersMenu::BookmarksFoldersMenu(QWidget* parent)
@@ -168,6 +168,9 @@ bool BookmarksTools::addBookmarkDialog(QWidget* parent, const QUrl &url, const Q
     BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
     bookmark->setTitle(edit->text());
     bookmark->setUrl(url);
+    if (!allowDuplicateBookmarks(bookmark)) {
+        return false;
+    }
     mApp->bookmarks()->addBookmark(folderButton->selectedFolder(), bookmark);
 
     delete dialog;
@@ -210,6 +213,9 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
             BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
             bookmark->setTitle(tab->title());
             bookmark->setUrl(tab->url());
+            if (!allowDuplicateBookmarks(bookmark)) {
+                continue;
+            }
             mApp->bookmarks()->addBookmark(folderButton->selectedFolder(), bookmark);
         }
     }
@@ -485,5 +491,35 @@ bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
     query.exec("VACUUM");
 
     std::cout << "Bookmarks: Bookmarks successfully migrated!" << std::endl;
+    return true;
+}
+
+bool BookmarksTools::allowDuplicateBookmarks(BookmarkItem *item)
+{
+    if (Bookmarks().isBookmarked(item->url())) {
+        Settings settings;
+        QLatin1String settingsKey = QLatin1String("AskOnDuplicateBookmarks");
+
+        bool ask = settings.value("Bookmarks/" + settingsKey, true).toBool();
+
+        if (ask) {
+            CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, mApp->activeWindow());
+            dialog.setDefaultButton(QMessageBox::No);
+            dialog.setWindowTitle(Bookmarks::tr("Duplicate Bookmarks"));
+            dialog.setText(Bookmarks::tr("The requested url\n") + item->url().toString() +
+                           Bookmarks::tr("\nis already bookmarked, do yo want duplicate bookmarks?"));
+            dialog.setCheckBoxText(Bookmarks::tr("Don't ask again"));
+            dialog.setIcon(QMessageBox::Question);
+
+            if (dialog.exec() != QMessageBox::Yes) {
+                return false;
+            }
+
+            if (dialog.isChecked()) {
+                settings.setValue("Bookmarks/" + settingsKey, false);
+            }
+        }
+    }
+
     return true;
 }

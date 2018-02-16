@@ -51,10 +51,6 @@ void BookmarksModel::addBookmark(BookmarkItem* parent, int row, BookmarkItem* it
     Q_ASSERT(row >= 0);
     Q_ASSERT(row <= parent->children().count());
 
-    if (m_bookmarks->isBookmarked(item->url())) {
-        return;
-    }
-
     beginInsertRows(index(parent), row, row);
     parent->addChild(item, row);
     endInsertRows();
