@@ -432,13 +432,6 @@ void BrowserWindow::setupUi()
 #endif
     }
 
-    // Workaround for Oxygen tooltips not having transparent background
-    QPalette pal = QToolTip::palette();
-    QColor col = pal.window().color();
-    col.setAlpha(0);
-    pal.setColor(QPalette::Window, col);
-    QToolTip::setPalette(pal);
-
     restoreUiState(uiState);
 
     // Set some sane minimum width

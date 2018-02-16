@@ -55,7 +55,7 @@ LocationBar::LocationBar(QWidget *parent)
     setObjectName("locationbar");
     setDragEnabled(true);
 
-    // Disable Oxygen QLineEdit transitions, it breaks with setText() && home()
+    // Disable KDE QLineEdit transitions, it breaks with setText() && home()
     setProperty("_kde_no_animations", QVariant(true));
 
     m_bookmarkIcon = new BookmarksIcon(this);
