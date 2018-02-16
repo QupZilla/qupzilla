@@ -397,6 +397,10 @@ void WebPage::setupWebChannelForUrl(const QUrl &url)
 
 bool WebPage::acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
+    if (mApp->isClosing()) {
+        return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+    }
+
     if (!mApp->plugins()->acceptNavigationRequest(this, url, type, isMainFrame))
         return false;
 
