@@ -36,9 +36,17 @@ int ProxyStyle::styleHint(StyleHint hint, const QStyleOption* option, const QWid
     case QStyle::SH_TabBar_Alignment:
         return Qt::AlignLeft;
 
+    case QStyle::SH_TabBar_CloseButtonPosition:
+        if (qobject_cast<const TabBarHelper*>(widget)) {
+            return QTabBar::RightSide;
+        }
+        break;
+
     default:
-        return QProxyStyle::styleHint(hint, option, widget, returnData);
+        break;
     }
+
+    return QProxyStyle::styleHint(hint, option, widget, returnData);
 }
 
 int ProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const

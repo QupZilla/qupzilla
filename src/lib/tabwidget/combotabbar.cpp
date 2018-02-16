@@ -760,7 +760,7 @@ QTabBar::ButtonPosition ComboTabBar::iconButtonPosition() const
 
 QTabBar::ButtonPosition ComboTabBar::closeButtonPosition() const
 {
-    return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this);
+    return (QTabBar::ButtonPosition)style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, m_mainTabBar);
 }
 
 QSize ComboTabBar::iconButtonSize() const
