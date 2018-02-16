@@ -1816,6 +1816,15 @@ CloseButton::CloseButton(QWidget* parent)
     setObjectName("combotabbar_tabs_close_button");
     setFocusPolicy(Qt::NoFocus);
     setCursor(Qt::ArrowCursor);
+    resize(sizeHint());
+}
+
+QSize CloseButton::sizeHint() const
+{
+    ensurePolished();
+    int width = style()->pixelMetric(QStyle::PM_TabCloseIndicatorWidth, nullptr, this);
+    int height = style()->pixelMetric(QStyle::PM_TabCloseIndicatorHeight, nullptr, this);
+    return QSize(width, height);
 }
 
 void CloseButton::enterEvent(QEvent* event)

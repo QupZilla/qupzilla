@@ -361,10 +361,12 @@ class CloseButton : public QAbstractButton
     Q_OBJECT
 
 public:
-    CloseButton(QWidget* parent = 0);
+    CloseButton(QWidget *parent = nullptr);
 
-    void enterEvent(QEvent* event);
-    void leaveEvent(QEvent* event);
-    void paintEvent(QPaintEvent* event);
+    QSize sizeHint() const override;
+
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 };
 #endif // COMBOTABBAR_H
