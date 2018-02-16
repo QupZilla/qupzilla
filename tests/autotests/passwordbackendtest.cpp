@@ -226,7 +226,7 @@ void DatabasePasswordBackendTest::reloadBackend()
 
 void DatabasePasswordBackendTest::init()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "test-connection1");
     db.setDatabaseName(":memory:");
     db.open();
 
@@ -259,11 +259,8 @@ void DatabaseEncryptedPasswordBackendTest::reloadBackend()
 
 void DatabaseEncryptedPasswordBackendTest::init()
 {
-    QSqlDatabase db = QSqlDatabase::database();
-    if (!db.isValid()) {
-        db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName(":memory:");
-    }
+    QSqlDatabase db = QSqlDatabase::database("QSQLITE", "test-connection2");
+    db.setDatabaseName(":memory:");
     db.open();
 }
 
