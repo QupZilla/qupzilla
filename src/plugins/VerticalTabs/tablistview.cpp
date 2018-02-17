@@ -39,6 +39,7 @@ TabListView::TabListView(BrowserWindow *window, QWidget *parent)
     setFlow(QListView::LeftToRight);
     setFocusPolicy(Qt::NoFocus);
     setFrameShape(QFrame::NoFrame);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
 

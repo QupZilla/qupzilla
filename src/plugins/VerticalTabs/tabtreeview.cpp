@@ -41,6 +41,7 @@ TabTreeView::TabTreeView(BrowserWindow *window, QWidget *parent)
     setMouseTracking(true);
     setFocusPolicy(Qt::NoFocus);
     setFrameShape(QFrame::NoFrame);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     setIndentation(0);
 
