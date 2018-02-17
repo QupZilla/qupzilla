@@ -237,6 +237,10 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
     QUrl url = mime->urls().at(0);
     QString title = mime->hasText() ? mime->text() : url.toEncoded(QUrl::RemoveScheme);
 
+    if (!BookmarksTools::allowDuplicateBookmarks(url)) {
+        return;
+    }
+
     BookmarkItem* parent = m_bookmarks->toolbarFolder();
     BookmarksToolbarButton* button = buttonAt(e->pos());
     if (button && button->bookmark()->isFolder()) {
@@ -246,9 +250,6 @@ void BookmarksToolbar::dropEvent(QDropEvent* e)
     BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
     bookmark->setTitle(title);
     bookmark->setUrl(url);
-    if (!BookmarksTools::allowDuplicateBookmarks(bookmark)) {
-        return;
-    }
     m_bookmarks->addBookmark(parent, bookmark);
 }
 

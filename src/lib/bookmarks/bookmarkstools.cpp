@@ -147,6 +147,13 @@ bool BookmarksTools::addBookmarkDialog(QWidget* parent, const QUrl &url, const Q
     layout->addWidget(label);
     layout->addWidget(edit);
     layout->addWidget(folderButton);
+
+    if (Bookmarks().isBookmarked(url)) {
+        QLabel* warning_label = new QLabel(dialog);
+        warning_label->setText(Bookmarks::tr("<b>NOTE:</b> This site is already bookmarked"));
+        layout->addWidget(warning_label);
+    }
+
     layout->addWidget(box);
 
     label->setText(Bookmarks::tr("Choose name and location of this bookmark."));
@@ -168,9 +175,6 @@ bool BookmarksTools::addBookmarkDialog(QWidget* parent, const QUrl &url, const Q
     BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
     bookmark->setTitle(edit->text());
     bookmark->setUrl(url);
-    if (!allowDuplicateBookmarks(bookmark)) {
-        return false;
-    }
     mApp->bookmarks()->addBookmark(folderButton->selectedFolder(), bookmark);
 
     delete dialog;
@@ -194,6 +198,40 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
 
     layout->addWidget(label);
     layout->addWidget(folderButton);
+
+    {
+        //Block to check duplicate bookmarks
+        Bookmarks bookmarks;
+        bool duplicate_tabs_present = false;
+        QVector<QUrl> duplicate_urls;
+
+        foreach (WebTab* tab, tabWidget->allTabs(false)) {
+            if (!tab->url().isEmpty() && bookmarks.isBookmarked(tab->url())) {
+                if (!duplicate_urls.contains(tab->url())) {
+                    duplicate_urls.push_back(tab->url());
+                } else {
+                    duplicate_tabs_present = true;
+                }
+            }
+        }
+
+        if (duplicate_tabs_present) {
+            QLabel* warning_label = new QLabel(dialog);
+            warning_label->setText(Bookmarks::tr("<b>NOTE:</b> There are duplicate tabs"));
+            layout->addWidget(warning_label);
+        } else if (!duplicate_urls.isEmpty()) {
+            QLabel* warning_label = new QLabel(dialog);
+            warning_label->setText(Bookmarks::tr("<b>NOTE:</b> These tabs are already bookmarked"));
+            layout->addWidget(warning_label);
+
+            foreach (QUrl d_url, duplicate_urls) {
+                QLabel* dup_label = new QLabel(dialog);
+                dup_label->setText(d_url.toString());
+                layout->addWidget(dup_label);
+            }
+        }
+    }
+
     layout->addWidget(box);
 
     label->setText(Bookmarks::tr("Choose folder for bookmarks:"));
@@ -213,9 +251,6 @@ bool BookmarksTools::bookmarkAllTabsDialog(QWidget* parent, TabWidget* tabWidget
             BookmarkItem* bookmark = new BookmarkItem(BookmarkItem::Url);
             bookmark->setTitle(tab->title());
             bookmark->setUrl(tab->url());
-            if (!allowDuplicateBookmarks(bookmark)) {
-                continue;
-            }
             mApp->bookmarks()->addBookmark(folderButton->selectedFolder(), bookmark);
         }
     }
@@ -494,9 +529,9 @@ bool BookmarksTools::migrateBookmarksIfNecessary(Bookmarks* bookmarks)
     return true;
 }
 
-bool BookmarksTools::allowDuplicateBookmarks(BookmarkItem *item)
+bool BookmarksTools::allowDuplicateBookmarks(QUrl url)
 {
-    if (Bookmarks().isBookmarked(item->url())) {
+    if (Bookmarks().isBookmarked(url)) {
         Settings settings;
         QLatin1String settingsKey = QLatin1String("AskOnDuplicateBookmarks");
 
@@ -506,8 +541,7 @@ bool BookmarksTools::allowDuplicateBookmarks(BookmarkItem *item)
             CheckBoxDialog dialog(QMessageBox::Yes | QMessageBox::No, mApp->activeWindow());
             dialog.setDefaultButton(QMessageBox::No);
             dialog.setWindowTitle(Bookmarks::tr("Duplicate Bookmarks"));
-            dialog.setText(Bookmarks::tr("The requested url\n") + item->url().toString() +
-                           Bookmarks::tr("\nis already bookmarked, do yo want duplicate bookmarks?"));
+            dialog.setText(Bookmarks::tr("The requested url is already bookmarked, do yo want duplicate bookmarks?"));
             dialog.setCheckBoxText(Bookmarks::tr("Don't ask again"));
             dialog.setIcon(QMessageBox::Question);
 
