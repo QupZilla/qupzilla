@@ -286,7 +286,10 @@ bool WebView::forceContextMenuOnMouseRelease()
 // static
 void WebView::setForceContextMenuOnMouseRelease(bool force)
 {
+    // Windows open context menu on mouse release by default
+#ifndef Q_OS_WIN
     s_forceContextMenuOnMouseRelease = force;
+#endif
 }
 
 void WebView::addNotification(QWidget* notif)
