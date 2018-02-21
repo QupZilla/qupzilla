@@ -159,6 +159,9 @@ void TabContextMenu::init()
     }
 
     m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(tabWidget->canRestoreTab());
+    connect(this, &QMenu::aboutToHide, this, [this]() {
+        m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
+    });
 }
 
 void TabContextMenu::pinTab()

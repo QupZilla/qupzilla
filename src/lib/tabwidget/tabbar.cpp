@@ -354,8 +354,6 @@ void TabBar::contextMenuEvent(QContextMenuEvent* event)
     const QPoint pos = event->globalPos();
     QPoint p(pos.x(), pos.y() + 1);
     menu.exec(p);
-
-    m_window->action(QSL("Other/RestoreClosedTab"))->setEnabled(true);
 }
 
 void TabBar::hideCloseButton(int index)
