@@ -119,8 +119,6 @@ WebPage::WebPage(QObject* parent)
 
 WebPage::~WebPage()
 {
-    mApp->plugins()->emitWebPageDeleted(this);
-
     if (m_runningLoop) {
         m_runningLoop->exit(1);
         m_runningLoop = 0;

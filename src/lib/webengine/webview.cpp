@@ -92,6 +92,8 @@ WebView::WebView(QWidget* parent)
 
 WebView::~WebView()
 {
+    mApp->plugins()->emitWebPageDeleted(m_page);
+
     WebInspector::unregisterView(this);
     WebScrollBarManager::instance()->removeWebView(this);
 }
@@ -154,6 +156,7 @@ void WebView::setPage(WebPage *page)
             emit m_page->loadProgress(100);
             emit m_page->loadFinished(true);
         }
+        mApp->plugins()->emitWebPageDeleted(m_page);
         m_page->setView(nullptr);
         m_page->deleteLater();
     }
