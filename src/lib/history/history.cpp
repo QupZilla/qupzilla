@@ -146,6 +146,8 @@ void History::deleteHistoryEntry(const QList<int> &list)
     QSqlDatabase db = SqlDatabase::instance()->database();
     db.transaction();
 
+    QList<QUrl> urls;
+
     foreach (int index, list) {
         QSqlQuery query(SqlDatabase::instance()->database());
         query.prepare("SELECT count, date, url, title FROM history WHERE id=?");
@@ -172,8 +174,11 @@ void History::deleteHistoryEntry(const QList<int> &list)
         query.addBindValue(entry.url.toEncoded(QUrl::RemoveFragment));
         query.exec();
 
+        urls.append(entry.url);
         emit historyEntryDeleted(entry);
     }
+
+    mApp->webProfile()->clearVisitedLinks(urls);
 
     db.commit();
 }
