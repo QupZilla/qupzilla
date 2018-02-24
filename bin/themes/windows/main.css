@@ -436,3 +436,9 @@ QFrame[js-frame2="true"]
     border-top: 0px;
     background-color: #f3f3f3;
 }
+
+/*WebView*/
+WebView
+{
+    background: white;
+}

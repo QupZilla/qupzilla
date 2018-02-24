@@ -49,6 +49,7 @@
 #include <QScrollBar>
 #include <QPrintDialog>
 #include <QPrinter>
+#include <QQuickWidget>
 
 bool WebView::s_forceContextMenuOnMouseRelease = false;
 
@@ -86,6 +87,9 @@ WebView::WebView(QWidget* parent)
                 return;
             }
             m_rwhvqt->installEventFilter(this);
+            if (QQuickWidget *w = qobject_cast<QQuickWidget*>(m_rwhvqt)) {
+                w->setClearColor(palette().color(QPalette::Window));
+            }
         });
     });
 }
