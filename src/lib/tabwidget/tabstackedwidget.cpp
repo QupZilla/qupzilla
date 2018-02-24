@@ -169,6 +169,9 @@ void TabStackedWidget::keyPressEvent(QKeyEvent* event)
             m_tabBar->setFocus();
         }
     }
+    else {
+        event->accept();
+    }
 }
 
 void TabStackedWidget::showTab(int index)
