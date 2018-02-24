@@ -170,7 +170,7 @@ void TabStackedWidget::keyPressEvent(QKeyEvent* event)
         }
     }
     else {
-        event->ignore();
+        event->accept();
     }
 }
 
