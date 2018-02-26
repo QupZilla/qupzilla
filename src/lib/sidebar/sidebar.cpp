@@ -137,8 +137,13 @@ void SideBarManager::addSidebar(const QString &id, SideBarInterface* interface)
     s_sidebars[id] = interface;
 }
 
-void SideBarManager::removeSidebar(const QString &id)
+void SideBarManager::removeSidebar(SideBarInterface *interface)
 {
+    const QString id = s_sidebars.key(interface);
+    if (id.isEmpty()) {
+        return;
+    }
+
     s_sidebars.remove(id);
 
     foreach (BrowserWindow* window, mApp->windows()) {

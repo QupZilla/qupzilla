@@ -84,7 +84,7 @@ void VerticalTabsPlugin::unload()
 {
     setTabBarVisible(true);
 
-    SideBarManager::removeSidebar(QSL("VerticalTabs"));
+    SideBarManager::removeSidebar(m_controller);
     delete m_controller;
     m_controller = nullptr;
 

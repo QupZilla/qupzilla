@@ -70,7 +70,7 @@ public:
 
     static QHash<QString, QPointer<SideBarInterface> > s_sidebars;
     static void addSidebar(const QString &id, SideBarInterface* interface);
-    static void removeSidebar(const QString &id);
+    static void removeSidebar(SideBarInterface *interface);
 
 private slots:
     void slotShowSideBar();

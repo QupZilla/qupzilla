@@ -170,7 +170,7 @@ void TabManagerPlugin::setTabBarVisible(bool visible)
 void TabManagerPlugin::removeManagerWidget()
 {
     if (viewType() == ShowAsSideBar) {
-        SideBarManager::removeSidebar("TabManager");
+        SideBarManager::removeSidebar(m_controller);
     }
     else if (viewType() == ShowAsWindow) {
         // remove statusbar icon
