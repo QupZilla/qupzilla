@@ -469,13 +469,6 @@ void WebView::slotUrlChanged(const QUrl &url)
         emit titleChanged(title());
         m_backgroundActivity = oldActivity;
     }
-
-    // Don't save blank page / speed dial in tab history
-    if (!history()->canGoForward()  && history()->backItems(1).size() == 1) {
-        const QString s = LocationBar::convertUrlToText(history()->backItem().url());
-        if (s.isEmpty())
-            history()->clear();
-    }
 }
 
 void WebView::slotTitleChanged(const QString &title)
