@@ -809,8 +809,8 @@ void BrowserWindow::loadAddress(const QUrl &url)
         int index = m_tabWidget->addView(url, qzSettings->newTabPosition);
         weView(index)->setFocus();
     } else {
-        weView()->load(url);
         weView()->setFocus();
+        weView()->load(url);
     }
 }
 
