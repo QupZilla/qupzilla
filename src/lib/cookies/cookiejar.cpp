@@ -36,6 +36,10 @@ CookieJar::CookieJar(QObject* parent)
     loadSettings();
     m_client->loadAllCookies();
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    m_client->setCookieFilter(std::bind(&CookieJar::cookieFilter, this, std::placeholders::_1));
+#endif
+
     connect(m_client, &QWebEngineCookieStore::cookieAdded, this, &CookieJar::slotCookieAdded);
     connect(m_client, &QWebEngineCookieStore::cookieRemoved, this, &CookieJar::slotCookieRemoved);
 }
@@ -116,14 +120,40 @@ void CookieJar::slotCookieRemoved(const QNetworkCookie &cookie)
         emit cookieRemoved(cookie);
 }
 
-bool CookieJar::acceptCookie(const QUrl &firstPartyUrl, const QByteArray &cookieLine, const QUrl &cookieSource) const
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+void CookieJar::cookieFilter(QWebEngineCookieStore::FilterRequest &request) const
 {
-    const QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies(cookieLine);
-    Q_ASSERT(cookies.size() == 1);
+    if (!m_allowCookies) {
+        bool result = listMatchesDomain(m_whitelist, request.origin.host());
+        if (!result) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "not in whitelist" << request.origin;
+#endif
+            request.accepted = false;
+            return;
+        }
+    }
 
-    const QNetworkCookie cookie = cookies.at(0);
-    return !rejectCookie(firstPartyUrl.host(), cookie, cookieSource.host());
+    if (m_allowCookies) {
+        bool result = listMatchesDomain(m_blacklist, request.origin.host());
+        if (result) {
+#ifdef COOKIE_DEBUG
+            qDebug() << "found in blacklist" << request.origin.host();
+#endif
+            request.accepted = false;
+            return;
+        }
+    }
+
+    if (m_filterThirdParty && request.thirdParty) {
+#ifdef COOKIE_DEBUG
+        qDebug() << "thirdParty" << request.firstPartyUrl << request.origin;
+#endif
+        request.accepted = false;
+        return;
+    }
 }
+#endif
 
 bool CookieJar::rejectCookie(const QString &domain, const QNetworkCookie &cookie, const QString &cookieDomain) const
 {
