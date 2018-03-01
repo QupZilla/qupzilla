@@ -19,6 +19,8 @@
 #include "mainapplication.h"
 #include "networkmanager.h"
 #include "settings.h"
+#include "webview.h"
+#include "webpage.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -60,11 +62,15 @@ WebInspector::~WebInspector()
     }
 }
 
-void WebInspector::setView(QWebEngineView *view)
+void WebInspector::setView(WebView *view)
 {
     m_view = view;
     Q_ASSERT(isEnabled());
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    page()->setInspectedPage(m_view->page());
+    connect(m_view, &WebView::pageChanged, this, &WebInspector::deleteLater);
+#else
     int port = qEnvironmentVariableIntValue("QTWEBENGINE_REMOTE_DEBUGGING");
     QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(port));
     int index = s_views.indexOf(m_view);
@@ -81,6 +87,7 @@ void WebInspector::setView(QWebEngineView *view)
         pushView(this);
         show();
     });
+#endif
 }
 
 void WebInspector::inspectElement()
@@ -90,9 +97,11 @@ void WebInspector::inspectElement()
 
 bool WebInspector::isEnabled()
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
     if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
         return false;
     }
+#endif
     if (!mApp->webSettings()->testAttribute(QWebEngineSettings::JavascriptEnabled)) {
         return false;
     }

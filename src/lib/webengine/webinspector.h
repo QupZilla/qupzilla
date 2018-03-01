@@ -15,14 +15,13 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * ============================================================ */
-#ifndef WEBINSPECTORDOCKWIDGET_H
-#define WEBINSPECTORDOCKWIDGET_H
+#pragma once
 
 #include <QWebEngineView>
 
 #include "qzcommon.h"
 
-class ToolButton;
+class WebView;
 
 class QUPZILLA_EXPORT WebInspector : public QWebEngineView
 {
@@ -32,7 +31,7 @@ public:
     explicit WebInspector(QWidget *parent = Q_NULLPTR);
     ~WebInspector();
 
-    void setView(QWebEngineView *view);
+    void setView(WebView *view);
     void inspectElement();
 
     static bool isEnabled();
@@ -53,7 +52,5 @@ private:
     int m_height;
     QSize m_windowSize;
     bool m_inspectElement = false;
-    QWebEngineView *m_view;
+    WebView *m_view;
 };
-
-#endif // WEBINSPECTORDOCKWIDGET_H
