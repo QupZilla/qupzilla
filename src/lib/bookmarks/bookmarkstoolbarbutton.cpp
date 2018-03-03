@@ -316,7 +316,7 @@ void BookmarksToolbarButton::paintEvent(QPaintEvent* event)
     option.features &= ~QStyleOptionButton::HasMenu;
 
     // Draw button base (only under mouse, this is autoraise button)
-    if (isDown() || underMouse()) {
+    if (isDown() || hitButton(mapFromGlobal(QCursor::pos()))) {
         option.state |= QStyle::State_AutoRaise | QStyle::State_Raised;
         style()->drawPrimitive(QStyle::PE_PanelButtonTool, &option, &p, this);
     }
