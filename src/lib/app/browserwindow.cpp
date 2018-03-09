@@ -610,15 +610,17 @@ void BrowserWindow::loadSettings()
     }
     settings.endGroup();
 
+    m_statusBarVisible = showStatusBar;
     statusBar()->setVisible(!isFullScreen() && showStatusBar);
     m_bookmarksToolbar->setVisible(showBookmarksToolbar);
     m_navigationToolbar->setVisible(showNavigationToolbar);
 
 #ifndef Q_OS_MACOS
+    m_menuBarVisible = showMenuBar;
     menuBar()->setVisible(!isFullScreen() && showMenuBar);
 #endif
 
-    m_navigationToolbar->setSuperMenuVisible(!showMenuBar);
+    m_navigationToolbar->setSuperMenuVisible(isFullScreen() || !showMenuBar);
 }
 
 void BrowserWindow::goForward()
@@ -1226,6 +1228,9 @@ bool BrowserWindow::event(QEvent *event)
 
             m_navigationContainer->hide();
             m_navigationToolbar->enterFullScreen();
+
+            // Show main menu button since menubar is hidden
+            m_navigationToolbar->setSuperMenuVisible(true);
         }
         else if (e->oldState() & Qt::WindowFullScreen && !(windowState() & Qt::WindowFullScreen)) {
             // Leave fullscreen
