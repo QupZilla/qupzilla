@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/breeze-fallback">
+    <qresource prefix="/icons">
         <file>breeze-fallback/index.theme</file>
         <file>breeze-fallback/16x16/bookmark-new.svg</file>
         <file>breeze-fallback/16x16/bookmarks-organize.svg</file>

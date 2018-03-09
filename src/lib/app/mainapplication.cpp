@@ -122,7 +122,6 @@ MainApplication::MainApplication(int &argc, char** argv)
 
     // Set fallback icon theme (eg. on Windows/Mac)
     if (QIcon::fromTheme(QSL("view-refresh")).isNull()) {
-        QIcon::setThemeSearchPaths(QStringList() << QL1S(":/breeze-fallback"));
         QIcon::setThemeName(QSL("breeze-fallback"));
     }
 
