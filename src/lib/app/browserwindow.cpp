@@ -1148,7 +1148,12 @@ void BrowserWindow::webSearch()
 void BrowserWindow::searchOnPage()
 {
     if (weView() && weView()->webTab()) {
-        weView()->webTab()->showSearchToolBar();
+        const QString searchText = weView()->page()->selectedText();
+        if (!searchText.contains('\n')) {
+            weView()->webTab()->showSearchToolBar(searchText);
+        } else {
+            weView()->webTab()->showSearchToolBar();
+        }
     }
 }
 

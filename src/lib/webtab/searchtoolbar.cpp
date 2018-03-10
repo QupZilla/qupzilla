@@ -41,7 +41,7 @@ SearchToolBar::SearchToolBar(WebView* view, QWidget* parent)
     ui->previous->setShortcut(QKeySequence("Ctrl+Shift+G"));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(findNext()));
+    connect(ui->lineEdit, SIGNAL(textEdited(QString)), this, SLOT(findNext()));
     connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(findNext()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(findNext()));
     connect(ui->previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
@@ -111,6 +111,11 @@ void SearchToolBar::caseSensitivityChanged()
 
     searchText(QString());
     searchText(ui->lineEdit->text());
+}
+
+void SearchToolBar::setText(const QString &text)
+{
+    ui->lineEdit->setText(text);
 }
 
 void SearchToolBar::searchText(const QString &text)

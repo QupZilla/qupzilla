@@ -44,9 +44,8 @@ public:
     void focusSearchLine();
     bool eventFilter(QObject* obj, QEvent* event);
 
-signals:
-
-public slots:
+public Q_SLOTS:
+    void setText(const QString &text);
     void searchText(const QString &text);
     void updateFindFlags();
     void caseSensitivityChanged();

@@ -121,7 +121,7 @@ public:
     void showWebInspector(bool inspectElement = false);
     void toggleWebInspector();
 
-    void showSearchToolBar();
+    void showSearchToolBar(const QString &searchText = QString());
 
     bool isRestored() const;
     void restoreTab(const SavedTab &tab);

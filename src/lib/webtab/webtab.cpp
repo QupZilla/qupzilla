@@ -237,7 +237,7 @@ void WebTab::toggleWebInspector()
         delete m_splitter->widget(1);
 }
 
-void WebTab::showSearchToolBar()
+void WebTab::showSearchToolBar(const QString &searchText)
 {
     const int index = 1;
 
@@ -252,6 +252,9 @@ void WebTab::showSearchToolBar()
     }
 
     Q_ASSERT(toolBar);
+    if (!searchText.isEmpty()) {
+        toolBar->setText(searchText);
+    }
     toolBar->focusSearchLine();
 }
 
