@@ -67,7 +67,7 @@ On Mac OS X: To deploy QupZilla in dmg image, run this command:
 Current version
 ----------------------------------------------------------------------------------------
 
-The current stable version of QupZilla is 2.2.5. You can download precompiled packages
+The current stable version of QupZilla is 2.2.6. You can download precompiled packages
 and the sources from the download section at [homepage](https://www.qupzilla.com/download).
 However, if you want the latest revision, just take the latest code snapshot either by
 downloading a tarball or running:

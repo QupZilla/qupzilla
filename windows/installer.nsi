@@ -11,7 +11,7 @@
 ; http://nsis.sourceforge.net/Registry_plug-in
 
 !ifndef CUSTOM
-  !define VERSION 2.2.5
+  !define VERSION 2.2.6
   !define ARCH x86
   !define MSVC_VER 140
   !define OPENSSL_BIN_DIR .
@@ -507,7 +507,7 @@ Function un.onInit
         StrCpy $INSTDIR "$R0"
 
     IfFileExists "$INSTDIR\qupzilla.exe" found
-        MessageBox MB_OK|MB_ICONSTOP "$(MSG_InvalidInstallPath)" 
+        MessageBox MB_OK|MB_ICONSTOP "$(MSG_InvalidInstallPath)"
         Abort
     found:
 FunctionEnd

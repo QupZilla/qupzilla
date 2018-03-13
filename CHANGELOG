@@ -1,3 +1,16 @@
+Version 2.2.6
+    * released 13 March 2018
+    * added VerticalTabs plugin
+    * added NoCoin List as default list to AdBlock
+    * added support for userscript icons in GreaseMonkey
+    * added extension:// scheme to be used from plugins
+    * added support for changing default background color of webview
+    * added support for real WebInspector with QtWebEngine 5.11
+    * added support for filtering 3rd party cookies with QtWebEngine 5.11
+    * improved Unload Tab action to kill the web process entirely
+    * fix default size of pinned tabs with some Qt styles
+    * fix loading incomplete urls from locationbar with search disabled
+
 Version 2.2.5
     * released 28 January 2018
     * added Unload Tab action
