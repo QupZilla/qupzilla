@@ -1268,6 +1268,17 @@ void WebView::contextMenuEvent(QContextMenuEvent *event)
     });
 }
 
+bool WebView::focusNextPrevChild(bool next)
+{
+    // QTBUG-67043
+    // Workaround QtWebEngine issue where QWebEngineView loses focus on second load() call.
+    if (next) {
+        setFocus();
+        return false;
+    }
+    return QWebEngineView::focusNextPrevChild(next);
+}
+
 void WebView::loadRequest(const LoadRequest &req)
 {
     QWebEngineView::load(req.webRequest());

@@ -145,6 +145,8 @@ protected:
     void resizeEvent(QResizeEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
 
+    bool focusNextPrevChild(bool next) override;
+
     virtual void _wheelEvent(QWheelEvent *event);
     virtual void _mousePressEvent(QMouseEvent *event);
     virtual void _mouseReleaseEvent(QMouseEvent *event);
