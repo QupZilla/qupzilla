@@ -31,11 +31,11 @@ environment:
     TOOLSDIR: C:\Qt\Tools\QtCreator
 
   matrix:
-    - QTDIR: C:\Qt\5.10.0\msvc2015
+    - QTDIR: C:\Qt\5.10.1\msvc2015
     - ARCH: x64
-      QTDIR: C:\Qt\5.10.0\msvc2015_64
+      QTDIR: C:\Qt\5.10.1\msvc2015_64
     - PORTABLE_BUILD: "true"
-      QTDIR: C:\Qt\5.10.0\msvc2015
+      QTDIR: C:\Qt\5.10.1\msvc2015
 
 install:
   - set QZ_DIR=%CD%
