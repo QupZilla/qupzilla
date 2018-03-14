@@ -101,6 +101,9 @@ public:
 
     // Migration from Sql Bookmarks (returns true if bookmarks migrated)
     static bool migrateBookmarksIfNecessary(Bookmarks* bookmarks);
+
+    // Handle drop of duplicate bookmarks on bookmarks toolbar
+    static bool allowDuplicateBookmarks(QUrl url);
 };
 
 #endif // BOOKMARKSTOOLS_H
