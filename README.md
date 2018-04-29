@@ -12,8 +12,8 @@ New repository is available at https://phabricator.kde.org/source/falkon/.
 
 ![Falkon icon](https://github.com/QupZilla/qupzilla/blob/master/falkon.png?raw=true)
 
-Homepage: https://falkon.org
-Source code: https://cgit.kde.org/falkon.git
-Code review: https://phabricator.kde.org
-Bugs: https://bugs.kde.org
-Mailing list: falkon@kde.org
+Homepage: https://falkon.org  
+Source code: https://cgit.kde.org/falkon.git  
+Code review: https://phabricator.kde.org  
+Bugs: https://bugs.kde.org  
+Mailing list: falkon@kde.org  
